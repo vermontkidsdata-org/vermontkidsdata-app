@@ -10,6 +10,8 @@ export class VermontkidsdataCensusStack extends Stack {
 
     const pipeline = new CodePipeline(this, 'Pipeline', {
       pipelineName: 'VKDDeployPipeline',
+      // Required to compile TypeScript with esbuild
+      dockerEnabledForSynth: true,
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.connection('vermontkidsdata-org/vermontkidsdata_census', 'master', {
           connectionArn: 'arn:aws:codestar-connections:us-east-1:439348011602:connection/fd10d11a-8da2-46cf-b018-77db2b5be992'
