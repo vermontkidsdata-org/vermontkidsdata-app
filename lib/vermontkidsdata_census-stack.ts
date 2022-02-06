@@ -1,6 +1,7 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
+import { PipelineDevStage } from './pipeline-dev-stage';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class VermontkidsdataCensusStack extends Stack {
@@ -16,5 +17,10 @@ export class VermontkidsdataCensusStack extends Stack {
         commands: ['npm ci', 'npm run build', 'npx cdk synth']
       })
     });
+
+    pipeline.addStage(new PipelineDevStage(this, "PipelineDevStage", {
+      env: { account: "439348011602", region: "us-east-1" }
+    }));
+
   }
 }
