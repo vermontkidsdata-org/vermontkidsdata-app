@@ -2,8 +2,8 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
-import * as apigw from 'aws-cdk-lib/aws-apigateway';
 import * as path from 'path';
+import { LambdaIntegration, LambdaRestApi, RestApi } from 'aws-cdk-lib/aws-apigateway';
 
 export class CensusAPIStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -17,13 +17,8 @@ export class CensusAPIStack extends cdk.Stack {
         entry: path.join(__dirname, `/../src/hello.ts`),
       });
 
-      const api = new apigw.LambdaRestApi(this, "Endpoint", {
-        handler: helloWorld,
-        proxy: false
-      });
-  
-      const items = api.root.addResource('hello');
-      const submitItem = items.addResource('/');
-      submitItem.addMethod('GET');
+      const api = new RestApi(this, "Census");
+      const hello = api.root.addResource("hello");
+      hello.addMethod("GET", new LambdaIntegration(helloWorld));
     }
 }
