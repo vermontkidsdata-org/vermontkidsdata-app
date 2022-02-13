@@ -9,9 +9,9 @@ export class VermontkidsdataCensusStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const owner = 'martzcodes';
-    const repo = 'blog-pipeline';
-    const branch = 'main';
+    const owner = 'vermontkidsdata-org';
+    const repo = 'blog-vermontkidsdata_census';
+    const branch = 'master';
     const region = 'us-east-1';
     const account = '439348011602';
     const gitHubTokenSecret = "VKDPipelineGitHubToken-ZPZw3Z";
