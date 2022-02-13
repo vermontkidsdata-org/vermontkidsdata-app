@@ -6,7 +6,7 @@ export async function main(
   console.log('event 👉', event);
 
   return {
-    body: JSON.stringify({message: 'Successful lambda invocation for Xavier'}),
+    body: JSON.stringify({message: 'Successful lambda invocation for Dave'}),
     statusCode: 200,
   };
 }
