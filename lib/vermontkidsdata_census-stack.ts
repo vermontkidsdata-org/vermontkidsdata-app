@@ -10,7 +10,7 @@ export class VermontkidsdataCensusStack extends Stack {
     super(scope, id, props);
 
     const owner = 'vermontkidsdata-org';
-    const repo = 'blog-vermontkidsdata_census';
+    const repo = 'vermontkidsdata_census';
     const branch = 'master';
     const region = 'us-east-1';
     const account = '439348011602';
