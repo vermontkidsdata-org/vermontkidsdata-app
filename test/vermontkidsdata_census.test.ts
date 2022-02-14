@@ -21,6 +21,14 @@ describe('Lambda', () => {
             Handler: "index.main"
         });
     });
+    
+    it('Does the snapshot thing', () => {
+        const app = new cdk.App();
+        const lambdaStack = new CensusAPIStack(app, 'CensusAPIDevStack');
+        const template = Template.fromStack(lambdaStack);
+        expect(template.toJSON()).toMatchSnapshot("CensusAPIDevStack-basic");
+    });
+
 });
 
 describe('Hello code', () => {
