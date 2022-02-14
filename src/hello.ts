@@ -6,7 +6,7 @@ export async function main(
   console.log('event 👉', event);
 // Lambda compile error
   return {
-    body: JSON.stringify({message: 'Successful lambda invocation for Dave'}),
+    body: JSON.stringify({message: 'Successful lambda invocation with change'}),
     statusCode: 200,
   };
 }
