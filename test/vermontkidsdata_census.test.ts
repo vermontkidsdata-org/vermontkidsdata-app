@@ -38,6 +38,6 @@ describe('Hello code', () => {
         };
         const response: any = await hello.main(event);
         const body = JSON.parse(response['body']);
-        expect(body.message).toMatch(/^Successful lambda invocation.*/);
+        expect(body.message).toMatch(/^Unsuccessful lambda invocation.*/);
     });
 });
