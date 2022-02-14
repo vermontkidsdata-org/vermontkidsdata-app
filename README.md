@@ -1,10 +1,10 @@
-# Welcome to your CDK TypeScript project!
+# Vermont Kids' Data project
 
-This is a blank project for TypeScript development with CDK.
+Need to create a secret first.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+aws secretsmanager create-secret --name VKDPipelineGitHubToken --description "The GitHub access token for the VKD pipeline." --secret-string "{\"access-token\":\"XXXXXXXXXXXX\"}"
 
-## Useful commands
+## Useful CDK commands
 
  * `npm run build`   compile typescript to js
  * `npm run watch`   watch for changes and compile
