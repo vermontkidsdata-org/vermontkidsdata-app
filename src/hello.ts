@@ -4,7 +4,7 @@ export async function main(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   console.log('event 👉', event);
-// Lambda compile error
+Lambda compile error
   return {
     body: JSON.stringify({message: 'Successful lambda invocation for Dave'}),
     statusCode: 200,
