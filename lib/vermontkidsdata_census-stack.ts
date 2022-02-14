@@ -84,11 +84,11 @@ export class VermontkidsdataCensusStack extends Stack {
           commands: ['n latest', 'node -v', 'npm ci'],
         },
         build: {
-          commands: ['npm run test']
+          commands: ['cdk synth', 'npm run test']
         }
       }
     });
-    Error in CDK code
+    
     new Project(this, 'PullRequestProject', {
       source,
       buildSpec: prSpec,
