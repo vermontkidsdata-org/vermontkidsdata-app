@@ -88,7 +88,7 @@ export class VermontkidsdataCensusStack extends Stack {
         }
       }
     });
-    
+    Error in CDK code
     new Project(this, 'PullRequestProject', {
       source,
       buildSpec: prSpec,
