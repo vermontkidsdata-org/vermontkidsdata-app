@@ -3,18 +3,28 @@ import { Construct } from 'constructs';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as path from 'path';
-import { LambdaIntegration, LambdaRestApi, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
 
 export class CensusAPIStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
       super(scope, id, props);
-  
+
+      const citysdkLayer = new lambda.LayerVersion(this, 'CitySDK Layer', {
+        code: lambda.Code.fromAsset('src/layers/citysdk-utils'),
+        compatibleRuntimes: [ lambda.Runtime.NODEJS_12_X, lambda.Runtime.NODEJS_14_X ]
+      });
+
       const helloWorld = new NodejsFunction(this, 'hello-world-function', {
         memorySize: 1024,
         timeout: cdk.Duration.seconds(5),
         runtime: lambda.Runtime.NODEJS_14_X,
         handler: 'main',
         entry: path.join(__dirname, `/../src/hello.ts`),
+        bundling: {
+          minify: false,
+          externalModules: [ 'citysdk' ]
+        },
+        layers: [ citysdkLayer ]
       });
 
       const api = new RestApi(this, "Census");

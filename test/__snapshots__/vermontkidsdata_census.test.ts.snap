@@ -250,6 +250,21 @@ Object {
       },
       "Type": "AWS::Lambda::Permission",
     },
+    "CitySDKLayer253B626B": Object {
+      "Properties": Object {
+        "CompatibleRuntimes": Array [
+          "nodejs12.x",
+          "nodejs14.x",
+        ],
+        "Content": Object {
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "9cf9ae33b27adc8341fa5f521f5061ab51a8d610e2116434657a0bd8411b61e8.zip",
+        },
+      },
+      "Type": "AWS::Lambda::LayerVersion",
+    },
     "helloworldfunction8252912C": Object {
       "DependsOn": Array [
         "helloworldfunctionServiceRole0327FCC6",
@@ -267,6 +282,11 @@ Object {
           },
         },
         "Handler": "index.main",
+        "Layers": Array [
+          Object {
+            "Ref": "CitySDKLayer253B626B",
+          },
+        ],
         "MemorySize": 1024,
         "Role": Object {
           "Fn::GetAtt": Array [
