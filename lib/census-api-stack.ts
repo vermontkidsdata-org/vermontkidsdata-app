@@ -2,6 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as iam from 'aws-cdk-lib/aws-iam';
 import * as path from 'path';
 import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
@@ -48,6 +49,11 @@ export class CensusAPIStack extends cdk.Stack {
         },
         layers: [ citysdkLayer ]
       });
+
+      testDBFunction.addToRolePolicy(new iam.PolicyStatement({
+        actions: ["secretsmanager:GetSecretValue"],
+        resources: ["*"]
+      }));
 
       const api = new RestApi(this, "Census");
       const hello = api.root.addResource("hello");
