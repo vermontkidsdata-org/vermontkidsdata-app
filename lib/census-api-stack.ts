@@ -15,11 +15,19 @@ export class CensusAPIStack extends cdk.Stack {
       });
 
       const helloWorld = new NodejsFunction(this, 'hello-world-function', {
-        memorySize: 1024,
+        memorySize: 128,
         timeout: cdk.Duration.seconds(5),
         runtime: lambda.Runtime.NODEJS_14_X,
         handler: 'main',
-        entry: path.join(__dirname, `/../src/hello.ts`),
+        entry: path.join(__dirname, `/../src/hello.ts`)
+      });
+
+      const testCensusFunction = new NodejsFunction(this, 'Test Census Function', {
+        memorySize: 1024,
+        timeout: cdk.Duration.seconds(15),
+        runtime: lambda.Runtime.NODEJS_14_X,
+        handler: 'main',
+        entry: path.join(__dirname, `/../src/testcitylambda.ts`),
         bundling: {
           minify: false,
           externalModules: [ 'citysdk' ]
@@ -30,5 +38,8 @@ export class CensusAPIStack extends cdk.Stack {
       const api = new RestApi(this, "Census");
       const hello = api.root.addResource("hello");
       hello.addMethod("GET", new LambdaIntegration(helloWorld));
+
+      const testCensusResource = api.root.addResource("census");
+      testCensusResource.addMethod("GET", new LambdaIntegration(testCensusFunction));
     }
 }
