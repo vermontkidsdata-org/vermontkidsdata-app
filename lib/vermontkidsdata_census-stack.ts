@@ -38,7 +38,7 @@ export class VermontkidsdataCensusStack extends Stack {
       version: 0.2,
       phases: {
           install: {
-              commands: ['n latest', 'node -v', 'npm ci'],
+              commands: ['n latest', 'node -v', 'npm ci', 'npm ci --prefix src/layers/citysdk-utils/nodejs'],
           },
           build: {
               commands: ['npx cdk synth']
