@@ -1,8 +1,4 @@
-console.log('top of citysdk-utils file');
-
 const citysdk = require("citysdk");
-
-console.log('after import of citysdk of citysdk-utils file');
 
 export interface CitySDKParams     {
   vintage: number|string,

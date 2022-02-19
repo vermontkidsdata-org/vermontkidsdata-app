@@ -4,6 +4,7 @@ import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as path from 'path';
 import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 
 export class CensusAPIStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -26,10 +27,23 @@ export class CensusAPIStack extends cdk.Stack {
         memorySize: 1024,
         timeout: cdk.Duration.seconds(15),
         runtime: lambda.Runtime.NODEJS_14_X,
-        handler: 'main',
+        handler: 'getCensus',
         entry: path.join(__dirname, `/../src/testcitylambda.ts`),
         bundling: {
-          minify: false,
+          minify: true,
+          externalModules: [ 'citysdk' ]
+        },
+        layers: [ citysdkLayer ]
+      });
+
+      const testDBFunction = new NodejsFunction(this, 'Test DB Function', {
+        memorySize: 1024,
+        timeout: cdk.Duration.seconds(15),
+        runtime: lambda.Runtime.NODEJS_14_X,
+        handler: 'queryDB',
+        entry: path.join(__dirname, `/../src/testcitylambda.ts`),
+        bundling: {
+          minify: true,
           externalModules: [ 'citysdk' ]
         },
         layers: [ citysdkLayer ]
@@ -41,5 +55,8 @@ export class CensusAPIStack extends cdk.Stack {
 
       const testCensusResource = api.root.addResource("census");
       testCensusResource.addMethod("GET", new LambdaIntegration(testCensusFunction));
+
+      const testDBResource = api.root.addResource("testdb");
+      testDBResource.addMethod("GET", new LambdaIntegration(testDBFunction));
     }
 }

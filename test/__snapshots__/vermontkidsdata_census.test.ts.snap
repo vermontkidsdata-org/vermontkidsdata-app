@@ -89,12 +89,14 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "CensusDeploymentC9A3DCD88b9fd2bf0f275b88e42c19a81dd9633c": Object {
+    "CensusDeploymentC9A3DCD8a5a60cea3ad821bf1af428b59d847639": Object {
       "DependsOn": Array [
         "CensuscensusGETD029A41B",
         "CensuscensusBAE55230",
         "CensushelloGET16A02370",
         "Censushello44D10716",
+        "CensustestdbGETECDB7346",
+        "CensustestdbB283B612",
       ],
       "Properties": Object {
         "Description": "Automatically created by the RestApi construct",
@@ -110,7 +112,7 @@ Object {
       ],
       "Properties": Object {
         "DeploymentId": Object {
-          "Ref": "CensusDeploymentC9A3DCD88b9fd2bf0f275b88e42c19a81dd9633c",
+          "Ref": "CensusDeploymentC9A3DCD8a5a60cea3ad821bf1af428b59d847639",
         },
         "RestApiId": Object {
           "Ref": "Census06374A65",
@@ -385,6 +387,139 @@ Object {
       },
       "Type": "AWS::Lambda::Permission",
     },
+    "CensustestdbB283B612": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Fn::GetAtt": Array [
+            "Census06374A65",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "testdb",
+        "RestApiId": Object {
+          "Ref": "Census06374A65",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "CensustestdbGETApiPermissionCensusAPIDevStackCensusA47A87F6GETtestdb80E3AD8E": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "TestDBFunction6436BF3A",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "Census06374A65",
+              },
+              "/",
+              Object {
+                "Ref": "CensusDeploymentStageprodAD5A6255",
+              },
+              "/GET/testdb",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "CensustestdbGETApiPermissionTestCensusAPIDevStackCensusA47A87F6GETtestdb4FD31864": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "TestDBFunction6436BF3A",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "Census06374A65",
+              },
+              "/test-invoke-stage/GET/testdb",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "CensustestdbGETECDB7346": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "TestDBFunction6436BF3A",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "CensustestdbB283B612",
+        },
+        "RestApiId": Object {
+          "Ref": "Census06374A65",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
     "CitySDKLayer253B626B": Object {
       "Properties": Object {
         "CompatibleRuntimes": Array [
@@ -395,7 +530,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "8467b1c646ccd63d0106e2a8a181e72c68d99c28c765c72f5d20891c851c3dee.zip",
+          "S3Key": "952bc28e34233d64866d5d0f06b3327db849a66e87a844d8c1e5f481cecdcb86.zip",
         },
       },
       "Type": "AWS::Lambda::LayerVersion",
@@ -409,14 +544,14 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "cf88001cbf2173e72979b3a9452839915ddeccd7fa306fe256d3662d2c3e017d.zip",
+          "S3Key": "7d08d3ca362b378a8e89d7c66b4bce7ba72ebd59343c39946ccceac39030f4c1.zip",
         },
         "Environment": Object {
           "Variables": Object {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
           },
         },
-        "Handler": "index.main",
+        "Handler": "index.getCensus",
         "Layers": Array [
           Object {
             "Ref": "CitySDKLayer253B626B",
@@ -435,6 +570,71 @@ Object {
       "Type": "AWS::Lambda::Function",
     },
     "TestCensusFunctionServiceRoleC9BF2E43": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "TestDBFunction6436BF3A": Object {
+      "DependsOn": Array [
+        "TestDBFunctionServiceRole08619338",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "7d08d3ca362b378a8e89d7c66b4bce7ba72ebd59343c39946ccceac39030f4c1.zip",
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+          },
+        },
+        "Handler": "index.queryDB",
+        "Layers": Array [
+          Object {
+            "Ref": "CitySDKLayer253B626B",
+          },
+        ],
+        "MemorySize": 1024,
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "TestDBFunctionServiceRole08619338",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+        "Timeout": 15,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "TestDBFunctionServiceRole08619338": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [

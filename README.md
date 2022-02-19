@@ -1,8 +1,9 @@
 # Vermont Kids' Data project
 
-Need to create a secret first.
+Need to create some secrets first.
 
 aws secretsmanager create-secret --name VKDPipelineGitHubToken --description "The GitHub access token for the VKD pipeline." --secret-string "{\"access-token\":\"XXXXXXXXXXXX\"}"
+aws secretsmanager create-secret --name "vkd/prod/dbcreds" --secret-string "{\"username\":\"XXXXXXXXXXXX\", \"password\":\"XXXXXXXXXXXX\", \"host\": \"XXXXXXXX\"}"
 
 ## Useful CDK commands
 
