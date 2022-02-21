@@ -5,7 +5,6 @@ import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as path from 'path';
 import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
-import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 
 export class CensusAPIStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
