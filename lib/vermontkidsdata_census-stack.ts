@@ -4,6 +4,7 @@ import { CodeBuildStep, CodePipeline, CodePipelineSource, ShellStep } from 'aws-
 import { Construct } from 'constructs';
 import { PipelineDevStage } from './pipeline-dev-stage';
 import * as sns from 'aws-cdk-lib/aws-sns';
+import * as iam from 'aws-cdk-lib/aws-iam';
 import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as notify from 'aws-cdk-lib/aws-codestarnotifications';
 
@@ -91,16 +92,22 @@ export class VermontkidsdataCensusStack extends Stack {
       env: { account: "439348011602", region: "us-east-1" },
     }));
 
-    // Have to do this to ensure pipeline is built before the notification added - but we
-    // can't make any more modifications after this.
-    pipeline.buildPipeline();
-
     // SNS topic for notification
     const topic = new sns.Topic(this, "Topic", {
       displayName: "Pipeline build results"
     });
-
     topic.addSubscription(new subs.EmailSubscription("gbisaga@gmail.com"));
+
+    topic.addToResourcePolicy(new iam.PolicyStatement({
+      principals: [ new iam.ServicePrincipal("codestar-notifications.amazonaws.com") ],
+      actions: [ "SNS:Publish" ],
+      resources: [ topic.topicArn ]
+    }))
+
+    // Have to do this to ensure pipeline is built before the notification added - but we
+    // can't make any more modifications after this.
+    pipeline.buildPipeline();
+
 
     // const notification = new notify.NotificationRule(this, "Pipeline Notification Rule", {
     //   events: [ 'codepipeline-pipeline-stage-execution-succeeded', 'codepipeline-pipeline-stage-execution-failed' ],
