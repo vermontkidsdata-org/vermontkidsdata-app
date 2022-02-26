@@ -27,16 +27,6 @@ export class CensusAPIStack extends cdk.Stack {
         entry: path.join(__dirname, `/../src/hello.ts`)
       });
 
-      // Package up the templates to S3
-      const asset = new s3Asset.Asset(this, "Template distribution zip", {
-        path: path.join(__dirname, "../views")
-      });
-
-      new CfnOutput(this, "S3 Asset", {
-        description: "S3 location of assets",
-        value: asset.s3ObjectUrl
-      });
-
       const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
         memorySize: 128,
         timeout: cdk.Duration.seconds(30),
@@ -45,19 +35,14 @@ export class CensusAPIStack extends cdk.Stack {
         entry: path.join(__dirname, `/../src/chartsApi.ts`)
       });
 
-      const renderChartBarFunction = new NodejsFunction(this, 'Bar Chart Render Function', {
+      const renderChartBarFunction = new lambda.Function(this, 'Bar Chart Render Function', {
+        code: lambda.Code.fromAsset(`render`),
         memorySize: 128,
         timeout: cdk.Duration.seconds(30),
         runtime: lambda.Runtime.NODEJS_14_X,
-        handler: 'bar',
-        entry: path.join(__dirname, `/../src/chartsRender.ts`),
-        environment: {
-          views: asset.s3ObjectUrl
-        }
+        handler: 'chartsRender.bar'
       });
 
-      asset.grantRead(renderChartBarFunction);
-      
       const testCensusFunction = new NodejsFunction(this, 'Test Census Function', {
         memorySize: 1024,
         timeout: cdk.Duration.seconds(15),
