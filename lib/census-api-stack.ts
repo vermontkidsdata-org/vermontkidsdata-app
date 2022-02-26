@@ -8,6 +8,7 @@ import * as s3Asset from 'aws-cdk-lib/aws-s3-assets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as path from 'path';
 import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { CfnOutput } from 'aws-cdk-lib';
 
 export class CensusAPIStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -27,10 +28,13 @@ export class CensusAPIStack extends cdk.Stack {
       });
 
       // Package up the templates to S3
-      const templateBucket = new s3.Bucket(this, "Template Distribution Bucket", {});
-
       const asset = new s3Asset.Asset(this, "Template distribution zip", {
         path: path.join(__dirname, "../views")
+      });
+
+      new CfnOutput(this, "S3 Asset", {
+        description: "S3 location of assets",
+        value: asset.s3ObjectUrl
       });
 
       const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
@@ -52,6 +56,8 @@ export class CensusAPIStack extends cdk.Stack {
         }
       });
 
+      asset.grantRead(renderChartBarFunction);
+      
       const testCensusFunction = new NodejsFunction(this, 'Test Census Function', {
         memorySize: 1024,
         timeout: cdk.Duration.seconds(15),
