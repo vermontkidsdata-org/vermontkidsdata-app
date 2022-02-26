@@ -65,8 +65,11 @@ export class VermontkidsdataCensusStack extends Stack {
   const notification = new notify.NotificationRule(this, "Pipeline Notification Rule", {
     events: [ 'codepipeline-pipeline-stage-execution-succeeded', 'codepipeline-pipeline-stage-execution-failed' ],
     source: pipeline.pipeline,
-    targets: [ topic ]
+    targets: [ topic ],
   });
+
+  // Have to do this to ensure pipeline is built first
+  notification.node.addDependency(pipeline);
 
   const source = Source.gitHub({
       owner: owner,
