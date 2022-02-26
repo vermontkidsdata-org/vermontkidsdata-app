@@ -3,6 +3,8 @@ import { Construct } from 'constructs';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as iam from 'aws-cdk-lib/aws-iam';
+import * as s3Deploy from 'aws-cdk-lib/aws-s3-deployment';
+import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as path from 'path';
 import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
 
@@ -23,6 +25,14 @@ export class CensusAPIStack extends cdk.Stack {
         entry: path.join(__dirname, `/../src/hello.ts`)
       });
 
+      // Package up the templates to S3
+      const templateBucket = new s3.Bucket(this, "Template Distribution Bucket", {});
+
+      const deployment = new s3Deploy.BucketDeployment(this, "Render templates", {
+        destinationBucket: templateBucket,
+        sources: [s3Deploy.Source.asset(path.join(__dirname, "../views"))]
+      });
+
       const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
         memorySize: 128,
         timeout: cdk.Duration.seconds(30),
@@ -36,7 +46,10 @@ export class CensusAPIStack extends cdk.Stack {
         timeout: cdk.Duration.seconds(30),
         runtime: lambda.Runtime.NODEJS_14_X,
         handler: 'bar',
-        entry: path.join(__dirname, `/../src/chartsApi.ts`)
+        entry: path.join(__dirname, `/../src/chartsApi.ts`),
+        environment: {
+          templateBucket: templateBucket.s3UrlForObject()
+        }
       });
 
       const testCensusFunction = new NodejsFunction(this, 'Test Census Function', {
@@ -74,12 +87,14 @@ export class CensusAPIStack extends cdk.Stack {
       const hello = api.root.addResource("hello");
       hello.addMethod("GET", new LambdaIntegration(helloWorld));
 
-      const render = api.root.addResource("render");
-      const renderChartResource = render.addResource("chart");
-      renderChartResource.addResource("bar").addMethod("GET", new LambdaIntegration(renderChartBarFunction));
+      const rRender = api.root.addResource("render");
+      const rRenderChart = rRender.addResource("chart");
+      const rRenderChartBar = rRenderChart.addResource("bar");
+      rRenderChartBar.addResource("{chartId}").addMethod("GET", new LambdaIntegration(renderChartBarFunction));
 
-      const chart = api.root.addResource("chart");
-      chart.addResource("bar").addMethod("GET", new LambdaIntegration(apiChartBarFunction));
+      const rChart = api.root.addResource("chart");
+      const rChartBar = rChart.addResource("bar");
+      rChartBar.addResource("{chartId}").addMethod("GET", new LambdaIntegration(apiChartBarFunction));
 
       const testCensusResource = api.root.addResource("census");
       testCensusResource.addMethod("GET", new LambdaIntegration(testCensusFunction));
