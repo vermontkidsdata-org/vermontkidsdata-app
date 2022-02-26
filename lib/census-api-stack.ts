@@ -4,6 +4,7 @@ import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as s3Deploy from 'aws-cdk-lib/aws-s3-deployment';
+import * as s3Asset from 'aws-cdk-lib/aws-s3-assets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as path from 'path';
 import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
@@ -28,9 +29,8 @@ export class CensusAPIStack extends cdk.Stack {
       // Package up the templates to S3
       const templateBucket = new s3.Bucket(this, "Template Distribution Bucket", {});
 
-      const deployment = new s3Deploy.BucketDeployment(this, "Render templates", {
-        destinationBucket: templateBucket,
-        sources: [s3Deploy.Source.asset(path.join(__dirname, "../views"))]
+      const asset = new s3Asset.Asset(this, "Template distribution zip", {
+        path: path.join(__dirname, "../views")
       });
 
       const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
@@ -38,7 +38,7 @@ export class CensusAPIStack extends cdk.Stack {
         timeout: cdk.Duration.seconds(30),
         runtime: lambda.Runtime.NODEJS_14_X,
         handler: 'bar',
-        entry: path.join(__dirname, `/../src/chartsRender.ts`)
+        entry: path.join(__dirname, `/../src/chartsApi.ts`)
       });
 
       const renderChartBarFunction = new NodejsFunction(this, 'Bar Chart Render Function', {
@@ -46,9 +46,9 @@ export class CensusAPIStack extends cdk.Stack {
         timeout: cdk.Duration.seconds(30),
         runtime: lambda.Runtime.NODEJS_14_X,
         handler: 'bar',
-        entry: path.join(__dirname, `/../src/chartsApi.ts`),
+        entry: path.join(__dirname, `/../src/chartsRender.ts`),
         environment: {
-          templateBucket: templateBucket.s3UrlForObject()
+          views: asset.s3ObjectUrl
         }
       });
 
