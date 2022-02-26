@@ -23,6 +23,22 @@ export class CensusAPIStack extends cdk.Stack {
         entry: path.join(__dirname, `/../src/hello.ts`)
       });
 
+      const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
+        memorySize: 128,
+        timeout: cdk.Duration.seconds(30),
+        runtime: lambda.Runtime.NODEJS_14_X,
+        handler: 'bar',
+        entry: path.join(__dirname, `/../src/chartsRender.ts`)
+      });
+
+      const renderChartBarFunction = new NodejsFunction(this, 'Bar Chart Render Function', {
+        memorySize: 128,
+        timeout: cdk.Duration.seconds(30),
+        runtime: lambda.Runtime.NODEJS_14_X,
+        handler: 'bar',
+        entry: path.join(__dirname, `/../src/chartsApi.ts`)
+      });
+
       const testCensusFunction = new NodejsFunction(this, 'Test Census Function', {
         memorySize: 1024,
         timeout: cdk.Duration.seconds(15),
@@ -57,6 +73,13 @@ export class CensusAPIStack extends cdk.Stack {
       const api = new RestApi(this, "Census");
       const hello = api.root.addResource("hello");
       hello.addMethod("GET", new LambdaIntegration(helloWorld));
+
+      const render = api.root.addResource("render");
+      const renderChartResource = render.addResource("chart");
+      renderChartResource.addResource("bar").addMethod("GET", new LambdaIntegration(renderChartBarFunction));
+
+      const chart = api.root.addResource("chart");
+      chart.addResource("bar").addMethod("GET", new LambdaIntegration(apiChartBarFunction));
 
       const testCensusResource = api.root.addResource("census");
       testCensusResource.addMethod("GET", new LambdaIntegration(testCensusFunction));
