@@ -3,7 +3,9 @@ import { BuildSpec, EventAction, FilterGroup, GitHubSourceCredentials, Project, 
 import { CodeBuildStep, CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 import { PipelineDevStage } from './pipeline-dev-stage';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import * as sns from 'aws-cdk-lib/aws-sns';
+import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
+import * as notify from 'aws-cdk-lib/aws-codestarnotifications';
 
 export class VermontkidsdataCensusStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -18,15 +20,12 @@ export class VermontkidsdataCensusStack extends Stack {
 
     const secretArn = `arn:aws:secretsmanager:${region}:${account}:secret:${gitHubTokenSecret}`;
 
-    // const pipeline = new CodePipeline(this, 'Pipeline', {
-    //   pipelineName: 'VKDDeployPipeline',
-    //   synth: new ShellStep('Synth', {
-    //     input: CodePipelineSource.connection('vermontkidsdata-org/vermontkidsdata_census', 'master', {
-    //       connectionArn: 'arn:aws:codestar-connections:us-east-1:439348011602:connection/fd10d11a-8da2-46cf-b018-77db2b5be992'
-    //     }),
-    //     commands: ['npm ci', 'npm run build', 'npx cdk synth']
-    //   })
-    // });
+    // SNS topic for notification
+    const topic = new sns.Topic(this, "Topic", {
+      displayName: "Pipeline build results"
+    });
+
+    topic.addSubscription(new subs.EmailSubscription("gbisaga@gmail.com"));
 
     new GitHubSourceCredentials(this, 'GitHubCreds', {
       accessToken: SecretValue.secretsManager(`arn:aws:secretsmanager:${region}:${account}:secret:${gitHubTokenSecret}`, {
@@ -63,6 +62,12 @@ export class VermontkidsdataCensusStack extends Stack {
       // crossAccountKeys: true,
   });
 
+  const notification = new notify.NotificationRule(this, "Pipeline Notification Rule", {
+    events: [ 'codepipeline-pipeline-stage-execution-succeeded', 'codepipeline-pipeline-stage-execution-failed' ],
+    source: pipeline.pipeline,
+    targets: [ topic ]
+  });
+
   const source = Source.gitHub({
       owner: owner,
       repo: repo,
@@ -72,7 +77,7 @@ export class VermontkidsdataCensusStack extends Stack {
           EventAction.PULL_REQUEST_CREATED,
           EventAction.PULL_REQUEST_UPDATED,
           EventAction.PULL_REQUEST_REOPENED,
-        ).andBranchIsNot('main'),
+        ).andBranchIsNot('master'),
       ],
       reportBuildStatus: true,
     });
@@ -96,7 +101,7 @@ export class VermontkidsdataCensusStack extends Stack {
     });
     
     pipeline.addStage(new PipelineDevStage(this, "PipelineDevStage", {
-      env: { account: "439348011602", region: "us-east-1" }
+      env: { account: "439348011602", region: "us-east-1" },
     }));
 
   }
