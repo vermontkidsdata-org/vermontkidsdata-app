@@ -102,11 +102,11 @@ export class VermontkidsdataCensusStack extends Stack {
 
     topic.addSubscription(new subs.EmailSubscription("gbisaga@gmail.com"));
 
-    const notification = new notify.NotificationRule(this, "Pipeline Notification Rule", {
-      events: [ 'codepipeline-pipeline-stage-execution-succeeded', 'codepipeline-pipeline-stage-execution-failed' ],
-      source: pipeline.pipeline,
-      targets: [ topic ],
-    });
+    // const notification = new notify.NotificationRule(this, "Pipeline Notification Rule", {
+    //   events: [ 'codepipeline-pipeline-stage-execution-succeeded', 'codepipeline-pipeline-stage-execution-failed' ],
+    //   source: pipeline.pipeline,
+    //   targets: [ topic ],
+    // });
 
   }
 }
