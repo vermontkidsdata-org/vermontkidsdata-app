@@ -25,12 +25,12 @@ async function getAndUnzip(bucketName: string, keyName: string): Promise<string>
       const resp: GetObjectCommandOutput = await s3Client.send(new s3.GetObjectCommand({
         Bucket: bucketName,
         Key: keyName
-      })); 
+      }));
     
       const uuid = uuidv4();
       const tempfile = `${baseDir}/${uuid}.zip`;
       const tempdir = `${baseDir}/${uuid}`;
-      const destzipstream = await (resp.Body as Readable).pipe(fs.createWriteStream(tempfile));
+      await (resp.Body as Readable).pipe(fs.createWriteStream(tempfile));
       
       console.log('done destzipstream');
       // I have no idea why I need to sleep here. It should only be the first time the Lambda
@@ -69,9 +69,11 @@ const bucketKey = views.substring(S3_PREFIX.length);
 const bucketName = bucketKey.substring(0, bucketKey.indexOf('/'));
 const keyName = bucketKey.substring(bucketKey.indexOf('/')+1);
 
-const tempdir = getAndUnzip(bucketName, keyName).then(() => {
+getAndUnzip(bucketName, keyName).then((tempdir) => {
   console.log(`done fetch and unzip, tempdir=${tempdir}`);
-})
+}).catch((e) => {
+  console.error(`error in getAndUnzip: ${e}`);
+});
 
 export async function bar(
   event: APIGatewayProxyEventV2,
