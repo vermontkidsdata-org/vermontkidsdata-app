@@ -2,13 +2,13 @@
 
 {% block content %}
 
-<script type="text/javascript" src="/javascripts/highcharts/code/highcharts.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/9.3.3/highcharts.js"></script>
 
     <div class="row">
         <div class="col-md-12">
             <div id="container" style="height: 600px;"></div>
            <script>
-            const request = new Request('/charts/testchart/{{id}}', {
+            const request = new Request('/prod/chart/bar/{{id}}', {
                 method: 'GET'
             });
 
