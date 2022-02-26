@@ -20,13 +20,6 @@ export class VermontkidsdataCensusStack extends Stack {
 
     const secretArn = `arn:aws:secretsmanager:${region}:${account}:secret:${gitHubTokenSecret}`;
 
-    // SNS topic for notification
-    const topic = new sns.Topic(this, "Topic", {
-      displayName: "Pipeline build results"
-    });
-
-    topic.addSubscription(new subs.EmailSubscription("gbisaga@gmail.com"));
-
     new GitHubSourceCredentials(this, 'GitHubCreds', {
       accessToken: SecretValue.secretsManager(`arn:aws:secretsmanager:${region}:${account}:secret:${gitHubTokenSecret}`, {
         jsonField: 'access-token',
@@ -61,15 +54,6 @@ export class VermontkidsdataCensusStack extends Stack {
       // need this if you're actually deploying to multiple accounts
       // crossAccountKeys: true,
   });
-
-  const notification = new notify.NotificationRule(this, "Pipeline Notification Rule", {
-    events: [ 'codepipeline-pipeline-stage-execution-succeeded', 'codepipeline-pipeline-stage-execution-failed' ],
-    source: pipeline.pipeline,
-    targets: [ topic ],
-  });
-
-  // Have to do this to ensure pipeline is built first
-  notification.node.addDependency(pipeline);
 
   const source = Source.gitHub({
       owner: owner,
@@ -106,6 +90,23 @@ export class VermontkidsdataCensusStack extends Stack {
     pipeline.addStage(new PipelineDevStage(this, "PipelineDevStage", {
       env: { account: "439348011602", region: "us-east-1" },
     }));
+
+    // Have to do this to ensure pipeline is built before the notification added - but we
+    // can't make any more modifications after this.
+    pipeline.buildPipeline();
+
+    // SNS topic for notification
+    const topic = new sns.Topic(this, "Topic", {
+      displayName: "Pipeline build results"
+    });
+
+    topic.addSubscription(new subs.EmailSubscription("gbisaga@gmail.com"));
+
+    const notification = new notify.NotificationRule(this, "Pipeline Notification Rule", {
+      events: [ 'codepipeline-pipeline-stage-execution-succeeded', 'codepipeline-pipeline-stage-execution-failed' ],
+      source: pipeline.pipeline,
+      targets: [ topic ],
+    });
 
   }
 }
