@@ -18,7 +18,7 @@ export async function bar(
     }; 
   } else {
     const chartId = event.pathParameters.chartId;
-    const apiurl = process.env.apiurl || '';
+    const apiurl = process.env.apiurl || '/prod';
 
     console.log(`backend URL ${apiurl}`);
 
