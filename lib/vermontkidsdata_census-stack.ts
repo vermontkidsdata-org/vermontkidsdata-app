@@ -2,7 +2,7 @@ import { SecretValue, Stack, StackProps } from 'aws-cdk-lib';
 import { BuildSpec, EventAction, FilterGroup, GitHubSourceCredentials, Project, Source } from 'aws-cdk-lib/aws-codebuild';
 import { CodeBuildStep, CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
-import { PipelineDevStage } from './pipeline-dev-stage';
+import { PipelineDeployStage } from './pipeline-deploy-stage';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
@@ -31,7 +31,13 @@ export class VermontkidsdataCensusStack extends Stack {
       version: 0.2,
       phases: {
           install: {
-              commands: ['n latest', 'node -v', 'npm ci', 'npm ci --prefix src/layers/citysdk-utils/nodejs'],
+              commands: [
+                'n latest', 
+                'node -v',
+                'npm ci',
+                'npm ci --prefix src/layers/citysdk-utils/nodejs',
+                'npm ci --prefix views'
+              ],
           },
           build: {
               commands: ['npx cdk synth']
@@ -88,7 +94,9 @@ export class VermontkidsdataCensusStack extends Stack {
       concurrentBuildLimit: 1,
     });
     
-    pipeline.addStage(new PipelineDevStage(this, "PipelineDevStage", {
+    pipeline.addStage(new PipelineDeployStage(this, `dev-PipelineStage`, {
+      ns: "dev"
+    }, {
       env: { account: "439348011602", region: "us-east-1" },
     }));
 
