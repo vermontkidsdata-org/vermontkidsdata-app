@@ -7,7 +7,7 @@ import * as s3Deploy from 'aws-cdk-lib/aws-s3-deployment';
 import * as s3Asset from 'aws-cdk-lib/aws-s3-assets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as path from 'path';
-import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { Cors, LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import { CfnOutput } from 'aws-cdk-lib';
 
 export class CensusAPIStack extends cdk.Stack {
@@ -74,18 +74,29 @@ export class CensusAPIStack extends cdk.Stack {
         resources: ["*"]
       }));
 
-      const api = new RestApi(this, "Census");
+      const api = new RestApi(this, "Census", {
+        // defaultCorsPreflightOptions: {
+        //   allowOrigins: Cors.ALL_ORIGINS
+        // }
+      });
+
       const hello = api.root.addResource("hello");
       hello.addMethod("GET", new LambdaIntegration(helloWorld));
 
       const rRender = api.root.addResource("render");
       const rRenderChart = rRender.addResource("chart");
       const rRenderChartBar = rRenderChart.addResource("bar");
-      rRenderChartBar.addResource("{chartId}").addMethod("GET", new LambdaIntegration(renderChartBarFunction));
+      const rRenderChartBarById = rRenderChartBar.addResource("{chartId}");
+      rRenderChartBarById.addMethod("GET", new LambdaIntegration(renderChartBarFunction));
 
       const rChart = api.root.addResource("chart");
       const rChartBar = rChart.addResource("bar");
-      rChartBar.addResource("{chartId}").addMethod("GET", new LambdaIntegration(apiChartBarFunction));
+      const rChartBarById = rChartBar.addResource("{chartId}");
+      rChartBarById.addCorsPreflight({
+        allowOrigins: [ '*' ],
+        allowMethods: [ 'GET' ]
+      });
+      rChartBarById.addMethod("GET", new LambdaIntegration(apiChartBarFunction));
 
       const testCensusResource = api.root.addResource("census");
       testCensusResource.addMethod("GET", new LambdaIntegration(testCensusFunction));

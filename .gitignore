@@ -4,6 +4,7 @@
 node_modules
 do_not_commit/
 *.log
+.env.json
 
 # CDK asset staging directory
 .cdk.staging

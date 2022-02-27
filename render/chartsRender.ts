@@ -1,8 +1,9 @@
 import {APIGatewayEventRequestContextV2, APIGatewayProxyEventV2, APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2} from 'aws-lambda';
 import { Liquid } from 'liquidjs';
+import * as path from 'path';
 
 var engine = new Liquid({
-  root: ['views/', 'views/partials/'],
+  root: [path.join(__dirname, 'views/'), path.join(__dirname, 'views/partials/')],
   extname: '.liquid'
 });
 
@@ -17,11 +18,15 @@ export async function bar(
     }; 
   } else {
     const chartId = event.pathParameters.chartId;
+    const apiurl = process.env.apiurl || '';
+
+    console.log(`backend URL ${apiurl}`);
 
     const tpl = await engine.parseFile('charts/chart.liquid');
     const rendered = await engine.render(tpl, {
       title: 'Vermont Kids Data Chart', 
-      id: chartId
+      id: chartId,
+      apiurl: apiurl
     });
 
     return {
@@ -33,12 +38,3 @@ export async function bar(
     };
   }
 }
-
-// (async () => {
-//   const event = {
-//     pathParameters: {
-//       chartId: 1234
-//     }
-//   };
-//   console.log(await bar(event as any));
-// })();
