@@ -42,7 +42,7 @@ export class VermontkidsdataCensusStack extends Stack {
           build: {
               commands: [
                 'npx cdk synth',
-                'tsc render/chartsRender.ts'
+                'npm run build'
               ]
           }
       }
