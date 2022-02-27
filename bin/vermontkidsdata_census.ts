@@ -10,7 +10,9 @@ getBranch(branch => {
   // Do a local deploy if on a feature branch
   if (branch.startsWith('dev/')) {
     console.log(`doing local deploy to environment ${branch}`);
-    new CensusAPIStack(app, `${branch}-LocalDevBranch`);
+    new CensusAPIStack(app, `${branch}-LocalDevBranch`, {
+      ns: branch
+    });
   } else {
     console.log(`doing pipeline deploy`);
     new VermontkidsdataCensusStack(app, 'VermontkidsdataCensusStack', {

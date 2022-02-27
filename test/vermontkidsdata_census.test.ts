@@ -13,7 +13,7 @@ describe('Lambda', () => {
     it('Creates Lambda', () => {
         const app = new cdk.App();
         // WHEN
-        const lambdaStack = new CensusAPIStack(app, 'CensusAPIDevStack');
+        const lambdaStack = new CensusAPIStack(app, 'CensusAPIDevStack', { ns: 'test' });
         // THEN
         const template = Template.fromStack(lambdaStack);
 

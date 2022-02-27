@@ -11,7 +11,7 @@ import { Cors, LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import { CfnOutput } from 'aws-cdk-lib';
 
 export class CensusAPIStack extends cdk.Stack {
-    constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    constructor(scope: Construct, id: string, local: {ns: string}, props?: cdk.StackProps) {
       super(scope, id, props);
 
       const citysdkLayer = new lambda.LayerVersion(this, 'CitySDK Layer', {
@@ -74,7 +74,7 @@ export class CensusAPIStack extends cdk.Stack {
         resources: ["*"]
       }));
 
-      const api = new RestApi(this, "Census", {
+      const api = new RestApi(this, `${local.ns}-Vermont Kids Data`, {
         // defaultCorsPreflightOptions: {
         //   allowOrigins: Cors.ALL_ORIGINS
         // }
