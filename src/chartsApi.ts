@@ -25,6 +25,9 @@ export async function bar(
         "categories": categories
         }
       ),
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
       statusCode: 200
     };
   }
