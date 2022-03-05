@@ -98,7 +98,8 @@ export class VermontkidsdataCensusStack extends Stack {
     });
     
     pipeline.addStage(new PipelineDeployStage(this, `dev-PipelineStage`, {
-      ns: "dev"
+      ns: "dev",
+      createBucket: true
     }, {
       env: { account: "439348011602", region: "us-east-1" },
     }));

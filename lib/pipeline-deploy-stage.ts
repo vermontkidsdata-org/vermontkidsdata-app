@@ -4,7 +4,7 @@ import { CensusAPIStack } from './census-api-stack';
 
 export class PipelineDeployStage extends cdk.Stage {
     
-    constructor(scope: Construct, id: string, local: {ns: string}, props?: cdk.StageProps) {
+    constructor(scope: Construct, id: string, local: {ns: string, createBucket: boolean }, props?: cdk.StageProps) {
       super(scope, id, props);
   
       const lambdaStack = new CensusAPIStack(this, `${local.ns}-CensusAPIStack`, local);
