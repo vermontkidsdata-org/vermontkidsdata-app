@@ -11,8 +11,7 @@ getBranch(branch => {
   if (branch.startsWith('dev/')) {
     console.log(`doing local deploy to environment ${branch}`);
     new CensusAPIStack(app, `${branch}-LocalDevBranch`, {
-      ns: branch,
-      createBucket: true
+      ns: branch
     });
   } else {
     console.log(`doing pipeline deploy`);

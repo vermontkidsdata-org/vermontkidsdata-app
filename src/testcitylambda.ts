@@ -1,6 +1,6 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
 import { census } from '/opt/nodejs/citysdk-utils';
-import * as mysql from 'mysql2/promise';
+// import * as mysql from 'mysql2/promise';
 import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
 
 const region = 'us-east-1';
@@ -10,7 +10,7 @@ export async function queryDB(
 ): Promise<APIGatewayProxyResultV2> {
   const smClient = new SecretsManagerClient({ region: region });
 
-  let connection: mysql.Connection;
+  // let connection: mysql.Connection;
   // Get secret connection info
   const secrets = (await smClient.send(new GetSecretValueCommand({
     SecretId: 'vkd/prod/dbcreds'
@@ -29,22 +29,22 @@ export async function queryDB(
         statusCode: 500
       };
     } else {
-      connection = await mysql.createConnection({
-        host: info.host,
-        user: info.username,
-        password: info.password
-      });
+      // connection = await mysql.createConnection({
+      //   host: info.host,
+      //   user: info.username,
+      //   password: info.password
+      // });
     }
   }
 
   // Now read some test data
-  const [rows, fields] = await connection.execute(`select * from dbvermontkidsdata.acs_dataset`);
+  // const [rows, fields] = await connection.execute(`select * from dbvermontkidsdata.acs_dataset`);
   
   return {
     body: JSON.stringify({
       message: 'Successful lambda invocation',
       // result: result,
-      rows: rows
+      // rows: rows
     }),
     statusCode: 200,
   };
