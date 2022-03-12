@@ -11,8 +11,31 @@ import { Cors, LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import { CfnOutput } from 'aws-cdk-lib';
 
 export class CensusAPIStack extends cdk.Stack {
-    constructor(scope: Construct, id: string, local: {ns: string}, props?: cdk.StackProps) {
+    constructor(scope: Construct, id: string, local: {ns: string, createBucket: boolean }, props?: cdk.StackProps) {
       super(scope, id, props);
+
+      // Maybe need to always do this
+      if (local.createBucket) {
+        console.log(`Will create bucket for ns ${local.ns}`);
+        const bucket = new s3.Bucket(this, 'Uploads bucket', {
+          accessControl: s3.BucketAccessControl.PUBLIC_READ_WRITE,
+          removalPolicy: cdk.RemovalPolicy.DESTROY,
+          versioned: false,
+          publicReadAccess: false,
+          encryption: s3.BucketEncryption.S3_MANAGED,
+          cors: [
+            {
+              allowedMethods: [ s3.HttpMethods.GET, s3.HttpMethods.POST, s3.HttpMethods.HEAD ],
+              allowedOrigins: [ '*' ],
+              allowedHeaders: [ '*' ]
+            }
+          ]
+        });
+
+        new cdk.CfnOutput(this, "Bucket name", {
+          value: bucket.bucketName
+        });
+      }
 
       const citysdkLayer = new lambda.LayerVersion(this, 'CitySDK Layer', {
         code: lambda.Code.fromAsset('src/layers/citysdk-utils'),
