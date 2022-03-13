@@ -26,6 +26,7 @@ export class CensusAPIStack extends cdk.Stack {
       const bucket = new s3.Bucket(this, 'Uploads bucket', {
         accessControl: s3.BucketAccessControl.PUBLIC_READ_WRITE,
         removalPolicy: cdk.RemovalPolicy.DESTROY,
+        autoDeleteObjects: true,
         versioned: false,
         publicReadAccess: false,
         objectOwnership: s3.ObjectOwnership.BUCKET_OWNER_PREFERRED,  // Required if public upload - make sure we own the object!
