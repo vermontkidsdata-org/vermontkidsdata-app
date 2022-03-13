@@ -1,4 +1,4 @@
-import { APIGatewayProxyEventV2, APIGatewayProxyResultV2, APIGatewayProxyStructuredResultV2, S3Event, S3EventRecord } from 'aws-lambda';
+import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2, S3Event } from 'aws-lambda';
 import * as AWS from 'aws-sdk';
 import * as csv from 'csv-parse';
 import * as mysql from 'mysql';
@@ -131,6 +131,11 @@ export async function status(event: APIGatewayProxyEventV2): Promise<APIGatewayP
     } else {
         return {
             statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin":"*",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Methods" : "GET",
+            },
             body: JSON.stringify({
                 status: ret.Item.status.S,
                 numRecords: ret.Item.numRecords.N,
