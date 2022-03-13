@@ -119,8 +119,13 @@ export async function bar(
         console.log('retSeries', retSeries);
 
         return {
-            statusCode: 200,
-            body: JSON.stringify({
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin":"*",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Methods" : "GET",
+          },
+          body: JSON.stringify({
               id: chartId,
               series: retSeries,
               categories: categories

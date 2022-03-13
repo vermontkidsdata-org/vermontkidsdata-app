@@ -161,9 +161,11 @@ export class CensusAPIStack extends cdk.Stack {
       }));
 
       const api = new RestApi(this, `${local.ns}-Vermont Kids Data`, {
-        // defaultCorsPreflightOptions: {
-        //   allowOrigins: Cors.ALL_ORIGINS
-        // }
+        // Add OPTIONS call to all resources
+        defaultCorsPreflightOptions: {
+          allowOrigins: Cors.ALL_ORIGINS,
+          allowMethods: [ 'GET', 'POST', 'PUT', 'DELETE' ]
+        }
       });
 
       const hello = api.root.addResource("hello");
@@ -177,19 +179,16 @@ export class CensusAPIStack extends cdk.Stack {
 
       const rUpload = api.root.addResource("upload");
       const rUploadById = rUpload.addResource("{uploadId}");
-      rUploadById.addCorsPreflight({
-        allowOrigins: [ '*' ],
-        allowMethods: [ 'GET' ]
-      });
+      // Don't need I think, we added the default above
+      // rUploadById.addCorsPreflight({
+      //   allowOrigins: [ '*' ],
+      //   allowMethods: [ 'GET' ]
+      // });
       rUploadById.addMethod("GET", new LambdaIntegration(uploadStatusFunction));
 
       const rChart = api.root.addResource("chart");
       const rChartBar = rChart.addResource("bar");
       const rChartBarById = rChartBar.addResource("{chartId}");
-      rChartBarById.addCorsPreflight({
-        allowOrigins: [ '*' ],
-        allowMethods: [ 'GET' ]
-      });
       rChartBarById.addMethod("GET", new LambdaIntegration(apiChartBarFunction));
 
       const testCensusResource = api.root.addResource("census");
