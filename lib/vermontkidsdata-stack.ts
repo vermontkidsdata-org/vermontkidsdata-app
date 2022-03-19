@@ -244,7 +244,7 @@ export class VermontkidsdataStack extends cdk.Stack {
       // Static web content source
       // Note: the path to the source must be kept updated in case of repo folder restructuring or
       // refactoring
-      sources: [s3deploy.Source.asset(path.join(__dirname, '../ui/dist'))],
+      sources: [s3deploy.Source.asset(path.join(__dirname, '../ui/build'))],
       // Point to the S3 Web Bucket
       destinationBucket: s3BucketWeb
     });

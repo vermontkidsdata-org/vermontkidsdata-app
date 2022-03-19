@@ -18,7 +18,7 @@ class HighChart extends React.Component {
     componentDidMount() {
         console.log('chart mounted');
         var self = this;
-        axios.get('https://ys86tlq820.execute-api.us-east-1.amazonaws.com/prod/chart/bar/57').then( function(res) {
+        axios.get('https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/chart/bar/57').then( function(res) {
             console.log(res.data);
             self.setState({
                 isLoaded: true,

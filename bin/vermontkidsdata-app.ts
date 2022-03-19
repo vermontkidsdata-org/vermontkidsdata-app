@@ -10,8 +10,9 @@ const app = new cdk.App();
 (async () => {
     const branch = await getBranch();
 
-    // Do a local deploy if on a feature branch
-    if (branch.startsWith('dev/')) {
+    // Do a local deploy if on a feature branch. NOTE: This is now the only one
+    // supported!
+    if (branch.startsWith('dev/') || true) {
       console.log(`doing local deploy to environment ${branch}`);
       new VermontkidsdataStack(app, `${branch}-LocalDevBranch`, {
         ns: branch

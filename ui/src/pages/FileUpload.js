@@ -3,12 +3,13 @@ import Layout from "./Layout";
 import { Upload } from "@aws-sdk/lib-storage";
 import { S3Client, S3 } from "@aws-sdk/client-s3";
 
-const bucket = "dev-pipelinestage-dev-censu-uploadsbucket86f42938-dlc1biqgfmp8";
+const bucket = "master-localdevbranch-uploadsbucket86f42938-1x6dlq695pl4z";
 
 const upload = (file) => {
     var file = file.target.files[0];
     const target = { Bucket:bucket, Key:file.name, Body:file };
     const creds = {
+        // NOTE: THIS HAS BEEN DISABLED - DON'T ADD A NEW ONE
         accessKeyId: "AKIAWMSZOUJJOTMZCWDG",
         secretAccessKey: "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"
     };
