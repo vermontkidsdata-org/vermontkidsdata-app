@@ -1,12 +1,12 @@
 {
-  "name": "vermontkidsdata_census",
+  "name": "vermontkidsdata-app",
   "version": "0.1.0",
   "bin": {
-    "vermontkidsdata_census": "bin/vermontkidsdata_census.js"
+    "vermontkidsdata-app": "bin/vermontkidsdata-app.js"
   },
   "scripts": {
     "build": "tsc",
-    "watch": "nodemon --ext js liquid --ignore public sim.js",
+    "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"
   },
@@ -25,10 +25,11 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@aws-cdk/aws-amplify-alpha": "^2.16.0-alpha.0",
     "@aws-sdk/client-s3": "^3.53.1",
     "@aws-sdk/client-secrets-manager": "^3.52.0",
     "@types/uuid": "^8.3.4",
-    "aws-cdk-lib": "2.10.0",
+    "aws-cdk-lib": "^2.16.0",
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1087.0",
     "citysdk": "^2.2.0",

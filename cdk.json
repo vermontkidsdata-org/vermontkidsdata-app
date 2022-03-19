@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/vermontkidsdata_census.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/vermontkidsdata-app.ts",
   "watch": {
     "include": [
       "**"
