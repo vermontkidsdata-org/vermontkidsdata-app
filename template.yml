@@ -733,8 +733,8 @@ Resources:
         Ref: devreads3fileVermontKidsData01DED27C
       Description: Automatically created by the RestApi construct
     DependsOn:
-      - devreads3fileVermontKidsDatacensusGETC923D8BA
-      - devreads3fileVermontKidsDatacensus7376C084
+      - devreads3fileVermontkidsdataAppGETC923D8BA
+      - devreads3fileVermontkidsdataApp7376C084
       - devreads3fileVermontKidsDatachartbarchartIdGETBB8EFE79
       - devreads3fileVermontKidsDatachartbarchartIdOPTIONSFF4B68B0
       - devreads3fileVermontKidsDatachartbarchartId2C591ADA
@@ -1098,7 +1098,7 @@ Resources:
               - /invocations
     Metadata:
       aws:cdk:path: dev--read-s3-file-LocalDevBranch/dev--read-s3-file-Vermont Kids Data/Default/chart/bar/{chartId}/GET/Resource
-  devreads3fileVermontKidsDatacensus7376C084:
+  devreads3fileVermontkidsdataApp7376C084:
     Type: AWS::ApiGateway::Resource
     Properties:
       ParentId:
@@ -1110,7 +1110,7 @@ Resources:
         Ref: devreads3fileVermontKidsData01DED27C
     Metadata:
       aws:cdk:path: dev--read-s3-file-LocalDevBranch/dev--read-s3-file-Vermont Kids Data/Default/census/Resource
-  devreads3fileVermontKidsDatacensusGETApiPermissiondevreads3fileLocalDevBranchdevreads3fileVermontKidsDataD065EABAGETcensusD63A1E99:
+  devreads3fileVermontkidsdataAppGETApiPermissiondevreads3fileLocalDevBranchdevreads3fileVermontKidsDataD065EABAGETcensusD63A1E99:
     Type: AWS::Lambda::Permission
     Properties:
       Action: lambda:InvokeFunction
@@ -1135,7 +1135,7 @@ Resources:
             - /GET/census
     Metadata:
       aws:cdk:path: dev--read-s3-file-LocalDevBranch/dev--read-s3-file-Vermont Kids Data/Default/census/GET/ApiPermission.devreads3fileLocalDevBranchdevreads3fileVermontKidsDataD065EABA.GET..census
-  devreads3fileVermontKidsDatacensusGETApiPermissionTestdevreads3fileLocalDevBranchdevreads3fileVermontKidsDataD065EABAGETcensusD192A0F9:
+  devreads3fileVermontkidsdataAppGETApiPermissionTestdevreads3fileLocalDevBranchdevreads3fileVermontKidsDataD065EABAGETcensusD192A0F9:
     Type: AWS::Lambda::Permission
     Properties:
       Action: lambda:InvokeFunction
@@ -1158,12 +1158,12 @@ Resources:
             - /test-invoke-stage/GET/census
     Metadata:
       aws:cdk:path: dev--read-s3-file-LocalDevBranch/dev--read-s3-file-Vermont Kids Data/Default/census/GET/ApiPermission.Test.devreads3fileLocalDevBranchdevreads3fileVermontKidsDataD065EABA.GET..census
-  devreads3fileVermontKidsDatacensusGETC923D8BA:
+  devreads3fileVermontkidsdataAppGETC923D8BA:
     Type: AWS::ApiGateway::Method
     Properties:
       HttpMethod: GET
       ResourceId:
-        Ref: devreads3fileVermontKidsDatacensus7376C084
+        Ref: devreads3fileVermontkidsdataApp7376C084
       RestApiId:
         Ref: devreads3fileVermontKidsData01DED27C
       AuthorizationType: NONE

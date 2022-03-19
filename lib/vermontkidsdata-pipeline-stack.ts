@@ -6,14 +6,13 @@ import { PipelineDeployStage } from './pipeline-deploy-stage';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
-import * as notify from 'aws-cdk-lib/aws-codestarnotifications';
 
-export class VermontkidsdataCensusStack extends Stack {
+export class VermontkidsdataPipelineStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     const owner = 'vermontkidsdata-org';
-    const repo = 'vermontkidsdata_census';
+    const repo = 'vermontkidsdata-app';
     const branch = 'master';
     const region = 'us-east-1';
     const account = '439348011602';
