@@ -121,14 +121,6 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(apiChartBarFunction);
 
-    const renderChartBarFunction = new lambda.Function(this, 'Bar Chart Render Function', {
-      code: lambda.Code.fromAsset(`render`),
-      memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'chartsRender.bar'
-    });
-
     const testCensusFunction = new NodejsFunction(this, 'Test Census Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
@@ -172,12 +164,6 @@ export class VermontkidsdataStack extends cdk.Stack {
 
     const hello = api.root.addResource("hello");
     hello.addMethod("GET", new LambdaIntegration(helloWorld));
-
-    const rRender = api.root.addResource("render");
-    const rRenderChart = rRender.addResource("chart");
-    const rRenderChartBar = rRenderChart.addResource("bar");
-    const rRenderChartBarById = rRenderChartBar.addResource("{chartId}");
-    rRenderChartBarById.addMethod("GET", new LambdaIntegration(renderChartBarFunction));
 
     const rUpload = api.root.addResource("upload");
     const rUploadById = rUpload.addResource("{uploadId}");

@@ -35,7 +35,6 @@ export class VermontkidsdataPipelineStack extends Stack {
                 'node -v',
                 'npm ci',
                 'npm ci --prefix src/layers/citysdk-utils/nodejs',
-                'npm ci --prefix render'
               ],
           },
           build: {
