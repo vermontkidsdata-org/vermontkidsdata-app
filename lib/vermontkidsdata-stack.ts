@@ -121,6 +121,19 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(apiChartBarFunction);
 
+    const apiTableFunction = new NodejsFunction(this, 'Basic table API Function', {
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(30),
+      runtime: lambda.Runtime.NODEJS_14_X,
+      handler: 'table',
+      entry: path.join(__dirname, `/../src/tablesApi.ts`),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region
+      }
+    });
+    secret.grantRead(apiTableFunction);
+
     const testCensusFunction = new NodejsFunction(this, 'Test Census Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
@@ -176,9 +189,14 @@ export class VermontkidsdataStack extends cdk.Stack {
 
     const rChart = api.root.addResource("chart");
     const rChartBar = rChart.addResource("bar");
-    const rChartBarById = rChartBar.addResource("{chartId}");
+    const rChartBarById = rChartBar.addResource("{queryId}");
     rChartBarById.addMethod("GET", new LambdaIntegration(apiChartBarFunction));
 
+    const rTable = api.root.addResource("table");
+    const rTableTable = rTable.addResource("table");
+    const rTableTableById = rTableTable.addResource("{queryId}");
+    rTableTableById.addMethod("GET", new LambdaIntegration(apiTableFunction));
+    
     const testCensusResource = api.root.addResource("census");
     testCensusResource.addMethod("GET", new LambdaIntegration(testCensusFunction));
 

@@ -53,12 +53,12 @@ export async function bar(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   console.log('event 👉', event);
-  if (event.pathParameters == null || event.pathParameters.chartId == null) {
+  if (event.pathParameters == null || event.pathParameters.queryId == null) {
     return {
       statusCode: 400
     };
   } else {
-    const chartId = event.pathParameters.chartId;
+    const queryId = event.pathParameters.queryId;
     try {
         console.log('opening connection');
         const connection = await doOpen();
@@ -66,7 +66,7 @@ export async function bar(
         await query(connection, 'use dbvkd');
 
         // Get the query to run from the parameters
-        const queryRows = await query(connection, 'SELECT sqlText FROM queries where name=?', [chartId]);
+        const queryRows = await query(connection, 'SELECT sqlText FROM queries where name=?', [queryId]);
         console.log(queryRows);
         if (queryRows.length == 0) {
           await connection.end();
@@ -126,7 +126,7 @@ export async function bar(
             "Access-Control-Allow-Methods" : "GET",
           },
           body: JSON.stringify({
-              id: chartId,
+              id: queryId,
               series: retSeries,
               categories: categories
             })
@@ -148,7 +148,7 @@ export async function bar(
 
     // return {
     //   body: JSON.stringify({
-    //     "id": chartId,
+    //     "id": queryId,
     //     "series": series,
     //     "categories": categories
     //     }
@@ -157,6 +157,15 @@ export async function bar(
     //     'Access-Control-Allow-Origin': '*'
     //   },
     //   statusCode: 200
-    // };
+    // }; 
   }
 }
+
+(async() => {
+  const event: APIGatewayProxyEventV2 = {
+    pathParameters: { 
+      queryId: '59'
+    }
+  } as unknown as APIGatewayProxyEventV2;
+  console.log(await bar(event));
+})();
