@@ -121,6 +121,19 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(apiChartBarFunction);
 
+    const apiTableFunction = new NodejsFunction(this, 'Basic table API Function', {
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(30),
+      runtime: lambda.Runtime.NODEJS_14_X,
+      handler: 'table',
+      entry: path.join(__dirname, `/../src/tablesApi.ts`),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region
+      }
+    });
+    secret.grantRead(apiTableFunction);
+
     const testCensusFunction = new NodejsFunction(this, 'Test Census Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
@@ -176,9 +189,14 @@ export class VermontkidsdataStack extends cdk.Stack {
 
     const rChart = api.root.addResource("chart");
     const rChartBar = rChart.addResource("bar");
-    const rChartBarById = rChartBar.addResource("{chartId}");
+    const rChartBarById = rChartBar.addResource("{queryId}");
     rChartBarById.addMethod("GET", new LambdaIntegration(apiChartBarFunction));
 
+    const rTable = api.root.addResource("table");
+    const rTableTable = rTable.addResource("table");
+    const rTableTableById = rTableTable.addResource("{queryId}");
+    rTableTableById.addMethod("GET", new LambdaIntegration(apiTableFunction));
+    
     const testCensusResource = api.root.addResource("census");
     testCensusResource.addMethod("GET", new LambdaIntegration(testCensusFunction));
 
@@ -209,35 +227,35 @@ export class VermontkidsdataStack extends cdk.Stack {
     // Defaults:
     //  - min protocol version: TLS 1.2
     //  - max HTTP version:     HTTP/2
-    // const cloudFrontDistrib = new cloudFront.Distribution(this, `${local.ns}-cloudfront`, {
-    //   // Default behavior config
-    //   defaultBehavior: {
-    //     // Point to S3 Web Bucket as origin
-    //     origin: new cloudFrontOrigins.S3Origin(s3BucketWeb),
-    //     // HTTP requests will be redirected to HTTPS
-    //     viewerProtocolPolicy: cloudFront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-    //     // Only allow GET, HEAD, OPTIONS methods
-    //     allowedMethods: cloudFront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
-    //     // Cache GET, HEAD, OPTIONS
-    //     cachedMethods: cloudFront.CachedMethods.CACHE_GET_HEAD_OPTIONS
-    //   },
-    //   // Enable default logging
-    //   enableLogging: true,
-    //   // Point to S3 Log Bucket
-    //   logBucket: s3BucketLog,
-    //   // Log prefix
-    //   logFilePrefix: `cloudfront-access-logs-${local.ns}`,
-    //   // If index.html is not specified in URL, assume it rather than given a 404 error
-    //   defaultRootObject: 'index.html',
-    //   // Allow IPv6 DNS requests with an IPv6 address
-    //   enableIpv6: true,
-    //   // Restrict site to the USA and Canada
-    //   geoRestriction: cloudFront.GeoRestriction.allowlist('US', 'CA'),
-    //   // 100 is USA, Canada, Europe and Israel
-    //   priceClass: cloudFront.PriceClass.PRICE_CLASS_100,
-    //   // Descriptive comment
-    //   comment: `CloudFront distribution in ${local.ns} environment`
-    // });
+    const cloudFrontDistrib = new cloudFront.Distribution(this, `${local.ns}-cloudfront`, {
+      // Default behavior config
+      defaultBehavior: {
+        // Point to S3 Web Bucket as origin
+        origin: new cloudFrontOrigins.S3Origin(s3BucketWeb),
+        // HTTP requests will be redirected to HTTPS
+        viewerProtocolPolicy: cloudFront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        // Only allow GET, HEAD, OPTIONS methods
+        allowedMethods: cloudFront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
+        // Cache GET, HEAD, OPTIONS
+        cachedMethods: cloudFront.CachedMethods.CACHE_GET_HEAD_OPTIONS
+      },
+      // Enable default logging
+      enableLogging: true,
+      // Point to S3 Log Bucket
+      logBucket: s3BucketLog,
+      // Log prefix
+      logFilePrefix: `cloudfront-access-logs-${local.ns}`,
+      // If index.html is not specified in URL, assume it rather than given a 404 error
+      defaultRootObject: 'index.html',
+      // Allow IPv6 DNS requests with an IPv6 address
+      enableIpv6: true,
+      // Restrict site to the USA and Canada
+      geoRestriction: cloudFront.GeoRestriction.allowlist('US', 'CA'),
+      // 100 is USA, Canada, Europe and Israel
+      priceClass: cloudFront.PriceClass.PRICE_CLASS_100,
+      // Descriptive comment
+      comment: `CloudFront distribution in ${local.ns} environment`
+    });
 
     // Deploy the static web content to the S3 Web Bucket
     const deploymentToS3Web = new s3deploy.BucketDeployment(this, `${local.ns}-s3deploy`, {
@@ -252,8 +270,8 @@ export class VermontkidsdataStack extends cdk.Stack {
     new cdk.CfnOutput(this, "CloudFront bucket", {
       value: s3BucketWeb.bucketName
     });
-    // new cdk.CfnOutput(this, "CloudFront DNS", {
-    //   value: cloudFrontDistrib.domainName
-    // });
+    new cdk.CfnOutput(this, "CloudFront DNS", {
+      value: cloudFrontDistrib.domainName
+    });
   }
 }
