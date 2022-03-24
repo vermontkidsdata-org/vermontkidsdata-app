@@ -1,19 +1,19 @@
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { CensusAPIStack } from '../lib/census-api-stack';
+import { VermontkidsdataStack } from '../lib/vermontkidsdata-stack';
 import * as hello from '../src/hello';
 
 // import { Template } from 'aws-cdk-lib/assertions';
-import * as VermontkidsdataCensus from '../lib/vermontkidsdata_census-stack';
+import * as VermontkidsdataApp from '../lib/vermontkidsdata-pipeline-stack';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 
 // example test. To run these tests, uncomment this file along with the
-// example resource in lib/vermontkidsdata_census-stack.ts
+// example resource in lib/vermontkidsdata-pipeline-stack.ts
 describe('Lambda', () => {
     it('Creates Lambda', () => {
         const app = new cdk.App();
         // WHEN
-        const lambdaStack = new CensusAPIStack(app, 'CensusAPIDevStack', { ns: 'test', createBucket: true });
+        const lambdaStack = new VermontkidsdataStack(app, 'CensusAPIDevStack', { ns: 'test' });
         // THEN
         const template = Template.fromStack(lambdaStack);
 
@@ -25,14 +25,13 @@ describe('Lambda', () => {
     // Commented out because it always fails... need to do this better
     // it('Does the snapshot thing', () => {
     //     const app = new cdk.App();
-    //     const lambdaStack = new CensusAPIStack(app, 'CensusAPIDevStack');
-    //     const template = Template.fromStack(lambdaStack);
+    //     // const lambdaStack = new VermontkidsdataStack(app, 'CensusAPIDevStack');
+    //     // const template = Template.fromStack(lambdaStack);
 
-    //     /*
-    //     * const stack = new Stack(app, 'MyStack');
-    //     * const cfn = SynthUtils.toCloudFormation(stack);
-    //     * expect(cfn).toMatchSnapshot(getMatchObject(cfn.Resources));
-    //     */
+    //     const stack = new cdk.Stack(app, 'MyStack');
+    //     const cfn = SynthUtils.toCloudFormation(stack);
+    //     expect(cfn).toMatchSnapshot(getMatchObject(cfn.Resources));
+        
     //     expect(template.toJSON()).toMatchSnapshot("CensusAPIDevStack-basic");
     // });
 
