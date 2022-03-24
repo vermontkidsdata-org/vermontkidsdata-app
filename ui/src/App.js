@@ -8,6 +8,7 @@ import Layout from "./pages/Layout";
 import FileUpload from "./pages/FileUpload";
 import Home from "./pages/Home";
 import HighChart from "./pages/HighChart";
+import MaterialTable from "./pages/MaterialTable";
 
 //Vermont Kids Data
 
@@ -31,6 +32,7 @@ const AppRoutes = () => (
         <Route index element={<Home/>}/>
         <Route path="upload" element={<FileUpload/>}/>
         <Route path="chart" element={<HighChart/>}/>
+        <Route path="table" element={<MaterialTable/>}/>
         <Route path="login" element={<AuthComponent/>}/>
     </Routes>
 );

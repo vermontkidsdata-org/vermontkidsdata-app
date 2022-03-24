@@ -11,3 +11,5 @@ do_not_commit/
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+.idea/*

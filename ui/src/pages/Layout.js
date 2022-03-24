@@ -18,6 +18,9 @@ const Layout = () => {
                         <Link to="/chart">HighChart</Link>
                     </li>
                     <li>
+                        <Link to="/table">MaterialTable</Link>
+                    </li>
+                    <li>
                         <Link to="/about">About</Link>
                     </li>
                 </ul>
