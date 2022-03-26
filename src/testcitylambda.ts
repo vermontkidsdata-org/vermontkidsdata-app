@@ -1,5 +1,6 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
-import { census } from '/opt/nodejs/citysdk-utils';
+import { census } from './citysdk-utils';
+
 // import * as mysql from 'mysql2/promise';
 import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
 
@@ -50,38 +51,18 @@ export async function queryDB(
   };
 }
 
-export async function getCensus(
-  event: APIGatewayProxyEventV2,
-): Promise<APIGatewayProxyResultV2> {
-  console.log('starting main function');
- 
-  //get the ACS5 2017 population for all counties in the California
-  const censusResult = await census({
-      vintage: '2017',
-      geoHierarchy: {
-        state: "06",
-        county: '*',
-      },
-      sourcePath: ['acs','acs5'],
-      values: ['B00001_001E'],
-    });
-
-  console.log('event 👉', event);
-
-  return {
-    body: JSON.stringify({
-      message: 'Successful lambda invocation',
-      // result: result,
-      result: censusResult
-    }),
-    statusCode: 200,
-  };
-}
 
 
 // Only run if executed directly
-if (!module.parent) {
-  (queryDB({} as any)).then((res) => {
-    console.log('called directly', res);
-  })
-}
+// if (!module.parent) {
+//   (async () => {
+//     try {
+//       console.log(await getCensus({ } as unknown as APIGatewayProxyEventV2));
+//     } catch (e) {
+//       console.error(e);
+//     }
+//   })();
+//   // (queryDB({} as any)).then((res) => {
+//   //   console.log('called directly', res);
+//   // })
+// }

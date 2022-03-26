@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "/opt/nodejs/citysdk-utils": ["src/layers/citysdk-utils/nodejs/citysdk-utils"]
-    },
     "target": "ES2018",
     "module": "commonjs",
     "lib": [

@@ -1,11 +1,14 @@
 const citysdk = require("citysdk");
 
-export interface CitySDKParams     {
+export interface GeoHierarchy {
+  state: string,
+  county?: string,
+  "county subdivision"?: string,
+};
+
+export interface CitySDKParams {
   vintage: number|string,
-  geoHierarchy: {
-    state: string,
-    county?: string,
-  },
+  geoHierarchy: GeoHierarchy,
   // E.g. 'acs','acs5'
   sourcePath: string[],
   // E.g. 'B00001_001E'
@@ -16,17 +19,21 @@ export interface CitySDKParams     {
   statsKey?: string
 }
 
+export interface CensusResultRow {
+  [varname: string]: any
+};
+
 /**
  * Simple TypeScript wrapper for citysdk
  * @param params Same parameters sent to CitySDK
  * @returns Same response from CitySDK
  */
-export async function census(params: CitySDKParams): Promise<any> {
-  console.log('starting citysdk-utils.census function');
+export async function census(params: CitySDKParams): Promise<CensusResultRow[]> {
+  // console.log('starting citysdk-utils.census function');
 
   return new Promise<any>((resolve, reject) => {
     citysdk(params, (err: any, res: any) => {
-        console.log(`back from citysdk() function in citysdk-utils, err=${err}`);
+        // console.log(`back from citysdk() function in citysdk-utils, err=${err}`);
 
         if (err) reject(err);
         else resolve(res);

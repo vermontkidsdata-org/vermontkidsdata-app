@@ -1,51 +1,47 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import * as AWS from 'aws-sdk';
-import * as csv from 'csv-parse';
+import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
 import * as mysql from 'mysql';
 import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
-import * as util from 'util';
-import { v4 as uuidv4 } from 'uuid';
-import { PutItemOutput } from 'aws-sdk/clients/dynamodb';
-import e = require('express');
+import { queryDB } from './db-utils';
 
 const { REGION } = process.env;
 
 async function doOpen(): Promise<mysql.Connection> {
-    const smClient = new SecretsManagerClient({ region: REGION });
+  const smClient = new SecretsManagerClient({ region: REGION });
 
-    // Get secret connection info
-    const secrets = (await smClient.send(new GetSecretValueCommand({
-      SecretId: 'vkd/prod/dbcreds'
-    }))).SecretString;
-  
-    if (secrets == null) {
-        throw new Error('DB connection info not found');
+  // Get secret connection info
+  const secrets = (await smClient.send(new GetSecretValueCommand({
+    SecretId: 'vkd/prod/dbcreds'
+  }))).SecretString;
+
+  if (secrets == null) {
+    throw new Error('DB connection info not found');
+  } else {
+    const info: { host: string, username: string, password: string } = JSON.parse(secrets);
+    if (info.host == null || info.username == null || info.password == null) {
+      throw new Error('DB connection info missing information');
     } else {
-      const info: {host: string, username: string, password: string} = JSON.parse(secrets);
-      if (info.host == null || info.username == null || info.password == null) {
-          throw new Error('DB connection info missing information');
-      } else {
-        return mysql.createConnection({
-          host: info.host,
-          user: info.username,
-          password: info.password
-        });
-      }
+      return mysql.createConnection({
+        host: info.host,
+        user: info.username,
+        password: info.password
+      });
     }
+  }
 }
 
 async function query(connection: mysql.Connection, sql: string, values?: any[]): Promise<any> {
-    if (values == null) values = [];
-    return new Promise<any>((resolve, reject) => {
-        // console.log(`query ${JSON.stringify(values)}`);
-        return connection.query(sql, values, (err, results /*, fields*/) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(results);
-            }
-        })
-    });
+  if (values == null) values = [];
+  return new Promise<any>((resolve, reject) => {
+    // console.log(`query ${JSON.stringify(values)}`);
+    return connection.query(sql, values, (err, results /*, fields*/) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    })
+  });
 }
 
 interface ColumnMap {
@@ -59,7 +55,7 @@ interface QueryRow {
   columnMap?: string
 };
 
-async function getQuery(queryId: string): Promise<{connection: mysql.Connection, rows: QueryRow[]}> {
+async function getQuery(queryId: string): Promise<{ connection: mysql.Connection, rows: QueryRow[] }> {
   console.log('opening connection');
   const connection = await doOpen();
   console.log('connection open');
@@ -93,17 +89,8 @@ async function doQuery(queryId: string): Promise<{ rows: any[], columnMap?: Colu
   console.log('connection closed');
   console.log('row0', info.rows[0])
   const columnMap = info.rows[0].columnMap != null ? JSON.parse(info.rows[0].columnMap) : undefined;
-  return { rows: resultRows, columnMap: columnMap};
+  return { rows: resultRows, columnMap: columnMap };
 }
-
-// (async() => {
-//   const event: APIGatewayProxyEventV2 = {
-//     pathParameters: { 
-//       queryId: '58'
-//     }
-//   } as unknown as APIGatewayProxyEventV2;
-//   await table(event);
-// })();
 
 export async function table(
   event: APIGatewayProxyEventV2,
@@ -117,116 +104,272 @@ export async function table(
     const queryId = event.pathParameters.queryId;
     try {
 
-        // We assume we're getting back an array of values with the value keys being the key into the columnMap
-        // columnMap => {'infant': 'Infant', 'toddler': 'Toddler', 'preschool': 'Preschool'}
-        const resultRows = await doQuery(queryId);
+      // We assume we're getting back an array of values with the value keys being the key into the columnMap
+      // columnMap => {'infant': 'Infant', 'toddler': 'Toddler', 'preschool': 'Preschool'}
+      const resultRows = await doQuery(queryId);
 
-        // Example results:
-        // Table:
-        // const foo = {
-        //   columns: [
-        //     { id: 'type', label: 'Type' },
-        //     { id: 'infant', label: 'Infant' },
-        //     { id: 'toddler', label: 'Toddler' },
-        //     { id: 'preschool', label: 'Preschool' }
-        //   ],
-        //   rows: [
-        //     [ 'center',	1942,	1666,	8564 ],
-        //     [ 'licensed',	45, 49, 136 ],
-        //     [ 'registered', 537, 541, 1039 ]
-        //   ]
-        // }
-        // Bar chart:
-        // const foo = {
-        //   "id": "58",
-        //   "series": [
-        //       { "name": "Infant", "data": [ 2935, 3066, 2524 ] },
-        //       { "name": "Toddler", "data": [ 2597, 2699, 2256 ] },
-        //       { "name": "Preschool", "data": [ 12290, 12185, 9739 ] },
-        //   ],
-        //   "categories": [
-        //       '2018-2019', '2019-2020', '2020-2021'
-        //   ]
-        // }
+      // Example results:
+      // Table:
+      // const foo = {
+      //   columns: [
+      //     { id: 'type', label: 'Type' },
+      //     { id: 'infant', label: 'Infant' },
+      //     { id: 'toddler', label: 'Toddler' },
+      //     { id: 'preschool', label: 'Preschool' }
+      //   ],
+      //   rows: [
+      //     [ 'center',	1942,	1666,	8564 ],
+      //     [ 'licensed',	45, 49, 136 ],
+      //     [ 'registered', 537, 541, 1039 ]
+      //   ]
+      // }
+      // Bar chart:
+      // const foo = {
+      //   "id": "58",
+      //   "series": [
+      //       { "name": "Infant", "data": [ 2935, 3066, 2524 ] },
+      //       { "name": "Toddler", "data": [ 2597, 2699, 2256 ] },
+      //       { "name": "Preschool", "data": [ 12290, 12185, 9739 ] },
+      //   ],
+      //   "categories": [
+      //       '2018-2019', '2019-2020', '2020-2021'
+      //   ]
+      // }
 
-        interface QueryResult {
-          cat: string, 
-          label: string, 
-          value: string
-        };
+      interface QueryResult {
+        cat: string,
+        label: string,
+        value: string
+      };
 
-        const columns: { id: string, label: string}[] = [];
-        const rows: {[key:string]: any}[] = [];
+      const columns: { id: string, label: string }[] = [];
+      const rows: { [key: string]: any }[] = [];
 
-        for (let i = 0; i < resultRows.rows.length; i++) {
-          // We'll take the column labels from the first row
-          // First column in row is row label; rest are the columns
-          const row = resultRows.rows[i];
-          console.log(`row`, row);
-          if (i === 0) {
-            // Build up the columns
-            const keys = Object.keys(row);
-            console.log('keys', keys, 'cmap', resultRows.columnMap);
-            for (let j = 0; j < keys.length; j++) {
-              const key = keys[j];
-              const label = resultRows.columnMap && resultRows.columnMap[key] != null
-                ? resultRows.columnMap[key]
-                : key;
-              columns.push({
-                id: key,
-                label: label
-              });
-            }
+      for (let i = 0; i < resultRows.rows.length; i++) {
+        // We'll take the column labels from the first row
+        // First column in row is row label; rest are the columns
+        const row = resultRows.rows[i];
+        console.log(`row`, row);
+        if (i === 0) {
+          // Build up the columns
+          const keys = Object.keys(row);
+          console.log('keys', keys, 'cmap', resultRows.columnMap);
+          for (let j = 0; j < keys.length; j++) {
+            const key = keys[j];
+            const label = resultRows.columnMap && resultRows.columnMap[key] != null
+              ? resultRows.columnMap[key]
+              : key;
+            columns.push({
+              id: key,
+              label: label
+            });
           }
-
-          // All rows, return the data
-          const rowval: {[key:string]: any} = {};
-          Object.values(columns).forEach(col => {
-            rowval[col.id] = row[col.id];
-          });
-          rows.push(rowval);
         }
-        const body = {
-          id: queryId,
-          columns,
-          rows
-        };
-        console.log('body', JSON.stringify(body, null, 2));
-        return {
-          statusCode: 200,
-          headers: {
-            "Access-Control-Allow-Origin":"*",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Methods" : "GET",
-          },
-          body: JSON.stringify(body)
-        };
+
+        // All rows, return the data
+        const rowval: { [key: string]: any } = {};
+        Object.values(columns).forEach(col => {
+          rowval[col.id] = row[col.id];
+        });
+        rows.push(rowval);
+      }
+      const body = {
+        id: queryId,
+        columns,
+        rows
+      };
+      console.log('body', JSON.stringify(body, null, 2));
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Methods": "GET",
+        },
+        body: JSON.stringify(body)
+      };
 
     } catch (e) {
-        console.log(e);
-        return {
-            statusCode: 500,
-            body: (e as Error).message
-        };
+      console.log(e);
+      return {
+        statusCode: 500,
+        body: (e as Error).message
+      };
     }
-    // let series = [{ name: 'All Students', data: [50,52] },
-    //   { name: 'Free and Reduced Lunch', data: [35,38] },
-    //   { name: 'Special Education', data: [13,17] },
-    //   { name: 'Historically Marginalized', data: [36,39] }
-    // ];
-    // let categories = [ 'Jan', 'Feb' ];
-
-    // return {
-    //   body: JSON.stringify({
-    //     "id": queryId,
-    //     "series": series,
-    //     "categories": categories
-    //     }
-    //   ),
-    //   headers: {
-    //     'Access-Control-Allow-Origin': '*'
-    //   },
-    //   statusCode: 200
-    // };
   }
 }
+
+export interface AcsVariable {
+  variable: string, // 'B09001_009E',
+  label: string, // 'Estimate!!Total!!In households!!15 to 17 years',
+  concept: string, // 'POPULATION UNDER 18 YEARS BY AGE',
+  predicateType: string, // 'int',
+  group: string, // 'B09001',
+  limit: number, // 0,
+  attributes: string, // 'B09001_009M,B09001_009MA,B09001_009EA',
+  year: number // 2016
+}
+
+interface ApiTableResultColumn { id: string, label: string }
+interface ApiTableResultRow { [key: string]: any }
+
+function censusResultsToTable(censusResults: CensusResultRow, acsVars: AcsVariable[], columns: ApiTableResultColumn[] | undefined, rows: ApiTableResultRow[]): void {
+  if (columns != null) {
+    acsVars.forEach(acsVar => {
+      columns.push({ id: acsVar.variable, label: acsVar.label });
+    });
+  }
+
+  censusResults.forEach((censusResult: { [key: string]: any }) => {
+    const row: { [key: string]: any } = {};
+    row.geo = censusResult.state + (censusResult.county || '');
+    acsVars.forEach(acsVar => {
+      row[acsVar.variable] = censusResult[acsVar.variable];
+    });
+    rows.push(row);
+  });
+}
+
+export async function getCensusByGeo(
+  event: APIGatewayProxyEventV2,
+): Promise<APIGatewayProxyResultV2> {
+  console.log('starting main function');
+  const pathParameters = event.pathParameters || {};
+  const table = pathParameters.table!;
+  const geoType = pathParameters.geoType!;
+
+  const queryStringParameters = event.queryStringParameters || {};
+  const year = queryStringParameters?.year || '2020';
+  const geo = queryStringParameters?.geo || '*';
+
+  if (!['county', 'state'].includes(geoType)) {
+    return {
+      body: JSON.stringify({
+        message: 'Only supports county right now',
+      }),
+      statusCode: 400,
+    };
+  }
+
+  // Get census variables
+  console.log('before query');
+  const acsVars: AcsVariable[] = await queryDB(`select * from dbvkd.acs_variables where variable like '${table}%' order by variable`);
+  console.log('after query');
+  const queryVars: string[] = [];
+  acsVars.forEach(acsVar => {
+    queryVars.push(acsVar.variable);
+  });
+
+  const columns: ApiTableResultColumn[] = [{ id: 'geo', label: 'Geography' }];
+  const rows: ApiTableResultRow[] = [];
+
+  if (geoType === 'county') {
+    // Town:
+    // {
+    //   "county subdivision": '*',
+    // }
+    const geoHierarchy: GeoHierarchy = {
+      state: "50"
+    };
+    if (geo) {
+      geoHierarchy.county = geo;
+    }
+
+    const censusResults = await census({
+      vintage: year,
+      geoHierarchy: geoHierarchy,
+      sourcePath: ['acs', 'acs5'],
+      values: queryVars,
+    });
+
+    censusResultsToTable(censusResults, acsVars, columns, rows);
+  }
+
+  const censusStateResults = await census({
+    vintage: year,
+    geoHierarchy: {
+      state: "50"
+    },
+    sourcePath: ['acs', 'acs5'],
+    values: queryVars,
+  });
+  censusResultsToTable(censusStateResults, acsVars, Object.keys(columns).length == 1 ? columns : undefined, rows);
+
+  // Now convert the geos to names
+  interface GazCounty {
+    id: number, // 2819
+    year: number, // 2019
+    USPS: number, // 'VT'
+    GEOID: string, // '50025'
+    ANSICODE: string, // '1461769',
+    NAME: string, // 'Windham County',
+    ALAND: string, // '2034457838',
+    AWATER: string, // '32920750',
+    ALAND_SQMI: string, // '785.509',
+    AWATER_SQMI: string, // '12.711',
+    INTPTLAT: string, // '42.995335',
+    INTPTLONG: string, // '-72.721955'
+  }
+
+  const dbCounties: GazCounty[] = await queryDB(`select * from dbvkd.gaz_counties where usps='VT'`);
+  const counties: { [id: string]: GazCounty } = {}
+  dbCounties.forEach((cty) => {
+    counties[cty.GEOID] = cty;
+  });
+
+  rows.forEach(row => {
+    if (counties[row.geo] != null) {
+      row.geo = counties[row.geo].NAME;
+    }
+  });
+
+  // console.log('COUNTIES', counties);
+  console.log('event 👉', event);
+
+  return {
+    body: JSON.stringify({
+      // results: censusResults,
+      columns: columns,
+      rows: rows
+    }),
+    statusCode: 200,
+  };
+}
+
+// (async() => {
+//   const event: APIGatewayProxyEventV2 = {
+//     pathParameters: { 
+//       queryId: '58'
+//     }
+//   } as unknown as APIGatewayProxyEventV2;
+//   await table(event);
+// })();
+// Only run if executed directly
+// if (!module.parent) {
+//   (async () => {
+//     try {
+//       console.log('one county', await getCensusByGeo({
+//         pathParameters: {
+//           table: 'B09001',
+//           geoType: 'county'
+//         }, queryStringParameters: {
+//           geo: '003'
+//         }
+//       } as unknown as APIGatewayProxyEventV2));
+//       console.log('all counties', await getCensusByGeo({
+//         pathParameters: {
+//           table: 'B09001',
+//           geoType: 'county'
+//         }, queryStringParameters: {}
+//       } as unknown as APIGatewayProxyEventV2));
+//       console.log('just state', await getCensusByGeo({
+//         pathParameters: {
+//           table: 'B09001',
+//           geoType: 'state'
+//         }, queryStringParameters: {}
+//       } as unknown as APIGatewayProxyEventV2));
+//     } catch (e) {
+//       console.error(e);
+//     }
+//   })();
+// }
