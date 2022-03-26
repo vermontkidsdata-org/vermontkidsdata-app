@@ -31,8 +31,8 @@ const AppRoutes = () => (
         <Route path="/" element={<Layout/>} />
         <Route index element={<Home/>}/>
         <Route path="upload" element={<FileUpload/>}/>
-        <Route path="chart" element={<HighChart/>}/>
-        <Route path="table" element={<MaterialTable/>}/>
+        <Route path="chart/:id" element={<HighChart/>}/>
+        <Route path="table/:id" element={<MaterialTable/>}/>
         <Route path="login" element={<AuthComponent/>}/>
     </Routes>
 );

@@ -9,15 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import axios from "axios";
-
-const columns = [
-    { id: 'id', label: 'ID'},
-    { id: 'license_type', label: 'License Type'},
-    { id: 'infants', label: 'Infants' },
-    { id: 'toddlers', label: 'Toddlers' },
-    { id: 'preschool', label: 'Preschool'},
-    { id: 'year', label: 'Year'}
-];
+import { useParams } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -34,19 +26,22 @@ export default function MaterialTable() {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [rows, setRows] = useState([]);
+    const [columns, setColumns] = useState([]);
+    const { id } = useParams();
 
     useEffect( () => {
         data();
     },[]);
 
     let data = async () => {
-        let response = await axios.get('https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/table/table/58');
+        let tableId = {id};
+        let response = await axios.get(`https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/table/table/`+tableId.id);
         console.log(response.data);
-        let rows = [
-            { id: 1, license_type: 'Center Based Childcare Provider', infants: 'FFF', toddlers: 1666, preschool: 8564, year: 2020},
-            { id: 2, license_type: 'Licensed', infants: 45, toddlers: 49, preschool: 136, year: 2020},
-            { id: 3, license_type: 'Registered', infants: 537, toddlers: 541, preschool: 1039, year: 2020}
-        ];
+
+        let columns = response.data.columns;
+        setColumns(columns);
+
+        let rows = response.data.rows;
         setRows(rows);
     }
 
