@@ -239,6 +239,17 @@ export class VermontkidsdataStack extends cdk.Stack {
         // Cache GET, HEAD, OPTIONS
         cachedMethods: cloudFront.CachedMethods.CACHE_GET_HEAD_OPTIONS
       },
+      errorResponses: [
+        {
+          httpStatus: 403,
+          responseHttpStatus: 200,
+          responsePagePath: '/index.html'
+        },{
+          httpStatus: 404,
+          responseHttpStatus: 200,
+          responsePagePath: '/index.html'
+        }
+      ],
       // Enable default logging
       enableLogging: true,
       // Point to S3 Log Bucket

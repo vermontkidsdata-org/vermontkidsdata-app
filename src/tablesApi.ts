@@ -156,7 +156,7 @@ export async function table(
         };
 
         const columns: { id: string, label: string}[] = [];
-        const rows: any[][] = [];
+        const rows: {[key:string]: any}[] = [];
 
         for (let i = 0; i < resultRows.rows.length; i++) {
           // We'll take the column labels from the first row
@@ -180,7 +180,11 @@ export async function table(
           }
 
           // All rows, return the data
-          rows.push(columns.map(col => row[col.id]));
+          const rowval: {[key:string]: any} = {};
+          Object.values(columns).forEach(col => {
+            rowval[col.id] = row[col.id];
+          });
+          rows.push(rowval);
         }
         const body = {
           id: queryId,
