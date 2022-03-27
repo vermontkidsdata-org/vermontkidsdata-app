@@ -21,6 +21,12 @@ const Layout = () => {
                         <Link to="/table">MaterialTable</Link>
                     </li>
                     <li>
+                        <Link to="/census">Census</Link>
+                    </li>
+                    <li>
+                        <Link to="/datagrid">MaterialDataGrid</Link>
+                    </li>
+                    <li>
                         <Link to="/about">About</Link>
                     </li>
                 </ul>

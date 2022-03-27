@@ -62,7 +62,7 @@ export default function HighChart() {
             },
             yAxis: {
                 min: 0,
-                max: 100,
+                //max: 100,
                 title: {
                     text: 'Percent'
                 },

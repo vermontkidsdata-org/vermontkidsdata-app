@@ -1,6 +1,7 @@
 import {Link, Outlet} from "react-router-dom";
-import Layout from "./Layout";
 import React from "react";
+import Layout from "./Layout";
+import MaterialDataGrid from "./MaterialDataGrid";
 
 const Home = () => {
     return (

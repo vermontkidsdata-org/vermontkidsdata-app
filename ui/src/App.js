@@ -9,6 +9,8 @@ import FileUpload from "./pages/FileUpload";
 import Home from "./pages/Home";
 import HighChart from "./pages/HighChart";
 import MaterialTable from "./pages/MaterialTable";
+import MaterialDataGrid from "./pages/MaterialDataGrid";
+import Census from "./pages/Census";
 
 //Vermont Kids Data
 
@@ -33,7 +35,9 @@ const AppRoutes = () => (
         <Route path="upload" element={<FileUpload/>}/>
         <Route path="chart/:id" element={<HighChart/>}/>
         <Route path="table/:id" element={<MaterialTable/>}/>
+        <Route path="datagrid/:id" element={<MaterialDataGrid/>}/>
         <Route path="login" element={<AuthComponent/>}/>
+        <Route path="census" element={<Census/>}/>
     </Routes>
 );
 

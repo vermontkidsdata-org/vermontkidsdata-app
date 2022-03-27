@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     },
 });
 
+
 export default function MaterialTable() {
 
     const classes = useStyles();
@@ -103,3 +104,4 @@ export default function MaterialTable() {
         </Paper>
     );
 }
+
