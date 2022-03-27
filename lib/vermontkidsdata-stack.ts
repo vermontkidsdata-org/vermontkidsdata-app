@@ -1,6 +1,5 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as s3notify from 'aws-cdk-lib/aws-s3-notifications';
@@ -51,13 +50,15 @@ export class VermontkidsdataStack extends cdk.Stack {
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST
     });
 
+    const srcCode = lambda.Code.fromAsset(path.join(__dirname, `/../src`));
+
     // Upload data function.
-    const uploadFunction = new NodejsFunction(this, 'Upload Data Function', {
+    const uploadFunction = new lambda.Function(this, 'Upload Data Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(300),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'main',
-      entry: path.join(__dirname, `/../src/uploadData.ts`),
+      handler: 'uploadData.main',
+      code: srcCode,
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
         S3_BUCKET_NAME: bucketName,
@@ -74,12 +75,12 @@ export class VermontkidsdataStack extends cdk.Stack {
     uploadFunction.grantInvoke(S3_SERVICE_PRINCIPAL);
 
     // Also shows status of uploads.
-    const uploadStatusFunction = new NodejsFunction(this, 'Upload Status Function', {
+    const uploadStatusFunction = new lambda.Function(this, 'Upload Status Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(5),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'status',
-      entry: path.join(__dirname, `/../src/uploadData.ts`),
+      handler: 'uploadData.status',
+      code: srcCode,
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
         S3_BUCKET_NAME: bucketName,
@@ -94,21 +95,21 @@ export class VermontkidsdataStack extends cdk.Stack {
     const secret = sm.Secret.fromSecretNameV2(this, 'DB credentials', 'vkd/prod/dbcreds');
     secret.grantRead(uploadFunction);
 
-    const helloWorld = new NodejsFunction(this, 'hello-world-function', {
+    const helloWorld = new lambda.Function(this, 'hello-world-function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(5),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'main',
-      entry: path.join(__dirname, `/../src/hello.ts`),
+      handler: 'hello.main',
+      code: srcCode,
       logRetention: logs.RetentionDays.ONE_DAY
     });
 
-    const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
+    const apiChartBarFunction = new lambda.Function(this, 'Bar Chart API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'bar',
-      entry: path.join(__dirname, `/../src/chartsApi.ts`),
+      handler: 'chartsApi.bar',
+      code: srcCode,
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
         REGION: this.region
@@ -116,12 +117,12 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(apiChartBarFunction);
 
-    const apiTableFunction = new NodejsFunction(this, 'Basic table API Function', {
+    const apiTableFunction = new lambda.Function(this, 'Basic table API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'table',
-      entry: path.join(__dirname, `/../src/tablesApi.ts`),
+      handler: 'tablesApi.table',
+      code: srcCode,
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
         REGION: this.region
@@ -129,36 +130,48 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(apiTableFunction);
 
+    const getSecretValueStatement = new iam.PolicyStatement({
+      actions: ["secretsmanager:GetSecretValue"],
+      resources: ["*"]
+    });
     const tableCensusByGeoFunction = new lambda.Function(this, 'Census Table By Geo Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'tablesApi.getCensusByGeo',
-      code: lambda.Code.fromAsset(path.join(__dirname, `/../src`)),
+      code: srcCode,
       logRetention: logs.RetentionDays.ONE_DAY
     });
-    tableCensusByGeoFunction.addToRolePolicy(new iam.PolicyStatement({
-      actions: ["secretsmanager:GetSecretValue"],
-      resources: ["*"]
-    }));
-
-    const testDBFunction = new NodejsFunction(this, 'Test DB Function', {
+    tableCensusByGeoFunction.addToRolePolicy(getSecretValueStatement);
+    const getGeosByTypeFunction = new lambda.Function(this, 'Get Geos by Type Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'queryDB',
-      entry: path.join(__dirname, `/../src/testcitylambda.ts`),
-      bundling: {
-        minify: true,
-        externalModules: ['citysdk']
-      },
+      handler: 'tablesApi.getGeosByType',
+      code: srcCode,
       logRetention: logs.RetentionDays.ONE_DAY
     });
+    getGeosByTypeFunction.addToRolePolicy(getSecretValueStatement);
 
-    testDBFunction.addToRolePolicy(new iam.PolicyStatement({
-      actions: ["secretsmanager:GetSecretValue"],
-      resources: ["*"]
-    }));
+    const getCensusTablesSearchFunction = new lambda.Function(this, 'Get Census Tables Search Function', {
+      memorySize: 1024,
+      timeout: cdk.Duration.seconds(15),
+      runtime: lambda.Runtime.NODEJS_14_X,
+      handler: 'tablesApi.getCensusTablesSearch',
+      code: srcCode,
+      logRetention: logs.RetentionDays.ONE_DAY
+    });
+    getCensusTablesSearchFunction.addToRolePolicy(getSecretValueStatement);
+
+    const testDBFunction = new lambda.Function(this, 'Test DB Function', {
+      memorySize: 1024,
+      timeout: cdk.Duration.seconds(15),
+      runtime: lambda.Runtime.NODEJS_14_X,
+      handler: 'testcitylambda.queryDB',
+      code: srcCode,
+      logRetention: logs.RetentionDays.ONE_DAY
+    });
+    testDBFunction.addToRolePolicy(getSecretValueStatement);
 
     const api = new RestApi(this, `${local.ns}-Vermont Kids Data`, {
       // Add OPTIONS call to all resources
@@ -193,6 +206,15 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rTableCensusTable = rTableCensus.addResource("{table}");
     const rTableCensusTableByGeo = rTableCensusTable.addResource("{geoType}");
     rTableCensusTableByGeo.addMethod("GET", new LambdaIntegration(tableCensusByGeoFunction));
+
+    const rCodes = api.root.addResource("codes");
+    const rCodesGeos = rCodes.addResource("geos");
+    const rCodesGeosByType = rCodesGeos.addResource("{geoType}");
+    rCodesGeosByType.addMethod("GET", new LambdaIntegration(getGeosByTypeFunction));
+    const rCodesCensus = rCodes.addResource("census");
+    const rCodesCensusTables = rCodesCensus.addResource("tables");
+    const rCodesCensusTablesSearch = rCodesCensusTables.addResource("search");
+    rCodesCensusTablesSearch.addMethod("GET", new LambdaIntegration(getCensusTablesSearchFunction));
 
     const testDBResource = api.root.addResource("testdb");
     testDBResource.addMethod("GET", new LambdaIntegration(testDBFunction));

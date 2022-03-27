@@ -5,7 +5,7 @@
     "vermontkidsdata-app": "bin/vermontkidsdata-app.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "(cd src && npm run build) && (cd ../ui && npm run build)",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"

@@ -29,7 +29,7 @@ async function initConnectInfo(): Promise<void> {
     }
 }
 
-export async function queryDB(sqlText: string): Promise<any[]> {
+export async function queryDB(sqlText: string, params?: any[]): Promise<any[]> {
     await initConnectInfo();
 
     // Get secret connection info
@@ -44,7 +44,7 @@ export async function queryDB(sqlText: string): Promise<any[]> {
             if (err) {
                 reject('error connecting: ' + err);
             } else {
-                connection.query(sqlText, (err: Error, results: any[], fields: any) => {
+                connection.query(sqlText, params, (err: mysql.MysqlError|null, results: any[], fields: any) => {
                     connection.end((err: any) => { if (err) console.error(err)});
 
                     if (err) {
