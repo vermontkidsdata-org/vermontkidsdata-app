@@ -94,11 +94,6 @@ export class VermontkidsdataStack extends cdk.Stack {
     const secret = sm.Secret.fromSecretNameV2(this, 'DB credentials', 'vkd/prod/dbcreds');
     secret.grantRead(uploadFunction);
 
-    const citysdkLayer = new lambda.LayerVersion(this, 'CitySDK Layer', {
-      code: lambda.Code.fromAsset('src/layers/citysdk-utils'),
-      compatibleRuntimes: [lambda.Runtime.NODEJS_12_X, lambda.Runtime.NODEJS_14_X]
-    });
-
     const helloWorld = new NodejsFunction(this, 'hello-world-function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(5),
@@ -134,19 +129,18 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(apiTableFunction);
 
-    const testCensusFunction = new NodejsFunction(this, 'Test Census Function', {
+    const tableCensusByGeoFunction = new lambda.Function(this, 'Census Table By Geo Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'getCensus',
-      entry: path.join(__dirname, `/../src/testcitylambda.ts`),
-      bundling: {
-        minify: true,
-        externalModules: ['citysdk']
-      },
-      layers: [citysdkLayer],
+      handler: 'tablesApi.getCensusByGeo',
+      code: lambda.Code.fromAsset(path.join(__dirname, `/../src`)),
       logRetention: logs.RetentionDays.ONE_DAY
     });
+    tableCensusByGeoFunction.addToRolePolicy(new iam.PolicyStatement({
+      actions: ["secretsmanager:GetSecretValue"],
+      resources: ["*"]
+    }));
 
     const testDBFunction = new NodejsFunction(this, 'Test DB Function', {
       memorySize: 1024,
@@ -158,7 +152,6 @@ export class VermontkidsdataStack extends cdk.Stack {
         minify: true,
         externalModules: ['citysdk']
       },
-      layers: [citysdkLayer],
       logRetention: logs.RetentionDays.ONE_DAY
     });
 
@@ -196,9 +189,10 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rTableTable = rTable.addResource("table");
     const rTableTableById = rTableTable.addResource("{queryId}");
     rTableTableById.addMethod("GET", new LambdaIntegration(apiTableFunction));
-    
-    const testCensusResource = api.root.addResource("census");
-    testCensusResource.addMethod("GET", new LambdaIntegration(testCensusFunction));
+    const rTableCensus = rTable.addResource("census");
+    const rTableCensusTable = rTableCensus.addResource("{table}");
+    const rTableCensusTableByGeo = rTableCensusTable.addResource("{geoType}");
+    rTableCensusTableByGeo.addMethod("GET", new LambdaIntegration(tableCensusByGeoFunction));
 
     const testDBResource = api.root.addResource("testdb");
     testDBResource.addMethod("GET", new LambdaIntegration(testDBFunction));

@@ -1,12 +1,6 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import * as AWS from 'aws-sdk';
-import * as csv from 'csv-parse';
 import * as mysql from 'mysql';
 import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
-import * as util from 'util';
-import { v4 as uuidv4 } from 'uuid';
-import { PutItemOutput } from 'aws-sdk/clients/dynamodb';
-import e = require('express');
 
 const { REGION } = process.env;
 
