@@ -3,8 +3,24 @@ import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
 import * as mysql from 'mysql';
 import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
 import { queryDB } from './db-utils';
+import { getHeaders } from './cors';
 
 const { REGION } = process.env;
+interface GazCounty {
+  id: number, // 2819
+  year: number, // 2019
+  USPS: number, // 'VT'
+  GEOID: string, // '50025'
+  ANSICODE: string, // '1461769',
+  NAME: string, // 'Windham County',
+  ALAND: string, // '2034457838',
+  AWATER: string, // '32920750',
+  ALAND_SQMI: string, // '785.509',
+  AWATER_SQMI: string, // '12.711',
+  INTPTLAT: string, // '42.995335',
+  INTPTLONG: string, // '-72.721955'
+}
+
 
 async function doOpen(): Promise<mysql.Connection> {
   const smClient = new SecretsManagerClient({ region: REGION });
@@ -98,6 +114,7 @@ export async function table(
   console.log('event 👉', event);
   if (event.pathParameters == null || event.pathParameters.queryId == null) {
     return {
+      headers: getHeaders("application/json"),
       statusCode: 400
     };
   } else {
@@ -181,11 +198,7 @@ export async function table(
       console.log('body', JSON.stringify(body, null, 2));
       return {
         statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Methods": "GET",
-        },
+        headers: getHeaders("application/json"),
         body: JSON.stringify(body)
       };
 
@@ -193,6 +206,7 @@ export async function table(
       console.log(e);
       return {
         statusCode: 500,
+        headers: getHeaders("application/json"),
         body: (e as Error).message
       };
     }
@@ -247,6 +261,7 @@ export async function getCensusByGeo(
       body: JSON.stringify({
         message: 'Only supports county right now',
       }),
+      headers: getHeaders("application/json"),
       statusCode: 400,
     };
   }
@@ -296,21 +311,6 @@ export async function getCensusByGeo(
   censusResultsToTable(censusStateResults, acsVars, Object.keys(columns).length == 1 ? columns : undefined, rows);
 
   // Now convert the geos to names
-  interface GazCounty {
-    id: number, // 2819
-    year: number, // 2019
-    USPS: number, // 'VT'
-    GEOID: string, // '50025'
-    ANSICODE: string, // '1461769',
-    NAME: string, // 'Windham County',
-    ALAND: string, // '2034457838',
-    AWATER: string, // '32920750',
-    ALAND_SQMI: string, // '785.509',
-    AWATER_SQMI: string, // '12.711',
-    INTPTLAT: string, // '42.995335',
-    INTPTLONG: string, // '-72.721955'
-  }
-
   const dbCounties: GazCounty[] = await queryDB(`select * from dbvkd.gaz_counties where usps='VT'`);
   const counties: { [id: string]: GazCounty } = {}
   dbCounties.forEach((cty) => {
@@ -332,18 +332,94 @@ export async function getCensusByGeo(
       columns: columns,
       rows: rows
     }),
+    headers: getHeaders("application/json"),
     statusCode: 200,
   };
 }
 
-// (async() => {
-//   const event: APIGatewayProxyEventV2 = {
-//     pathParameters: { 
-//       queryId: '58'
-//     }
-//   } as unknown as APIGatewayProxyEventV2;
-//   await table(event);
-// })();
+export async function getCensusTablesSearch(
+  event: APIGatewayProxyEventV2,
+): Promise<APIGatewayProxyResultV2> {
+  console.log('starting main function');
+  const queryStringParameters = event.queryStringParameters || {};
+  const concept = queryStringParameters.concept;
+
+  const conds: string[] = [];
+  const params: any[] = [];
+  if (concept != null) {
+    conds.push("concept like ?");
+    params.push(`%${concept}%`);
+  }
+
+  if (conds.length === 0) {
+    return {
+      body: JSON.stringify({ message: 'Need at least one search condition', }),
+      headers: getHeaders("application/json"),
+      statusCode: 400,
+    };
+  }
+
+  const vars: AcsVariable[] = await queryDB(`SELECT distinct concept, \`group\` FROM dbvkd.acs_variables where ${conds.join(' and ')}`, params);
+  return {
+    body: JSON.stringify({ tables: vars.map(t => {
+      return {
+        table: t.group,
+        concept: t.concept
+      }
+    }) }),
+    headers: getHeaders("application/json"),
+    statusCode: 200,
+  };
+}
+
+export async function getGeosByType(
+  event: APIGatewayProxyEventV2,
+): Promise<APIGatewayProxyResultV2> {
+  console.log('starting main function');
+  const pathParameters = event.pathParameters || {};
+  const geoType = pathParameters.geoType!;
+
+  if (!['county'].includes(geoType)) {
+    return {
+      body: JSON.stringify({
+        message: 'Only supports county right now',
+      }),
+      headers: getHeaders("application/json"),
+      statusCode: 400,
+    };
+  }
+
+  const geos: { id: string, name: string }[] = []
+  if (geoType === 'county') {
+    const dbCounties: GazCounty[] = await queryDB(`select * from dbvkd.gaz_counties where usps='VT' and geoid != '50'`);
+    dbCounties.forEach((cty) => {
+      if (cty.GEOID.length === 5) {
+        geos.push({ id: cty.GEOID.substring(2), name: cty.NAME });
+      }
+    });
+  }
+
+  console.log('body', JSON.stringify(geos, null, 2));
+  return {
+    statusCode: 200,
+    headers: getHeaders("application/json"),
+    body: JSON.stringify({geos})
+  };
+}
+
+(async() => {
+  // console.log(await getGeosByType({ pathParameters: {geoType: 'county'} } as unknown as APIGatewayProxyEventV2));
+  // console.log(await getGeosByType({ pathParameters: {geoType: 'state'} } as unknown as APIGatewayProxyEventV2));
+  console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'poverty' }} as unknown as APIGatewayProxyEventV2));
+  console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'occupation' }} as unknown as APIGatewayProxyEventV2));
+  console.log(await getCensusTablesSearch({ } as unknown as APIGatewayProxyEventV2));
+})();
+// const event: APIGatewayProxyEventV2 = {
+//   pathParameters: { 
+//     queryId: '58'
+//   }
+// } as unknown as APIGatewayProxyEventV2;
+// await table(event);
 // Only run if executed directly
 // if (!module.parent) {
 //   (async () => {
