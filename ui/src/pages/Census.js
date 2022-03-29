@@ -12,6 +12,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 import axios from "axios";
 import {DataGrid, GridToolbarContainer, GridToolbarExport} from "@mui/x-data-grid";
+import {ThreeDots} from 'react-loader-spinner';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -35,6 +36,30 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+//utility functions to translate Material UI Table columns and rows to the structure required for DataGrid
+function prepareColumns(columns){
+    let cols = [];
+    for(let i = 0; i < columns.length; i++ ){
+        let column = columns[i];
+        column.field = column.id;
+        column.headerName = column.label;
+        column.flex = 1;
+        cols.push(column);
+    }
+    return cols;
+}
+function prepareRows(rows){
+    let r = [];
+    console.log('preparing rows', rows);
+    //rows need a unique ID to maintain React state
+    for(let i = 0; i < rows.length; i++ ){
+        let row = rows[i];
+        row.id = i;
+        r.push(row);
+    }
+    return r;
+}
+
 function CustomToolbar() {
     return (
         <GridToolbarContainer>
@@ -46,15 +71,16 @@ function CustomToolbar() {
 export default function Census() {
 
     const classes = useStyles();
-    const [geo, setGeo] = useState('state');
+    const [geography, setGeography] = useState('state');
     const [searchText, setSearchText] = useState('');
     const [tables, setTables] = useState([]);
     const [table, setTable] = useState('');
     const [rows, setRows] = useState([]);
     const [columns, setColumns] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const handleGeoChange = (event) => {
-        setGeo(event.target.value);
+        setGeography(event.target.value);
     };
 
     const handleSearchText = (event) => {
@@ -66,23 +92,37 @@ export default function Census() {
     };
 
     const searchTables = async () => {
+        setLoading(true);
         let search = {searchText};
         console.log('searching', search);
-        let response = await axios.get(`https://data.vermontkidsdata.org/v1/search_concepts/`+search.searchText);
+        //let response = await axios.get(`https://data.vermontkidsdata.org/v1/search_concepts/`+search.searchText);
+        let response = await axios.get('https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/codes/census/tables/search?concept='+search.searchText);
         console.log(response.data);
-        let tables = response.data;
-        setTables(response.data);
-        setTable(tables[0].group);
+        let tables = response.data.tables;
+        setTables(response.data.tables);
+        setTable(tables[0].table);
+        setLoading(false);
     };
 
     const getCensusData = async () => {
         //console.log('getting data', {table});
+        setLoading(true);
         let table = 'B09001';
-        let geo = 'state';
-        let response = await axios.get(`https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/table/census/`+table+`/`+geo);
+        let geo = {geography};
+        console.log(geo);
+        let response = await axios.get(`https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/table/census/`+table+`/`+geo.geography);
         console.log(response.data);
+        let columns = response.data.columns;
+        columns = prepareColumns(columns);
+        let rows = response.data.rows;
+        rows = prepareRows(rows);
+        setRows(rows);
+        setColumns(columns);
+        setLoading(false);
 
     };
+
+    console.log({geography});
 
     return (
 
@@ -112,8 +152,8 @@ export default function Census() {
                     onChange={handleTableChange}
                     className={classes.textField} >
                     {tables.map((option) => (
-                        <MenuItem key={option.group} value={option.group}>
-                            {option.group} {option.concept}
+                        <MenuItem key={option.table} value={option.table}>
+                            {option.table} {option.concept}
                         </MenuItem>
                     ))}
                 </TextField>
@@ -123,8 +163,8 @@ export default function Census() {
                 <InputLabel id="geo-label">Geography</InputLabel>
                 <Select
                     labelId="geo-label"
-                    id="geo"
-                    value={geo}
+                    id="geography"
+                    value={geography}
                     onChange={handleGeoChange}
                 >
                     <MenuItem value={'state'}>State</MenuItem>
@@ -133,7 +173,15 @@ export default function Census() {
             </FormControl>
             </div>
             <div><Button variant="contained" color="primary" className={classes.searchBtn} onClick={getCensusData}>Get Data</Button></div>
-            <div style={{ height: 300, width: '100%', marginTop: '2em' }}>
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}>
+                {loading ? <ThreeDots color="#2BAD60" height="100" width="100" /> : <div></div> }
+
+            </div>
+            <div style={{ height: 600, width: '100%', marginTop: '2em' }}>
                 <DataGrid
                     columns={columns}
                     rows={rows}
