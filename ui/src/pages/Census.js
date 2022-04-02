@@ -15,10 +15,17 @@ import {DataGrid, GridToolbarContainer, GridToolbarExport} from "@mui/x-data-gri
 import {ThreeDots} from 'react-loader-spinner';
 
 const useStyles = makeStyles((theme) => ({
-    container: {
+    rowContainer: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "flex-start"
+    },
+    colContainer: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center"
+        justifyContent: "center",
+
     },
     formControl: {
         margin: theme.spacing(1),
@@ -78,6 +85,14 @@ export default function Census() {
     const [rows, setRows] = useState([]);
     const [columns, setColumns] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [variable, setVariable] = useState([]);
+    const [variables, setVariables] = useState([]);
+    const [dataset, setDataset] = useState([]);
+    const [year, setYear] = useState('');
+
+    const handleDatasetChange = (event) => {
+        setDataset(event.target.value);
+    };
 
     const handleGeoChange = (event) => {
         setGeography(event.target.value);
@@ -91,6 +106,21 @@ export default function Census() {
         setTable(event.target.value);
     };
 
+    const handleYearChange = (event) => {
+        setYear(event.target.value);
+    };
+
+    const handleVariableChange = (event) => {
+        const { options } = event.target;
+        const value = [];
+        for (let i = 0, l = options.length; i < l; i += 1) {
+            if (options[i].selected) {
+                value.push(options[i].value);
+            }
+        }
+        setVariable(value);
+    };
+
     const searchTables = async () => {
         setLoading(true);
         let search = {searchText};
@@ -99,8 +129,14 @@ export default function Census() {
         let response = await axios.get('https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/codes/census/tables/search?concept='+search.searchText);
         console.log(response.data);
         let tables = response.data.tables;
+        //once we get the tables, search the variables
+        //let response = await axios.get('https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/codes/census/tables/search?concept='+search.searchText);
+        let concept = 'POPULATION%20UNDER%2018%20YEARS%20BY%20AGE';
+        let vars = await axios.get(`https://data.vermontkidsdata.org/v1/search_concept_variables/`+concept);
+        console.log(vars.data);
         setTables(response.data.tables);
         setTable(tables[0].table);
+        setVariables(vars.data);
         setLoading(false);
     };
 
@@ -125,70 +161,145 @@ export default function Census() {
     console.log({geography});
 
     return (
-
-        <div className={clsx(classes.container)} >
+        <div className={clsx(classes.colContainer)} >
             <div><h3>US Census Bureau</h3></div>
             <div>
-            <TextField
-                className={classes.textField}
-                onChange={handleSearchText}
-                id="search-text"
-                label="Tables"
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <SearchIcon />
-                        </InputAdornment>
-                    ),
-                }}
-            /></div>
-    <div><Button variant="contained" color="primary" className={classes.searchBtn} onClick={searchTables}>Search Tables</Button></div>
-            <div>
-                <TextField
-                    id="table"
-                    label="Table"
-                    select
-                    value={table}
-                    onChange={handleTableChange}
-                    className={classes.textField} >
-                    {tables.map((option) => (
-                        <MenuItem key={option.table} value={option.table}>
-                            {option.table} {option.concept}
-                        </MenuItem>
-                    ))}
-                </TextField>
-            </div>
-            <div>
-            <FormControl className={clsx(classes.formControl, classes.textField)} >
-                <InputLabel id="geo-label">Geography</InputLabel>
-                <Select
-                    labelId="geo-label"
-                    id="geography"
-                    value={geography}
-                    onChange={handleGeoChange}
-                >
-                    <MenuItem value={'state'}>State</MenuItem>
-                    <MenuItem value={'county'}>County</MenuItem>
-                </Select>
-            </FormControl>
-            </div>
-            <div><Button variant="contained" color="primary" className={classes.searchBtn} onClick={getCensusData}>Get Data</Button></div>
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}>
-                {loading ? <ThreeDots color="#2BAD60" height="100" width="100" /> : <div></div> }
+                <div className={clsx(classes.rowContainer)}>
+                    {/*input column 1*/}
+                    <div className={clsx(classes.colContainer)} >
+                        <div>
+                            <FormControl className={clsx(classes.formControl, classes.textField)} >
+                                <InputLabel id="dataset-label">Dataset</InputLabel>
+                                <Select
+                                    labelId="dataset-label"
+                                    id="dataset"
+                                    value={dataset}
+                                    onChange={handleDatasetChange}
+                                >
+                                    <MenuItem value={'acs1'}>American Community Survey (ACS) 1 Year</MenuItem>
+                                    <MenuItem value={'acs3'}>American Community Survey (ACS) 3 Year</MenuItem>
+                                    <MenuItem value={'acs5'}>American Community Survey (ACS) 5 Year</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </div>
+                        <div>
+                            <FormControl className={clsx(classes.formControl, classes.textField)} >
+                                <InputLabel id="year-label">Year</InputLabel>
+                                <Select
+                                    labelId="year-label"
+                                    id="year"
+                                    value={year}
+                                    onChange={handleYearChange}
+                                >
+                                    <MenuItem value={'2020'}>2020</MenuItem>
+                                    <MenuItem value={'2019'}>2019</MenuItem>
+                                    <MenuItem value={'2018'}>2018</MenuItem>
+                                    <MenuItem value={'2017'}>2017</MenuItem>
+                                    <MenuItem value={'2016'}>2016</MenuItem>
+                                    <MenuItem value={'2015'}>2015</MenuItem>
+                                    <MenuItem value={'2014'}>2014</MenuItem>
+                                    <MenuItem value={'2013'}>2013</MenuItem>
+                                    <MenuItem value={'2012'}>2012</MenuItem>
+                                    <MenuItem value={'2011'}>2011</MenuItem>
+                                    <MenuItem value={'2010'}>2010</MenuItem>
+                                    <MenuItem value={'2009'}>2009</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </div>
+                        <div>
+                            <FormControl className={clsx(classes.formControl, classes.textField)} >
+                                <InputLabel id="geo-label">Geography</InputLabel>
+                                <Select
+                                    labelId="geo-label"
+                                    id="geography"
+                                    value={geography}
+                                    onChange={handleGeoChange}
+                                >
+                                    <MenuItem value={'state'}>State</MenuItem>
+                                    <MenuItem value={'county'}>County</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </div>
 
+                    </div>
+                    {/*input column 2*/}
+                    <div>
+                        <div>
+                            <TextField
+                                className={classes.textField}
+                                onChange={handleSearchText}
+                                id="search-text"
+                                label="Tables"
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <SearchIcon />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                            /></div>
+                        <div><Button variant="contained" color="primary" className={classes.searchBtn} onClick={searchTables}>Search Tables</Button></div>
+                        <div>
+                            <TextField
+                                id="table"
+                                label="Table"
+                                select
+                                value={table}
+                                onChange={handleTableChange}
+                                className={classes.textField} >
+                                {tables.map((option) => (
+                                    <MenuItem key={option.table} value={option.table}>
+                                        {option.table} {option.concept}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                        </div>
+                        <div>
+                            <FormControl className={clsx(classes.formControl, classes.textField)} >
+                                <InputLabel shrink htmlFor="var">Variables</InputLabel>
+                                <Select
+                                    native
+                                    multiple
+                                    id="variable"
+                                    value={variable}
+                                    onChange={handleVariableChange}
+                                    inputProps={{
+                                        id: 'var',
+                                    }}
+                                >
+                                    {variables.map((v) => (
+                                        <option key={v.variable} value={v.variable}>
+                                            {v.label}
+                                        </option>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </div>
+
+                        <div><Button variant="contained" color="primary" className={classes.searchBtn} onClick={getCensusData}>Get Data</Button></div>
+                    </div>
+                </div>
             </div>
-            <div style={{ height: 600, width: '100%', marginTop: '2em' }}>
-                <DataGrid
-                    columns={columns}
-                    rows={rows}
-                    components = {{
-                        Toolbar: CustomToolbar,
-                    }}
-                />
+            {/*data grid*/}
+            <div>
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}>
+                    {loading ? <ThreeDots color="#2BAD60" height="100" width="100" /> : <div></div> }
+
+                </div>
+
+                <div style={{ height: 600, width: '100%', marginTop: '2em' }}>
+                    <DataGrid
+                        columns={columns}
+                        rows={rows}
+                        components = {{
+                            Toolbar: CustomToolbar,
+                        }}
+                    />
+                </div>
             </div>
         </div>
     )
