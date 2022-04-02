@@ -407,11 +407,24 @@ export async function getCensusByGeo(
   }
 
   const queryVars: string[] = [];
+  const variablesTracker: {[key: string]: boolean} = {};
+  if (variables != null) variables.forEach(v => variablesTracker[v] = false);
   acsVars.forEach(acsVar => {
     if (variables == null || variables.includes(acsVar.variable)) {
       queryVars.push(acsVar.variable);
+      variablesTracker[acsVar.variable] = true;
     }
   });
+  const unknownVars = Object.entries(variablesTracker).filter(vt => vt[1] === false).map(vt => vt[0]);
+  if (unknownVars.length > 0) {
+    return {
+      body: JSON.stringify({
+        message: 'one or more unknown variables requested: '+unknownVars,
+      }),
+      headers: getHeaders("application/json"),
+      statusCode: 400,
+    };
+  }
 
   // API limits to 50 variables
   if (queryVars.length > 50) {
@@ -605,7 +618,7 @@ export async function getGeosByType(
     });
   }
 
-  console.log('body', JSON.stringify(geos, null, 2));
+  // console.log('body', JSON.stringify(geos, null, 2));
   return {
     statusCode: 200,
     headers: getHeaders("application/json"),
@@ -741,6 +754,14 @@ if (!module.parent) {
         geoType: 'head_start'
       }, queryStringParameters: {
         variables: 'S1701_C01_044E,S1701_C01_047E'
+      }
+    } as unknown as APIGatewayProxyEventV2));
+    console.log('S1701 -- unknown vars', await getCensusByGeo({
+      pathParameters: {
+        table: 'S1701',
+        geoType: 'head_start'
+      }, queryStringParameters: {
+        variables: 'S1701_C01_044E,S1601_C01_001E,S1601_C01_002E'
       }
     } as unknown as APIGatewayProxyEventV2));
     
