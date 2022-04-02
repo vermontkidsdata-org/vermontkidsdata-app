@@ -390,6 +390,16 @@ export async function getCensusByGeo(
 
   // Get census variables
   const acsVars: AcsVariable[] = await queryDB('select * from acs_variables where `group`=? order by variable', [table.toUpperCase()]);
+  if (acsVars.length === 0) {
+    return {
+      body: JSON.stringify({
+        message: 'unknown table',
+      }),
+      headers: getHeaders("application/json"),
+      statusCode: 400,
+    };
+  }
+
   const queryVars: string[] = [];
   acsVars.forEach(acsVar => {
     if (variables == null || variables.includes(acsVar.variable)) {
@@ -625,73 +635,79 @@ if (!module.parent) {
     // } as unknown as APIGatewayProxyEventV2));
     // console.log(await codesCensusVariablesByTable({ pathParameters: {table: 'B09001'} } as unknown as APIGatewayProxyEventV2));
     // console.log(await codesCensusVariablesByTable({ pathParameters: {table: 'BOGUS'} } as unknown as APIGatewayProxyEventV2));
-    console.log('HS region', await getCensusByGeo({
+    // console.log('HS region', await getCensusByGeo({
+    //   pathParameters: {
+    //     table: 'B09001',
+    //     geoType: 'head_start'
+    //   }, queryStringParameters: {}
+    // } as unknown as APIGatewayProxyEventV2));
+    // console.log('HS region, only two vars', await getCensusByGeo({
+    //   pathParameters: {
+    //     table: 'B09001',
+    //     geoType: 'head_start'
+    //   }, queryStringParameters: {
+    //     variables: 'B09001_001E,B09001_002E'
+    //   }
+    // } as unknown as APIGatewayProxyEventV2));
+    // console.log('HS region, 2018', await getCensusByGeo({
+    //   pathParameters: {
+    //     table: 'B09001',
+    //     geoType: 'head_start'
+    //   }, queryStringParameters: {
+    //     year: '2018'
+    //   }
+    // } as unknown as APIGatewayProxyEventV2));
+    // console.log('HS region, invalid year', await getCensusByGeo({
+    //   pathParameters: {
+    //     table: 'B09001',
+    //     geoType: 'head_start'
+    //   }, queryStringParameters: {
+    //     year: '1776'
+    //   }
+    // } as unknown as APIGatewayProxyEventV2));
+    // console.log('HS region, valid year for acs3', await getCensusByGeo({
+    //   pathParameters: {
+    //     table: 'B09001',
+    //     geoType: 'head_start'
+    //   }, queryStringParameters: {
+    //     year: '2013',
+    //     dataset: 'acs/acs3'
+    //   }
+    // } as unknown as APIGatewayProxyEventV2));
+    // console.log('HS region, invalid year for acs3', await getCensusByGeo({
+    //   pathParameters: {
+    //     table: 'B09001',
+    //     geoType: 'head_start'
+    //   }, queryStringParameters: {
+    //     year: '2020',
+    //     dataset: 'acs/acs3'
+    //   }
+    // } as unknown as APIGatewayProxyEventV2));
+    // console.log('HS region, valid year for acs1, only two variables', await getCensusByGeo({
+    //   pathParameters: {
+    //     table: 'B09001',
+    //     geoType: 'head_start'
+    //   }, queryStringParameters: {
+    //     year: '2005',
+    //     dataset: 'acs/acs1',
+    //     variables: 'B09001_001E,B09001_002E'
+    //   }
+    // } as unknown as APIGatewayProxyEventV2));
+    console.log('Unknown table', await getCensusByGeo({
       pathParameters: {
-        table: 'B09001',
-        geoType: 'head_start'
-      }, queryStringParameters: {}
-    } as unknown as APIGatewayProxyEventV2));
-    console.log('HS region, only two vars', await getCensusByGeo({
-      pathParameters: {
-        table: 'B09001',
+        table: 'BOGUS',
         geoType: 'head_start'
       }, queryStringParameters: {
-        variables: 'B09001_001E,B09001_002E'
       }
     } as unknown as APIGatewayProxyEventV2));
-    console.log('HS region, 2018', await getCensusByGeo({
+    console.log('S1701', await getCensusByGeo({
       pathParameters: {
-        table: 'B09001',
+        table: 'S1701',
         geoType: 'head_start'
       }, queryStringParameters: {
-        year: '2018'
       }
     } as unknown as APIGatewayProxyEventV2));
-    console.log('HS region, invalid year', await getCensusByGeo({
-      pathParameters: {
-        table: 'B09001',
-        geoType: 'head_start'
-      }, queryStringParameters: {
-        year: '1776'
-      }
-    } as unknown as APIGatewayProxyEventV2));
-    console.log('HS region, valid year for acs3', await getCensusByGeo({
-      pathParameters: {
-        table: 'B09001',
-        geoType: 'head_start'
-      }, queryStringParameters: {
-        year: '2013',
-        dataset: 'acs/acs3'
-      }
-    } as unknown as APIGatewayProxyEventV2));
-    console.log('HS region, invalid year for acs3', await getCensusByGeo({
-      pathParameters: {
-        table: 'B09001',
-        geoType: 'head_start'
-      }, queryStringParameters: {
-        year: '2020',
-        dataset: 'acs/acs3'
-      }
-    } as unknown as APIGatewayProxyEventV2));
-    console.log('HS region, valid year for acs1, only two variables', await getCensusByGeo({
-      pathParameters: {
-        table: 'B09001',
-        geoType: 'head_start'
-      }, queryStringParameters: {
-        year: '2005',
-        dataset: 'acs/acs1',
-        variables: 'B09001_001E,B09001_002E'
-      }
-    } as unknown as APIGatewayProxyEventV2));
-    const result = await getCensusByGeo({
-      pathParameters: {
-        table: 'B09001',
-        geoType: 'town'
-      }, queryStringParameters: {
-        variables: 'B09001_001E,B09001_002E'
-      }
-    } as unknown as APIGatewayProxyEventV2);
-    console.log('HS region, by towns, only two variables', result);
+
     // console.log('BBF region', await getCensusByGeo({
     //   pathParameters: {
     //     table: 'B09001',
