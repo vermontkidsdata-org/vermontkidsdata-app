@@ -24,7 +24,7 @@ export class VermontkidsdataStack extends cdk.Stack {
 
     // Maybe need to always do this
     const bucket = new s3.Bucket(this, 'Uploads bucket', {
-      accessControl: s3.BucketAccessControl.PUBLIC_READ_WRITE,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
       versioned: false,
