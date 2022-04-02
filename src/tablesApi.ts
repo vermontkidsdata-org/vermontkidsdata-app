@@ -243,7 +243,7 @@ function censusResultsToTable(censusResults: CensusResultRow[], acsVars: AcsVari
   if (columns != null) {
     acsVars.forEach(acsVar => {
       if (variables == null || variables.includes(acsVar.variable))
-      columns.push({ id: acsVar.variable, label: acsVar.label });
+        columns.push({ id: acsVar.variable, label: acsVar.label });
     });
   }
 
@@ -278,9 +278,11 @@ interface TownRollupMap {
   }
 }
 
-async function getTownRollupMap(geoType: string): Promise<TownRollupMap> {
-  const mappings: {gaz_county_subdivision: string, geography_map_geoid: number, geography_map_name: string}[] = 
+async function getTownRollupMap(geoType: string): Promise<TownRollupMap | undefined> {
+  const mappings: { gaz_county_subdivision: string, geography_map_geoid: number, geography_map_name: string }[] =
     await queryDB('select gaz_county_subdivision, geography_map_geoid, geography_map_name from gaz_geography_map where geography_map_type=?', [geoType]);
+  if (mappings.length === 0) return undefined;
+
   const ret: TownRollupMap = {};
   mappings.forEach(mapping => ret[mapping.gaz_county_subdivision] = {
     geography_map_geoid: mapping.geography_map_geoid,
@@ -289,42 +291,47 @@ async function getTownRollupMap(geoType: string): Promise<TownRollupMap> {
   return ret;
 }
 
-function rollUpTownResultsByGeoType(censusResults: CensusResultRow[], rollupMap: TownRollupMap): CensusResultRow[] {
+function rollUpTownResultsByGeoType(censusResults: CensusResultRow[], rollupMap: TownRollupMap | undefined): CensusResultRow[] {
   const rollupResults: {
     [geography_map_geoid: number]: CensusResultRow
   } = {};
-  const rollupMapKeys = Object.keys(rollupMap);
-  censusResults.forEach(censusResult => {
-    const gaz_county_subdivision = censusResult.state + censusResult.county + censusResult['county-subdivision'];
-    if (rollupMapKeys.includes(gaz_county_subdivision)) {
-      const geography_map_geoid = rollupMap[gaz_county_subdivision].geography_map_geoid;
-      const existingRow = rollupResults[geography_map_geoid];
-      if (existingRow == null) {
-        // console.log(`first time for geoid=${geography_map_geoid}`);
-        censusResult.rollupName = rollupMap[gaz_county_subdivision].geography_map_name;
-        censusResult['county-subdivision'] = undefined;
-        censusResult.county = "*";
-        rollupResults[geography_map_geoid] = censusResult;
-      } else {
-        Object.entries(censusResult).forEach(entry => {
-          const key = entry[0];
-          const value = entry[1] || '0';
-          if (!['county', 'state', "county-subdivision", 'rollupName'].includes(key)) {
-            if (existingRow[key] != null) {
-              const oldValue = existingRow[key]!;
-              existingRow[key] = `${parseInt(oldValue) + parseInt(value)}`;
-              // console.log(`value to aggregate for geoid=${geography_map_geoid}: ${key} = ${oldValue} + ${value} => ${existingRow[key]}`);
-            } else {
-              // console.log(`first in row for geoid=${geography_map_geoid}: ${key} => ${entry[1]}`);
-              existingRow[key] = value;
+  if (rollupMap == null) {
+    return censusResults;
+  } else {
+    censusResults.forEach(censusResult => {
+      const gaz_county_subdivision = censusResult.state + censusResult.county + censusResult['county-subdivision'];
+      const rollupMapKeys = Object.keys(rollupMap);
+      if (rollupMapKeys.includes(gaz_county_subdivision)) {
+        const geography_map_geoid = rollupMap[gaz_county_subdivision].geography_map_geoid;
+        const existingRow = rollupResults[geography_map_geoid];
+        if (existingRow == null) {
+          // console.log(`first time for geoid=${geography_map_geoid}`);
+          censusResult.rollupName = rollupMap[gaz_county_subdivision].geography_map_name;
+          censusResult['county-subdivision'] = undefined;
+          censusResult.county = "*";
+          rollupResults[geography_map_geoid] = censusResult;
+        } else {
+          Object.entries(censusResult).forEach(entry => {
+            const key = entry[0];
+            const value = entry[1] || '0';
+            if (!['county', 'state', "county-subdivision", 'rollupName'].includes(key)) {
+              if (existingRow[key] != null) {
+                const oldValue = existingRow[key]!;
+                existingRow[key] = `${parseInt(oldValue) + parseInt(value)}`;
+                // console.log(`value to aggregate for geoid=${geography_map_geoid}: ${key} = ${oldValue} + ${value} => ${existingRow[key]}`);
+              } else {
+                // console.log(`first in row for geoid=${geography_map_geoid}: ${key} => ${entry[1]}`);
+                existingRow[key] = value;
+              }
             }
-          }
-        })
+          })
+        }
+      } else {
+        throw new Error(`internal error: unknown gaz_county_subdivision ${gaz_county_subdivision}`);
       }
-    } else {
-      throw new Error(`internal error: unknown gaz_county_subdivision ${gaz_county_subdivision}`);
-    }
-  });
+
+    });
+  }
   return Object.values(rollupResults);
 }
 
@@ -356,8 +363,9 @@ export async function getCensusByGeo(
   const dataset = queryStringParameters.dataset || 'acs/acs5';
   const variables = queryStringParameters.variables ? queryStringParameters.variables.split(',').map(v => v.toUpperCase()) : undefined;
 
-  const townGeoTypes: string[] = ['town'];
-  const georows: {geography_map_type: string}[] = await queryDB('SELECT distinct geography_map_type FROM gaz_geography_map');
+  // Don't allow towns - almost works but not quite...
+  const townGeoTypes: string[] = [];
+  const georows: { geography_map_type: string }[] = await queryDB('SELECT distinct geography_map_type FROM gaz_geography_map');
   georows.forEach(row => townGeoTypes.push(row.geography_map_type));
   if (!['county', 'state'].includes(geoType) && !townGeoTypes.includes(geoType)) {
     return {
@@ -451,7 +459,6 @@ export async function getCensusByGeo(
 
   // console.log('COUNTIES', counties);
   console.log('event 👉', event);
-
   return {
     body: JSON.stringify({
       metadata: {
@@ -529,12 +536,14 @@ export async function getCensusTablesSearch(
 
   const vars: AcsVariable[] = await queryDB(`SELECT distinct concept, \`group\` FROM acs_variables where ${conds.join(' and ')}`, params);
   return {
-    body: JSON.stringify({ tables: vars.map(t => {
-      return {
-        table: t.group,
-        concept: t.concept
-      }
-    }) }),
+    body: JSON.stringify({
+      tables: vars.map(t => {
+        return {
+          table: t.group,
+          concept: t.concept
+        }
+      })
+    }),
     headers: getHeaders("application/json"),
     statusCode: 200,
   };
@@ -571,13 +580,13 @@ export async function getGeosByType(
   return {
     statusCode: 200,
     headers: getHeaders("application/json"),
-    body: JSON.stringify({geos})
+    body: JSON.stringify({ geos })
   };
 }
 
 // Only run if executed directly
 if (!module.parent) {
-  (async() => {
+  (async () => {
     // console.log(await getGeosByType({ pathParameters: {geoType: 'county'} } as unknown as APIGatewayProxyEventV2));
     // console.log(await getGeosByType({ pathParameters: {geoType: 'state'} } as unknown as APIGatewayProxyEventV2));
     // console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'poverty' }} as unknown as APIGatewayProxyEventV2));
@@ -674,6 +683,15 @@ if (!module.parent) {
         variables: 'B09001_001E,B09001_002E'
       }
     } as unknown as APIGatewayProxyEventV2));
+    const result = await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'town'
+      }, queryStringParameters: {
+        variables: 'B09001_001E,B09001_002E'
+      }
+    } as unknown as APIGatewayProxyEventV2);
+    console.log('HS region, by towns, only two variables', result);
     // console.log('BBF region', await getCensusByGeo({
     //   pathParameters: {
     //     table: 'B09001',
