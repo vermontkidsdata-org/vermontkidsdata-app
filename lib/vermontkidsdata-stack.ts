@@ -143,6 +143,15 @@ export class VermontkidsdataStack extends cdk.Stack {
       logRetention: logs.RetentionDays.ONE_DAY
     });
     tableCensusByGeoFunction.addToRolePolicy(getSecretValueStatement);
+    const codesCensusVariablesByTable = new lambda.Function(this, 'Codes Census Variables By Table Function', {
+      memorySize: 1024,
+      timeout: cdk.Duration.seconds(15),
+      runtime: lambda.Runtime.NODEJS_14_X,
+      handler: 'tablesApi.codesCensusVariablesByTable',
+      code: srcCode,
+      logRetention: logs.RetentionDays.ONE_DAY
+    });
+    codesCensusVariablesByTable.addToRolePolicy(getSecretValueStatement);
     const getGeosByTypeFunction = new lambda.Function(this, 'Get Geos by Type Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
@@ -175,30 +184,34 @@ export class VermontkidsdataStack extends cdk.Stack {
 
     const api = new RestApi(this, `${local.ns}-Vermont Kids Data`, {
       // Add OPTIONS call to all resources
-      defaultCorsPreflightOptions: {
-        allowOrigins: Cors.ALL_ORIGINS,
-        allowMethods: ['GET', 'POST', 'PUT', 'DELETE']
-      }
+      // defaultCorsPreflightOptions: {
+      //   allowOrigins: Cors.ALL_ORIGINS,
+      //   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+      // }
     });
 
     const hello = api.root.addResource("hello");
     hello.addMethod("GET", new LambdaIntegration(helloWorld));
 
+    const corsOptions = {
+      allowOrigins: Cors.ALL_ORIGINS,
+      allowHeaders: Cors.DEFAULT_HEADERS,
+      allowMethods: Cors.ALL_METHODS,
+    };
+
     const rUpload = api.root.addResource("upload");
+    rUpload.addCorsPreflight(corsOptions);
     const rUploadById = rUpload.addResource("{uploadId}");
-    // Don't need I think, we added the default above
-    // rUploadById.addCorsPreflight({
-    //   allowOrigins: [ '*' ],
-    //   allowMethods: [ 'GET' ]
-    // });
     rUploadById.addMethod("GET", new LambdaIntegration(uploadStatusFunction));
 
     const rChart = api.root.addResource("chart");
+    rChart.addCorsPreflight(corsOptions);
     const rChartBar = rChart.addResource("bar");
     const rChartBarById = rChartBar.addResource("{queryId}");
     rChartBarById.addMethod("GET", new LambdaIntegration(apiChartBarFunction));
 
     const rTable = api.root.addResource("table");
+    rTable.addCorsPreflight(corsOptions);
     const rTableTable = rTable.addResource("table");
     const rTableTableById = rTableTable.addResource("{queryId}");
     rTableTableById.addMethod("GET", new LambdaIntegration(apiTableFunction));
@@ -208,6 +221,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     rTableCensusTableByGeo.addMethod("GET", new LambdaIntegration(tableCensusByGeoFunction));
 
     const rCodes = api.root.addResource("codes");
+    rCodes.addCorsPreflight(corsOptions);
     const rCodesGeos = rCodes.addResource("geos");
     const rCodesGeosByType = rCodesGeos.addResource("{geoType}");
     rCodesGeosByType.addMethod("GET", new LambdaIntegration(getGeosByTypeFunction));
@@ -215,6 +229,9 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rCodesCensusTables = rCodesCensus.addResource("tables");
     const rCodesCensusTablesSearch = rCodesCensusTables.addResource("search");
     rCodesCensusTablesSearch.addMethod("GET", new LambdaIntegration(getCensusTablesSearchFunction));
+    const rCodesCensusVariables = rCodesCensus.addResource("variables");
+    const rCodesCensusVariablesByTable = rCodesCensusVariables.addResource("{table}");
+    rCodesCensusVariablesByTable.addMethod("GET", new LambdaIntegration(codesCensusVariablesByTable));
 
     const testDBResource = api.root.addResource("testdb");
     testDBResource.addMethod("GET", new LambdaIntegration(testDBFunction));

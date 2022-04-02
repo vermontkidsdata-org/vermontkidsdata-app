@@ -20,7 +20,16 @@ export interface CitySDKParams {
 }
 
 export interface CensusResultRow {
-  [varname: string]: any
+  // "Header" returned from census
+  county: string;
+  state: string;
+  "county-subdivision": string | undefined;
+
+  // Additional rollup name (optional, only for town roll-ups)
+  rollupName: string | undefined;
+  
+  // The header above, plus the individual variable values
+  [varname: string]: string | undefined;
 };
 
 /**

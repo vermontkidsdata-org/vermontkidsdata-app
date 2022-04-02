@@ -131,8 +131,9 @@ export default function Census() {
         let tables = response.data.tables;
         //once we get the tables, search the variables
         //let response = await axios.get('https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/codes/census/tables/search?concept='+search.searchText);
-        let concept = 'POPULATION%20UNDER%2018%20YEARS%20BY%20AGE';
-        let vars = await axios.get(`https://data.vermontkidsdata.org/v1/search_concept_variables/`+concept);
+        // let concept = 'POPULATION%20UNDER%2018%20YEARS%20BY%20AGE';
+        let censusTable = 'B09001';
+        let vars = await axios.get(`https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/codes/census/variables/`+censusTable);
         console.log(vars.data);
         setTables(response.data.tables);
         setTable(tables[0].table);

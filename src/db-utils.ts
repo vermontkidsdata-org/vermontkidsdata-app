@@ -44,15 +44,22 @@ export async function queryDB(sqlText: string, params?: any[]): Promise<any[]> {
             if (err) {
                 reject('error connecting: ' + err);
             } else {
-                connection.query(sqlText, params, (err: mysql.MysqlError|null, results: any[], fields: any) => {
-                    connection.end((err: any) => { if (err) console.error(err)});
-
+                connection.query('use dbvkd', (err: mysql.MysqlError|null, results: any[], fields: any) => {
                     if (err) {
-                        reject('error querying: ' + err);
+                        connection.end((err: any) => { if (err) console.error(err)});
+                        reject('error setting db: ' + err);
                     } else {
-                        resolve(results);
+                        connection.query(sqlText, params, (err: mysql.MysqlError|null, results: any[], fields: any) => {
+                            connection.end((err: any) => { if (err) console.error(err)});
+        
+                            if (err) {
+                                reject('error querying: ' + err);
+                            } else {
+                                resolve(results);
+                            }
+                        });
                     }
-                });
+                })
             }
         })
     })
