@@ -1,6 +1,5 @@
 import argparse
 import json
-from ntpath import join
 
 with open ('datasets.json', "r", encoding='utf-8') as f:
     datasets = json.loads (f.read())["dataset"]

@@ -221,7 +221,8 @@ export interface AcsVariable {
   group: string, // 'B09001',
   limit: number, // 0,
   attributes: string, // 'B09001_009M,B09001_009MA,B09001_009EA',
-  year: number // 2016
+  year: number, // 2016
+  tableType: string | undefined // Either 'subject' or null for non-subject tables
 }
 
 // Table gaz_geography_map
@@ -360,7 +361,7 @@ export async function getCensusByGeo(
   const queryStringParameters = event.queryStringParameters || {};
   const year = parseInt(queryStringParameters.year || '2020');
   const geo = queryStringParameters.geo || '*';
-  const dataset = queryStringParameters.dataset || 'acs/acs5';
+  const dataset = queryStringParameters.dataset;
   const variables = queryStringParameters.variables ? queryStringParameters.variables.split(',').map(v => v.toUpperCase()) : undefined;
 
   // Don't allow towns - almost works but not quite...
@@ -371,17 +372,6 @@ export async function getCensusByGeo(
     return {
       body: JSON.stringify({
         message: 'unknown geography type',
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 400,
-    };
-  }
-
-  const sourcePath = await validateDataSet(year, dataset);
-  if (sourcePath == null) {
-    return {
-      body: JSON.stringify({
-        message: 'invalid year/dataset combination',
       }),
       headers: getHeaders("application/json"),
       statusCode: 400,
@@ -400,6 +390,22 @@ export async function getCensusByGeo(
     };
   }
 
+  // See if it's a subject table or not and alter the default dataset (otherwise, have to pass)
+  const requestDataset = (dataset != null) ? dataset : 
+    acsVars[0].tableType === 'subject' ? 'acs/acs5/subject'
+    : 'acs/acs5';
+
+  const sourcePath = await validateDataSet(year, requestDataset);
+  if (sourcePath == null) {
+    return {
+      body: JSON.stringify({
+        message: 'invalid year/dataset combination',
+      }),
+      headers: getHeaders("application/json"),
+      statusCode: 400,
+    };
+  }
+
   const queryVars: string[] = [];
   acsVars.forEach(acsVar => {
     if (variables == null || variables.includes(acsVar.variable)) {
@@ -407,6 +413,16 @@ export async function getCensusByGeo(
     }
   });
 
+  // API limits to 50 variables
+  if (queryVars.length > 50) {
+    return {
+      body: JSON.stringify({
+        message: 'census API limited to 50 variables',
+      }),
+      headers: getHeaders("application/json"),
+      statusCode: 400,
+    };
+  }
   const columns: ApiTableResultColumn[] = [{ id: 'geo', label: 'Geography' }];
   const rows: ApiTableResultRow[] = [];
 
@@ -508,6 +524,9 @@ export async function codesCensusVariablesByTable(
   } else {
     return {
       body: JSON.stringify({
+        metadata: {
+          tableType: acsVars[0].tableType || undefined
+        },
         variables: acsVars.map(acsVar => {
           return {
             variable: acsVar.variable,
@@ -633,7 +652,8 @@ if (!module.parent) {
     //     geoType: 'head_start'
     //   }, queryStringParameters: {}
     // } as unknown as APIGatewayProxyEventV2));
-    // console.log(await codesCensusVariablesByTable({ pathParameters: {table: 'B09001'} } as unknown as APIGatewayProxyEventV2));
+    console.log('B09001 vars', await codesCensusVariablesByTable({ pathParameters: {table: 'B09001'} } as unknown as APIGatewayProxyEventV2));
+    console.log('S1701 vars', await codesCensusVariablesByTable({ pathParameters: {table: 'S1701'} } as unknown as APIGatewayProxyEventV2));
     // console.log(await codesCensusVariablesByTable({ pathParameters: {table: 'BOGUS'} } as unknown as APIGatewayProxyEventV2));
     // console.log('HS region', await getCensusByGeo({
     //   pathParameters: {
@@ -649,14 +669,14 @@ if (!module.parent) {
     //     variables: 'B09001_001E,B09001_002E'
     //   }
     // } as unknown as APIGatewayProxyEventV2));
-    // console.log('HS region, 2018', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'head_start'
-    //   }, queryStringParameters: {
-    //     year: '2018'
-    //   }
-    // } as unknown as APIGatewayProxyEventV2));
+    console.log('HS region, 2018', await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'head_start'
+      }, queryStringParameters: {
+        year: '2018'
+      }
+    } as unknown as APIGatewayProxyEventV2));
     // console.log('HS region, invalid year', await getCensusByGeo({
     //   pathParameters: {
     //     table: 'B09001',
@@ -700,13 +720,39 @@ if (!module.parent) {
       }, queryStringParameters: {
       }
     } as unknown as APIGatewayProxyEventV2));
-    console.log('S1701', await getCensusByGeo({
+    console.log('S1601 -- too many variables', await getCensusByGeo({
       pathParameters: {
-        table: 'S1701',
+        table: 'S1601',
         geoType: 'head_start'
       }, queryStringParameters: {
       }
     } as unknown as APIGatewayProxyEventV2));
+    console.log('S1601 -- OK', await getCensusByGeo({
+      pathParameters: {
+        table: 'S1601',
+        geoType: 'head_start'
+      }, queryStringParameters: {
+        variables: 'S1601_C01_001E,S1601_C01_002E,S1601_C01_003E,S1601_C01_004E'
+      }
+    } as unknown as APIGatewayProxyEventV2));
+    console.log('S1701 -- OK', await getCensusByGeo({
+      pathParameters: {
+        table: 'S1701',
+        geoType: 'head_start'
+      }, queryStringParameters: {
+        variables: 'S1701_C01_044E,S1701_C01_047E'
+      }
+    } as unknown as APIGatewayProxyEventV2));
+    
+    // console.log('raw', await census({
+    //   vintage: 2020,
+    //   geoHierarchy: {
+    //     state: '50',
+    //     county: '*'
+    //   },
+    //   sourcePath: ['acs', 'acs5', 'subject'],
+    //   values: ['S1601_C05_014E'],
+    // }));
 
     // console.log('BBF region', await getCensusByGeo({
     //   pathParameters: {
