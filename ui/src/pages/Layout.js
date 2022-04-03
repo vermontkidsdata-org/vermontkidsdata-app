@@ -8,9 +8,13 @@ import {
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+    appBar: {
+        backgroundColor: "#007155"
+    },
     navlinks: {
         marginLeft: theme.spacing(10),
         display: "flex",
+        backgroundColor: "#007155"
     },
     logo: {
         flexGrow: "1",
@@ -30,7 +34,7 @@ const Layout = () => {
     const classes = useStyles();
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" className={classes.appBar}>
             <CssBaseline />
             <Toolbar>
                 <div className={classes.navlinks}>

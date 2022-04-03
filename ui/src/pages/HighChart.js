@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
-import { render } from 'react-dom'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
-import {makeStyles} from "@material-ui/core/styles";
+//import {makeStyles} from "@material-ui/core/styles";
 
+/*
 const useStyles = makeStyles({
     root: {
         width: '100%',
@@ -15,9 +15,11 @@ const useStyles = makeStyles({
     },
 });
 
+ */
+
 export default function HighChart() {
 
-    const classes = useStyles();
+    //const classes = useStyles();
     const [options, setOptions] = useState({});
     const { id } = useParams();
 

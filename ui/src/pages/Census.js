@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import axios from "axios";
 import {DataGrid, GridToolbarContainer, GridToolbarExport} from "@mui/x-data-grid";
 import {ThreeDots} from 'react-loader-spinner';
+import Layout from "./Layout";
 
 const useStyles = makeStyles((theme) => ({
     rowContainer: {
@@ -39,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
     },
     searchBtn: {
-        width: 400
+        width: 170,
+        backgroundColor: "#007155"
     }
 }));
 
@@ -87,8 +89,8 @@ export default function Census() {
     const [loading, setLoading] = useState(false);
     const [variable, setVariable] = useState([]);
     const [variables, setVariables] = useState([]);
-    const [dataset, setDataset] = useState([]);
-    const [year, setYear] = useState('');
+    const [dataset, setDataset] = useState("acs/acs5");
+    const [year, setYear] = useState('2020');
 
     const handleDatasetChange = (event) => {
         setDataset(event.target.value);
@@ -102,8 +104,12 @@ export default function Census() {
         setSearchText(event.target.value);
     };
 
-    const handleTableChange = (event) => {
+    const handleTableChange = async (event) => {
         setTable(event.target.value);
+        //console.log(event.target.value);
+        let vars = await axios.get(`https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/codes/census/variables/`+event.target.value);
+        //console.log('VARIABLES', vars.data);
+        setVariables(vars.data.variables);
     };
 
     const handleYearChange = (event) => {
@@ -124,20 +130,21 @@ export default function Census() {
     const searchTables = async () => {
         setLoading(true);
         let search = {searchText};
-        console.log('searching', search);
+        //console.log('searching', search);
         //let response = await axios.get(`https://data.vermontkidsdata.org/v1/search_concepts/`+search.searchText);
         let response = await axios.get('https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/codes/census/tables/search?concept='+search.searchText);
-        console.log(response.data);
+       //console.log(response.data);
         let tables = response.data.tables;
         //once we get the tables, search the variables
         //let response = await axios.get('https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/codes/census/tables/search?concept='+search.searchText);
         // let concept = 'POPULATION%20UNDER%2018%20YEARS%20BY%20AGE';
-        let censusTable = 'B09001';
+        let censusTable = response.data.tables[0].table;
+        console.log('table', censusTable);
         let vars = await axios.get(`https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/codes/census/variables/`+censusTable);
-        console.log(vars.data);
+        //console.log('VARIABLES', vars.data);
         setTables(response.data.tables);
         setTable(tables[0].table);
-        setVariables(vars.data);
+        setVariables(vars.data.variables);
         setLoading(false);
     };
 
@@ -146,8 +153,13 @@ export default function Census() {
         setLoading(true);
         let table = 'B09001';
         let geo = {geography};
-        console.log(geo);
-        let response = await axios.get(`https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/table/census/`+table+`/`+geo.geography);
+        console.log('SEARCH TABLE', {table});
+        console.log('YEAR', {year});
+        console.log('VARIABLES', String({variable}.variable));
+        //B09001/bbf_region?year=2018&variables=B09001_003E
+        let endpoint = {table}.table+'/'+{geography}.geography+'?dataset='+{dataset}.dataset+'&year='+{year}.year+'&variables='+{variable}.variable;
+        console.log(endpoint);
+        let response = await axios.get(`https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/table/census/`+endpoint);
         console.log(response.data);
         let columns = response.data.columns;
         columns = prepareColumns(columns);
@@ -159,10 +171,11 @@ export default function Census() {
 
     };
 
-    console.log({geography});
+    //console.log({geography});
 
     return (
         <div className={clsx(classes.colContainer)} >
+            <Layout/>
             <div><h3>US Census Bureau</h3></div>
             <div>
                 <div className={clsx(classes.rowContainer)}>
@@ -177,9 +190,9 @@ export default function Census() {
                                     value={dataset}
                                     onChange={handleDatasetChange}
                                 >
-                                    <MenuItem value={'acs1'}>American Community Survey (ACS) 1 Year</MenuItem>
-                                    <MenuItem value={'acs3'}>American Community Survey (ACS) 3 Year</MenuItem>
-                                    <MenuItem value={'acs5'}>American Community Survey (ACS) 5 Year</MenuItem>
+                                    <MenuItem value={'acs/acs1'}>American Community Survey (ACS) 1 Year</MenuItem>
+                                    <MenuItem value={'acs/acs3'}>American Community Survey (ACS) 3 Year</MenuItem>
+                                    <MenuItem value={'acs/acs5'}>American Community Survey (ACS) 5 Year</MenuItem>
                                 </Select>
                             </FormControl>
                         </div>
@@ -218,6 +231,9 @@ export default function Census() {
                                 >
                                     <MenuItem value={'state'}>State</MenuItem>
                                     <MenuItem value={'county'}>County</MenuItem>
+                                    <MenuItem value={'bbf_region'}>BBF Region</MenuItem>
+                                    <MenuItem value={'ahs_district'}>AHS District</MenuItem>
+                                    <MenuItem value={'head_start'}>Head Start Region</MenuItem>
                                 </Select>
                             </FormControl>
                         </div>
