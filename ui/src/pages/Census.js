@@ -157,7 +157,7 @@ export default function Census() {
         console.log('YEAR', {year});
         console.log('VARIABLES', String({variable}.variable));
         //B09001/bbf_region?year=2018&variables=B09001_003E
-        let endpoint = {table}.table+'/'+{geography}.geography+'?dataset='+{dataset}.dataset+'&year='+{year}.year+'&variables='+{variable}.variable;
+        let endpoint = {table}.table+'/'+{geography}.geography+'?dataset='+{dataset}.dataset+'&year='+{year}.year+'&variables='+String({variable}.variable);
         console.log(endpoint);
         let response = await axios.get(`https://jwzzquhd03.execute-api.us-east-1.amazonaws.com/prod/table/census/`+endpoint);
         console.log(response.data);
