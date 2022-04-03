@@ -21,6 +21,35 @@ interface GazCounty {
   INTPTLONG: string, // '-72.721955'
 }
 
+// Function response types
+export interface GetCensusByGeoResponse {
+  metadata: {
+    table: string,
+    geoType: string,
+    year: number,
+    geo: string,
+    sourcePath: string[],
+    variables: string[] | undefined
+  },
+  columns: {
+    id: string,
+    label: string
+  }[],
+  rows: {
+    [key: string]: string | number
+  }[]
+}
+
+export interface GetGeosByTypeResponse {
+  geos: {
+    id: string,
+    name: string
+  }[]
+}
+
+export interface ErrorResponse {
+  message: string
+}
 
 async function doOpen(): Promise<mysql.Connection> {
   const smClient = new SecretsManagerClient({ region: REGION });
@@ -240,11 +269,17 @@ export interface GazGeographyMap {
 interface ApiTableResultColumn { id: string, label: string }
 interface ApiTableResultRow { [key: string]: any }
 
-function censusResultsToTable(censusResults: CensusResultRow[], acsVars: AcsVariable[], columns: ApiTableResultColumn[] | undefined, rows: ApiTableResultRow[], variables: string[] | undefined): void {
+interface DBACSVariables {
+  [key: string]: {
+    used: boolean,
+    label: string
+  }
+}
+
+function censusResultsToTable(censusResults: CensusResultRow[], dBVariables: DBACSVariables, columns: ApiTableResultColumn[] | undefined, rows: ApiTableResultRow[], variables: string[]): void {
   if (columns != null) {
-    acsVars.forEach(acsVar => {
-      if (variables == null || variables.includes(acsVar.variable))
-        columns.push({ id: acsVar.variable, label: acsVar.label });
+    variables.forEach(variable => {
+      columns.push({ id: variable, label: dBVariables[variable].label });
     });
   }
 
@@ -257,10 +292,8 @@ function censusResultsToTable(censusResults: CensusResultRow[], acsVars: AcsVari
     } else {
       row.geo = censusResult.state + (censusResult.county || '');
     }
-    acsVars.forEach(acsVar => {
-      if (variables == null || variables.includes(acsVar.variable)) {
-        row[acsVar.variable] = parseInt(censusResult[acsVar.variable] || '-99');
-      }
+    variables.forEach(variable => {
+      row[variable] = parseInt(censusResult[variable] || '-99');
     });
     rows.push(row);
   });
@@ -350,170 +383,197 @@ async function validateDataSet(year: number, dataset: string): Promise<string[] 
   }
 }
 
+
 export async function getCensusByGeo(
   event: APIGatewayProxyEventV2,
-): Promise<APIGatewayProxyResultV2> {
+): Promise<APIGatewayProxyResultV2<GetCensusByGeoResponse>> {
   console.log('starting main function');
-  const pathParameters = event.pathParameters || {};
-  const table = pathParameters.table!;
-  const geoType = pathParameters.geoType!;
+  try {
+    const pathParameters = event.pathParameters || {};
+    const table = pathParameters.table!;
+    const geoType = pathParameters.geoType!;
 
-  const queryStringParameters = event.queryStringParameters || {};
-  const year = parseInt(queryStringParameters.year || '2020');
-  const geo = queryStringParameters.geo || '*';
-  const dataset = queryStringParameters.dataset;
-  const variables = queryStringParameters.variables ? queryStringParameters.variables.split(',').map(v => v.toUpperCase()) : undefined;
+    const queryStringParameters = event.queryStringParameters || {};
+    const year = parseInt(queryStringParameters.year || '2020');
+    const geo = queryStringParameters.geo || '*';
+    const dataset = queryStringParameters.dataset;
+    const variables = queryStringParameters.variables ? queryStringParameters.variables.split(',').map(v => v.toUpperCase()) : undefined;
 
-  // Don't allow towns - almost works but not quite...
-  const townGeoTypes: string[] = [];
-  const georows: { geography_map_type: string }[] = await queryDB('SELECT distinct geography_map_type FROM gaz_geography_map');
-  georows.forEach(row => townGeoTypes.push(row.geography_map_type));
-  if (!['county', 'state'].includes(geoType) && !townGeoTypes.includes(geoType)) {
-    return {
-      body: JSON.stringify({
-        message: 'unknown geography type',
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 400,
-    };
-  }
-
-  // Get census variables
-  const acsVars: AcsVariable[] = await queryDB('select * from acs_variables where `group`=? order by variable', [table.toUpperCase()]);
-  if (acsVars.length === 0) {
-    return {
-      body: JSON.stringify({
-        message: 'unknown table',
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 400,
-    };
-  }
-
-  // See if it's a subject table or not and alter the default dataset (otherwise, have to pass)
-  const requestDataset = (dataset != null) ? dataset : 
-    acsVars[0].tableType === 'subject' ? 'acs/acs5/subject'
-    : 'acs/acs5';
-
-  const sourcePath = await validateDataSet(year, requestDataset);
-  if (sourcePath == null) {
-    return {
-      body: JSON.stringify({
-        message: 'invalid year/dataset combination',
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 400,
-    };
-  }
-
-  const queryVars: string[] = [];
-  const variablesTracker: {[key: string]: boolean} = {};
-  if (variables != null) variables.forEach(v => variablesTracker[v] = false);
-  acsVars.forEach(acsVar => {
-    if (variables == null || variables.includes(acsVar.variable)) {
-      queryVars.push(acsVar.variable);
-      variablesTracker[acsVar.variable] = true;
-    }
-  });
-  const unknownVars = Object.entries(variablesTracker).filter(vt => vt[1] === false).map(vt => vt[0]);
-  if (unknownVars.length > 0) {
-    return {
-      body: JSON.stringify({
-        message: 'one or more unknown variables requested: '+unknownVars,
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 400,
-    };
-  }
-
-  // API limits to 50 variables
-  if (queryVars.length > 50) {
-    return {
-      body: JSON.stringify({
-        message: 'census API limited to 50 variables',
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 400,
-    };
-  }
-  const columns: ApiTableResultColumn[] = [{ id: 'geo', label: 'Geography' }];
-  const rows: ApiTableResultRow[] = [];
-
-  if (geoType === 'county') {
-    const geoHierarchy: GeoHierarchy = {
-      state: "50"
-    };
-    if (geo) {
-      geoHierarchy.county = geo;
+    // Don't allow towns - almost works but not quite...
+    const townGeoTypes: string[] = [];
+    const georows: { geography_map_type: string }[] = await queryDB('SELECT distinct geography_map_type FROM gaz_geography_map');
+    georows.forEach(row => townGeoTypes.push(row.geography_map_type));
+    if (!['county', 'state'].includes(geoType) && !townGeoTypes.includes(geoType)) {
+      return {
+        body: JSON.stringify({
+          message: 'unknown geography type',
+        }),
+        headers: getHeaders("application/json"),
+        statusCode: 400,
+      };
     }
 
-    const censusResults: CensusResultRow[] = await census({
-      vintage: year,
-      geoHierarchy: geoHierarchy,
-      sourcePath,
-      values: queryVars,
-    });
+    // Get census variables
+    const acsVars: AcsVariable[] = await queryDB('select * from acs_variables where `group`=? order by variable', [table.toUpperCase()]);
+    if (acsVars.length === 0) {
+      return {
+        body: JSON.stringify({
+          message: 'unknown table',
+        }),
+        headers: getHeaders("application/json"),
+        statusCode: 400,
+      };
+    }
 
-    censusResultsToTable(censusResults, acsVars, columns, rows, variables);
-
-    // Now convert the county geos to names
-    const dbCounties: GazCounty[] = await queryDB(`select * from gaz_counties where usps='VT'`);
-    const counties: { [id: string]: GazCounty } = {}
-    dbCounties.forEach((cty) => {
-      counties[cty.GEOID] = cty;
-    });
-
-    rows.forEach(row => {
-      if (counties[row.geo] != null) {
-        row.geo = counties[row.geo].NAME;
+    // This is the tracker for vars from the DB (used to ensure no invalid variables were
+    // requested)
+    const dBVariables: DBACSVariables = {};
+    acsVars.forEach(acsVar => {
+      dBVariables[acsVar.variable] = {
+        used: false,
+        label: acsVar.label
       }
     });
 
-  } else if (townGeoTypes.includes(geoType)) {
-    const censusResults = await census({
+    // The actual list of query variables
+    const queryVars = variables != null ? variables
+      : acsVars.map(acsVar => acsVar.variable);
+
+    // API limits to 50 variables
+    if (queryVars.length > 50) {
+      return {
+        body: JSON.stringify({
+          message: 'census API limited to 50 variables',
+        }),
+        headers: getHeaders("application/json"),
+        statusCode: 400,
+      };
+    }
+
+    // See if it's a subject table or not and alter the default dataset (otherwise, have to pass)
+    const requestDataset = (dataset != null) ? dataset :
+      acsVars[0].tableType === 'subject' ? 'acs/acs5/subject'
+        : 'acs/acs5';
+
+    const sourcePath = await validateDataSet(year, requestDataset);
+    if (sourcePath == null) {
+      return {
+        body: JSON.stringify({
+          message: 'invalid year/dataset combination',
+        }),
+        headers: getHeaders("application/json"),
+        statusCode: 400,
+      };
+    }
+
+    // Make sure every variable requested is actually in the DB for this table
+    queryVars.forEach(queryVar => {
+      if (dBVariables[queryVar] != null) {
+        dBVariables[queryVar].used = true;
+      }
+    });
+    const unknownVars = queryVars.filter(qv => {
+      return dBVariables[qv] == null;
+    });
+
+    if (unknownVars.length > 0) {
+      return {
+        body: JSON.stringify({
+          message: 'one or more unknown variables requested: ' + unknownVars,
+        }),
+        headers: getHeaders("application/json"),
+        statusCode: 400,
+      };
+    }
+
+    const columns: ApiTableResultColumn[] = [{ id: 'geo', label: 'Geography' }];
+    const rows: ApiTableResultRow[] = [];
+
+    if (geoType === 'county') {
+      const geoHierarchy: GeoHierarchy = {
+        state: "50"
+      };
+      if (geo) {
+        geoHierarchy.county = geo;
+      }
+
+      const censusResults: CensusResultRow[] = await census({
+        vintage: year,
+        geoHierarchy: geoHierarchy,
+        sourcePath,
+        values: queryVars,
+      });
+
+      censusResultsToTable(censusResults, dBVariables, columns, rows, queryVars);
+
+      // Now convert the county geos to names
+      const dbCounties: GazCounty[] = await queryDB(`select * from gaz_counties where usps='VT'`);
+      const counties: { [id: string]: GazCounty } = {}
+      dbCounties.forEach((cty) => {
+        counties[cty.GEOID] = cty;
+      });
+
+      rows.forEach(row => {
+        if (counties[row.geo] != null) {
+          row.geo = counties[row.geo].NAME;
+        }
+      });
+
+    } else if (townGeoTypes.includes(geoType)) {
+      const censusResults = await census({
+        vintage: year,
+        geoHierarchy: {
+          state: '50',
+          "county subdivision": getCountySubdivisions(geoType, geo)
+        },
+        sourcePath,
+        values: queryVars,
+      });
+      const map = await getTownRollupMap(geoType);
+      // console.log('rollup map', JSON.stringify(map, null, 2));
+      const geoResults = rollUpTownResultsByGeoType(censusResults, map);
+      // console.log(JSON.stringify(geoResults, null, 2));
+      censusResultsToTable(geoResults, dBVariables, columns, rows, queryVars);
+    }
+
+    const censusStateResults = await census({
       vintage: year,
       geoHierarchy: {
-        state: '50',
-        "county subdivision": getCountySubdivisions(geoType, geo)
+        state: "50"
       },
       sourcePath,
       values: queryVars,
     });
-    const map = await getTownRollupMap(geoType);
-    // console.log('rollup map', JSON.stringify(map, null, 2));
-    const geoResults = rollUpTownResultsByGeoType(censusResults, map);
-    // console.log(JSON.stringify(geoResults, null, 2));
-    censusResultsToTable(geoResults, acsVars, columns, rows, variables);
+    censusResultsToTable(censusStateResults, dBVariables, Object.keys(columns).length == 1 ? columns : undefined, rows, queryVars);
+
+    // console.log('COUNTIES', counties);
+    console.log('event 👉', event);
+    return {
+      body: JSON.stringify({
+        metadata: {
+          table,
+          geoType,
+          year,
+          geo,
+          sourcePath,
+          variables
+        },
+        columns: columns,
+        rows: rows
+      }),
+      headers: getHeaders("application/json"),
+      statusCode: 200,
+    };
+
+  } catch (e: any) {
+    return {
+      body: JSON.stringify({
+        message: e.message
+      }),
+      headers: getHeaders("application/json"),
+      statusCode: 500,
+    };
   }
-
-  const censusStateResults = await census({
-    vintage: year,
-    geoHierarchy: {
-      state: "50"
-    },
-    sourcePath,
-    values: queryVars,
-  });
-  censusResultsToTable(censusStateResults, acsVars, Object.keys(columns).length == 1 ? columns : undefined, rows, variables);
-
-  // console.log('COUNTIES', counties);
-  console.log('event 👉', event);
-  return {
-    body: JSON.stringify({
-      metadata: {
-        table,
-        geoType,
-        year,
-        geo,
-        sourcePath,
-        variables
-      },
-      columns: columns,
-      rows: rows
-    }),
-    headers: getHeaders("application/json"),
-    statusCode: 200,
-  };
 }
 
 export async function codesCensusVariablesByTable(
@@ -593,7 +653,7 @@ export async function getCensusTablesSearch(
 
 export async function getGeosByType(
   event: APIGatewayProxyEventV2,
-): Promise<APIGatewayProxyResultV2> {
+): Promise<APIGatewayProxyResultV2<GetGeosByTypeResponse>> {
   console.log('starting main function');
   const pathParameters = event.pathParameters || {};
   const geoType = pathParameters.geoType!;
@@ -629,59 +689,68 @@ export async function getGeosByType(
 // Only run if executed directly
 if (!module.parent) {
   (async () => {
-    // console.log(await getGeosByType({ pathParameters: {geoType: 'county'} } as unknown as APIGatewayProxyEventV2));
-    // console.log(await getGeosByType({ pathParameters: {geoType: 'state'} } as unknown as APIGatewayProxyEventV2));
-    // console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'poverty' }} as unknown as APIGatewayProxyEventV2));
-    // console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'occupation' }} as unknown as APIGatewayProxyEventV2));
-    // console.log(await getCensusTablesSearch({ } as unknown as APIGatewayProxyEventV2));
-    // await table({
-    //   pathParameters: { 
-    //     queryId: '58'
-    //   }
-    // } as unknown as APIGatewayProxyEventV2);
-    // console.log('one county', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'county'
-    //   }, queryStringParameters: {
-    //     geo: '003'
-    //   }
-    // } as unknown as APIGatewayProxyEventV2));
-    // console.log('all counties', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'county'
-    //   }, queryStringParameters: {}
-    // } as unknown as APIGatewayProxyEventV2));
-    // console.log('just state', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'state'
-    //   }, queryStringParameters: {}
-    // } as unknown as APIGatewayProxyEventV2));
-    // console.log('HS ', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'head_start'
-    //   }, queryStringParameters: {}
-    // } as unknown as APIGatewayProxyEventV2));
-    console.log('B09001 vars', await codesCensusVariablesByTable({ pathParameters: {table: 'B09001'} } as unknown as APIGatewayProxyEventV2));
-    console.log('S1701 vars', await codesCensusVariablesByTable({ pathParameters: {table: 'S1701'} } as unknown as APIGatewayProxyEventV2));
-    // console.log(await codesCensusVariablesByTable({ pathParameters: {table: 'BOGUS'} } as unknown as APIGatewayProxyEventV2));
-    // console.log('HS region', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'head_start'
-    //   }, queryStringParameters: {}
-    // } as unknown as APIGatewayProxyEventV2));
-    // console.log('HS region, only two vars', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'head_start'
-    //   }, queryStringParameters: {
-    //     variables: 'B09001_001E,B09001_002E'
-    //   }
-    // } as unknown as APIGatewayProxyEventV2));
+    const ret = await getCensusByGeo({
+      pathParameters: {
+        table: 'S1701',
+        geoType: 'head_start'
+      }, queryStringParameters: {
+        variables: 'S1701_C01_044E,S1601_C01_001E,S1601_C01_002E'
+      }
+    } as unknown as APIGatewayProxyEventV2);
+    console.log('S1701 -- unknown vars', ret);
+    // console.log(await getGeosByType({ pathParameters: { geoType: 'county' } } as unknown as APIGatewayProxyEventV2));
+    console.log(await getGeosByType({ pathParameters: { geoType: 'state' } } as unknown as APIGatewayProxyEventV2));
+    console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'poverty' } } as unknown as APIGatewayProxyEventV2));
+    console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'occupation' } } as unknown as APIGatewayProxyEventV2));
+    console.log(await getCensusTablesSearch({} as unknown as APIGatewayProxyEventV2));
+    await table({
+      pathParameters: {
+        queryId: '58'
+      }
+    } as unknown as APIGatewayProxyEventV2);
+    console.log('one county', await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'county'
+      }, queryStringParameters: {
+        geo: '003'
+      }
+    } as unknown as APIGatewayProxyEventV2));
+    console.log('all counties', await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'county'
+      }, queryStringParameters: {}
+    } as unknown as APIGatewayProxyEventV2));
+    console.log('just state', await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'state'
+      }, queryStringParameters: {}
+    } as unknown as APIGatewayProxyEventV2));
+    console.log('HS ', await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'head_start'
+      }, queryStringParameters: {}
+    } as unknown as APIGatewayProxyEventV2));
+    console.log('B09001 vars', await codesCensusVariablesByTable({ pathParameters: { table: 'B09001' } } as unknown as APIGatewayProxyEventV2));
+    console.log('S1701 vars', await codesCensusVariablesByTable({ pathParameters: { table: 'S1701' } } as unknown as APIGatewayProxyEventV2));
+    console.log(await codesCensusVariablesByTable({ pathParameters: { table: 'BOGUS' } } as unknown as APIGatewayProxyEventV2));
+    console.log('HS region', await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'head_start'
+      }, queryStringParameters: {}
+    } as unknown as APIGatewayProxyEventV2));
+    console.log('HS region, only two vars', await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'head_start'
+      }, queryStringParameters: {
+        variables: 'B09001_001E,B09001_002E'
+      }
+    } as unknown as APIGatewayProxyEventV2));
     console.log('HS region, 2018', await getCensusByGeo({
       pathParameters: {
         table: 'B09001',
@@ -698,24 +767,24 @@ if (!module.parent) {
     //     year: '1776'
     //   }
     // } as unknown as APIGatewayProxyEventV2));
-    // console.log('HS region, valid year for acs3', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'head_start'
-    //   }, queryStringParameters: {
-    //     year: '2013',
-    //     dataset: 'acs/acs3'
-    //   }
-    // } as unknown as APIGatewayProxyEventV2));
-    // console.log('HS region, invalid year for acs3', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'head_start'
-    //   }, queryStringParameters: {
-    //     year: '2020',
-    //     dataset: 'acs/acs3'
-    //   }
-    // } as unknown as APIGatewayProxyEventV2));
+    console.log('HS region, valid year for acs3', await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'head_start'
+      }, queryStringParameters: {
+        year: '2013',
+        dataset: 'acs/acs3'
+      }
+    } as unknown as APIGatewayProxyEventV2));
+    console.log('HS region, invalid year for acs3', await getCensusByGeo({
+      pathParameters: {
+        table: 'B09001',
+        geoType: 'head_start'
+      }, queryStringParameters: {
+        year: '2020',
+        dataset: 'acs/acs3'
+      }
+    } as unknown as APIGatewayProxyEventV2));
     // console.log('HS region, valid year for acs1, only two variables', await getCensusByGeo({
     //   pathParameters: {
     //     table: 'B09001',
@@ -723,7 +792,7 @@ if (!module.parent) {
     //   }, queryStringParameters: {
     //     year: '2005',
     //     dataset: 'acs/acs1',
-    //     variables: 'B09001_001E,B09001_002E'
+    //     variables: 'B09001_002E,B09001_001E'
     //   }
     // } as unknown as APIGatewayProxyEventV2));
     console.log('Unknown table', await getCensusByGeo({
@@ -756,15 +825,19 @@ if (!module.parent) {
         variables: 'S1701_C01_044E,S1701_C01_047E'
       }
     } as unknown as APIGatewayProxyEventV2));
-    console.log('S1701 -- unknown vars', await getCensusByGeo({
+    console.log('BBF region', await getCensusByGeo({
       pathParameters: {
-        table: 'S1701',
-        geoType: 'head_start'
-      }, queryStringParameters: {
-        variables: 'S1701_C01_044E,S1601_C01_001E,S1601_C01_002E'
-      }
+        table: 'B09001',
+        geoType: 'bbf_region'
+      }, queryStringParameters: {}
     } as unknown as APIGatewayProxyEventV2));
-    
+    // console.log('AHS district', await getCensusByGeo({
+    //   pathParameters: {
+    //     table: 'B09001',
+    //     geoType: 'ahs_district'
+    //   }, queryStringParameters: {}
+    // } as unknown as APIGatewayProxyEventV2));
+    // await queryDB(`select gaz_county_subdivision, geography_map_geoid from gaz_geography_map where geography_map_type='head_start'`);
     // console.log('raw', await census({
     //   vintage: 2020,
     //   geoHierarchy: {
@@ -774,20 +847,6 @@ if (!module.parent) {
     //   sourcePath: ['acs', 'acs5', 'subject'],
     //   values: ['S1601_C05_014E'],
     // }));
-
-    // console.log('BBF region', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'bbf_region'
-    //   }, queryStringParameters: {}
-    // } as unknown as APIGatewayProxyEventV2));
-    // console.log('AHS district', await getCensusByGeo({
-    //   pathParameters: {
-    //     table: 'B09001',
-    //     geoType: 'ahs_district'
-    //   }, queryStringParameters: {}
-    // } as unknown as APIGatewayProxyEventV2));
-    // await queryDB(`select gaz_county_subdivision, geography_map_geoid from gaz_geography_map where geography_map_type='head_start'`);
   })().catch(err => {
     console.log(`exception`, err);
   });

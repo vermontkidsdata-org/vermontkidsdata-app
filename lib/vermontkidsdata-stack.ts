@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as lambdanode from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as s3notify from 'aws-cdk-lib/aws-s3-notifications';
 import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
@@ -10,8 +11,8 @@ import * as cloudFront from 'aws-cdk-lib/aws-cloudfront';
 import * as cloudFrontOrigins from 'aws-cdk-lib/aws-cloudfront-origins';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as sm from 'aws-cdk-lib/aws-secretsmanager';
-import * as path from 'path';
 import { Cors, LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { join } from 'path';
 
 const S3_BUCKET_NAME = "S3_BUCKET_NAME";
 const REGION = "REGION";
@@ -50,15 +51,13 @@ export class VermontkidsdataStack extends cdk.Stack {
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST
     });
 
-    const srcCode = lambda.Code.fromAsset(path.join(__dirname, `/../src`));
-
     // Upload data function.
-    const uploadFunction = new lambda.Function(this, 'Upload Data Function', {
+    const uploadFunction = new lambdanode.NodejsFunction(this, 'Upload Data Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(300),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'uploadData.main',
-      code: srcCode,
+      entry: join(__dirname, "../src/uploadData.ts"),
+      handler: 'main',
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
         S3_BUCKET_NAME: bucketName,
@@ -75,12 +74,12 @@ export class VermontkidsdataStack extends cdk.Stack {
     uploadFunction.grantInvoke(S3_SERVICE_PRINCIPAL);
 
     // Also shows status of uploads.
-    const uploadStatusFunction = new lambda.Function(this, 'Upload Status Function', {
+    const uploadStatusFunction = new lambdanode.NodejsFunction(this, 'Upload Status Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(5),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'uploadData.status',
-      code: srcCode,
+      handler: 'status',
+      entry: join(__dirname, "../src/uploadData.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
         S3_BUCKET_NAME: bucketName,
@@ -95,21 +94,12 @@ export class VermontkidsdataStack extends cdk.Stack {
     const secret = sm.Secret.fromSecretNameV2(this, 'DB credentials', 'vkd/prod/dbcreds');
     secret.grantRead(uploadFunction);
 
-    const helloWorld = new lambda.Function(this, 'hello-world-function', {
-      memorySize: 128,
-      timeout: cdk.Duration.seconds(5),
-      runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'hello.main',
-      code: srcCode,
-      logRetention: logs.RetentionDays.ONE_DAY
-    });
-
-    const apiChartBarFunction = new lambda.Function(this, 'Bar Chart API Function', {
+    const apiChartBarFunction = new lambdanode.NodejsFunction(this, 'Bar Chart API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'chartsApi.bar',
-      code: srcCode,
+      handler: 'bar',
+      entry: join(__dirname, "../src/chartsApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
         REGION: this.region
@@ -117,12 +107,12 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(apiChartBarFunction);
 
-    const apiTableFunction = new lambda.Function(this, 'Basic table API Function', {
+    const apiTableFunction = new lambdanode.NodejsFunction(this, 'Basic table API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'tablesApi.table',
-      code: srcCode,
+      handler: 'table',
+      entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
         REGION: this.region
@@ -134,50 +124,50 @@ export class VermontkidsdataStack extends cdk.Stack {
       actions: ["secretsmanager:GetSecretValue"],
       resources: ["*"]
     });
-    const tableCensusByGeoFunction = new lambda.Function(this, 'Census Table By Geo Function', {
+    const tableCensusByGeoFunction = new lambdanode.NodejsFunction(this, 'Census Table By Geo Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'tablesApi.getCensusByGeo',
-      code: srcCode,
+      handler: 'getCensusByGeo',
+      entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY
     });
     tableCensusByGeoFunction.addToRolePolicy(getSecretValueStatement);
-    const codesCensusVariablesByTable = new lambda.Function(this, 'Codes Census Variables By Table Function', {
+    const codesCensusVariablesByTable = new lambdanode.NodejsFunction(this, 'Codes Census Variables By Table Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'tablesApi.codesCensusVariablesByTable',
-      code: srcCode,
+      handler: 'codesCensusVariablesByTable',
+      entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY
     });
     codesCensusVariablesByTable.addToRolePolicy(getSecretValueStatement);
-    const getGeosByTypeFunction = new lambda.Function(this, 'Get Geos by Type Function', {
+    const getGeosByTypeFunction = new lambdanode.NodejsFunction(this, 'Get Geos by Type Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'tablesApi.getGeosByType',
-      code: srcCode,
+      handler: 'getGeosByType',
+      entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY
     });
     getGeosByTypeFunction.addToRolePolicy(getSecretValueStatement);
 
-    const getCensusTablesSearchFunction = new lambda.Function(this, 'Get Census Tables Search Function', {
+    const getCensusTablesSearchFunction = new lambdanode.NodejsFunction(this, 'Get Census Tables Search Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
       runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'tablesApi.getCensusTablesSearch',
-      code: srcCode,
+      handler: 'getCensusTablesSearch',
+      entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY
     });
     getCensusTablesSearchFunction.addToRolePolicy(getSecretValueStatement);
 
-    const testDBFunction = new lambda.Function(this, 'Test DB Function', {
+    const testDBFunction = new lambdanode.NodejsFunction(this, 'Test DB Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'testcitylambda.queryDB',
-      code: srcCode,
+      entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY
     });
     testDBFunction.addToRolePolicy(getSecretValueStatement);
@@ -189,9 +179,6 @@ export class VermontkidsdataStack extends cdk.Stack {
       //   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
       // }
     });
-
-    const hello = api.root.addResource("hello");
-    hello.addMethod("GET", new LambdaIntegration(helloWorld));
 
     const corsOptions = {
       allowOrigins: Cors.ALL_ORIGINS,
@@ -306,7 +293,7 @@ export class VermontkidsdataStack extends cdk.Stack {
       // Static web content source
       // Note: the path to the source must be kept updated in case of repo folder restructuring or
       // refactoring
-      sources: [s3deploy.Source.asset(path.join(__dirname, '../ui/build'))],
+      sources: [s3deploy.Source.asset(join(__dirname, '../ui/build'))],
       // Point to the S3 Web Bucket
       destinationBucket: s3BucketWeb
     });
