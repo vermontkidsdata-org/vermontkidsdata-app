@@ -151,7 +151,7 @@ export default function Census() {
     const getCensusData = async () => {
         //console.log('getting data', {table});
         setLoading(true);
-        let table = 'B09001';
+        //let table = 'B09001';
         let geo = {geography};
         console.log('SEARCH TABLE', {table});
         console.log('YEAR', {year});
