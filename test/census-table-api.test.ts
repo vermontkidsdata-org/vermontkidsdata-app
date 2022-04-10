@@ -97,22 +97,44 @@ describe('Census Table API', () => {
     it('HS region, invalid year', async () => {
         const ret = await tablesApi.getCensusByGeo({
             pathParameters: {
-              table: 'B09001',
-              geoType: 'head_start'
+                table: 'B09001',
+                geoType: 'head_start'
             }, queryStringParameters: {
-              year: '1776'
+                year: '1776'
             }
-          } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-          expect(ret.statusCode).toBe(400);
-          const body = JSON.parse(ret.body) as tablesApi.ErrorResponse;
-          expect(body.message).toContain('invalid year/dataset combination');
-          expectCORS(ret);
+        } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+        expect(ret.statusCode).toBe(400);
+        const body = JSON.parse(ret.body) as tablesApi.ErrorResponse;
+        expect(body.message).toContain('invalid year/dataset combination');
+        expectCORS(ret);
     });
 
-    it('verify even a 500 has a CORS header', async() => {
+    it('verify even a 500 has a CORS header', async () => {
         const ret = await tablesApi.getCensusByGeo(undefined as unknown as APIGatewayProxyEventV2) as LambdaResponse;
         console.log('ret', ret);
         expect(ret.statusCode).toBe(500);
         expectCORS(ret);
     });
+
+    it('MOEs', async () => {
+        const ret = await tablesApi.getCensusByGeo({
+            pathParameters: {
+                table: 'S1701',
+                geoType: 'head_start'
+            }, queryStringParameters: {
+                variables: 'S1701_C01_044E',
+                extensions: 'moe'
+            }
+        } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+        expect(ret.statusCode).toBe(200);
+        const body: tablesApi.GetCensusByGeoResponse = JSON.parse(ret.body);
+        expect(body.metadata.variables?.length).toBe(2);
+        expect(body.metadata.variables).toContain('S1701_C01_044E');
+        expect(body.metadata.variables).toContain('S1701_C01_044M');
+        expect(body.columns.length).toBe(3);
+        expect(body.rows.length).toBe(8);
+        expect(body.rows[0].geo).toBe('Bennington County HS/EHS');
+        expect(body.rows[0].S1701_C01_044E).toBe(20676);
+        expect(body.rows[0].S1701_C01_044M).toBe(3280);
+    })
 });

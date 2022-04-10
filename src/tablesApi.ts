@@ -279,7 +279,11 @@ interface DBACSVariables {
 function censusResultsToTable(censusResults: CensusResultRow[], dBVariables: DBACSVariables, columns: ApiTableResultColumn[] | undefined, rows: ApiTableResultRow[], variables: string[]): void {
   if (columns != null) {
     variables.forEach(variable => {
-      columns.push({ id: variable, label: dBVariables[variable].label });
+      const label = dBVariables[variable] == null && variable.endsWith('M') ?
+        'MOE' : dBVariables[variable] != null ?
+        dBVariables[variable].label :
+        'Unknown';
+      columns.push({ id: variable, label });
     });
   }
 
@@ -398,6 +402,8 @@ export async function getCensusByGeo(
     const geo = queryStringParameters.geo || '*';
     const dataset = queryStringParameters.dataset;
     const variables = queryStringParameters.variables ? queryStringParameters.variables.split(',').map(v => v.toUpperCase()) : undefined;
+    const extensions = (queryStringParameters.extensions || '').split(',').map(ex => ex.toLowerCase()); // Comma-separated extensions
+    const isExtensionSimpleMOE = extensions.includes('moe');
 
     // Don't allow towns - almost works but not quite...
     const townGeoTypes: string[] = [];
@@ -437,7 +443,22 @@ export async function getCensusByGeo(
 
     // The actual list of query variables
     const queryVars = variables != null ? variables
-      : acsVars.map(acsVar => acsVar.variable);
+      : acsVars.map(acsVar => acsVar.variable.toUpperCase());
+
+    // See if there's the MOE extension; just supplement the 'E's with 'M's
+    if (isExtensionSimpleMOE) {
+      const extendedQueryVars: string[] = [];
+      for (const qv of queryVars) {
+        extendedQueryVars.push(qv);
+        if (qv.toUpperCase().endsWith('E')) {
+          extendedQueryVars.push(`${qv.substring(0, qv.length-1)}M`);
+        }
+      }
+
+      // Replace queryVars
+      queryVars.length = 0;
+      queryVars.push(...extendedQueryVars);
+    }
 
     // API limits to 50 variables
     if (queryVars.length > 50) {
@@ -473,7 +494,8 @@ export async function getCensusByGeo(
       }
     });
     const unknownVars = queryVars.filter(qv => {
-      return dBVariables[qv] == null;
+      return dBVariables[qv] == null ||
+        qv.endsWith('M') ? dBVariables[`${qv.substring(0, qv.length-1)}E`] == null : false;
     });
 
     if (unknownVars.length > 0) {
@@ -565,10 +587,11 @@ export async function getCensusByGeo(
       statusCode: 200,
     };
 
-  } catch (e: any) {
+  } catch (e) {
+    console.error(e);
     return {
       body: JSON.stringify({
-        message: e.message
+        message: (e as Error).message
       }),
       headers: getHeaders("application/json"),
       statusCode: 500,
@@ -689,6 +712,7 @@ export async function getGeosByType(
 // Only run if executed directly
 if (!module.parent) {
   (async () => {
+    /*
     const ret = await getCensusByGeo({
       pathParameters: {
         table: 'S1701',
@@ -698,6 +722,7 @@ if (!module.parent) {
       }
     } as unknown as APIGatewayProxyEventV2);
     console.log('S1701 -- unknown vars', ret);
+
     // console.log(await getGeosByType({ pathParameters: { geoType: 'county' } } as unknown as APIGatewayProxyEventV2));
     console.log(await getGeosByType({ pathParameters: { geoType: 'state' } } as unknown as APIGatewayProxyEventV2));
     console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'poverty' } } as unknown as APIGatewayProxyEventV2));
@@ -830,6 +855,16 @@ if (!module.parent) {
         table: 'B09001',
         geoType: 'bbf_region'
       }, queryStringParameters: {}
+    } as unknown as APIGatewayProxyEventV2));
+    */
+    console.log('MOEs', await getCensusByGeo({
+      pathParameters: {
+        table: 'S1701',
+        geoType: 'head_start'
+      }, queryStringParameters: {
+        variables: 'S1701_C01_044E',
+        extensions: 'moe'
+      }
     } as unknown as APIGatewayProxyEventV2));
     // console.log('AHS district', await getCensusByGeo({
     //   pathParameters: {
