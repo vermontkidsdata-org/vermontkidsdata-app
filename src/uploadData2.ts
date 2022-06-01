@@ -165,17 +165,33 @@ export async function main(
     };
     console.log('params', params);
     try {
-        const { ContentType, Body } = await s3.getObject(params).promise();
         const { TagSet } = await s3.getObjectTagging(params).promise();
-        console.log('CONTENT TYPE:', ContentType);
-        const bodyContents = Body?.toString('utf-8');
+        const source = s3.getObject(params).createReadStream();
+        const fastCsv = require('fast-csv');
+        fastCsv.fromStream(source)
+        .on('data', (data: any) => {
+            // do something here
+            console.log(`data: ${data}`);
+        })
 
+        // const parser = csv.parse({
+        //     delimiter: ',',
+        //     recordDelimiter: '\n'
+        // }, (err, records) => {
+        //     if (err) console.error(err);
+        //     else console.log('** records', records);
+        // });
+        // source.pipe(parser);
+        
+        const ContentType = 'text/csv';
+        console.log('CONTENT TYPE:', ContentType);
+        
         //[ { Key: 'type', Value: 'assessments' } ]
         console.log('TAGS:', TagSet);
         const tags: { [key: string]: string } = {};
         if (TagSet != null) TagSet.forEach(tag => tags[tag.Key.toLowerCase()] = tag.Value.toLowerCase());
         console.log(`tags = ${tags}`);
-        if (tags.type == null || bodyContents == null) {
+        if (tags.type == null) {
             return 'unknown';
         }
 
@@ -193,25 +209,25 @@ export async function main(
         let rowCount = 0;
         let saveTotal = 0;
         let statusUpdatePct = 0;
-        try {
-            let lastStatusUpdatePct = 0;
-            await processCSV(bodyContents, async (record, index, total) => {
-                await typesConfig[tags.type].processRowFunction(connection, record, index, identifier, errors);
+        // try {
+        //     let lastStatusUpdatePct = 0;
+        //     await processCSV(bodyContents, async (record, index, total) => {
+        //         await typesConfig[tags.type].processRowFunction(connection, record, index, identifier, errors);
 
-                // Update status every 10%
-                statusUpdatePct = Math.round(100 * index / total);
-                if (Math.floor(lastStatusUpdatePct / 10) != Math.floor(statusUpdatePct / 10)) {
-                    lastStatusUpdatePct = statusUpdatePct;
-                    await updateStatus(identifier, 'In progress', statusUpdatePct, total, []);
-                }
-                rowCount += 1;
-                saveTotal = total;
-            });
-            await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
-            await connection.commit();
-        } catch (e) {
-            await updateStatus(identifier, 'Error', statusUpdatePct, saveTotal, [e as Error]);
-        }
+        //         // Update status every 10%
+        //         statusUpdatePct = Math.round(100 * index / total);
+        //         if (Math.floor(lastStatusUpdatePct / 10) != Math.floor(statusUpdatePct / 10)) {
+        //             lastStatusUpdatePct = statusUpdatePct;
+        //             await updateStatus(identifier, 'In progress', statusUpdatePct, total, []);
+        //         }
+        //         rowCount += 1;
+        //         saveTotal = total;
+        //     });
+        //     await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
+        //     await connection.commit();
+        // } catch (e) {
+        //     await updateStatus(identifier, 'Error', statusUpdatePct, saveTotal, [e as Error]);
+        // }
 
         console.log('closing connection');
         await connection.end();

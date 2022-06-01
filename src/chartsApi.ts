@@ -60,7 +60,7 @@ export async function bar(
         await query(connection, 'use dbvkd');
 
         // Get the query to run from the parameters
-        const queryRows = await query(connection, 'SELECT sqlText FROM queries where name=?', [queryId]);
+        const queryRows = await query(connection, 'SELECT sqlText, metadata FROM queries where name=?', [queryId]);
         console.log(queryRows);
         if (queryRows.length == 0) {
           await connection.end();
@@ -69,6 +69,8 @@ export async function bar(
             body: JSON.stringify({ message: 'unknown chart' })
           };
         }
+
+        const metadata = JSON.parse(queryRows[0].metadata || '{}');
 
         // Now run the query. Should always return three columns, with the following names
         // - cat: The category(s)
@@ -121,6 +123,9 @@ export async function bar(
           },
           body: JSON.stringify({
               id: queryId,
+              metadata: {
+                config: metadata
+              },
               series: retSeries,
               categories: categories
             })

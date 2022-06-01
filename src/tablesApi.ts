@@ -97,7 +97,8 @@ interface QueryRow {
   id: number,
   name: string,
   sqlText: string,
-  columnMap?: string
+  columnMap?: string,
+  metadata: string
 };
 
 async function getQuery(queryId: string): Promise<{ connection: mysql.Connection, rows: QueryRow[] }> {
@@ -107,7 +108,7 @@ async function getQuery(queryId: string): Promise<{ connection: mysql.Connection
   await query(connection, 'use dbvkd');
 
   // Get the query to run from the parameters
-  const queryRows = await query(connection, 'SELECT sqlText, columnMap FROM queries where name=?', [queryId]);
+  const queryRows = await query(connection, 'SELECT sqlText, columnMap, metadata FROM queries where name=?', [queryId]);
   console.log(queryRows);
   if (queryRows.length == 0) {
     throw new Error('unknown query');
@@ -119,7 +120,7 @@ async function getQuery(queryId: string): Promise<{ connection: mysql.Connection
   }
 }
 
-async function doQuery(queryId: string): Promise<{ rows: any[], columnMap?: ColumnMap }> {
+async function doQuery(queryId: string): Promise<{ rows: any[], columnMap?: ColumnMap, metadata?: Object }> {
   const info = await getQuery(queryId);
 
   // Now run the query. Should always return three columns, with the following names
@@ -134,7 +135,7 @@ async function doQuery(queryId: string): Promise<{ rows: any[], columnMap?: Colu
   console.log('connection closed');
   console.log('row0', info.rows[0])
   const columnMap = info.rows[0].columnMap != null ? JSON.parse(info.rows[0].columnMap) : undefined;
-  return { rows: resultRows, columnMap: columnMap };
+  return { rows: resultRows, columnMap: columnMap, metadata: JSON.parse(info.rows[0].metadata) };
 }
 
 export async function table(
@@ -172,6 +173,11 @@ export async function table(
       // Bar chart:
       // const foo = {
       //   "id": "58",
+      //   "metadata": {
+      //       "config": {
+      // 
+      //       }
+      //   },
       //   "series": [
       //       { "name": "Infant", "data": [ 2935, 3066, 2524 ] },
       //       { "name": "Toddler", "data": [ 2597, 2699, 2256 ] },
@@ -219,8 +225,13 @@ export async function table(
         });
         rows.push(rowval);
       }
+      const metadata: any = {};
+      if (resultRows.metadata) {
+        metadata.config = resultRows.metadata;
+      }
       const body = {
         id: queryId,
+        metadata,
         columns,
         rows
       };
@@ -728,11 +739,6 @@ if (!module.parent) {
     console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'poverty' } } as unknown as APIGatewayProxyEventV2));
     console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'occupation' } } as unknown as APIGatewayProxyEventV2));
     console.log(await getCensusTablesSearch({} as unknown as APIGatewayProxyEventV2));
-    await table({
-      pathParameters: {
-        queryId: '58'
-      }
-    } as unknown as APIGatewayProxyEventV2);
     console.log('one county', await getCensusByGeo({
       pathParameters: {
         table: 'B09001',
@@ -857,15 +863,15 @@ if (!module.parent) {
       }, queryStringParameters: {}
     } as unknown as APIGatewayProxyEventV2));
     */
-    console.log('MOEs', await getCensusByGeo({
-      pathParameters: {
-        table: 'S1701',
-        geoType: 'head_start'
-      }, queryStringParameters: {
-        variables: 'S1701_C01_044E',
-        extensions: 'moe'
-      }
-    } as unknown as APIGatewayProxyEventV2));
+    // console.log('MOEs', await getCensusByGeo({
+    //   pathParameters: {
+    //     table: 'S1701',
+    //     geoType: 'head_start'
+    //   }, queryStringParameters: {
+    //     variables: 'S1701_C01_044E',
+    //     extensions: 'moe'
+    //   }
+    // } as unknown as APIGatewayProxyEventV2));
     // console.log('AHS district', await getCensusByGeo({
     //   pathParameters: {
     //     table: 'B09001',
@@ -882,6 +888,12 @@ if (!module.parent) {
     //   sourcePath: ['acs', 'acs5', 'subject'],
     //   values: ['S1601_C05_014E'],
     // }));
+    console.log(await table({
+      pathParameters: {
+        queryId: '58'
+      }
+    } as unknown as APIGatewayProxyEventV2));
+
   })().catch(err => {
     console.log(`exception`, err);
   });

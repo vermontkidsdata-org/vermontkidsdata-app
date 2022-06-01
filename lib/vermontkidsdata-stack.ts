@@ -53,8 +53,8 @@ export class VermontkidsdataStack extends cdk.Stack {
 
     // Upload data function.
     const uploadFunction = new lambdanode.NodejsFunction(this, 'Upload Data Function', {
-      memorySize: 128,
-      timeout: cdk.Duration.seconds(300),
+      memorySize: 512,
+      timeout: cdk.Duration.seconds(900),
       runtime: lambda.Runtime.NODEJS_14_X,
       entry: join(__dirname, "../src/uploadData.ts"),
       handler: 'main',

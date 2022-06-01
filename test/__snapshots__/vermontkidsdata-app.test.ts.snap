@@ -1278,7 +1278,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           },
         },
         "Handler": "index.main",
-        "MemorySize": 128,
+        "MemorySize": 512,
         "Role": Object {
           "Fn::GetAtt": Array [
             "UploadDataFunctionServiceRole0AA81148",
@@ -1286,7 +1286,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           ],
         },
         "Runtime": "nodejs14.x",
-        "Timeout": 300,
+        "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
     },
