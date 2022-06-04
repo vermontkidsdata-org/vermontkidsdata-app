@@ -34,6 +34,7 @@ export default function HighChart() {
         console.log(response.data);
 
         let options = {
+
             colors: ["#007155","#3b886e","#60a088","#84b8a3","#a7d0bf","#cae9dc","#007155","#3b886e",
                 "#60a088","#84b8a3","#a7d0bf","#cae9dc","#e5f5e0","#c7e9c0","#a1d99b","#74c476","#41ab5d",
                 "#238b45","#006d2c","#00441b","#ed7330", "#ed8751","#eb9a71","#e6ad90","#ddbfb0","#d1d1d1"],
@@ -41,10 +42,10 @@ export default function HighChart() {
                 type: 'column'
             },
             title: {
-                text: 'Reading Proficiency at the End of Third Grade'
+                text: response.data.metadata.config.title
             },
             subtitle: {
-                text: 'Source: Vermont Department of Education'
+                text: response.data.metadata.config.subtitle
             },
             series: response.data.series,
             plotOptions: {
@@ -66,10 +67,10 @@ export default function HighChart() {
                 min: 0,
                 //max: 100,
                 title: {
-                    text: 'Percent'
+                    text: response.data.metadata.config.yAxis.title
                 },
                 labels: {
-                    format: '{text}%'
+                    format: '{value:.0f}'
                 },
             }
         };
@@ -82,6 +83,7 @@ export default function HighChart() {
             <HighchartsReact
                 highcharts={Highcharts}
                 options={options}
+
             />
         </div>
     );
