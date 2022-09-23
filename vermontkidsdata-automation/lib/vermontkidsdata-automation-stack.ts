@@ -14,7 +14,14 @@ export class VermontkidsdataAutomationStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-        //create an instance of the event bridge rule to run the function on schedule
+        //create the policy to allow access to secrets manager
+          const getSecretValueStatement = new iam.PolicyStatement({
+              actions: ["secretsmanager:GetSecretValue"],
+              resources: ["*"]
+          });
+
+
+      //create an instance of the event bridge rule to run the function on schedule
         const healthCheckRule = new HealthCheckRule (this, "Health Check Rule");
 
         /**************** BBF Health Check ******************/
@@ -25,6 +32,9 @@ export class VermontkidsdataAutomationStack extends Stack {
           timeout: cdk.Duration.minutes(10),
           description: "BBF Health Check Lambda Function"
         });
+
+        // add the policy to access secrets manager
+        healthCheckBBFHandler.addToRolePolicy(getSecretValueStatement);
 
         // add the Lambda function as a target for the Event Rule
         healthCheckRule.eventRule.addTarget(
