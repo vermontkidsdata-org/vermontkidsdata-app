@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-lightsail": "^3.121.0",
+    "@aws-sdk/client-secrets-manager": "^3.171.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1"
   }
