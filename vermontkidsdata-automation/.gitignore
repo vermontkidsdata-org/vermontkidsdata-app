@@ -1,17 +1,9 @@
-bin/**/*.js
-src/**/*.js
-lib/**/*.js
-test/**/*.js
+
 !jest.config.js
 *.d.ts
 node_modules
-do_not_commit/
-*.log
-.env.json
 .env
 
 # CDK asset staging directory
 .cdk.staging
 cdk.out
-
-.idea/*
