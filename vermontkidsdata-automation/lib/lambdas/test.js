@@ -1,4 +1,4 @@
-let lambda = require('./health-check-vkddata');
+let lambda = require('./health-check-vkd');
 
 const event = {}
 
