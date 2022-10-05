@@ -1,41 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Lambda Snapshot Test 1`] = `
-Object {
-  "Outputs": Object {
-    "Bucketname": Object {
-      "Value": Object {
+{
+  "Outputs": {
+    "Bucketname": {
+      "Value": {
         "Ref": "Uploadsbucket86F42938",
       },
     },
-    "CloudFrontDNS": Object {
-      "Value": Object {
-        "Fn::GetAtt": Array [
+    "CloudFrontDNS": {
+      "Value": {
+        "Fn::GetAtt": [
           "testcloudfrontB2C6E4FF",
           "DomainName",
         ],
       },
     },
-    "CloudFrontbucket": Object {
-      "Value": Object {
+    "CloudFrontbucket": {
+      "Value": {
         "Ref": "tests3web0EC7B581",
       },
     },
-    "testVermontKidsDataEndpoint84F49ECA": Object {
-      "Value": Object {
-        "Fn::Join": Array [
+    "testVermontKidsDataEndpoint84F49ECA": {
+      "Value": {
+        "Fn::Join": [
           "",
-          Array [
+          [
             "https://",
-            Object {
+            {
               "Ref": "testVermontKidsDataCC7D0909",
             },
             ".execute-api.aq-south-1.",
-            Object {
+            {
               "Ref": "AWS::URLSuffix",
             },
             "/",
-            Object {
+            {
               "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
             },
             "/",
@@ -44,34 +44,34 @@ Object {
       },
     },
   },
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "BarChartAPIFunction8D100D69": Object {
-      "DependsOn": Array [
+  "Resources": {
+    "BarChartAPIFunction8D100D69": {
+      "DependsOn": [
         "BarChartAPIFunctionServiceRoleDefaultPolicyEED5A1D7",
         "BarChartAPIFunctionServiceRole24B14B18",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Environment": Object {
-          "Variables": Object {
+        "Environment": {
+          "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "REGION": "aq-south-1",
           },
         },
         "Handler": "index.bar",
         "MemorySize": 128,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "BarChartAPIFunctionServiceRole24B14B18",
             "Arn",
           ],
@@ -81,22 +81,22 @@ Object {
       },
       "Type": "AWS::Lambda::Function",
     },
-    "BarChartAPIFunctionLogRetention13E30958": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
+    "BarChartAPIFunctionLogRetention13E30958": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "/aws/lambda/",
-              Object {
+              {
                 "Ref": "BarChartAPIFunction8D100D69",
               },
             ],
           ],
         },
         "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
             "Arn",
           ],
@@ -104,27 +104,27 @@ Object {
       },
       "Type": "Custom::LogRetention",
     },
-    "BarChartAPIFunctionServiceRole24B14B18": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "BarChartAPIFunctionServiceRole24B14B18": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -135,22 +135,22 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "BarChartAPIFunctionServiceRoleDefaultPolicyEED5A1D7": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
+    "BarChartAPIFunctionServiceRoleDefaultPolicyEED5A1D7": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
                 "secretsmanager:GetSecretValue",
                 "secretsmanager:DescribeSecret",
               ],
               "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
+              "Resource": {
+                "Fn::Join": [
                   "",
-                  Array [
+                  [
                     "arn:",
-                    Object {
+                    {
                       "Ref": "AWS::Partition",
                     },
                     ":secretsmanager:aq-south-1:999999999:secret:vkd/prod/dbcreds-??????",
@@ -162,34 +162,34 @@ Object {
           "Version": "2012-10-17",
         },
         "PolicyName": "BarChartAPIFunctionServiceRoleDefaultPolicyEED5A1D7",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "BarChartAPIFunctionServiceRole24B14B18",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "BasictableAPIFunction7BA08608": Object {
-      "DependsOn": Array [
+    "BasictableAPIFunction7BA08608": {
+      "DependsOn": [
         "BasictableAPIFunctionServiceRoleDefaultPolicy2159AE4D",
         "BasictableAPIFunctionServiceRole1E828EAE",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Environment": Object {
-          "Variables": Object {
+        "Environment": {
+          "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "REGION": "aq-south-1",
           },
         },
         "Handler": "index.table",
         "MemorySize": 128,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "BasictableAPIFunctionServiceRole1E828EAE",
             "Arn",
           ],
@@ -199,22 +199,22 @@ Object {
       },
       "Type": "AWS::Lambda::Function",
     },
-    "BasictableAPIFunctionLogRetentionAF75B5CC": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
+    "BasictableAPIFunctionLogRetentionAF75B5CC": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "/aws/lambda/",
-              Object {
+              {
                 "Ref": "BasictableAPIFunction7BA08608",
               },
             ],
           ],
         },
         "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
             "Arn",
           ],
@@ -222,27 +222,27 @@ Object {
       },
       "Type": "Custom::LogRetention",
     },
-    "BasictableAPIFunctionServiceRole1E828EAE": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "BasictableAPIFunctionServiceRole1E828EAE": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -253,22 +253,22 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "BasictableAPIFunctionServiceRoleDefaultPolicy2159AE4D": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
+    "BasictableAPIFunctionServiceRoleDefaultPolicy2159AE4D": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
                 "secretsmanager:GetSecretValue",
                 "secretsmanager:DescribeSecret",
               ],
               "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
+              "Resource": {
+                "Fn::Join": [
                   "",
-                  Array [
+                  [
                     "arn:",
-                    Object {
+                    {
                       "Ref": "AWS::Partition",
                     },
                     ":secretsmanager:aq-south-1:999999999:secret:vkd/prod/dbcreds-??????",
@@ -280,128 +280,127 @@ Object {
           "Version": "2012-10-17",
         },
         "PolicyName": "BasictableAPIFunctionServiceRoleDefaultPolicy2159AE4D",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "BasictableAPIFunctionServiceRole1E828EAE",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691": Object {
-      "DependsOn": Array [
+    "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691": {
+      "DependsOn": [
         "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36",
         "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "ZipFile": "import boto3  # type: ignore
 import json
 import logging
 import urllib.request
 
-s3 = boto3.client(\\"s3\\")
+s3 = boto3.client("s3")
 
-CONFIGURATION_TYPES = [\\"TopicConfigurations\\", \\"QueueConfigurations\\", \\"LambdaFunctionConfigurations\\"]
+EVENTBRIDGE_CONFIGURATION = 'EventBridgeConfiguration'
+
+CONFIGURATION_TYPES = ["TopicConfigurations", "QueueConfigurations", "LambdaFunctionConfigurations"]
 
 def handler(event: dict, context):
-    response_status = \\"SUCCESS\\"
-    error_message = \\"\\"
-    try:
-        props = event[\\"ResourceProperties\\"]
-        bucket = props[\\"BucketName\\"]
-        notification_configuration = props[\\"NotificationConfiguration\\"]
-        request_type = event[\\"RequestType\\"]
-        managed = props.get('Managed', 'true').lower() == 'true'
-        stack_id = event['StackId']
+  response_status = "SUCCESS"
+  error_message = ""
+  try:
+    props = event["ResourceProperties"]
+    bucket = props["BucketName"]
+    notification_configuration = props["NotificationConfiguration"]
+    request_type = event["RequestType"]
+    managed = props.get('Managed', 'true').lower() == 'true'
+    stack_id = event['StackId']
 
-        if managed:
-          config = handle_managed(request_type, notification_configuration)
-        else:
-          config = handle_unmanaged(bucket, stack_id, request_type, notification_configuration)
+    if managed:
+      config = handle_managed(request_type, notification_configuration)
+    else:
+      config = handle_unmanaged(bucket, stack_id, request_type, notification_configuration)
 
-        put_bucket_notification_configuration(bucket, config)
-    except Exception as e:
-        logging.exception(\\"Failed to put bucket notification configuration\\")
-        response_status = \\"FAILED\\"
-        error_message = f\\"Error: {str(e)}. \\"
-    finally:
-        submit_response(event, context, response_status, error_message)
-
+    put_bucket_notification_configuration(bucket, config)
+  except Exception as e:
+    logging.exception("Failed to put bucket notification configuration")
+    response_status = "FAILED"
+    error_message = f"Error: {str(e)}. "
+  finally:
+    submit_response(event, context, response_status, error_message)
 
 def handle_managed(request_type, notification_configuration):
   if request_type == 'Delete':
     return {}
   return notification_configuration
 
-
 def handle_unmanaged(bucket, stack_id, request_type, notification_configuration):
-
-  # find external notifications
   external_notifications = find_external_notifications(bucket, stack_id)
 
-  # if delete, that's all we need
   if request_type == 'Delete':
     return external_notifications
 
   def with_id(notification):
-    notification['Id'] = f\\"{stack_id}-{hash(json.dumps(notification, sort_keys=True))}\\"
+    notification['Id'] = f"{stack_id}-{hash(json.dumps(notification, sort_keys=True))}"
     return notification
 
-  # otherwise, merge external with incoming config and augment with id
   notifications = {}
   for t in CONFIGURATION_TYPES:
     external = external_notifications.get(t, [])
     incoming = [with_id(n) for n in notification_configuration.get(t, [])]
     notifications[t] = external + incoming
-  return notifications
 
+  if EVENTBRIDGE_CONFIGURATION in notification_configuration:
+    notifications[EVENTBRIDGE_CONFIGURATION] = notification_configuration[EVENTBRIDGE_CONFIGURATION]
+  elif EVENTBRIDGE_CONFIGURATION in external_notifications:
+    notifications[EVENTBRIDGE_CONFIGURATION] = external_notifications[EVENTBRIDGE_CONFIGURATION]
+
+  return notifications
 
 def find_external_notifications(bucket, stack_id):
   existing_notifications = get_bucket_notification_configuration(bucket)
   external_notifications = {}
   for t in CONFIGURATION_TYPES:
-    # if the notification was created by us, we know what id to expect
-    # so we can filter by it.
-    external_notifications[t] = [n for n in existing_notifications.get(t, []) if not n['Id'].startswith(f\\"{stack_id}-\\")]
+    external_notifications[t] = [n for n in existing_notifications.get(t, []) if not n['Id'].startswith(f"{stack_id}-")]
+
+  if EVENTBRIDGE_CONFIGURATION in existing_notifications:
+    external_notifications[EVENTBRIDGE_CONFIGURATION] = existing_notifications[EVENTBRIDGE_CONFIGURATION]
 
   return external_notifications
-
 
 def get_bucket_notification_configuration(bucket):
   return s3.get_bucket_notification_configuration(Bucket=bucket)
 
-
 def put_bucket_notification_configuration(bucket, notification_configuration):
   s3.put_bucket_notification_configuration(Bucket=bucket, NotificationConfiguration=notification_configuration)
 
-
 def submit_response(event: dict, context, response_status: str, error_message: str):
-    response_body = json.dumps(
-        {
-            \\"Status\\": response_status,
-            \\"Reason\\": f\\"{error_message}See the details in CloudWatch Log Stream: {context.log_stream_name}\\",
-            \\"PhysicalResourceId\\": event.get(\\"PhysicalResourceId\\") or event[\\"LogicalResourceId\\"],
-            \\"StackId\\": event[\\"StackId\\"],
-            \\"RequestId\\": event[\\"RequestId\\"],
-            \\"LogicalResourceId\\": event[\\"LogicalResourceId\\"],
-            \\"NoEcho\\": False,
-        }
-    ).encode(\\"utf-8\\")
-    headers = {\\"content-type\\": \\"\\", \\"content-length\\": str(len(response_body))}
-    try:
-        req = urllib.request.Request(url=event[\\"ResponseURL\\"], headers=headers, data=response_body, method=\\"PUT\\")
-        with urllib.request.urlopen(req) as response:
-            print(response.read().decode(\\"utf-8\\"))
-        print(\\"Status code: \\" + response.reason)
-    except Exception as e:
-        print(\\"send(..) failed executing request.urlopen(..): \\" + str(e))
+  response_body = json.dumps(
+    {
+      "Status": response_status,
+      "Reason": f"{error_message}See the details in CloudWatch Log Stream: {context.log_stream_name}",
+      "PhysicalResourceId": event.get("PhysicalResourceId") or event["LogicalResourceId"],
+      "StackId": event["StackId"],
+      "RequestId": event["RequestId"],
+      "LogicalResourceId": event["LogicalResourceId"],
+      "NoEcho": False,
+    }
+  ).encode("utf-8")
+  headers = {"content-type": "", "content-length": str(len(response_body))}
+  try:
+    req = urllib.request.Request(url=event["ResponseURL"], headers=headers, data=response_body, method="PUT")
+    with urllib.request.urlopen(req) as response:
+      print(response.read().decode("utf-8"))
+    print("Status code: " + response.reason)
+  except Exception as e:
+      print("send(..) failed executing request.urlopen(..): " + str(e))
 ",
         },
-        "Description": "AWS CloudFormation handler for \\"Custom::S3BucketNotifications\\" resources (@aws-cdk/aws-s3)",
+        "Description": "AWS CloudFormation handler for "Custom::S3BucketNotifications" resources (@aws-cdk/aws-s3)",
         "Handler": "index.handler",
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC",
             "Arn",
           ],
@@ -411,27 +410,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -442,11 +441,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
               "Action": "s3:PutBucketNotification",
               "Effect": "Allow",
               "Resource": "*",
@@ -455,33 +454,33 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "CensusTableByGeoFunction1EF3A681": Object {
-      "DependsOn": Array [
+    "CensusTableByGeoFunction1EF3A681": {
+      "DependsOn": [
         "CensusTableByGeoFunctionServiceRoleDefaultPolicy4D3B2C24",
         "CensusTableByGeoFunctionServiceRole88A5120C",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Environment": Object {
-          "Variables": Object {
+        "Environment": {
+          "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
           },
         },
         "Handler": "index.getCensusByGeo",
         "MemorySize": 1024,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "CensusTableByGeoFunctionServiceRole88A5120C",
             "Arn",
           ],
@@ -491,22 +490,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "CensusTableByGeoFunctionLogRetentionF7627A56": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
+    "CensusTableByGeoFunctionLogRetentionF7627A56": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "/aws/lambda/",
-              Object {
+              {
                 "Ref": "CensusTableByGeoFunction1EF3A681",
               },
             ],
           ],
         },
         "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
             "Arn",
           ],
@@ -514,27 +513,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "Custom::LogRetention",
     },
-    "CensusTableByGeoFunctionServiceRole88A5120C": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "CensusTableByGeoFunctionServiceRole88A5120C": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -545,11 +544,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "CensusTableByGeoFunctionServiceRoleDefaultPolicy4D3B2C24": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "CensusTableByGeoFunctionServiceRoleDefaultPolicy4D3B2C24": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
               "Resource": "*",
@@ -558,33 +557,33 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "CensusTableByGeoFunctionServiceRoleDefaultPolicy4D3B2C24",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "CensusTableByGeoFunctionServiceRole88A5120C",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "CodesCensusVariablesByTableFunctionF5F759B7": Object {
-      "DependsOn": Array [
+    "CodesCensusVariablesByTableFunctionF5F759B7": {
+      "DependsOn": [
         "CodesCensusVariablesByTableFunctionServiceRoleDefaultPolicy0469A8DF",
         "CodesCensusVariablesByTableFunctionServiceRoleCB05872E",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Environment": Object {
-          "Variables": Object {
+        "Environment": {
+          "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
           },
         },
         "Handler": "index.codesCensusVariablesByTable",
         "MemorySize": 1024,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "CodesCensusVariablesByTableFunctionServiceRoleCB05872E",
             "Arn",
           ],
@@ -594,22 +593,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "CodesCensusVariablesByTableFunctionLogRetentionF9B82831": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
+    "CodesCensusVariablesByTableFunctionLogRetentionF9B82831": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "/aws/lambda/",
-              Object {
+              {
                 "Ref": "CodesCensusVariablesByTableFunctionF5F759B7",
               },
             ],
           ],
         },
         "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
             "Arn",
           ],
@@ -617,27 +616,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "Custom::LogRetention",
     },
-    "CodesCensusVariablesByTableFunctionServiceRoleCB05872E": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "CodesCensusVariablesByTableFunctionServiceRoleCB05872E": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -648,11 +647,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "CodesCensusVariablesByTableFunctionServiceRoleDefaultPolicy0469A8DF": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "CodesCensusVariablesByTableFunctionServiceRoleDefaultPolicy0469A8DF": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
               "Resource": "*",
@@ -661,62 +660,62 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "CodesCensusVariablesByTableFunctionServiceRoleDefaultPolicy0469A8DF",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "CodesCensusVariablesByTableFunctionServiceRoleCB05872E",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536": Object {
-      "DependsOn": Array [
+    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536": {
+      "DependsOn": [
         "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
         "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
         "Handler": "index.handler",
-        "Layers": Array [
-          Object {
+        "Layers": [
+          {
             "Ref": "tests3deployAwsCliLayer5D78A44A",
           },
         ],
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
             "Arn",
           ],
         },
-        "Runtime": "python3.7",
+        "Runtime": "python3.9",
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
     },
-    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -727,36 +726,36 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
+    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
                 "s3:GetObject*",
                 "s3:GetBucket*",
                 "s3:List*",
               ],
               "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
+              "Resource": [
+                {
+                  "Fn::Join": [
                     "",
-                    Array [
+                    [
                       "arn:",
-                      Object {
+                      {
                         "Ref": "AWS::Partition",
                       },
                       ":s3:::[ASSET BUCKET]",
                     ],
                   ],
                 },
-                Object {
-                  "Fn::Join": Array [
+                {
+                  "Fn::Join": [
                     "",
-                    Array [
+                    [
                       "arn:",
-                      Object {
+                      {
                         "Ref": "AWS::Partition",
                       },
                       ":s3:::[ASSET BUCKET]/*",
@@ -765,8 +764,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 },
               ],
             },
-            Object {
-              "Action": Array [
+            {
+              "Action": [
                 "s3:GetObject*",
                 "s3:GetBucket*",
                 "s3:List*",
@@ -779,19 +778,19 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "s3:Abort*",
               ],
               "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
                     "tests3web0EC7B581",
                     "Arn",
                   ],
                 },
-                Object {
-                  "Fn::Join": Array [
+                {
+                  "Fn::Join": [
                     "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
+                    [
+                      {
+                        "Fn::GetAtt": [
                           "tests3web0EC7B581",
                           "Arn",
                         ],
@@ -806,29 +805,29 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": Object {
-      "DependsOn": Array [
+    "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
+      "DependsOn": [
         "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Description": Object {
-          "Fn::Join": Array [
+        "Description": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "Lambda function for auto-deleting objects in ",
-              Object {
+              {
                 "Ref": "Uploadsbucket86F42938",
               },
               " S3 bucket.",
@@ -837,58 +836,58 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Handler": "__entrypoint__.handler",
         "MemorySize": 128,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs14.x",
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
     },
-    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
+        "ManagedPolicyArns": [
+          {
             "Fn::Sub": "arn:\${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
           },
         ],
       },
       "Type": "AWS::IAM::Role",
     },
-    "GetCensusTablesSearchFunctionE5D75F9E": Object {
-      "DependsOn": Array [
+    "GetCensusTablesSearchFunctionE5D75F9E": {
+      "DependsOn": [
         "GetCensusTablesSearchFunctionServiceRoleDefaultPolicy8391E9A3",
         "GetCensusTablesSearchFunctionServiceRole4A70EBA6",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Environment": Object {
-          "Variables": Object {
+        "Environment": {
+          "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
           },
         },
         "Handler": "index.getCensusTablesSearch",
         "MemorySize": 1024,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "GetCensusTablesSearchFunctionServiceRole4A70EBA6",
             "Arn",
           ],
@@ -898,22 +897,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "GetCensusTablesSearchFunctionLogRetentionD10E2532": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
+    "GetCensusTablesSearchFunctionLogRetentionD10E2532": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "/aws/lambda/",
-              Object {
+              {
                 "Ref": "GetCensusTablesSearchFunctionE5D75F9E",
               },
             ],
           ],
         },
         "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
             "Arn",
           ],
@@ -921,27 +920,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "Custom::LogRetention",
     },
-    "GetCensusTablesSearchFunctionServiceRole4A70EBA6": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "GetCensusTablesSearchFunctionServiceRole4A70EBA6": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -952,11 +951,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "GetCensusTablesSearchFunctionServiceRoleDefaultPolicy8391E9A3": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "GetCensusTablesSearchFunctionServiceRoleDefaultPolicy8391E9A3": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
               "Resource": "*",
@@ -965,33 +964,33 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "GetCensusTablesSearchFunctionServiceRoleDefaultPolicy8391E9A3",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "GetCensusTablesSearchFunctionServiceRole4A70EBA6",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "GetGeosbyTypeFunctionE6591A7E": Object {
-      "DependsOn": Array [
+    "GetGeosbyTypeFunctionE6591A7E": {
+      "DependsOn": [
         "GetGeosbyTypeFunctionServiceRoleDefaultPolicy5EBEFE1F",
         "GetGeosbyTypeFunctionServiceRole8B587551",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Environment": Object {
-          "Variables": Object {
+        "Environment": {
+          "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
           },
         },
         "Handler": "index.getGeosByType",
         "MemorySize": 1024,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "GetGeosbyTypeFunctionServiceRole8B587551",
             "Arn",
           ],
@@ -1001,22 +1000,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "GetGeosbyTypeFunctionLogRetention77AE2829": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
+    "GetGeosbyTypeFunctionLogRetention77AE2829": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "/aws/lambda/",
-              Object {
+              {
                 "Ref": "GetGeosbyTypeFunctionE6591A7E",
               },
             ],
           ],
         },
         "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
             "Arn",
           ],
@@ -1024,27 +1023,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "Custom::LogRetention",
     },
-    "GetGeosbyTypeFunctionServiceRole8B587551": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "GetGeosbyTypeFunctionServiceRole8B587551": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -1055,11 +1054,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "GetGeosbyTypeFunctionServiceRoleDefaultPolicy5EBEFE1F": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "GetGeosbyTypeFunctionServiceRoleDefaultPolicy5EBEFE1F": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
               "Resource": "*",
@@ -1068,27 +1067,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "GetGeosbyTypeFunctionServiceRoleDefaultPolicy5EBEFE1F",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "GetGeosbyTypeFunctionServiceRole8B587551",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A": Object {
-      "DependsOn": Array [
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A": {
+      "DependsOn": [
         "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
         "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
         "Handler": "index.handler",
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
             "Arn",
           ],
@@ -1097,27 +1096,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -1128,12 +1127,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
                 "logs:PutRetentionPolicy",
                 "logs:DeleteRetentionPolicy",
               ],
@@ -1144,33 +1143,33 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "TestDBFunction6436BF3A": Object {
-      "DependsOn": Array [
+    "TestDBFunction6436BF3A": {
+      "DependsOn": [
         "TestDBFunctionServiceRoleDefaultPolicy573EA357",
         "TestDBFunctionServiceRole08619338",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Environment": Object {
-          "Variables": Object {
+        "Environment": {
+          "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
           },
         },
         "Handler": "index.testcitylambda.queryDB",
         "MemorySize": 1024,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "TestDBFunctionServiceRole08619338",
             "Arn",
           ],
@@ -1180,22 +1179,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "TestDBFunctionLogRetention612EEE2F": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
+    "TestDBFunctionLogRetention612EEE2F": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "/aws/lambda/",
-              Object {
+              {
                 "Ref": "TestDBFunction6436BF3A",
               },
             ],
           ],
         },
         "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
             "Arn",
           ],
@@ -1203,27 +1202,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "Custom::LogRetention",
     },
-    "TestDBFunctionServiceRole08619338": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "TestDBFunctionServiceRole08619338": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -1234,11 +1233,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "TestDBFunctionServiceRoleDefaultPolicy573EA357": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "TestDBFunctionServiceRoleDefaultPolicy573EA357": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
               "Resource": "*",
@@ -1247,40 +1246,40 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "TestDBFunctionServiceRoleDefaultPolicy573EA357",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "TestDBFunctionServiceRole08619338",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "UploadDataFunction2E82FB6B": Object {
-      "DependsOn": Array [
+    "UploadDataFunction2E82FB6B": {
+      "DependsOn": [
         "UploadDataFunctionServiceRoleDefaultPolicy5821DD73",
         "UploadDataFunctionServiceRole0AA81148",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Environment": Object {
-          "Variables": Object {
+        "Environment": {
+          "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "REGION": "aq-south-1",
-            "S3_BUCKET_NAME": Object {
+            "S3_BUCKET_NAME": {
               "Ref": "Uploadsbucket86F42938",
             },
-            "STATUS_TABLE": Object {
+            "STATUS_TABLE": {
               "Ref": "UploadstatustableA9E2FF87",
             },
           },
         },
         "Handler": "index.main",
         "MemorySize": 512,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "UploadDataFunctionServiceRole0AA81148",
             "Arn",
           ],
@@ -1290,11 +1289,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "UploadDataFunctionInvokeServicePrincipals3amazonawscom154BF3FA": Object {
-      "Properties": Object {
+    "UploadDataFunctionInvoke7Tjz5KX7GRQDyjRPBytArERKUwy73V0WhTiHDj2lAwA6E00DED": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "UploadDataFunction2E82FB6B",
             "Arn",
           ],
@@ -1303,22 +1302,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "UploadDataFunctionLogRetentionC11AAF2E": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
+    "UploadDataFunctionLogRetentionC11AAF2E": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "/aws/lambda/",
-              Object {
+              {
                 "Ref": "UploadDataFunction2E82FB6B",
               },
             ],
           ],
         },
         "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
             "Arn",
           ],
@@ -1326,27 +1325,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "Custom::LogRetention",
     },
-    "UploadDataFunctionServiceRole0AA81148": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "UploadDataFunctionServiceRole0AA81148": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -1357,30 +1356,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "UploadDataFunctionServiceRoleDefaultPolicy5821DD73": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
+    "UploadDataFunctionServiceRoleDefaultPolicy5821DD73": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
                 "s3:GetObject*",
                 "s3:GetBucket*",
                 "s3:List*",
               ],
               "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
                     "Uploadsbucket86F42938",
                     "Arn",
                   ],
                 },
-                Object {
-                  "Fn::Join": Array [
+                {
+                  "Fn::Join": [
                     "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
+                    [
+                      {
+                        "Fn::GetAtt": [
                           "Uploadsbucket86F42938",
                           "Arn",
                         ],
@@ -1391,8 +1390,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 },
               ],
             },
-            Object {
-              "Action": Array [
+            {
+              "Action": [
                 "dynamodb:BatchGetItem",
                 "dynamodb:GetRecords",
                 "dynamodb:GetShardIterator",
@@ -1407,30 +1406,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "dynamodb:DescribeTable",
               ],
               "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
                     "UploadstatustableA9E2FF87",
                     "Arn",
                   ],
                 },
-                Object {
+                {
                   "Ref": "AWS::NoValue",
                 },
               ],
             },
-            Object {
-              "Action": Array [
+            {
+              "Action": [
                 "secretsmanager:GetSecretValue",
                 "secretsmanager:DescribeSecret",
               ],
               "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
+              "Resource": {
+                "Fn::Join": [
                   "",
-                  Array [
+                  [
                     "arn:",
-                    Object {
+                    {
                       "Ref": "AWS::Partition",
                     },
                     ":secretsmanager:aq-south-1:999999999:secret:vkd/prod/dbcreds-??????",
@@ -1442,40 +1441,40 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "UploadDataFunctionServiceRoleDefaultPolicy5821DD73",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "UploadDataFunctionServiceRole0AA81148",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "UploadStatusFunction296B6E97": Object {
-      "DependsOn": Array [
+    "UploadStatusFunction296B6E97": {
+      "DependsOn": [
         "UploadStatusFunctionServiceRoleDefaultPolicy37A1DC4B",
         "UploadStatusFunctionServiceRole9F253A43",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
-        "Environment": Object {
-          "Variables": Object {
+        "Environment": {
+          "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "REGION": "aq-south-1",
-            "S3_BUCKET_NAME": Object {
+            "S3_BUCKET_NAME": {
               "Ref": "Uploadsbucket86F42938",
             },
-            "STATUS_TABLE": Object {
+            "STATUS_TABLE": {
               "Ref": "UploadstatustableA9E2FF87",
             },
           },
         },
         "Handler": "index.status",
         "MemorySize": 128,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "UploadStatusFunctionServiceRole9F253A43",
             "Arn",
           ],
@@ -1485,22 +1484,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "UploadStatusFunctionLogRetentionB8036749": Object {
-      "Properties": Object {
-        "LogGroupName": Object {
-          "Fn::Join": Array [
+    "UploadStatusFunctionLogRetentionB8036749": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "/aws/lambda/",
-              Object {
+              {
                 "Ref": "UploadStatusFunction296B6E97",
               },
             ],
           ],
         },
         "RetentionInDays": 1,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
             "Arn",
           ],
@@ -1508,27 +1507,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "Custom::LogRetention",
     },
-    "UploadStatusFunctionServiceRole9F253A43": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "UploadStatusFunctionServiceRole9F253A43": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -1539,12 +1538,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
-    "UploadStatusFunctionServiceRoleDefaultPolicy37A1DC4B": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
+    "UploadStatusFunctionServiceRoleDefaultPolicy37A1DC4B": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
                 "dynamodb:BatchGetItem",
                 "dynamodb:GetRecords",
                 "dynamodb:GetShardIterator",
@@ -1559,14 +1558,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "dynamodb:DescribeTable",
               ],
               "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
                     "UploadstatustableA9E2FF87",
                     "Arn",
                   ],
                 },
-                Object {
+                {
                   "Ref": "AWS::NoValue",
                 },
               ],
@@ -1575,50 +1574,50 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Version": "2012-10-17",
         },
         "PolicyName": "UploadStatusFunctionServiceRoleDefaultPolicy37A1DC4B",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "UploadStatusFunctionServiceRole9F253A43",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "Uploadsbucket86F42938": Object {
+    "Uploadsbucket86F42938": {
       "DeletionPolicy": "Delete",
-      "Properties": Object {
-        "CorsConfiguration": Object {
-          "CorsRules": Array [
-            Object {
-              "AllowedHeaders": Array [
+      "Properties": {
+        "CorsConfiguration": {
+          "CorsRules": [
+            {
+              "AllowedHeaders": [
                 "*",
               ],
-              "AllowedMethods": Array [
+              "AllowedMethods": [
                 "GET",
                 "POST",
                 "HEAD",
                 "PUT",
               ],
-              "AllowedOrigins": Array [
+              "AllowedOrigins": [
                 "*",
               ],
             },
           ],
         },
-        "OwnershipControls": Object {
-          "Rules": Array [
-            Object {
+        "OwnershipControls": {
+          "Rules": [
+            {
               "ObjectOwnership": "BucketOwnerPreferred",
             },
           ],
         },
-        "PublicAccessBlockConfiguration": Object {
+        "PublicAccessBlockConfiguration": {
           "BlockPublicAcls": true,
           "BlockPublicPolicy": true,
           "IgnorePublicAcls": true,
           "RestrictPublicBuckets": true,
         },
-        "Tags": Array [
-          Object {
+        "Tags": [
+          {
             "Key": "aws-cdk:auto-delete-objects",
             "Value": "true",
           },
@@ -1627,19 +1626,19 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Delete",
     },
-    "UploadsbucketAllowBucketNotificationsTotestTestStackUploadDataFunctionC2D16AC2DFACE21F": Object {
-      "Properties": Object {
+    "UploadsbucketAllowBucketNotificationsTotestTestStackUploadDataFunctionC2D16AC2DFACE21F": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "UploadDataFunction2E82FB6B",
             "Arn",
           ],
         },
         "Principal": "s3.amazonaws.com",
         "SourceAccount": "999999999",
-        "SourceArn": Object {
-          "Fn::GetAtt": Array [
+        "SourceArn": {
+          "Fn::GetAtt": [
             "Uploadsbucket86F42938",
             "Arn",
           ],
@@ -1647,17 +1646,17 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "UploadsbucketAutoDeleteObjectsCustomResource66D0EADD": Object {
+    "UploadsbucketAutoDeleteObjectsCustomResource66D0EADD": {
       "DeletionPolicy": "Delete",
-      "DependsOn": Array [
+      "DependsOn": [
         "UploadsbucketPolicy1532F88C",
       ],
-      "Properties": Object {
-        "BucketName": Object {
+      "Properties": {
+        "BucketName": {
           "Ref": "Uploadsbucket86F42938",
         },
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
             "Arn",
           ],
@@ -1666,33 +1665,33 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "Custom::S3AutoDeleteObjects",
       "UpdateReplacePolicy": "Delete",
     },
-    "UploadsbucketNotifications8DBD3ABE": Object {
-      "DependsOn": Array [
+    "UploadsbucketNotifications8DBD3ABE": {
+      "DependsOn": [
         "UploadsbucketAllowBucketNotificationsTotestTestStackUploadDataFunctionC2D16AC2DFACE21F",
       ],
-      "Properties": Object {
-        "BucketName": Object {
+      "Properties": {
+        "BucketName": {
           "Ref": "Uploadsbucket86F42938",
         },
         "Managed": true,
-        "NotificationConfiguration": Object {
-          "LambdaFunctionConfigurations": Array [
-            Object {
-              "Events": Array [
+        "NotificationConfiguration": {
+          "LambdaFunctionConfigurations": [
+            {
+              "Events": [
                 "s3:ObjectCreated:*",
               ],
-              "Filter": Object {
-                "Key": Object {
-                  "FilterRules": Array [
-                    Object {
+              "Filter": {
+                "Key": {
+                  "FilterRules": [
+                    {
                       "Name": "suffix",
                       "Value": "csv",
                     },
                   ],
                 },
               },
-              "LambdaFunctionArn": Object {
-                "Fn::GetAtt": Array [
+              "LambdaFunctionArn": {
+                "Fn::GetAtt": [
                   "UploadDataFunction2E82FB6B",
                   "Arn",
                 ],
@@ -1700,8 +1699,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
           ],
         },
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691",
             "Arn",
           ],
@@ -1709,41 +1708,41 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "Custom::S3BucketNotifications",
     },
-    "UploadsbucketPolicy1532F88C": Object {
-      "Properties": Object {
-        "Bucket": Object {
+    "UploadsbucketPolicy1532F88C": {
+      "Properties": {
+        "Bucket": {
           "Ref": "Uploadsbucket86F42938",
         },
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
                 "s3:GetBucket*",
                 "s3:List*",
                 "s3:DeleteObject*",
               ],
               "Effect": "Allow",
-              "Principal": Object {
-                "AWS": Object {
-                  "Fn::GetAtt": Array [
+              "Principal": {
+                "AWS": {
+                  "Fn::GetAtt": [
                     "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
                     "Arn",
                   ],
                 },
               },
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
                     "Uploadsbucket86F42938",
                     "Arn",
                   ],
                 },
-                Object {
-                  "Fn::Join": Array [
+                {
+                  "Fn::Join": [
                     "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
+                    [
+                      {
+                        "Fn::GetAtt": [
                           "Uploadsbucket86F42938",
                           "Arn",
                         ],
@@ -1760,18 +1759,18 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "UploadstatustableA9E2FF87": Object {
+    "UploadstatustableA9E2FF87": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
         "BillingMode": "PAY_PER_REQUEST",
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
@@ -1780,47 +1779,50 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "testVermontKidsDataAccountD57F099F": Object {
-      "DependsOn": Array [
+    "testVermontKidsDataAccountD57F099F": {
+      "DeletionPolicy": "Retain",
+      "DependsOn": [
         "testVermontKidsDataCC7D0909",
       ],
-      "Properties": Object {
-        "CloudWatchRoleArn": Object {
-          "Fn::GetAtt": Array [
+      "Properties": {
+        "CloudWatchRoleArn": {
+          "Fn::GetAtt": [
             "testVermontKidsDataCloudWatchRole07FC9D1C",
             "Arn",
           ],
         },
       },
       "Type": "AWS::ApiGateway::Account",
+      "UpdateReplacePolicy": "Retain",
     },
-    "testVermontKidsDataCC7D0909": Object {
-      "Properties": Object {
+    "testVermontKidsDataCC7D0909": {
+      "Properties": {
         "Name": "test-Vermont Kids Data",
       },
       "Type": "AWS::ApiGateway::RestApi",
     },
-    "testVermontKidsDataCloudWatchRole07FC9D1C": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "testVermontKidsDataCloudWatchRole07FC9D1C": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "apigateway.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
@@ -1830,9 +1832,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         ],
       },
       "Type": "AWS::IAM::Role",
+      "UpdateReplacePolicy": "Retain",
     },
-    "testVermontKidsDataDeployment82D2B8C7e3d77f67b43a4dd74ca3fd066550173a": Object {
-      "DependsOn": Array [
+    "testVermontKidsDataDeployment82D2B8C7e3d77f67b43a4dd74ca3fd066550173a": {
+      "DependsOn": [
         "testVermontKidsDatachartbarqueryIdGETD88F41A0",
         "testVermontKidsDatachartbarqueryId1B9FDE04",
         "testVermontKidsDatachartbar0896C591",
@@ -1866,52 +1869,52 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatauploadOPTIONSB49CCAFD",
         "testVermontKidsDataupload9F7CBA80",
       ],
-      "Properties": Object {
+      "Properties": {
         "Description": "Automatically created by the RestApi construct",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Deployment",
     },
-    "testVermontKidsDataDeploymentStageprod8BC7562D": Object {
-      "DependsOn": Array [
+    "testVermontKidsDataDeploymentStageprod8BC7562D": {
+      "DependsOn": [
         "testVermontKidsDataAccountD57F099F",
       ],
-      "Properties": Object {
-        "DeploymentId": Object {
+      "Properties": {
+        "DeploymentId": {
           "Ref": "testVermontKidsDataDeployment82D2B8C7e3d77f67b43a4dd74ca3fd066550173a",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
         "StageName": "prod",
       },
       "Type": "AWS::ApiGateway::Stage",
     },
-    "testVermontKidsDatachart586643EF": Object {
-      "Properties": Object {
-        "ParentId": Object {
-          "Fn::GetAtt": Array [
+    "testVermontKidsDatachart586643EF": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
             "testVermontKidsDataCC7D0909",
             "RootResourceId",
           ],
         },
         "PathPart": "chart",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatachartOPTIONS88BF083C": Object {
-      "Properties": Object {
+    "testVermontKidsDatachartOPTIONS88BF083C": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
-        "Integration": Object {
-          "IntegrationResponses": Array [
-            Object {
-              "ResponseParameters": Object {
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
@@ -1919,14 +1922,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               "StatusCode": "204",
             },
           ],
-          "RequestTemplates": Object {
+          "RequestTemplates": {
             "application/json": "{ statusCode: 200 }",
           },
           "Type": "MOCK",
         },
-        "MethodResponses": Array [
-          Object {
-            "ResponseParameters": Object {
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
@@ -1934,59 +1937,59 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "StatusCode": "204",
           },
         ],
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatachart586643EF",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatachartbar0896C591": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatachartbar0896C591": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatachart586643EF",
         },
         "PathPart": "bar",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatachartbarqueryId1B9FDE04": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatachartbarqueryId1B9FDE04": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatachartbar0896C591",
         },
         "PathPart": "{queryId}",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatachartbarqueryIdGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETchartbarqueryId980EABB5": Object {
-      "Properties": Object {
+    "testVermontKidsDatachartbarqueryIdGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETchartbarqueryId980EABB5": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "BarChartAPIFunction8D100D69",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/test-invoke-stage/GET/chart/bar/*",
@@ -1996,30 +1999,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatachartbarqueryIdGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETchartbarqueryIdA502C6E4": Object {
-      "Properties": Object {
+    "testVermontKidsDatachartbarqueryIdGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETchartbarqueryIdA502C6E4": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "BarChartAPIFunction8D100D69",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/",
-              Object {
+              {
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/chart/bar/*",
@@ -2029,24 +2032,24 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatachartbarqueryIdGETD88F41A0": Object {
-      "Properties": Object {
+    "testVermontKidsDatachartbarqueryIdGETD88F41A0": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
-        "Integration": Object {
+        "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
-          "Uri": Object {
-            "Fn::Join": Array [
+          "Uri": {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                Object {
-                  "Fn::GetAtt": Array [
+                {
+                  "Fn::GetAtt": [
                     "BarChartAPIFunction8D100D69",
                     "Arn",
                   ],
@@ -2056,38 +2059,38 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatachartbarqueryId1B9FDE04",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatacodes32B0A0D2": Object {
-      "Properties": Object {
-        "ParentId": Object {
-          "Fn::GetAtt": Array [
+    "testVermontKidsDatacodes32B0A0D2": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
             "testVermontKidsDataCC7D0909",
             "RootResourceId",
           ],
         },
         "PathPart": "codes",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatacodesOPTIONS8255224F": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodesOPTIONS8255224F": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
-        "Integration": Object {
-          "IntegrationResponses": Array [
-            Object {
-              "ResponseParameters": Object {
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
@@ -2095,14 +2098,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               "StatusCode": "204",
             },
           ],
-          "RequestTemplates": Object {
+          "RequestTemplates": {
             "application/json": "{ statusCode: 200 }",
           },
           "Type": "MOCK",
         },
-        "MethodResponses": Array [
-          Object {
-            "ResponseParameters": Object {
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
@@ -2110,69 +2113,69 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "StatusCode": "204",
           },
         ],
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatacodes32B0A0D2",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatacodescensus2CD906C7": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatacodescensus2CD906C7": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatacodes32B0A0D2",
         },
         "PathPart": "census",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatacodescensustables4DB02FB1": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatacodescensustables4DB02FB1": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatacodescensus2CD906C7",
         },
         "PathPart": "tables",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatacodescensustablessearchF7A0BEBD": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatacodescensustablessearchF7A0BEBD": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatacodescensustables4DB02FB1",
         },
         "PathPart": "search",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatacodescensustablessearchGET469EB96E": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodescensustablessearchGET469EB96E": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
-        "Integration": Object {
+        "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
-          "Uri": Object {
-            "Fn::Join": Array [
+          "Uri": {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                Object {
-                  "Fn::GetAtt": Array [
+                {
+                  "Fn::GetAtt": [
                     "GetCensusTablesSearchFunctionE5D75F9E",
                     "Arn",
                   ],
@@ -2182,35 +2185,35 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatacodescensustablessearchF7A0BEBD",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatacodescensustablessearchGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETcodescensustablessearch10D8B57A": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodescensustablessearchGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETcodescensustablessearch10D8B57A": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "GetCensusTablesSearchFunctionE5D75F9E",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/test-invoke-stage/GET/codes/census/tables/search",
@@ -2220,30 +2223,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatacodescensustablessearchGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETcodescensustablessearchB69AC08C": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodescensustablessearchGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETcodescensustablessearchB69AC08C": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "GetCensusTablesSearchFunctionE5D75F9E",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/",
-              Object {
+              {
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/codes/census/tables/search",
@@ -2253,48 +2256,48 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatacodescensusvariables22373B03": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatacodescensusvariables22373B03": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatacodescensus2CD906C7",
         },
         "PathPart": "variables",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatacodescensusvariablestable1D6C3BED": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatacodescensusvariablestable1D6C3BED": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatacodescensusvariables22373B03",
         },
         "PathPart": "{table}",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatacodescensusvariablestableGETA1F464BE": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodescensusvariablestableGETA1F464BE": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
-        "Integration": Object {
+        "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
-          "Uri": Object {
-            "Fn::Join": Array [
+          "Uri": {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                Object {
-                  "Fn::GetAtt": Array [
+                {
+                  "Fn::GetAtt": [
                     "CodesCensusVariablesByTableFunctionF5F759B7",
                     "Arn",
                   ],
@@ -2304,35 +2307,35 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatacodescensusvariablestable1D6C3BED",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatacodescensusvariablestableGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETcodescensusvariablestableBE347D24": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodescensusvariablestableGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETcodescensusvariablestableBE347D24": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "CodesCensusVariablesByTableFunctionF5F759B7",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/test-invoke-stage/GET/codes/census/variables/*",
@@ -2342,30 +2345,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatacodescensusvariablestableGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETcodescensusvariablestable76042167": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodescensusvariablestableGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETcodescensusvariablestable76042167": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "CodesCensusVariablesByTableFunctionF5F759B7",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/",
-              Object {
+              {
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/codes/census/variables/*",
@@ -2375,50 +2378,50 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatacodesgeos7A77D4EF": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatacodesgeos7A77D4EF": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatacodes32B0A0D2",
         },
         "PathPart": "geos",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatacodesgeosgeoTypeCB9C8A50": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatacodesgeosgeoTypeCB9C8A50": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatacodesgeos7A77D4EF",
         },
         "PathPart": "{geoType}",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatacodesgeosgeoTypeGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETcodesgeosgeoType9C980682": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodesgeosgeoTypeGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETcodesgeosgeoType9C980682": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "GetGeosbyTypeFunctionE6591A7E",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/test-invoke-stage/GET/codes/geos/*",
@@ -2428,30 +2431,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatacodesgeosgeoTypeGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETcodesgeosgeoType9B8A42DB": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodesgeosgeoTypeGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETcodesgeosgeoType9B8A42DB": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "GetGeosbyTypeFunctionE6591A7E",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/",
-              Object {
+              {
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/codes/geos/*",
@@ -2461,24 +2464,24 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatacodesgeosgeoTypeGETE577E04D": Object {
-      "Properties": Object {
+    "testVermontKidsDatacodesgeosgeoTypeGETE577E04D": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
-        "Integration": Object {
+        "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
-          "Uri": Object {
-            "Fn::Join": Array [
+          "Uri": {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                Object {
-                  "Fn::GetAtt": Array [
+                {
+                  "Fn::GetAtt": [
                     "GetGeosbyTypeFunctionE6591A7E",
                     "Arn",
                   ],
@@ -2488,50 +2491,50 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatacodesgeosgeoTypeCB9C8A50",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatatable08F0671A": Object {
-      "Properties": Object {
-        "ParentId": Object {
-          "Fn::GetAtt": Array [
+    "testVermontKidsDatatable08F0671A": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
             "testVermontKidsDataCC7D0909",
             "RootResourceId",
           ],
         },
         "PathPart": "table",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatatable628FD5C7": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatatable628FD5C7": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatatable08F0671A",
         },
         "PathPart": "table",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatatableOPTIONS2601EA66": Object {
-      "Properties": Object {
+    "testVermontKidsDatatableOPTIONS2601EA66": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
-        "Integration": Object {
-          "IntegrationResponses": Array [
-            Object {
-              "ResponseParameters": Object {
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
@@ -2539,14 +2542,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               "StatusCode": "204",
             },
           ],
-          "RequestTemplates": Object {
+          "RequestTemplates": {
             "application/json": "{ statusCode: 200 }",
           },
           "Type": "MOCK",
         },
-        "MethodResponses": Array [
-          Object {
-            "ResponseParameters": Object {
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
@@ -2554,71 +2557,71 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "StatusCode": "204",
           },
         ],
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatatable08F0671A",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatatablecensusD8D4649B": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatatablecensusD8D4649B": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatatable08F0671A",
         },
         "PathPart": "census",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatatablecensustableFECE0E80": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatatablecensustableFECE0E80": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatatablecensusD8D4649B",
         },
         "PathPart": "{table}",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatatablecensustablegeoTypeFFED038B": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatatablecensustablegeoTypeFFED038B": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatatablecensustableFECE0E80",
         },
         "PathPart": "{geoType}",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatatablecensustablegeoTypeGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETtablecensustablegeoTypeD9A196E8": Object {
-      "Properties": Object {
+    "testVermontKidsDatatablecensustablegeoTypeGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETtablecensustablegeoTypeD9A196E8": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "CensusTableByGeoFunction1EF3A681",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/test-invoke-stage/GET/table/census/*/*",
@@ -2628,30 +2631,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatatablecensustablegeoTypeGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETtablecensustablegeoType65D309D9": Object {
-      "Properties": Object {
+    "testVermontKidsDatatablecensustablegeoTypeGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETtablecensustablegeoType65D309D9": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "CensusTableByGeoFunction1EF3A681",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/",
-              Object {
+              {
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/table/census/*/*",
@@ -2661,24 +2664,24 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatatablecensustablegeoTypeGETF5C9BB28": Object {
-      "Properties": Object {
+    "testVermontKidsDatatablecensustablegeoTypeGETF5C9BB28": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
-        "Integration": Object {
+        "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
-          "Uri": Object {
-            "Fn::Join": Array [
+          "Uri": {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                Object {
-                  "Fn::GetAtt": Array [
+                {
+                  "Fn::GetAtt": [
                     "CensusTableByGeoFunction1EF3A681",
                     "Arn",
                   ],
@@ -2688,47 +2691,47 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatatablecensustablegeoTypeFFED038B",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatatablequeryId48027E8F": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatatablequeryId48027E8F": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDatatable628FD5C7",
         },
         "PathPart": "{queryId}",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatatablequeryIdGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETtabletablequeryIdC2CE2FF2": Object {
-      "Properties": Object {
+    "testVermontKidsDatatablequeryIdGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETtabletablequeryIdC2CE2FF2": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "BasictableAPIFunction7BA08608",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/test-invoke-stage/GET/table/table/*",
@@ -2738,30 +2741,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatatablequeryIdGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETtabletablequeryId4B9B498A": Object {
-      "Properties": Object {
+    "testVermontKidsDatatablequeryIdGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETtabletablequeryId4B9B498A": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "BasictableAPIFunction7BA08608",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/",
-              Object {
+              {
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/table/table/*",
@@ -2771,24 +2774,24 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatatablequeryIdGETF20250C9": Object {
-      "Properties": Object {
+    "testVermontKidsDatatablequeryIdGETF20250C9": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
-        "Integration": Object {
+        "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
-          "Uri": Object {
-            "Fn::Join": Array [
+          "Uri": {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                Object {
-                  "Fn::GetAtt": Array [
+                {
+                  "Fn::GetAtt": [
                     "BasictableAPIFunction7BA08608",
                     "Arn",
                   ],
@@ -2798,48 +2801,48 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatatablequeryId48027E8F",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatatestdb719EE2FE": Object {
-      "Properties": Object {
-        "ParentId": Object {
-          "Fn::GetAtt": Array [
+    "testVermontKidsDatatestdb719EE2FE": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
             "testVermontKidsDataCC7D0909",
             "RootResourceId",
           ],
         },
         "PathPart": "testdb",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatatestdbGET1366231E": Object {
-      "Properties": Object {
+    "testVermontKidsDatatestdbGET1366231E": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
-        "Integration": Object {
+        "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
-          "Uri": Object {
-            "Fn::Join": Array [
+          "Uri": {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                Object {
-                  "Fn::GetAtt": Array [
+                {
+                  "Fn::GetAtt": [
                     "TestDBFunction6436BF3A",
                     "Arn",
                   ],
@@ -2849,35 +2852,35 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatatestdb719EE2FE",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatatestdbGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETtestdbDBDC845D": Object {
-      "Properties": Object {
+    "testVermontKidsDatatestdbGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETtestdbDBDC845D": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "TestDBFunction6436BF3A",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/test-invoke-stage/GET/testdb",
@@ -2887,30 +2890,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatatestdbGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETtestdb90A8E403": Object {
-      "Properties": Object {
+    "testVermontKidsDatatestdbGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETtestdb90A8E403": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "TestDBFunction6436BF3A",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/",
-              Object {
+              {
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/testdb",
@@ -2920,29 +2923,29 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDataupload9F7CBA80": Object {
-      "Properties": Object {
-        "ParentId": Object {
-          "Fn::GetAtt": Array [
+    "testVermontKidsDataupload9F7CBA80": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
             "testVermontKidsDataCC7D0909",
             "RootResourceId",
           ],
         },
         "PathPart": "upload",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatauploadOPTIONSB49CCAFD": Object {
-      "Properties": Object {
+    "testVermontKidsDatauploadOPTIONSB49CCAFD": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
-        "Integration": Object {
-          "IntegrationResponses": Array [
-            Object {
-              "ResponseParameters": Object {
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
@@ -2950,14 +2953,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               "StatusCode": "204",
             },
           ],
-          "RequestTemplates": Object {
+          "RequestTemplates": {
             "application/json": "{ statusCode: 200 }",
           },
           "Type": "MOCK",
         },
-        "MethodResponses": Array [
-          Object {
-            "ResponseParameters": Object {
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
@@ -2965,45 +2968,45 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "StatusCode": "204",
           },
         ],
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDataupload9F7CBA80",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatauploaduploadId7971A4C2": Object {
-      "Properties": Object {
-        "ParentId": Object {
+    "testVermontKidsDatauploaduploadId7971A4C2": {
+      "Properties": {
+        "ParentId": {
           "Ref": "testVermontKidsDataupload9F7CBA80",
         },
         "PathPart": "{uploadId}",
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatauploaduploadIdGET9AFE8630": Object {
-      "Properties": Object {
+    "testVermontKidsDatauploaduploadIdGET9AFE8630": {
+      "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
-        "Integration": Object {
+        "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
-          "Uri": Object {
-            "Fn::Join": Array [
+          "Uri": {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                Object {
-                  "Fn::GetAtt": Array [
+                {
+                  "Fn::GetAtt": [
                     "UploadStatusFunction296B6E97",
                     "Arn",
                   ],
@@ -3013,35 +3016,35 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "ResourceId": Object {
+        "ResourceId": {
           "Ref": "testVermontKidsDatauploaduploadId7971A4C2",
         },
-        "RestApiId": Object {
+        "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatauploaduploadIdGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETuploaduploadId8E924CA1": Object {
-      "Properties": Object {
+    "testVermontKidsDatauploaduploadIdGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETuploaduploadId8E924CA1": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "UploadStatusFunction296B6E97",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/test-invoke-stage/GET/upload/*",
@@ -3051,30 +3054,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatauploaduploadIdGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETuploaduploadId7A7AB6E3": Object {
-      "Properties": Object {
+    "testVermontKidsDatauploaduploadIdGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETuploaduploadId7A7AB6E3": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "UploadStatusFunction296B6E97",
             "Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::Join": Array [
+        "SourceArn": {
+          "Fn::Join": [
             "",
-            Array [
+            [
               "arn:",
-              Object {
+              {
                 "Ref": "AWS::Partition",
               },
               ":execute-api:aq-south-1:999999999:",
-              Object {
+              {
                 "Ref": "testVermontKidsDataCC7D0909",
               },
               "/",
-              Object {
+              {
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/upload/*",
@@ -3084,30 +3087,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testcloudfrontB2C6E4FF": Object {
-      "Properties": Object {
-        "DistributionConfig": Object {
+    "testcloudfrontB2C6E4FF": {
+      "Properties": {
+        "DistributionConfig": {
           "Comment": "CloudFront distribution in test environment",
-          "CustomErrorResponses": Array [
-            Object {
+          "CustomErrorResponses": [
+            {
               "ErrorCode": 403,
               "ResponseCode": 200,
               "ResponsePagePath": "/index.html",
             },
-            Object {
+            {
               "ErrorCode": 404,
               "ResponseCode": 200,
               "ResponsePagePath": "/index.html",
             },
           ],
-          "DefaultCacheBehavior": Object {
-            "AllowedMethods": Array [
+          "DefaultCacheBehavior": {
+            "AllowedMethods": [
               "GET",
               "HEAD",
               "OPTIONS",
             ],
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
-            "CachedMethods": Array [
+            "CachedMethods": [
               "GET",
               "HEAD",
               "OPTIONS",
@@ -3120,31 +3123,31 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Logging": Object {
-            "Bucket": Object {
-              "Fn::GetAtt": Array [
+          "Logging": {
+            "Bucket": {
+              "Fn::GetAtt": [
                 "tests3logCE49E151",
                 "RegionalDomainName",
               ],
             },
             "Prefix": "cloudfront-access-logs-test",
           },
-          "Origins": Array [
-            Object {
-              "DomainName": Object {
-                "Fn::GetAtt": Array [
+          "Origins": [
+            {
+              "DomainName": {
+                "Fn::GetAtt": [
                   "tests3web0EC7B581",
                   "RegionalDomainName",
                 ],
               },
               "Id": "testTestStacktestcloudfrontOrigin1029BB066",
-              "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
+              "S3OriginConfig": {
+                "OriginAccessIdentity": {
+                  "Fn::Join": [
                     "",
-                    Array [
+                    [
                       "origin-access-identity/cloudfront/",
-                      Object {
+                      {
                         "Ref": "testcloudfrontOrigin1S3OriginDD20337C",
                       },
                     ],
@@ -3154,9 +3157,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
           ],
           "PriceClass": "PriceClass_100",
-          "Restrictions": Object {
-            "GeoRestriction": Object {
-              "Locations": Array [
+          "Restrictions": {
+            "GeoRestriction": {
+              "Locations": [
                 "US",
                 "CA",
               ],
@@ -3167,17 +3170,17 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "testcloudfrontOrigin1S3OriginDD20337C": Object {
-      "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
+    "testcloudfrontOrigin1S3OriginDD20337C": {
+      "Properties": {
+        "CloudFrontOriginAccessIdentityConfig": {
           "Comment": "Identity for testTestStacktestcloudfrontOrigin1029BB066",
         },
       },
       "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
     },
-    "tests3deployAwsCliLayer5D78A44A": Object {
-      "Properties": Object {
-        "Content": Object {
+    "tests3deployAwsCliLayer5D78A44A": {
+      "Properties": {
+        "Content": {
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
@@ -3185,40 +3188,40 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::LayerVersion",
     },
-    "tests3deployCustomResource582B8BD9": Object {
+    "tests3deployCustomResource582B8BD9": {
       "DeletionPolicy": "Delete",
-      "Properties": Object {
-        "DestinationBucketName": Object {
+      "Properties": {
+        "DestinationBucketName": {
           "Ref": "tests3web0EC7B581",
         },
         "Prune": true,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
             "Arn",
           ],
         },
-        "SourceBucketNames": Array [
+        "SourceBucketNames": [
           "[ASSET BUCKET]",
         ],
-        "SourceObjectKeys": Array [
+        "SourceObjectKeys": [
           "[ASSET ZIP]",
         ],
       },
       "Type": "Custom::CDKBucketDeployment",
       "UpdateReplacePolicy": "Delete",
     },
-    "tests3logAutoDeleteObjectsCustomResourceFC11333F": Object {
+    "tests3logAutoDeleteObjectsCustomResourceFC11333F": {
       "DeletionPolicy": "Delete",
-      "DependsOn": Array [
+      "DependsOn": [
         "tests3logPolicy3D41271D",
       ],
-      "Properties": Object {
-        "BucketName": Object {
+      "Properties": {
+        "BucketName": {
           "Ref": "tests3logCE49E151",
         },
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
             "Arn",
           ],
@@ -3227,17 +3230,17 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "Custom::S3AutoDeleteObjects",
       "UpdateReplacePolicy": "Delete",
     },
-    "tests3logCE49E151": Object {
+    "tests3logCE49E151": {
       "DeletionPolicy": "Delete",
-      "Properties": Object {
-        "PublicAccessBlockConfiguration": Object {
+      "Properties": {
+        "PublicAccessBlockConfiguration": {
           "BlockPublicAcls": true,
           "BlockPublicPolicy": true,
           "IgnorePublicAcls": true,
           "RestrictPublicBuckets": true,
         },
-        "Tags": Array [
-          Object {
+        "Tags": [
+          {
             "Key": "aws-cdk:auto-delete-objects",
             "Value": "true",
           },
@@ -3246,41 +3249,41 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Delete",
     },
-    "tests3logPolicy3D41271D": Object {
-      "Properties": Object {
-        "Bucket": Object {
+    "tests3logPolicy3D41271D": {
+      "Properties": {
+        "Bucket": {
           "Ref": "tests3logCE49E151",
         },
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
                 "s3:GetBucket*",
                 "s3:List*",
                 "s3:DeleteObject*",
               ],
               "Effect": "Allow",
-              "Principal": Object {
-                "AWS": Object {
-                  "Fn::GetAtt": Array [
+              "Principal": {
+                "AWS": {
+                  "Fn::GetAtt": [
                     "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
                     "Arn",
                   ],
                 },
               },
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
                     "tests3logCE49E151",
                     "Arn",
                   ],
                 },
-                Object {
-                  "Fn::Join": Array [
+                {
+                  "Fn::Join": [
                     "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
+                    [
+                      {
+                        "Fn::GetAtt": [
                           "tests3logCE49E151",
                           "Arn",
                         ],
@@ -3297,21 +3300,21 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "tests3web0EC7B581": Object {
+    "tests3web0EC7B581": {
       "DeletionPolicy": "Delete",
-      "Properties": Object {
-        "PublicAccessBlockConfiguration": Object {
+      "Properties": {
+        "PublicAccessBlockConfiguration": {
           "BlockPublicAcls": true,
           "BlockPublicPolicy": true,
           "IgnorePublicAcls": true,
           "RestrictPublicBuckets": true,
         },
-        "Tags": Array [
-          Object {
+        "Tags": [
+          {
             "Key": "aws-cdk:auto-delete-objects",
             "Value": "true",
           },
-          Object {
+          {
             "Key": "aws-cdk:cr-owned:636a96d2",
             "Value": "true",
           },
@@ -3320,17 +3323,17 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Delete",
     },
-    "tests3webAutoDeleteObjectsCustomResource41786D4D": Object {
+    "tests3webAutoDeleteObjectsCustomResource41786D4D": {
       "DeletionPolicy": "Delete",
-      "DependsOn": Array [
+      "DependsOn": [
         "tests3webPolicy18946F01",
       ],
-      "Properties": Object {
-        "BucketName": Object {
+      "Properties": {
+        "BucketName": {
           "Ref": "tests3web0EC7B581",
         },
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
+        "ServiceToken": {
+          "Fn::GetAtt": [
             "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
             "Arn",
           ],
@@ -3339,41 +3342,41 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "Custom::S3AutoDeleteObjects",
       "UpdateReplacePolicy": "Delete",
     },
-    "tests3webPolicy18946F01": Object {
-      "Properties": Object {
-        "Bucket": Object {
+    "tests3webPolicy18946F01": {
+      "Properties": {
+        "Bucket": {
           "Ref": "tests3web0EC7B581",
         },
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
                 "s3:GetBucket*",
                 "s3:List*",
                 "s3:DeleteObject*",
               ],
               "Effect": "Allow",
-              "Principal": Object {
-                "AWS": Object {
-                  "Fn::GetAtt": Array [
+              "Principal": {
+                "AWS": {
+                  "Fn::GetAtt": [
                     "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
                     "Arn",
                   ],
                 },
               },
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
                     "tests3web0EC7B581",
                     "Arn",
                   ],
                 },
-                Object {
-                  "Fn::Join": Array [
+                {
+                  "Fn::Join": [
                     "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
+                    [
+                      {
+                        "Fn::GetAtt": [
                           "tests3web0EC7B581",
                           "Arn",
                         ],
@@ -3384,23 +3387,23 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 },
               ],
             },
-            Object {
+            {
               "Action": "s3:GetObject",
               "Effect": "Allow",
-              "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
+              "Principal": {
+                "CanonicalUser": {
+                  "Fn::GetAtt": [
                     "testcloudfrontOrigin1S3OriginDD20337C",
                     "S3CanonicalUserId",
                   ],
                 },
               },
-              "Resource": Object {
-                "Fn::Join": Array [
+              "Resource": {
+                "Fn::Join": [
                   "",
-                  Array [
-                    Object {
-                      "Fn::GetAtt": Array [
+                  [
+                    {
+                      "Fn::GetAtt": [
                         "tests3web0EC7B581",
                         "Arn",
                       ],
@@ -3417,22 +3420,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "AWS::S3::BucketPolicy",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],

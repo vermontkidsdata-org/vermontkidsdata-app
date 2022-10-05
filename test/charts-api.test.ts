@@ -1,0 +1,32 @@
+import { APIGatewayProxyEventV2 } from 'aws-lambda';
+import { bar } from '../src/chartsApi';
+import { } from '../src/db-utils';
+import { expectCORS, LambdaResponse } from './utils';
+
+describe('chartsApi', () => {
+  test('basic query', async () => {
+    // queryDBSpy.mock.invocationCall in mockResolvedValue(BOGUS_BRANCH_NAME);
+
+    const ret = await bar({
+      pathParameters: {
+        queryId: '60'
+      }
+    } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+    // {
+    //   "id": "60",
+    //   "metadata": { "config": { "title": "Percent of children under 18 adequately covered by health insurance", "yAxis": { "type": "percent" } } },
+    //   "series": [{ "name": "Percent Children Covered", "data": [79, 78] }],
+    //   "categories": ["2017-2018", "2019-2020"]
+    // }
+    console.log('query response -->', ret.body);
+    expect(ret.statusCode).toBe(200);
+    const body = JSON.parse(ret.body);
+    expect(body.series[0].name).toBe("Percent Children Covered");
+    expect(body.series[0].data[0]).toBe(79.2);
+    expect(body.series[0].data[1]).toBe(78.2);
+
+    // Make sure even the error response has CORS headers
+    expectCORS(ret);
+  });
+
+});

@@ -1,12 +1,7 @@
-import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import * as tablesApi from '../src/tablesApi';
+import { APIGatewayProxyEventV2 } from 'aws-lambda';
 import * as dbUtils from '../src/db-utils';
-
-interface LambdaResponse {
-    body: string,
-    headers: { [header: string]: string },
-    statusCode: number
-}
+import * as tablesApi from '../src/tablesApi';
+import { expectCORS, LambdaResponse } from './utils';
 
 describe('Census Table API', () => {
     let queryDBSpy: any;
@@ -19,11 +14,6 @@ describe('Census Table API', () => {
         // Restore the stubs
         queryDBSpy.mockRestore();
     });
-
-    // Validate it has CORS headers
-    function expectCORS(ret: LambdaResponse): void {
-        expect(Object.entries(ret.headers).filter(h => h[0] == 'Access-Control-Allow-Origin').length).toBe(1);
-    }
 
     it('S1701 -- unknown vars', async () => {
         // queryDBSpy.mock.invocationCall in mockResolvedValue(BOGUS_BRANCH_NAME);
