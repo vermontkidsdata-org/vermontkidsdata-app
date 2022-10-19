@@ -9,6 +9,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
+    "deploy": "cdk deploy",
     "clean": "del src\\*.js src\\*.d.ts test\\*.d.ts test\\*.js lib\\*.d.ts lib\\*.js bin\\*.d.ts bin\\*.js"
   },
   "devDependencies": {
@@ -33,7 +34,7 @@
     "aws-cdk-lib": "^2.44.0",
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1229.0",
-    "citysdk": "^2.2.0",
+    "citysdk": "2.2.0",
     "constructs": "^10.1.121",
     "csv-parse": "^5.3.0",
     "express": "^4.18.1",

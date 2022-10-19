@@ -21,9 +21,9 @@ describe('chartsApi', () => {
     console.log('query response -->', ret.body);
     expect(ret.statusCode).toBe(200);
     const body = JSON.parse(ret.body);
-    expect(body.series[0].name).toBe("Percent Children Covered");
+    console.log('response', JSON.stringify(body));
     expect(body.series[0].data[0]).toBe(79.2);
-    expect(body.series[0].data[1]).toBe(78.2);
+    expect(body.series[1].data[0]).toBe(78.2);
 
     // Make sure even the error response has CORS headers
     expectCORS(ret);

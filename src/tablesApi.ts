@@ -1,9 +1,9 @@
+import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
 import * as mysql from 'mysql';
-import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
-import { queryDB } from './db-utils';
+import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
 import { getHeaders } from './cors';
+import { queryDB } from './db-utils';
 
 const { REGION } = process.env;
 interface GazCounty {
@@ -149,6 +149,12 @@ export async function table(
     };
   } else {
     const queryId = event.pathParameters.queryId;
+
+    // Get the columns parameter, if any
+    const columnsProjection = (event.queryStringParameters?.columns != null) ?
+      event.queryStringParameters.columns.split(',') :
+      undefined;
+
     try {
 
       // We assume we're getting back an array of values with the value keys being the key into the columnMap
@@ -201,11 +207,11 @@ export async function table(
         // We'll take the column labels from the first row
         // First column in row is row label; rest are the columns
         const row = resultRows.rows[i];
-        console.log(`row`, row);
+        // console.log(`row`, row);
         if (i === 0) {
           // Build up the columns
           const keys = Object.keys(row);
-          console.log('keys', keys, 'cmap', resultRows.columnMap);
+          // console.log('keys', keys, 'cmap', resultRows.columnMap);
           for (let j = 0; j < keys.length; j++) {
             const key = keys[j];
             const label = resultRows.columnMap && resultRows.columnMap[key] != null
@@ -215,6 +221,28 @@ export async function table(
               id: key,
               label: label
             });
+          }
+
+          // If there's a column projection, select and re-order the columns
+          if (columnsProjection != null) {
+            const originalColumns = columns.splice(0, columns.length);
+            // console.log(`originalColumns = ${JSON.stringify(originalColumns)}, new columns before=${columns}`);
+            for (const columnProjection of columnsProjection) {
+              const column = originalColumns.find(oc => oc.id.toLowerCase() === columnProjection.toLowerCase());
+              // console.log(`- for ${columnProjection} found? ${JSON.stringify(column)}`);
+              if (column) {
+                columns.push(column);
+              } else {
+                return {
+                  statusCode: 400,
+                  headers: getHeaders("application/json"),
+                  body: JSON.stringify({
+                    message: 'unknown column projection'
+                  })
+                };
+          
+              }
+            }
           }
         }
 
@@ -241,7 +269,6 @@ export async function table(
         headers: getHeaders("application/json"),
         body: JSON.stringify(body)
       };
-
     } catch (e) {
       console.log(e);
       return {
@@ -292,8 +319,8 @@ function censusResultsToTable(censusResults: CensusResultRow[], dBVariables: DBA
     variables.forEach(variable => {
       const label = dBVariables[variable] == null && variable.endsWith('M') ?
         'MOE' : dBVariables[variable] != null ?
-        dBVariables[variable].label :
-        'Unknown';
+          dBVariables[variable].label :
+          'Unknown';
       columns.push({ id: variable, label });
     });
   }
@@ -462,7 +489,7 @@ export async function getCensusByGeo(
       for (const qv of queryVars) {
         extendedQueryVars.push(qv);
         if (qv.toUpperCase().endsWith('E')) {
-          extendedQueryVars.push(`${qv.substring(0, qv.length-1)}M`);
+          extendedQueryVars.push(`${qv.substring(0, qv.length - 1)}M`);
         }
       }
 
@@ -506,7 +533,7 @@ export async function getCensusByGeo(
     });
     const unknownVars = queryVars.filter(qv => {
       return dBVariables[qv] == null ||
-        qv.endsWith('M') ? dBVariables[`${qv.substring(0, qv.length-1)}E`] == null : false;
+        qv.endsWith('M') ? dBVariables[`${qv.substring(0, qv.length - 1)}E`] == null : false;
     });
 
     if (unknownVars.length > 0) {

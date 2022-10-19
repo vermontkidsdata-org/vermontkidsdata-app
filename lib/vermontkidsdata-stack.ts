@@ -1,27 +1,35 @@
 import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-import * as lambda from 'aws-cdk-lib/aws-lambda';
-import * as lambdanode from 'aws-cdk-lib/aws-lambda-nodejs';
-import * as iam from 'aws-cdk-lib/aws-iam';
-import * as s3notify from 'aws-cdk-lib/aws-s3-notifications';
-import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
-import * as logs from 'aws-cdk-lib/aws-logs';
-import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+import { Cors, LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import * as acm from 'aws-cdk-lib/aws-certificatemanager';
 import * as cloudFront from 'aws-cdk-lib/aws-cloudfront';
 import * as cloudFrontOrigins from 'aws-cdk-lib/aws-cloudfront-origins';
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+import * as iam from 'aws-cdk-lib/aws-iam';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as lambdanode from 'aws-cdk-lib/aws-lambda-nodejs';
+import * as logs from 'aws-cdk-lib/aws-logs';
+import * as route53 from 'aws-cdk-lib/aws-route53';
+import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
+import * as s3notify from 'aws-cdk-lib/aws-s3-notifications';
 import * as sm from 'aws-cdk-lib/aws-secretsmanager';
-import { Cors, LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { Construct } from 'constructs';
 import { join } from 'path';
 
-const S3_BUCKET_NAME = "S3_BUCKET_NAME";
-const REGION = "REGION";
-const DEFAULT_S3_BUCKET = 'dev-pipelinestage-dev-censu-uploadsbucket86f42938-dlc1biqgfmp8';
 const S3_SERVICE_PRINCIPAL = new iam.ServicePrincipal('s3.amazonaws.com');
+const HOSTED_ZONE_ID = 'Z01884571R5A9N33JR5NE';
+const BASE_DOMAIN_NAME = 'vtkidsdata.org';
+
+export interface VermontkidsdataStackProps extends cdk.StackProps {
+  ns: string;
+}
 
 export class VermontkidsdataStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, local: { ns: string }, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: VermontkidsdataStackProps) {
     super(scope, id, props);
+
+    const ns = props.ns;
 
     // Maybe need to always do this
     const bucket = new s3.Bucket(this, 'Uploads bucket', {
@@ -172,7 +180,33 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     testDBFunction.addToRolePolicy(getSecretValueStatement);
 
-    const api = new RestApi(this, `${local.ns}-Vermont Kids Data`, {
+    // Add the custom domain name. First look up the R53 zone
+    const hostedZone = route53.HostedZone.fromHostedZoneAttributes(
+      this,
+      `route53-zone`,
+      {
+        hostedZoneId: HOSTED_ZONE_ID,
+        zoneName: BASE_DOMAIN_NAME
+      }
+    );
+
+    const domainName = `api.${BASE_DOMAIN_NAME}`;
+
+    const certificate = new acm.DnsValidatedCertificate(
+      this,
+      `be-cert`,
+      {
+        domainName,
+        hostedZone,
+        region: "us-east-1"
+      }
+    );
+
+    const api = new RestApi(this, `${ns}-Vermont Kids Data`, {
+      domainName: {
+        certificate,
+        domainName
+      },
       // Add OPTIONS call to all resources
       // defaultCorsPreflightOptions: {
       //   allowOrigins: Cors.ALL_ORIGINS,
@@ -223,8 +257,17 @@ export class VermontkidsdataStack extends cdk.Stack {
     const testDBResource = api.root.addResource("testdb");
     testDBResource.addMethod("GET", new LambdaIntegration(testDBFunction));
 
+
+    new route53.ARecord(this, 'r53-be-arec', {
+      zone: hostedZone,
+      target: route53.RecordTarget.fromAlias(
+        new route53Targets.ApiGateway(api)
+      ),
+      recordName: domainName
+    });
+
     // S3 Bucket that CloudFront Distribution will log to
-    const s3BucketLog = new s3.Bucket(this, `${local.ns}-s3-log`, {
+    const s3BucketLog = new s3.Bucket(this, `${ns}-s3-log`, {
       // Block all public access
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       // When stack is deleted, delete this bucket also
@@ -234,7 +277,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
 
     // S3 Bucket that will contain static web content and serve as origin to CloudFront Distribution
-    const s3BucketWeb = new s3.Bucket(this, `${local.ns}-s3-web`, {
+    const s3BucketWeb = new s3.Bucket(this, `${ns}-s3-web`, {
       // Block all public access
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       // When stack is deleted, delete this bucket also
@@ -247,7 +290,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     // Defaults:
     //  - min protocol version: TLS 1.2
     //  - max HTTP version:     HTTP/2
-    const cloudFrontDistrib = new cloudFront.Distribution(this, `${local.ns}-cloudfront`, {
+    const cloudFrontDistrib = new cloudFront.Distribution(this, `${ns}-cloudfront`, {
       // Default behavior config
       defaultBehavior: {
         // Point to S3 Web Bucket as origin
@@ -264,7 +307,7 @@ export class VermontkidsdataStack extends cdk.Stack {
           httpStatus: 403,
           responseHttpStatus: 200,
           responsePagePath: '/index.html'
-        },{
+        }, {
           httpStatus: 404,
           responseHttpStatus: 200,
           responsePagePath: '/index.html'
@@ -275,7 +318,7 @@ export class VermontkidsdataStack extends cdk.Stack {
       // Point to S3 Log Bucket
       logBucket: s3BucketLog,
       // Log prefix
-      logFilePrefix: `cloudfront-access-logs-${local.ns}`,
+      logFilePrefix: `cloudfront-access-logs-${ns}`,
       // If index.html is not specified in URL, assume it rather than given a 404 error
       defaultRootObject: 'index.html',
       // Allow IPv6 DNS requests with an IPv6 address
@@ -285,11 +328,11 @@ export class VermontkidsdataStack extends cdk.Stack {
       // 100 is USA, Canada, Europe and Israel
       priceClass: cloudFront.PriceClass.PRICE_CLASS_100,
       // Descriptive comment
-      comment: `CloudFront distribution in ${local.ns} environment`
+      comment: `CloudFront distribution in ${ns} environment`
     });
 
     // Deploy the static web content to the S3 Web Bucket
-    const deploymentToS3Web = new s3deploy.BucketDeployment(this, `${local.ns}-s3deploy`, {
+    const deploymentToS3Web = new s3deploy.BucketDeployment(this, `${ns}-s3deploy`, {
       // Static web content source
       // Note: the path to the source must be kept updated in case of repo folder restructuring or
       // refactoring

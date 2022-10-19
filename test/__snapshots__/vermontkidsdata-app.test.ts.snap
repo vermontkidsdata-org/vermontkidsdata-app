@@ -1779,6 +1779,159 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
+    "becertCertificateRequestorFunction3ACDE82F": {
+      "DependsOn": [
+        "becertCertificateRequestorFunctionServiceRoleDefaultPolicyB4472907",
+        "becertCertificateRequestorFunctionServiceRole225F6B91",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Handler": "index.certificateRequestHandler",
+        "Role": {
+          "Fn::GetAtt": [
+            "becertCertificateRequestorFunctionServiceRole225F6B91",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+        "Timeout": 900,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "becertCertificateRequestorFunctionServiceRole225F6B91": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "becertCertificateRequestorFunctionServiceRoleDefaultPolicyB4472907": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "acm:RequestCertificate",
+                "acm:DescribeCertificate",
+                "acm:DeleteCertificate",
+                "acm:AddTagsToCertificate",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": "route53:GetChange",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": "route53:changeResourceRecordSets",
+              "Condition": {
+                "ForAllValues:StringEquals": {
+                  "route53:ChangeResourceRecordSetsActions": [
+                    "UPSERT",
+                  ],
+                  "route53:ChangeResourceRecordSetsRecordTypes": [
+                    "CNAME",
+                  ],
+                },
+                "ForAllValues:StringLike": {
+                  "route53:ChangeResourceRecordSetsNormalizedRecordNames": [
+                    "*.api.vtkidsdata.org",
+                  ],
+                },
+              },
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":route53:::hostedzone/Z01884571R5A9N33JR5NE",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "becertCertificateRequestorFunctionServiceRoleDefaultPolicyB4472907",
+        "Roles": [
+          {
+            "Ref": "becertCertificateRequestorFunctionServiceRole225F6B91",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "becertCertificateRequestorResourceB2D9A26A": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "DomainName": "api.vtkidsdata.org",
+        "HostedZoneId": "Z01884571R5A9N33JR5NE",
+        "Region": "us-east-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "becertCertificateRequestorFunction3ACDE82F",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::CloudFormation::CustomResource",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "r53bearec354FD1A0": {
+      "Properties": {
+        "AliasTarget": {
+          "DNSName": {
+            "Fn::GetAtt": [
+              "testVermontKidsDataCustomDomain046241D5",
+              "RegionalDomainName",
+            ],
+          },
+          "HostedZoneId": {
+            "Fn::GetAtt": [
+              "testVermontKidsDataCustomDomain046241D5",
+              "RegionalHostedZoneId",
+            ],
+          },
+        },
+        "HostedZoneId": "Z01884571R5A9N33JR5NE",
+        "Name": "api.vtkidsdata.org.",
+        "Type": "A",
+      },
+      "Type": "AWS::Route53::RecordSet",
+    },
     "testVermontKidsDataAccountD57F099F": {
       "DeletionPolicy": "Retain",
       "DependsOn": [
@@ -1833,6 +1986,37 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
       "UpdateReplacePolicy": "Retain",
+    },
+    "testVermontKidsDataCustomDomain046241D5": {
+      "Properties": {
+        "DomainName": "api.vtkidsdata.org",
+        "EndpointConfiguration": {
+          "Types": [
+            "REGIONAL",
+          ],
+        },
+        "RegionalCertificateArn": {
+          "Fn::GetAtt": [
+            "becertCertificateRequestorResourceB2D9A26A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::ApiGateway::DomainName",
+    },
+    "testVermontKidsDataCustomDomainMaptestTestStacktestVermontKidsData62A09AC6A13FFC9D": {
+      "Properties": {
+        "DomainName": {
+          "Ref": "testVermontKidsDataCustomDomain046241D5",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+        "Stage": {
+          "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+        },
+      },
+      "Type": "AWS::ApiGateway::BasePathMapping",
     },
     "testVermontKidsDataDeployment82D2B8C7e3d77f67b43a4dd74ca3fd066550173a": {
       "DependsOn": [
