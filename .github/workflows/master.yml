@@ -15,8 +15,10 @@ jobs:
           ls -l
           git branch
       - name: Install
-        run: npm run install:all
-      - name: Build
-        run: npm run build
+        run: npm ci
       - name: Test
         run: npm run test
+      - name: Deploy to QA
+        run: |
+          export VKD_ENVIRONMENT=qa
+          npm run deploy

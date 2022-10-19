@@ -3,22 +3,12 @@
 exports[`Lambda Snapshot Test 1`] = `
 {
   "Outputs": {
+    "APIDomainName": {
+      "Value": "api.test.vtkidsdata.org",
+    },
     "Bucketname": {
       "Value": {
         "Ref": "Uploadsbucket86F42938",
-      },
-    },
-    "CloudFrontDNS": {
-      "Value": {
-        "Fn::GetAtt": [
-          "testcloudfrontB2C6E4FF",
-          "DomainName",
-        ],
-      },
-    },
-    "CloudFrontbucket": {
-      "Value": {
-        "Ref": "tests3web0EC7B581",
       },
     },
     "testVermontKidsDataEndpoint84F49ECA": {
@@ -663,151 +653,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Roles": [
           {
             "Ref": "CodesCensusVariablesByTableFunctionServiceRoleCB05872E",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536": {
-      "DependsOn": [
-        "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
-        "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Handler": "index.handler",
-        "Layers": [
-          {
-            "Ref": "tests3deployAwsCliLayer5D78A44A",
-          },
-        ],
-        "Role": {
-          "Fn::GetAtt": [
-            "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
-            "Arn",
-          ],
-        },
-        "Runtime": "python3.9",
-        "Timeout": 900,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::[ASSET BUCKET]",
-                    ],
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::[ASSET BUCKET]/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "tests3web0EC7B581",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "tests3web0EC7B581",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
-        "Roles": [
-          {
-            "Ref": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
           },
         ],
       },
@@ -1864,7 +1709,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 },
                 "ForAllValues:StringLike": {
                   "route53:ChangeResourceRecordSetsNormalizedRecordNames": [
-                    "*.api.vtkidsdata.org",
+                    "*.api.test.vtkidsdata.org",
                   ],
                 },
               },
@@ -1897,7 +1742,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     "becertCertificateRequestorResourceB2D9A26A": {
       "DeletionPolicy": "Delete",
       "Properties": {
-        "DomainName": "api.vtkidsdata.org",
+        "DomainName": "api.test.vtkidsdata.org",
         "HostedZoneId": "Z01884571R5A9N33JR5NE",
         "Region": "us-east-1",
         "ServiceToken": {
@@ -1927,7 +1772,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           },
         },
         "HostedZoneId": "Z01884571R5A9N33JR5NE",
-        "Name": "api.vtkidsdata.org.",
+        "Name": "api.test.vtkidsdata.org.",
         "Type": "A",
       },
       "Type": "AWS::Route53::RecordSet",
@@ -1989,7 +1834,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataCustomDomain046241D5": {
       "Properties": {
-        "DomainName": "api.vtkidsdata.org",
+        "DomainName": "api.test.vtkidsdata.org",
         "EndpointConfiguration": {
           "Types": [
             "REGIONAL",
@@ -3270,338 +3115,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
       },
       "Type": "AWS::Lambda::Permission",
-    },
-    "testcloudfrontB2C6E4FF": {
-      "Properties": {
-        "DistributionConfig": {
-          "Comment": "CloudFront distribution in test environment",
-          "CustomErrorResponses": [
-            {
-              "ErrorCode": 403,
-              "ResponseCode": 200,
-              "ResponsePagePath": "/index.html",
-            },
-            {
-              "ErrorCode": 404,
-              "ResponseCode": 200,
-              "ResponsePagePath": "/index.html",
-            },
-          ],
-          "DefaultCacheBehavior": {
-            "AllowedMethods": [
-              "GET",
-              "HEAD",
-              "OPTIONS",
-            ],
-            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
-            "CachedMethods": [
-              "GET",
-              "HEAD",
-              "OPTIONS",
-            ],
-            "Compress": true,
-            "TargetOriginId": "testTestStacktestcloudfrontOrigin1029BB066",
-            "ViewerProtocolPolicy": "redirect-to-https",
-          },
-          "DefaultRootObject": "index.html",
-          "Enabled": true,
-          "HttpVersion": "http2",
-          "IPV6Enabled": true,
-          "Logging": {
-            "Bucket": {
-              "Fn::GetAtt": [
-                "tests3logCE49E151",
-                "RegionalDomainName",
-              ],
-            },
-            "Prefix": "cloudfront-access-logs-test",
-          },
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
-                  "tests3web0EC7B581",
-                  "RegionalDomainName",
-                ],
-              },
-              "Id": "testTestStacktestcloudfrontOrigin1029BB066",
-              "S3OriginConfig": {
-                "OriginAccessIdentity": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "origin-access-identity/cloudfront/",
-                      {
-                        "Ref": "testcloudfrontOrigin1S3OriginDD20337C",
-                      },
-                    ],
-                  ],
-                },
-              },
-            },
-          ],
-          "PriceClass": "PriceClass_100",
-          "Restrictions": {
-            "GeoRestriction": {
-              "Locations": [
-                "US",
-                "CA",
-              ],
-              "RestrictionType": "whitelist",
-            },
-          },
-        },
-      },
-      "Type": "AWS::CloudFront::Distribution",
-    },
-    "testcloudfrontOrigin1S3OriginDD20337C": {
-      "Properties": {
-        "CloudFrontOriginAccessIdentityConfig": {
-          "Comment": "Identity for testTestStacktestcloudfrontOrigin1029BB066",
-        },
-      },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
-    },
-    "tests3deployAwsCliLayer5D78A44A": {
-      "Properties": {
-        "Content": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Description": "/opt/awscli/aws",
-      },
-      "Type": "AWS::Lambda::LayerVersion",
-    },
-    "tests3deployCustomResource582B8BD9": {
-      "DeletionPolicy": "Delete",
-      "Properties": {
-        "DestinationBucketName": {
-          "Ref": "tests3web0EC7B581",
-        },
-        "Prune": true,
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
-            "Arn",
-          ],
-        },
-        "SourceBucketNames": [
-          "[ASSET BUCKET]",
-        ],
-        "SourceObjectKeys": [
-          "[ASSET ZIP]",
-        ],
-      },
-      "Type": "Custom::CDKBucketDeployment",
-      "UpdateReplacePolicy": "Delete",
-    },
-    "tests3logAutoDeleteObjectsCustomResourceFC11333F": {
-      "DeletionPolicy": "Delete",
-      "DependsOn": [
-        "tests3logPolicy3D41271D",
-      ],
-      "Properties": {
-        "BucketName": {
-          "Ref": "tests3logCE49E151",
-        },
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::S3AutoDeleteObjects",
-      "UpdateReplacePolicy": "Delete",
-    },
-    "tests3logCE49E151": {
-      "DeletionPolicy": "Delete",
-      "Properties": {
-        "PublicAccessBlockConfiguration": {
-          "BlockPublicAcls": true,
-          "BlockPublicPolicy": true,
-          "IgnorePublicAcls": true,
-          "RestrictPublicBuckets": true,
-        },
-        "Tags": [
-          {
-            "Key": "aws-cdk:auto-delete-objects",
-            "Value": "true",
-          },
-        ],
-      },
-      "Type": "AWS::S3::Bucket",
-      "UpdateReplacePolicy": "Delete",
-    },
-    "tests3logPolicy3D41271D": {
-      "Properties": {
-        "Bucket": {
-          "Ref": "tests3logCE49E151",
-        },
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-              ],
-              "Effect": "Allow",
-              "Principal": {
-                "AWS": {
-                  "Fn::GetAtt": [
-                    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
-                    "Arn",
-                  ],
-                },
-              },
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "tests3logCE49E151",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "tests3logCE49E151",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::S3::BucketPolicy",
-    },
-    "tests3web0EC7B581": {
-      "DeletionPolicy": "Delete",
-      "Properties": {
-        "PublicAccessBlockConfiguration": {
-          "BlockPublicAcls": true,
-          "BlockPublicPolicy": true,
-          "IgnorePublicAcls": true,
-          "RestrictPublicBuckets": true,
-        },
-        "Tags": [
-          {
-            "Key": "aws-cdk:auto-delete-objects",
-            "Value": "true",
-          },
-          {
-            "Key": "aws-cdk:cr-owned:636a96d2",
-            "Value": "true",
-          },
-        ],
-      },
-      "Type": "AWS::S3::Bucket",
-      "UpdateReplacePolicy": "Delete",
-    },
-    "tests3webAutoDeleteObjectsCustomResource41786D4D": {
-      "DeletionPolicy": "Delete",
-      "DependsOn": [
-        "tests3webPolicy18946F01",
-      ],
-      "Properties": {
-        "BucketName": {
-          "Ref": "tests3web0EC7B581",
-        },
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::S3AutoDeleteObjects",
-      "UpdateReplacePolicy": "Delete",
-    },
-    "tests3webPolicy18946F01": {
-      "Properties": {
-        "Bucket": {
-          "Ref": "tests3web0EC7B581",
-        },
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-              ],
-              "Effect": "Allow",
-              "Principal": {
-                "AWS": {
-                  "Fn::GetAtt": [
-                    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
-                    "Arn",
-                  ],
-                },
-              },
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "tests3web0EC7B581",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "tests3web0EC7B581",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": "s3:GetObject",
-              "Effect": "Allow",
-              "Principal": {
-                "CanonicalUser": {
-                  "Fn::GetAtt": [
-                    "testcloudfrontOrigin1S3OriginDD20337C",
-                    "S3CanonicalUserId",
-                  ],
-                },
-              },
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    {
-                      "Fn::GetAtt": [
-                        "tests3web0EC7B581",
-                        "Arn",
-                      ],
-                    },
-                    "/*",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::S3::BucketPolicy",
     },
   },
   "Rules": {
