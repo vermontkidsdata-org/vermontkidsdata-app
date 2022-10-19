@@ -15,7 +15,7 @@ jobs:
           ls -l
           git branch
       - name: Install
-        run: npm run ci:all
+        run: npm run install:all
       - name: Build
         run: npm run build
       - name: Test
