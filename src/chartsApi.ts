@@ -2,10 +2,12 @@ import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-sec
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import * as mysql from 'mysql';
 
-const { REGION } = process.env;
+function getRegion(): string {
+  return process.env.REGION || 'us-east-1';
+}
 
 async function doOpen(): Promise<mysql.Connection> {
-  const smClient = new SecretsManagerClient({ region: REGION });
+  const smClient = new SecretsManagerClient({ region: getRegion() });
 
   // Get secret connection info
   const secrets = (await smClient.send(new GetSecretValueCommand({

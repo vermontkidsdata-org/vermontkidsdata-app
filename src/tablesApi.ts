@@ -5,7 +5,10 @@ import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
 import { getHeaders } from './cors';
 import { queryDB } from './db-utils';
 
-const { REGION } = process.env;
+function getRegion(): string {
+  return process.env.REGION || 'us-east-1';
+}
+
 interface GazCounty {
   id: number, // 2819
   year: number, // 2019
@@ -52,7 +55,7 @@ export interface ErrorResponse {
 }
 
 async function doOpen(): Promise<mysql.Connection> {
-  const smClient = new SecretsManagerClient({ region: REGION });
+  const smClient = new SecretsManagerClient({ region: getRegion() });
 
   // Get secret connection info
   const secrets = (await smClient.send(new GetSecretValueCommand({
