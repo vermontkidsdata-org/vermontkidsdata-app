@@ -20,6 +20,7 @@ import { join } from 'path';
 const S3_SERVICE_PRINCIPAL = new iam.ServicePrincipal('s3.amazonaws.com');
 const HOSTED_ZONE_ID = 'Z01884571R5A9N33JR5NE';
 const BASE_DOMAIN_NAME = 'vtkidsdata.org';
+const NS_MASTER = 'master';
 
 export interface VermontkidsdataStackProps extends cdk.StackProps {
   ns: string;
@@ -190,7 +191,9 @@ export class VermontkidsdataStack extends cdk.Stack {
       }
     );
 
-    const domainName = `api.${BASE_DOMAIN_NAME}`;
+    const domainName = (ns === NS_MASTER) ?
+      `api.${BASE_DOMAIN_NAME}` :
+      `api.${ns}.${BASE_DOMAIN_NAME}` ;
 
     const certificate = new acm.DnsValidatedCertificate(
       this,
