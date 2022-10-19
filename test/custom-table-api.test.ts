@@ -2,6 +2,10 @@ import { APIGatewayProxyEventV2 } from 'aws-lambda';
 import * as tablesApi from '../src/tablesApi';
 
 describe('custom table API', () => {
+  beforeEach(() => {
+    process.env.REGION = 'us-east-1';
+  });
+  
   it('returns basic data', async () => {
     const ret = await tablesApi.table({
       pathParameters: {

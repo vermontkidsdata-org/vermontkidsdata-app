@@ -4,6 +4,10 @@ import { } from '../src/db-utils';
 import { expectCORS, LambdaResponse } from './utils';
 
 describe('chartsApi', () => {
+  beforeEach(() => {
+    process.env.REGION = 'us-east-1';
+  });
+  
   test('basic query', async () => {
     // queryDBSpy.mock.invocationCall in mockResolvedValue(BOGUS_BRANCH_NAME);
 
