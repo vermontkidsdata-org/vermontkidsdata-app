@@ -7,6 +7,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Environment
+        run: |
+          pwd
+          ls -l
+          git branch
       - name: Install
         run: npm ci
       - name: Build
