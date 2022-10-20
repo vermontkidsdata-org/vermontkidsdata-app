@@ -25,4 +25,4 @@ jobs:
       - name: Deploy to QA
         run: |
           export VKD_ENVIRONMENT=qa
-          npm run deploy --require-approval never
+          npm run deploy:ci

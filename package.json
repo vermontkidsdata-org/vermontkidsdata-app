@@ -12,6 +12,7 @@
     "test": "jest",
     "cdk": "cdk",
     "deploy": "cdk deploy",
+    "deploy:ci": "cdk deploy --require-approval never",
     "clean": "del src\\*.js src\\*.d.ts test\\*.d.ts test\\*.js lib\\*.d.ts lib\\*.js bin\\*.d.ts bin\\*.js"
   },
   "devDependencies": {
