@@ -8,6 +8,8 @@ describe('Census Table API', () => {
     beforeEach(() => {
         // Stub all external dependency functions of module to be tested
         queryDBSpy = jest.spyOn(dbUtils, 'queryDB');
+        process.env.NAMESPACE = 'qa';
+        process.env.REGION = 'us-east-1';
     });
     // Actions to be done after each test
     afterEach(() => {

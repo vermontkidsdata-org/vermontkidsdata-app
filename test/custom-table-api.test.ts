@@ -4,7 +4,8 @@ import * as tablesApi from '../src/tablesApi';
 describe('custom table API', () => {
   beforeEach(() => {
     process.env.REGION = 'us-east-1';
-  });
+    process.env.NAMESPACE = 'qa';
+});
   
   it('returns basic data', async () => {
     const ret = await tablesApi.table({
