@@ -1,13 +1,8 @@
-import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import * as mysql from 'mysql';
 import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
 import { getHeaders } from './cors';
-import { queryDB } from './db-utils';
-
-function getRegion(): string {
-  return process.env.REGION || 'us-east-1';
-}
+import { doOpen, query, queryDB } from './db-utils';
 
 interface GazCounty {
   id: number, // 2819
@@ -54,44 +49,6 @@ export interface ErrorResponse {
   message: string
 }
 
-async function doOpen(): Promise<mysql.Connection> {
-  const smClient = new SecretsManagerClient({ region: getRegion() });
-
-  // Get secret connection info
-  const secrets = (await smClient.send(new GetSecretValueCommand({
-    SecretId: 'vkd/prod/dbcreds'
-  }))).SecretString;
-
-  if (secrets == null) {
-    throw new Error('DB connection info not found');
-  } else {
-    const info: { host: string, username: string, password: string } = JSON.parse(secrets);
-    if (info.host == null || info.username == null || info.password == null) {
-      throw new Error('DB connection info missing information');
-    } else {
-      return mysql.createConnection({
-        host: info.host,
-        user: info.username,
-        password: info.password
-      });
-    }
-  }
-}
-
-async function query(connection: mysql.Connection, sql: string, values?: any[]): Promise<any> {
-  if (values == null) values = [];
-  return new Promise<any>((resolve, reject) => {
-    // console.log(`query ${JSON.stringify(values)}`);
-    return connection.query(sql, values, (err, results /*, fields*/) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(results);
-      }
-    })
-  });
-}
-
 interface ColumnMap {
   [key: string]: string
 }
@@ -108,7 +65,6 @@ async function getQuery(queryId: string): Promise<{ connection: mysql.Connection
   console.log('opening connection');
   const connection = await doOpen();
   console.log('connection open');
-  await query(connection, 'use dbvkd');
 
   // Get the query to run from the parameters
   const queryRows = await query(connection, 'SELECT sqlText, columnMap, metadata FROM queries where name=?', [queryId]);
@@ -243,7 +199,7 @@ export async function table(
                     message: 'unknown column projection'
                   })
                 };
-          
+
               }
             }
           }

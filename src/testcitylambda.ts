@@ -1,10 +1,14 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
-import { census } from './citysdk-utils';
 
 // import * as mysql from 'mysql2/promise';
-import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
+import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 
 const region = 'us-east-1';
+
+function getNamespace(): string {
+  if (process.env.NAMESPACE) return process.env.NAMESPACE;
+  else throw new Error("process.env.NAMESPACE not passed");  
+}
 
 export async function queryDB(
   event: APIGatewayProxyEventV2,
@@ -14,7 +18,7 @@ export async function queryDB(
   // let connection: mysql.Connection;
   // Get secret connection info
   const secrets = (await smClient.send(new GetSecretValueCommand({
-    SecretId: 'vkd/prod/dbcreds'
+    SecretId: `vkd/${getNamespace()}/dbcreds`
   }))).SecretString;
 
   if (secrets == null) {

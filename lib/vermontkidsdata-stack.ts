@@ -20,10 +20,10 @@ import { join } from 'path';
 const S3_SERVICE_PRINCIPAL = new iam.ServicePrincipal('s3.amazonaws.com');
 const HOSTED_ZONE_ID = 'Z01884571R5A9N33JR5NE';
 const BASE_DOMAIN_NAME = 'vtkidsdata.org';
-const NS_MASTER = 'master';
 
 export interface VermontkidsdataStackProps extends cdk.StackProps {
   ns: string;
+  isProduction: boolean;
 }
 
 export class VermontkidsdataStack extends cdk.Stack {
@@ -31,7 +31,6 @@ export class VermontkidsdataStack extends cdk.Stack {
     super(scope, id, props);
 
     const ns = props.ns;
-    const isProduction = (ns === NS_MASTER);
 
     // Maybe need to always do this
     const bucket = new s3.Bucket(this, 'Uploads bucket', {
@@ -72,7 +71,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         S3_BUCKET_NAME: bucketName,
         REGION: this.region,
-        STATUS_TABLE: uploadStatusTable.tableName
+        STATUS_TABLE: uploadStatusTable.tableName,
+        NAMESPACE: ns,
       }
     });
     bucket.grantRead(uploadFunction);
@@ -101,7 +101,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     uploadStatusTable.grantReadWriteData(uploadStatusFunction);
 
     // The secret where the DB login info is. Grant read access.
-    const secret = sm.Secret.fromSecretNameV2(this, 'DB credentials', 'vkd/prod/dbcreds');
+    const secret = sm.Secret.fromSecretNameV2(this, 'DB credentials', `vkd/${ns}/dbcreds`);
     secret.grantRead(uploadFunction);
 
     const apiChartBarFunction = new lambdanode.NodejsFunction(this, 'Bar Chart API Function', {
@@ -112,7 +112,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       entry: join(__dirname, "../src/chartsApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region
+        REGION: this.region,
+        NAMESPACE: ns,
       }
     });
     secret.grantRead(apiChartBarFunction);
@@ -125,7 +126,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region
+        REGION: this.region,
+        NAMESPACE: ns,
       }
     });
     secret.grantRead(apiTableFunction);
@@ -140,7 +142,11 @@ export class VermontkidsdataStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'getCensusByGeo',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
     });
     tableCensusByGeoFunction.addToRolePolicy(getSecretValueStatement);
     const codesCensusVariablesByTable = new lambdanode.NodejsFunction(this, 'Codes Census Variables By Table Function', {
@@ -149,7 +155,11 @@ export class VermontkidsdataStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'codesCensusVariablesByTable',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
     });
     codesCensusVariablesByTable.addToRolePolicy(getSecretValueStatement);
     const getGeosByTypeFunction = new lambdanode.NodejsFunction(this, 'Get Geos by Type Function', {
@@ -158,7 +168,11 @@ export class VermontkidsdataStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'getGeosByType',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
     });
     getGeosByTypeFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -168,7 +182,11 @@ export class VermontkidsdataStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'getCensusTablesSearch',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
     });
     getCensusTablesSearchFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -178,7 +196,11 @@ export class VermontkidsdataStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'testcitylambda.queryDB',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
     });
     testDBFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -192,7 +214,7 @@ export class VermontkidsdataStack extends cdk.Stack {
       }
     );
 
-    const domainName = isProduction ?
+    const domainName = props.isProduction ?
       `api.${BASE_DOMAIN_NAME}` :
       `api.${ns}.${BASE_DOMAIN_NAME}`;
 
@@ -273,7 +295,7 @@ export class VermontkidsdataStack extends cdk.Stack {
       value: domainName
     });
 
-    if (isProduction) {
+    if (props.isProduction) {
       // S3 Bucket that CloudFront Distribution will log to
       const s3BucketLog = new s3.Bucket(this, `${ns}-s3-log`, {
         // Block all public access

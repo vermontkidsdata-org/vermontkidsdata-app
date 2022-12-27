@@ -33,6 +33,7 @@ describe('Lambda', () => {
     const app = new cdk.App();
     const applicationStack = new VermontkidsdataStack(app, 'test-TestStack', {
       ns: 'test',
+      isProduction: false,
       env: { account: BOGUS_ACCOUNT_ENV_PROPS.env.account, region: BOGUS_ACCOUNT_ENV_PROPS.env.region }
     });
 

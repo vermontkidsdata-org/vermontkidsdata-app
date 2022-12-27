@@ -5,6 +5,8 @@ Need to create some secrets first.
 aws secretsmanager create-secret --name VKDPipelineGitHubToken --description "The GitHub access token for the VKD pipeline." --secret-string "{\"access-token\":\"XXXXXXXXXXXX\"}"
 aws secretsmanager create-secret --name "vkd/prod/dbcreds" --secret-string "{\"username\":\"XXXXXXXXXXXX\", \"password\":\"XXXXXXXXXXXX\", \"host\": \"XXXXXXXX\"}"
 
+Ditto for vkd/qa/dbcreds
+
 # To deploy to personal cloud environment
 
 1. Create a branch that starts with `dev/` and is unique to what you're doing. E.g. `dev/census-bar-chart`. Nobody else should
