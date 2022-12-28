@@ -60,6 +60,17 @@ describe('queries-api-get', () => {
       const body: { id: number; } = JSON.parse(ret.body);
       expect(body.id).toBeGreaterThanOrEqual(14);
     });
+
+    it('disallows existing name', async () => {
+      const ret = await queriesApiPost.lambdaHandler({
+        body: JSON.stringify({
+          name: "57",
+          sqlText: `BOGUS`,
+        })
+      } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+      console.log('query response -->', ret.body);
+      expect(ret.statusCode).toBe(400);
+    });
   });
   
   describe('queries-api-put', () => {
