@@ -24,6 +24,12 @@ jobs:
           git branch
       - name: Install
         run: npm ci
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
   main-test:
     needs: [main-prep]
     runs-on: ubuntu-latest
@@ -34,6 +40,15 @@ jobs:
           node-version: 16
       - name: Checkout ${{ github.ref }}
         uses: actions/checkout@v3
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
       - name: Test
         run: npm run test
   main-deploy-qa:
@@ -46,6 +61,15 @@ jobs:
           node-version: 16
       - name: Checkout ${{ github.ref }}
         uses: actions/checkout@v3
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
       - name: Deploy to QA
         run: |
           export VKD_ENVIRONMENT=qa
