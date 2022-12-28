@@ -10,6 +10,6 @@ if [ "$ID" != 66 ]; then
 fi
 
 TITLE=`cat table-66.json | jq -r ".metadata.config.title"`
-if [[ "$TITLE" != *"Student support services"* ]]; then
+if [[ "$TITLE" != *"Student BOGUS support services"* ]]; then
   exit 1
 fi
