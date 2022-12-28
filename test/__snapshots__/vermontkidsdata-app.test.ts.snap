@@ -67,7 +67,7 @@ exports[`Lambda Snapshot Test 1`] = `
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 30,
       },
       "Type": "AWS::Lambda::Function",
@@ -186,7 +186,7 @@ exports[`Lambda Snapshot Test 1`] = `
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 30,
       },
       "Type": "AWS::Lambda::Function",
@@ -479,7 +479,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 15,
       },
       "Type": "AWS::Lambda::Function",
@@ -584,7 +584,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 15,
       },
       "Type": "AWS::Lambda::Function",
@@ -745,7 +745,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 15,
       },
       "Type": "AWS::Lambda::Function",
@@ -850,7 +850,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 15,
       },
       "Type": "AWS::Lambda::Function",
@@ -1006,6 +1006,125 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
+    "QueriesgetListAPIFunctionFF4BF43F": {
+      "DependsOn": [
+        "QueriesgetListAPIFunctionServiceRoleDefaultPolicyACA47E5A",
+        "QueriesgetListAPIFunctionServiceRole8D01FE5E",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::GetAtt": [
+            "QueriesgetListAPIFunctionServiceRole8D01FE5E",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+        "Timeout": 30,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "QueriesgetListAPIFunctionLogRetention11AB6E4A": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "QueriesgetListAPIFunctionFF4BF43F",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "QueriesgetListAPIFunctionServiceRole8D01FE5E": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "QueriesgetListAPIFunctionServiceRoleDefaultPolicyACA47E5A": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":secretsmanager:aq-south-1:999999999:secret:vkd/test/dbcreds-??????",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "QueriesgetListAPIFunctionServiceRoleDefaultPolicyACA47E5A",
+        "Roles": [
+          {
+            "Ref": "QueriesgetListAPIFunctionServiceRole8D01FE5E",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "TestDBFunction6436BF3A": {
       "DependsOn": [
         "TestDBFunctionServiceRoleDefaultPolicy573EA357",
@@ -1031,7 +1150,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 15,
       },
       "Type": "AWS::Lambda::Function",
@@ -1142,7 +1261,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
@@ -1337,7 +1456,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 5,
       },
       "Type": "AWS::Lambda::Function",
@@ -1876,7 +1995,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C7e3d77f67b43a4dd74ca3fd066550173a": {
+    "testVermontKidsDataDeployment82D2B8C732f6d8f321f092f190074837deda5995": {
       "DependsOn": [
         "testVermontKidsDatachartbarqueryIdGETD88F41A0",
         "testVermontKidsDatachartbarqueryId1B9FDE04",
@@ -1895,6 +2014,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatacodesgeos7A77D4EF",
         "testVermontKidsDatacodesOPTIONS8255224F",
         "testVermontKidsDatacodes32B0A0D2",
+        "testVermontKidsDataqueriesGETEB6EC073",
+        "testVermontKidsDataqueries63BE02C3",
         "testVermontKidsDatatablecensustablegeoTypeGETF5C9BB28",
         "testVermontKidsDatatablecensustablegeoTypeFFED038B",
         "testVermontKidsDatatablecensustableFECE0E80",
@@ -1925,7 +2046,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C7e3d77f67b43a4dd74ca3fd066550173a",
+          "Ref": "testVermontKidsDataDeployment82D2B8C732f6d8f321f092f190074837deda5995",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -2535,6 +2656,119 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "ResourceId": {
           "Ref": "testVermontKidsDatacodesgeosgeoTypeCB9C8A50",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataqueries63BE02C3": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "testVermontKidsDataCC7D0909",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "queries",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDataqueriesGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETqueries5AED5D49": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "QueriesgetListAPIFunctionFF4BF43F",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/GET/queries",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataqueriesGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETqueries9305EFC8": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "QueriesgetListAPIFunctionFF4BF43F",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/GET/queries",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataqueriesGETEB6EC073": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "QueriesgetListAPIFunctionFF4BF43F",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDataqueries63BE02C3",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",

@@ -45,7 +45,11 @@ export async function getDBSecret(): Promise<DBSecret> {
   }
 }
 
-export async function query(connection: mysql.Connection, sql: string, values?: any[]): Promise<any> {
+export async function doDBClose(connection: mysql.Connection): Promise<void> {
+  return connection.commit();
+}
+
+export async function doDBQuery(connection: mysql.Connection, sql: string, values?: any[]): Promise<any> {
   if (values == null) values = [];
   return new Promise<any>((resolve, reject) => {
     // console.log(`query ${JSON.stringify(values)}`);
@@ -59,14 +63,14 @@ export async function query(connection: mysql.Connection, sql: string, values?: 
   });
 }
 
-export async function doOpen(): Promise<mysql.Connection> {
+export async function doDBOpen(): Promise<mysql.Connection> {
   const info = await getDBSecret();
   const conn = mysql.createConnection({
     host: info.host,
     user: info.username,
     password: info.password
   });
-  await query(conn, `use ${info.schema}`);
+  await doDBQuery(conn, `use ${info.schema}`);
   console.log({message: 'doOpen: opened connection', schema: info.schema});
   return conn;
 }

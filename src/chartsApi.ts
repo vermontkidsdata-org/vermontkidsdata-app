@@ -1,5 +1,5 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { doOpen, query } from "./db-utils";
+import { doDBOpen, doDBQuery } from "./db-utils";
 
 export async function bar(
   event: APIGatewayProxyEventV2,
@@ -13,11 +13,11 @@ export async function bar(
     const queryId = event.pathParameters.queryId;
     try {
       // console.log('opening connection');
-      const connection = await doOpen();
+      const connection = await doDBOpen();
       // console.log('connection open');
 
       // Get the query to run from the parameters
-      const queryRows = await query(connection, 'SELECT sqlText, metadata FROM queries where name=?', [queryId]);
+      const queryRows = await doDBQuery(connection, 'SELECT sqlText, metadata FROM queries where name=?', [queryId]);
       // console.log(queryRows);
       if (queryRows.length == 0) {
         await connection.end();
@@ -33,7 +33,7 @@ export async function bar(
       // - cat: The category(s)
       // - label: The label for the values
       // - value: The value for the values
-      const resultRows = await query(connection, queryRows[0].sqlText);
+      const resultRows = await doDBQuery(connection, queryRows[0].sqlText);
       // console.log('result', resultRows);
 
       // console.log('closing connection');

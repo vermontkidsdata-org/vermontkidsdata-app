@@ -64,7 +64,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const uploadFunction = new lambdanode.NodejsFunction(this, 'Upload Data Function', {
       memorySize: 512,
       timeout: cdk.Duration.seconds(900),
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       entry: join(__dirname, "../src/uploadData.ts"),
       handler: 'main',
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -87,7 +87,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const uploadStatusFunction = new lambdanode.NodejsFunction(this, 'Upload Status Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(5),
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'status',
       entry: join(__dirname, "../src/uploadData.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -107,7 +107,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const apiChartBarFunction = new lambdanode.NodejsFunction(this, 'Bar Chart API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'bar',
       entry: join(__dirname, "../src/chartsApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -121,7 +121,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const apiTableFunction = new lambdanode.NodejsFunction(this, 'Basic table API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'table',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -132,6 +132,20 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(apiTableFunction);
 
+    const queriesGetListFunction = new lambdanode.NodejsFunction(this, 'Queries getList API Function', {
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(30),
+      runtime: lambda.Runtime.NODEJS_16_X,
+      handler: 'handler',
+      entry: join(__dirname, "../src/queries-api-getList.ts"),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
+    });
+    secret.grantRead(queriesGetListFunction);
+
     const getSecretValueStatement = new iam.PolicyStatement({
       actions: ["secretsmanager:GetSecretValue"],
       resources: ["*"]
@@ -139,7 +153,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const tableCensusByGeoFunction = new lambdanode.NodejsFunction(this, 'Census Table By Geo Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'getCensusByGeo',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -152,7 +166,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const codesCensusVariablesByTable = new lambdanode.NodejsFunction(this, 'Codes Census Variables By Table Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'codesCensusVariablesByTable',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -165,7 +179,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const getGeosByTypeFunction = new lambdanode.NodejsFunction(this, 'Get Geos by Type Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'getGeosByType',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -179,7 +193,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const getCensusTablesSearchFunction = new lambdanode.NodejsFunction(this, 'Get Census Tables Search Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'getCensusTablesSearch',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -193,7 +207,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const testDBFunction = new lambdanode.NodejsFunction(this, 'Test DB Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'testcitylambda.queryDB',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -267,6 +281,9 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rTableCensusTableByGeo = rTableCensusTable.addResource("{geoType}");
     rTableCensusTableByGeo.addMethod("GET", new LambdaIntegration(tableCensusByGeoFunction));
 
+    const rQueries = api.root.addResource("queries");
+    rQueries.addMethod("GET", new LambdaIntegration(queriesGetListFunction));
+    
     const rCodes = api.root.addResource("codes");
     rCodes.addCorsPreflight(corsOptions);
     const rCodesGeos = rCodes.addResource("geos");

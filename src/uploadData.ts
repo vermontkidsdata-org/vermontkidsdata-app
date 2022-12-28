@@ -4,7 +4,7 @@ import { PutItemOutput } from 'aws-sdk/clients/dynamodb';
 import * as csv from 'csv-parse';
 import * as mysql from 'mysql';
 import { v4 as uuidv4 } from 'uuid';
-import { doOpen } from "./db-utils";
+import { doDBOpen } from "./db-utils";
 
 interface UploadInfo {
   type: string;
@@ -160,7 +160,7 @@ export async function main(
     await updateStatus(identifier, 'In progress', 0, 0, []);
 
     console.log('opening connection');
-    const connection = await doOpen();
+    const connection = await doDBOpen();
     console.log('connection open');
 
     const errors: Error[] = []

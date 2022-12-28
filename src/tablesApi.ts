@@ -2,7 +2,7 @@ import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import * as mysql from 'mysql';
 import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
 import { getHeaders } from './cors';
-import { doOpen, query, queryDB } from './db-utils';
+import { doDBOpen, doDBQuery, queryDB } from './db-utils';
 
 interface GazCounty {
   id: number, // 2819
@@ -63,11 +63,11 @@ interface QueryRow {
 
 async function getQuery(queryId: string): Promise<{ connection: mysql.Connection, rows: QueryRow[] }> {
   console.log('opening connection');
-  const connection = await doOpen();
+  const connection = await doDBOpen();
   console.log('connection open');
 
   // Get the query to run from the parameters
-  const queryRows = await query(connection, 'SELECT sqlText, columnMap, metadata FROM queries where name=?', [queryId]);
+  const queryRows = await doDBQuery(connection, 'SELECT sqlText, columnMap, metadata FROM queries where name=?', [queryId]);
   console.log(queryRows);
   if (queryRows.length == 0) {
     throw new Error('unknown query');
@@ -79,14 +79,14 @@ async function getQuery(queryId: string): Promise<{ connection: mysql.Connection
   }
 }
 
-async function doQuery(queryId: string): Promise<{ rows: any[], columnMap?: ColumnMap, metadata?: Object }> {
+async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?: ColumnMap, metadata?: Object }> {
   const info = await getQuery(queryId);
 
   // Now run the query. Should always return three columns, with the following names
   // - cat: The category(s)
   // - label: The label for the values
   // - value: The value for the values
-  const resultRows = await query(info.connection, info.rows[0].sqlText);
+  const resultRows = await doDBQuery(info.connection, info.rows[0].sqlText);
   console.log('result', resultRows);
 
   console.log('closing connection');
@@ -118,7 +118,7 @@ export async function table(
 
       // We assume we're getting back an array of values with the value keys being the key into the columnMap
       // columnMap => {'infant': 'Infant', 'toddler': 'Toddler', 'preschool': 'Preschool'}
-      const resultRows = await doQuery(queryId);
+      const resultRows = await localDBQuery(queryId);
 
       // Example results:
       // Table:

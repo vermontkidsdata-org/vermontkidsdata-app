@@ -6,5 +6,6 @@ export interface LambdaResponse {
 
 // Validate it has CORS headers
 export function expectCORS(ret: LambdaResponse): void {
+  expect(ret.headers).not.toBeUndefined();
   expect(Object.entries(ret.headers).filter(h => h[0] == 'Access-Control-Allow-Origin').length).toBe(1);
 }
