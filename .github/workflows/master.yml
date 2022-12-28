@@ -24,12 +24,26 @@ jobs:
           git branch
       - name: Install
         run: npm ci
+      - name: Preserve artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-results
+          path: |
+            ./*
+          retention-days: 5
   main-test:
     needs: [main-prep]
     runs-on: ubuntu-latest
     steps:
       - name: Test
         run: npm run test
+      - name: Preserve artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-results
+          path: |
+            ./*
+          retention-days: 5
   main-deploy-qa:
     needs: [main-test]
     runs-on: ubuntu-latest
