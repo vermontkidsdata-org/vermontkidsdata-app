@@ -1,12 +1,15 @@
 #!/bin/bash
 set -e
+set -x
 
 curl https://api.qa.vtkidsdata.org/table/table/66?columns=Age,IFSP,IEP,504 >table-66.json
 
-if [ `cat table-66.json | jq -r ".id"` != 66 ]; then
+ID=`cat table-66.json | jq -r ".id"`
+if [ "$ID" != 66 ]; then
   exit 1
 fi
 
-if [ `cat table-66.json | jq -r ".metadata.config.tile"` != *Student support services* ]; then
+TITLE=`cat table-66.json | jq -r ".metadata.config.title"`
+if [[ "$TITLE" != *"Student support services"* ]]; then
   exit 1
 fi
