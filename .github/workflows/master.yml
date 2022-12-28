@@ -50,7 +50,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test
-        run: npm run test
+        run: npm test -- --forceExit --detectOpenHandles
   main-deploy-qa:
     needs: [main-test]
     runs-on: ubuntu-latest

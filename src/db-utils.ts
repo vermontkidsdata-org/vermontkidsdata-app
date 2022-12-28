@@ -46,7 +46,7 @@ export async function getDBSecret(): Promise<DBSecret> {
 }
 
 export async function doDBClose(connection: mysql.Connection): Promise<void> {
-  return connection.commit();
+  connection.commit();
 }
 
 export async function doDBQuery(connection: mysql.Connection, sql: string, values?: any[]): Promise<any> {

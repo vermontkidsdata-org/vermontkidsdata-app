@@ -1,6 +1,6 @@
 import { APIGatewayProxyEventV2 } from 'aws-lambda';
 import { } from '../src/db-utils';
-import { lambdaHandler as getList } from '../src/queries-api-getList';
+import * as queriesApiGetList from '../src/queries-api-getList';
 import { LambdaResponse } from './utils';
 
 describe('queries-api-getList', () => {
@@ -9,9 +9,8 @@ describe('queries-api-getList', () => {
     process.env.NAMESPACE = 'qa';
   });
 
-  test('basic query', async () => {
-
-    const ret = await getList({
+  it('basic query', async () => {
+    const ret = await queriesApiGetList.lambdaHandler({
     } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
     console.log('query response -->', ret.body);
     expect(ret.statusCode).toBe(200);

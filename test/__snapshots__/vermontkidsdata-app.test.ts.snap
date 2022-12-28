@@ -397,7 +397,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "python3.7",
+        "Runtime": "python3.9",
         "Timeout": 300,
       },
       "Type": "AWS::Lambda::Function",
