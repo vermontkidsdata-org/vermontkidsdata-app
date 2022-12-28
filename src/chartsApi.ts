@@ -1,15 +1,5 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import * as mysql from 'mysql';
-import { doOpen, getDBSecret, query } from "./db-utils";
-
-function getRegion(): string {
-  return process.env.REGION || 'us-east-1';
-}
-
-function getNamespace(): string {
-  if (process.env.NAMESPACE) return process.env.NAMESPACE;
-  else throw new Error("process.env.NAMESPACE not passed");
-}
+import { doOpen, query } from "./db-utils";
 
 export async function bar(
   event: APIGatewayProxyEventV2,

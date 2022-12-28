@@ -6,11 +6,6 @@ import * as mysql from 'mysql';
 import { v4 as uuidv4 } from 'uuid';
 import { doOpen } from "./db-utils";
 
-function getNamespace(): string {
-  if (process.env.NAMESPACE) return process.env.NAMESPACE;
-  else throw new Error("process.env.NAMESPACE not passed");
-}
-
 interface UploadInfo {
   type: string;
   key: string;

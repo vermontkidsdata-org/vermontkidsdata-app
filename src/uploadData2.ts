@@ -1,4 +1,3 @@
-import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2, S3Event } from 'aws-lambda';
 import * as AWS from 'aws-sdk';
 import { PutItemOutput } from 'aws-sdk/clients/dynamodb';
@@ -6,11 +5,6 @@ import * as csv from 'csv-parse';
 import * as mysql from 'mysql';
 import { v4 as uuidv4 } from 'uuid';
 import { doOpen } from "./db-utils";
-
-function getNamespace(): string {
-  if (process.env.NAMESPACE) return process.env.NAMESPACE;
-  else throw new Error("process.env.NAMESPACE not passed");
-}
 
 interface UploadInfo {
   type: string;

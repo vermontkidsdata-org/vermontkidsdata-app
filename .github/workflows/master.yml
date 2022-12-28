@@ -75,5 +75,4 @@ jobs:
           export VKD_ENVIRONMENT=qa
           npm run deploy:ci
       - name: Test QA
-        run: |
-          . ./.github/scripts/test-qa.sh
+        run: . ./.github/scripts/test-qa.sh
