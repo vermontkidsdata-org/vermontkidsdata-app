@@ -45,7 +45,7 @@ export async function lambdaHandler(
     const queryRows = await doDBQuery(connection, 'SELECT id, name, sqlText, columnMap, metadata FROM queries where id=?', [id]);
     if (queryRows.length === 1) {
       // If a name was passed, it must be the same. Don't want to allow changing
-      if (name != null && name !== queryRows[0].name) {
+      if (name != null && `${name}` !== `${queryRows[0].name}`) {
         return {
           statusCode: 400,
           body: JSON.stringify({
@@ -54,8 +54,8 @@ export async function lambdaHandler(
         };
       }
 
-      await doDBQuery(connection, 'update queries set name=?, sqlText=?, columnMap=?, metadata=? where id=?',
-        [name, sqlText, columnMap, metadata, id]);
+      await doDBQuery(connection, 'update queries set sqlText=?, columnMap=?, metadata=? where id=?',
+        [sqlText, columnMap, metadata, id]);
 
       return {
         statusCode: 200,
