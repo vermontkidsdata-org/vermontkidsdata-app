@@ -13,3 +13,5 @@ TITLE=`cat table-66.json | jq -r ".metadata.config.title"`
 if [[ "$TITLE" != *"Student support services"* ]]; then
   exit 1
 fi
+
+curl https://api.qa.vtkidsdata.org/queries
