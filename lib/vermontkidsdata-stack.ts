@@ -146,6 +146,48 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(queriesGetListFunction);
 
+    const queriesGetFunction = new lambdanode.NodejsFunction(this, 'Queries get API Function', {
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(30),
+      runtime: lambda.Runtime.NODEJS_16_X,
+      handler: 'handler',
+      entry: join(__dirname, "../src/queries-api-get.ts"),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
+    });
+    secret.grantRead(queriesGetFunction);
+
+    const queriesPutFunction = new lambdanode.NodejsFunction(this, 'Queries put API Function', {
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(30),
+      runtime: lambda.Runtime.NODEJS_16_X,
+      handler: 'handler',
+      entry: join(__dirname, "../src/queries-api-put.ts"),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
+    });
+    secret.grantRead(queriesPutFunction);
+
+    const queriesPostFunction = new lambdanode.NodejsFunction(this, 'Queries post API Function', {
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(30),
+      runtime: lambda.Runtime.NODEJS_16_X,
+      handler: 'handler',
+      entry: join(__dirname, "../src/queries-api-post.ts"),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
+    });
+    secret.grantRead(queriesPostFunction);
+
     const getSecretValueStatement = new iam.PolicyStatement({
       actions: ["secretsmanager:GetSecretValue"],
       resources: ["*"]
@@ -283,6 +325,10 @@ export class VermontkidsdataStack extends cdk.Stack {
 
     const rQueries = api.root.addResource("queries");
     rQueries.addMethod("GET", new LambdaIntegration(queriesGetListFunction));
+    rQueries.addMethod("POST", new LambdaIntegration(queriesPostFunction));
+    const rQueriesById = rQueries.addResource("{id}");
+    rQueriesById.addMethod("GET", new LambdaIntegration(queriesGetFunction));
+    rQueriesById.addMethod("PUT", new LambdaIntegration(queriesPutFunction));
     
     const rCodes = api.root.addResource("codes");
     rCodes.addCorsPreflight(corsOptions);

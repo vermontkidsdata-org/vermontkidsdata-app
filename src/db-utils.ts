@@ -49,7 +49,21 @@ export async function doDBClose(connection: mysql.Connection): Promise<void> {
   connection.commit();
 }
 
-export async function doDBQuery(connection: mysql.Connection, sql: string, values?: any[]): Promise<any> {
+export async function doDBInsert(connection: mysql.Connection, sql: string, values?: any[]): Promise<number> {
+  if (values == null) values = [];
+  return new Promise<any>((resolve, reject) => {
+    // console.log(`query ${JSON.stringify(values)}`);
+    return connection.query(sql, values, (err, results /*, fields*/) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results.insertId);
+      }
+    })
+  });
+}
+
+export async function doDBQuery(connection: mysql.Connection, sql: string, values?: any[]): Promise<any[]> {
   if (values == null) values = [];
   return new Promise<any>((resolve, reject) => {
     // console.log(`query ${JSON.stringify(values)}`);
