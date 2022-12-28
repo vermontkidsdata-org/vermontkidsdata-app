@@ -24,31 +24,32 @@ jobs:
           git branch
       - name: Install
         run: npm ci
-      - name: Preserve artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-results
-          path: |
-            ./*
-          retention-days: 5
   main-test:
     needs: [main-prep]
     runs-on: ubuntu-latest
     steps:
+      - name: Use setup node action
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Checkout ${{ github.ref }}
+        uses: actions/checkout@v3
       - name: Test
         run: npm run test
-      - name: Preserve artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-results
-          path: |
-            ./*
-          retention-days: 5
   main-deploy-qa:
     needs: [main-test]
     runs-on: ubuntu-latest
     steps:
+      - name: Use setup node action
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Checkout ${{ github.ref }}
+        uses: actions/checkout@v3
       - name: Deploy to QA
         run: |
           export VKD_ENVIRONMENT=qa
           npm run deploy:ci
+      - name: Test QA
+        run: |
+          . ./.github/scripts/test-qa.sh
