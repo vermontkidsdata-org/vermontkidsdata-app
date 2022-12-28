@@ -8,10 +8,14 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
-  build:
+  main-prep:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Use setup node action
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Checkout ${{ github.ref }}
         uses: actions/checkout@v3
       - name: Environment
         run: |
@@ -20,8 +24,16 @@ jobs:
           git branch
       - name: Install
         run: npm ci
+  main-test:
+    needs: [main-prep]
+    runs-on: ubuntu-latest
+    steps:
       - name: Test
         run: npm run test
+  main-deploy-qa:
+    needs: [main-test]
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to QA
         run: |
           export VKD_ENVIRONMENT=qa
