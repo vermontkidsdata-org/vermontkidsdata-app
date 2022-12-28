@@ -13,7 +13,7 @@ describe('queries-api-getList', () => {
     process.env.NAMESPACE = 'qa';
   });
 
-  it('basic query', async () => {
+  it('does a basic query', async () => {
     const ret = await queriesApiGetList.lambdaHandler({
     } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
     console.log('query response -->', ret.body);
@@ -99,6 +99,37 @@ describe('queries-api-get', () => {
       expect(body.row.sqlText).toBe(`select hospital_service as cat,  year as label, value from data_developmentalscreening where hospital_service = 'ALL'`);
       expect(JSON.parse(body.row.columnMap)).toMatchObject({ "ALL": "Vermont" });
       expect(JSON.parse(body.row.metadata)).toMatchObject({ "title": "Percent of children with a developmental screening by age 3", "yAxis": { "type": "percent" } });
+    });
+
+    it('disallows name change', async () => {
+      const ret = await queriesApiPut.lambdaHandler({
+        pathParameters: {
+          id: '5'
+        },
+        body: JSON.stringify({
+          name: '61-999',
+          sqlText: `select hospital_service as cat,  year as label, value from data_developmentalscreening where hospital_service = 'ALL'`,
+          columnMap: JSON.stringify({ "ALL": "Vermont" }),
+          metadata: JSON.stringify({ "title": "Percent of children with a developmental screening by age 3", "yAxis": { "type": "percent" } })
+        })
+      } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+      console.log('query response -->', ret.body);
+      expect(ret.statusCode).toBe(400);
+    });
+
+    it('working without passing name', async () => {
+      const ret = await queriesApiPut.lambdaHandler({
+        pathParameters: {
+          id: '5'
+        },
+        body: JSON.stringify({
+          sqlText: `select hospital_service as cat,  year as label, value from data_developmentalscreening where hospital_service = 'ALL'`,
+          columnMap: JSON.stringify({ "ALL": "Vermont" }),
+          metadata: JSON.stringify({ "title": "Percent of children with a developmental screening by age 3", "yAxis": { "type": "percent" } })
+        })
+      } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+      console.log('query response -->', ret.body);
+      expect(ret.statusCode).toBe(200);
     });
 
     it('empty body', async () => {

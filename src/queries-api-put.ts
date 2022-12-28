@@ -30,11 +30,11 @@ export async function lambdaHandler(
   }
 
   const { name, sqlText, columnMap, metadata } = JSON.parse(body);
-  if (name == null || sqlText == null) {
+  if (sqlText == null) {
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: 'PUT requires at least name and sqlText'
+        message: 'PUT requires at least sqlText'
       })
     };
   }
@@ -44,6 +44,16 @@ export async function lambdaHandler(
     const connection = await doDBOpen();
     const queryRows = await doDBQuery(connection, 'SELECT id, name, sqlText, columnMap, metadata FROM queries where id=?', [id]);
     if (queryRows.length === 1) {
+      // If a name was passed, it must be the same. Don't want to allow changing
+      if (name != null && name !== queryRows[0].name) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({
+            message: 'PUT cannot change name'
+          })
+        };
+      }
+
       await doDBQuery(connection, 'update queries set name=?, sqlText=?, columnMap=?, metadata=? where id=?',
         [name, sqlText, columnMap, metadata, id]);
 
