@@ -54,6 +54,7 @@ jobs:
   main-deploy-qa:
     needs: [main-test]
     runs-on: ubuntu-latest
+    environment: qa
     steps:
       - name: Use setup node action
         uses: actions/setup-node@v3
@@ -76,3 +77,26 @@ jobs:
           npm run deploy:ci
       - name: Test QA
         run: . ./.github/scripts/test-qa.sh
+  main-diff-prod:
+    needs: [main-deploy-qa]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use setup node action
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Checkout ${{ github.ref }}
+        uses: actions/checkout@v3
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Diff production infrastructure
+        run: |
+          export VKD_ENVIRONMENT=prod
+          npm run diff
