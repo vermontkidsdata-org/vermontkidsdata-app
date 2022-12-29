@@ -100,3 +100,29 @@ jobs:
         run: |
           export VKD_ENVIRONMENT=prod
           npm run diff
+  main-deploy-prod:
+    needs: [main-diff-prod]
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Use setup node action
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Checkout ${{ github.ref }}
+        uses: actions/checkout@v3
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Deploy to Prod
+        run: |
+          export VKD_ENVIRONMENT=prod
+          npm run deploy:ci
+      - name: Test Prod
+        run: . ./.github/scripts/test-prod.sh
