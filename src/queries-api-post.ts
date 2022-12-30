@@ -69,5 +69,6 @@ export const handler = middy(lambdaHandler)
   .use(
     cors({
       origin: "*",
+      headers: 'Content-Type',
     })
   );

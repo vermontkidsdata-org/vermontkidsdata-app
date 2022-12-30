@@ -260,6 +260,19 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     testDBFunction.addToRolePolicy(getSecretValueStatement);
 
+    const optionsFunction = new lambdanode.NodejsFunction(this, 'Options preflight', {
+      memorySize: 1024,
+      timeout: cdk.Duration.seconds(15),
+      runtime: lambda.Runtime.NODEJS_16_X,
+      handler: 'handler',
+      entry: join(__dirname, "../src/options.ts"),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
+    });
+
     // Add the custom domain name. First look up the R53 zone
     const hostedZone = route53.HostedZone.fromHostedZoneAttributes(
       this,
@@ -326,9 +339,11 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rQueries = api.root.addResource("queries");
     rQueries.addMethod("GET", new LambdaIntegration(queriesGetListFunction));
     rQueries.addMethod("POST", new LambdaIntegration(queriesPostFunction));
+    rQueries.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
     const rQueriesById = rQueries.addResource("{id}");
     rQueriesById.addMethod("GET", new LambdaIntegration(queriesGetFunction));
     rQueriesById.addMethod("PUT", new LambdaIntegration(queriesPutFunction));
+    rQueriesById.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
     
     const rCodes = api.root.addResource("codes");
     rCodes.addCorsPreflight(corsOptions);

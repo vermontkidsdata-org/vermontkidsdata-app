@@ -1006,6 +1006,89 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
+    "Optionspreflight433FB0B9": {
+      "DependsOn": [
+        "OptionspreflightServiceRoleBA81365E",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "OptionspreflightServiceRoleBA81365E",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+        "Timeout": 15,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "OptionspreflightLogRetentionD8CF6978": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "Optionspreflight433FB0B9",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "OptionspreflightServiceRoleBA81365E": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
     "QueriesgetAPIFunction12B2D06C": {
       "DependsOn": [
         "QueriesgetAPIFunctionServiceRoleDefaultPolicyEEC559EE",
@@ -2352,7 +2435,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C71a8f0d6a250b8ec7165d28071beb3ecb": {
+    "testVermontKidsDataDeployment82D2B8C7b46b288d95c3e986c8ea59dbf95cd2a4": {
       "DependsOn": [
         "testVermontKidsDatachartbarqueryIdGETD88F41A0",
         "testVermontKidsDatachartbarqueryId1B9FDE04",
@@ -2372,9 +2455,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatacodesOPTIONS8255224F",
         "testVermontKidsDatacodes32B0A0D2",
         "testVermontKidsDataqueriesidGET81838D80",
+        "testVermontKidsDataqueriesidOPTIONS6C956D6C",
         "testVermontKidsDataqueriesidPUTD931B479",
         "testVermontKidsDataqueriesid98F2826C",
         "testVermontKidsDataqueriesGETEB6EC073",
+        "testVermontKidsDataqueriesOPTIONSB95DAF7C",
         "testVermontKidsDataqueriesPOST29F882E5",
         "testVermontKidsDataqueries63BE02C3",
         "testVermontKidsDatatablecensustablegeoTypeGETF5C9BB28",
@@ -2407,7 +2492,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C71a8f0d6a250b8ec7165d28071beb3ecb",
+          "Ref": "testVermontKidsDataDeployment82D2B8C7b46b288d95c3e986c8ea59dbf95cd2a4",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -3137,6 +3222,104 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Method",
     },
+    "testVermontKidsDataqueriesOPTIONSApiPermissionTesttestTestStacktestVermontKidsData62A09AC6OPTIONSqueriesDE93DD7C": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "Optionspreflight433FB0B9",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/OPTIONS/queries",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataqueriesOPTIONSApiPermissiontestTestStacktestVermontKidsData62A09AC6OPTIONSqueries37976DD3": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "Optionspreflight433FB0B9",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/OPTIONS/queries",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataqueriesOPTIONSB95DAF7C": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "Optionspreflight433FB0B9",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDataqueries63BE02C3",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
     "testVermontKidsDataqueriesPOST29F882E5": {
       "Properties": {
         "AuthorizationType": "NONE",
@@ -3339,6 +3522,104 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/queries/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataqueriesidOPTIONS6C956D6C": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "Optionspreflight433FB0B9",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDataqueriesid98F2826C",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataqueriesidOPTIONSApiPermissionTesttestTestStacktestVermontKidsData62A09AC6OPTIONSqueriesidCC27E0C8": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "Optionspreflight433FB0B9",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/OPTIONS/queries/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataqueriesidOPTIONSApiPermissiontestTestStacktestVermontKidsData62A09AC6OPTIONSqueriesidE18903E6": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "Optionspreflight433FB0B9",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/OPTIONS/queries/*",
             ],
           ],
         },
