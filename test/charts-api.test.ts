@@ -1,5 +1,5 @@
 import { APIGatewayProxyEventV2 } from 'aws-lambda';
-import { bar } from '../src/chartsApi';
+import { lambdaHandler } from '../src/chartsApi';
 import { } from '../src/db-utils';
 import { expectCORS, LambdaResponse } from './utils';
 
@@ -12,7 +12,7 @@ describe('chartsApi', () => {
   test('basic query', async () => {
     // queryDBSpy.mock.invocationCall in mockResolvedValue(BOGUS_BRANCH_NAME);
 
-    const ret = await bar({
+    const ret = await lambdaHandler({
       pathParameters: {
         queryId: '60'
       }

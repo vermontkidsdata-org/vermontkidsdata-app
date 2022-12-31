@@ -18,8 +18,9 @@ export interface DBSecret {
   schema: string;
 }
 
-// Cached DB Secret
+// Cached DB Secret and connection
 let secret: DBSecret | undefined = undefined;
+let cachedConnection: mysql.Connection | undefined = undefined;
 
 export async function getDBSecret(): Promise<DBSecret> {
   if (secret) return secret;
@@ -45,48 +46,69 @@ export async function getDBSecret(): Promise<DBSecret> {
   }
 }
 
-export async function doDBClose(connection: mysql.Connection): Promise<void> {
-  connection.commit();
+export async function doDBCommit(): Promise<void> {
+  if (cachedConnection) {
+    cachedConnection.commit();
+  } else {
+    throw new Error('no db connection to commit');
+  }
 }
 
-export async function doDBInsert(connection: mysql.Connection, sql: string, values?: any[]): Promise<number> {
-  if (values == null) values = [];
-  return new Promise<any>((resolve, reject) => {
-    // console.log(`query ${JSON.stringify(values)}`);
-    return connection.query(sql, values, (err, results /*, fields*/) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(results.insertId);
-      }
-    })
-  });
+export async function doDBClose(): Promise<void> {
+  if (cachedConnection) {
+    cachedConnection.end();
+    cachedConnection = undefined;
+  }
 }
 
-export async function doDBQuery(connection: mysql.Connection, sql: string, values?: any[]): Promise<any[]> {
-  if (values == null) values = [];
-  return new Promise<any>((resolve, reject) => {
-    // console.log(`query ${JSON.stringify(values)}`);
-    return connection.query(sql, values, (err, results /*, fields*/) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(results);
-      }
-    })
-  });
+export async function doDBInsert(sql: string, values?: any[]): Promise<number> {
+  const conn = cachedConnection;
+  if (conn) {
+    if (values == null) values = [];
+    return new Promise<any>((resolve, reject) => {
+      return conn.query(sql, values, (err, results /*, fields*/) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results.insertId);
+        }
+      })
+    });
+  } else {
+    throw new Error('no DB connection');
+  }
 }
 
-export async function doDBOpen(): Promise<mysql.Connection> {
-  const info = await getDBSecret();
-  const conn = mysql.createConnection({
-    host: info.host,
-    user: info.username,
-    password: info.password
-  });
-  await doDBQuery(conn, `use ${info.schema}`);
-  console.log({message: 'doOpen: opened connection', schema: info.schema});
-  return conn;
+export async function doDBQuery(sql: string, values?: any[]): Promise<any[]> {
+  const conn = cachedConnection;
+  if (conn) {
+    if (values == null) values = [];
+    return new Promise<any>((resolve, reject) => {
+      // console.log(`query ${JSON.stringify(values)}`);
+      return conn.query(sql, values, (err, results /*, fields*/) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      })
+    });
+  } else {
+    throw new Error('no DB connection');
+  }
+}
+
+export async function doDBOpen(): Promise<void> {
+  if (!cachedConnection) {
+    const info = await getDBSecret();
+    cachedConnection = mysql.createConnection({
+      host: info.host,
+      user: info.username,
+      password: info.password
+    });
+    await doDBQuery(`use ${info.schema}`);
+    console.log({ message: 'doOpen: opened connection', schema: info.schema });
+  }
 }
 
 export async function queryDB(sqlText: string, params?: any[]): Promise<any[]> {

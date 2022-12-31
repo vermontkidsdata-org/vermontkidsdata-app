@@ -1,7 +1,19 @@
+import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
+import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
+import middy from '@middy/core';
+import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { doDBOpen, doDBQuery } from "./db-utils";
+import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
 
-export async function bar(
+// Set your service name. This comes out in service lens etc.
+const serviceName = `charts-api-${process.env.NAMESPACE}`;
+const logger = new Logger({
+  logLevel: process.env.LOG_LEVEL || 'INFO',
+  serviceName
+});
+const tracer = new Tracer({ serviceName });
+
+export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   console.log('event 👉', event);
@@ -11,16 +23,13 @@ export async function bar(
     };
   } else {
     const queryId = event.pathParameters.queryId;
+    // console.log('opening connection');
+    await doDBOpen();
     try {
-      // console.log('opening connection');
-      const connection = await doDBOpen();
-      // console.log('connection open');
-
       // Get the query to run from the parameters
-      const queryRows = await doDBQuery(connection, 'SELECT sqlText, metadata FROM queries where name=?', [queryId]);
+      const queryRows = await doDBQuery('SELECT sqlText, metadata FROM queries where name=?', [queryId]);
       // console.log(queryRows);
       if (queryRows.length == 0) {
-        await connection.end();
         return {
           statusCode: 400,
           body: JSON.stringify({ message: 'unknown chart' })
@@ -33,12 +42,8 @@ export async function bar(
       // - cat: The category(s)
       // - label: The label for the values
       // - value: The value for the values
-      const resultRows = await doDBQuery(connection, queryRows[0].sqlText);
+      const resultRows = await doDBQuery(queryRows[0].sqlText);
       // console.log('result', resultRows);
-
-      // console.log('closing connection');
-      await connection.end();
-      // console.log('connection closed');
 
       interface QueryResult {
         cat: string,
@@ -87,33 +92,15 @@ export async function bar(
           categories: categories
         })
       };
-
     } catch (e) {
       console.error(e);
       return {
         statusCode: 500,
         body: (e as Error).message
       };
+    } finally {
+      await doDBClose();
     }
-    // let series = [{ name: 'All Students', data: [50,52] },
-    //   { name: 'Free and Reduced Lunch', data: [35,38] },
-    //   { name: 'Special Education', data: [13,17] },
-    //   { name: 'Historically Marginalized', data: [36,39] }
-    // ];
-    // let categories = [ 'Jan', 'Feb' ];
-
-    // return {
-    //   body: JSON.stringify({
-    //     "id": queryId,
-    //     "series": series,
-    //     "categories": categories
-    //     }
-    //   ),
-    //   headers: {
-    //     'Access-Control-Allow-Origin': '*'
-    //   },
-    //   statusCode: 200
-    // }; 
   }
 }
 
@@ -125,6 +112,15 @@ if (!module.parent) {
         queryId: '59'
       }
     } as unknown as APIGatewayProxyEventV2;
-    console.log(await bar(event));
+    console.log(await lambdaHandler(event));
   })();
 }
+
+export const bar = middy(lambdaHandler)
+  .use(captureLambdaHandler(tracer))
+  .use(injectLambdaContext(logger))
+  .use(
+    cors({
+      origin: "*",
+    })
+  );

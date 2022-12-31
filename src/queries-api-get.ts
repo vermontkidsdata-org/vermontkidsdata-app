@@ -20,12 +20,15 @@ export async function lambdaHandler(
   const id = event.pathParameters?.id;
   let row: any = undefined;
   if (id != null) {
-    const connection = await doDBOpen();
-    const queryRows = await doDBQuery(connection, 'SELECT id, name, sqlText, columnMap, metadata FROM queries where id=?', [id]);
-    if (queryRows.length > 0) {
-      row = queryRows[0];
+    await doDBOpen();
+    try {
+      const queryRows = await doDBQuery('SELECT id, name, sqlText, columnMap, metadata FROM queries where id=?', [id]);
+      if (queryRows.length > 0) {
+        row = queryRows[0];
+      }
+    } finally {
+      await doDBClose();
     }
-    await doDBClose(connection);
   }
 
   if (row == null) {

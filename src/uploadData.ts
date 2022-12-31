@@ -2,9 +2,8 @@ import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2, S3Event } fr
 import * as AWS from 'aws-sdk';
 import { PutItemOutput } from 'aws-sdk/clients/dynamodb';
 import * as csv from 'csv-parse';
-import * as mysql from 'mysql';
 import { v4 as uuidv4 } from 'uuid';
-import { doDBOpen } from "./db-utils";
+import { doDBClose, doDBCommit, doDBOpen, doDBQuery } from "./db-utils";
 
 interface UploadInfo {
   type: string;
@@ -15,7 +14,7 @@ const { S3_BUCKET_NAME: bucketName, REGION, STATUS_TABLE: statusTableName } = pr
 const s3 = new AWS.S3({ region: REGION });
 const dynamodb = new AWS.DynamoDB({ region: REGION });
 
-type CsvProcessCallback = (connection: mysql.Connection, record: string[], lnum: number, identifier: string, errors: Error[]) => Promise<void>;
+type CsvProcessCallback = (record: string[], lnum: number, identifier: string, errors: Error[]) => Promise<void>;
 
 interface TypesConfigElement {
   processRowFunction: CsvProcessCallback;
@@ -38,21 +37,7 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
 //     `value_w_st` FLOAT NULL,
 //     PRIMARY KEY (`id`));
 
-async function query(connection: mysql.Connection, sql: string, values?: any[]): Promise<any> {
-  if (values == null) values = [];
-  return new Promise<any>((resolve, reject) => {
-    // console.log(`query ${JSON.stringify(values)}`);
-    return connection.query(sql, values, (err, results /*, fields*/) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(results);
-      }
-    })
-  });
-}
-
-async function processAssessmentRow(connection: mysql.Connection, record: string[], lnum: number, identifier: string, errors: Error[]): Promise<void> {
+async function processAssessmentRow(record: string[], lnum: number, identifier: string, errors: Error[]): Promise<void> {
   if (lnum > 1) {
     if (record.length != 9) throw new Error(`lines expected to have 9 columns`);
 
@@ -68,8 +53,7 @@ async function processAssessmentRow(connection: mysql.Connection, record: string
       value_w_st: (record[7] == '' || record[7] == 'NULL') ? null : parseFloat(record[7]),
       value_w_susd: (record[8] == '' || record[8] == 'NULL') ? null : parseFloat(record[8])
     };
-    await query(
-      connection,
+    await doDBQuery(
       `insert into data_assessments (sy, org_id, test_name, indicator_label, assess_group, assess_label, value_w, value_w_st, value_w_susd) 
             values (?, ?, ?, ?, ?, ?, ?, ?, ?) \
             on duplicate key update \
@@ -160,7 +144,7 @@ export async function main(
     await updateStatus(identifier, 'In progress', 0, 0, []);
 
     console.log('opening connection');
-    const connection = await doDBOpen();
+    await doDBOpen();
     console.log('connection open');
 
     const errors: Error[] = []
@@ -170,7 +154,7 @@ export async function main(
     try {
       let lastStatusUpdatePct = 0;
       await processCSV(bodyContents, async (record, index, total) => {
-        await typesConfig[tags.type].processRowFunction(connection, record, index, identifier, errors);
+        await typesConfig[tags.type].processRowFunction(record, index, identifier, errors);
 
         // Update status every 10%
         statusUpdatePct = Math.round(100 * index / total);
@@ -182,14 +166,12 @@ export async function main(
         saveTotal = total;
       });
       await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
-      await connection.commit();
+      await doDBCommit();
     } catch (e) {
       await updateStatus(identifier, 'Error', statusUpdatePct, saveTotal, [e as Error]);
+    } finally {
+      await doDBClose();
     }
-
-    console.log('closing connection');
-    await connection.end();
-    console.log('connection closed');
 
     return ContentType || 'unknown';
   } catch (err) {

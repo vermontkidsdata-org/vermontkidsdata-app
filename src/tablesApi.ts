@@ -1,8 +1,7 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import * as mysql from 'mysql';
 import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
 import { getHeaders } from './cors';
-import { doDBOpen, doDBQuery, queryDB } from './db-utils';
+import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
 
 interface GazCounty {
   id: number, // 2819
@@ -61,19 +60,17 @@ interface QueryRow {
   metadata: string
 };
 
-async function getQuery(queryId: string): Promise<{ connection: mysql.Connection, rows: QueryRow[] }> {
-  console.log('opening connection');
-  const connection = await doDBOpen();
-  console.log('connection open');
+async function getQuery(queryId: string): Promise<{ rows: QueryRow[] }> {
+  // Just in case
+  await doDBOpen();
 
   // Get the query to run from the parameters
-  const queryRows = await doDBQuery(connection, 'SELECT sqlText, columnMap, metadata FROM queries where name=?', [queryId]);
+  const queryRows = await doDBQuery('SELECT sqlText, columnMap, metadata FROM queries where name=?', [queryId]);
   console.log(queryRows);
   if (queryRows.length == 0) {
     throw new Error('unknown query');
   } else {
     return {
-      connection: connection,
       rows: queryRows
     }
   }
@@ -86,12 +83,9 @@ async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?:
   // - cat: The category(s)
   // - label: The label for the values
   // - value: The value for the values
-  const resultRows = await doDBQuery(info.connection, info.rows[0].sqlText);
+  const resultRows = await doDBQuery(info.rows[0].sqlText);
   console.log('result', resultRows);
 
-  console.log('closing connection');
-  info.connection.end();
-  console.log('connection closed');
   console.log('row0', info.rows[0])
   const columnMap = info.rows[0].columnMap != null ? JSON.parse(info.rows[0].columnMap) : undefined;
   return { rows: resultRows, columnMap: columnMap, metadata: JSON.parse(info.rows[0].metadata) };
@@ -115,43 +109,9 @@ export async function table(
       undefined;
 
     try {
-
       // We assume we're getting back an array of values with the value keys being the key into the columnMap
       // columnMap => {'infant': 'Infant', 'toddler': 'Toddler', 'preschool': 'Preschool'}
       const resultRows = await localDBQuery(queryId);
-
-      // Example results:
-      // Table:
-      // const foo = {
-      //   columns: [
-      //     { id: 'type', label: 'Type' },
-      //     { id: 'infant', label: 'Infant' },
-      //     { id: 'toddler', label: 'Toddler' },
-      //     { id: 'preschool', label: 'Preschool' }
-      //   ],
-      //   rows: [
-      //     [ 'center',	1942,	1666,	8564 ],
-      //     [ 'licensed',	45, 49, 136 ],
-      //     [ 'registered', 537, 541, 1039 ]
-      //   ]
-      // }
-      // Bar chart:
-      // const foo = {
-      //   "id": "58",
-      //   "metadata": {
-      //       "config": {
-      // 
-      //       }
-      //   },
-      //   "series": [
-      //       { "name": "Infant", "data": [ 2935, 3066, 2524 ] },
-      //       { "name": "Toddler", "data": [ 2597, 2699, 2256 ] },
-      //       { "name": "Preschool", "data": [ 12290, 12185, 9739 ] },
-      //   ],
-      //   "categories": [
-      //       '2018-2019', '2019-2020', '2020-2021'
-      //   ]
-      // }
 
       interface QueryResult {
         cat: string,
@@ -235,6 +195,8 @@ export async function table(
         headers: getHeaders("application/json"),
         body: (e as Error).message
       };
+    } finally {
+      await doDBClose();
     }
   }
 }
@@ -719,7 +681,7 @@ if (!module.parent) {
       }
     } as unknown as APIGatewayProxyEventV2);
     console.log('S1701 -- unknown vars', ret);
-
+ 
     // console.log(await getGeosByType({ pathParameters: { geoType: 'county' } } as unknown as APIGatewayProxyEventV2));
     console.log(await getGeosByType({ pathParameters: { geoType: 'state' } } as unknown as APIGatewayProxyEventV2));
     console.log(await getCensusTablesSearch({ queryStringParameters: { concept: 'poverty' } } as unknown as APIGatewayProxyEventV2));

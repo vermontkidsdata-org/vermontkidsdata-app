@@ -3,7 +3,7 @@ import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
 import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
+import { doDBClose, doDBCommit, doDBOpen, doDBQuery } from './db-utils';
 
 // Set your service name. This comes out in service lens etc.
 const serviceName = `queries-api-put-${process.env.NAMESPACE}`;
@@ -41,30 +41,34 @@ export async function lambdaHandler(
 
   // This is an update, we assume it already exists. Use the POST to create one.
   if (id != null) {
-    const connection = await doDBOpen();
-    const queryRows = await doDBQuery(connection, 'SELECT id, name, sqlText, columnMap, metadata FROM queries where id=?', [id]);
-    if (queryRows.length === 1) {
-      // If a name was passed, it must be the same. Don't want to allow changing
-      if (name != null && `${name}` !== `${queryRows[0].name}`) {
+    await doDBOpen();
+    try {
+      const queryRows = await doDBQuery('SELECT id, name, sqlText, columnMap, metadata FROM queries where id=?', [id]);
+      if (queryRows.length === 1) {
+        // If a name was passed, it must be the same. Don't want to allow changing
+        if (name != null && `${name}` !== `${queryRows[0].name}`) {
+          return {
+            statusCode: 400,
+            body: JSON.stringify({
+              message: 'PUT cannot change name'
+            })
+          };
+        }
+
+        await doDBQuery('update queries set sqlText=?, columnMap=?, metadata=? where id=?',
+          [sqlText, columnMap, metadata, id]);
+        doDBCommit();
+        
         return {
-          statusCode: 400,
+          statusCode: 200,
           body: JSON.stringify({
-            message: 'PUT cannot change name'
+            row: { name, sqlText, columnMap, metadata, id }
           })
         };
       }
-
-      await doDBQuery(connection, 'update queries set sqlText=?, columnMap=?, metadata=? where id=?',
-        [sqlText, columnMap, metadata, id]);
-
-      return {
-        statusCode: 200,
-        body: JSON.stringify({
-          row: { name, sqlText, columnMap, metadata, id }
-        })
-      };
+    } finally {
+      await doDBClose();
     }
-    await doDBClose(connection);
   }
 
   return {

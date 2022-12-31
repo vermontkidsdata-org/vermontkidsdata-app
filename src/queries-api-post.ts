@@ -3,7 +3,7 @@ import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
 import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { doDBClose, doDBInsert, doDBOpen, doDBQuery } from './db-utils';
+import { doDBClose, doDBCommit, doDBInsert, doDBOpen, doDBQuery } from './db-utils';
 
 // Set your service name. This comes out in service lens etc.
 const serviceName = `queries-api-post-${process.env.NAMESPACE}`;
@@ -38,29 +38,32 @@ export async function lambdaHandler(
     };
   }
 
-  const connection = await doDBOpen();
+  await doDBOpen();
+  try {
+    // Don't allow if name already exists
+    const queryRows = await doDBQuery('SELECT id, name FROM queries where name=?', [name]);
+    if (queryRows.length > 0) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          message: 'POST requires unique name'
+        })
+      };
+    }
 
-  // Don't allow if name already exists
-  const queryRows = await doDBQuery(connection, 'SELECT id, name FROM queries where name=?', [name]);
-  if (queryRows.length > 0) {
+    const id = await doDBInsert('insert into queries (name, sqlText, columnMap, metadata) values (?,?,?,?)',
+      [name, sqlText, columnMap, metadata]);
+    await doDBCommit();
+
     return {
-      statusCode: 400,
+      statusCode: 200,
       body: JSON.stringify({
-        message: 'POST requires unique name'
+        id
       })
     };
+  } finally {
+    await doDBClose();
   }
-
-  const id = await doDBInsert(connection, 'insert into queries (name, sqlText, columnMap, metadata) values (?,?,?,?)',
-    [name, sqlText, columnMap, metadata]);
-  await doDBClose(connection);
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      id
-    })
-  };
 }
 
 export const handler = middy(lambdaHandler)
