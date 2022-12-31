@@ -30,6 +30,7 @@ export const handler = middy(lambdaHandler)
   .use(
     cors({
       origin: "*",
+      methods: "PUT, POST, DELETE",
       headers: 'Content-Type',
     })
   );
