@@ -8,6 +8,10 @@ export class CORSConfig implements Options {
     return "*";
   };
 
+  get requestMethods(): string {
+    return "PUT, POST, DELETE";
+  };
+  
   get methods(): string {
     return "PUT, POST, DELETE";
   };
