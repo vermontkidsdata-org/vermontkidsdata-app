@@ -174,6 +174,20 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(queriesPutFunction);
 
+    const queriesDeleteFunction = new lambdanode.NodejsFunction(this, 'Queries delete API Function', {
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(30),
+      runtime: lambda.Runtime.NODEJS_16_X,
+      handler: 'handler',
+      entry: join(__dirname, "../src/queries-api-delete.ts"),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      }
+    });
+    secret.grantRead(queriesDeleteFunction);
+
     const queriesPostFunction = new lambdanode.NodejsFunction(this, 'Queries post API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
@@ -343,6 +357,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rQueriesById = rQueries.addResource("{id}");
     rQueriesById.addMethod("GET", new LambdaIntegration(queriesGetFunction));
     rQueriesById.addMethod("PUT", new LambdaIntegration(queriesPutFunction));
+    rQueriesById.addMethod("DELETE", new LambdaIntegration(queriesDeleteFunction));
     rQueriesById.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
     
     const rCodes = api.root.addResource("codes");

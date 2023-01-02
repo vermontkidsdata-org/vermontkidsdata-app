@@ -3,6 +3,7 @@ import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
 import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { CORSConfig } from './cors-config';
 
 // Set your service name. This comes out in service lens etc.
 const serviceName = `options-${process.env.NAMESPACE}`;
@@ -28,9 +29,5 @@ export const handler = middy(lambdaHandler)
   .use(captureLambdaHandler(tracer))
   .use(injectLambdaContext(logger))
   .use(
-    cors({
-      origin: "*",
-      methods: "PUT, POST, DELETE",
-      headers: 'Content-Type',
-    })
+    cors(new CORSConfig(process.env))
   );

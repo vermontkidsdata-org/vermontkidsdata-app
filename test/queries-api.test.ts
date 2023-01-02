@@ -1,10 +1,13 @@
 import { APIGatewayProxyEventV2 } from 'aws-lambda';
 import { randomUUID } from 'crypto';
-import { } from '../src/db-utils';
+import * as dbUtils from '../src/db-utils';
+import * as queriesApiDelete from '../src/queries-api-delete';
 import * as queriesApiGet from '../src/queries-api-get';
 import * as queriesApiGetList from '../src/queries-api-getList';
 import * as queriesApiPost from '../src/queries-api-post';
 import * as queriesApiPut from '../src/queries-api-put';
+
+import { canonicalize } from './canonicalize';
 import { LambdaResponse } from './utils';
 
 describe('queries-api-getList', () => {
@@ -72,7 +75,7 @@ describe('queries-api-get', () => {
       expect(ret.statusCode).toBe(400);
     });
   });
-  
+
   describe('queries-api-put', () => {
     beforeEach(() => {
       process.env.REGION = 'us-east-1';
@@ -160,5 +163,88 @@ describe('queries-api-get', () => {
       // expect(body.row.name).toBe("57");
     });
 
+  });
+});
+
+describe('queries-api-delete', () => {
+  let doDBOpenSpy: any;
+  let doDBQuerySpy: any;
+  let doDBCommitSpy: any;
+  let doDBCloseSpy: any;
+
+  beforeEach(() => {
+    process.env.REGION = 'us-east-1';
+    process.env.NAMESPACE = 'qa';
+    doDBOpenSpy = jest.spyOn(dbUtils, 'doDBOpen');
+    doDBQuerySpy = jest.spyOn(dbUtils, 'doDBQuery');
+    doDBCommitSpy = jest.spyOn(dbUtils, 'doDBCommit');
+    doDBCloseSpy = jest.spyOn(dbUtils, 'doDBClose');
+  });
+
+  // Actions to be done after each test
+  afterEach(() => {
+    // Restore the stubs
+    doDBOpenSpy.mockRestore();
+    doDBQuerySpy.mockRestore();
+    doDBCommitSpy.mockRestore();
+    doDBCloseSpy.mockRestore();
+  });
+
+  const id = 'foobar';
+
+  it('id not found', async () => {
+    doDBOpenSpy.mockResolvedValue();
+    doDBCommitSpy.mockResolvedValue();
+    doDBCloseSpy.mockResolvedValue();
+    doDBQuerySpy.mockImplementation(async (sql: string, args: any[]) => {
+      const cSql = canonicalize(sql);
+      console.log(`doDBQuerySpy: sql=[[${cSql}]]`);
+      if (cSql === canonicalize('SELECT id, name FROM queries where id=?')) {
+        expect(args[0]).toBe(id);
+        return [];
+      } else {
+        throw new Error(`unexpected sql: ${sql}`);
+      }
+    });
+    const ret = await queriesApiDelete.lambdaHandler({
+      pathParameters: {
+        id
+      },
+    } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+    expect(ret.statusCode).toBe(404);
+    expect(doDBQuerySpy.mock.calls.length).toBe(1);
+    expect(doDBOpenSpy.mock.calls.length).toBe(1);
+    expect(doDBCommitSpy.mock.calls.length).toBe(0);
+    expect(doDBCloseSpy.mock.calls.length).toBe(1);
+  });
+
+  it('deletes with id', async () => {
+    doDBOpenSpy.mockResolvedValue();
+    doDBCommitSpy.mockResolvedValue();
+    doDBCloseSpy.mockResolvedValue();
+
+    doDBQuerySpy.mockImplementation(async (sql: string, args: any[]) => {
+      const cSql = canonicalize(sql);
+      console.log(`doDBQuerySpy: sql=[[${cSql}]]`);
+      if (cSql === canonicalize('SELECT id, name FROM queries where id=?')) {
+        expect(args[0]).toBe(id);
+        return [{ id, name: 'foo' }];
+      } else if (cSql === canonicalize('delete from queries where id=?')) {
+        expect(args[0]).toBe(id);
+        return [];
+      } else {
+        throw new Error(`unexpected sql: ${sql}`);
+      }
+    });
+    const ret = await queriesApiDelete.lambdaHandler({
+      pathParameters: {
+        id
+      },
+    } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+    expect(ret.statusCode).toBe(200);
+    expect(doDBQuerySpy.mock.calls.length).toBe(2);
+    expect(doDBOpenSpy.mock.calls.length).toBe(1);
+    expect(doDBCommitSpy.mock.calls.length).toBe(1);
+    expect(doDBCloseSpy.mock.calls.length).toBe(1);
   });
 });

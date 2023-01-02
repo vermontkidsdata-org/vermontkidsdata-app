@@ -4,10 +4,10 @@ import middy from '@middy/core';
 import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { CORSConfig } from './cors-config';
-import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
+import { doDBClose, doDBCommit, doDBOpen, doDBQuery } from './db-utils';
 
 // Set your service name. This comes out in service lens etc.
-const serviceName = `queries-api-getList-${process.env.NAMESPACE}`;
+const serviceName = `queries-api-delete-${process.env.NAMESPACE}`;
 const logger = new Logger({
   logLevel: process.env.LOG_LEVEL || 'INFO',
   serviceName
@@ -18,20 +18,36 @@ export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   console.log('event 👉', event);
-  await doDBOpen();
-  try {
-    // Get the query to run from the parameters
-    const queryRows = await doDBQuery('SELECT id, name, sqlText, columnMap, metadata FROM queries');
+  const id = event.pathParameters?.id;
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        rows: queryRows
-      })
-    };
-  } finally {
-    await doDBClose();
+  // This is an delete, we assume it already exists. Use the POST to create one.
+  if (id != null) {
+    await doDBOpen();
+    try {
+      const queryRows = await doDBQuery('SELECT id, name FROM queries where id=?', [id]);
+      if (queryRows.length === 1) {
+        await doDBQuery('delete from queries where id=?',
+          [id]);
+        doDBCommit();
+        
+        return {
+          statusCode: 200,
+          body: JSON.stringify({
+            message: 'query deleted'
+          })
+        };
+      }
+    } finally {
+      await doDBClose();
+    }
   }
+
+  return {
+    statusCode: 404,
+    body: JSON.stringify({
+      message: 'query not found'
+    })
+  };
 }
 
 export const handler = middy(lambdaHandler)
