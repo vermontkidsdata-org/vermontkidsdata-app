@@ -1,22 +1,24 @@
 import { Options } from '@middy/http-cors';
 
 export class CORSConfig implements Options {
-  constructor(private env: NodeJS.ProcessEnv) {
+  constructor(private env: NodeJS.ProcessEnv, private isPreflight?: boolean) {
   }
 
   get origin(): string {
-    return "*";
+    const ret = "*";
+    console.log(`CORSConfig.origin() call: returning ${ret}`);
+    return ret;
   };
 
-  get requestMethods(): string {
-    return "PUT, POST, DELETE";
-  };
-  
   get methods(): string {
-    return "PUT, POST, DELETE";
+    const ret = "PUT, POST, DELETE";
+    console.log(`CORSConfig.methods() call: returning ${ret}`);
+    return ret;
   };
 
   get headers(): string {
-    return 'Content-Type'
+    const ret = "Content-Type";
+    console.log(`CORSConfig.headers() call: returning ${ret}`);
+    return ret;
   };
 }

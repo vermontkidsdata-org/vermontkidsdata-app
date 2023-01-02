@@ -29,5 +29,5 @@ export const handler = middy(lambdaHandler)
   .use(captureLambdaHandler(tracer))
   .use(injectLambdaContext(logger))
   .use(
-    cors(new CORSConfig(process.env))
+    cors(new CORSConfig(process.env, true))
   );
