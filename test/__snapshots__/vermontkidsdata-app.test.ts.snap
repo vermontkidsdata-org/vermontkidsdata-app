@@ -2121,6 +2121,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     "Uploadsbucket86F42938": {
       "DeletionPolicy": "Delete",
       "Properties": {
+        "BucketName": "ctechnica-vkd-test",
         "CorsConfiguration": {
           "CorsRules": [
             {
