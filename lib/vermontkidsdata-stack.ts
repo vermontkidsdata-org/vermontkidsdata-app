@@ -302,14 +302,15 @@ export class VermontkidsdataStack extends cdk.Stack {
     );
 
     const domainName = props.isProduction ?
-      `api.${BASE_DOMAIN_NAME}` :
-      `api.${ns}.${BASE_DOMAIN_NAME}`;
-
+    `${BASE_DOMAIN_NAME}` :
+    `${ns}.${BASE_DOMAIN_NAME}`;
+    const apiDomainName = `api.${domainName}`;
+      
     const certificate = new acm.DnsValidatedCertificate(
       this,
       `be-cert`,
       {
-        domainName,
+        domainName: apiDomainName,
         hostedZone,
         region: "us-east-1"
       }
@@ -345,7 +346,9 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         COGNITO_CLIENT_ID,
         COGNITO_SECRET,
-        REDIRECT_URI: 'https://api.qa.vtkidsdata.org/oauthcallback',
+        MY_DOMAIN: domainName,
+        REDIRECT_URI: `https://ui.${domainName}/`,
+        MY_URI: `https://api.${domainName}/oauthcallback`,
         TABLE_NAME: sessionTable.tableName
       }
     });
@@ -355,7 +358,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const api = new RestApi(this, `${ns}-Vermont Kids Data`, {
       domainName: {
         certificate,
-        domainName
+        domainName: apiDomainName
       },
       // Add OPTIONS call to all resources
       // defaultCorsPreflightOptions: {
@@ -432,11 +435,11 @@ export class VermontkidsdataStack extends cdk.Stack {
       target: route53.RecordTarget.fromAlias(
         new route53Targets.ApiGateway(api)
       ),
-      recordName: domainName
+      recordName: apiDomainName
     });
 
     new cdk.CfnOutput(this, "API Domain Name", {
-      value: domainName
+      value: apiDomainName
     });
 
     if (props.isProduction) {

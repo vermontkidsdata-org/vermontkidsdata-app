@@ -1,7 +1,11 @@
 import { Options } from '@middy/http-cors';
 
 export const CORSConfigDefault = {
-  origin: '*',
+  getOrigin: (incomingOrigin: string, options: Options): string => {
+    if (incomingOrigin.endsWith('vtkidsdata.org')) return incomingOrigin;
+    else return 'FORBIDDEN';
+  },
+  credentials: true,
   methods: "PUT, POST, DELETE",
   headers: "Content-Type"
 };

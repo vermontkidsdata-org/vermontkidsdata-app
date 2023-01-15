@@ -1021,7 +1021,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "COGNITO_CLIENT_ID": "60c446jr2ogigpg0nb5l593l93",
             "COGNITO_SECRET": "1gh4i5mh4v0m2ms8r8soophs7qgh1r3hnd2agp24g7717qqitk8t",
-            "REDIRECT_URI": "https://api.qa.vtkidsdata.org/oauthcallback",
+            "MY_DOMAIN": "test.vtkidsdata.org",
+            "MY_URI": "https://api.test.vtkidsdata.org/oauthcallback",
+            "REDIRECT_URI": "https://ui.test.vtkidsdata.org/",
             "TABLE_NAME": {
               "Ref": "SessionTable8953B218",
             },

@@ -3,7 +3,7 @@ import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import axios from 'axios';
 import { randomUUID } from 'crypto';
 import express from 'express';
-const { TABLE_NAME, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
+const { MY_URI, MY_DOMAIN, TABLE_NAME, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
 
 const ddbClient = new DynamoDBClient({ region: AWS_REGION });
 
@@ -13,7 +13,7 @@ export async function main(
   const code = event.queryStringParameters?.code;
   console.log({ message: 'hello starting', event, code });
 
-  if (COGNITO_CLIENT_ID == null || COGNITO_SECRET == null || REDIRECT_URI == null || TABLE_NAME == null) {
+  if (COGNITO_CLIENT_ID == null || COGNITO_SECRET == null || REDIRECT_URI == null || TABLE_NAME == null || MY_URI == null || MY_DOMAIN == null) {
     return {
       body: JSON.stringify({ message: 'Cognito callback needs COGNITO_CLIENT_ID, COGNITO_SECRET, TABLE_NAME and REDIRECT_URI' }),
       statusCode: 500,
@@ -21,7 +21,7 @@ export async function main(
   }
 
   const queryString = Object.entries({
-    redirect_uri: REDIRECT_URI,
+    redirect_uri: MY_URI,
     code: code,
     grant_type: 'authorization_code',
     client_id: COGNITO_CLIENT_ID,
@@ -49,13 +49,12 @@ export async function main(
   console.log({ access_token, refresh_token });
 
   const cookie = randomUUID();
-  const domain = `qa.vtkidsdata.org`;
 
   await ddbClient.send(new PutItemCommand({
     TableName: TABLE_NAME,
     Item: {
       session_id: { S: cookie },
-      domain: { S: domain },
+      domain: { S: MY_DOMAIN },
       access_token: { S: access_token },
       refresh_token: { S: refresh_token },
       timestamp: { S: new Date().toISOString() }
@@ -64,11 +63,12 @@ export async function main(
 
   return {
     body: JSON.stringify({ message: 'Successful session create' }),
-    statusCode: 200,
+    statusCode: 302,
     headers: {
+      "Location": REDIRECT_URI,
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST",
-      "Set-Cookie": `VKD_AUTH=${cookie}; path=/; domain=${domain}; secure; HttpOnly; SameSite=Lax`
+      "Set-Cookie": `VKD_AUTH=${cookie}; path=/; domain=${MY_DOMAIN}; secure; HttpOnly; SameSite=Lax`
     }
   };
 }
