@@ -1006,6 +1006,136 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
+    "OAuthcallbackfunctionBEA96A5A": {
+      "DependsOn": [
+        "OAuthcallbackfunctionServiceRoleDefaultPolicy3D93E713",
+        "OAuthcallbackfunctionServiceRole32182B80",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "COGNITO_CLIENT_ID": "60c446jr2ogigpg0nb5l593l93",
+            "COGNITO_SECRET": "1gh4i5mh4v0m2ms8r8soophs7qgh1r3hnd2agp24g7717qqitk8t",
+            "REDIRECT_URI": "https://api.qa.vtkidsdata.org/oauthcallback",
+            "TABLE_NAME": {
+              "Ref": "SessionTable8953B218",
+            },
+          },
+        },
+        "Handler": "index.main",
+        "Role": {
+          "Fn::GetAtt": [
+            "OAuthcallbackfunctionServiceRole32182B80",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "OAuthcallbackfunctionLogRetention37692189": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "OAuthcallbackfunctionBEA96A5A",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 5,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "OAuthcallbackfunctionServiceRole32182B80": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "OAuthcallbackfunctionServiceRoleDefaultPolicy3D93E713": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SessionTable8953B218",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "OAuthcallbackfunctionServiceRoleDefaultPolicy3D93E713",
+        "Roles": [
+          {
+            "Ref": "OAuthcallbackfunctionServiceRole32182B80",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "Optionspreflight433FB0B9": {
       "DependsOn": [
         "OptionspreflightServiceRoleBA81365E",
@@ -1683,6 +1813,29 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         ],
       },
       "Type": "AWS::IAM::Policy",
+    },
+    "SessionTable8953B218": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "session_id",
+            "AttributeType": "S",
+          },
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "session_id",
+            "KeyType": "HASH",
+          },
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5,
+        },
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Delete",
     },
     "TestDBFunction6436BF3A": {
       "DependsOn": [
@@ -2555,7 +2708,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C717c9a4d67fdd37d1daeb7f42e28cbe51": {
+    "testVermontKidsDataDeployment82D2B8C712af80a9d5afc4833974671885e4e0b5": {
       "DependsOn": [
         "testVermontKidsDatachartbarqueryIdGETD88F41A0",
         "testVermontKidsDatachartbarqueryId1B9FDE04",
@@ -2574,6 +2727,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatacodesgeos7A77D4EF",
         "testVermontKidsDatacodesOPTIONS8255224F",
         "testVermontKidsDatacodes32B0A0D2",
+        "testVermontKidsDataoauthcallbackGET994DBE8B",
+        "testVermontKidsDataoauthcallbackOPTIONSE95BCC4B",
+        "testVermontKidsDataoauthcallback82EDC1D5",
         "testVermontKidsDataqueriesidDELETE5AB50180",
         "testVermontKidsDataqueriesidGET81838D80",
         "testVermontKidsDataqueriesidOPTIONS6C956D6C",
@@ -2613,7 +2769,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C717c9a4d67fdd37d1daeb7f42e28cbe51",
+          "Ref": "testVermontKidsDataDeployment82D2B8C712af80a9d5afc4833974671885e4e0b5",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -3223,6 +3379,217 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "ResourceId": {
           "Ref": "testVermontKidsDatacodesgeosgeoTypeCB9C8A50",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataoauthcallback82EDC1D5": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "testVermontKidsDataCC7D0909",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "oauthcallback",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDataoauthcallbackGET994DBE8B": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "OAuthcallbackfunctionBEA96A5A",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDataoauthcallback82EDC1D5",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataoauthcallbackGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GEToauthcallbackE7966821": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "OAuthcallbackfunctionBEA96A5A",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/GET/oauthcallback",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataoauthcallbackGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GEToauthcallback1BF8A917": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "OAuthcallbackfunctionBEA96A5A",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/GET/oauthcallback",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataoauthcallbackOPTIONSApiPermissionTesttestTestStacktestVermontKidsData62A09AC6OPTIONSoauthcallback2AFC5D06": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "Optionspreflight433FB0B9",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/OPTIONS/oauthcallback",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataoauthcallbackOPTIONSApiPermissiontestTestStacktestVermontKidsData62A09AC6OPTIONSoauthcallback0C2545AE": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "Optionspreflight433FB0B9",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/OPTIONS/oauthcallback",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataoauthcallbackOPTIONSE95BCC4B": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "Optionspreflight433FB0B9",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDataoauthcallback82EDC1D5",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
