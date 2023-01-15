@@ -1,9 +1,11 @@
 import * as cdk from 'aws-cdk-lib';
+import { RemovalPolicy } from 'aws-cdk-lib';
 import { Cors, LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
 import * as cloudFront from 'aws-cdk-lib/aws-cloudfront';
 import * as cloudFrontOrigins from 'aws-cdk-lib/aws-cloudfront-origins';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+import { AttributeType } from 'aws-cdk-lib/aws-dynamodb';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as lambdanode from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -20,6 +22,7 @@ import { join } from 'path';
 const S3_SERVICE_PRINCIPAL = new iam.ServicePrincipal('s3.amazonaws.com');
 const HOSTED_ZONE_ID = 'Z01884571R5A9N33JR5NE';
 const BASE_DOMAIN_NAME = 'vtkidsdata.org';
+const { COGNITO_CLIENT_ID, COGNITO_SECRET } = process.env;
 
 export interface VermontkidsdataStackProps extends cdk.StackProps {
   ns: string;
@@ -312,6 +315,43 @@ export class VermontkidsdataStack extends cdk.Stack {
       }
     );
 
+    // const userPool = UserPool.fromUserPoolId(this, 'my user pool', 'us-east-1_wft0IBegY');
+
+    // const authorizer = new CognitoUserPoolsAuthorizer(this, 'cognito authorizer', {
+    //   cognitoUserPools: [userPool]
+    // });
+
+    // const helloFunction = new lambdanode.NodejsFunction(this, 'hello function', {
+    //   runtime: lambda.Runtime.NODEJS_16_X,
+    //   entry: join(__dirname, "../src/hello.ts"),
+    //   handler: 'main',
+    //   logRetention: logs.RetentionDays.ONE_DAY,
+    // });
+
+    const sessionTable = new dynamodb.Table(this, 'Session Table', {
+      partitionKey: { name: 'session_id', type: AttributeType.STRING },
+      removalPolicy: RemovalPolicy.DESTROY
+    });
+
+    if (COGNITO_CLIENT_ID == null || COGNITO_SECRET == null) {
+      throw new Error("Must define COGNITO_CLIENT_ID and COGNITO_SECRET");
+    }
+  
+    const oauthCallbackFunction = new lambdanode.NodejsFunction(this, 'OAuth callback function', {
+      runtime: lambda.Runtime.NODEJS_16_X,
+      entry: join(__dirname, "../src/oauth-callback.ts"),
+      handler: 'main',
+      logRetention: logs.RetentionDays.FIVE_DAYS,
+      environment: {
+        COGNITO_CLIENT_ID,
+        COGNITO_SECRET,
+        REDIRECT_URI: 'https://api.qa.vtkidsdata.org/oauthcallback',
+        TABLE_NAME: sessionTable.tableName
+      }
+    });
+
+    sessionTable.grantReadWriteData(oauthCallbackFunction);
+    
     const api = new RestApi(this, `${ns}-Vermont Kids Data`, {
       domainName: {
         certificate,
@@ -330,6 +370,16 @@ export class VermontkidsdataStack extends cdk.Stack {
       allowMethods: Cors.ALL_METHODS,
     };
 
+    // const rHello = api.root.addResource('hello');
+    // rHello.addMethod("GET", new LambdaIntegration(helloFunction), { //  new MockIntegration()
+    //   authorizationType: AuthorizationType.COGNITO,
+    //   authorizer
+    // });
+
+    const rOauthCallback = api.root.addResource('oauthcallback');
+    rOauthCallback.addMethod("GET", new LambdaIntegration(oauthCallbackFunction));
+    rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
+    
     const rUpload = api.root.addResource("upload");
     rUpload.addCorsPreflight(corsOptions);
     const rUploadById = rUpload.addResource("{uploadId}");
@@ -360,7 +410,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     rQueriesById.addMethod("PUT", new LambdaIntegration(queriesPutFunction));
     rQueriesById.addMethod("DELETE", new LambdaIntegration(queriesDeleteFunction));
     rQueriesById.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
-    
+
     const rCodes = api.root.addResource("codes");
     rCodes.addCorsPreflight(corsOptions);
     const rCodesGeos = rCodes.addResource("geos");
