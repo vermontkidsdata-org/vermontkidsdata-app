@@ -1,6 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { RemovalPolicy } from 'aws-cdk-lib';
-import { Cors, LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { AuthorizationType, Cors, IdentitySource, LambdaIntegration, RequestAuthorizer, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
 import * as cloudFront from 'aws-cdk-lib/aws-cloudfront';
 import * as cloudFrontOrigins from 'aws-cdk-lib/aws-cloudfront-origins';
@@ -8,6 +8,7 @@ import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import { AttributeType } from 'aws-cdk-lib/aws-dynamodb';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
+import { Tracing } from 'aws-cdk-lib/aws-lambda';
 import * as lambdanode from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as logs from 'aws-cdk-lib/aws-logs';
 import * as route53 from 'aws-cdk-lib/aws-route53';
@@ -77,7 +78,8 @@ export class VermontkidsdataStack extends cdk.Stack {
         REGION: this.region,
         STATUS_TABLE: uploadStatusTable.tableName,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     bucket.grantRead(uploadFunction);
     const notify = new s3notify.LambdaDestination(uploadFunction);
@@ -99,7 +101,8 @@ export class VermontkidsdataStack extends cdk.Stack {
         S3_BUCKET_NAME: bucketName,
         REGION: this.region,
         STATUS_TABLE: uploadStatusTable.tableName
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     uploadStatusTable.grantReadWriteData(uploadFunction);
     uploadStatusTable.grantReadWriteData(uploadStatusFunction);
@@ -118,7 +121,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     secret.grantRead(apiChartBarFunction);
 
@@ -132,7 +136,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     secret.grantRead(apiTableFunction);
 
@@ -146,7 +151,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesGetListFunction);
 
@@ -160,7 +166,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesGetFunction);
 
@@ -174,7 +181,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesPutFunction);
 
@@ -188,7 +196,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesDeleteFunction);
 
@@ -202,7 +211,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesPostFunction);
 
@@ -220,7 +230,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     tableCensusByGeoFunction.addToRolePolicy(getSecretValueStatement);
     const codesCensusVariablesByTable = new lambdanode.NodejsFunction(this, 'Codes Census Variables By Table Function', {
@@ -233,7 +244,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     codesCensusVariablesByTable.addToRolePolicy(getSecretValueStatement);
     const getGeosByTypeFunction = new lambdanode.NodejsFunction(this, 'Get Geos by Type Function', {
@@ -246,7 +258,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     getGeosByTypeFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -260,7 +273,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     getCensusTablesSearchFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -274,7 +288,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
     testDBFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -288,7 +303,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       environment: {
         REGION: this.region,
         NAMESPACE: ns,
-      }
+      },
+      tracing: Tracing.ACTIVE
     });
 
     // Add the custom domain name. First look up the R53 zone
@@ -302,10 +318,10 @@ export class VermontkidsdataStack extends cdk.Stack {
     );
 
     const domainName = props.isProduction ?
-    `${BASE_DOMAIN_NAME}` :
-    `${ns}.${BASE_DOMAIN_NAME}`;
+      `${BASE_DOMAIN_NAME}` :
+      `${ns}.${BASE_DOMAIN_NAME}`;
     const apiDomainName = `api.${domainName}`;
-      
+
     const certificate = new acm.DnsValidatedCertificate(
       this,
       `be-cert`,
@@ -337,7 +353,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     if (COGNITO_CLIENT_ID == null || COGNITO_SECRET == null) {
       throw new Error("Must define COGNITO_CLIENT_ID and COGNITO_SECRET");
     }
-  
+
     const oauthCallbackFunction = new lambdanode.NodejsFunction(this, 'OAuth callback function', {
       runtime: lambda.Runtime.NODEJS_16_X,
       entry: join(__dirname, "../src/oauth-callback.ts"),
@@ -349,12 +365,27 @@ export class VermontkidsdataStack extends cdk.Stack {
         MY_DOMAIN: domainName,
         REDIRECT_URI: `https://ui.${domainName}/`,
         MY_URI: `https://api.${domainName}/oauthcallback`,
-        TABLE_NAME: sessionTable.tableName
-      }
+        TABLE_NAME: sessionTable.tableName,
+        ENV_NAME: ns
+      },
+      tracing: Tracing.ACTIVE
     });
 
     sessionTable.grantReadWriteData(oauthCallbackFunction);
-    
+
+    const authorizerFunction = new lambdanode.NodejsFunction(this, 'Authorizer function', {
+      runtime: lambda.Runtime.NODEJS_16_X,
+      entry: join(__dirname, "../src/authorizer.ts"),
+      handler: 'main',
+      logRetention: logs.RetentionDays.FIVE_DAYS,
+      environment: {
+        TABLE_NAME: sessionTable.tableName,
+        ENV_NAME: ns
+      }
+    });
+
+    sessionTable.grantReadWriteData(authorizerFunction);
+
     const api = new RestApi(this, `${ns}-Vermont Kids Data`, {
       domainName: {
         certificate,
@@ -382,7 +413,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rOauthCallback = api.root.addResource('oauthcallback');
     rOauthCallback.addMethod("GET", new LambdaIntegration(oauthCallbackFunction));
     rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
-    
+
     const rUpload = api.root.addResource("upload");
     rUpload.addCorsPreflight(corsOptions);
     const rUploadById = rUpload.addResource("{uploadId}");
@@ -404,14 +435,25 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rTableCensusTableByGeo = rTableCensusTable.addResource("{geoType}");
     rTableCensusTableByGeo.addMethod("GET", new LambdaIntegration(tableCensusByGeoFunction));
 
+    // Apply to all the methods that need authorization
+    const auth = {
+      authorizationType: AuthorizationType.CUSTOM,
+      authorizer: new RequestAuthorizer(this, 'request authorizer', {
+        handler: authorizerFunction,
+        identitySources: [
+          IdentitySource.header('Cookie')
+        ],
+        resultsCacheTtl: cdk.Duration.seconds(0) // Disable cache on authorizer
+      })
+    };
     const rQueries = api.root.addResource("queries");
-    rQueries.addMethod("GET", new LambdaIntegration(queriesGetListFunction));
-    rQueries.addMethod("POST", new LambdaIntegration(queriesPostFunction));
+    rQueries.addMethod("GET", new LambdaIntegration(queriesGetListFunction), auth)
+    rQueries.addMethod("POST", new LambdaIntegration(queriesPostFunction), auth);
     rQueries.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
     const rQueriesById = rQueries.addResource("{id}");
-    rQueriesById.addMethod("GET", new LambdaIntegration(queriesGetFunction));
-    rQueriesById.addMethod("PUT", new LambdaIntegration(queriesPutFunction));
-    rQueriesById.addMethod("DELETE", new LambdaIntegration(queriesDeleteFunction));
+    rQueriesById.addMethod("GET", new LambdaIntegration(queriesGetFunction), auth);
+    rQueriesById.addMethod("PUT", new LambdaIntegration(queriesPutFunction), auth);
+    rQueriesById.addMethod("DELETE", new LambdaIntegration(queriesDeleteFunction), auth);
     rQueriesById.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
     const rCodes = api.root.addResource("codes");

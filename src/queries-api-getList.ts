@@ -2,7 +2,8 @@ import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
 import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
 import cors from '@middy/http-cors';
-import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { APIGatewayProxyEventV2WithLambdaAuthorizer, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { VKDAuthorizerContext } from './authorizer';
 import { CORSConfigDefault } from './cors-config';
 import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
 
@@ -15,9 +16,10 @@ const logger = new Logger({
 const tracer = new Tracer({ serviceName });
 
 export async function lambdaHandler(
-  event: APIGatewayProxyEventV2,
+  event: APIGatewayProxyEventV2WithLambdaAuthorizer<VKDAuthorizerContext>,
 ): Promise<APIGatewayProxyResultV2> {
-  console.log('event 👉', event);
+  console.log({serviceName, event, authorizerContext: event.requestContext.authorizer});
+  
   await doDBOpen();
   try {
     // Get the query to run from the parameters

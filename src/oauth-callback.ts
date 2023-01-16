@@ -1,13 +1,23 @@
+import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
+import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
 import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
+import middy from '@middy/core';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import axios from 'axios';
 import { randomUUID } from 'crypto';
 import express from 'express';
-const { MY_URI, MY_DOMAIN, TABLE_NAME, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
+const { ENV_NAME, MY_URI, MY_DOMAIN, TABLE_NAME, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
+
+export const serviceName = `oauth-callback-${ENV_NAME}`;
+export const logger = new Logger({
+  logLevel: 'INFO',
+  serviceName: serviceName
+});
+export const tracer = new Tracer({ serviceName: serviceName });
 
 const ddbClient = new DynamoDBClient({ region: AWS_REGION });
 
-export async function main(
+export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   const code = event.queryStringParameters?.code;
@@ -81,7 +91,7 @@ if (!module.parent) {
       try {
         const code = req.query.code?.toString()!;
         console.log({ message: 'calling main', code });
-        const result = await main({
+        const result = await lambdaHandler({
           queryStringParameters: {
             code
           }
@@ -96,3 +106,7 @@ if (!module.parent) {
     app.listen(3000);
   })();
 }
+
+export const main = middy(lambdaHandler)
+  .use(captureLambdaHandler(tracer))
+  .use(injectLambdaContext(logger));
