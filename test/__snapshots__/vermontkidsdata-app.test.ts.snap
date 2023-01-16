@@ -42,6 +42,166 @@ exports[`Lambda Snapshot Test 1`] = `
     },
   },
   "Resources": {
+    "AuthorizerfunctionB3710F81": {
+      "DependsOn": [
+        "AuthorizerfunctionServiceRoleDefaultPolicyD27ACA59",
+        "AuthorizerfunctionServiceRole534990D5",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "ENV_NAME": "test",
+            "TABLE_NAME": {
+              "Ref": "SessionTable8953B218",
+            },
+          },
+        },
+        "Handler": "index.main",
+        "Role": {
+          "Fn::GetAtt": [
+            "AuthorizerfunctionServiceRole534990D5",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AuthorizerfunctionLogRetention20E177D7": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "AuthorizerfunctionB3710F81",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 5,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "AuthorizerfunctionServiceRole534990D5": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "AuthorizerfunctionServiceRoleDefaultPolicyD27ACA59": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SessionTable8953B218",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "AuthorizerfunctionServiceRoleDefaultPolicyD27ACA59",
+        "Roles": [
+          {
+            "Ref": "AuthorizerfunctionServiceRole534990D5",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "AuthorizerfunctiontestTestStackrequestauthorizerCA2131E2Permissions9A7BCF02": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AuthorizerfunctionB3710F81",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/authorizers/",
+              {
+                "Ref": "requestauthorizerD239B518",
+              },
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
     "BarChartAPIFunction8D100D69": {
       "DependsOn": [
         "BarChartAPIFunctionServiceRoleDefaultPolicyEED5A1D7",
@@ -69,6 +229,9 @@ exports[`Lambda Snapshot Test 1`] = `
         },
         "Runtime": "nodejs16.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -132,6 +295,14 @@ exports[`Lambda Snapshot Test 1`] = `
           "Statement": [
             {
               "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
                 "secretsmanager:GetSecretValue",
                 "secretsmanager:DescribeSecret",
               ],
@@ -188,6 +359,9 @@ exports[`Lambda Snapshot Test 1`] = `
         },
         "Runtime": "nodejs16.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -249,6 +423,14 @@ exports[`Lambda Snapshot Test 1`] = `
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "secretsmanager:GetSecretValue",
@@ -481,6 +663,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 15,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -543,6 +728,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "PolicyDocument": {
           "Statement": [
             {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
               "Resource": "*",
@@ -586,6 +779,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 15,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -647,6 +843,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
@@ -747,6 +951,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 15,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -809,6 +1016,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "PolicyDocument": {
           "Statement": [
             {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
               "Resource": "*",
@@ -852,6 +1067,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 15,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -913,6 +1131,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
@@ -1021,6 +1247,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "COGNITO_CLIENT_ID": "60c446jr2ogigpg0nb5l593l93",
             "COGNITO_SECRET": "1gh4i5mh4v0m2ms8r8soophs7qgh1r3hnd2agp24g7717qqitk8t",
+            "ENV_NAME": "test",
             "MY_DOMAIN": "test.vtkidsdata.org",
             "MY_URI": "https://api.test.vtkidsdata.org/oauthcallback",
             "REDIRECT_URI": "https://ui.test.vtkidsdata.org/",
@@ -1037,6 +1264,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           ],
         },
         "Runtime": "nodejs16.x",
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1100,6 +1330,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Statement": [
             {
               "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
                 "dynamodb:BatchGetItem",
                 "dynamodb:GetRecords",
                 "dynamodb:GetShardIterator",
@@ -1140,6 +1378,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "Optionspreflight433FB0B9": {
       "DependsOn": [
+        "OptionspreflightServiceRoleDefaultPolicy1A301EF4",
         "OptionspreflightServiceRoleBA81365E",
       ],
       "Properties": {
@@ -1164,6 +1403,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 15,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1221,6 +1463,30 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
+    "OptionspreflightServiceRoleDefaultPolicy1A301EF4": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "OptionspreflightServiceRoleDefaultPolicy1A301EF4",
+        "Roles": [
+          {
+            "Ref": "OptionspreflightServiceRoleBA81365E",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "QueriesdeleteAPIFunction2A72083B": {
       "DependsOn": [
         "QueriesdeleteAPIFunctionServiceRoleDefaultPolicyBDF0C00C",
@@ -1248,6 +1514,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1311,6 +1580,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Statement": [
             {
               "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
                 "secretsmanager:GetSecretValue",
                 "secretsmanager:DescribeSecret",
               ],
@@ -1367,6 +1644,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1430,6 +1710,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Statement": [
             {
               "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
                 "secretsmanager:GetSecretValue",
                 "secretsmanager:DescribeSecret",
               ],
@@ -1486,6 +1774,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1549,6 +1840,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Statement": [
             {
               "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
                 "secretsmanager:GetSecretValue",
                 "secretsmanager:DescribeSecret",
               ],
@@ -1605,6 +1904,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1668,6 +1970,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Statement": [
             {
               "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
                 "secretsmanager:GetSecretValue",
                 "secretsmanager:DescribeSecret",
               ],
@@ -1724,6 +2034,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1785,6 +2098,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "secretsmanager:GetSecretValue",
@@ -1866,6 +2187,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 15,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1928,6 +2252,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "PolicyDocument": {
           "Statement": [
             {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
               "Action": "secretsmanager:GetSecretValue",
               "Effect": "Allow",
               "Resource": "*",
@@ -1977,6 +2309,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 900,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -2051,6 +2386,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "s3:GetObject*",
@@ -2172,6 +2515,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs16.x",
         "Timeout": 5,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -2233,6 +2579,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -2624,6 +2978,67 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Route53::RecordSet",
     },
+    "requestauthorizerD239B518": {
+      "Properties": {
+        "AuthorizerResultTtlInSeconds": 0,
+        "AuthorizerUri": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Fn::Select": [
+                  1,
+                  {
+                    "Fn::Split": [
+                      ":",
+                      {
+                        "Fn::GetAtt": [
+                          "AuthorizerfunctionB3710F81",
+                          "Arn",
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+              ":apigateway:",
+              {
+                "Fn::Select": [
+                  3,
+                  {
+                    "Fn::Split": [
+                      ":",
+                      {
+                        "Fn::GetAtt": [
+                          "AuthorizerfunctionB3710F81",
+                          "Arn",
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+              ":lambda:path/2015-03-31/functions/",
+              {
+                "Fn::GetAtt": [
+                  "AuthorizerfunctionB3710F81",
+                  "Arn",
+                ],
+              },
+              "/invocations",
+            ],
+          ],
+        },
+        "IdentitySource": "method.request.header.Cookie",
+        "Name": "testTestStackrequestauthorizerCA2131E2",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+        "Type": "REQUEST",
+      },
+      "Type": "AWS::ApiGateway::Authorizer",
+    },
     "testVermontKidsDataAccountD57F099F": {
       "DeletionPolicy": "Retain",
       "DependsOn": [
@@ -2710,7 +3125,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C712af80a9d5afc4833974671885e4e0b5": {
+    "testVermontKidsDataDeployment82D2B8C74cde6efde39d70a355c1dcb80eaf1ed5": {
       "DependsOn": [
         "testVermontKidsDatachartbarqueryIdGETD88F41A0",
         "testVermontKidsDatachartbarqueryId1B9FDE04",
@@ -2771,7 +3186,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C712af80a9d5afc4833974671885e4e0b5",
+          "Ref": "testVermontKidsDataDeployment82D2B8C74cde6efde39d70a355c1dcb80eaf1ed5",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -3678,7 +4093,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataqueriesGETEB6EC073": {
       "Properties": {
-        "AuthorizationType": "NONE",
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
         "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -3812,7 +4230,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataqueriesPOST29F882E5": {
       "Properties": {
-        "AuthorizationType": "NONE",
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
         "HttpMethod": "POST",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -3922,7 +4343,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataqueriesidDELETE5AB50180": {
       "Properties": {
-        "AuthorizationType": "NONE",
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
         "HttpMethod": "DELETE",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -4020,7 +4444,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataqueriesidGET81838D80": {
       "Properties": {
-        "AuthorizationType": "NONE",
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
         "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -4278,7 +4705,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataqueriesidPUTD931B479": {
       "Properties": {
-        "AuthorizationType": "NONE",
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
         "HttpMethod": "PUT",
         "Integration": {
           "IntegrationHttpMethod": "POST",

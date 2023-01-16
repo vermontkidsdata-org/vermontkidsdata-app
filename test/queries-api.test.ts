@@ -1,5 +1,6 @@
-import { APIGatewayProxyEventV2 } from 'aws-lambda';
+import { APIGatewayProxyEventV2, APIGatewayProxyEventV2WithLambdaAuthorizer } from 'aws-lambda';
 import { randomUUID } from 'crypto';
+import { VKDAuthorizerContext } from 'src/authorizer';
 import * as dbUtils from '../src/db-utils';
 import * as queriesApiDelete from '../src/queries-api-delete';
 import * as queriesApiGet from '../src/queries-api-get';
@@ -18,14 +19,13 @@ describe('queries-api-getList', () => {
 
   it('does a basic query', async () => {
     const ret = await queriesApiGetList.lambdaHandler({
-    } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+    } as unknown as APIGatewayProxyEventV2WithLambdaAuthorizer<VKDAuthorizerContext>) as LambdaResponse;
     console.log('query response -->', ret.body);
     expect(ret.statusCode).toBe(200);
     const body: { rows: { name: string }[] } = JSON.parse(ret.body);
     expect(body.rows.length).toBeGreaterThan(0);
     expect(body.rows.filter(row => row.name === '57').length).toBe(1);
   });
-
 });
 
 describe('queries-api-get', () => {
