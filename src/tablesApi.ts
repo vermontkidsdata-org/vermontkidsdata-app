@@ -1,7 +1,17 @@
+import { Logger } from '@aws-lambda-powertools/logger';
+import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
 import { getHeaders } from './cors';
 import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
+
+// Set your service name. This comes out in service lens etc.
+const serviceName = `tables-api-${process.env.NAMESPACE}`;
+const logger = new Logger({
+  logLevel: process.env.LOG_LEVEL || 'INFO',
+  serviceName
+});
+const tracer = new Tracer({ serviceName });
 
 interface GazCounty {
   id: number, // 2819
@@ -66,7 +76,6 @@ async function getQuery(queryId: string): Promise<{ rows: QueryRow[] }> {
 
   // Get the query to run from the parameters
   const queryRows = await doDBQuery('SELECT sqlText, columnMap, metadata FROM queries where name=?', [queryId]);
-  console.log(queryRows);
   if (queryRows.length == 0) {
     throw new Error('unknown query');
   } else {
@@ -84,9 +93,7 @@ async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?:
   // - label: The label for the values
   // - value: The value for the values
   const resultRows = await doDBQuery(info.rows[0].sqlText);
-  console.log('result', resultRows);
 
-  console.log('row0', info.rows[0])
   const columnMap = info.rows[0].columnMap != null ? JSON.parse(info.rows[0].columnMap) : undefined;
   return { rows: resultRows, columnMap: columnMap, metadata: JSON.parse(info.rows[0].metadata) };
 }
@@ -94,7 +101,7 @@ async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?:
 export async function table(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  console.log('event 👉', event);
+  logger.info({message: 'event 👉', event});
   if (event.pathParameters == null || event.pathParameters.queryId == null) {
     return {
       headers: getHeaders("application/json"),
@@ -190,11 +197,7 @@ export async function table(
       };
     } catch (e) {
       console.log(e);
-      return {
-        statusCode: 500,
-        headers: getHeaders("application/json"),
-        body: (e as Error).message
-      };
+      return httpMessageResponse(500, (e as Error).message);
     } finally {
       await doDBClose();
     }
@@ -332,12 +335,17 @@ function rollUpTownResultsByGeoType(censusResults: CensusResultRow[], rollupMap:
   return Object.values(rollupResults);
 }
 
-interface CensusDataset {
+export interface CensusDataset {
   vintage: number | undefined,
   dataset: string
 }
 
-async function validateDataSet(year: number, dataset: string): Promise<string[] | undefined> {
+export async function getDataSetYears(dataset: string): Promise<number[]> {
+  const ds: CensusDataset[] = await queryDB(`select vintage from census_datasets where dataset=?`, [dataset]);
+  return ds.filter(el => el.vintage).map(el => el.vintage || 0);
+}
+
+export async function validateDataSet(year: number, dataset: string): Promise<string[] | undefined> {
   const ds: CensusDataset[] = await queryDB(`select vintage, dataset from census_datasets where vintage=? and dataset=?`, [year, dataset]);
   if (ds == null || ds.length != 1) {
     return undefined;
@@ -346,6 +354,38 @@ async function validateDataSet(year: number, dataset: string): Promise<string[] 
   }
 }
 
+export function httpResponse(statusCode: number, body: any): any {
+  return {
+    body: JSON.stringify(body),
+    headers: getHeaders("application/json"),
+    statusCode,
+  };
+}
+
+export function httpMessageResponse(statusCode: number, message: string): any {
+  return {
+    body: JSON.stringify({
+      message
+    }),
+    headers: getHeaders("application/json"),
+    statusCode,
+  };
+}
+
+export async function getDataSetYearsByDataset(
+  event: APIGatewayProxyEventV2,
+): Promise<APIGatewayProxyResultV2<number[]>> {
+  try {
+    if (event.pathParameters?.dataset == null) {
+      return httpMessageResponse(400, 'missing dataset parameter');
+    }
+
+    return httpResponse(200, { years: await getDataSetYears(event.pathParameters.dataset) });
+  } catch (e) {
+    console.error(e);
+    return httpMessageResponse(500, (e as Error).message);
+  }
+}
 
 export async function getCensusByGeo(
   event: APIGatewayProxyEventV2,
@@ -548,13 +588,7 @@ export async function getCensusByGeo(
 
   } catch (e) {
     console.error(e);
-    return {
-      body: JSON.stringify({
-        message: (e as Error).message
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 500,
-    };
+    return httpMessageResponse(500, (e as Error).message);
   }
 }
 
@@ -667,6 +701,14 @@ export async function getGeosByType(
     body: JSON.stringify({ geos })
   };
 }
+
+// export const handler = middy(lambdaHandler)
+//   .use(captureLambdaHandler(tracer))
+//   .use(injectLambdaContext(logger))
+//   .use(
+//     // cors(new CORSConfig(process.env))
+//     cors(CORSConfigDefault)
+//   );
 
 // Only run if executed directly
 if (!module.parent) {
@@ -836,12 +878,17 @@ if (!module.parent) {
     //   sourcePath: ['acs', 'acs5', 'subject'],
     //   values: ['S1601_C05_014E'],
     // }));
-    console.log(await table({
+    // console.log(await table({
+    //   pathParameters: {
+    //     queryId: '58'
+    //   }
+    // } as unknown as APIGatewayProxyEventV2));
+    console.log(await getDataSetYears('acs/acs5XXX'));
+    console.log(await getDataSetYearsByDataset({
       pathParameters: {
-        queryId: '58'
+        dataset: 'acs/acs5XXX'
       }
     } as unknown as APIGatewayProxyEventV2));
-
   })().catch(err => {
     console.log(`exception`, err);
   });

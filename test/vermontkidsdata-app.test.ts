@@ -1,3 +1,7 @@
+// Needs to be right up front, before anything else is loaded
+process.env.COGNITO_CLIENT_ID = 'bogus-client';
+process.env.COGNITO_SECRET = 'bogus-secret';
+
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { VermontkidsdataStack } from '../lib/vermontkidsdata-stack';

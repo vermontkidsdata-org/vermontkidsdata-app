@@ -16,7 +16,6 @@ const app = new cdk.App();
 
   // Do a local deploy. NOTE: This is now the only one
   // supported!
-  console.log(`doing local deploy to environment ${ns}`);
   new VermontkidsdataStack(app, `${isProduction ? 'master' : ns}-LocalDevBranch`, {
     ns,
     isProduction,

@@ -17,7 +17,7 @@ const tracer = new Tracer({ serviceName });
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  console.log('event 👉', event);
+  logger.info({message: 'event 👉', event});
   const id = event.pathParameters?.id;
 
   // This is an delete, we assume it already exists. Use the POST to create one.

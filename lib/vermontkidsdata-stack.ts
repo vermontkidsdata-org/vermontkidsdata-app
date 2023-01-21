@@ -234,6 +234,7 @@ export class VermontkidsdataStack extends cdk.Stack {
       tracing: Tracing.ACTIVE
     });
     tableCensusByGeoFunction.addToRolePolicy(getSecretValueStatement);
+
     const codesCensusVariablesByTable = new lambdanode.NodejsFunction(this, 'Codes Census Variables By Table Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
@@ -248,6 +249,22 @@ export class VermontkidsdataStack extends cdk.Stack {
       tracing: Tracing.ACTIVE
     });
     codesCensusVariablesByTable.addToRolePolicy(getSecretValueStatement);
+
+    const getDataSetYearsByDatasetFunction = new lambdanode.NodejsFunction(this, 'Get Years Function', {
+      memorySize: 1024,
+      timeout: cdk.Duration.seconds(15),
+      runtime: lambda.Runtime.NODEJS_16_X,
+      handler: 'getDataSetYearsByDataset',
+      entry: join(__dirname, "../src/tablesApi.ts"),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      },
+      tracing: Tracing.ACTIVE
+    });
+    getDataSetYearsByDatasetFunction.addToRolePolicy(getSecretValueStatement);
+
     const getGeosByTypeFunction = new lambdanode.NodejsFunction(this, 'Get Geos by Type Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
@@ -332,19 +349,6 @@ export class VermontkidsdataStack extends cdk.Stack {
       }
     );
 
-    // const userPool = UserPool.fromUserPoolId(this, 'my user pool', 'us-east-1_wft0IBegY');
-
-    // const authorizer = new CognitoUserPoolsAuthorizer(this, 'cognito authorizer', {
-    //   cognitoUserPools: [userPool]
-    // });
-
-    // const helloFunction = new lambdanode.NodejsFunction(this, 'hello function', {
-    //   runtime: lambda.Runtime.NODEJS_16_X,
-    //   entry: join(__dirname, "../src/hello.ts"),
-    //   handler: 'main',
-    //   logRetention: logs.RetentionDays.ONE_DAY,
-    // });
-
     const sessionTable = new dynamodb.Table(this, 'Session Table', {
       partitionKey: { name: 'session_id', type: AttributeType.STRING },
       removalPolicy: RemovalPolicy.DESTROY
@@ -413,6 +417,11 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rOauthCallback = api.root.addResource('oauthcallback');
     rOauthCallback.addMethod("GET", new LambdaIntegration(oauthCallbackFunction));
     rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
+
+    const rDataset = api.root.addResource('dataset');
+    const rDatasetYears = rDataset.addResource('years');
+    const rDatasetYearsDataset = rDatasetYears.addResource('{dataset+}');
+    rDatasetYearsDataset.addMethod("GET", new LambdaIntegration(getDataSetYearsByDatasetFunction));
 
     const rUpload = api.root.addResource("upload");
     rUpload.addCorsPreflight(corsOptions);

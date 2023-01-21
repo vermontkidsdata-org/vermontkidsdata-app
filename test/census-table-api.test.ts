@@ -3,6 +3,14 @@ import * as dbUtils from '../src/db-utils';
 import * as tablesApi from '../src/tablesApi';
 import { expectCORS, LambdaResponse } from './utils';
 
+interface APIResponse {
+  body: string,
+  headers: {
+    [key: string]: string
+  },
+  statusCode: number
+}
+
 describe('Census Table API', () => {
     let queryDBSpy: any;
     beforeEach(() => {
@@ -15,6 +23,66 @@ describe('Census Table API', () => {
     afterEach(() => {
         // Restore the stubs
         queryDBSpy.mockRestore();
+    });
+
+    describe('getDataSetYearsByDataset', () => {
+      it('works normally', async () => {
+        const values = [1776, 1987];
+        queryDBSpy.mockResolvedValue(values.map(vintage => ({
+          vintage
+        } as tablesApi.CensusDataset)));
+
+        const ret = await tablesApi.getDataSetYearsByDataset({
+          pathParameters: {
+            dataset: 'acs/acs5'
+          }
+        } as unknown as APIGatewayProxyEventV2) as APIResponse;
+        expect(ret.statusCode).toBe(200);
+        const body = JSON.parse(ret.body);
+        expect(body.years.length).toBe(2);
+        expect(body.years[0]).toBe(1776);
+        expect(body.years[1]).toBe(1987);
+        expect(Object.keys(ret.headers).find(k => k.toLowerCase() === 'access-control-allow-origin')).not.toBeUndefined();
+      })
+
+      it('returns no data with unknown dataset', async () => {
+        queryDBSpy.mockResolvedValue([]);
+
+        const ret = await tablesApi.getDataSetYearsByDataset({
+          pathParameters: {
+            dataset: 'acs/acs5-x'
+          }
+        } as unknown as APIGatewayProxyEventV2) as APIResponse;
+        expect(ret.statusCode).toBe(200);
+        const body = JSON.parse(ret.body);
+        expect(body.years.length).toBe(0);
+        expect(Object.keys(ret.headers).find(k => k.toLowerCase() === 'access-control-allow-origin')).not.toBeUndefined();
+      });
+
+      it('errors without param', async () => {
+        const ret = await tablesApi.getDataSetYearsByDataset({
+          pathParameters: {
+            // dataset: 'acs/acs5'
+          }
+        } as unknown as APIGatewayProxyEventV2) as APIResponse;
+        expect(ret.statusCode).toBe(400);
+        expect(Object.keys(ret.headers).find(k => k.toLowerCase() === 'access-control-allow-origin')).not.toBeUndefined();
+      });
+
+      it('gets 500 on exception', async () => {
+        queryDBSpy.mockImplementation(() => {
+          throw new Error('some exception');
+        })
+
+        const ret = await tablesApi.getDataSetYearsByDataset({
+          pathParameters: {
+            dataset: 'acs/acs5-x'
+          }
+        } as unknown as APIGatewayProxyEventV2) as APIResponse;
+        expect(ret.statusCode).toBe(500);
+        expect(Object.keys(ret.headers).find(k => k.toLowerCase() === 'access-control-allow-origin')).not.toBeUndefined();
+      });
+
     });
 
     it('S1701 -- unknown vars', async () => {
@@ -103,7 +171,6 @@ describe('Census Table API', () => {
 
     it('verify even a 500 has a CORS header', async () => {
         const ret = await tablesApi.getCensusByGeo(undefined as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-        console.log('ret', ret);
         expect(ret.statusCode).toBe(500);
         expectCORS(ret);
     });

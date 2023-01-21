@@ -23,10 +23,8 @@ describe('chartsApi', () => {
     //   "series": [{ "name": "Percent Children Covered", "data": [79, 78] }],
     //   "categories": ["2017-2018", "2019-2020"]
     // }
-    console.log('query response -->', ret.body);
     expect(ret.statusCode).toBe(200);
     const body = JSON.parse(ret.body);
-    console.log('response', JSON.stringify(body));
     expect(body.series[0].data[0]).toBe(79.2);
     expect(body.series[1].data[0]).toBe(78.2);
 

@@ -18,7 +18,7 @@ const tracer = new Tracer({ serviceName });
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2WithLambdaAuthorizer<VKDAuthorizerContext>,
 ): Promise<APIGatewayProxyResultV2> {
-  console.log({serviceName, event, authorizerContext: event.requestContext?.authorizer});
+  logger.info({message: 'get-list', serviceName, event, authorizerContext: event.requestContext?.authorizer});
   
   await doDBOpen();
   try {

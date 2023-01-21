@@ -17,7 +17,7 @@ const tracer = new Tracer({ serviceName });
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  console.log('event 👉', event);
+  logger.info({message: 'event 👉', event});
   const id = event.pathParameters?.id;
   const body = event.body;
 

@@ -46,7 +46,8 @@ export async function lambdaHandler(
     policyDocument,
     context: {}
   };
-
+  
+  // Cookie: VKD_AUTH=12345q13245; SOMETHING_ELSE=a039480w3984
   const authCookie = (event.headers?.Cookie || event.headers?.cookie || '').split(';').find(cookie => cookie.trim().startsWith(COOKIE_PREFIX));
   if (!authCookie) {
     console.log({ message: 'no VKD_AUTH cookie, denying' });

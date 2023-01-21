@@ -20,7 +20,6 @@ describe('queries-api-getList', () => {
   it('does a basic query', async () => {
     const ret = await queriesApiGetList.lambdaHandler({
     } as unknown as APIGatewayProxyEventV2WithLambdaAuthorizer<VKDAuthorizerContext>) as LambdaResponse;
-    console.log('query response -->', ret.body);
     expect(ret.statusCode).toBe(200);
     const body: { rows: { name: string }[] } = JSON.parse(ret.body);
     expect(body.rows.length).toBeGreaterThan(0);
@@ -40,7 +39,6 @@ describe('queries-api-get', () => {
         id: 1
       }
     } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-    console.log('query response -->', ret.body);
     expect(ret.statusCode).toBe(200);
     const body: { row: { id: number; name: string } } = JSON.parse(ret.body);
     expect(body.row.id).toBe(1);
@@ -58,7 +56,6 @@ describe('queries-api-get', () => {
           metadata: JSON.stringify({ "title": "Percent of children with a developmental screening by age 3", "yAxis": { "type": "percent" } })
         })
       } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-      console.log('query response -->', ret.body);
       expect(ret.statusCode).toBe(200);
       const body: { id: number; } = JSON.parse(ret.body);
       expect(body.id).toBeGreaterThanOrEqual(14);
@@ -71,7 +68,6 @@ describe('queries-api-get', () => {
           sqlText: `BOGUS`,
         })
       } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-      console.log('query response -->', ret.body);
       expect(ret.statusCode).toBe(400);
     });
   });
@@ -94,7 +90,6 @@ describe('queries-api-get', () => {
           metadata: JSON.stringify({ "title": "Percent of children with a developmental screening by age 3", "yAxis": { "type": "percent" } })
         })
       } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-      console.log('query response -->', ret.body);
       expect(ret.statusCode).toBe(200);
       const body: { row: { id: number; name: string; sqlText: string; columnMap: string; metadata: string } } = JSON.parse(ret.body);
       expect(body.row.id).toBe('5');
@@ -116,7 +111,6 @@ describe('queries-api-get', () => {
           metadata: JSON.stringify({ "title": "Percent of children with a developmental screening by age 3", "yAxis": { "type": "percent" } })
         })
       } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-      console.log('query response -->', ret.body);
       expect(ret.statusCode).toBe(400);
     });
 
@@ -131,7 +125,6 @@ describe('queries-api-get', () => {
           metadata: JSON.stringify({ "title": "Percent of children with a developmental screening by age 3", "yAxis": { "type": "percent" } })
         })
       } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-      console.log('query response -->', ret.body);
       expect(ret.statusCode).toBe(200);
     });
 
@@ -156,7 +149,6 @@ describe('queries-api-get', () => {
           metadata: JSON.stringify({ "title": "Percent of children with a developmental screening by age 3", "yAxis": { "type": "percent" } })
         })
       } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-      console.log('query response -->', ret.body);
       expect(ret.statusCode).toBe(404);
       // const body: { row: { id: number; name: string } } = JSON.parse(ret.body);
       // expect(body.row.id).toBe(1);
@@ -198,7 +190,6 @@ describe('queries-api-delete', () => {
     doDBCloseSpy.mockResolvedValue();
     doDBQuerySpy.mockImplementation(async (sql: string, args: any[]) => {
       const cSql = canonicalize(sql);
-      console.log(`doDBQuerySpy: sql=[[${cSql}]]`);
       if (cSql === canonicalize('SELECT id, name FROM queries where id=?')) {
         expect(args[0]).toBe(id);
         return [];
@@ -225,7 +216,6 @@ describe('queries-api-delete', () => {
 
     doDBQuerySpy.mockImplementation(async (sql: string, args: any[]) => {
       const cSql = canonicalize(sql);
-      console.log(`doDBQuerySpy: sql=[[${cSql}]]`);
       if (cSql === canonicalize('SELECT id, name FROM queries where id=?')) {
         expect(args[0]).toBe(id);
         return [{ id, name: 'foo' }];
