@@ -4,9 +4,11 @@ import { AuthorizationType, Cors, IdentitySource, LambdaIntegration, RequestAuth
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
 import * as cloudFront from 'aws-cdk-lib/aws-cloudfront';
 import * as cloudFrontOrigins from 'aws-cdk-lib/aws-cloudfront-origins';
+import { CfnIdentityPool, CfnIdentityPoolRoleAttachment, UserPool, UserPoolClient } from 'aws-cdk-lib/aws-cognito';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import { AttributeType } from 'aws-cdk-lib/aws-dynamodb';
 import * as iam from 'aws-cdk-lib/aws-iam';
+import { Effect, PolicyDocument, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import { Tracing } from 'aws-cdk-lib/aws-lambda';
 import * as lambdanode from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -19,15 +21,23 @@ import * as s3notify from 'aws-cdk-lib/aws-s3-notifications';
 import * as sm from 'aws-cdk-lib/aws-secretsmanager';
 import { Construct } from 'constructs';
 import { join } from 'path';
+import * as util from 'util';
 
 const S3_SERVICE_PRINCIPAL = new iam.ServicePrincipal('s3.amazonaws.com');
 const HOSTED_ZONE_ID = 'Z01884571R5A9N33JR5NE';
 const BASE_DOMAIN_NAME = 'vtkidsdata.org';
 const { COGNITO_CLIENT_ID, COGNITO_SECRET } = process.env;
+const USER_POOL_ID = 'us-east-1_wft0IBegY';
+const USER_POOL_CLIENT_ID = '60c446jr2ogigpg0nb5l593l93';
 
 export interface VermontkidsdataStackProps extends cdk.StackProps {
   ns: string;
   isProduction: boolean;
+}
+
+export interface CognitoProviderInfo {
+  providerName: string,
+  clientId: string
 }
 
 export class VermontkidsdataStack extends cdk.Stack {
@@ -53,6 +63,85 @@ export class VermontkidsdataStack extends cdk.Stack {
         }
       ]
     });
+
+    // Look up the user pool. There's only one and we create it
+    // outside CDK.
+    const userPool = UserPool.fromUserPoolId(this, 'user pool', USER_POOL_ID);
+
+    const userPoolClient = UserPoolClient.fromUserPoolClientId(this, 'user pool client', USER_POOL_CLIENT_ID);
+
+    // Create the identity pool. Link to existing user pool
+    const identityPool = new CfnIdentityPool(this, 'identity pool', {
+      identityPoolName: `VKD-${ns}-pool`,
+      allowUnauthenticatedIdentities: false,
+      cognitoIdentityProviders: [{
+        providerName: `cognito-idp.${this.region}.amazonaws.com/${userPool.userPoolId}`,
+        clientId: userPoolClient.userPoolClientId
+      }]
+    });
+
+    // Role to access S3 bucket
+    // const s3Role = new Role(this, "S3 role", {
+    //   assumedBy: new iam.WebIdentityPrincipal(
+    //     'cognito-identity.amazonaws.com',
+    //     {
+    //       StringEquals: {
+    //         "cognito-identity.amazonaws.com:aud": identityPool.ref
+    //       },
+    //       'ForAnyValue:StringLike': {
+    //         'cognito-identity.amazonaws.com:amr': 'authenticated',
+    //       },
+    //     }),
+    // });
+
+    const isUserCognitoGroupRole = new iam.Role(this, 'users-group-role', {
+      description: 'Default role for authenticated users',
+      assumedBy: new iam.FederatedPrincipal(
+        'cognito-identity.amazonaws.com',
+        {
+          StringEquals: {
+            'cognito-identity.amazonaws.com:aud': identityPool.ref,
+          },
+          'ForAnyValue:StringLike': {
+            'cognito-identity.amazonaws.com:amr': 'authenticated',
+          },
+        },
+        'sts:AssumeRoleWithWebIdentity',
+      ),
+      inlinePolicies: {
+        s3Policy: new PolicyDocument({
+          statements: [
+            new PolicyStatement({
+              effect: Effect.ALLOW,
+              actions: ['s3:PutObject'],
+              resources: [`${bucket.bucketArn}/*`],
+            })
+          ]
+        })
+      }
+    });
+
+    new CfnIdentityPoolRoleAttachment(this, 'identity pool role attachment', {
+      identityPoolId: identityPool.ref,
+      roles: {
+        authenticated: isUserCognitoGroupRole.roleArn
+      },
+      roleMappings: {
+        mapping: {
+          type: 'Token',
+          ambiguousRoleResolution: 'AuthenticatedRole',
+          identityProvider: `cognito-idp.${cdk.Stack.of(this).region
+            }.amazonaws.com/${userPool.userPoolId}:${userPoolClient.userPoolClientId
+            }`,
+        },
+      }
+    });
+
+    // s3Role.addToPolicy(new PolicyStatement({
+    //   effect: Effect.ALLOW,
+    //   actions: ['s3:PutObject'],
+    //   resources: [`${bucket.bucketArn}/*`],
+    // }));
 
     new cdk.CfnOutput(this, "Bucket name", {
       value: bucket.bucketName
@@ -414,6 +503,30 @@ export class VermontkidsdataStack extends cdk.Stack {
     //   authorizer
     // });
 
+    console.log('cognitoIdentityProviders', identityPool.cognitoIdentityProviders);
+    if (identityPool.cognitoIdentityProviders == null
+      || !Array.isArray(identityPool.cognitoIdentityProviders)
+      || identityPool.cognitoIdentityProviders.length !== 1
+      || !(identityPool.cognitoIdentityProviders[0] as CognitoProviderInfo).providerName) {
+      throw new Error(`expected 1 cognitoIdentityProviders, got ${util.inspect(identityPool.cognitoIdentityProviders)}`)
+    }
+    const cognitoProviderInfo = identityPool.cognitoIdentityProviders[0] as CognitoProviderInfo;
+
+    const getCredentialsFunction = new lambdanode.NodejsFunction(this, 'Credentials function', {
+      runtime: lambda.Runtime.NODEJS_16_X,
+      entry: join(__dirname, "../src/get-credentials.ts"),
+      handler: 'main',
+      logRetention: logs.RetentionDays.FIVE_DAYS,
+      environment: {
+        TABLE_NAME: sessionTable.tableName,
+        ENV_NAME: ns,
+        IDENTITY_POOL_ID: identityPool.ref,
+        IDENTITY_PROVIDER: cognitoProviderInfo.providerName
+      }
+    });
+
+    sessionTable.grantReadWriteData(getCredentialsFunction);
+
     const rOauthCallback = api.root.addResource('oauthcallback');
     rOauthCallback.addMethod("GET", new LambdaIntegration(oauthCallbackFunction));
     rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
@@ -455,6 +568,11 @@ export class VermontkidsdataStack extends cdk.Stack {
         resultsCacheTtl: cdk.Duration.seconds(0) // Disable cache on authorizer
       })
     };
+
+    const rCredentials = api.root.addResource('credentials');
+    rCredentials.addMethod("GET", new LambdaIntegration(getCredentialsFunction), auth);
+    rCredentials.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
+
     const rQueries = api.root.addResource("queries");
     rQueries.addMethod("GET", new LambdaIntegration(queriesGetListFunction), auth)
     rQueries.addMethod("POST", new LambdaIntegration(queriesPostFunction), auth);

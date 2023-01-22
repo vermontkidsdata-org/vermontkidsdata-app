@@ -22,4 +22,5 @@ const app = new cdk.App();
   });
 })().catch(reason => {
   console.error((reason as Error).message);
+  process.exit(1);
 });

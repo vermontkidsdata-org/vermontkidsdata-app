@@ -13,6 +13,7 @@ export const logger = new Logger({
 export const tracer = new Tracer({ serviceName: serviceName });
 export interface VKDAuthorizerContext {
   access_token: string,
+  id_token: string,
   domain: string,
   refresh_token: string,
   timestamp: string,
@@ -74,6 +75,7 @@ export async function lambdaHandler(
       statement.Effect = 'Allow';
       response.context = {
         access_token: session.Item.access_token.S,
+        id_token: session.Item.id_token.S,
         domain: session.Item.domain.S,
         refresh_token: session.Item.refresh_token.S,
         timestamp: session.Item.timestamp.S,

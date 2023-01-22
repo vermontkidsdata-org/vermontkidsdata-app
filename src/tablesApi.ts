@@ -2,7 +2,7 @@ import { Logger } from '@aws-lambda-powertools/logger';
 import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
-import { getHeaders } from './cors';
+import { getHeaders, httpMessageResponse, httpResponse } from './cors';
 import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
 
 // Set your service name. This comes out in service lens etc.
@@ -352,24 +352,6 @@ export async function validateDataSet(year: number, dataset: string): Promise<st
   } else {
     return dataset.split('/');
   }
-}
-
-export function httpResponse(statusCode: number, body: any): any {
-  return {
-    body: JSON.stringify(body),
-    headers: getHeaders("application/json"),
-    statusCode,
-  };
-}
-
-export function httpMessageResponse(statusCode: number, message: string): any {
-  return {
-    body: JSON.stringify({
-      message
-    }),
-    headers: getHeaders("application/json"),
-    statusCode,
-  };
 }
 
 export async function getDataSetYearsByDataset(

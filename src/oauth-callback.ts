@@ -55,7 +55,7 @@ export async function lambdaHandler(
     data: queryString
   });
   const { data } = resp;
-  const { access_token, refresh_token } = data;
+  const { access_token, refresh_token, id_token } = data;
   console.log({ access_token, refresh_token });
 
   const cookie = randomUUID();
@@ -66,6 +66,7 @@ export async function lambdaHandler(
       session_id: { S: cookie },
       domain: { S: MY_DOMAIN },
       access_token: { S: access_token },
+      id_token: { S: id_token },
       refresh_token: { S: refresh_token },
       timestamp: { S: new Date().toISOString() }
     }
