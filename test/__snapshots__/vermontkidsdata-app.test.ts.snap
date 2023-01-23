@@ -868,6 +868,138 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
+    "CredentialsfunctionB73FF502": {
+      "DependsOn": [
+        "CredentialsfunctionServiceRoleDefaultPolicyB6C3CB25",
+        "CredentialsfunctionServiceRole25557462",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "ENV_NAME": "test",
+            "IDENTITY_POOL_ID": {
+              "Ref": "identitypool",
+            },
+            "IDENTITY_PROVIDER": "cognito-idp.aq-south-1.amazonaws.com/us-east-1_wft0IBegY",
+            "TABLE_NAME": {
+              "Ref": "SessionTable8953B218",
+            },
+          },
+        },
+        "Handler": "index.main",
+        "Role": {
+          "Fn::GetAtt": [
+            "CredentialsfunctionServiceRole25557462",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "CredentialsfunctionLogRetention1EF7F215": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "CredentialsfunctionB73FF502",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 5,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "CredentialsfunctionServiceRole25557462": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "CredentialsfunctionServiceRoleDefaultPolicyB6C3CB25": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SessionTable8953B218",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "CredentialsfunctionServiceRoleDefaultPolicyB6C3CB25",
+        "Roles": [
+          {
+            "Ref": "CredentialsfunctionServiceRole25557462",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
       "DependsOn": [
         "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
@@ -3072,6 +3204,42 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "AWS::CloudFormation::CustomResource",
       "UpdateReplacePolicy": "Delete",
     },
+    "identitypool": {
+      "Properties": {
+        "AllowUnauthenticatedIdentities": false,
+        "CognitoIdentityProviders": [
+          {
+            "ClientId": "60c446jr2ogigpg0nb5l593l93",
+            "ProviderName": "cognito-idp.aq-south-1.amazonaws.com/us-east-1_wft0IBegY",
+          },
+        ],
+        "IdentityPoolName": "VKD-test-pool",
+      },
+      "Type": "AWS::Cognito::IdentityPool",
+    },
+    "identitypoolroleattachment": {
+      "Properties": {
+        "IdentityPoolId": {
+          "Ref": "identitypool",
+        },
+        "RoleMappings": {
+          "mapping": {
+            "AmbiguousRoleResolution": "AuthenticatedRole",
+            "IdentityProvider": "cognito-idp.aq-south-1.amazonaws.com/us-east-1_wft0IBegY:60c446jr2ogigpg0nb5l593l93",
+            "Type": "Token",
+          },
+        },
+        "Roles": {
+          "authenticated": {
+            "Fn::GetAtt": [
+              "usersgrouprole5142F148",
+              "Arn",
+            ],
+          },
+        },
+      },
+      "Type": "AWS::Cognito::IdentityPoolRoleAttachment",
+    },
     "r53bearec354FD1A0": {
       "Properties": {
         "AliasTarget": {
@@ -3241,7 +3409,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C70b32d0308ca5a39fb7459146798eebba": {
+    "testVermontKidsDataDeployment82D2B8C7fe3f4328cf2440adf71de3b35af45eb2": {
       "DependsOn": [
         "testVermontKidsDatachartbarqueryIdGETD88F41A0",
         "testVermontKidsDatachartbarqueryId1B9FDE04",
@@ -3260,6 +3428,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatacodesgeos7A77D4EF",
         "testVermontKidsDatacodesOPTIONS8255224F",
         "testVermontKidsDatacodes32B0A0D2",
+        "testVermontKidsDatacredentialsGET881864AE",
+        "testVermontKidsDatacredentialsOPTIONSFEB59669",
+        "testVermontKidsDatacredentialsF328366F",
         "testVermontKidsDatadatasetD39C03ED",
         "testVermontKidsDatadatasetyearsdatasetGET0A38B23A",
         "testVermontKidsDatadatasetyearsdataset56841AB0",
@@ -3306,7 +3477,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C70b32d0308ca5a39fb7459146798eebba",
+          "Ref": "testVermontKidsDataDeployment82D2B8C7fe3f4328cf2440adf71de3b35af45eb2",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -3916,6 +4087,220 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "ResourceId": {
           "Ref": "testVermontKidsDatacodesgeosgeoTypeCB9C8A50",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDatacredentialsF328366F": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "testVermontKidsDataCC7D0909",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "credentials",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatacredentialsGET881864AE": {
+      "Properties": {
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "CredentialsfunctionB73FF502",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDatacredentialsF328366F",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDatacredentialsGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETcredentials835198E2": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "CredentialsfunctionB73FF502",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/GET/credentials",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatacredentialsGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETcredentials63014125": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "CredentialsfunctionB73FF502",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/GET/credentials",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatacredentialsOPTIONSApiPermissionTesttestTestStacktestVermontKidsData62A09AC6OPTIONScredentials6D824143": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "Optionspreflight433FB0B9",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/OPTIONS/credentials",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatacredentialsOPTIONSApiPermissiontestTestStacktestVermontKidsData62A09AC6OPTIONScredentials37A485BD": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "Optionspreflight433FB0B9",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/OPTIONS/credentials",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatacredentialsOPTIONSFEB59669": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "Optionspreflight433FB0B9",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDatacredentialsF328366F",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -5585,6 +5970,62 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
       },
       "Type": "AWS::Lambda::Permission",
+    },
+    "usersgrouprole5142F148": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRoleWithWebIdentity",
+              "Condition": {
+                "ForAnyValue:StringLike": {
+                  "cognito-identity.amazonaws.com:amr": "authenticated",
+                },
+                "StringEquals": {
+                  "cognito-identity.amazonaws.com:aud": {
+                    "Ref": "identitypool",
+                  },
+                },
+              },
+              "Effect": "Allow",
+              "Principal": {
+                "Federated": "cognito-identity.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Description": "Default role for authenticated users",
+        "Policies": [
+          {
+            "PolicyDocument": {
+              "Statement": [
+                {
+                  "Action": "s3:PutObject",
+                  "Effect": "Allow",
+                  "Resource": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        {
+                          "Fn::GetAtt": [
+                            "Uploadsbucket86F42938",
+                            "Arn",
+                          ],
+                        },
+                        "/*",
+                      ],
+                    ],
+                  },
+                },
+              ],
+              "Version": "2012-10-17",
+            },
+            "PolicyName": "s3Policy",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
     },
   },
   "Rules": {
