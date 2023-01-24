@@ -5,9 +5,8 @@
     "vermontkidsdata-app": "bin/vermontkidsdata-app.ts"
   },
   "scripts": {
-    "install:all": "npm install && cd ui && npm install && cd ..",
-    "ci:all": "npm ci && cd ui && npm ci && cd ..",
-    "build": "cd ui && npm run build",
+    "install:all": "npm install",
+    "ci:all": "npm ci",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",

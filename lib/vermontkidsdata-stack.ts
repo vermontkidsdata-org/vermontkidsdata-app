@@ -2,8 +2,6 @@ import * as cdk from 'aws-cdk-lib';
 import { RemovalPolicy } from 'aws-cdk-lib';
 import { AuthorizationType, Cors, IdentitySource, LambdaIntegration, RequestAuthorizer, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
-import * as cloudFront from 'aws-cdk-lib/aws-cloudfront';
-import * as cloudFrontOrigins from 'aws-cdk-lib/aws-cloudfront-origins';
 import { CfnIdentityPool, CfnIdentityPoolRoleAttachment, UserPool, UserPoolClient } from 'aws-cdk-lib/aws-cognito';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import { AttributeType } from 'aws-cdk-lib/aws-dynamodb';
@@ -16,7 +14,6 @@ import * as logs from 'aws-cdk-lib/aws-logs';
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
-import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
 import * as s3notify from 'aws-cdk-lib/aws-s3-notifications';
 import * as sm from 'aws-cdk-lib/aws-secretsmanager';
 import { Construct } from 'constructs';
@@ -610,89 +607,5 @@ export class VermontkidsdataStack extends cdk.Stack {
     new cdk.CfnOutput(this, "API Domain Name", {
       value: apiDomainName
     });
-
-    if (props.isProduction) {
-      // S3 Bucket that CloudFront Distribution will log to
-      const s3BucketLog = new s3.Bucket(this, `${ns}-s3-log`, {
-        // Block all public access
-        blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-        // When stack is deleted, delete this bucket also
-        removalPolicy: cdk.RemovalPolicy.DESTROY,
-        // Delete contained objects when bucket is deleted
-        autoDeleteObjects: true
-      });
-
-      // S3 Bucket that will contain static web content and serve as origin to CloudFront Distribution
-      const s3BucketWeb = new s3.Bucket(this, `${ns}-s3-web`, {
-        // Block all public access
-        blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-        // When stack is deleted, delete this bucket also
-        removalPolicy: cdk.RemovalPolicy.DESTROY,
-        // Delete contained objects when bucket is deleted
-        autoDeleteObjects: true
-      });
-
-      // CloudFront Distribution pointing to S3 Web Bucket for origin and S3 Log Bucket for logging
-      // Defaults:
-      //  - min protocol version: TLS 1.2
-      //  - max HTTP version:     HTTP/2
-      const cloudFrontDistrib = new cloudFront.Distribution(this, `${ns}-cloudfront`, {
-        // Default behavior config
-        defaultBehavior: {
-          // Point to S3 Web Bucket as origin
-          origin: new cloudFrontOrigins.S3Origin(s3BucketWeb),
-          // HTTP requests will be redirected to HTTPS
-          viewerProtocolPolicy: cloudFront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-          // Only allow GET, HEAD, OPTIONS methods
-          allowedMethods: cloudFront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
-          // Cache GET, HEAD, OPTIONS
-          cachedMethods: cloudFront.CachedMethods.CACHE_GET_HEAD_OPTIONS
-        },
-        errorResponses: [
-          {
-            httpStatus: 403,
-            responseHttpStatus: 200,
-            responsePagePath: '/index.html'
-          }, {
-            httpStatus: 404,
-            responseHttpStatus: 200,
-            responsePagePath: '/index.html'
-          }
-        ],
-        // Enable default logging
-        enableLogging: true,
-        // Point to S3 Log Bucket
-        logBucket: s3BucketLog,
-        // Log prefix
-        logFilePrefix: `cloudfront-access-logs-${ns}`,
-        // If index.html is not specified in URL, assume it rather than given a 404 error
-        defaultRootObject: 'index.html',
-        // Allow IPv6 DNS requests with an IPv6 address
-        enableIpv6: true,
-        // Restrict site to the USA and Canada
-        geoRestriction: cloudFront.GeoRestriction.allowlist('US', 'CA'),
-        // 100 is USA, Canada, Europe and Israel
-        priceClass: cloudFront.PriceClass.PRICE_CLASS_100,
-        // Descriptive comment
-        comment: `CloudFront distribution in ${ns} environment`
-      });
-
-      // Deploy the static web content to the S3 Web Bucket
-      const deploymentToS3Web = new s3deploy.BucketDeployment(this, `${ns}-s3deploy`, {
-        // Static web content source
-        // Note: the path to the source must be kept updated in case of repo folder restructuring or
-        // refactoring
-        sources: [s3deploy.Source.asset(join(__dirname, '../ui/build'))],
-        // Point to the S3 Web Bucket
-        destinationBucket: s3BucketWeb
-      });
-
-      new cdk.CfnOutput(this, "CloudFront bucket", {
-        value: s3BucketWeb.bucketName
-      });
-      new cdk.CfnOutput(this, "CloudFront DNS", {
-        value: cloudFrontDistrib.domainName
-      });
-    }
   }
 }

@@ -71,7 +71,8 @@ export async function lambdaHandler(
     }));
 
     if (session.Item) {
-      // If we are here, we have a valid session. So just return the pieces.
+      // If we are here, we have a valid session. So just return the pieces,
+      // but first we need to verify the session has not 
       statement.Effect = 'Allow';
       response.context = {
         access_token: session.Item.access_token.S,
