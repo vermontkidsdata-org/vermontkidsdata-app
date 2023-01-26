@@ -4,7 +4,10 @@ export const CORSConfigDefault = {
   getOrigin: (incomingOrigin: string | undefined, options: Options): string => {
     console.log({ source: 'CORSConfigDefault', incomingOrigin, options });
 
-    if (incomingOrigin == null || !(incomingOrigin.endsWith('vtkidsdata.org') || incomingOrigin === 'http://localhost:3000' )) {
+    if (incomingOrigin == null ||
+      !(incomingOrigin.endsWith('vtkidsdata.org') ||
+        incomingOrigin === 'http://localhost:3000' ||
+        incomingOrigin === 'http://ui.qa.vtkidsdata.org:3000')) {
       return 'FORBIDDEN';
     } else {
       return incomingOrigin;

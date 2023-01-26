@@ -2,7 +2,7 @@ import { Logger } from '@aws-lambda-powertools/logger';
 import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
-import { getHeaders, httpMessageResponse, httpResponse } from './cors';
+import { httpMessageResponse, httpResponse } from './cors';
 import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
 
 // Set your service name. This comes out in service lens etc.
@@ -101,12 +101,9 @@ async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?:
 export async function table(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  logger.info({message: 'event 👉', event});
+  logger.info({ message: 'event 👉', event });
   if (event.pathParameters == null || event.pathParameters.queryId == null) {
-    return {
-      headers: getHeaders("application/json"),
-      statusCode: 400
-    };
+    return httpMessageResponse(400, 'missing path parameters', true);
   } else {
     const queryId = event.pathParameters.queryId;
 
@@ -159,14 +156,7 @@ export async function table(
               if (column) {
                 columns.push(column);
               } else {
-                return {
-                  statusCode: 400,
-                  headers: getHeaders("application/json"),
-                  body: JSON.stringify({
-                    message: 'unknown column projection'
-                  })
-                };
-
+                return httpMessageResponse(400, 'unknown column projection', true);
               }
             }
           }
@@ -190,14 +180,10 @@ export async function table(
         rows
       };
       // console.log('body', JSON.stringify(body, null, 2));
-      return {
-        statusCode: 200,
-        headers: getHeaders("application/json"),
-        body: JSON.stringify(body)
-      };
+      return httpResponse(200, body, true);
     } catch (e) {
       console.log(e);
-      return httpMessageResponse(500, (e as Error).message);
+      return httpMessageResponse(500, (e as Error).message, true);
     } finally {
       await doDBClose();
     }
@@ -359,13 +345,13 @@ export async function getDataSetYearsByDataset(
 ): Promise<APIGatewayProxyResultV2<number[]>> {
   try {
     if (event.pathParameters?.dataset == null) {
-      return httpMessageResponse(400, 'missing dataset parameter');
+      return httpMessageResponse(400, 'missing dataset parameter', true);
     }
 
-    return httpResponse(200, { years: await getDataSetYears(event.pathParameters.dataset) });
+    return httpResponse(200, { years: await getDataSetYears(event.pathParameters.dataset) }, true);
   } catch (e) {
     console.error(e);
-    return httpMessageResponse(500, (e as Error).message);
+    return httpMessageResponse(500, (e as Error).message, true);
   }
 }
 
@@ -391,25 +377,13 @@ export async function getCensusByGeo(
     const georows: { geography_map_type: string }[] = await queryDB('SELECT distinct geography_map_type FROM gaz_geography_map');
     georows.forEach(row => townGeoTypes.push(row.geography_map_type));
     if (!['county', 'state'].includes(geoType) && !townGeoTypes.includes(geoType)) {
-      return {
-        body: JSON.stringify({
-          message: 'unknown geography type',
-        }),
-        headers: getHeaders("application/json"),
-        statusCode: 400,
-      };
+      return httpMessageResponse(400, 'unknown geography type', true);
     }
 
     // Get census variables
     const acsVars: AcsVariable[] = await queryDB('select * from acs_variables where `group`=? order by variable', [table.toUpperCase()]);
     if (acsVars.length === 0) {
-      return {
-        body: JSON.stringify({
-          message: 'unknown table',
-        }),
-        headers: getHeaders("application/json"),
-        statusCode: 400,
-      };
+      return httpMessageResponse(400, 'unknown table', true);
     }
 
     // This is the tracker for vars from the DB (used to ensure no invalid variables were
@@ -443,13 +417,7 @@ export async function getCensusByGeo(
 
     // API limits to 50 variables
     if (queryVars.length > 50) {
-      return {
-        body: JSON.stringify({
-          message: 'census API limited to 50 variables',
-        }),
-        headers: getHeaders("application/json"),
-        statusCode: 400,
-      };
+      return httpMessageResponse(400, 'census API limited to 50 variables', true);
     }
 
     // See if it's a subject table or not and alter the default dataset (otherwise, have to pass)
@@ -459,13 +427,7 @@ export async function getCensusByGeo(
 
     const sourcePath = await validateDataSet(year, requestDataset);
     if (sourcePath == null) {
-      return {
-        body: JSON.stringify({
-          message: 'invalid year/dataset combination',
-        }),
-        headers: getHeaders("application/json"),
-        statusCode: 400,
-      };
+      return httpMessageResponse(400, 'invalid year/dataset combination', true);
     }
 
     // Make sure every variable requested is actually in the DB for this table
@@ -480,13 +442,7 @@ export async function getCensusByGeo(
     });
 
     if (unknownVars.length > 0) {
-      return {
-        body: JSON.stringify({
-          message: 'one or more unknown variables requested: ' + unknownVars,
-        }),
-        headers: getHeaders("application/json"),
-        statusCode: 400,
-      };
+      return httpMessageResponse(400, 'one or more unknown variables requested: ' + unknownVars, true);
     }
 
     const columns: ApiTableResultColumn[] = [{ id: 'geo', label: 'Geography' }];
@@ -551,26 +507,21 @@ export async function getCensusByGeo(
 
     // console.log('COUNTIES', counties);
     console.log('event 👉', event);
-    return {
-      body: JSON.stringify({
-        metadata: {
-          table,
-          geoType,
-          year,
-          geo,
-          sourcePath,
-          variables
-        },
-        columns: columns,
-        rows: rows
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 200,
-    };
-
+    return httpResponse(200, {
+      metadata: {
+        table,
+        geoType,
+        year,
+        geo,
+        sourcePath,
+        variables
+      },
+      columns: columns,
+      rows: rows
+    }, true);
   } catch (e) {
     console.error(e);
-    return httpMessageResponse(500, (e as Error).message);
+    return httpMessageResponse(500, (e as Error).message, true);
   }
 }
 
@@ -585,31 +536,21 @@ export async function codesCensusVariablesByTable(
   const acsVars: AcsVariable[] = await queryDB('select * from acs_variables where `group`=? order by variable', [table.toUpperCase()]);
 
   if (acsVars == null || acsVars.length === 0) {
-    return {
-      body: JSON.stringify({
-        message: "unknown table"
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 400,
-    };
+    return httpMessageResponse(400, "unknown table", true);
   } else {
-    return {
-      body: JSON.stringify({
-        metadata: {
-          tableType: acsVars[0].tableType || undefined
-        },
-        variables: acsVars.map(acsVar => {
-          return {
-            variable: acsVar.variable,
-            concept: acsVar.concept,
-            label: acsVar.label
-          };
-        })
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 200,
-    };
-  }
+    return httpResponse(200, {
+      metadata: {
+        tableType: acsVars[0].tableType || undefined
+      },
+      variables: acsVars.map(acsVar => {
+        return {
+          variable: acsVar.variable,
+          concept: acsVar.concept,
+          label: acsVar.label
+        };
+      })
+    }, true);
+  };
 }
 
 export async function getCensusTablesSearch(
@@ -627,26 +568,18 @@ export async function getCensusTablesSearch(
   }
 
   if (conds.length === 0) {
-    return {
-      body: JSON.stringify({ message: 'Need at least one search condition', }),
-      headers: getHeaders("application/json"),
-      statusCode: 400,
-    };
+    return httpMessageResponse(400, 'Need at least one search condition', true);
   }
 
   const vars: AcsVariable[] = await queryDB(`SELECT distinct concept, \`group\` FROM acs_variables where ${conds.join(' and ')}`, params);
-  return {
-    body: JSON.stringify({
-      tables: vars.map(t => {
-        return {
-          table: t.group,
-          concept: t.concept
-        }
-      })
-    }),
-    headers: getHeaders("application/json"),
-    statusCode: 200,
-  };
+  return httpResponse(200, {
+    tables: vars.map(t => {
+      return {
+        table: t.group,
+        concept: t.concept
+      }
+    })
+  }, true);
 }
 
 export async function getGeosByType(
@@ -657,13 +590,7 @@ export async function getGeosByType(
   const geoType = pathParameters.geoType!;
 
   if (!['county'].includes(geoType)) {
-    return {
-      body: JSON.stringify({
-        message: 'Only supports county right now',
-      }),
-      headers: getHeaders("application/json"),
-      statusCode: 400,
-    };
+    return httpMessageResponse(400, 'Only supports county right now', true);
   }
 
   const geos: { id: string, name: string }[] = []
@@ -676,12 +603,7 @@ export async function getGeosByType(
     });
   }
 
-  // console.log('body', JSON.stringify(geos, null, 2));
-  return {
-    statusCode: 200,
-    headers: getHeaders("application/json"),
-    body: JSON.stringify({ geos })
-  };
+  return httpResponse(200, { geos }, true);
 }
 
 // export const handler = middy(lambdaHandler)
