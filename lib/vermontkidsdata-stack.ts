@@ -80,20 +80,6 @@ export class VermontkidsdataStack extends cdk.Stack {
       }]
     });
 
-    // Role to access S3 bucket
-    // const s3Role = new Role(this, "S3 role", {
-    //   assumedBy: new iam.WebIdentityPrincipal(
-    //     'cognito-identity.amazonaws.com',
-    //     {
-    //       StringEquals: {
-    //         "cognito-identity.amazonaws.com:aud": identityPool.ref
-    //       },
-    //       'ForAnyValue:StringLike': {
-    //         'cognito-identity.amazonaws.com:amr': 'authenticated',
-    //       },
-    //     }),
-    // });
-
     const isUserCognitoGroupRole = new iam.Role(this, 'users-group-role', {
       description: 'Default role for authenticated users',
       assumedBy: new iam.FederatedPrincipal(
@@ -113,7 +99,7 @@ export class VermontkidsdataStack extends cdk.Stack {
           statements: [
             new PolicyStatement({
               effect: Effect.ALLOW,
-              actions: ['s3:PutObject'],
+              actions: ['s3:PutObject', 's3:PutObjectTagging'],
               resources: [`${bucket.bucketArn}/*`],
             })
           ]
