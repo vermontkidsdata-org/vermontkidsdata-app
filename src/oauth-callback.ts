@@ -6,7 +6,7 @@ import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import axios from 'axios';
 import { randomUUID } from 'crypto';
 import express from 'express';
-const { ENV_NAME, MY_URI, MY_DOMAIN, TABLE_NAME, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
+const { IS_PRODUCTION, ENV_NAME, MY_URI, MY_DOMAIN, TABLE_NAME, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
 
 export const serviceName = `oauth-callback-${ENV_NAME}`;
 export const logger = new Logger({
@@ -21,7 +21,10 @@ export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   const code = event.queryStringParameters?.code;
-  console.log({ message: 'hello starting', event, code });
+  const state = event.queryStringParameters?.state;
+  const isProduction = IS_PRODUCTION === 'true';
+
+  console.log({ message: 'oauth-callback starting', event, code, state });
 
   if (COGNITO_CLIENT_ID == null || COGNITO_SECRET == null || REDIRECT_URI == null || TABLE_NAME == null || MY_URI == null || MY_DOMAIN == null) {
     return {
@@ -76,10 +79,10 @@ export async function lambdaHandler(
     body: JSON.stringify({ message: 'Successful session create' }),
     statusCode: 302,
     headers: {
-      "Location": REDIRECT_URI,
+      "Location": state || REDIRECT_URI,
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST",
-      "Set-Cookie": `VKD_AUTH=${cookie}; path=/; domain=${MY_DOMAIN}; secure; HttpOnly; SameSite=Lax`
+      "Set-Cookie": `VKD_AUTH=${cookie}; path=/; domain=${MY_DOMAIN}; ${isProduction ? 'secure; ' : ''}HttpOnly; SameSite=Lax`
     }
   };
 }

@@ -445,7 +445,8 @@ export class VermontkidsdataStack extends cdk.Stack {
         REDIRECT_URI: `https://ui.${domainName}/`,
         MY_URI: `https://api.${domainName}/oauthcallback`,
         TABLE_NAME: sessionTable.tableName,
-        ENV_NAME: ns
+        ENV_NAME: ns,
+        IS_PRODUCTION: `${props.isProduction}`
       },
       tracing: Tracing.ACTIVE
     });
