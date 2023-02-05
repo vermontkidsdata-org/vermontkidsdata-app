@@ -10,9 +10,13 @@ ALTER TABLE `upload_types`
 ADD UNIQUE INDEX `type` (`type` ASC) VISIBLE;
 
 ALTER TABLE `data_bed` 
-ADD UNIQUE INDEX `DESC` (`year` ASC, `geo` ASC) VISIBLE;
+  ADD UNIQUE INDEX `DESC` (`year` ASC, `geo` ASC) VISIBLE;
 INSERT INTO `upload_types` (`type`, `table`, `index_columns`) VALUES ('general:bed', 'data_bed', 'year,geo');
 
 ALTER TABLE `data_headstart` 
-ADD UNIQUE INDEX `DESC` (`year` ASC, `age` ASC) VISIBLE;
+  ADD UNIQUE INDEX `DESC` (`year` ASC, `age` ASC) VISIBLE;
 INSERT INTO `upload_types` (`type`, `table`, `index_columns`) VALUES ('general:headstart', 'data_headstart', 'year,age');
+
+ALTER TABLE `data_individuals_served_pccn` 
+  ADD UNIQUE INDEX `DESC` (`year` ASC) VISIBLE;
+INSERT INTO `upload_types` (`type`, `table`, `index_columns`) VALUES ('general:individuals_served_pccn', 'data_individuals_served_pccn', 'year');

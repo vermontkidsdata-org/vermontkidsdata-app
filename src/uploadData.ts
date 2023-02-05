@@ -131,15 +131,22 @@ async function processGeneralRow(type: string, record: string[], lnum: number, i
     // Assume this has the column names. Check against the value ones for this type. But first we need to look it up...
     const uploadType = await getUploadType(type);
 
+    // Get rid of possible BOM. Stupid Excel.
+    if (record[0].startsWith("\ufeff")) {
+      console.log('It has a BOM! Stupid Excel. Stripping it...');
+      record[0] = record[0].substring(1);
+    }
+    
     // Check the columns. We might we more lenient at some point, but right now they have to
     // match exactly. Note we should get one less, no id column.
     if (record.length !== uploadType.columns.length - 1) {
       throw new Error(`wrong number of columns for type ${type}; expected ${uploadType.columns.length - 1} got ${record.length}`);
     }
-    for (let i = 0; i < record.length; i++) {
-      if (!uploadType.columns.map(col => col.columnName).includes(record[i])) {
-        throw new Error(`unknown column name ${record[i]}`);
-      }
+    const tableColumns = uploadType.columns.map(c => c.columnName);
+
+    if (!record.every(col => uploadType.columns.some(c => c.columnName === col))) {
+      console.error({ message: 'unknown column name in first row', tableColumns, record, t: uploadType.table });
+      throw new Error(`unknown column name ${JSON.stringify(record)}`);
     }
 
     clientData.uploadType = uploadType;
@@ -154,7 +161,7 @@ async function processGeneralRow(type: string, record: string[], lnum: number, i
     if (record.length !== clientData.uploadColumns.length) {
       throw new Error(`wrong number of columns in row ${lnum}: expected ${clientData.uploadColumns.length} got ${record.length}`);
     }
-    
+
     const sql = `insert into \`${clientData.uploadType.table}\` (` +
       clientData.uploadColumns.map(c => `\`${c}\``).join(',') +
       `) values (` +
@@ -163,6 +170,8 @@ async function processGeneralRow(type: string, record: string[], lnum: number, i
       clientData.uploadColumns.filter(c => !clientData.uploadType.indexColumns.includes(c)).map(c => `\`${c}\`=?`).join(',');
 
     const values = ((uploadColumns, indexColumns) => {
+      console.log({ indexColumns, uploadColumns });
+
       const inserts: string[] = [];
       const updates: string[] = [];
 
@@ -374,7 +383,7 @@ if (!module.parent) {
             name: process.env.S3_BUCKET_NAME
           },
           object: {
-            key: 'data_bed_gary.csv'
+            key: 'data_individuals_served_pccn_gary.csv'
           }
         }
       }]
