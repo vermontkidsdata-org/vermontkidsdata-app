@@ -1496,9 +1496,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "COGNITO_CLIENT_ID": "bogus-client",
             "COGNITO_SECRET": "bogus-secret",
             "ENV_NAME": "test",
+            "IS_PRODUCTION": "false",
             "MY_DOMAIN": "test.vtkidsdata.org",
             "MY_URI": "https://api.test.vtkidsdata.org/oauthcallback",
-            "REDIRECT_URI": "https://ui.test.vtkidsdata.org/",
+            "REDIRECT_URI": "https://ui.test.vtkidsdata.org",
             "TABLE_NAME": {
               "Ref": "SessionTable8953B218",
             },
@@ -1619,117 +1620,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Roles": [
           {
             "Ref": "OAuthcallbackfunctionServiceRole32182B80",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "Optionspreflight433FB0B9": {
-      "DependsOn": [
-        "OptionspreflightServiceRoleDefaultPolicy1A301EF4",
-        "OptionspreflightServiceRoleBA81365E",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
-            "NAMESPACE": "test",
-            "REGION": "aq-south-1",
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "OptionspreflightServiceRoleBA81365E",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs16.x",
-        "Timeout": 15,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "OptionspreflightLogRetentionD8CF6978": {
-      "Properties": {
-        "LogGroupName": {
-          "Fn::Join": [
-            "",
-            [
-              "/aws/lambda/",
-              {
-                "Ref": "Optionspreflight433FB0B9",
-              },
-            ],
-          ],
-        },
-        "RetentionInDays": 1,
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::LogRetention",
-    },
-    "OptionspreflightServiceRoleBA81365E": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "OptionspreflightServiceRoleDefaultPolicy1A301EF4": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "OptionspreflightServiceRoleDefaultPolicy1A301EF4",
-        "Roles": [
-          {
-            "Ref": "OptionspreflightServiceRoleBA81365E",
           },
         ],
       },
@@ -2991,6 +2881,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ],
               },
             },
+            {
+              "Events": [
+                "s3:ObjectTagging:Put",
+              ],
+              "Filter": {
+                "Key": {
+                  "FilterRules": [
+                    {
+                      "Name": "suffix",
+                      "Value": "csv",
+                    },
+                  ],
+                },
+              },
+              "LambdaFunctionArn": {
+                "Fn::GetAtt": [
+                  "UploadDataFunction2E82FB6B",
+                  "Arn",
+                ],
+              },
+            },
           ],
         },
         "ServiceToken": {
@@ -3204,6 +3115,48 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "AWS::CloudFormation::CustomResource",
       "UpdateReplacePolicy": "Delete",
     },
+    "gatewayresponseforACCESSDENIEDCCB1887E": {
+      "Properties": {
+        "ResponseParameters": {
+          "gatewayresponse.header.Access-Control-Allow-Credentials": "'true'",
+          "gatewayresponse.header.Access-Control-Allow-Methods": "'*'",
+          "gatewayresponse.header.Access-Control-Allow-Origin": "method.request.header.origin",
+        },
+        "ResponseType": "ACCESS_DENIED",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::GatewayResponse",
+    },
+    "gatewayresponseforDEFAULT4XXE9C3E6DB": {
+      "Properties": {
+        "ResponseParameters": {
+          "gatewayresponse.header.Access-Control-Allow-Credentials": "'true'",
+          "gatewayresponse.header.Access-Control-Allow-Methods": "'*'",
+          "gatewayresponse.header.Access-Control-Allow-Origin": "method.request.header.origin",
+        },
+        "ResponseType": "DEFAULT_4XX",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::GatewayResponse",
+    },
+    "gatewayresponseforDEFAULT5XX187AAE21": {
+      "Properties": {
+        "ResponseParameters": {
+          "gatewayresponse.header.Access-Control-Allow-Credentials": "'true'",
+          "gatewayresponse.header.Access-Control-Allow-Methods": "'*'",
+          "gatewayresponse.header.Access-Control-Allow-Origin": "method.request.header.origin",
+        },
+        "ResponseType": "DEFAULT_5XX",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::GatewayResponse",
+    },
     "identitypool": {
       "Properties": {
         "AllowUnauthenticatedIdentities": false,
@@ -3409,8 +3362,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C7fe3f4328cf2440adf71de3b35af45eb2": {
+    "testVermontKidsDataDeployment82D2B8C706ba4c96669867974b74db02fca75f36": {
       "DependsOn": [
+        "gatewayresponseforACCESSDENIEDCCB1887E",
+        "gatewayresponseforDEFAULT4XXE9C3E6DB",
+        "gatewayresponseforDEFAULT5XX187AAE21",
         "testVermontKidsDatachartbarqueryIdGETD88F41A0",
         "testVermontKidsDatachartbarqueryId1B9FDE04",
         "testVermontKidsDatachartbar0896C591",
@@ -3477,7 +3433,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C7fe3f4328cf2440adf71de3b35af45eb2",
+          "Ref": "testVermontKidsDataDeployment82D2B8C706ba4c96669867974b74db02fca75f36",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -3509,9 +3465,18 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "IntegrationResponses": [
             {
               "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
+#if($origin.matches("http://localhost:3000"))
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
               },
               "StatusCode": "204",
             },
@@ -3524,9 +3489,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "MethodResponses": [
           {
             "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -3685,9 +3652,18 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "IntegrationResponses": [
             {
               "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
+#if($origin.matches("http://localhost:3000"))
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
               },
               "StatusCode": "204",
             },
@@ -3700,9 +3676,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "MethodResponses": [
           {
             "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -4139,6 +4117,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDatacredentialsF328366F",
         },
@@ -4210,95 +4202,47 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatacredentialsOPTIONSApiPermissionTesttestTestStacktestVermontKidsData62A09AC6OPTIONScredentials6D824143": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "Optionspreflight433FB0B9",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/test-invoke-stage/OPTIONS/credentials",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "testVermontKidsDatacredentialsOPTIONSApiPermissiontestTestStacktestVermontKidsData62A09AC6OPTIONScredentials37A485BD": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "Optionspreflight433FB0B9",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/",
-              {
-                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
-              },
-              "/OPTIONS/credentials",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
     "testVermontKidsDatacredentialsOPTIONSFEB59669": {
       "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "Optionspreflight433FB0B9",
-                    "Arn",
-                  ],
-                },
-                "/invocations",
-              ],
-            ],
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
+#if($origin.matches("http://localhost:3000"))
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
           },
+          "Type": "MOCK",
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDatacredentialsF328366F",
         },
@@ -4487,6 +4431,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataoauthcallback82EDC1D5",
         },
@@ -4558,95 +4516,47 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDataoauthcallbackOPTIONSApiPermissionTesttestTestStacktestVermontKidsData62A09AC6OPTIONSoauthcallback2AFC5D06": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "Optionspreflight433FB0B9",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/test-invoke-stage/OPTIONS/oauthcallback",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "testVermontKidsDataoauthcallbackOPTIONSApiPermissiontestTestStacktestVermontKidsData62A09AC6OPTIONSoauthcallback0C2545AE": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "Optionspreflight433FB0B9",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/",
-              {
-                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
-              },
-              "/OPTIONS/oauthcallback",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
     "testVermontKidsDataoauthcallbackOPTIONSE95BCC4B": {
       "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "Optionspreflight433FB0B9",
-                    "Arn",
-                  ],
-                },
-                "/invocations",
-              ],
-            ],
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
+#if($origin.matches("http://localhost:3000"))
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
           },
+          "Type": "MOCK",
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataoauthcallback82EDC1D5",
         },
@@ -4763,6 +4673,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataqueries63BE02C3",
         },
@@ -4772,95 +4696,47 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDataqueriesOPTIONSApiPermissionTesttestTestStacktestVermontKidsData62A09AC6OPTIONSqueriesDE93DD7C": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "Optionspreflight433FB0B9",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/test-invoke-stage/OPTIONS/queries",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "testVermontKidsDataqueriesOPTIONSApiPermissiontestTestStacktestVermontKidsData62A09AC6OPTIONSqueries37976DD3": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "Optionspreflight433FB0B9",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/",
-              {
-                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
-              },
-              "/OPTIONS/queries",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
     "testVermontKidsDataqueriesOPTIONSB95DAF7C": {
       "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "Optionspreflight433FB0B9",
-                    "Arn",
-                  ],
-                },
-                "/invocations",
-              ],
-            ],
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
+#if($origin.matches("http://localhost:3000"))
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
           },
+          "Type": "MOCK",
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataqueries63BE02C3",
         },
@@ -4900,6 +4776,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataqueries63BE02C3",
         },
@@ -5013,6 +4903,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataqueriesid98F2826C",
         },
@@ -5114,6 +5018,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataqueriesid98F2826C",
         },
@@ -5190,28 +5108,42 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "Optionspreflight433FB0B9",
-                    "Arn",
-                  ],
-                },
-                "/invocations",
-              ],
-            ],
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
+#if($origin.matches("http://localhost:3000"))
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
           },
+          "Type": "MOCK",
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataqueriesid98F2826C",
         },
@@ -5220,68 +5152,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
       },
       "Type": "AWS::ApiGateway::Method",
-    },
-    "testVermontKidsDataqueriesidOPTIONSApiPermissionTesttestTestStacktestVermontKidsData62A09AC6OPTIONSqueriesidCC27E0C8": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "Optionspreflight433FB0B9",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/test-invoke-stage/OPTIONS/queries/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "testVermontKidsDataqueriesidOPTIONSApiPermissiontestTestStacktestVermontKidsData62A09AC6OPTIONSqueriesidE18903E6": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "Optionspreflight433FB0B9",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/",
-              {
-                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
-              },
-              "/OPTIONS/queries/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
     },
     "testVermontKidsDataqueriesidPUTApiPermissionTesttestTestStacktestVermontKidsData62A09AC6PUTqueriesid5C3447F1": {
       "Properties": {
@@ -5375,6 +5245,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataqueriesid98F2826C",
         },
@@ -5419,9 +5303,18 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "IntegrationResponses": [
             {
               "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
+#if($origin.matches("http://localhost:3000"))
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
               },
               "StatusCode": "204",
             },
@@ -5434,9 +5327,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "MethodResponses": [
           {
             "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -5830,9 +5725,18 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "IntegrationResponses": [
             {
               "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
+#if($origin.matches("http://localhost:3000"))
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
               },
               "StatusCode": "204",
             },
@@ -5845,9 +5749,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "MethodResponses": [
           {
             "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -6001,7 +5907,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "PolicyDocument": {
               "Statement": [
                 {
-                  "Action": "s3:PutObject",
+                  "Action": [
+                    "s3:PutObject",
+                    "s3:PutObjectTagging",
+                  ],
                   "Effect": "Allow",
                   "Resource": {
                     "Fn::Join": [

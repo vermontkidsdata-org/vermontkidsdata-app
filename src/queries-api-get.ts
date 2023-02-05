@@ -23,7 +23,7 @@ export async function lambdaHandler(
   if (id != null) {
     await doDBOpen();
     try {
-      const queryRows = await doDBQuery('SELECT id, name, sqlText, columnMap, metadata FROM queries where id=?', [id]);
+      const queryRows = await doDBQuery('SELECT id, name, sqlText, columnMap, metadata, uploadType FROM queries where id=?', [id]);
       if (queryRows.length > 0) {
         row = queryRows[0];
       }

@@ -25,7 +25,7 @@ export async function lambdaHandler(
   await doDBOpen();
   try {
     // Get the query to run from the parameters
-    const queryRows = await doDBQuery('SELECT id, name, sqlText, columnMap, metadata FROM queries');
+    const queryRows = await doDBQuery('SELECT id, name, sqlText, columnMap, metadata, uploadType FROM queries');
 
     return {
       statusCode: 200,
