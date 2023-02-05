@@ -1,6 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { RemovalPolicy } from 'aws-cdk-lib';
-import { AuthorizationType, Cors, IdentitySource, LambdaIntegration, RequestAuthorizer, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { AuthorizationType, Cors, CorsOptions, GatewayResponse, IdentitySource, LambdaIntegration, MethodResponse, RequestAuthorizer, ResponseType, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
 import * as cloudFront from 'aws-cdk-lib/aws-cloudfront';
 import * as cloudFrontOrigins from 'aws-cdk-lib/aws-cloudfront-origins';
@@ -16,6 +16,7 @@ import * as logs from 'aws-cdk-lib/aws-logs';
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
+import { EventType } from 'aws-cdk-lib/aws-s3';
 import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
 import * as s3notify from 'aws-cdk-lib/aws-s3-notifications';
 import * as sm from 'aws-cdk-lib/aws-secretsmanager';
@@ -160,6 +161,9 @@ export class VermontkidsdataStack extends cdk.Stack {
     const notify = new s3notify.LambdaDestination(uploadFunction);
     notify.bind(this, bucket);
     bucket.addObjectCreatedNotification(notify, {
+      suffix: 'csv'
+    });
+    bucket.addEventNotification(EventType.OBJECT_TAGGING_PUT, notify, {
       suffix: 'csv'
     });
     uploadFunction.grantInvoke(S3_SERVICE_PRINCIPAL);
@@ -385,19 +389,19 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     testDBFunction.addToRolePolicy(getSecretValueStatement);
 
-    const optionsFunction = new lambdanode.NodejsFunction(this, 'Options preflight', {
-      memorySize: 1024,
-      timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_16_X,
-      handler: 'handler',
-      entry: join(__dirname, "../src/options.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
-      environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
-      },
-      tracing: Tracing.ACTIVE
-    });
+    // const optionsFunction = new lambdanode.NodejsFunction(this, 'Options preflight', {
+    //   memorySize: 1024,
+    //   timeout: cdk.Duration.seconds(15),
+    //   runtime: lambda.Runtime.NODEJS_16_X,
+    //   handler: 'handler',
+    //   entry: join(__dirname, "../src/options.ts"),
+    //   logRetention: logs.RetentionDays.ONE_DAY,
+    //   environment: {
+    //     REGION: this.region,
+    //     NAMESPACE: ns,
+    //   },
+    //   tracing: Tracing.ACTIVE
+    // });
 
     // Add the custom domain name. First look up the R53 zone
     const hostedZone = route53.HostedZone.fromHostedZoneAttributes(
@@ -433,6 +437,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       throw new Error("Must define COGNITO_CLIENT_ID and COGNITO_SECRET");
     }
 
+    const uiOrigin = `https://ui.${domainName}`;
+
     const oauthCallbackFunction = new lambdanode.NodejsFunction(this, 'OAuth callback function', {
       runtime: lambda.Runtime.NODEJS_16_X,
       entry: join(__dirname, "../src/oauth-callback.ts"),
@@ -442,7 +448,7 @@ export class VermontkidsdataStack extends cdk.Stack {
         COGNITO_CLIENT_ID,
         COGNITO_SECRET,
         MY_DOMAIN: domainName,
-        REDIRECT_URI: `https://ui.${domainName}/`,
+        REDIRECT_URI: uiOrigin,
         MY_URI: `https://api.${domainName}/oauthcallback`,
         TABLE_NAME: sessionTable.tableName,
         ENV_NAME: ns,
@@ -474,14 +480,17 @@ export class VermontkidsdataStack extends cdk.Stack {
       // Add OPTIONS call to all resources
       // defaultCorsPreflightOptions: {
       //   allowOrigins: Cors.ALL_ORIGINS,
-      //   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+      //   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      //   allowCredentials: true,
+      //   allowHeaders: Cors.DEFAULT_HEADERS
       // }
     });
 
-    const corsOptions = {
-      allowOrigins: Cors.ALL_ORIGINS,
+    const corsOptions: CorsOptions = {
+      allowOrigins: [uiOrigin, 'http://localhost:3000'],
       allowHeaders: Cors.DEFAULT_HEADERS,
       allowMethods: Cors.ALL_METHODS,
+      allowCredentials: true,
     };
 
     // const rHello = api.root.addResource('hello');
@@ -489,6 +498,17 @@ export class VermontkidsdataStack extends cdk.Stack {
     //   authorizationType: AuthorizationType.COGNITO,
     //   authorizer
     // });
+    for (const type of [ResponseType.DEFAULT_4XX, ResponseType.DEFAULT_5XX, ResponseType.ACCESS_DENIED]) {
+      new GatewayResponse(this, `gateway response for ${type.responseType}`, {
+        restApi: api,
+        type,
+        responseHeaders: {
+          "Access-Control-Allow-Origin": "method.request.header.origin",
+          "Access-Control-Allow-Methods": "'*'",
+          "Access-Control-Allow-Credentials": "'true'",
+        }
+      });
+    }
 
     console.log('cognitoIdentityProviders', identityPool.cognitoIdentityProviders);
     if (identityPool.cognitoIdentityProviders == null
@@ -514,11 +534,27 @@ export class VermontkidsdataStack extends cdk.Stack {
 
     sessionTable.grantReadWriteData(getCredentialsFunction);
 
+    const methodResponses = [{
+      statusCode: '401',
+      responseParameters: {
+        "method.response.header.Access-Control-Allow-Origin": true
+      }
+    }, {
+      statusCode: '403',
+      responseParameters: {
+        "method.response.header.Access-Control-Allow-Origin": true
+      }
+    }] as MethodResponse[];
+
     const rOauthCallback = api.root.addResource('oauthcallback');
-    rOauthCallback.addMethod("GET", new LambdaIntegration(oauthCallbackFunction));
-    rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
+    rOauthCallback.addCorsPreflight(corsOptions);
+    rOauthCallback.addMethod("GET", new LambdaIntegration(oauthCallbackFunction), {
+      methodResponses
+    });
+    // rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
     const rDataset = api.root.addResource('dataset');
+    // rDataset.addCorsPreflight(corsOptions);
     const rDatasetYears = rDataset.addResource('years');
     const rDatasetYearsDataset = rDatasetYears.addResource('{dataset+}');
     rDatasetYearsDataset.addMethod("GET", new LambdaIntegration(getDataSetYearsByDatasetFunction));
@@ -553,22 +589,26 @@ export class VermontkidsdataStack extends cdk.Stack {
           IdentitySource.header('Cookie')
         ],
         resultsCacheTtl: cdk.Duration.seconds(0) // Disable cache on authorizer
-      })
+      }),
+      methodResponses
     };
 
     const rCredentials = api.root.addResource('credentials');
+    rCredentials.addCorsPreflight(corsOptions);
     rCredentials.addMethod("GET", new LambdaIntegration(getCredentialsFunction), auth);
-    rCredentials.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
+    // rCredentials.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
     const rQueries = api.root.addResource("queries");
+    rQueries.addCorsPreflight(corsOptions);
     rQueries.addMethod("GET", new LambdaIntegration(queriesGetListFunction), auth)
     rQueries.addMethod("POST", new LambdaIntegration(queriesPostFunction), auth);
-    rQueries.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
+    // rQueries.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
     const rQueriesById = rQueries.addResource("{id}");
+    rQueriesById.addCorsPreflight(corsOptions);
     rQueriesById.addMethod("GET", new LambdaIntegration(queriesGetFunction), auth);
     rQueriesById.addMethod("PUT", new LambdaIntegration(queriesPutFunction), auth);
     rQueriesById.addMethod("DELETE", new LambdaIntegration(queriesDeleteFunction), auth);
-    rQueriesById.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
+    // rQueriesById.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
     const rCodes = api.root.addResource("codes");
     rCodes.addCorsPreflight(corsOptions);
@@ -619,6 +659,14 @@ export class VermontkidsdataStack extends cdk.Stack {
         autoDeleteObjects: true
       });
 
+      const responseHeadersPolicy = new cloudFront.ResponseHeadersPolicy(this, 'header policy', {
+        customHeadersBehavior: {
+          customHeaders: [{
+            header: 'Cache-Control', value: 'no-cache', override: true
+          }]
+        }
+      });
+
       // CloudFront Distribution pointing to S3 Web Bucket for origin and S3 Log Bucket for logging
       // Defaults:
       //  - min protocol version: TLS 1.2
@@ -633,7 +681,8 @@ export class VermontkidsdataStack extends cdk.Stack {
           // Only allow GET, HEAD, OPTIONS methods
           allowedMethods: cloudFront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
           // Cache GET, HEAD, OPTIONS
-          cachedMethods: cloudFront.CachedMethods.CACHE_GET_HEAD_OPTIONS
+          cachedMethods: cloudFront.CachedMethods.CACHE_GET_HEAD_OPTIONS,
+          responseHeadersPolicy,
         },
         errorResponses: [
           {
@@ -661,7 +710,7 @@ export class VermontkidsdataStack extends cdk.Stack {
         // 100 is USA, Canada, Europe and Israel
         priceClass: cloudFront.PriceClass.PRICE_CLASS_100,
         // Descriptive comment
-        comment: `CloudFront distribution in ${ns} environment`
+        comment: `CloudFront distribution in ${ns} environment`,
       });
 
       // Deploy the static web content to the S3 Web Bucket

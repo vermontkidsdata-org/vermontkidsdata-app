@@ -1,9 +1,14 @@
+// process.env.S3_BUCKET_NAME = 'ctechnica-vkd-qa';
+// process.env.STATUS_TABLE = 'qa-LocalDevBranch-UploadstatustableA9E2FF87-1KSF20M176GXI';
+// process.env.REGION = 'us-east-1';
+// process.env.NAMESPACE = 'qa';
+
 import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2, S3Event } from 'aws-lambda';
 import * as AWS from 'aws-sdk';
 import { PutItemOutput } from 'aws-sdk/clients/dynamodb';
 import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
-import { doDBClose, doDBCommit, doDBOpen, doDBQuery } from "./db-utils";
+import { doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
 
 interface UploadInfo {
   type: string;
@@ -14,7 +19,7 @@ const { S3_BUCKET_NAME: bucketName, REGION, STATUS_TABLE: statusTableName } = pr
 const s3 = new AWS.S3({ region: REGION });
 const dynamodb = new AWS.DynamoDB({ region: REGION });
 
-type CsvProcessCallback = (record: string[], lnum: number, identifier: string, errors: Error[]) => Promise<void>;
+type CsvProcessCallback = (type: string, record: string[], lnum: number, identifier: string, errors: Error[], clientData: any) => Promise<void>;
 
 interface TypesConfigElement {
   processRowFunction: CsvProcessCallback;
@@ -22,22 +27,163 @@ interface TypesConfigElement {
 
 const typesConfig: { [type: string]: TypesConfigElement } = {
   assessments: {
-    processRowFunction: processAssessmentRow
+    processRowFunction: processAssessmentRow,
+  },
+  general: {
+    processRowFunction: processGeneralRow
   }
 }
 
-// CREATE TABLE `dbvkd`.`data_assessments` (
-//     `id` INT NOT NULL AUTO_INCREMENT,
-//     `sy` INT NULL,
-//     `org_id` VARCHAR(45) NULL,
-//     `test_name` VARCHAR(128) NULL,
-//     `indicator_label` VARCHAR(45) NULL,
-//     `assess_group` VARCHAR(45) NULL,
-//     `assess_label` VARCHAR(45) NULL,
-//     `value_w_st` FLOAT NULL,
-//     PRIMARY KEY (`id`));
+interface ProcessGeneralRowClientData {
+  uploadType: UploadType;
+  uploadColumns: string[];
+}
 
-async function processAssessmentRow(record: string[], lnum: number, identifier: string, errors: Error[]): Promise<void> {
+interface UploadType {
+  id: number,
+  type: string,
+  table: string,
+
+  // Calculated
+  columns: Column[],
+  indexColumns: string[]
+}
+
+enum ColumnDataType {
+  INTEGER, STRING, FLOAT
+}
+
+interface Column {
+  columnName: string,
+  dataType: ColumnDataType,
+  isNullable: boolean
+}
+
+// Cache upload_types and columns for the table
+
+const uploadTypes: Record<string, UploadType> = {}; // key by type
+const columns: Record<string, Column[]> = {}; // key by table
+
+function getDataType(data_type: string): ColumnDataType {
+  if (data_type === 'int') return ColumnDataType.INTEGER;
+  else if (data_type === 'varchar') return ColumnDataType.STRING;
+  else if (data_type === 'float') return ColumnDataType.FLOAT;
+  else throw new Error(`unknown data type ${data_type}`);
+}
+
+async function getColumns(table: string): Promise<Column[]> {
+  // console.log({ message: 'getColumns', table });
+  if (columns[table] != null) {
+    return columns[table];
+  } else {
+    const info = await getDBSecret();
+    const colsRaw = await doDBQuery(
+      'select `column_name`, `data_type`, `is_nullable` from `information_schema`.`columns` where `table_name`=? and table_schema=? order by `ordinal_position`',
+      [table, info.schema]);
+    if (colsRaw == null || colsRaw.length == 0) {
+      throw new Error(`unknown table ${table}`);
+    } else {
+      const cols = colsRaw.map(colRaw => ({
+        columnName: colRaw.COLUMN_NAME as string,
+        dataType: getDataType(colRaw.DATA_TYPE),
+        isNullable: colRaw.IS_NULLABLE === 'YES'
+      }));
+      // console.log({ colsRaw, cols });
+
+      columns[table] = cols;
+      return cols;
+    }
+  }
+}
+
+async function getUploadType(type: string): Promise<UploadType> {
+  // console.log({ message: 'getUploadType', type, lookup: uploadTypes[type] });
+  if (uploadTypes[type] == null) {
+    const types = await doDBQuery('select `id`, `type`, `table`, `index_columns` from `upload_types` where `type`=?', [type]);
+    // console.log({ message: 'getUploadType ret', type: types[0] });
+    if (types == null || types.length !== 1) {
+      throw new Error(`no types found for type=${type}`);
+    } else {
+      const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string } = types[0];
+      // Get the columns list
+      const columns = await getColumns(uploadTypeRaw.table);
+      // console.log({ type, uploadTypeRaw, columns })
+      const uploadType = {
+        id: uploadTypeRaw.id,
+        type: uploadTypeRaw.type,
+        table: uploadTypeRaw.table,
+        columns,
+        indexColumns: uploadTypeRaw.index_columns.split(',').map(c => c.trim()),
+      };
+
+      uploadTypes[type] = uploadType;
+      return uploadType;
+    }
+  } else {
+    return uploadTypes[type];
+  }
+}
+
+
+async function processGeneralRow(type: string, record: string[], lnum: number, identifier: string, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+  // console.log({ message: 'processGeneralRow start', type, record, lnum });
+  if (lnum === 1) {
+    // Assume this has the column names. Check against the value ones for this type. But first we need to look it up...
+    const uploadType = await getUploadType(type);
+
+    // Check the columns. We might we more lenient at some point, but right now they have to
+    // match exactly. Note we should get one less, no id column.
+    if (record.length !== uploadType.columns.length - 1) {
+      throw new Error(`wrong number of columns for type ${type}; expected ${uploadType.columns.length - 1} got ${record.length}`);
+    }
+    for (let i = 0; i < record.length; i++) {
+      if (!uploadType.columns.map(col => col.columnName).includes(record[i])) {
+        throw new Error(`unknown column name ${record[i]}`);
+      }
+    }
+
+    clientData.uploadType = uploadType;
+    clientData.uploadColumns = record;
+
+    // console.log({ message: 'processGeneralRow: first', clientData });
+  } else {
+    // Assume the type is following format: general:specific where specific is looked up table_name means we're inserting into data_table_name
+    console.log({ message: 'processGeneralRow: not first row', lnum, record, identifier, clientData });
+
+    // Check number of columns is right
+    if (record.length !== clientData.uploadColumns.length) {
+      throw new Error(`wrong number of columns in row ${lnum}: expected ${clientData.uploadColumns.length} got ${record.length}`);
+    }
+    
+    const sql = `insert into \`${clientData.uploadType.table}\` (` +
+      clientData.uploadColumns.map(c => `\`${c}\``).join(',') +
+      `) values (` +
+      record.map(v => '?').join(',') +
+      `) on duplicate key update ` +
+      clientData.uploadColumns.filter(c => !clientData.uploadType.indexColumns.includes(c)).map(c => `\`${c}\`=?`).join(',');
+
+    const values = ((uploadColumns, indexColumns) => {
+      const inserts: string[] = [];
+      const updates: string[] = [];
+
+      for (let i = 0; i < record.length; i++) {
+        // First set the insert values, then the update ones
+        inserts.push(record[i]);
+
+        if (!indexColumns.includes(uploadColumns[i])) {
+          updates.push(record[i]);
+        }
+      }
+      return [...inserts, ...updates];
+    })(clientData.uploadColumns, clientData.uploadType.indexColumns);
+
+    console.log({ sql, values });
+
+    await doDBQuery(sql, values);
+  }
+}
+
+async function processAssessmentRow(type: string, record: string[], lnum: number, identifier: string, errors: Error[], clientData: any): Promise<void> {
   if (lnum > 1) {
     if (record.length != 9) throw new Error(`lines expected to have 9 columns`);
 
@@ -153,8 +299,20 @@ export async function main(
     let statusUpdatePct = 0;
     try {
       let lastStatusUpdatePct = 0;
+      // Assume the type has two pieces separated by a colon
+      // - the typesConfig value
+      // - the rest of it, depends on the typesConfig value
+      const typePrefix = tags.type.includes(':') ? tags.type.substring(0, tags.type.indexOf(':')) : tags.type;
+      const typeConfig = typesConfig[typePrefix];
+
+      console.log({ typePrefix, typeConfig });
+
+      // Client data - handlers can put anything they want in there
+      const clientData: any = {};
+
       await processCSV(bodyContents, async (record, index, total) => {
-        await typesConfig[tags.type].processRowFunction(record, index, identifier, errors);
+        console.log({ message: 'row', index, record });
+        await typeConfig.processRowFunction(tags.type, record, index, identifier, errors, clientData);
 
         // Update status every 10%
         statusUpdatePct = Math.round(100 * index / total);
@@ -168,6 +326,7 @@ export async function main(
       await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
       await doDBCommit();
     } catch (e) {
+      console.error(e);
       await updateStatus(identifier, 'Error', statusUpdatePct, saveTotal, [e as Error]);
     } finally {
       await doDBClose();
@@ -208,18 +367,18 @@ async function processCSV(recordsString: string, callback: (record: string[], in
 
 if (!module.parent) {
   (async () => {
-    await main({
+    console.log(await main({
       Records: [{
         s3: {
           bucket: {
-            name: 'master-localdevbranch-uploadsbucket86f42938-1x6dlq695pl4z'
+            name: process.env.S3_BUCKET_NAME
           },
           object: {
-            key: 'Assessment_2019a.csv'
+            key: 'data_bed_gary.csv'
           }
         }
       }]
-    } as S3Event)
+    } as S3Event))
   })().catch(err => {
     console.log(`exception`, err);
   });

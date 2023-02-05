@@ -84,11 +84,14 @@ export async function doDBQuery(sql: string, values?: any[]): Promise<any[]> {
   if (conn) {
     if (values == null) values = [];
     return new Promise<any>((resolve, reject) => {
-      // console.log(`query ${JSON.stringify(values)}`);
+      // console.log({msg:`doDBQuery query`, sql, values});
       return conn.query(sql, values, (err, results /*, fields*/) => {
+        // console.log({msg:`doDBQuery query ret`, err, results});
         if (err) {
           reject(err);
         } else {
+          // console.log({msg:`doDBQuery query resolve`, rez: util.inspect(results)});
+          // console.log({msg:`doDBQuery query col`, rez: results[0].COLUMN_NAME});
           resolve(results);
         }
       })

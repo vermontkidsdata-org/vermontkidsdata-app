@@ -1,3 +1,5 @@
+// process.env.NAMESPACE = 'qa';
+
 import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
 import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
@@ -18,8 +20,8 @@ const tracer = new Tracer({ serviceName });
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2WithLambdaAuthorizer<VKDAuthorizerContext>,
 ): Promise<APIGatewayProxyResultV2> {
-  logger.info({message: 'get-list', serviceName, event, authorizerContext: event.requestContext?.authorizer});
-  
+  logger.info({ message: 'get-list', serviceName, event, authorizerContext: event.requestContext?.authorizer });
+
   await doDBOpen();
   try {
     // Get the query to run from the parameters
@@ -43,3 +45,14 @@ export const handler = middy(lambdaHandler)
     // cors(new CORSConfig(process.env))
     cors(CORSConfigDefault)
   );
+
+if (!module.parent) {
+  (async () => {
+    console.log(await lambdaHandler({  
+    } as unknown as APIGatewayProxyEventV2WithLambdaAuthorizer<VKDAuthorizerContext>))
+  })().catch(err => {
+    console.log(`exception`, err);
+  });
+} else {
+  console.log("we're NOT in the local deploy, probably in Lambda");
+}
