@@ -29,3 +29,17 @@ ALTER TABLE `data_individuals_served_pccn`
   ADD UNIQUE INDEX `DESC` (`year` ASC) VISIBLE;
 INSERT INTO `upload_types` (`type`, `table`, `index_columns`) VALUES ('general:individuals_served_pccn', 'data_individuals_served_pccn', 'year');
 update queries set uploadType='general:individuals_served_pccn' where name='68';
+
+CREATE TABLE `data_ed` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `year` INT NOT NULL,
+  `same_day` INT NOT NULL DEFAULT 0,
+  `1_day` INT NOT NULL DEFAULT 0,
+  `2_to_4_days` INT NOT NULL DEFAULT 0,
+  `5+_days` INT NOT NULL DEFAULT 0,
+  `grand_total` INT NOT NULL DEFAULT 0
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `year_UNIQUE` (`year` ASC) VISIBLE);
+
+INSERT INTO `upload_types` (`type`, `table`, `index_columns`) VALUES ('general:ed', 'data_ed', 'year');
+insert into queries (name, sqlText, uploadType) value ('70', 'SELECT `id`, `year`, `same_day`, `1_day`, `2_to_4_days`, `5+_days`, `grand_total` FROM `data_ed` order by `year`', 'general:ed');

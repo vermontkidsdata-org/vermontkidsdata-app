@@ -1,7 +1,9 @@
-// process.env.S3_BUCKET_NAME = 'ctechnica-vkd-qa';
-// process.env.STATUS_TABLE = 'qa-LocalDevBranch-UploadstatustableA9E2FF87-1KSF20M176GXI';
-// process.env.REGION = 'us-east-1';
-// process.env.NAMESPACE = 'qa';
+if (!module.parent) {
+  process.env.S3_BUCKET_NAME = 'ctechnica-vkd-qa';
+  process.env.STATUS_TABLE = 'qa-LocalDevBranch-UploadstatustableA9E2FF87-1KSF20M176GXI';
+  process.env.REGION = 'us-east-1';
+  process.env.NAMESPACE = 'qa';
+}
 
 import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2, S3Event } from 'aws-lambda';
 import * as AWS from 'aws-sdk';
@@ -124,6 +126,25 @@ async function getUploadType(type: string): Promise<UploadType> {
   }
 }
 
+function matchColumns(record: string[], uploadTypeColumns: Column[]): { matchedColumns: string[], unmatchedColumns: string[] } {
+  const uploadTypeColumnNames = uploadTypeColumns.map(col => col.columnName.toLowerCase());
+  const matchedColumns: string[] = [];
+  const unmatchedColumns: string[] = [];
+
+  // Go thru each of the columns in the record and see if there's one that "matches"
+  for (const col of record) {
+    // "Match" is defined as "case insensitive comparison where spaces and underscores are equivalent"
+    const lccol = col.toLowerCase().replace(/ /g, '_');
+    const matchPos = uploadTypeColumnNames.indexOf(lccol);
+    if (matchPos >= 0) {
+      matchedColumns.push(uploadTypeColumns[matchPos].columnName);
+    } else {
+      unmatchedColumns.push(col);
+    }
+  }
+
+  return { matchedColumns, unmatchedColumns };
+}
 
 async function processGeneralRow(type: string, record: string[], lnum: number, identifier: string, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
   // console.log({ message: 'processGeneralRow start', type, record, lnum });
@@ -136,7 +157,7 @@ async function processGeneralRow(type: string, record: string[], lnum: number, i
       console.log('It has a BOM! Stupid Excel. Stripping it...');
       record[0] = record[0].substring(1);
     }
-    
+
     // Check the columns. We might we more lenient at some point, but right now they have to
     // match exactly. Note we should get one less, no id column.
     if (record.length !== uploadType.columns.length - 1) {
@@ -144,13 +165,16 @@ async function processGeneralRow(type: string, record: string[], lnum: number, i
     }
     const tableColumns = uploadType.columns.map(c => c.columnName);
 
-    if (!record.every(col => uploadType.columns.some(c => c.columnName === col))) {
-      console.error({ message: 'unknown column name in first row', tableColumns, record, t: uploadType.table });
-      throw new Error(`unknown column name ${JSON.stringify(record)}`);
+    const { matchedColumns, unmatchedColumns } = matchColumns(record, uploadType.columns);
+    console.log({ record, cols: uploadType.columns, unmatchedColumns, matchedColumns });
+
+    if (unmatchedColumns.length > 0) {
+      console.error({ message: 'unknown column name(s) in first row', tableColumns, record, t: uploadType.table });
+      throw new Error(`unknown column name(s) ${JSON.stringify(unmatchedColumns)}`);
     }
 
     clientData.uploadType = uploadType;
-    clientData.uploadColumns = record;
+    clientData.uploadColumns = matchedColumns;
 
     // console.log({ message: 'processGeneralRow: first', clientData });
   } else {
@@ -383,7 +407,7 @@ if (!module.parent) {
             name: process.env.S3_BUCKET_NAME
           },
           object: {
-            key: 'data_individuals_served_pccn_gary.csv'
+            key: 'data_ed.csv'
           }
         }
       }]
