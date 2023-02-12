@@ -1056,6 +1056,122 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
+    "DownloadFunction40EABBE7": {
+      "DependsOn": [
+        "DownloadFunctionServiceRoleDefaultPolicyC3243614",
+        "DownloadFunctionServiceRoleFC9C1AC1",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+          },
+        },
+        "Handler": "index.main",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "DownloadFunctionServiceRoleFC9C1AC1",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+        "Timeout": 60,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "DownloadFunctionLogRetention4827BF26": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "DownloadFunction40EABBE7",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "DownloadFunctionServiceRoleDefaultPolicyC3243614": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": "secretsmanager:GetSecretValue",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "DownloadFunctionServiceRoleDefaultPolicyC3243614",
+        "Roles": [
+          {
+            "Ref": "DownloadFunctionServiceRoleFC9C1AC1",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "DownloadFunctionServiceRoleFC9C1AC1": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
     "GetCensusTablesSearchFunctionE5D75F9E": {
       "DependsOn": [
         "GetCensusTablesSearchFunctionServiceRoleDefaultPolicy8391E9A3",
@@ -3362,7 +3478,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C706ba4c96669867974b74db02fca75f36": {
+    "testVermontKidsDataDeployment82D2B8C794be0992c4c554802343c8f1f9051571": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -3391,6 +3507,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatadatasetyearsdatasetGET0A38B23A",
         "testVermontKidsDatadatasetyearsdataset56841AB0",
         "testVermontKidsDatadatasetyears672FB4DC",
+        "testVermontKidsDatadownloaduploadTypeGET08501E5D",
+        "testVermontKidsDatadownloaduploadType3D975FD0",
+        "testVermontKidsDatadownloadAC79A169",
         "testVermontKidsDataoauthcallbackGET994DBE8B",
         "testVermontKidsDataoauthcallbackOPTIONSE95BCC4B",
         "testVermontKidsDataoauthcallback82EDC1D5",
@@ -3433,7 +3552,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C706ba4c96669867974b74db02fca75f36",
+          "Ref": "testVermontKidsDataDeployment82D2B8C794be0992c4c554802343c8f1f9051571",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -4383,6 +4502,131 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
               },
               "/GET/dataset/years/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadownloadAC79A169": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "testVermontKidsDataCC7D0909",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "download",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadownloaduploadType3D975FD0": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDatadownloadAC79A169",
+        },
+        "PathPart": "{uploadType}",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadownloaduploadTypeGET08501E5D": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "DownloadFunction40EABBE7",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDatadownloaduploadType3D975FD0",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDatadownloaduploadTypeGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETdownloaduploadType3C37FC9D": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DownloadFunction40EABBE7",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/GET/download/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadownloaduploadTypeGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETdownloaduploadTypeD8EBD4E0": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DownloadFunction40EABBE7",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/GET/download/*",
             ],
           ],
         },
