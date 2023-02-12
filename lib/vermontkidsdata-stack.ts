@@ -386,6 +386,21 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     testDBFunction.addToRolePolicy(getSecretValueStatement);
 
+    const downloadFunction = new lambdanode.NodejsFunction(this, 'Download Function', {
+      memorySize: 1024,
+      timeout: cdk.Duration.seconds(60),
+      runtime: lambda.Runtime.NODEJS_16_X,
+      handler: 'main',
+      entry: join(__dirname, "../src/download.ts"),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      },
+      tracing: Tracing.ACTIVE
+    });
+    downloadFunction.addToRolePolicy(getSecretValueStatement);
+
     // const optionsFunction = new lambdanode.NodejsFunction(this, 'Options preflight', {
     //   memorySize: 1024,
     //   timeout: cdk.Duration.seconds(15),
@@ -542,6 +557,10 @@ export class VermontkidsdataStack extends cdk.Stack {
         "method.response.header.Access-Control-Allow-Origin": true
       }
     }] as MethodResponse[];
+    
+    const rDownload = api.root.addResource('download');
+    const rDownloadByType = rDownload.addResource('{uploadType}');
+    rDownloadByType.addMethod("GET", new LambdaIntegration(downloadFunction));
 
     const rOauthCallback = api.root.addResource('oauthcallback');
     rOauthCallback.addCorsPreflight(corsOptions);
