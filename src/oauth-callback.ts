@@ -82,7 +82,7 @@ export async function lambdaHandler(
       "Location": state || REDIRECT_URI,
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST",
-      "Set-Cookie": `VKD_AUTH=${cookie}; path=/; domain=${MY_DOMAIN}${isProduction ? '; SameSite=Lax' : '; SameSite=None'}; secure; HttpOnly`
+      "Set-Cookie": `VKD_AUTH=${cookie}; path=/; domain=${MY_DOMAIN}${isProduction ? '; SameSite=Lax' : '; SameSite=None'}; secure; HttpOnly; Max-Age=3540`
     }
   };
 }
