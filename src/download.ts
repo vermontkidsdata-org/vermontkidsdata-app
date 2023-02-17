@@ -3,13 +3,21 @@ if (!module.parent) {
   process.env.NAMESPACE = 'qa';
 }
 
+import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
+import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
+import middy from '@middy/core';
+import cors from '@middy/http-cors';
 import { APIGatewayProxyEvent, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { CORSConfigOpen } from './cors-config';
 import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
 
-interface UploadInfo {
-  type: string;
-  key: string;
-}
+// Set your service name. This comes out in service lens etc.
+const serviceName = `download-${process.env.NAMESPACE}`;
+const logger = new Logger({
+  logLevel: process.env.LOG_LEVEL || 'INFO',
+  serviceName
+});
+const tracer = new Tracer({ serviceName });
 
 const { REGION } = process.env;
 
@@ -67,7 +75,7 @@ function toCSV(row: (string | number)[]): string {
   return row.join(',');
 }
 
-export async function main(
+export async function lambdaHandler(
   event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResultV2> {
   console.log(`REGION=${REGION}, event 👉`, event);
@@ -149,7 +157,7 @@ export async function main(
 
 if (!module.parent) {
   (async () => {
-    console.log(await main({
+    console.log(await lambdaHandler({
       pathParameters: {
         uploadType: 'general:bed'
       }
@@ -157,6 +165,15 @@ if (!module.parent) {
   })().catch(err => {
     console.log(`exception`, err);
   });
+  process.exit(1);
 } else {
   console.log("we're NOT in the local deploy, probably in Lambda");
 }
+
+export const main = middy(lambdaHandler)
+  .use(captureLambdaHandler(tracer))
+  .use(injectLambdaContext(logger))
+  .use(
+    // cors(new CORSConfig(process.env))
+    cors(CORSConfigOpen)
+  );

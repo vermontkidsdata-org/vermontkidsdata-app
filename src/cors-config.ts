@@ -15,7 +15,14 @@ export const CORSConfigDefault = {
     }
   },
   credentials: true,
-  methods: "PUT, POST, DELETE",
+  methods: "GET, PUT, POST, DELETE",
+  headers: "Content-Type"
+};
+
+export const CORSConfigOpen = {
+  origin: '*',
+  credentials: false,
+  methods: "GET",
   headers: "Content-Type"
 };
 
