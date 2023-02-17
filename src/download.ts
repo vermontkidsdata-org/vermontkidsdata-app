@@ -56,7 +56,7 @@ async function processGeneralRow(type: string, record: DBRow, lnum: number, rows
     clientData.keys = Object.keys(record).filter(key => key !== 'id');
     rows.push(clientData.keys);
   }
-  console.log({ type, record, lnum });
+  // console.log({ type, record, lnum });
   rows.push(clientData.keys.map(key => {
     const val = record[key];
     if (typeof val === 'number') return val.toString();
@@ -166,8 +166,6 @@ if (!module.parent) {
     console.log(`exception`, err);
   });
   process.exit(1);
-} else {
-  console.log("we're NOT in the local deploy, probably in Lambda");
 }
 
 export const main = middy(lambdaHandler)

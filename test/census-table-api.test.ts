@@ -11,6 +11,8 @@ interface APIResponse {
   statusCode: number
 }
 
+jest.setTimeout(10000);
+
 describe('Census Table API', () => {
     let queryDBSpy: any;
     beforeEach(() => {

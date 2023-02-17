@@ -110,7 +110,7 @@ export async function doDBOpen(): Promise<void> {
       password: info.password
     });
     await doDBQuery(`use ${info.schema}`);
-    console.log({ message: 'doOpen: opened connection', schema: info.schema });
+    // console.log({ message: 'doOpen: opened connection', schema: info.schema });
   }
 }
 
