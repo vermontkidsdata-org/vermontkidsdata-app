@@ -85,6 +85,10 @@ async function getQuery(queryId: string): Promise<{ rows: QueryRow[] }> {
   }
 }
 
+export function makeDefaultColumnMapName(colName: string): string {
+  return colName.split('_').map(piece => piece[0].toUpperCase() + piece.substring(1)).join(' ');
+}
+
 async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?: ColumnMap, metadata?: Object }> {
   const info = await getQuery(queryId);
 
@@ -94,7 +98,16 @@ async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?:
   // - value: The value for the values
   const resultRows = await doDBQuery(info.rows[0].sqlText);
 
-  const columnMap = info.rows[0].columnMap != null ? JSON.parse(info.rows[0].columnMap) : undefined;
+  // Generate a default column map if one isn't present
+  console.log({dbColumnMap: info.rows[0].columnMap});
+  const columnMap = info.rows[0].columnMap != null ? JSON.parse(info.rows[0].columnMap) as ColumnMap : (() => {
+    const map: ColumnMap = {}
+    for (const colName of Object.keys(resultRows[0])) {
+      map[colName] = makeDefaultColumnMapName(colName);
+    }
+    return map;
+  })();
+  console.log({columnMap});
   return { rows: resultRows, columnMap: columnMap, metadata: JSON.parse(info.rows[0].metadata) };
 }
 

@@ -1,0 +1,60 @@
+{
+  // Indicates to ESLint that this is the root config
+  "root": true,
+  // Enable specific environments
+  // Note: Jest must be enabled in order to ignore implied testing constructs in test files such
+  //       as "describe" and "test"
+  "env": {
+    "es2018": true,
+    "jest": true
+  },
+  // Inherit ESLint configuration from the specified packages
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+    // "airbnb",
+    // "plugin:prettier/recommended"
+  ],
+  // Ignore these files and folders when linting (node_modules is always ignored)
+  "ignorePatterns": ["**/*.d.ts", "test/**/*", "scripts/*.ts"],
+
+  // Use correct parser for Typescript (instead of default Espree)
+  "parser": "@typescript-eslint/parser",
+  // Addtional config for the parser
+  "parserOptions": {
+    // Pointing to a tsconfig file is required to use rules requiring type information
+    // Test files must be part of included set in a tsconfig to avoid lint error
+    "project": "./tsconfig.json"
+  },
+  // Add plugins needed to lint Typescript
+  "plugins": ["@typescript-eslint"],
+  // Some rules are disabled for practical purposes
+  "rules": {
+    // Disable requiring a comma on last item in comma list (just seems wrong)
+    "comma-dangle": ["error", "never"],
+    // Avoids: "Missing file extension ‘tsx’ for ‘<something>’"
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ],
+    // Avoids: "Prefer default export"
+    "import/prefer-default-export": "off",
+    // The "packageDir" config allows the monorepo root package.json to be scanned along with the
+    // target package's own package.json, preventing this rule from misfiring for dependencies
+    // listed only in the root package.json
+    "import/no-extraneous-dependencies": ["error", { "packageDir": ["."] }],
+    // Disable linebreak style as we shouldn't care about CRLF vs LF
+    "linebreak-style": "off"
+  },
+  // Avoids: "Unable to resolve path to ‘<something>’"
+  // Requires: eslint-import-resolver-typescript
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}

@@ -13,7 +13,8 @@ describe('custom table API', () => {
         queryId: '58'
       }
     } as unknown as APIGatewayProxyEventV2) as any;
-    // console.log(`returns basic data`, ret);
+    console.log({message: `returns basic data`, ret});
+    // columnMap = {"infant": "Infant", "toddler": "Toddler", "preschool": "Preschool"}
     // {
     //     statusCode: 200,
     //     headers: {
@@ -33,6 +34,19 @@ describe('custom table API', () => {
     expect(ret.statusCode).toBe(200);
     const body = JSON.parse(ret.body);
     expect(body.columns.length).toBe(6);
+  });
+  it ('returns default columnMap if none specified', async () => {
+    const ret = await tablesApi.table({
+      pathParameters: {
+        queryId: 'dcf:table'
+      }
+    } as unknown as APIGatewayProxyEventV2) as any;
+    // console.log({message: `data`, ret});
+    expect(ret.statusCode).toBe(200);
+    const body = JSON.parse(ret.body);
+    expect(body.columns.length).toBe(6);
+    expect(body.columns[0].id).toBe("geo_type");
+    expect(body.columns[0].label).toBe("Geo Type");
   });
   it('has metadata config', async () => {
     const ret = await tablesApi.table({
