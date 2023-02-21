@@ -52,7 +52,7 @@ interface UploadType {
 }
 
 enum ColumnDataType {
-  INTEGER, STRING, FLOAT
+  INTEGER, STRING, FLOAT, DOUBLE
 }
 
 interface Column {
@@ -70,6 +70,7 @@ function getDataType(data_type: string): ColumnDataType {
   if (data_type === 'int') return ColumnDataType.INTEGER;
   else if (data_type === 'varchar') return ColumnDataType.STRING;
   else if (data_type === 'float') return ColumnDataType.FLOAT;
+  else if (data_type === 'double') return ColumnDataType.DOUBLE;
   else throw new Error(`unknown data type ${data_type}`);
 }
 
