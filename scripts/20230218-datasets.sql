@@ -84,9 +84,9 @@ insert into queries (name, sqlText, uploadType, metadata) value ('ooh_custody:ta
   '{"title": "Out of Home Custody by Region and State"}'
 );
 insert into queries (name, sqlText, uploadType, metadata) value ('ooh_custody:chart',
- 'SELECT concat(`category`,":",`indicator`) as label, `federal_fiscal_year` as cat, `value` FROM `data_dcf` where geo_type="State" and geography="Vermont" order by `federal_fiscal_year`',
+ 'SELECT `age_range` as label, `year` as cat, `count` as `value` FROM `data_ooh_custody` where geo_type="State" and geography="Vermont" order by `year`, age_range',
   'general:ooh_custody',
-  '{"yAxis": {"type": "number"}}'
+  '{"yAxis": {"type": "number"}, "plotOptions": {"series": {"dataLabels": {"format": "{point.y:,.0f}"}}}}'
 );
 
 -- devscreen
