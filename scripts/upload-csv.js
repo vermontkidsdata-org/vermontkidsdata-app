@@ -3,6 +3,11 @@
 //
 const { execSync } = require('child_process');
 
+if (process.argv.length < 5) {
+  console.error(`usage:\n  node scripts/upload-csv.js base-file-name upload-type identifier-suffix`)
+  process.exit(1);
+}
+
 const baseFileName = process.argv[2];
 const uploadType = process.argv[3];
 const identifierSuffix = process.argv[4];
