@@ -1,12 +1,14 @@
 import * as cdk from 'aws-cdk-lib';
-import { RemovalPolicy } from 'aws-cdk-lib';
-import { AuthorizationType, Cors, CorsOptions, GatewayResponse, IdentitySource, LambdaIntegration, MethodResponse, RequestAuthorizer, ResponseType, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { CfnOutput, RemovalPolicy } from 'aws-cdk-lib';
+import { AuthorizationType, AwsIntegration, Cors, CorsOptions, GatewayResponse, IdentitySource, IntegrationResponse, LambdaIntegration, MethodResponse, Model, RequestAuthorizer, ResponseType, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
+import { Distribution, OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront';
+import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { CfnIdentityPool, CfnIdentityPoolRoleAttachment, UserPool, UserPoolClient } from 'aws-cdk-lib/aws-cognito';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import { AttributeType } from 'aws-cdk-lib/aws-dynamodb';
 import * as iam from 'aws-cdk-lib/aws-iam';
-import { Effect, PolicyDocument, PolicyStatement } from 'aws-cdk-lib/aws-iam';
+import { Effect, PolicyDocument, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import { Tracing } from 'aws-cdk-lib/aws-lambda';
 import * as lambdanode from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -14,12 +16,15 @@ import * as logs from 'aws-cdk-lib/aws-logs';
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
-import { EventType } from 'aws-cdk-lib/aws-s3';
+import { Bucket, BucketEncryption, EventType } from 'aws-cdk-lib/aws-s3';
+import { BucketDeployment, Source } from 'aws-cdk-lib/aws-s3-deployment';
 import * as s3notify from 'aws-cdk-lib/aws-s3-notifications';
 import * as sm from 'aws-cdk-lib/aws-secretsmanager';
 import { Construct } from 'constructs';
+import { readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 import * as util from 'util';
+// import { OpenApiBuilder } from './openapi';
 
 const S3_SERVICE_PRINCIPAL = new iam.ServicePrincipal('s3.amazonaws.com');
 const HOSTED_ZONE_ID = 'Z01884571R5A9N33JR5NE';
@@ -65,6 +70,21 @@ export class VermontkidsdataStack extends cdk.Stack {
     // Look up the user pool. There's only one and we create it
     // outside CDK.
     const userPool = UserPool.fromUserPoolId(this, 'user pool', USER_POOL_ID);
+    // const userPool = new UserPool(this, 'env user pool', {
+    //   userPoolName: `VKD-${ns}-userpool`,
+    //   signInAliases: {
+    //     phone: true,
+    //     email: true
+    //   },
+    //   autoVerify: {
+    //     email: true
+    //   },
+    //   mfa: Mfa.OFF,
+    //   accountRecovery: AccountRecovery.EMAIL_AND_PHONE_WITHOUT_MFA,
+    //   selfSignUpEnabled: false,
+    //   email: UserPoolEmail.withCognito("noreply@verificationemail.com"),
+    //   removalPolicy: RemovalPolicy.DESTROY
+    // });
 
     const userPoolClient = UserPoolClient.fromUserPoolClientId(this, 'user pool client', USER_POOL_CLIENT_ID);
 
@@ -75,7 +95,7 @@ export class VermontkidsdataStack extends cdk.Stack {
       cognitoIdentityProviders: [{
         providerName: `cognito-idp.${this.region}.amazonaws.com/${userPool.userPoolId}`,
         clientId: userPoolClient.userPoolClientId
-      }]
+      }],
     });
 
     const isUserCognitoGroupRole = new iam.Role(this, 'users-group-role', {
@@ -498,6 +518,24 @@ export class VermontkidsdataStack extends cdk.Stack {
       // }
     });
 
+    const authorizer = new RequestAuthorizer(this, 'request authorizer', {
+      handler: authorizerFunction,
+      identitySources: [
+        IdentitySource.header('Cookie')
+      ],
+      resultsCacheTtl: cdk.Duration.seconds(0) // Disable cache on authorizer
+    });
+
+    // const openApi = new OpenApiBuilder({
+    //   restApi: api,
+    //   apiProps: {
+    //     //
+    //   },
+    //   modelsDir: join(__dirname, 'models'),
+    //   tsConfig: join(__dirname, '../tsconfig.json'),
+    //   servers: [{ url: `https://${apiDomainName}` }]
+    // });
+
     const corsOptions: CorsOptions = {
       allowOrigins: [uiOrigin, 'http://localhost:3000'],
       allowHeaders: Cors.DEFAULT_HEADERS,
@@ -557,7 +595,7 @@ export class VermontkidsdataStack extends cdk.Stack {
         "method.response.header.Access-Control-Allow-Origin": true
       }
     }] as MethodResponse[];
-    
+
     const rDownload = api.root.addResource('download');
     const rDownloadByType = rDownload.addResource('{uploadType}');
     rDownloadByType.addMethod("GET", new LambdaIntegration(downloadFunction));
@@ -572,7 +610,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rDataset = api.root.addResource('dataset');
     // rDataset.addCorsPreflight(corsOptions);
     const rDatasetYears = rDataset.addResource('years');
-    const rDatasetYearsDataset = rDatasetYears.addResource('{dataset+}');
+    const rDatasetYearsDataset = rDatasetYears.addResource('{dataset}');
     rDatasetYearsDataset.addMethod("GET", new LambdaIntegration(getDataSetYearsByDatasetFunction));
 
     const rUpload = api.root.addResource("upload");
@@ -599,26 +637,28 @@ export class VermontkidsdataStack extends cdk.Stack {
     // Apply to all the methods that need authorization
     const auth = {
       authorizationType: AuthorizationType.CUSTOM,
-      authorizer: new RequestAuthorizer(this, 'request authorizer', {
-        handler: authorizerFunction,
-        identitySources: [
-          IdentitySource.header('Cookie')
-        ],
-        resultsCacheTtl: cdk.Duration.seconds(0) // Disable cache on authorizer
-      }),
+      authorizer,
       methodResponses
     };
 
     const rCredentials = api.root.addResource('credentials');
     rCredentials.addCorsPreflight(corsOptions);
     rCredentials.addMethod("GET", new LambdaIntegration(getCredentialsFunction), auth);
-    // rCredentials.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
     const rQueries = api.root.addResource("queries");
     rQueries.addCorsPreflight(corsOptions);
     rQueries.addMethod("GET", new LambdaIntegration(queriesGetListFunction), auth)
     rQueries.addMethod("POST", new LambdaIntegration(queriesPostFunction), auth);
-    // rQueries.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
+
+    // openApi.addMethods(['queries'], {
+    //   "GET": {
+    //     description: "Get list of queries defined"
+    //   },
+    //   "POST": {
+    //     description: "Create new query"
+    //   },
+    // });
+
     const rQueriesById = rQueries.addResource("{id}");
     rQueriesById.addCorsPreflight(corsOptions);
     rQueriesById.addMethod("GET", new LambdaIntegration(queriesGetFunction), auth);
@@ -641,6 +681,94 @@ export class VermontkidsdataStack extends cdk.Stack {
 
     const testDBResource = api.root.addResource("testdb");
     testDBResource.addMethod("GET", new LambdaIntegration(testDBFunction));
+
+    const objectKey = `${this.node.path}.yaml`.replace(/[/ ]/g, '-');
+    console.log({ objectKey });
+
+    const destinationBucket = new Bucket(this, 'Docs bucket', {
+      encryption: BucketEncryption.S3_MANAGED,
+      removalPolicy: RemovalPolicy.DESTROY
+    });
+
+    const docUIdir = join(__dirname, "../swagger-dist");
+
+    new BucketDeployment(this, `DeployWebsite`, {
+      destinationBucket,
+      sources: [
+        Source.data(objectKey, readFileSync(join(__dirname, "../apidocs.yaml")).toString().replace(/{{host}}/g, apiDomainName)),
+        ...(readdirSync(docUIdir).map(fn =>
+          Source.data(fn, readFileSync(join(docUIdir, fn)).toString().replace(/{{host}}/g, apiDomainName)))
+        )
+      ],
+      prune: false,
+      memoryLimit: 1024
+    });
+
+    const bucketRole = new Role(this, 'API Doc Bucket Role', {
+      assumedBy: new ServicePrincipal('apigateway.amazonaws.com')
+    });
+    destinationBucket.grantRead(bucketRole);
+
+    const originAccessIdentity = new OriginAccessIdentity(this, 'OriginAccessIdentity');
+    bucket.grantRead(originAccessIdentity);
+
+    const distro = new Distribution(this, 'Distribution', {
+      defaultRootObject: 'index.html',
+      defaultBehavior: {
+        origin: new S3Origin(destinationBucket, { originAccessIdentity }),
+      },
+    });
+
+    new CfnOutput(this, 'docs domain', {
+      value: distro.domainName
+    });
+
+    const apiDocsPath = api.root.addResource('apidocs.yaml');
+
+    apiDocsPath.addMethod(
+      'GET',
+      new AwsIntegration({
+        service: 's3',
+        integrationHttpMethod: 'GET',
+        path: `${destinationBucket.bucketName}/${objectKey}`,
+        options: {
+          credentialsRole: bucketRole,
+          // integration responses are required!
+          integrationResponses: [
+            {
+              statusCode: '200',
+              'method.response.header.Content-Type':
+                "'application/yaml'",
+              'method.response.header.Content-Disposition':
+                'integration.response.header.Content-Disposition',
+              responseParameters: {
+                'method.response.header.Access-Control-Allow-Headers':
+                  "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                'method.response.header.Access-Control-Allow-Methods':
+                  "'GET,OPTIONS'",
+                'method.response.header.Access-Control-Allow-Origin': "'*'"
+              }
+            } as IntegrationResponse,
+            { statusCode: '400' }
+          ]
+        }
+      }),
+      {
+        methodResponses: [
+          {
+            statusCode: '200',
+            responseModels: {
+              'application/json': Model.EMPTY_MODEL
+            },
+            responseParameters: {
+              'method.response.header.Access-Control-Allow-Headers': true,
+              'method.response.header.Access-Control-Allow-Methods': true,
+              'method.response.header.Access-Control-Allow-Origin': true
+            }
+          }
+        ]
+      }
+    );
 
     new route53.ARecord(this, 'r53-be-arec', {
       zone: hostedZone,

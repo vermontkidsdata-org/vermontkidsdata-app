@@ -20,18 +20,6 @@ const BOGUS_ACCOUNT_ENV_PROPS = {
 // example test. To run these tests, uncomment this file along with the
 // example resource in lib/vermontkidsdata-pipeline-stack.ts
 describe('Lambda', () => {
-  // it('Creates Lambda', () => {
-  //     const app = new cdk.App();
-  //     // WHEN
-  //     const lambdaStack = new VermontkidsdataStack(app, 'CensusAPIDevStack', { ns: 'test' });
-  //     // THEN
-  //     const template = Template.fromStack(lambdaStack);
-
-  //     template.hasResourceProperties('AWS::Lambda::Function', {
-  //         Handler: "index.main"
-  //     });
-  // });
-
   // ----- Ensure that there are no unexpected changes (snapshot testing) -------------------------
   test('Snapshot Test', async () => {
     const app = new cdk.App();

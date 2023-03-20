@@ -42,6 +42,69 @@ exports[`Lambda Snapshot Test 1`] = `
     },
   },
   "Resources": {
+    "APIDocBucketRole36E5CFCE": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "apigateway.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "APIDocBucketRoleDefaultPolicyA92CF2A9": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "Docsbucket48971E37",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "Docsbucket48971E37",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "APIDocBucketRoleDefaultPolicyA92CF2A9",
+        "Roles": [
+          {
+            "Ref": "APIDocBucketRole36E5CFCE",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "AuthorizerfunctionB3710F81": {
       "DependsOn": [
         "AuthorizerfunctionServiceRoleDefaultPolicyD27ACA59",
@@ -1000,6 +1063,152 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
+    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1024MiBB049752D": {
+      "DependsOn": [
+        "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1024MiBServiceRoleDefaultPolicy0801355D",
+        "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1024MiBServiceRole739949D8",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Handler": "index.handler",
+        "Layers": [
+          {
+            "Ref": "DeployWebsiteAwsCliLayer17DBC421",
+          },
+        ],
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1024MiBServiceRole739949D8",
+            "Arn",
+          ],
+        },
+        "Runtime": "python3.9",
+        "Timeout": 900,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1024MiBServiceRole739949D8": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1024MiBServiceRoleDefaultPolicy0801355D": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":s3:::[ASSET BUCKET]",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":s3:::[ASSET BUCKET]/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:PutObjectLegalHold",
+                "s3:PutObjectRetention",
+                "s3:PutObjectTagging",
+                "s3:PutObjectVersionTagging",
+                "s3:Abort*",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "Docsbucket48971E37",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "Docsbucket48971E37",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1024MiBServiceRoleDefaultPolicy0801355D",
+        "Roles": [
+          {
+            "Ref": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1024MiBServiceRole739949D8",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
       "DependsOn": [
         "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
@@ -1055,6 +1264,64 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "DeployWebsiteAwsCliLayer17DBC421": {
+      "Properties": {
+        "Content": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Description": "/opt/awscli/aws",
+      },
+      "Type": "AWS::Lambda::LayerVersion",
+    },
+    "DeployWebsiteCustomResource1024MiBE7965B54": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "DestinationBucketName": {
+          "Ref": "Docsbucket48971E37",
+        },
+        "Prune": false,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1024MiBB049752D",
+            "Arn",
+          ],
+        },
+        "SourceBucketNames": [
+          "[ASSET BUCKET]",
+        ],
+        "SourceMarkers": [
+          {},
+        ],
+        "SourceObjectKeys": [
+          "[ASSET ZIP]",
+        ],
+      },
+      "Type": "Custom::CDKBucketDeployment",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "Docsbucket48971E37": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256",
+              },
+            },
+          ],
+        },
+        "Tags": [
+          {
+            "Key": "aws-cdk:cr-owned:fcca2278",
+            "Value": "true",
+          },
+        ],
+      },
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Delete",
     },
     "DownloadFunction40EABBE7": {
       "DependsOn": [
@@ -3478,11 +3745,13 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C794be0992c4c554802343c8f1f9051571": {
+    "testVermontKidsDataDeployment82D2B8C729387ea524a4029ee6665fa8fe9b87d6": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
         "gatewayresponseforDEFAULT5XX187AAE21",
+        "testVermontKidsDataapidocsGETF2FB3523",
+        "testVermontKidsDataapidocsF151AB36",
         "testVermontKidsDatachartbarqueryIdGETD88F41A0",
         "testVermontKidsDatachartbarqueryId1B9FDE04",
         "testVermontKidsDatachartbar0896C591",
@@ -3504,8 +3773,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatacredentialsOPTIONSFEB59669",
         "testVermontKidsDatacredentialsF328366F",
         "testVermontKidsDatadatasetD39C03ED",
-        "testVermontKidsDatadatasetyearsdatasetGET0A38B23A",
-        "testVermontKidsDatadatasetyearsdataset56841AB0",
+        "testVermontKidsDatadatasetyearsdatasetGETABE2E121",
+        "testVermontKidsDatadatasetyearsdataset9B3C2388",
         "testVermontKidsDatadatasetyears672FB4DC",
         "testVermontKidsDatadownloaduploadTypeGET08501E5D",
         "testVermontKidsDatadownloaduploadType3D975FD0",
@@ -3552,7 +3821,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C794be0992c4c554802343c8f1f9051571",
+          "Ref": "testVermontKidsDataDeployment82D2B8C729387ea524a4029ee6665fa8fe9b87d6",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -3560,6 +3829,86 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "StageName": "prod",
       },
       "Type": "AWS::ApiGateway::Stage",
+    },
+    "testVermontKidsDataapidocsF151AB36": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "testVermontKidsDataCC7D0909",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "apidocs",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDataapidocsGETF2FB3523": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "Credentials": {
+            "Fn::GetAtt": [
+              "APIDocBucketRole36E5CFCE",
+              "Arn",
+            ],
+          },
+          "IntegrationHttpMethod": "GET",
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+              },
+              "StatusCode": "200",
+            },
+            {
+              "StatusCode": "400",
+            },
+          ],
+          "Type": "AWS",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:s3:path/",
+                {
+                  "Ref": "Docsbucket48971E37",
+                },
+                "/test-TestStack.yaml",
+              ],
+            ],
+          },
+        },
+        "MethodResponses": [
+          {
+            "ResponseModels": {
+              "application/json": "Empty",
+            },
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "200",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "testVermontKidsDataapidocsF151AB36",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
     },
     "testVermontKidsDatachart586643EF": {
       "Properties": {
@@ -4398,19 +4747,19 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatadatasetyearsdataset56841AB0": {
+    "testVermontKidsDatadatasetyearsdataset9B3C2388": {
       "Properties": {
         "ParentId": {
           "Ref": "testVermontKidsDatadatasetyears672FB4DC",
         },
-        "PathPart": "{dataset+}",
+        "PathPart": "{dataset}",
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDatadatasetyearsdatasetGET0A38B23A": {
+    "testVermontKidsDatadatasetyearsdatasetGETABE2E121": {
       "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
@@ -4438,7 +4787,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           },
         },
         "ResourceId": {
-          "Ref": "testVermontKidsDatadatasetyearsdataset56841AB0",
+          "Ref": "testVermontKidsDatadatasetyearsdataset9B3C2388",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -4446,7 +4795,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDatadatasetyearsdatasetGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETdatasetyearsdataset5DCC8DBB": {
+    "testVermontKidsDatadatasetyearsdatasetGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETdatasetyearsdataset325E2F41": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
@@ -4475,7 +4824,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "testVermontKidsDatadatasetyearsdatasetGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETdatasetyearsdataset434C9B41": {
+    "testVermontKidsDatadatasetyearsdatasetGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETdatasetyearsdatasetDB9D441D": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {

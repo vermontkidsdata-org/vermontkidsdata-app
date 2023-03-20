@@ -21,7 +21,7 @@ const { S3_BUCKET_NAME: bucketName, REGION, STATUS_TABLE: statusTableName } = pr
 const s3 = new AWS.S3({ region: REGION });
 const dynamodb = new AWS.DynamoDB({ region: REGION });
 
-type CsvProcessCallback = (type: string, record: string[], lnum: number, identifier: string, errors: Error[], clientData: any) => Promise<void>;
+type CsvProcessCallback = (type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: any) => Promise<void>;
 
 interface TypesConfigElement {
   processRowFunction: CsvProcessCallback;
@@ -48,7 +48,8 @@ interface UploadType {
 
   // Calculated
   columns: Column[],
-  indexColumns: string[]
+  indexColumns: string[],
+  columnMap: Record<string, string>, // Mapping from real internal column name to external, first converted to internal
 }
 
 enum ColumnDataType {
@@ -103,22 +104,34 @@ async function getColumns(table: string): Promise<Column[]> {
 async function getUploadType(type: string): Promise<UploadType> {
   // console.log({ message: 'getUploadType', type, lookup: uploadTypes[type] });
   if (uploadTypes[type] == null) {
-    const types = await doDBQuery('select `id`, `type`, `table`, `index_columns` from `upload_types` where `type`=?', [type]);
+    const types = await doDBQuery('select * from `upload_types` where `type`=?', [type]);
     // console.log({ message: 'getUploadType ret', type: types[0] });
     if (types == null || types.length !== 1) {
       throw new Error(`no types found for type=${type}`);
     } else {
-      const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string } = types[0];
+      const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string } = types[0];
       // Get the columns list
       const columns = await getColumns(uploadTypeRaw.table);
+      const columnMap = (() => {
+        if (!uploadTypeRaw.column_map) return undefined;
+        const rawMap: Record<string, string> = JSON.parse(uploadTypeRaw.column_map);
+        const cookedMap: Record<string, string> = {};
+
+        for (const key of Object.keys(rawMap)) {
+          cookedMap[key] = humanToInternalName(rawMap[key]);
+        }
+        return cookedMap;
+      })();
+
       // console.log({ type, uploadTypeRaw, columns })
       const uploadType = {
         id: uploadTypeRaw.id,
         type: uploadTypeRaw.type,
         table: uploadTypeRaw.table,
         columns,
+        columnMap,
         indexColumns: uploadTypeRaw.index_columns.split(',').map(c => c.trim()),
-      };
+      } as UploadType;
 
       uploadTypes[type] = uploadType;
       return uploadType;
@@ -128,15 +141,27 @@ async function getUploadType(type: string): Promise<UploadType> {
   }
 }
 
-function matchColumns(record: string[], uploadTypeColumns: Column[]): { matchedColumns: string[], unmatchedColumns: string[] } {
+function humanToInternalName(col: string): string {
+  return col.toLowerCase().replace(/ /g, '_');
+}
+
+function matchColumns(record: string[], uploadType: UploadType): { matchedColumns: string[], unmatchedColumns: string[] } {
+  const uploadTypeColumns: Column[] = uploadType.columns;
   const uploadTypeColumnNames = uploadTypeColumns.map(col => col.columnName.toLowerCase());
   const matchedColumns: string[] = [];
   const unmatchedColumns: string[] = [];
 
   // Go thru each of the columns in the record and see if there's one that "matches"
   for (const col of record) {
-    // "Match" is defined as "case insensitive comparison where spaces and underscores are equivalent"
-    const lccol = col.toLowerCase().replace(/ /g, '_');
+    // "Match" is defined as "case insensitive comparison where spaces and underscores are equivalent".
+    // But first we need to see if there's a column mapping, and substitute the incoming name.
+    let lccolExternal = humanToInternalName(col);
+    const mappedColumn = uploadType.columnMap ?
+      Object.entries(uploadType.columnMap).find(e => e[1] === lccolExternal)?.[0] :
+      undefined;
+
+    const lccol = mappedColumn ?? lccolExternal;
+
     const matchPos = uploadTypeColumnNames.indexOf(lccol);
     if (matchPos >= 0) {
       matchedColumns.push(uploadTypeColumns[matchPos].columnName);
@@ -148,11 +173,11 @@ function matchColumns(record: string[], uploadTypeColumns: Column[]): { matchedC
   return { matchedColumns, unmatchedColumns };
 }
 
-async function processGeneralRow(type: string, record: string[], lnum: number, identifier: string, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+async function processGeneralRow(type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
   // console.log({ message: 'processGeneralRow start', type, record, lnum });
   if (lnum === 1) {
     // Assume this has the column names. Check against the value ones for this type. But first we need to look it up...
-    const uploadType = await getUploadType(type);
+    // const uploadType = await getUploadType(type);
 
     // Get rid of possible BOM. Stupid Excel.
     if (record[0].startsWith("\ufeff")) {
@@ -163,11 +188,12 @@ async function processGeneralRow(type: string, record: string[], lnum: number, i
     // Check the columns. We might we more lenient at some point, but right now they have to
     // match exactly. Note we should get one less, no id column.
     if (record.length !== uploadType.columns.length - 1) {
-      throw new Error(`wrong number of columns for type ${type}; expected ${uploadType.columns.length - 1} got ${record.length}`);
+      throw new Error(`wrong number of columns for type ${type.type}; expected ${JSON.stringify(Object.values(uploadType.columns).map(v => v.columnName))} got ${JSON.stringify(record)}`);
     }
+
     const tableColumns = uploadType.columns.map(c => c.columnName);
 
-    const { matchedColumns, unmatchedColumns } = matchColumns(record, uploadType.columns);
+    const { matchedColumns, unmatchedColumns } = matchColumns(record, uploadType);
     console.log({ record, cols: uploadType.columns, unmatchedColumns, matchedColumns });
 
     if (unmatchedColumns.length > 0) {
@@ -212,13 +238,15 @@ async function processGeneralRow(type: string, record: string[], lnum: number, i
       return [...inserts, ...updates];
     })(clientData.uploadColumns, clientData.uploadType.indexColumns);
 
-    console.log({ sql, values });
-
-    await doDBQuery(sql, values);
+    if (dryRun) {
+      console.log({ sql, values });
+    } else {
+      await doDBQuery(sql, values);
+    }
   }
 }
 
-async function processAssessmentRow(type: string, record: string[], lnum: number, identifier: string, errors: Error[], clientData: any): Promise<void> {
+async function processAssessmentRow(type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: any): Promise<void> {
   if (lnum > 1) {
     if (record.length != 9) throw new Error(`lines expected to have 9 columns`);
 
@@ -292,6 +320,45 @@ export async function status(event: APIGatewayProxyEventV2): Promise<APIGatewayP
   }
 }
 
+export async function processUpload(props: {
+  bodyContents: string,
+  typeConfig: TypesConfigElement,
+  identifier: string,
+  uploadType: UploadType,
+  dryRun: boolean,
+}): Promise<{
+  errors: Error[],
+  saveTotal: number,
+  statusUpdatePct: number,
+}> {
+  const errors: Error[] = []
+  let saveTotal = 0;
+  let statusUpdatePct = 0;
+  let lastStatusUpdatePct = 0;
+  try {
+    // Client data - handlers can put anything they want in there
+    const clientData: any = {};
+
+    await processCSV(props.bodyContents, async (record, index, total) => {
+      console.log({ message: 'row', index, record });
+      await props.typeConfig.processRowFunction(props.uploadType, record, index, props.identifier, props.uploadType, props.dryRun, errors, clientData);
+
+      // Update status every 10%
+      statusUpdatePct = Math.round(100 * index / total);
+      if (Math.floor(lastStatusUpdatePct / 10) != Math.floor(statusUpdatePct / 10)) {
+        lastStatusUpdatePct = statusUpdatePct;
+        await updateStatus(props.identifier, 'In progress', statusUpdatePct, total, []);
+      }
+      saveTotal = total;
+    });
+  } catch (e) {
+    console.error(e);
+    errors.push(e as Error);
+  }
+
+  return { errors, saveTotal, statusUpdatePct };
+}
+
 export async function main(
   event: S3Event,
 ): Promise<string> {
@@ -327,13 +394,7 @@ export async function main(
     console.log('opening connection');
     await doDBOpen();
     console.log('connection open');
-
-    const errors: Error[] = []
-    let rowCount = 0;
-    let saveTotal = 0;
-    let statusUpdatePct = 0;
     try {
-      let lastStatusUpdatePct = 0;
       // Assume the type has two pieces separated by a colon
       // - the typesConfig value
       // - the rest of it, depends on the typesConfig value
@@ -342,27 +403,16 @@ export async function main(
 
       console.log({ typePrefix, typeConfig });
 
-      // Client data - handlers can put anything they want in there
-      const clientData: any = {};
-
-      await processCSV(bodyContents, async (record, index, total) => {
-        console.log({ message: 'row', index, record });
-        await typeConfig.processRowFunction(tags.type, record, index, identifier, errors, clientData);
-
-        // Update status every 10%
-        statusUpdatePct = Math.round(100 * index / total);
-        if (Math.floor(lastStatusUpdatePct / 10) != Math.floor(statusUpdatePct / 10)) {
-          lastStatusUpdatePct = statusUpdatePct;
-          await updateStatus(identifier, 'In progress', statusUpdatePct, total, []);
-        }
-        rowCount += 1;
-        saveTotal = total;
+      const { errors, saveTotal, statusUpdatePct } = await processUpload({
+        bodyContents,
+        typeConfig,
+        uploadType: await getUploadType(tags.type),
+        identifier,
+        dryRun: false,
       });
+
       await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
       await doDBCommit();
-    } catch (e) {
-      console.error(e);
-      await updateStatus(identifier, 'Error', statusUpdatePct, saveTotal, [e as Error]);
     } finally {
       await doDBClose();
     }
@@ -402,18 +452,40 @@ async function processCSV(recordsString: string, callback: (record: string[], in
 
 if (!module.parent) {
   (async () => {
-    console.log(await main({
-      Records: [{
-        s3: {
-          bucket: {
-            name: process.env.S3_BUCKET_NAME
-          },
-          object: {
-            key: 'data_ed.csv'
-          }
-        }
-      }]
-    } as S3Event))
+    console.log('opening connection');
+    try {
+      await doDBOpen();
+      console.log('connection open');
+      const bodyContents = `SY,Org id,Test Name,Indicator Label,Assess Group,Assess Label,School Value,Supervisory Union Value,State Value
+2021,VT001,SB English Language Arts Grade 03,Total Proficient and Above,All Students,All Students,,,0.425
+2021,VT001,SB English Language Arts Grade 03,Total Proficient and Above,Disability,No Special Ed,,,0.485
+`;
+      const uploadType = await getUploadType('general:assessments');
+
+      const { errors, saveTotal, statusUpdatePct } = await processUpload({
+        bodyContents,
+        typeConfig: typesConfig['general'],
+        uploadType,
+        identifier: '12345',
+        dryRun: false,
+      });
+      console.log({ errors, saveTotal, statusUpdatePct });
+    } catch (e) {
+      console.error(e);
+      await doDBClose();
+    }
+    // console.log(await main({
+    //   Records: [{
+    //     s3: {
+    //       bucket: {
+    //         name: process.env.S3_BUCKET_NAME
+    //       },
+    //       object: {
+    //         key: 'data_ed.csv'
+    //       }
+    //     }
+    //   }]
+    // } as S3Event))
   })().catch(err => {
     console.log(`exception`, err);
   });

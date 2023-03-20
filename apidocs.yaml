@@ -1,0 +1,509 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI
+  version: '2022-12-20T18:41:32.114Z'
+servers:
+  - url: https://{{host}}
+paths:
+  "/download/{uploadType}":
+    get:
+      description: Download contents of a dataset in CSV format.
+      tags: 
+        - dataset
+      parameters:
+        - name: uploadType
+          description: Dataset to download
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: limit
+          description: Optional limit on number of rows returned
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            text/csv:
+              schema:
+                type: string
+      security: []
+
+  "/dataset/years/{dataset}":
+    get:
+      description: Get valid years for given dataset name
+      tags: 
+        - codes
+      parameters:
+        - name: dataset
+          description: Dataset to get valid years for
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  description: Valid year for dataset
+                  type: string
+
+  "/upload/{uploadId}":
+    get:
+      description: Check status for a given upload
+      tags: 
+        - adminstration
+      parameters:
+        - name: uploadId
+          description: Upload ID to check status for
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetUploadStatusResponse"
+
+  "/chart/bar/{queryId}":
+    get:
+      description: Get bar chart data
+      tags: 
+        - dataset
+      parameters:
+        - name: queryId
+          description: query ID to get bar chart data for
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetBarChartResponse"
+
+  "/table/table/{queryId}":
+    get:
+      description: Get table data for the custom dataset
+      tags: 
+        - dataset
+      parameters:
+        - name: queryId
+          description: query ID to get data for; defines the custom dataset
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetCustomTableResponse"
+
+  "/table/census/{table}/{geoType}":
+    get:
+      description: Get table data for the census dataset
+      tags: 
+        - dataset
+      parameters:
+        - name: table
+          description: census table to get data for (e.g. B05010)
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: geoType
+          description: geography type to get data for
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - county
+              - state
+              - head_start
+              - bbf_region
+              - ahs_district
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetCensusTableResponse"
+  
+  "/codes/geos/{geoType}":
+    get:
+      description: Get allowable geography code values
+      tags: 
+        - codes
+      parameters:
+        - name: geoType
+          description: geography type to get data for
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - county
+              - state
+              - head_start
+              - bbf_region
+              - ahs_district
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetGeoCodesResponse"
+
+  "/codes/census/tables/search":
+    get:
+      description: Search for census tables by concept
+      tags: 
+        - codes
+      parameters:
+        - name: concept
+          description: concept to search for
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetCensusTablesSearchResponse"
+
+  "/codes/census/variables/{table}":
+    get:
+      description: Get variables for census table
+      tags: 
+        - codes
+      parameters:
+        - name: table
+          description: census table to get variables for
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetCensusTablesVariablesResponse"
+  
+components:
+  schemas:
+    GetCensusTablesVariablesResponse:
+      title: Census table variables
+      type: object
+      properties:
+        metadata:
+          type: object
+        variables: 
+          type: array
+          items:
+            type: object
+            properties:
+              variable:
+                type: string
+              concept:
+                type: string
+              label:
+                type: string
+
+    GetCensusTablesSearchResponse:
+      title: Census tables
+      type: object
+      properties:
+        tables:
+          type: array
+          items:
+            type: object
+            properties:
+              table:
+                type: string
+              concept:
+                type: string
+
+    GetGeoCodesResponse:
+      title: Geography codes
+      type: object
+      properties:
+        geos:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+
+    GetCensusTableResponse:
+      title: Census Table response
+      type: object
+      properties:
+        metadata:
+          type: object
+          properties:
+            table:
+              type: string
+            geoType:
+              type: string
+            year:
+              type: number
+            geo:
+              type: string
+            sourcePath:
+              type: array
+              items:
+                type: string
+            variables:
+              type: array
+              items:
+                type: string
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              label:
+                type: string
+        rows:
+          type: array
+          items:
+            type: object
+            properties:
+              geo:
+                type: string
+            additionalProperties: true
+
+    GetCustomTableResponse:
+      title: Custom Table response
+      type: object
+      properties:
+        metadata:
+          type: object
+          properties:
+            config:
+              type: object
+              properties:
+                title:
+                  type: string
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              label:
+                type: string
+        id:
+          type: string
+        rows:
+          type: array
+          items:
+            type: object
+            properties:
+              '504':
+                type: integer
+              IEP:
+                type: integer
+              IFSP: {}
+              Age:
+                type: integer
+
+    GetBarChartResponse:
+      title: Bar chart response
+      type: object
+      properties:
+        id:
+          description: Chart id
+          type: string
+        categories:
+          description: Categories for chart. This is like the "x-axis" and is commonly the year.
+          type: array
+          items:
+            type: integer
+        series:
+          description: Series values for chart. This is like the "y-axis".
+          type: array
+          items:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: number
+              name:
+                type: string
+        metadata:
+          type: object
+          properties:
+            config:
+              type: object
+              properties:
+                plotOptions:
+                  type: object
+                  properties:
+                    series:
+                      type: object
+                      properties:
+                        dataLabels:
+                          type: object
+                          properties:
+                            format:
+                              type: string
+                yAxis:
+                  type: object
+                  properties:
+                    decimals:
+                      type: string
+                    type:
+                      type: string
+                    title:
+                      type: string
+                    labels:
+                      type: object
+                      properties:
+                        format:
+                          type: string
+                tooltip:
+                  type: string
+                title:
+                  type: string
+
+    GetUploadStatusResponse:
+      title: Upload status response
+      type: object
+      properties:
+        status:
+          type: string
+        numRecords:
+          type: number
+        percent:
+          type: number
+        errors:
+          type: string
+        lastUpdated:
+          type: string
+      required:
+        - status
+        - numRecords
+        - percent
+        - lastUpdated
