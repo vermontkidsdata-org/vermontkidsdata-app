@@ -23,15 +23,19 @@ let secret: DBSecret | undefined = undefined;
 let cachedConnection: mysql.Connection | undefined = undefined;
 
 export async function getDBSecret(): Promise<DBSecret> {
+  console.log('getDBSecret, secret', secret)
   if (secret) return secret;
   else {
+    console.log('getDBSecret, get SecretsManagerClient')
     const smClient = new SecretsManagerClient({ region: getRegion() });
     const SecretId = `vkd/${getNamespace()}/dbcreds`;
+    console.log({message: 'getDBSecret, SecretId', SecretId, smClient})
 
     // Get secret connection info
     const secrets = (await smClient.send(new GetSecretValueCommand({
       SecretId
     }))).SecretString;
+    console.log('getDBSecret, got secrets', secrets)
 
     if (secrets == null) {
       throw new Error('DB connection info not found');

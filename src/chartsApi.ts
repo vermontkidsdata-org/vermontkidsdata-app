@@ -67,11 +67,14 @@ export async function lambdaHandler(
 
       // console.log('categories', categories);
       // console.log('series', series);
-      const retSeries: { name: string, data: number[] }[] = Object.keys(series).map(label => {
+      const retSeries: { name: string, data: (number|null)[] }[] = Object.keys(series).map(label => {
         // console.log('label', label);
         return {
           name: label,
-          data: categories.map(cat => parseFloat(series[label][cat]))
+          data: categories.map(cat => {
+            const val = parseFloat(series[label][cat]);
+            return (val < 0 ? null : val);
+          })
         };
       });
       // console.log('retSeries', retSeries);

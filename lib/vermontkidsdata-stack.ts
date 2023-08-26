@@ -211,8 +211,8 @@ export class VermontkidsdataStack extends cdk.Stack {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
       runtime: lambda.Runtime.NODEJS_16_X,
-      handler: 'bar',
       entry: join(__dirname, "../src/chartsApi.ts"),
+      handler: 'bar',
       logRetention: logs.RetentionDays.ONE_DAY,
       environment: {
         REGION: this.region,

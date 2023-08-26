@@ -11,6 +11,14 @@ exports[`Lambda Snapshot Test 1`] = `
         "Ref": "Uploadsbucket86F42938",
       },
     },
+    "docsdomain": {
+      "Value": {
+        "Fn::GetAtt": [
+          "Distribution830FAC52",
+          "DomainName",
+        ],
+      },
+    },
     "testVermontKidsDataEndpoint84F49ECA": {
       "Value": {
         "Fn::Join": [
@@ -1073,6 +1081,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "S3Bucket": "[ASSET BUCKET]",
           "S3Key": "[ASSET ZIP]",
         },
+        "Environment": {
+          "Variables": {
+            "AWS_CA_BUNDLE": "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem",
+          },
+        },
         "Handler": "index.handler",
         "Layers": [
           {
@@ -1238,7 +1251,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
@@ -1290,16 +1303,111 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "SourceBucketNames": [
           "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
+          "[ASSET BUCKET]",
         ],
         "SourceMarkers": [
           {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
         ],
         "SourceObjectKeys": [
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
+          "[ASSET ZIP]",
           "[ASSET ZIP]",
         ],
       },
       "Type": "Custom::CDKBucketDeployment",
       "UpdateReplacePolicy": "Delete",
+    },
+    "Distribution830FAC52": {
+      "Properties": {
+        "DistributionConfig": {
+          "DefaultCacheBehavior": {
+            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "Compress": true,
+            "TargetOriginId": "testTestStackDistributionOrigin12BE499BC",
+            "ViewerProtocolPolicy": "allow-all",
+          },
+          "DefaultRootObject": "index.html",
+          "Enabled": true,
+          "HttpVersion": "http2",
+          "IPV6Enabled": true,
+          "Origins": [
+            {
+              "DomainName": {
+                "Fn::GetAtt": [
+                  "Docsbucket48971E37",
+                  "RegionalDomainName",
+                ],
+              },
+              "Id": "testTestStackDistributionOrigin12BE499BC",
+              "S3OriginConfig": {
+                "OriginAccessIdentity": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "origin-access-identity/cloudfront/",
+                      {
+                        "Ref": "OriginAccessIdentityDF1E3CAC",
+                      },
+                    ],
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      },
+      "Type": "AWS::CloudFront::Distribution",
     },
     "Docsbucket48971E37": {
       "DeletionPolicy": "Delete",
@@ -1322,6 +1430,45 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Delete",
+    },
+    "DocsbucketPolicy7757B0E4": {
+      "Properties": {
+        "Bucket": {
+          "Ref": "Docsbucket48971E37",
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:GetObject",
+              "Effect": "Allow",
+              "Principal": {
+                "CanonicalUser": {
+                  "Fn::GetAtt": [
+                    "OriginAccessIdentityDF1E3CAC",
+                    "S3CanonicalUserId",
+                  ],
+                },
+              },
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "Docsbucket48971E37",
+                        "Arn",
+                      ],
+                    },
+                    "/*",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::S3::BucketPolicy",
     },
     "DownloadFunction40EABBE7": {
       "DependsOn": [
@@ -1804,7 +1951,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -2007,6 +2154,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         ],
       },
       "Type": "AWS::IAM::Policy",
+    },
+    "OriginAccessIdentityDF1E3CAC": {
+      "Properties": {
+        "CloudFrontOriginAccessIdentityConfig": {
+          "Comment": "Allows CloudFront to reach the bucket",
+        },
+      },
+      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
     },
     "QueriesdeleteAPIFunction2A72083B": {
       "DependsOn": [
@@ -2698,7 +2853,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "REGION": "aq-south-1",
           },
         },
-        "Handler": "index.testcitylambda.queryDB",
+        "Handler": "testcitylambda.queryDB",
         "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
@@ -3341,6 +3496,44 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 },
               ],
             },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+              ],
+              "Effect": "Allow",
+              "Principal": {
+                "CanonicalUser": {
+                  "Fn::GetAtt": [
+                    "OriginAccessIdentityDF1E3CAC",
+                    "S3CanonicalUserId",
+                  ],
+                },
+              },
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "Uploadsbucket86F42938",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "Uploadsbucket86F42938",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
           ],
           "Version": "2012-10-17",
         },
@@ -3384,7 +3577,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
@@ -3745,13 +3938,13 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C729387ea524a4029ee6665fa8fe9b87d6": {
+    "testVermontKidsDataDeployment82D2B8C72ffd6e7331b84d1e50613f2d917a15bd": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
         "gatewayresponseforDEFAULT5XX187AAE21",
-        "testVermontKidsDataapidocsGETF2FB3523",
-        "testVermontKidsDataapidocsF151AB36",
+        "testVermontKidsDataapidocsyamlGET2432E319",
+        "testVermontKidsDataapidocsyamlD0CA29BA",
         "testVermontKidsDatachartbarqueryIdGETD88F41A0",
         "testVermontKidsDatachartbarqueryId1B9FDE04",
         "testVermontKidsDatachartbar0896C591",
@@ -3821,7 +4014,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C729387ea524a4029ee6665fa8fe9b87d6",
+          "Ref": "testVermontKidsDataDeployment82D2B8C72ffd6e7331b84d1e50613f2d917a15bd",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -3830,7 +4023,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Stage",
     },
-    "testVermontKidsDataapidocsF151AB36": {
+    "testVermontKidsDataapidocsyamlD0CA29BA": {
       "Properties": {
         "ParentId": {
           "Fn::GetAtt": [
@@ -3838,14 +4031,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "RootResourceId",
           ],
         },
-        "PathPart": "apidocs",
+        "PathPart": "apidocs.yaml",
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "testVermontKidsDataapidocsGETF2FB3523": {
+    "testVermontKidsDataapidocsyamlGET2432E319": {
       "Properties": {
         "AuthorizationType": "NONE",
         "HttpMethod": "GET",
@@ -3902,7 +4095,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           },
         ],
         "ResourceId": {
-          "Ref": "testVermontKidsDataapidocsF151AB36",
+          "Ref": "testVermontKidsDataapidocsyamlD0CA29BA",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",

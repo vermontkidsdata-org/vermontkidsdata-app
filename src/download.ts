@@ -41,7 +41,11 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
   general: {
     processRowFunction: processGeneralRow,
     getTableNameForFunction: (type: string) => "data_" + type.substring('general'.length + 1),
-  }
+  },
+  dashboard: {
+    processRowFunction: processGeneralRow,
+    getTableNameForFunction: (type: string) => "dashboard_" + type.substring('dashboard'.length + 1),
+  },
 }
 
 async function processAssessmentRow(type: string, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any): Promise<void> {
@@ -72,7 +76,7 @@ function updateResponse(response: any, body: any, statusCode?: number) {
 }
 
 function toCSV(row: (string | number)[]): string {
-  return row.join(',');
+  return row.map(el => `${el}`.includes(',') ? `"${el}"` : el).join(',');
 }
 
 export async function lambdaHandler(
@@ -112,6 +116,7 @@ export async function lambdaHandler(
         await doDBOpen();
 
         const uploadTypeData: { type: string, table: string, index_columns: string, }[] = await doDBQuery('select * from `upload_types` where `type`=?', [uploadType]);
+        
         if (uploadTypeData.length !== 1) {
           updateResponse(response, {
             message: `expected 1 row from upload_types for ${uploadType} got ${uploadTypeData.length}`
@@ -159,7 +164,7 @@ if (!module.parent) {
   (async () => {
     console.log(await lambdaHandler({
       pathParameters: {
-        uploadType: 'general:bed'
+        uploadType: 'dashboard:indicators'
       }
     } as unknown as APIGatewayProxyEvent))
   })().catch(err => {

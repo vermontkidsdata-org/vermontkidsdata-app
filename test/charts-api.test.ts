@@ -32,4 +32,28 @@ describe('chartsApi', () => {
     expectCORS(ret);
   });
 
+  test('returns null on -1', async () => {
+    // queryDBSpy.mock.invocationCall in mockResolvedValue(BOGUS_BRANCH_NAME);
+
+    const ret = await lambdaHandler({
+      pathParameters: {
+        queryId: 'women_no_leave:chart'
+      }
+    } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+    // {
+    //   "id": "60",
+    //   "metadata": { "config": { "title": "Percent of children under 18 adequately covered by health insurance", "yAxis": { "type": "percent" } } },
+    //   "series": [{ "name": "Percent Children Covered", "data": [79, 78] }],
+    //   "categories": ["2017-2018", "2019-2020"]
+    // }
+    expect(ret.statusCode).toBe(200);
+    const body = JSON.parse(ret.body);
+    console.log({body: JSON.stringify(body)});
+    expect(body.series[0].data[3]).toBeNull();
+    // expect(body.series[1].data[0]).toBe(78.2);
+
+    // Make sure even the error response has CORS headers
+    expectCORS(ret);
+  });
+
 });

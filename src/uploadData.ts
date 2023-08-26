@@ -24,16 +24,25 @@ const dynamodb = new AWS.DynamoDB({ region: REGION });
 type CsvProcessCallback = (type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: any) => Promise<void>;
 
 interface TypesConfigElement {
-  processRowFunction: CsvProcessCallback;
+  processRowFunction: CsvProcessCallback; // Called on each row
+  preFunction?: CsvProcessCallback; // Called before any rows
+  postFunction?: CsvProcessCallback; // Called after all rows
 }
 
 const typesConfig: { [type: string]: TypesConfigElement } = {
+  indicators: {
+    processRowFunction: processIndicatorsRow,
+  },
   assessments: {
     processRowFunction: processAssessmentRow,
   },
   general: {
     processRowFunction: processGeneralRow
-  }
+  },
+  dashboard: {
+    processRowFunction: processGeneralRow,
+    preFunction: truncateTable,
+  },
 }
 
 interface ProcessGeneralRowClientData {
@@ -147,7 +156,7 @@ function humanToInternalName(col: string): string {
 
 function matchColumns(record: string[], uploadType: UploadType): { matchedColumns: string[], unmatchedColumns: string[] } {
   const uploadTypeColumns: Column[] = uploadType.columns;
-  const uploadTypeColumnNames = uploadTypeColumns.map(col => col.columnName.toLowerCase());
+  const uploadTypeColumnNames = uploadTypeColumns.map(col => humanToInternalName(col.columnName));
   const matchedColumns: string[] = [];
   const unmatchedColumns: string[] = [];
 
@@ -161,7 +170,7 @@ function matchColumns(record: string[], uploadType: UploadType): { matchedColumn
       undefined;
 
     const lccol = mappedColumn ?? lccolExternal;
-
+    // console.log({ message: 'match check', uploadTypeColumnNames, lccol });
     const matchPos = uploadTypeColumnNames.indexOf(lccol);
     if (matchPos >= 0) {
       matchedColumns.push(uploadTypeColumns[matchPos].columnName);
@@ -171,6 +180,15 @@ function matchColumns(record: string[], uploadType: UploadType): { matchedColumn
   }
 
   return { matchedColumns, unmatchedColumns };
+}
+
+async function truncateTable(type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+  const sql = `truncate table ${type.table}`;
+  if (dryRun) {
+    console.log({ sql });
+  } else {
+    await doDBQuery(sql);
+  }
 }
 
 async function processGeneralRow(type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
@@ -197,7 +215,7 @@ async function processGeneralRow(type: UploadType, record: string[], lnum: numbe
     console.log({ record, cols: uploadType.columns, unmatchedColumns, matchedColumns });
 
     if (unmatchedColumns.length > 0) {
-      console.error({ message: 'unknown column name(s) in first row', tableColumns, record, t: uploadType.table });
+      console.error({ message: 'unknown column name(s) in first row', tableColumns, record, t: uploadType.table, unmatchedColumns });
       throw new Error(`unknown column name(s) ${JSON.stringify(unmatchedColumns)}`);
     }
 
@@ -214,12 +232,17 @@ async function processGeneralRow(type: UploadType, record: string[], lnum: numbe
       throw new Error(`wrong number of columns in row ${lnum}: expected ${clientData.uploadColumns.length} got ${record.length}`);
     }
 
+    const updates = clientData.uploadColumns.filter(c => !clientData.uploadType.indexColumns.includes(c)).map(c => `\`${c}\`=?`);
+    if (updates.length === 0) {
+      updates.push('`id`=`id`');
+    }
+
     const sql = `insert into \`${clientData.uploadType.table}\` (` +
       clientData.uploadColumns.map(c => `\`${c}\``).join(',') +
       `) values (` +
       record.map(v => '?').join(',') +
       `) on duplicate key update ` +
-      clientData.uploadColumns.filter(c => !clientData.uploadType.indexColumns.includes(c)).map(c => `\`${c}\`=?`).join(',');
+      updates.join(',');
 
     const values = ((uploadColumns, indexColumns) => {
       console.log({ indexColumns, uploadColumns });
@@ -243,6 +266,18 @@ async function processGeneralRow(type: UploadType, record: string[], lnum: numbe
     } else {
       await doDBQuery(sql, values);
     }
+  }
+}
+
+async function processIndicatorsRow(type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: any): Promise<void> {
+  if (lnum === 1) {
+    // First row, the column headers are important because they give the topics (or sub-topics).
+    // But this is only from column F on. The other columns should be fixed, so we will validate
+    // them.
+    clientData
+
+  } else {
+
   }
 }
 
@@ -339,9 +374,20 @@ export async function processUpload(props: {
     // Client data - handlers can put anything they want in there
     const clientData: any = {};
 
-    await processCSV(props.bodyContents, async (record, index, total) => {
+    await processCSV(props.bodyContents, props.uploadType, async (record, index, total) => {
       console.log({ message: 'row', index, record });
+
+      if (index === 1 && props.typeConfig.preFunction) {
+        console.log({ message: 'executing pre-function' });
+
+        await props.typeConfig.preFunction(props.uploadType, record, index, props.identifier, props.uploadType, props.dryRun, errors, clientData);
+      }
       await props.typeConfig.processRowFunction(props.uploadType, record, index, props.identifier, props.uploadType, props.dryRun, errors, clientData);
+      if (index === total && props.typeConfig.postFunction) {
+        console.log({ message: 'executing post-function' });
+
+        await props.typeConfig.postFunction(props.uploadType, record, index, props.identifier, props.uploadType, props.dryRun, errors, clientData);
+      }
 
       // Update status every 10%
       statusUpdatePct = Math.round(100 * index / total);
@@ -439,7 +485,7 @@ async function parseCSV(recordsString: string): Promise<string[][]> {
   })
 }
 
-async function processCSV(recordsString: string, callback: (record: string[], index: number, total: number) => Promise<void>): Promise<void> {
+async function processCSV(recordsString: string, uploadType: UploadType, callback: (record: string[], index: number, total: number) => Promise<void>): Promise<void> {
   // First parse into array. Hopefully there are not too many!
   let records: string[][] = await parseCSV(recordsString);
 

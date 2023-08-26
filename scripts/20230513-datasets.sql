@@ -329,13 +329,7 @@ VALUES
     'geo_type,geography,year'
   );
 
-insert into
-  queries (name, sqlText, uploadType, metadata) value (
-    'children_crisis_services:chart',
-    'SELECT `year` as cat, "Vermont" as label, `value` as `value` FROM `data_children_crisis_services` order by `year`',
-    'general:children_crisis_services',
-    '{"yAxis": {"type": "number"}}'
-  );
+
 
 -- children_exclusionary_discipline
 
@@ -372,7 +366,7 @@ VALUES
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'children_exclusionary_discipline:chart',
-    'SELECT `category` as cat, `year` as label, `value` as `value` FROM `data_children_exclusionary_discipline` order by `year`',
+    'SELECT `category` as cat, `year` as label, `value` as `value` FROM `data_children_exclusionary_discipline` where geo_type="State" and geography="Vermont" order by `year`',
     'general:children_exclusionary_discipline',
     '{"yAxis": {"type": "number"}}'
   );
@@ -405,7 +399,7 @@ VALUES
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'intended_pregnancies:chart',
-    'SELECT `year` as cat, "Vermont" as label, `percent`*100 as `value` FROM `data_intended_pregnancies` order by `year`',
+    'SELECT `year` as cat, "Vermont" as label, `percent`*100 as `value` FROM `data_intended_pregnancies` where geo_type="State" and geography="Vermont" order by `year`',
     'general:intended_pregnancies',
     '{"yAxis": {"type": "percent"}}'
   );
@@ -438,7 +432,7 @@ VALUES
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'women_no_leave:chart',
-    'SELECT `year` as cat, "Vermont" as label, `percent`*100 as `value` FROM `data_women_no_leave` order by `year`',
+    'SELECT `year` as cat, "Vermont" as label, `percent`*100 as `value` FROM `data_women_no_leave` where geo_type="State" and geography="Vermont" order by `year`',
     'general:women_no_leave',
     '{"yAxis": {"type": "percent"}}'
   );
@@ -471,7 +465,7 @@ VALUES
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'children_improved_early_intervention:chart',
-    'SELECT `year` as cat, "Vermont" as label, `percent`*100 as `value` FROM `data_children_improved_early_intervention` order by `year`',
+    'SELECT `year` as cat, "Vermont" as label, `percent`*100 as `value` FROM `data_children_improved_early_intervention` where geo_type="State" and geography="Vermont" order by `year`',
     'general:children_improved_early_intervention',
     '{"yAxis": {"type": "percent"}}'
   );
@@ -504,7 +498,7 @@ VALUES
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'families_early_intervention:chart',
-    'SELECT `year` as cat, "Vermont" as label, `percent`*100 as `value` FROM `data_families_early_intervention` order by `year`',
+    'SELECT `year` as cat, "Vermont" as label, `percent`*100 as `value` FROM `data_families_early_intervention` where geo_type="State" and geography="Vermont" order by `year`',
     'general:families_early_intervention',
     '{"yAxis": {"type": "percent"}}'
   );
@@ -542,8 +536,256 @@ VALUES
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'children_ccfap:chart',
-    'SELECT `category` as cat, `year` as label, `value` as `value` FROM `data_children_ccfap` order by `year`',
+    'SELECT `category` as cat, `year` as label, `value` as `value` FROM `data_children_ccfap` where geo_type="State" and geography="Vermont" order by `year`',
     'general:children_ccfap',
     '{"yAxis": {"type": "number"}}'
   );
   
+-- well_visits
+
+CREATE TABLE `data_well_visits` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `geo_type` VARCHAR(16) NOT NULL,
+  `geography` VARCHAR(32) NOT NULL,
+  `year` INT NOT NULL,
+  `percent` FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `UPDATE_UNIQUE` (
+    `geo_type` ASC,
+    `geography` ASC,
+    `year` ASC
+  ) VISIBLE
+);
+
+INSERT INTO
+  `upload_types` (`type`, `table`, `index_columns`)
+VALUES
+  (
+    'general:well_visits',
+    'data_well_visits',
+    'geo_type,geography,year'
+  );
+
+insert into
+  queries (name, sqlText, uploadType, metadata) value (
+    'well_visits:chart',
+    'SELECT `geography` as label, `year` as cat, `percent`*100 as value FROM `data_well_visits` where geo_type="State" and geography="Vermont" order by `year`',
+    'general:well_visits',
+    '{"yAxis": {"type": "percent"}}'
+  );
+
+-- preventative_dental
+
+CREATE TABLE `data_preventative_dental` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `geo_type` VARCHAR(16) NOT NULL,
+  `geography` VARCHAR(32) NOT NULL,
+  `year` INT NOT NULL,
+  `age` enum (
+    '1-2',
+    '3-5',
+    '6-8'
+  ) NOT NULL,
+  `percent` FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `UPDATE_UNIQUE` (
+    `geo_type` ASC,
+    `geography` ASC,
+    `year` ASC,
+    `age` ASC
+  ) VISIBLE
+);
+
+INSERT INTO
+  `upload_types` (`type`, `table`, `index_columns`)
+VALUES
+  (
+    'general:preventative_dental',
+    'data_preventative_dental',
+    'geo_type,geography,year,age'
+  );
+
+insert into
+  queries (name, sqlText, uploadType, metadata) value (
+    'preventative_dental:chart',
+    'SELECT `age` as cat, `year` as label, `percent`*100 as `value` FROM `data_preventative_dental` where geo_type="State" and geography="Vermont" order by `year`',
+    'general:preventative_dental',
+    '{"yAxis": {"type": "percent"}}'
+  );
+
+-- immunizations
+CREATE TABLE `data_immunizations` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `geo_type` VARCHAR(16) NOT NULL,
+  `geography` VARCHAR(32) NOT NULL,
+  `year` INT NOT NULL,
+  `percent` FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `UPDATE_UNIQUE` (
+    `geo_type` ASC,
+    `geography` ASC,
+    `year` ASC
+  ) VISIBLE
+);
+
+INSERT INTO
+  `upload_types` (`type`, `table`, `index_columns`)
+VALUES
+  (
+    'general:immunizations',
+    'data_immunizations',
+    'geo_type,geography,year'
+  );
+
+insert into
+  queries (name, sqlText, uploadType, metadata) value (
+    'immunizations:chart',
+    'SELECT `geography` as label, `year` as cat, `percent`*100 as value FROM `data_immunizations` where geo_type="State" and geography="Vermont" order by `year`',
+    'general:immunizations',
+    '{"yAxis": {"type": "percent"}}'
+  );
+
+-- health_insurance
+
+CREATE TABLE `data_health_insurance` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `geo_type` VARCHAR(16) NOT NULL,
+  `geography` VARCHAR(32) NOT NULL,
+  `year` INT NOT NULL,
+  `percent` FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `UPDATE_UNIQUE` (
+    `geo_type` ASC,
+    `geography` ASC,
+    `year` ASC
+  ) VISIBLE
+);
+
+INSERT INTO
+  `upload_types` (`type`, `table`, `index_columns`)
+VALUES
+  (
+    'general:health_insurance',
+    'data_health_insurance',
+    'geo_type,geography,year'
+  );
+
+insert into
+  queries (name, sqlText, uploadType, metadata) value (
+    'health_insurance:chart',
+    'SELECT `geography` as label, concat(`year`-1,"-",`year`) as cat, `percent`*100 as value FROM `data_health_insurance` where geo_type="State" and geography="Vermont" order by `year`',
+    'general:health_insurance',
+    '{"yAxis": {"type": "percent"}}'
+  );
+
+-- substance_use_pregnancy
+
+CREATE TABLE `data_substance_use_pregnancy` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `geo_type` VARCHAR(16) NOT NULL,
+  `geography` VARCHAR(32) NOT NULL,
+  `year` INT NOT NULL,
+  `category` enum (
+    'Cigarette smoking',
+    'Alcohol',
+    'MAT',
+    'Marijuana'
+  ) NOT NULL,
+  `percent` FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `UPDATE_UNIQUE` (
+    `geo_type` ASC,
+    `geography` ASC,
+    `year` ASC,
+    `category` ASC
+  ) VISIBLE
+);
+
+INSERT INTO
+  `upload_types` (`type`, `table`, `index_columns`)
+VALUES
+  (
+    'general:substance_use_pregnancy',
+    'data_substance_use_pregnancy',
+    'geo_type,geography,year,category'
+  );
+
+insert into
+  queries (name, sqlText, uploadType, metadata) value (
+    'substance_use_pregnancy:chart',
+    'SELECT `year` as cat, `category` as label, `percent`*100 as `value` FROM `data_substance_use_pregnancy` where geo_type="State" and geography="Vermont" order by `year`',
+    'general:substance_use_pregnancy',
+    '{"yAxis": {"type": "percent"}}'
+  );
+
+-- prenatal_visits
+
+CREATE TABLE `data_prenatal_visits` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `geo_type` VARCHAR(16) NOT NULL,
+  `geography` VARCHAR(32) NOT NULL,
+  `year` INT NOT NULL,
+  `percent` FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `UPDATE_UNIQUE` (
+    `geo_type` ASC,
+    `geography` ASC,
+    `year` ASC
+  ) VISIBLE
+);
+
+INSERT INTO
+  `upload_types` (`type`, `table`, `index_columns`)
+VALUES
+  (
+    'general:prenatal_visits',
+    'data_prenatal_visits',
+    'geo_type,geography,year'
+  );
+
+insert into
+  queries (name, sqlText, uploadType, metadata) value (
+    'prenatal_visits:chart',
+    'SELECT `year` as cat, "Vermont" as label, `percent`*100 as `value` FROM `data_prenatal_visits` where geo_type="State" and geography="Vermont" order by `year`',
+    'general:prenatal_visits',
+    '{"yAxis": {"type": "percent"}}'
+  );
+
+-- breastfed_infants
+
+CREATE TABLE `data_breastfed_infants` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `geo_type` VARCHAR(16) NOT NULL,
+  `geography` VARCHAR(32) NOT NULL,
+  `year` INT NOT NULL,
+  `category` enum (
+    'Breastfeeding initiation',
+    'Exclusively breastfeeding at 6 months',
+    'Sustained breastfeeding through 12 months'
+  ) NOT NULL,
+  `percent` FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `UPDATE_UNIQUE` (
+    `geo_type` ASC,
+    `geography` ASC,
+    `year` ASC,
+    `category` ASC
+  ) VISIBLE
+);
+
+INSERT INTO
+  `upload_types` (`type`, `table`, `index_columns`)
+VALUES
+  (
+    'general:breastfed_infants',
+    'data_breastfed_infants',
+    'geo_type,geography,year,category'
+  );
+
+insert into
+  queries (name, sqlText, uploadType, metadata) value (
+    'breastfed_infants:chart',
+    'SELECT `year` as cat, `category` as label, `percent`*100 as `value` FROM `data_breastfed_infants` where geo_type="State" and geography="Vermont" order by `year`',
+    'general:breastfed_infants',
+    '{"yAxis": {"type": "percent"}}'
+  );
