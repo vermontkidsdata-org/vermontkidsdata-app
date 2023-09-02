@@ -1,9 +1,10 @@
 import { Logger } from '@aws-lambda-powertools/logger';
 import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { census, CensusResultRow, GeoHierarchy } from './citysdk-utils';
+import { CensusResultRow, GeoHierarchy, census } from './citysdk-utils';
 import { httpMessageResponse, httpResponse } from './cors';
 import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
+import { ServerMetadata } from './server-metadata';
 
 // Set your service name. This comes out in service lens etc.
 const serviceName = `tables-api-${process.env.NAMESPACE}`;
@@ -70,6 +71,37 @@ interface QueryRow {
   metadata: string
 };
 
+interface DataRow { [key: string]: any }
+
+export function transformRow(rowval: DataRow, metadata: ServerMetadata | undefined): DataRow {
+  if (!metadata) return rowval;
+  const ret: DataRow = { ...rowval };
+
+  if (metadata.transforms) {
+    for (const key of Object.keys(metadata.transforms)) {
+      if (Object.keys(ret).includes(key)) {
+        let val = ret[key];
+        for (const transform of metadata.transforms[key]) {
+          switch (transform.op) {
+            case 'striptag':
+              const sval = `${val}`;
+              const cpos = sval.indexOf(':');
+              if (cpos >= 0) {
+                val = sval.substring(cpos + 1);
+              }
+              break;
+            default:
+              console.error({ message: 'unknown transform op', op: transform.op });
+          }
+        }
+
+        ret[key] = val;
+      }
+    }
+  }
+  return ret;
+}
+
 async function getQuery(queryId: string): Promise<{ rows: QueryRow[] }> {
   // Just in case
   await doDBOpen();
@@ -89,7 +121,7 @@ export function makeDefaultColumnMapName(colName: string): string {
   return colName.split('_').map(piece => piece[0].toUpperCase() + piece.substring(1)).join(' ');
 }
 
-async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?: ColumnMap, metadata?: Object }> {
+async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?: ColumnMap, metadata?: any }> {
   const info = await getQuery(queryId);
 
   // Now run the query. Should always return three columns, with the following names
@@ -99,7 +131,7 @@ async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?:
   const resultRows = await doDBQuery(info.rows[0].sqlText);
 
   // Generate a default column map if one isn't present
-  console.log({dbColumnMap: info.rows[0].columnMap});
+  console.log({ dbColumnMap: info.rows[0].columnMap });
   const columnMap = info.rows[0].columnMap != null ? JSON.parse(info.rows[0].columnMap) as ColumnMap : (() => {
     const map: ColumnMap = {}
     for (const colName of Object.keys(resultRows[0])) {
@@ -107,7 +139,7 @@ async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?:
     }
     return map;
   })();
-  console.log({columnMap});
+  console.log({ columnMap });
   return { rows: resultRows, columnMap: columnMap, metadata: JSON.parse(info.rows[0].metadata) };
 }
 
@@ -137,7 +169,7 @@ export async function table(
       };
 
       const columns: { id: string, label: string }[] = [];
-      const rows: { [key: string]: any }[] = [];
+      const rows: DataRow[] = [];
 
       for (let i = 0; i < resultRows.rows.length; i++) {
         // We'll take the column labels from the first row
@@ -176,11 +208,12 @@ export async function table(
         }
 
         // All rows, return the data
-        const rowval: { [key: string]: any } = {};
+        const rowval: DataRow = {};
         Object.values(columns).forEach(col => {
           rowval[col.id] = row[col.id];
         });
-        rows.push(rowval);
+
+        rows.push(transformRow(rowval, resultRows.metadata?.server));
       }
       const metadata: any = {};
       if (resultRows.metadata) {
@@ -800,12 +833,28 @@ if (!module.parent) {
     //     queryId: '58'
     //   }
     // } as unknown as APIGatewayProxyEventV2));
-    console.log(await getDataSetYears('acs/acs5XXX'));
-    console.log(await getDataSetYearsByDataset({
-      pathParameters: {
-        dataset: 'acs/acs5XXX'
-      }
-    } as unknown as APIGatewayProxyEventV2));
+    // console.log(await getDataSetYears('acs/acs5XXX'));
+    // console.log(await getDataSetYearsByDataset({
+    //   pathParameters: {
+    //     dataset: 'acs/acs5XXX'
+    //   }
+    // } as unknown as APIGatewayProxyEventV2));
+    console.log(transformRow({
+      "id": 1,
+      "Category": "BN:Cost of living",
+      "Basic Needs": 1,
+      "Child Care": 0,
+      "Child Development": 0,
+      "Demographics": 0,
+      "Economics": 0,
+      "Education": 0,
+      "Housing": 0,
+      "Mental Health": 0,
+      "Physical Health": 0,
+      "Resilience": 0,
+      "UPK": 0,
+      "Workforce": 0
+    }, { "transforms": { "Category": [{ "op": "striptag" }] } }))
   })().catch(err => {
     console.log(`exception`, err);
   });

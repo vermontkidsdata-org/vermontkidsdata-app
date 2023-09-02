@@ -223,7 +223,7 @@ insert into
     'households_food_insecure:chart',
     'SELECT `geography` as label, `year` as cat, `percent`*100 as value FROM `data_households_food_insecure` order by `year`',
     'general:households_food_insecure',
-    '{"yAxis": {"type": "percent"}, "tooltip": "'Percent <b>' + this.x +'</b>: <b>' + (this.y).toFixed(0) + '</b>'"}'
+    '{"yAxis": {"type": "percent"}}'
   );
 
 -- children_wic_snap

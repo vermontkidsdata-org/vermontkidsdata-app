@@ -1,0 +1,31 @@
+Category,Basic Needs,Child Care,Child Development,Demographics,Economics,Education,Housing,Mental Health,Physical Health,Resilience,UPK,Workforce
+BN:Cost of living,1,0,0,0,0,0,0,0,0,0,0,0
+BN:Financial assistance,1,0,0,0,0,0,0,0,0,0,0,0
+BN:Food security and nutrition,1,0,0,0,0,0,0,0,0,0,0,0
+BN:Housing,1,0,0,0,0,0,0,0,0,0,0,0
+Child care:access,0,1,0,0,0,0,0,0,0,0,0,0
+Child development:Service access and utilization,0,0,1,0,0,0,0,0,0,0,0,0
+Child development:Standardized tests and screenings,0,0,1,0,0,0,0,0,0,0,0,0
+Demographics:Living arrangements,0,0,0,1,0,0,0,0,0,0,0,0
+Demographics:Population,0,0,0,1,0,0,0,0,0,0,0,0
+Econ:Cost of living,0,0,0,0,1,0,0,0,0,0,0,0
+Econ:Economic impact,0,0,0,0,1,0,0,0,0,0,0,0
+Econ:Financial assistance,0,0,0,0,1,0,0,0,0,0,0,0
+Education:Standardized tests,0,0,0,0,0,1,0,0,0,0,0,0
+Education:Student characteristics,0,0,0,0,0,1,0,0,0,0,0,0
+Housing:Housing,0,0,0,0,0,0,1,0,0,0,0,0
+Mental Health:Access,0,0,0,0,0,0,0,1,0,0,0,0
+Mental Health:Prevalence,0,0,0,0,0,0,0,1,0,0,0,0
+PH:Access and utilization,0,0,0,0,0,0,0,0,1,0,0,0
+PH:Food security and nutrition,0,0,0,0,0,0,0,0,1,0,0,0
+PH:Mental health,0,0,0,0,0,0,0,0,1,0,0,0
+PH:Perinatal health,0,0,0,0,0,0,0,0,1,0,0,0
+R:Cost of living,0,0,0,0,0,0,0,0,0,1,0,0
+R:Food security and nutrition,0,0,0,0,0,0,0,0,0,1,0,0
+R:Housing,0,0,0,0,0,0,0,0,0,1,0,0
+R:Mental health,0,0,0,0,0,0,0,0,0,1,0,0
+R:Other environmental factors,0,0,0,0,0,0,0,0,0,1,0,0
+R:Social and emotional,0,0,0,0,0,0,0,0,0,1,0,0
+UPK:Access and utilization,0,0,0,0,0,0,0,0,0,0,1,0
+UPK:Standardized tests,0,0,0,0,0,0,0,0,0,0,1,0
+Workforce:Paid leave,0,0,0,0,0,0,0,0,0,0,0,1
