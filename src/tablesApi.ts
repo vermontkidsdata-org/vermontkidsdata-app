@@ -96,10 +96,12 @@ export function transformRow(rowval: DataRow, metadata: ServerMetadata | undefin
 
   // Example metadata:
   // {
-  //   transforms: {
-  //     col1: [{
-  //       op: 'mapurl'
-  //     }]
+  //   server: {
+  //     transforms: {
+  //       col1: [{
+  //         op: 'mapurl'
+  //       }]
+  //     }
   //   }
   // }
   if (metadata.transforms) {
