@@ -94,6 +94,14 @@ export function transformRow(rowval: DataRow, metadata: ServerMetadata | undefin
   if (!metadata) return rowval;
   const ret: DataRow = { ...rowval };
 
+  // Example metadata:
+  // {
+  //   transforms: {
+  //     col1: [{
+  //       op: 'mapurl'
+  //     }]
+  //   }
+  // }
   if (metadata.transforms) {
     for (const key of Object.keys(metadata.transforms)) {
       if (Object.keys(ret).includes(key)) {
