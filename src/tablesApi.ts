@@ -7,9 +7,11 @@ import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
 import { ServerMetadata } from './server-metadata';
 
 // Set your service name. This comes out in service lens etc.
-const serviceName = `tables-api-${process.env.NAMESPACE}`;
+const { NAMESPACE, LOG_LEVEL } = process.env;
+
+const serviceName = `tables-api-${NAMESPACE}`;
 const logger = new Logger({
-  logLevel: process.env.LOG_LEVEL || 'INFO',
+  logLevel: LOG_LEVEL || 'INFO',
   serviceName
 });
 const tracer = new Tracer({ serviceName });
@@ -73,6 +75,21 @@ interface QueryRow {
 
 interface DataRow { [key: string]: any }
 
+interface URLParts { prefix: string, api: string, env: string, suffix: string };
+
+export function getUrlParts(sval: string): URLParts | undefined {
+  const matches = sval.match(/^(.*?)(api\.)?(qa\.)?vtkidsdata\.org(.*)$/);
+  if (matches) {
+    const prefix = matches[1] || '';
+    const api = matches[2] || '';
+    const env = matches[3] || '';
+    const suffix = matches[4] || '';
+    return { prefix, api, env, suffix };
+  } else {
+    return undefined;
+  }
+}
+
 export function transformRow(rowval: DataRow, metadata: ServerMetadata | undefined): DataRow {
   if (!metadata) return rowval;
   const ret: DataRow = { ...rowval };
@@ -82,9 +99,17 @@ export function transformRow(rowval: DataRow, metadata: ServerMetadata | undefin
       if (Object.keys(ret).includes(key)) {
         let val = ret[key];
         for (const transform of metadata.transforms[key]) {
+          const sval = `${val}`;
           switch (transform.op) {
+            case 'mapurl':
+              // Transform environment-specific URLs
+              const urlParts = getUrlParts(sval);
+              if (urlParts) {
+                // (.*?)(api\.)?(qa\.)?vtkidsdata\.org(.*)
+                val = urlParts.prefix + urlParts.api + (NAMESPACE === 'qa' ? 'qa.' : '') + 'vtkidsdata.org' + urlParts.suffix;
+              }
+              break;
             case 'striptag':
-              const sval = `${val}`;
               const cpos = sval.indexOf(':');
               if (cpos >= 0) {
                 val = sval.substring(cpos + 1);
