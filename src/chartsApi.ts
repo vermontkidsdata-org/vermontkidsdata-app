@@ -27,7 +27,7 @@ export async function lambdaHandler(
     await doDBOpen();
     try {
       // Get the query to run from the parameters
-      const queryRows = await doDBQuery('SELECT sqlText, metadata FROM queries where name=?', [queryId]);
+      const queryRows = await doDBQuery('SELECT sqlText, metadata, uploadType FROM queries where name=?', [queryId]);
       // console.log(queryRows);
       if (queryRows.length == 0) {
         return {
@@ -37,7 +37,8 @@ export async function lambdaHandler(
       }
 
       const metadata = JSON.parse(queryRows[0].metadata || '{}');
-
+      const uploadType = queryRows[0].uploadType;
+      
       // Now run the query. Should always return three columns, with the following names
       // - cat: The category(s)
       // - label: The label for the values
@@ -89,7 +90,8 @@ export async function lambdaHandler(
         body: JSON.stringify({
           id: queryId,
           metadata: {
-            config: metadata
+            config: metadata,
+            uploadType
           },
           series: retSeries,
           categories: categories
