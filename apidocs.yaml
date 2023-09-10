@@ -7,7 +7,7 @@ servers:
 paths:
   "/download/{uploadType}":
     get:
-      description: Download contents of a dataset in CSV format.
+      description: Download contents of a dataset in CSV format. This is generally for maintaining data table contents, as well as providing the "download full dataset" functionality.
       tags: 
         - dataset
       parameters:
@@ -40,6 +40,11 @@ paths:
             text/csv:
               schema:
                 type: string
+              example: |-
+                Category,Basic Needs,Child Care,Child Development,Demographics,Economics,Education,Housing,Mental Health,Physical Health,Resilience,UPK,Workforce
+                BN:Cost of living,1,0,0,0,0,0,0,0,0,0,0,0
+                BN:Financial assistance,1,0,0,0,0,0,0,0,0,0,0,0
+                BN:Food security and nutrition,1,0,0,0,0,0,0,0,0,0,0,0
       security: []
 
   "/dataset/years/{dataset}":
@@ -79,7 +84,7 @@ paths:
     get:
       description: Check status for a given upload
       tags: 
-        - adminstration
+        - administration
       parameters:
         - name: uploadId
           description: Upload ID to check status for
@@ -104,15 +109,60 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/GetUploadStatusResponse"
+  "/queries":
+    get:
+      description: Get queries defined to return custom chart or table data.
+      tags: 
+        - administration
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetQueriesResponse"
+
+  "/queries/{queryId}":
+    get:
+      description: Get a single query defined to return custom chart or table data.
+      tags: 
+        - administration
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetQueryResponse"
 
   "/chart/bar/{queryId}":
     get:
-      description: Get bar chart data
+      description: Get chart data. The URI implies this is only used for bar charts, but in fact it is generally used for all chart types (bar, line, stacked bar, etc.)
       tags: 
         - dataset
       parameters:
         - name: queryId
-          description: query ID to get bar chart data for
+          description: query ID to get chart data for; these are listed by the `GET /queries` API endpoint
           in: path
           required: true
           schema:
@@ -137,12 +187,12 @@ paths:
 
   "/table/table/{queryId}":
     get:
-      description: Get table data for the custom dataset
+      description: Get table data for the custom dataset. This is a JSON format that can be used for various purposes.
       tags: 
         - dataset
       parameters:
         - name: queryId
-          description: query ID to get data for; defines the custom dataset
+          description: query ID to get data for; defines the custom dataset; these are listed by the `GET /queries` API endpoint
           in: path
           required: true
           schema:
@@ -455,6 +505,8 @@ components:
         metadata:
           type: object
           properties:
+            uploadType:
+              type: string
             config:
               type: object
               properties:
@@ -507,3 +559,59 @@ components:
         - numRecords
         - percent
         - lastUpdated
+
+    GetQueriesResponse:
+      title: Get queries list response
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              sqlText:
+                type: string
+              columnMap:
+                type: string
+              metadata:
+                type: string
+              uploadType:
+                type: string
+            required:
+            - id
+            - name
+            - sqlText
+            - columnMap
+            - metadata
+            - uploadType
+
+    GetQueryResponse:
+      title: Get query definition response
+      type: object
+      properties:
+        row:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            sqlText:
+              type: string
+            columnMap:
+              type: string
+            metadata:
+              type: string
+            uploadType:
+              type: string
+          required:
+          - id
+          - name
+          - sqlText
+          - columnMap
+          - metadata
+          - uploadType
