@@ -21,7 +21,7 @@ const { S3_BUCKET_NAME: bucketName, REGION, STATUS_TABLE: statusTableName } = pr
 const s3 = new AWS.S3({ region: REGION });
 const dynamodb = new AWS.DynamoDB({ region: REGION });
 
-type CsvProcessCallback = (type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: any) => Promise<void>;
+type CsvProcessCallback = (uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any) => Promise<void>;
 
 interface TypesConfigElement {
   processRowFunction: CsvProcessCallback; // Called on each row
@@ -41,7 +41,7 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
   },
   dashboard: {
     processRowFunction: processGeneralRow,
-    preFunction: truncateTable,
+    preFunction: recreateDashboardTable,
   },
 }
 
@@ -59,6 +59,7 @@ interface UploadType {
   columns: Column[],
   indexColumns: string[],
   columnMap: Record<string, string>, // Mapping from real internal column name to external, first converted to internal
+  preserve: string[] | undefined,
 }
 
 enum ColumnDataType {
@@ -121,15 +122,27 @@ async function getUploadType(type: string): Promise<UploadType> {
       const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string } = types[0];
       // Get the columns list
       const columns = await getColumns(uploadTypeRaw.table);
-      const columnMap = (() => {
-        if (!uploadTypeRaw.column_map) return undefined;
-        const rawMap: Record<string, string> = JSON.parse(uploadTypeRaw.column_map);
-        const cookedMap: Record<string, string> = {};
+      const { columnMap, preserve } = (() => {
+        let cookedMap: Record<string, string> | undefined = undefined;
+        let preserve: Array<string> | undefined = undefined;
 
-        for (const key of Object.keys(rawMap)) {
-          cookedMap[key] = humanToInternalName(rawMap[key]);
+        if (uploadTypeRaw.column_map) {
+          const column_map = JSON.parse(uploadTypeRaw.column_map);
+          if (column_map.map) {
+            const rawMap: Record<string, string> = column_map.map;
+            cookedMap = {};
+
+            for (const key of Object.keys(rawMap)) {
+              cookedMap[key] = humanToInternalName(rawMap[key]);
+            }
+          }
+
+          if (column_map.preserve) {
+            preserve = column_map.preserve;
+          }
         }
-        return cookedMap;
+
+        return { columnMap: cookedMap, preserve };
       })();
 
       // console.log({ type, uploadTypeRaw, columns })
@@ -139,6 +152,7 @@ async function getUploadType(type: string): Promise<UploadType> {
         table: uploadTypeRaw.table,
         columns,
         columnMap,
+        preserve,
         indexColumns: uploadTypeRaw.index_columns.split(',').map(c => c.trim()),
       } as UploadType;
 
@@ -182,8 +196,45 @@ function matchColumns(record: string[], uploadType: UploadType): { matchedColumn
   return { matchedColumns, unmatchedColumns };
 }
 
-async function truncateTable(type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
-  const sql = `truncate table ${type.table}`;
+async function recreateDashboardTable(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+  await truncateTable(uploadType, record, lnum, identifier, dryRun, errors, clientData);
+  
+  const keepColumns = ((type) => {
+    return [
+      ...new Set([`id`,
+        ...(uploadType.indexColumns || []),
+        ...(uploadType.preserve ?? []),
+      ])
+    ];
+  })(uploadType.type).map(col => humanToInternalName(col));
+
+  const table = uploadType.table;
+  const allColumns = (await getColumns(table)).map(col => humanToInternalName(col.columnName));
+
+  // These are the "internal" names. Need to map these back to real column names to re-create them.
+  const dropColsInternal = allColumns.filter(col => !keepColumns.includes(col));
+  const dropCols = uploadType.columns.filter(col => dropColsInternal.includes(humanToInternalName(col.columnName)));
+
+  if (dropCols.length) {
+    const dropDDL = "alter table `"+table+"` "+dropCols.map(dc => `drop \`${dc.columnName}\``).join(', ');
+    console.log({message: '**** keepColumns', keepColumns, dropCols, dropDDL});
+
+    // Make a copy first!
+    await doDBQuery(`DROP TABLE IF EXISTS \`${table}_backup\`;`);
+    await doDBQuery(`CREATE TABLE \`${table}_backup\` AS SELECT * FROM \`${table}\`;`);
+
+    await doDBQuery(dropDDL);
+  }
+
+  // Go thru headers and see if there's anything we need to create
+  const createCols = record.filter(c => !keepColumns.includes(humanToInternalName(c)));
+  if (createCols.length) {
+    await doDBQuery(`ALTER TABLE \`${table}\` ` + createCols.map(col => `ADD \`${col}\` INT`).join(', '));
+  }
+}
+
+async function truncateTable(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+  const sql = `truncate table ${uploadType.table}`;
   if (dryRun) {
     console.log({ sql });
   } else {
@@ -191,7 +242,10 @@ async function truncateTable(type: UploadType, record: string[], lnum: number, i
   }
 }
 
-async function processGeneralRow(type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+async function processDashboardRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+}
+
+async function processGeneralRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
   // console.log({ message: 'processGeneralRow start', type, record, lnum });
   if (lnum === 1) {
     // Assume this has the column names. Check against the value ones for this type. But first we need to look it up...
@@ -206,13 +260,13 @@ async function processGeneralRow(type: UploadType, record: string[], lnum: numbe
     // Check the columns. We might we more lenient at some point, but right now they have to
     // match exactly. Note we should get one less, no id column.
     if (record.length !== uploadType.columns.length - 1) {
-      throw new Error(`wrong number of columns for type ${type.type}; expected ${JSON.stringify(Object.values(uploadType.columns).map(v => v.columnName))} got ${JSON.stringify(record)}`);
+      throw new Error(`wrong number of columns for type ${uploadType.type}; expected ${JSON.stringify(Object.values(uploadType.columns).map(v => v.columnName))} got ${JSON.stringify(record)}`);
     }
 
     const tableColumns = uploadType.columns.map(c => c.columnName);
 
     const { matchedColumns, unmatchedColumns } = matchColumns(record, uploadType);
-    console.log({ record, cols: uploadType.columns, unmatchedColumns, matchedColumns });
+    // console.log({ record, cols: uploadType.columns, unmatchedColumns, matchedColumns });
 
     if (unmatchedColumns.length > 0) {
       console.error({ message: 'unknown column name(s) in first row', tableColumns, record, t: uploadType.table, unmatchedColumns });
@@ -269,7 +323,7 @@ async function processGeneralRow(type: UploadType, record: string[], lnum: numbe
   }
 }
 
-async function processIndicatorsRow(type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: any): Promise<void> {
+async function processIndicatorsRow(type: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any): Promise<void> {
   if (lnum === 1) {
     // First row, the column headers are important because they give the topics (or sub-topics).
     // But this is only from column F on. The other columns should be fixed, so we will validate
@@ -281,7 +335,7 @@ async function processIndicatorsRow(type: UploadType, record: string[], lnum: nu
   }
 }
 
-async function processAssessmentRow(type: UploadType, record: string[], lnum: number, identifier: string, uploadType: UploadType, dryRun: boolean, errors: Error[], clientData: any): Promise<void> {
+async function processAssessmentRow(type: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any): Promise<void> {
   if (lnum > 1) {
     if (record.length != 9) throw new Error(`lines expected to have 9 columns`);
 
@@ -380,13 +434,13 @@ export async function processUpload(props: {
       if (index === 1 && props.typeConfig.preFunction) {
         console.log({ message: 'executing pre-function' });
 
-        await props.typeConfig.preFunction(props.uploadType, record, index, props.identifier, props.uploadType, props.dryRun, errors, clientData);
+        await props.typeConfig.preFunction(props.uploadType, record, index, props.identifier, props.dryRun, errors, clientData);
       }
-      await props.typeConfig.processRowFunction(props.uploadType, record, index, props.identifier, props.uploadType, props.dryRun, errors, clientData);
+      await props.typeConfig.processRowFunction(props.uploadType, record, index, props.identifier, props.dryRun, errors, clientData);
       if (index === total && props.typeConfig.postFunction) {
         console.log({ message: 'executing post-function' });
 
-        await props.typeConfig.postFunction(props.uploadType, record, index, props.identifier, props.uploadType, props.dryRun, errors, clientData);
+        await props.typeConfig.postFunction(props.uploadType, record, index, props.identifier, props.dryRun, errors, clientData);
       }
 
       // Update status every 10%
@@ -502,20 +556,30 @@ if (!module.parent) {
     try {
       await doDBOpen();
       console.log('connection open');
-      const bodyContents = `SY,Org id,Test Name,Indicator Label,Assess Group,Assess Label,School Value,Supervisory Union Value,State Value
-2021,VT001,SB English Language Arts Grade 03,Total Proficient and Above,All Students,All Students,,,0.425
-2021,VT001,SB English Language Arts Grade 03,Total Proficient and Above,Disability,No Special Ed,,,0.485
-`;
-      const uploadType = await getUploadType('general:assessments');
+      for (const t of [
+        {t: 'dashboard:categories', c: 'Category,Topics,Goals,Geographies'},
+        {t: 'dashboard:indicators', c: 'wp_id,slug,Chart_url,link,title,BN:Cost of living,BN:Housing,BN:Food security and nutrition,BN:Financial assistance,Housing:Housing,Demographic:Living arrangements,Demographics:Population,Econ:Cost of living,Econ:Financial assistance,Econ:Economic impact,Child Care:Access,Child development:Service access and utilization,Child development:Standardized tests and screening,Education:Standardized tests,Education:Student characteristics,Mental health:Access,Mental health:Prevalence,PH:Mental health,PH:Access and utilization,PH:Food security and nutrition,PH:Perinatal health,R:Food security and nutrition,R:Housing,R:Cost of living,R:Mental health,R:Other environmental factors,R:Social and emotional,UPK:Access and utilization,UPK:Standardized tests,Workforce:Paid Leave,Geo_state,Geo_AHS_District,Geo_County,Geo_SU_SD,Geo_HSA,Goal 1 (healthy start),Goal 2 (families and comm),Goal 3 (opportunties),Goal 4 (integrated/resource/data-drive)'},
+        {t: 'dashboard:subcategories', c: 'Category,Basic Needs,Child Care,Child Development,Demographics,Economics,Education,Housing,Mental Health,Physical Health,Resilience,UPK,Workforce'},
+        {t: 'dashboard:topics', c: 'name'},
+      ]) {
+        const uploadType = await getUploadType(t.t);
+        console.log(uploadType);
+        await recreateDashboardTable(uploadType, t.c.split(','), 1, 'foo', false, [], { uploadType, uploadColumns: [] });
+      }
+      //       const bodyContents = `SY,Org id,Test Name,Indicator Label,Assess Group,Assess Label,School Value,Supervisory Union Value,State Value
+      // 2021,VT001,SB English Language Arts Grade 03,Total Proficient and Above,All Students,All Students,,,0.425
+      // 2021,VT001,SB English Language Arts Grade 03,Total Proficient and Above,Disability,No Special Ed,,,0.485
+      // `;
+      //       const uploadType = await getUploadType('general:assessments');
 
-      const { errors, saveTotal, statusUpdatePct } = await processUpload({
-        bodyContents,
-        typeConfig: typesConfig['general'],
-        uploadType,
-        identifier: '12345',
-        dryRun: false,
-      });
-      console.log({ errors, saveTotal, statusUpdatePct });
+      //       const { errors, saveTotal, statusUpdatePct } = await processUpload({
+      //         bodyContents,
+      //         typeConfig: typesConfig['general'],
+      //         uploadType,
+      //         identifier: '12345',
+      //         dryRun: false,
+      //       });
+      //       console.log({ errors, saveTotal, statusUpdatePct });
     } catch (e) {
       console.error(e);
       await doDBClose();

@@ -23,19 +23,19 @@ let secret: DBSecret | undefined = undefined;
 let cachedConnection: mysql.Connection | undefined = undefined;
 
 export async function getDBSecret(): Promise<DBSecret> {
-  console.log('getDBSecret, secret', secret)
+  // console.log('getDBSecret, secret', secret)
   if (secret) return secret;
   else {
-    console.log('getDBSecret, get SecretsManagerClient')
+    // console.log('getDBSecret, get SecretsManagerClient')
     const smClient = new SecretsManagerClient({ region: getRegion() });
     const SecretId = `vkd/${getNamespace()}/dbcreds`;
-    console.log({message: 'getDBSecret, SecretId', SecretId, smClient})
+    // console.log({message: 'getDBSecret, SecretId', SecretId, smClient})
 
     // Get secret connection info
     const secrets = (await smClient.send(new GetSecretValueCommand({
       SecretId
     }))).SecretString;
-    console.log('getDBSecret, got secrets', secrets)
+    // console.log('getDBSecret, got secrets', secrets)
 
     if (secrets == null) {
       throw new Error('DB connection info not found');
@@ -84,11 +84,11 @@ export async function doDBInsert(sql: string, values?: any[]): Promise<number> {
 }
 
 export async function doDBQuery(sql: string, values?: any[]): Promise<any[]> {
+  console.log({ msg: `doDBQuery query`, sql, values });
   const conn = cachedConnection;
   if (conn) {
     if (values == null) values = [];
     return new Promise<any>((resolve, reject) => {
-      // console.log({msg:`doDBQuery query`, sql, values});
       return conn.query(sql, values, (err, results /*, fields*/) => {
         // console.log({msg:`doDBQuery query ret`, err, results});
         if (err) {

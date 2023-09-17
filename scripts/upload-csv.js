@@ -56,8 +56,8 @@ function doCommand(cmd) {
   console.log(cmd);
   execSync(cmd);
 }
-doCommand(`aws s3 cp ${baseDir}/${baseFileName} s3://${bucket}`);
-doCommand(`aws s3api put-object-tagging --bucket ${bucket} --key ${baseFileName} --tagging "TagSet=[{Key=identifier,Value=${identifier}},{Key=type,Value=${uploadType}}]"`);
+doCommand(`aws s3 cp "${baseDir}/${baseFileName}" s3://${bucket}`);
+doCommand(`aws s3api put-object-tagging --bucket ${bucket} --key "${baseFileName}" --tagging "TagSet=[{Key=identifier,Value=${identifier}},{Key=type,Value=${uploadType}}]"`);
 
 // for (;;) {
 //   execSync(`curl ${statusUrl}`);
