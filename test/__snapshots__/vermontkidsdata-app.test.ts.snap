@@ -1278,6 +1278,136 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Role",
     },
+    "DashboardcheckAPIFunction144C838C": {
+      "DependsOn": [
+        "DashboardcheckAPIFunctionServiceRoleDefaultPolicy373B2AB7",
+        "DashboardcheckAPIFunctionServiceRoleFFA63C8F",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+          },
+        },
+        "Handler": "index.check",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::GetAtt": [
+            "DashboardcheckAPIFunctionServiceRoleFFA63C8F",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+        "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "DashboardcheckAPIFunctionLogRetention7FDF459C": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "DashboardcheckAPIFunction144C838C",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "DashboardcheckAPIFunctionServiceRoleDefaultPolicy373B2AB7": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":secretsmanager:aq-south-1:999999999:secret:vkd/test/dbcreds-??????",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "DashboardcheckAPIFunctionServiceRoleDefaultPolicy373B2AB7",
+        "Roles": [
+          {
+            "Ref": "DashboardcheckAPIFunctionServiceRoleFFA63C8F",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "DashboardcheckAPIFunctionServiceRoleFFA63C8F": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
     "DeployWebsiteAwsCliLayer17DBC421": {
       "Properties": {
         "Content": {
@@ -3938,7 +4068,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C72ffd6e7331b84d1e50613f2d917a15bd": {
+    "testVermontKidsDataDeployment82D2B8C714c07f5d88bfbad96cdd6c38ded682fb": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -3965,6 +4095,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatacredentialsGET881864AE",
         "testVermontKidsDatacredentialsOPTIONSFEB59669",
         "testVermontKidsDatacredentialsF328366F",
+        "testVermontKidsDatadashboardcheckGET171EB08D",
+        "testVermontKidsDatadashboardcheck87818EFA",
+        "testVermontKidsDatadashboardOPTIONS299AC35B",
+        "testVermontKidsDatadashboardA8315A8C",
         "testVermontKidsDatadatasetD39C03ED",
         "testVermontKidsDatadatasetyearsdatasetGETABE2E121",
         "testVermontKidsDatadatasetyearsdataset9B3C2388",
@@ -4014,7 +4148,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C72ffd6e7331b84d1e50613f2d917a15bd",
+          "Ref": "testVermontKidsDataDeployment82D2B8C714c07f5d88bfbad96cdd6c38ded682fb",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -4912,6 +5046,181 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
       },
       "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDatadashboardA8315A8C": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "testVermontKidsDataCC7D0909",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "dashboard",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadashboardOPTIONS299AC35B": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
+#if($origin.matches("http://localhost:3000"))
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "testVermontKidsDatadashboardA8315A8C",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDatadashboardcheck87818EFA": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDatadashboardA8315A8C",
+        },
+        "PathPart": "check",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadashboardcheckGET171EB08D": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "DashboardcheckAPIFunction144C838C",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDatadashboardcheck87818EFA",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDatadashboardcheckGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETdashboardcheck644BFFCE": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DashboardcheckAPIFunction144C838C",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/GET/dashboard/check",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadashboardcheckGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETdashboardcheck0117A19F": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DashboardcheckAPIFunction144C838C",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/GET/dashboard/check",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
     },
     "testVermontKidsDatadatasetD39C03ED": {
       "Properties": {
