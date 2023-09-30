@@ -32,6 +32,7 @@ const BASE_DOMAIN_NAME = 'vtkidsdata.org';
 const { COGNITO_CLIENT_ID, COGNITO_SECRET } = process.env;
 const USER_POOL_ID = 'us-east-1_wft0IBegY';
 const USER_POOL_CLIENT_ID = '60c446jr2ogigpg0nb5l593l93';
+const runtime = lambda.Runtime.NODEJS_16_X;
 
 export interface VermontkidsdataStackProps extends cdk.StackProps {
   ns: string;
@@ -162,7 +163,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const uploadFunction = new lambdanode.NodejsFunction(this, 'Upload Data Function', {
       memorySize: 512,
       timeout: cdk.Duration.seconds(900),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       entry: join(__dirname, "../src/uploadData.ts"),
       handler: 'main',
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -189,7 +190,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const uploadStatusFunction = new lambdanode.NodejsFunction(this, 'Upload Status Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(5),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'status',
       entry: join(__dirname, "../src/uploadData.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -210,7 +211,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const apiChartBarFunction = new lambdanode.NodejsFunction(this, 'Bar Chart API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       entry: join(__dirname, "../src/chartsApi.ts"),
       handler: 'bar',
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -225,7 +226,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const apiTableFunction = new lambdanode.NodejsFunction(this, 'Basic table API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'table',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -237,10 +238,25 @@ export class VermontkidsdataStack extends cdk.Stack {
     });
     secret.grantRead(apiTableFunction);
 
+    const dashboardCheckFunction = new lambdanode.NodejsFunction(this, 'Dashboard check API Function', {
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(30),
+      runtime,
+      handler: 'check',
+      entry: join(__dirname, "../src/dashboard-check.ts"),
+      logRetention: logs.RetentionDays.ONE_DAY,
+      environment: {
+        REGION: this.region,
+        NAMESPACE: ns,
+      },
+      tracing: Tracing.ACTIVE
+    });
+    secret.grantRead(dashboardCheckFunction);
+
     const queriesGetListFunction = new lambdanode.NodejsFunction(this, 'Queries getList API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-getList.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -255,7 +271,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const queriesGetFunction = new lambdanode.NodejsFunction(this, 'Queries get API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-get.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -270,7 +286,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const queriesPutFunction = new lambdanode.NodejsFunction(this, 'Queries put API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-put.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -285,7 +301,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const queriesDeleteFunction = new lambdanode.NodejsFunction(this, 'Queries delete API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-delete.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -300,7 +316,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const queriesPostFunction = new lambdanode.NodejsFunction(this, 'Queries post API Function', {
       memorySize: 128,
       timeout: cdk.Duration.seconds(30),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-post.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -319,7 +335,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const tableCensusByGeoFunction = new lambdanode.NodejsFunction(this, 'Census Table By Geo Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'getCensusByGeo',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -334,7 +350,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const codesCensusVariablesByTable = new lambdanode.NodejsFunction(this, 'Codes Census Variables By Table Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'codesCensusVariablesByTable',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -349,7 +365,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const getDataSetYearsByDatasetFunction = new lambdanode.NodejsFunction(this, 'Get Years Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'getDataSetYearsByDataset',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -364,7 +380,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const getGeosByTypeFunction = new lambdanode.NodejsFunction(this, 'Get Geos by Type Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'getGeosByType',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -379,7 +395,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const getCensusTablesSearchFunction = new lambdanode.NodejsFunction(this, 'Get Census Tables Search Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'getCensusTablesSearch',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -394,7 +410,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const testDBFunction = new lambdanode.NodejsFunction(this, 'Test DB Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(15),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'testcitylambda.queryDB',
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -409,7 +425,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const downloadFunction = new lambdanode.NodejsFunction(this, 'Download Function', {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(60),
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       handler: 'main',
       entry: join(__dirname, "../src/download.ts"),
       logRetention: logs.RetentionDays.ONE_DAY,
@@ -424,7 +440,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     // const optionsFunction = new lambdanode.NodejsFunction(this, 'Options preflight', {
     //   memorySize: 1024,
     //   timeout: cdk.Duration.seconds(15),
-    //   runtime: lambda.Runtime.NODEJS_16_X,
+    //   runtime,
     //   handler: 'handler',
     //   entry: join(__dirname, "../src/options.ts"),
     //   logRetention: logs.RetentionDays.ONE_DAY,
@@ -472,7 +488,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const uiOrigin = `https://ui.${domainName}`;
 
     const oauthCallbackFunction = new lambdanode.NodejsFunction(this, 'OAuth callback function', {
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       entry: join(__dirname, "../src/oauth-callback.ts"),
       handler: 'main',
       logRetention: logs.RetentionDays.FIVE_DAYS,
@@ -492,7 +508,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     sessionTable.grantReadWriteData(oauthCallbackFunction);
 
     const authorizerFunction = new lambdanode.NodejsFunction(this, 'Authorizer function', {
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       entry: join(__dirname, "../src/authorizer.ts"),
       handler: 'main',
       logRetention: logs.RetentionDays.FIVE_DAYS,
@@ -570,7 +586,7 @@ export class VermontkidsdataStack extends cdk.Stack {
     const cognitoProviderInfo = identityPool.cognitoIdentityProviders[0] as CognitoProviderInfo;
 
     const getCredentialsFunction = new lambdanode.NodejsFunction(this, 'Credentials function', {
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime,
       entry: join(__dirname, "../src/get-credentials.ts"),
       handler: 'main',
       logRetention: logs.RetentionDays.FIVE_DAYS,
@@ -633,6 +649,11 @@ export class VermontkidsdataStack extends cdk.Stack {
     const rTableCensusTable = rTableCensus.addResource("{table}");
     const rTableCensusTableByGeo = rTableCensusTable.addResource("{geoType}");
     rTableCensusTableByGeo.addMethod("GET", new LambdaIntegration(tableCensusByGeoFunction));
+
+    const rDashboard = api.root.addResource("dashboard");
+    rDashboard.addCorsPreflight(corsOptions);
+    const rDashboardCheck = rDashboard.addResource("check");
+    rDashboardCheck.addMethod("GET", new LambdaIntegration(dashboardCheckFunction));
 
     // Apply to all the methods that need authorization
     const auth = {
