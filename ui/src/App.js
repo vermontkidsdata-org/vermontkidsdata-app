@@ -8,6 +8,7 @@ import Layout from "./pages/Layout";
 import FileUpload from "./pages/FileUpload";
 import Home from "./pages/Home";
 import HighChart from "./pages/HighChart";
+import BarChart from "./pages/BarChart";
 import MaterialTable from "./pages/MaterialTable";
 import MaterialDataGrid from "./pages/MaterialDataGrid";
 import Census from "./pages/Census";
@@ -34,6 +35,7 @@ const AppRoutes = () => (
         <Route index element={<Home/>}/>
         <Route path="upload" element={<FileUpload/>}/>
         <Route path="chart/:id" element={<HighChart/>}/>
+        <Route path="barchart/:id" element={<BarChart/>}/>
         <Route path="table/:id" element={<MaterialTable/>}/>
         <Route path="datagrid/:id" element={<MaterialDataGrid/>}/>
         <Route path="login" element={<AuthComponent/>}/>

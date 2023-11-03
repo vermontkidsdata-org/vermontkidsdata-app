@@ -1,9 +1,4 @@
-import {Link, Outlet} from "react-router-dom";
-import React from "react";
-import Layout from "./Layout";
-import Imports from "./Imports";
-import MaterialDataGrid from "./MaterialDataGrid";
-
+import { Link } from "react-router-dom";
 import {
     AppBar,
     Toolbar,
@@ -34,18 +29,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Home = () => {
-
-    const classes = useStyles();
+const Imports = () => {
 
     return (
-        <div>
-            <Layout/>
-            <h1>HOME</h1>
-            <Link to="/chart/57">HighChart</Link>
-        </div>
-
+        <div></div>
     )
 };
 
-export default Home;
+export default Imports;

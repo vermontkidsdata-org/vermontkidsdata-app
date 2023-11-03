@@ -38,9 +38,7 @@ const Layout = () => {
             <CssBaseline />
             <Toolbar>
                 <div className={classes.navlinks}>
-                    <Typography variant="h4" className={classes.logo}>
-                        VermontKidsData
-                    </Typography>
+                    
                     <Link to="/" className={classes.link}>Home</Link>
                     <Link to="/login" className={classes.link}>Login</Link>
                     <Link to="/upload" className={classes.link}>Upload</Link>

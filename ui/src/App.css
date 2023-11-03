@@ -1,11 +1,14 @@
 .App {
   text-align: center;
+  font-family: Bitter;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Bitter');
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
