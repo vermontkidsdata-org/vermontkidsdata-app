@@ -21,32 +21,46 @@ export interface DBSecret {
 // Cached DB Secret and connection
 let secret: DBSecret | undefined = undefined;
 let cachedConnection: mysql.Connection | undefined = undefined;
+const smClient = new SecretsManagerClient({});
 
 export async function getDBSecret(): Promise<DBSecret> {
   // console.log('getDBSecret, secret', secret)
   if (secret) return secret;
   else {
     // console.log('getDBSecret, get SecretsManagerClient')
-    const smClient = new SecretsManagerClient({ region: getRegion() });
     const SecretId = `vkd/${getNamespace()}/dbcreds`;
-    // console.log({message: 'getDBSecret, SecretId', SecretId, smClient})
+    // console.log({message: 'getDBSecret, SecretId', SecretId,})
 
     // Get secret connection info
-    const secrets = (await smClient.send(new GetSecretValueCommand({
-      SecretId
-    }))).SecretString;
-    // console.log('getDBSecret, got secrets', secrets)
+    try {
+      // console.log({message: 'getDBSecret, trying'});
 
-    if (secrets == null) {
-      throw new Error('DB connection info not found');
-    } else {
-      const info: DBSecret = JSON.parse(secrets);
-      if (info.host == null || info.username == null || info.password == null || info.schema == null) {
-        throw new Error(`Secret ${SecretId}: missing some DB information`);
+      const secrets = await smClient.send(new GetSecretValueCommand({
+        SecretId
+      }));
+      // console.log({message: 'getDBSecret, got secrets', secrets});
+
+      const secretString = secrets.SecretString;
+      // console.log({message: 'getDBSecret, got secret string', secretString})
+      if (secretString == null) {
+        console.log({message:'get secret info not found', SecretId})
+        throw new Error('DB connection info not found');
       } else {
-        return info;
+        // console.log({message:'get secret info', secrets})
+        const info: DBSecret = JSON.parse(secretString);
+        if (info.host == null || info.username == null || info.password == null || info.schema == null) {
+          throw new Error(`Secret ${SecretId}: missing some DB information`);
+        } else {
+          return info;
+        }
       }
+    
+    } catch (err) {
+      console.error({message: 'exception getting secret!'});
+      console.error({err});
+      process.exit(1);
     }
+
   }
 }
 
@@ -106,8 +120,10 @@ export async function doDBQuery(sql: string, values?: any[]): Promise<any[]> {
 }
 
 export async function doDBOpen(): Promise<void> {
+  console.log({cachedConnection})
   if (!cachedConnection) {
     const info = await getDBSecret();
+    console.log({info});
     cachedConnection = mysql.createConnection({
       host: info.host,
       user: info.username,

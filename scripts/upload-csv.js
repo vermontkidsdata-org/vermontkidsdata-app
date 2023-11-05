@@ -9,7 +9,11 @@ const args = argv._;
 
 function usage() {
   console.error(`usage:\n  node scripts/upload-csv.js base-file-name upload-type identifier-suffix qa|prod\n    or\n  node scripts/upload-csv.js general-upload-type identifier-suffix qa|prod`)
-  console.error(' -d <upload directory>');
+  console.error(' -d <upload directory>\n');
+  console.error(`Normal procedure for "general" upload types:
+1. Download CSV to data directory
+2. Rename CSV to <general-subtype>.csv (e.g. 'reachup')
+3. Run this script: node scripts/upload-csv.js <general-subtype> <identifier-suffix> qa|prod -d data`);
   process.exit(1);
 }
 

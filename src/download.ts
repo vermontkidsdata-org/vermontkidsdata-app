@@ -27,10 +27,13 @@ interface DBRow {
 
 type CsvProcessCallback = (type: string, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any) => Promise<void>;
 type GetTableNameForFunction = (type: string) => string;
+type GetQueryForFunction = (type: string) => string;
 
 interface TypesConfigElement {
+  readonly?: boolean;
   processRowFunction: CsvProcessCallback;
   getTableNameForFunction: GetTableNameForFunction;
+  getQueryForFunction?: GetQueryForFunction;
 }
 
 const typesConfig: { [type: string]: TypesConfigElement } = {
@@ -46,6 +49,12 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
     processRowFunction: processGeneralRow,
     getTableNameForFunction: (type: string) => "dashboard_" + type.substring('dashboard'.length + 1),
   },
+  // Query is like general, but read-only!
+  query: {
+    readonly: true,
+    processRowFunction: processGeneralRow,
+    getTableNameForFunction: (type: string) => "data_" + type.substring('general'.length + 1),
+  }
 }
 
 async function processAssessmentRow(type: string, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any): Promise<void> {
@@ -110,23 +119,30 @@ export async function lambdaHandler(
           message: `invalid upload type ${uploadType}`
         }, 400);
       } else {
-        const table_name = entry.getTableNameForFunction(uploadType);
-
         // We have a callback function to call. Query the table.
         await doDBOpen();
 
-        const uploadTypeData: { type: string, table: string, index_columns: string, }[] = await doDBQuery('select * from `upload_types` where `type`=?', [uploadType]);
+        const uploadTypeData: { type: string, table: string, index_columns: string, download_query?: string }[] = await doDBQuery('select * from `upload_types` where `type`=?', [uploadType]);
         
         if (uploadTypeData.length !== 1) {
           updateResponse(response, {
             message: `expected 1 row from upload_types for ${uploadType} got ${uploadTypeData.length}`
           });
         } else {
-          const sqlText = `select * from ${table_name} ` +
-            (uploadTypeData[0].index_columns.length > 0 ?
-              ` order by ${uploadTypeData[0].index_columns}` :
-              '') +
-            ` limit ${limit > 0 ? limit : 1}`;
+          // Allow for a custom query
+          const sqlText = (() => {
+            if (uploadTypeData[0].download_query != null && uploadTypeData[0].download_query != '') {
+              return uploadTypeData[0].download_query;
+            } else {
+              const table_name = entry.getTableNameForFunction(uploadType);
+  
+              return `select * from ${table_name} ` +
+                (uploadTypeData[0].index_columns.length > 0 ?
+                  ` order by ${uploadTypeData[0].index_columns}` :
+                  '') +
+                ` limit ${limit > 0 ? limit : 1}`;
+            }
+          })();
 
           console.log({ uploadType, uploadTypeData, sqlText });
 

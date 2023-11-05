@@ -165,7 +165,7 @@ async function getUploadType(type: string): Promise<UploadType> {
 }
 
 function humanToInternalName(col: string): string {
-  return col.toLowerCase().replace(/ /g, '_');
+  return col.trim().toLowerCase().replace(/ +/g, '_');
 }
 
 function matchColumns(record: string[], uploadType: UploadType): { matchedColumns: string[], unmatchedColumns: string[] } {
@@ -245,6 +245,15 @@ async function truncateTable(uploadType: UploadType, record: string[], lnum: num
 async function processDashboardRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
 }
 
+function fixNumber(v: string): string {
+  // If it looks like a number, strip any commas
+  if (v.match(/^-?[\d,.]+$/)) {
+    return v.replace(/,/g, '');
+  } else {
+    return v;
+  }
+}
+
 async function processGeneralRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
   // console.log({ message: 'processGeneralRow start', type, record, lnum });
   if (lnum === 1) {
@@ -306,10 +315,10 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
 
       for (let i = 0; i < record.length; i++) {
         // First set the insert values, then the update ones
-        inserts.push(record[i]);
+        inserts.push(fixNumber(record[i]));
 
         if (!indexColumns.includes(uploadColumns[i])) {
-          updates.push(record[i]);
+          updates.push(fixNumber(record[i]));
         }
       }
       return [...inserts, ...updates];
