@@ -21,7 +21,7 @@ export interface DBSecret {
 // Cached DB Secret and connection
 let secret: DBSecret | undefined = undefined;
 let cachedConnection: mysql.Connection | undefined = undefined;
-const smClient = new SecretsManagerClient({});
+const smClient = new SecretsManagerClient({ region: 'us-east-1'});
 
 export async function getDBSecret(): Promise<DBSecret> {
   console.log('getDBSecret, secret', secret)
