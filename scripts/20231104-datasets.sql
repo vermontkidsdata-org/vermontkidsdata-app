@@ -233,7 +233,6 @@ SELECT id, geo_type, geography, year, category, value, concat('MIT Living Wage (
   );
 
 -- wellcarevisits
-drop TABLE `data_wellcarevisits`;
 CREATE TABLE `data_wellcarevisits` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -304,14 +303,13 @@ insert into
   );
 
 -- Datasets to upload
--- familymedianwage
--- fpl
--- minimumwage
--- mitlivingwage
--- pitc_homelessness
--- reachup
--- residentialcare
--- wellcarevisits
+-- node scripts\upload-csv.js familymedianwage 1 prod -d data
+-- node scripts\upload-csv.js minimumwage 1 prod -d data
+-- node scripts\upload-csv.js mitlivingwage 1 prod -d data
+-- node scripts\upload-csv.js pitc_homelessness 1 prod -d data
+-- node scripts\upload-csv.js reachup 1 prod -d data
+-- node scripts\upload-csv.js residentialcare 1 prod -d data
+-- node scripts\upload-csv.js wellcarevisits 1 prod -d data
 
 INSERT INTO
   `upload_types` (`type`, `table`, `index_columns`)
