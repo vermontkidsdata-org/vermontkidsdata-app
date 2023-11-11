@@ -2,3 +2,6 @@ Geo type,Geography,Year,Category ,Value
 State,Vermont,2023,under 9,34
 State,Vermont,2023,between 10-21,222
 State,Vermont,2023,under 21,256
+State,Vermont,2022,under 9,22
+State,Vermont,2022,between 10-21,207
+State,Vermont,2022,under 21,229

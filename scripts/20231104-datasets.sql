@@ -193,9 +193,11 @@ VALUES
     'cat,label,value'
   );
 
-alter table upload_types add column download_query varchar(4000) not null default '' after `table`;
+alter table upload_types add column `download_query` varchar(4000) not null default '' after `table`;
+ALTER TABLE `upload_types` 
+  ADD COLUMN `read_only` TINYINT NOT NULL DEFAULT 0 AFTER `download_query`;
 
-insert into upload_types (`type`, `table`, `index_columns`, `download_query`) 
+insert into upload_types (`type`, `table`, `index_columns`, `download_query`, `read_only`) 
 values (
   'query:wage_benchmarks:chart', 
   '',
@@ -208,7 +210,9 @@ SELECT id, geo_type, geography, year, category, value, concat('Minimum Wage') be
 union all
 SELECT id, geo_type, geography, year, 'Family Median Wage' category, value, concat('Census Family Median Wage') benchmark_type FROM data_familymedianwage
 union all
-SELECT id, geo_type, geography, year, category, value, concat('MIT Living Wage') benchmark_type FROM data_mitlivingwage");
+SELECT id, geo_type, geography, year, category, value, concat('MIT Living Wage') benchmark_type FROM data_mitlivingwage",
+  1
+);
 
 insert into
   queries (name, sqlText, uploadType, metadata) value (
@@ -308,3 +312,20 @@ insert into
 -- reachup
 -- residentialcare
 -- wellcarevisits
+
+INSERT INTO
+  `upload_types` (`type`, `table`, `index_columns`)
+VALUES
+  (
+    'general:upload_types',
+    'upload_types',
+    'type'
+  );
+
+insert into
+  queries (name, sqlText, uploadType, metadata) value (
+    'upload_types',
+    'SELECT * FROM `upload_types` order by `type`',
+    'general:upload_types',
+    '{}'
+  );
