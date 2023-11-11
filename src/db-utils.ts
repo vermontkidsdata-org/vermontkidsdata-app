@@ -24,29 +24,29 @@ let cachedConnection: mysql.Connection | undefined = undefined;
 const smClient = new SecretsManagerClient({});
 
 export async function getDBSecret(): Promise<DBSecret> {
-  // console.log('getDBSecret, secret', secret)
+  console.log('getDBSecret, secret', secret)
   if (secret) return secret;
   else {
-    // console.log('getDBSecret, get SecretsManagerClient')
+    console.log('getDBSecret, get SecretsManagerClient')
     const SecretId = `vkd/${getNamespace()}/dbcreds`;
-    // console.log({message: 'getDBSecret, SecretId', SecretId,})
+    console.log({message: 'getDBSecret, SecretId', SecretId,})
 
     // Get secret connection info
     try {
-      // console.log({message: 'getDBSecret, trying'});
+      console.log({message: 'getDBSecret, trying'});
 
       const secrets = await smClient.send(new GetSecretValueCommand({
         SecretId
       }));
-      // console.log({message: 'getDBSecret, got secrets', secrets});
+      console.log({message: 'getDBSecret, got secrets', secrets});
 
       const secretString = secrets.SecretString;
-      // console.log({message: 'getDBSecret, got secret string', secretString})
+      console.log({message: 'getDBSecret, got secret string', secretString})
       if (secretString == null) {
         console.log({message:'get secret info not found', SecretId})
         throw new Error('DB connection info not found');
       } else {
-        // console.log({message:'get secret info', secrets})
+        console.log({message:'get secret info', secrets})
         const info: DBSecret = JSON.parse(secretString);
         if (info.host == null || info.username == null || info.password == null || info.schema == null) {
           throw new Error(`Secret ${SecretId}: missing some DB information`);
@@ -58,7 +58,7 @@ export async function getDBSecret(): Promise<DBSecret> {
     } catch (err) {
       console.error({message: 'exception getting secret!'});
       console.error({err});
-      process.exit(1);
+      throw err;
     }
 
   }
