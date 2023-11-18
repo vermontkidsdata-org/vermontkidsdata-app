@@ -1,6 +1,7 @@
 // process.env.NAMESPACE = 'qa';
 
 import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
+import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
 import cors from '@middy/http-cors';
@@ -9,10 +10,12 @@ import { VKDAuthorizerContext } from './authorizer';
 import { CORSConfigDefault } from './cors-config';
 import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
 
+const {NAMESPACE, LOG_LEVEL} = process.env;
+
 // Set your service name. This comes out in service lens etc.
-const serviceName = `queries-api-getList-${process.env.NAMESPACE}`;
+const serviceName = `queries-api-getList-${NAMESPACE}`;
 const logger = new Logger({
-  logLevel: process.env.LOG_LEVEL || 'INFO',
+  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
   serviceName
 });
 const tracer = new Tracer({ serviceName });

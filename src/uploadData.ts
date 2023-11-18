@@ -1,25 +1,24 @@
 if (!module.parent) {
   process.env.S3_BUCKET_NAME = 'ctechnica-vkd-qa';
-  process.env.STATUS_TABLE = 'qa-LocalDevBranch-UploadstatustableA9E2FF87-1KSF20M176GXI';
+  process.env.SERVICE_TABLE = 'qa-LocalDevBranch-UploadstatustableA9E2FF87-1KSF20M176GXI';
   process.env.REGION = 'us-east-1';
   process.env.NAMESPACE = 'qa';
 }
 
+import { GetObjectCommand, GetObjectTaggingCommand, S3Client } from '@aws-sdk/client-s3';
+import { PutCommandOutput } from '@aws-sdk/lib-dynamodb';
 import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2, S3Event } from 'aws-lambda';
-import * as AWS from 'aws-sdk';
-import { PutItemOutput } from 'aws-sdk/clients/dynamodb';
 import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
-import { doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
+import { UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret, getUploadStatusKey } from "./db-utils";
 
 interface UploadInfo {
   type: string;
   key: string;
 }
 
-const { S3_BUCKET_NAME: bucketName, REGION, STATUS_TABLE: statusTableName } = process.env;
-const s3 = new AWS.S3({ region: REGION });
-const dynamodb = new AWS.DynamoDB({ region: REGION });
+const { S3_BUCKET_NAME: bucketName, REGION, SERVICE_TABLE } = process.env;
+const s3 = new S3Client({ region: REGION });
 
 type CsvProcessCallback = (uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any) => Promise<void>;
 
@@ -373,29 +372,34 @@ async function processAssessmentRow(type: UploadType, record: string[], lnum: nu
   }
 }
 
-async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[]): Promise<PutItemOutput> {
-  return dynamodb.putItem({
-    TableName: statusTableName!,
-    Item: {
-      id: { S: id },
-      status: { S: status },
-      numRecords: { N: numRecords.toString() },
-      percent: { N: percent.toString() },
-      errors: { S: JSON.stringify(errors.map(e => e.message)) },
-      lastUpdated: { S: new Date().toISOString() }
-    }
-  }).promise();
+async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[]): Promise<PutCommandOutput> {
+  return UploadStatus.put({
+    id,
+    status,
+    numRecords,
+    percent,
+    errors,
+    lastUpdated: new Date().toISOString()
+  });
 }
 
 export async function status(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> {
-  const ret = await dynamodb.getItem({
-    TableName: statusTableName!,
-    Key: {
-      id: { S: event.pathParameters!.uploadId }
-    }
-  }).promise();
+  const {uploadId} = event.pathParameters!;
+  if (uploadId == null) {
+    return {
+      statusCode: 400,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Methods": "GET",
+      },
+      body: JSON.stringify({ message: `uploadId is required` })
+    };
+  }
 
-  if (ret.Item == null) {
+  const uploadStatus = await UploadStatus.get(getUploadStatusKey(uploadId));
+
+  if (uploadStatus.Item == null) {
     return {
       statusCode: 500
     };
@@ -408,11 +412,11 @@ export async function status(event: APIGatewayProxyEventV2): Promise<APIGatewayP
         "Access-Control-Allow-Methods": "GET",
       },
       body: JSON.stringify({
-        status: ret.Item.status.S,
-        numRecords: ret.Item.numRecords.N,
-        percent: ret.Item.percent.N,
-        errors: ret.Item.errors.S,
-        lastUpdated: ret.Item.lastUpdated.S
+        status: uploadStatus.Item.status,
+        numRecords: uploadStatus.Item.numRecords,
+        percent: uploadStatus.Item.percent,
+        errors: uploadStatus.Item.errors,
+        lastUpdated: uploadStatus.Item.lastUpdated,
       })
     };
   }
@@ -468,6 +472,8 @@ export async function processUpload(props: {
   return { errors, saveTotal, statusUpdatePct };
 }
 
+const UNKNOWN = 'unknown';
+
 export async function main(
   event: S3Event,
 ): Promise<string> {
@@ -481,18 +487,20 @@ export async function main(
   };
   console.log('params', params);
   try {
-    const { ContentType, Body } = await s3.getObject(params).promise();
-    const { TagSet } = await s3.getObjectTagging(params).promise();
+    const { ContentType, Body } = await s3.send(new GetObjectCommand(params));
+    const { TagSet } = await s3.send(new GetObjectTaggingCommand(params));
     console.log('CONTENT TYPE:', ContentType);
-    const bodyContents = Body?.toString('utf-8');
+    const bodyContents = await Body?.transformToString();
 
     //[ { Key: 'type', Value: 'assessments' } ]
     console.log('TAGS:', TagSet);
     const tags: { [key: string]: string } = {};
-    if (TagSet != null) TagSet.forEach(tag => tags[tag.Key.toLowerCase()] = tag.Value.toLowerCase());
+    if (TagSet != null) {
+      TagSet.forEach(tag => tags[tag.Key?.toLowerCase() ?? UNKNOWN] = tag.Value?.toLowerCase()?? UNKNOWN);
+    }
     console.log(`tags = ${tags}`);
     if (tags.type == null || bodyContents == null) {
-      return 'unknown';
+      return UNKNOWN;
     }
 
     // Get the identifier. Just create a UUID if one not provided like it should be.
@@ -526,7 +534,7 @@ export async function main(
       await doDBClose();
     }
 
-    return ContentType || 'unknown';
+    return ContentType || UNKNOWN;
   } catch (err) {
     console.error(err);
     const message = `Error getting object ${key} from bucket ${bucket}. Make sure they exist and your bucket is in the same region as this function.`;

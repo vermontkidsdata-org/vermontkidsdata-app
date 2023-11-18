@@ -1,40 +1,36 @@
-import * as cdk from 'aws-cdk-lib';
-import { CfnOutput, RemovalPolicy } from 'aws-cdk-lib';
+import { CfnOutput, Duration, RemovalPolicy, Stack, StackProps } from 'aws-cdk-lib';
 import { AuthorizationType, AwsIntegration, Cors, CorsOptions, GatewayResponse, IdentitySource, IntegrationResponse, LambdaIntegration, MethodResponse, Model, RequestAuthorizer, ResponseType, RestApi } from 'aws-cdk-lib/aws-apigateway';
-import * as acm from 'aws-cdk-lib/aws-certificatemanager';
+import { DnsValidatedCertificate } from 'aws-cdk-lib/aws-certificatemanager';
 import { Distribution, OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront';
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { CfnIdentityPool, CfnIdentityPoolRoleAttachment, UserPool, UserPoolClient } from 'aws-cdk-lib/aws-cognito';
-import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
-import { AttributeType } from 'aws-cdk-lib/aws-dynamodb';
-import * as iam from 'aws-cdk-lib/aws-iam';
-import { Effect, PolicyDocument, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
-import * as lambda from 'aws-cdk-lib/aws-lambda';
-import { Tracing } from 'aws-cdk-lib/aws-lambda';
-import * as lambdanode from 'aws-cdk-lib/aws-lambda-nodejs';
-import * as logs from 'aws-cdk-lib/aws-logs';
-import * as route53 from 'aws-cdk-lib/aws-route53';
-import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
-import * as s3 from 'aws-cdk-lib/aws-s3';
-import { Bucket, BucketEncryption, EventType } from 'aws-cdk-lib/aws-s3';
+import { AttributeType, BillingMode, Table } from 'aws-cdk-lib/aws-dynamodb';
+import { Effect, FederatedPrincipal, PolicyDocument, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
+import { Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { RetentionDays } from 'aws-cdk-lib/aws-logs';
+import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
+import { ApiGateway } from 'aws-cdk-lib/aws-route53-targets';
+import * as s3 from 'aws-cdk-lib/aws-s3'; // For some reason we need this one...
+import { BlockPublicAccess, Bucket, BucketEncryption, EventType } from 'aws-cdk-lib/aws-s3';
 import { BucketDeployment, Source } from 'aws-cdk-lib/aws-s3-deployment';
-import * as s3notify from 'aws-cdk-lib/aws-s3-notifications';
-import * as sm from 'aws-cdk-lib/aws-secretsmanager';
+import { LambdaDestination } from 'aws-cdk-lib/aws-s3-notifications';
+import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 import { Construct } from 'constructs';
 import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import * as util from 'util';
 // import { OpenApiBuilder } from './openapi';
 
-const S3_SERVICE_PRINCIPAL = new iam.ServicePrincipal('s3.amazonaws.com');
+const S3_SERVICE_PRINCIPAL = new ServicePrincipal('s3.amazonaws.com');
 const HOSTED_ZONE_ID = 'Z01884571R5A9N33JR5NE';
 const BASE_DOMAIN_NAME = 'vtkidsdata.org';
 const { COGNITO_CLIENT_ID, COGNITO_SECRET } = process.env;
 const USER_POOL_ID = 'us-east-1_wft0IBegY';
 const USER_POOL_CLIENT_ID = '60c446jr2ogigpg0nb5l593l93';
-const runtime = lambda.Runtime.NODEJS_16_X;
+const runtime = Runtime.NODEJS_18_X;
 
-export interface VermontkidsdataStackProps extends cdk.StackProps {
+export interface VermontkidsdataStackProps extends StackProps {
   ns: string;
   isProduction: boolean;
 }
@@ -44,17 +40,17 @@ export interface CognitoProviderInfo {
   clientId: string
 }
 
-export class VermontkidsdataStack extends cdk.Stack {
+export class VermontkidsdataStack extends Stack {
   constructor(scope: Construct, id: string, props: VermontkidsdataStackProps) {
     super(scope, id, props);
 
     const ns = props.ns;
 
     // Maybe need to always do this
-    const bucket = new s3.Bucket(this, 'Uploads bucket', {
+    const bucket = new Bucket(this, 'Uploads bucket', {
       bucketName: `ctechnica-vkd-${ns}`,
-      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+      removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
       versioned: false,
       publicReadAccess: false,
@@ -99,9 +95,9 @@ export class VermontkidsdataStack extends cdk.Stack {
       }],
     });
 
-    const isUserCognitoGroupRole = new iam.Role(this, 'users-group-role', {
+    const isUserCognitoGroupRole = new Role(this, 'users-group-role', {
       description: 'Default role for authenticated users',
-      assumedBy: new iam.FederatedPrincipal(
+      assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
         {
           StringEquals: {
@@ -135,7 +131,7 @@ export class VermontkidsdataStack extends cdk.Stack {
         mapping: {
           type: 'Token',
           ambiguousRoleResolution: 'AuthenticatedRole',
-          identityProvider: `cognito-idp.${cdk.Stack.of(this).region
+          identityProvider: `cognito-idp.${Stack.of(this).region
             }.amazonaws.com/${userPool.userPoolId}:${userPoolClient.userPoolClientId
             }`,
         },
@@ -148,35 +144,54 @@ export class VermontkidsdataStack extends cdk.Stack {
     //   resources: [`${bucket.bucketArn}/*`],
     // }));
 
-    new cdk.CfnOutput(this, "Bucket name", {
+    new CfnOutput(this, "Bucket name", {
       value: bucket.bucketName
     });
 
     const bucketName = bucket.bucketName;
 
-    const uploadStatusTable = new dynamodb.Table(this, 'Upload status table', {
-      partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
-      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST
+    const serviceTable = new Table(this, 'Single Service Table', {
+      partitionKey: { name: 'PK', type: AttributeType.STRING },
+      sortKey: { name: 'SK', type: AttributeType.STRING },
+      billingMode: BillingMode.PAY_PER_REQUEST,
     });
 
+    serviceTable.addGlobalSecondaryIndex({
+      indexName: 'GSI1',
+      partitionKey: { name: 'GSI1PK', type: AttributeType.STRING },
+      sortKey: { name: 'GSI1SK', type: AttributeType.STRING }
+    });
+
+    serviceTable.addGlobalSecondaryIndex({
+      indexName: 'GSI2',
+      partitionKey: { name: 'GSI2PK', type: AttributeType.STRING },
+      sortKey: { name: 'GSI2SK', type: AttributeType.STRING }
+    });
+
+    // common environment for all lambdas
+    const commonEnv = {
+      REGION: this.region,
+      SERVICE_TABLE: serviceTable.tableName,
+      NAMESPACE: ns,
+      IS_PRODUCTION: `${props.isProduction}`
+    };
+
     // Upload data function.
-    const uploadFunction = new lambdanode.NodejsFunction(this, 'Upload Data Function', {
+    const uploadFunction = new NodejsFunction(this, 'Upload Data Function', {
       memorySize: 512,
-      timeout: cdk.Duration.seconds(900),
+      timeout: Duration.seconds(900),
       runtime,
       entry: join(__dirname, "../src/uploadData.ts"),
       handler: 'main',
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
+        ...commonEnv,
         S3_BUCKET_NAME: bucketName,
-        REGION: this.region,
-        STATUS_TABLE: uploadStatusTable.tableName,
-        NAMESPACE: ns,
       },
       tracing: Tracing.ACTIVE
     });
     bucket.grantRead(uploadFunction);
-    const notify = new s3notify.LambdaDestination(uploadFunction);
+    const notify = new LambdaDestination(uploadFunction);
     notify.bind(this, bucket);
     bucket.addObjectCreatedNotification(notify, {
       suffix: 'csv'
@@ -187,272 +202,255 @@ export class VermontkidsdataStack extends cdk.Stack {
     uploadFunction.grantInvoke(S3_SERVICE_PRINCIPAL);
 
     // Also shows status of uploads.
-    const uploadStatusFunction = new lambdanode.NodejsFunction(this, 'Upload Status Function', {
+    const uploadStatusFunction = new NodejsFunction(this, 'Upload Status Function', {
       memorySize: 128,
-      timeout: cdk.Duration.seconds(5),
+      timeout: Duration.seconds(5),
       runtime,
       handler: 'status',
       entry: join(__dirname, "../src/uploadData.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
+        ...commonEnv,
         S3_BUCKET_NAME: bucketName,
-        REGION: this.region,
-        STATUS_TABLE: uploadStatusTable.tableName
       },
       tracing: Tracing.ACTIVE
     });
-    uploadStatusTable.grantReadWriteData(uploadFunction);
-    uploadStatusTable.grantReadWriteData(uploadStatusFunction);
+    serviceTable.grantReadWriteData(uploadFunction);
+    serviceTable.grantReadWriteData(uploadStatusFunction);
 
     // The secret where the DB login info is. Grant read access.
-    const secret = sm.Secret.fromSecretNameV2(this, 'DB credentials', `vkd/${ns}/dbcreds`);
+    const secret = Secret.fromSecretNameV2(this, 'DB credentials', `vkd/${ns}/dbcreds`);
     secret.grantRead(uploadFunction);
 
-    const apiChartBarFunction = new lambdanode.NodejsFunction(this, 'Bar Chart API Function', {
+    const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
       memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
+      timeout: Duration.seconds(30),
       runtime,
       entry: join(__dirname, "../src/chartsApi.ts"),
       handler: 'bar',
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     secret.grantRead(apiChartBarFunction);
 
-    const apiTableFunction = new lambdanode.NodejsFunction(this, 'Basic table API Function', {
+    const apiTableFunction = new NodejsFunction(this, 'Basic table API Function', {
       memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
+      timeout: Duration.seconds(30),
       runtime,
       handler: 'table',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     secret.grantRead(apiTableFunction);
 
-    const dashboardCheckFunction = new lambdanode.NodejsFunction(this, 'Dashboard check API Function', {
+    const dashboardCheckFunction = new NodejsFunction(this, 'Dashboard check API Function', {
       memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
+      timeout: Duration.seconds(30),
       runtime,
       handler: 'check',
       entry: join(__dirname, "../src/dashboard-check.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     secret.grantRead(dashboardCheckFunction);
 
-    const queriesGetListFunction = new lambdanode.NodejsFunction(this, 'Queries getList API Function', {
+    const queriesGetListFunction = new NodejsFunction(this, 'Queries getList API Function', {
       memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
+      timeout: Duration.seconds(30),
       runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-getList.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesGetListFunction);
 
-    const queriesGetFunction = new lambdanode.NodejsFunction(this, 'Queries get API Function', {
+    const queriesGetFunction = new NodejsFunction(this, 'Queries get API Function', {
       memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
+      timeout: Duration.seconds(30),
       runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-get.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesGetFunction);
 
-    const queriesPutFunction = new lambdanode.NodejsFunction(this, 'Queries put API Function', {
+    const queriesPutFunction = new NodejsFunction(this, 'Queries put API Function', {
       memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
+      timeout: Duration.seconds(30),
       runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-put.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesPutFunction);
 
-    const queriesDeleteFunction = new lambdanode.NodejsFunction(this, 'Queries delete API Function', {
+    const queriesDeleteFunction = new NodejsFunction(this, 'Queries delete API Function', {
       memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
+      timeout: Duration.seconds(30),
       runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-delete.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesDeleteFunction);
 
-    const queriesPostFunction = new lambdanode.NodejsFunction(this, 'Queries post API Function', {
+    const queriesPostFunction = new NodejsFunction(this, 'Queries post API Function', {
       memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
+      timeout: Duration.seconds(30),
       runtime,
       handler: 'handler',
       entry: join(__dirname, "../src/queries-api-post.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     secret.grantRead(queriesPostFunction);
 
-    const getSecretValueStatement = new iam.PolicyStatement({
+    const getSecretValueStatement = new PolicyStatement({
       actions: ["secretsmanager:GetSecretValue"],
       resources: ["*"]
     });
-    const tableCensusByGeoFunction = new lambdanode.NodejsFunction(this, 'Census Table By Geo Function', {
+    const tableCensusByGeoFunction = new NodejsFunction(this, 'Census Table By Geo Function', {
       memorySize: 1024,
-      timeout: cdk.Duration.seconds(15),
+      timeout: Duration.seconds(15),
       runtime,
       handler: 'getCensusByGeo',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     tableCensusByGeoFunction.addToRolePolicy(getSecretValueStatement);
 
-    const codesCensusVariablesByTable = new lambdanode.NodejsFunction(this, 'Codes Census Variables By Table Function', {
+    const codesCensusVariablesByTable = new NodejsFunction(this, 'Codes Census Variables By Table Function', {
       memorySize: 1024,
-      timeout: cdk.Duration.seconds(15),
+      timeout: Duration.seconds(15),
       runtime,
       handler: 'codesCensusVariablesByTable',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     codesCensusVariablesByTable.addToRolePolicy(getSecretValueStatement);
 
-    const getDataSetYearsByDatasetFunction = new lambdanode.NodejsFunction(this, 'Get Years Function', {
+    const getDataSetYearsByDatasetFunction = new NodejsFunction(this, 'Get Years Function', {
       memorySize: 1024,
-      timeout: cdk.Duration.seconds(15),
+      timeout: Duration.seconds(15),
       runtime,
       handler: 'getDataSetYearsByDataset',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     getDataSetYearsByDatasetFunction.addToRolePolicy(getSecretValueStatement);
 
-    const getGeosByTypeFunction = new lambdanode.NodejsFunction(this, 'Get Geos by Type Function', {
+    const getGeosByTypeFunction = new NodejsFunction(this, 'Get Geos by Type Function', {
       memorySize: 1024,
-      timeout: cdk.Duration.seconds(15),
+      timeout: Duration.seconds(15),
       runtime,
       handler: 'getGeosByType',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     getGeosByTypeFunction.addToRolePolicy(getSecretValueStatement);
 
-    const getCensusTablesSearchFunction = new lambdanode.NodejsFunction(this, 'Get Census Tables Search Function', {
+    const getCensusTablesSearchFunction = new NodejsFunction(this, 'Get Census Tables Search Function', {
       memorySize: 1024,
-      timeout: cdk.Duration.seconds(15),
+      timeout: Duration.seconds(15),
       runtime,
       handler: 'getCensusTablesSearch',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     getCensusTablesSearchFunction.addToRolePolicy(getSecretValueStatement);
 
-    const testDBFunction = new lambdanode.NodejsFunction(this, 'Test DB Function', {
+    const testDBFunction = new NodejsFunction(this, 'Test DB Function', {
       memorySize: 1024,
-      timeout: cdk.Duration.seconds(15),
+      timeout: Duration.seconds(15),
       runtime,
       handler: 'testcitylambda.queryDB',
       entry: join(__dirname, "../src/tablesApi.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     testDBFunction.addToRolePolicy(getSecretValueStatement);
 
-    const downloadFunction = new lambdanode.NodejsFunction(this, 'Download Function', {
+    const downloadFunction = new NodejsFunction(this, 'Download Function', {
       memorySize: 1024,
-      timeout: cdk.Duration.seconds(60),
+      timeout: Duration.seconds(60),
       runtime,
       handler: 'main',
       entry: join(__dirname, "../src/download.ts"),
-      logRetention: logs.RetentionDays.ONE_DAY,
+      logRetention: RetentionDays.ONE_DAY,
       environment: {
-        REGION: this.region,
-        NAMESPACE: ns,
+        ...commonEnv
       },
       tracing: Tracing.ACTIVE
     });
     downloadFunction.addToRolePolicy(getSecretValueStatement);
 
-    // const optionsFunction = new lambdanode.NodejsFunction(this, 'Options preflight', {
+    // const optionsFunction = new NodejsFunction(this, 'Options preflight', {
     //   memorySize: 1024,
-    //   timeout: cdk.Duration.seconds(15),
+    //   timeout: Duration.seconds(15),
     //   runtime,
     //   handler: 'handler',
     //   entry: join(__dirname, "../src/options.ts"),
-    //   logRetention: logs.RetentionDays.ONE_DAY,
+    //   logRetention: RetentionDays.ONE_DAY,
     //   environment: {
-    //     REGION: this.region,
-    //     NAMESPACE: ns,
-    //   },
+      // ...commonEnv
+      //   },
     //   tracing: Tracing.ACTIVE
     // });
 
     // Add the custom domain name. First look up the R53 zone
-    const hostedZone = route53.HostedZone.fromHostedZoneAttributes(
+    const hostedZone = HostedZone.fromHostedZoneAttributes(
       this,
       `route53-zone`,
       {
@@ -466,7 +464,7 @@ export class VermontkidsdataStack extends cdk.Stack {
       `${ns}.${BASE_DOMAIN_NAME}`;
     const apiDomainName = `api.${domainName}`;
 
-    const certificate = new acm.DnsValidatedCertificate(
+    const certificate = new DnsValidatedCertificate(
       this,
       `be-cert`,
       {
@@ -476,49 +474,44 @@ export class VermontkidsdataStack extends cdk.Stack {
       }
     );
 
-    const sessionTable = new dynamodb.Table(this, 'Session Table', {
-      partitionKey: { name: 'session_id', type: AttributeType.STRING },
-      removalPolicy: RemovalPolicy.DESTROY
-    });
-
     if (COGNITO_CLIENT_ID == null || COGNITO_SECRET == null) {
       throw new Error("Must define COGNITO_CLIENT_ID and COGNITO_SECRET");
     }
 
     const uiOrigin = `https://ui.${domainName}`;
 
-    const oauthCallbackFunction = new lambdanode.NodejsFunction(this, 'OAuth callback function', {
+    const oauthCallbackFunction = new NodejsFunction(this, 'OAuth callback function', {
       runtime,
       entry: join(__dirname, "../src/oauth-callback.ts"),
       handler: 'main',
-      logRetention: logs.RetentionDays.FIVE_DAYS,
+      logRetention: RetentionDays.FIVE_DAYS,
       environment: {
+        ...commonEnv,
         COGNITO_CLIENT_ID,
         COGNITO_SECRET,
         MY_DOMAIN: domainName,
         REDIRECT_URI: uiOrigin,
         MY_URI: `https://api.${domainName}/oauthcallback`,
-        TABLE_NAME: sessionTable.tableName,
         ENV_NAME: ns,
         IS_PRODUCTION: `${props.isProduction}`
       },
       tracing: Tracing.ACTIVE
     });
 
-    sessionTable.grantReadWriteData(oauthCallbackFunction);
+    serviceTable.grantReadWriteData(oauthCallbackFunction);
 
-    const authorizerFunction = new lambdanode.NodejsFunction(this, 'Authorizer function', {
+    const authorizerFunction = new NodejsFunction(this, 'Authorizer function', {
       runtime,
       entry: join(__dirname, "../src/authorizer.ts"),
       handler: 'main',
-      logRetention: logs.RetentionDays.FIVE_DAYS,
+      logRetention: RetentionDays.FIVE_DAYS,
       environment: {
-        TABLE_NAME: sessionTable.tableName,
+        ...commonEnv,
         ENV_NAME: ns
       }
     });
 
-    sessionTable.grantReadWriteData(authorizerFunction);
+    serviceTable.grantReadWriteData(authorizerFunction);
 
     const api = new RestApi(this, `${ns}-Vermont Kids Data`, {
       domainName: {
@@ -539,7 +532,7 @@ export class VermontkidsdataStack extends cdk.Stack {
       identitySources: [
         IdentitySource.header('Cookie')
       ],
-      resultsCacheTtl: cdk.Duration.seconds(0) // Disable cache on authorizer
+      resultsCacheTtl: Duration.seconds(0) // Disable cache on authorizer
     });
 
     // const openApi = new OpenApiBuilder({
@@ -585,20 +578,20 @@ export class VermontkidsdataStack extends cdk.Stack {
     }
     const cognitoProviderInfo = identityPool.cognitoIdentityProviders[0] as CognitoProviderInfo;
 
-    const getCredentialsFunction = new lambdanode.NodejsFunction(this, 'Credentials function', {
+    const getCredentialsFunction = new NodejsFunction(this, 'Credentials function', {
       runtime,
       entry: join(__dirname, "../src/get-credentials.ts"),
       handler: 'main',
-      logRetention: logs.RetentionDays.FIVE_DAYS,
+      logRetention: RetentionDays.FIVE_DAYS,
       environment: {
-        TABLE_NAME: sessionTable.tableName,
+        ...commonEnv,
         ENV_NAME: ns,
         IDENTITY_POOL_ID: identityPool.ref,
         IDENTITY_PROVIDER: cognitoProviderInfo.providerName
       }
     });
 
-    sessionTable.grantReadWriteData(getCredentialsFunction);
+    serviceTable.grantReadWriteData(getCredentialsFunction);
 
     const methodResponses = [{
       statusCode: '401',
@@ -791,15 +784,15 @@ export class VermontkidsdataStack extends cdk.Stack {
       }
     );
 
-    new route53.ARecord(this, 'r53-be-arec', {
+    new ARecord(this, 'r53-be-arec', {
       zone: hostedZone,
-      target: route53.RecordTarget.fromAlias(
-        new route53Targets.ApiGateway(api)
+      target: RecordTarget.fromAlias(
+        new ApiGateway(api)
       ),
       recordName: apiDomainName
     });
 
-    new cdk.CfnOutput(this, "API Domain Name", {
+    new CfnOutput(this, "API Domain Name", {
       value: apiDomainName
     });
   }

@@ -1,6 +1,7 @@
 // Needs to be right up front, before anything else is loaded
 process.env.COGNITO_CLIENT_ID = 'bogus-client';
 process.env.COGNITO_SECRET = 'bogus-secret';
+process.env.SERVICE_TABLE = 'vkd-qa-service-table';
 
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';

@@ -1,21 +1,20 @@
 import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
 import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
-import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
 import middy from '@middy/core';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import axios from 'axios';
 import { randomUUID } from 'crypto';
 import express from 'express';
-const { IS_PRODUCTION, ENV_NAME, MY_URI, MY_DOMAIN, TABLE_NAME, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
+import { Session } from './db-utils';
+import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
+const { LOG_LEVEL, IS_PRODUCTION, ENV_NAME, MY_URI, MY_DOMAIN, SERVICE_TABLE, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
 
 export const serviceName = `oauth-callback-${ENV_NAME}`;
 export const logger = new Logger({
-  logLevel: 'INFO',
+  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
   serviceName: serviceName
 });
 export const tracer = new Tracer({ serviceName: serviceName });
-
-const ddbClient = new DynamoDBClient({ region: AWS_REGION });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
@@ -26,9 +25,9 @@ export async function lambdaHandler(
 
   console.log({ message: 'oauth-callback starting', event, code, state });
 
-  if (COGNITO_CLIENT_ID == null || COGNITO_SECRET == null || REDIRECT_URI == null || TABLE_NAME == null || MY_URI == null || MY_DOMAIN == null) {
+  if (COGNITO_CLIENT_ID == null || COGNITO_SECRET == null || REDIRECT_URI == null || SERVICE_TABLE == null || MY_URI == null || MY_DOMAIN == null) {
     return {
-      body: JSON.stringify({ message: 'Cognito callback needs COGNITO_CLIENT_ID, COGNITO_SECRET, TABLE_NAME and REDIRECT_URI' }),
+      body: JSON.stringify({ message: 'Cognito callback needs COGNITO_CLIENT_ID, COGNITO_SECRET, SERVICE_TABLE and REDIRECT_URI' }),
       statusCode: 500,
     };
   }
@@ -63,17 +62,13 @@ export async function lambdaHandler(
 
   const cookie = randomUUID();
 
-  await ddbClient.send(new PutItemCommand({
-    TableName: TABLE_NAME,
-    Item: {
-      session_id: { S: cookie },
-      domain: { S: MY_DOMAIN },
-      access_token: { S: access_token },
-      id_token: { S: id_token },
-      refresh_token: { S: refresh_token },
-      timestamp: { S: new Date().toISOString() }
-    }
-  }));
+  await Session.put({
+    session_id: cookie,
+    domain: MY_DOMAIN,
+    access_token,
+    id_token,
+    refresh_token,
+  });
 
   return {
     body: JSON.stringify({ message: 'Successful session create' }),

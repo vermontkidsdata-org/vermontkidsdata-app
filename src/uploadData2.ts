@@ -11,7 +11,7 @@ interface UploadInfo {
   key: string;
 }
 
-const { S3_BUCKET_NAME: bucketName, REGION, STATUS_TABLE: statusTableName } = process.env;
+const { S3_BUCKET_NAME: bucketName, REGION, SERVICE_TABLE: statusTableName } = process.env;
 const s3 = new AWS.S3({ region: REGION });
 const dynamodb = new AWS.DynamoDB({ region: REGION });
 

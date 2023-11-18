@@ -1,15 +1,16 @@
 import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
+import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
-import middy from '@middy/core';
-import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { CORSConfigDefault } from './cors-config';
 import { doDBClose, doDBCommit, doDBOpen, doDBQuery } from './db-utils';
 
+const {NAMESPACE, LOG_LEVEL} = process.env;
+
 // Set your service name. This comes out in service lens etc.
-const serviceName = `queries-api-delete-${process.env.NAMESPACE}`;
+const serviceName = `queries-api-delete-${NAMESPACE}`;
 const logger = new Logger({
-  logLevel: process.env.LOG_LEVEL || 'INFO',
+  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
   serviceName
 });
 const tracer = new Tracer({ serviceName });
@@ -50,6 +51,8 @@ export async function lambdaHandler(
   };
 }
 
+import middy from '@middy/core';
+import cors from '@middy/http-cors';
 export const handler = middy(lambdaHandler)
   .use(captureLambdaHandler(tracer))
   .use(injectLambdaContext(logger))

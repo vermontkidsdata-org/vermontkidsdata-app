@@ -127,8 +127,11 @@ exports[`Lambda Snapshot Test 1`] = `
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "ENV_NAME": "test",
-            "TABLE_NAME": {
-              "Ref": "SessionTable8953B218",
+            "IS_PRODUCTION": "false",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
             },
           },
         },
@@ -139,7 +142,7 @@ exports[`Lambda Snapshot Test 1`] = `
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -220,12 +223,23 @@ exports[`Lambda Snapshot Test 1`] = `
               "Resource": [
                 {
                   "Fn::GetAtt": [
-                    "SessionTable8953B218",
+                    "SingleServiceTableABC698C2",
                     "Arn",
                   ],
                 },
                 {
-                  "Ref": "AWS::NoValue",
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
                 },
               ],
             },
@@ -286,8 +300,12 @@ exports[`Lambda Snapshot Test 1`] = `
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.bar",
@@ -298,7 +316,7 @@ exports[`Lambda Snapshot Test 1`] = `
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 30,
         "TracingConfig": {
           "Mode": "Active",
@@ -416,8 +434,12 @@ exports[`Lambda Snapshot Test 1`] = `
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.table",
@@ -428,7 +450,7 @@ exports[`Lambda Snapshot Test 1`] = `
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 30,
         "TracingConfig": {
           "Mode": "Active",
@@ -720,8 +742,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.getCensusByGeo",
@@ -732,7 +758,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 15,
         "TracingConfig": {
           "Mode": "Active",
@@ -836,8 +862,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.codesCensusVariablesByTable",
@@ -848,7 +878,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 15,
         "TracingConfig": {
           "Mode": "Active",
@@ -957,8 +987,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               "Ref": "identitypool",
             },
             "IDENTITY_PROVIDER": "cognito-idp.aq-south-1.amazonaws.com/us-east-1_wft0IBegY",
-            "TABLE_NAME": {
-              "Ref": "SessionTable8953B218",
+            "IS_PRODUCTION": "false",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
             },
           },
         },
@@ -969,7 +1002,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -1050,12 +1083,23 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               "Resource": [
                 {
                   "Fn::GetAtt": [
-                    "SessionTable8953B218",
+                    "SingleServiceTableABC698C2",
                     "Arn",
                   ],
                 },
                 {
-                  "Ref": "AWS::NoValue",
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
                 },
               ],
             },
@@ -1243,7 +1287,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           ],
         },
-        "Handler": "__entrypoint__.handler",
+        "Handler": "index.handler",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": [
@@ -1251,7 +1295,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
@@ -1291,8 +1335,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.check",
@@ -1303,7 +1351,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 30,
         "TracingConfig": {
           "Mode": "Active",
@@ -1613,8 +1661,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.main",
@@ -1625,7 +1677,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 60,
         "TracingConfig": {
           "Mode": "Active",
@@ -1729,8 +1781,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.getCensusTablesSearch",
@@ -1741,7 +1797,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 15,
         "TracingConfig": {
           "Mode": "Active",
@@ -1845,8 +1901,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.getGeosByType",
@@ -1857,7 +1917,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 15,
         "TracingConfig": {
           "Mode": "Active",
@@ -1961,8 +2021,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.getDataSetYearsByDataset",
@@ -1973,7 +2037,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 15,
         "TracingConfig": {
           "Mode": "Active",
@@ -2081,7 +2145,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
+        "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -2159,9 +2224,11 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "IS_PRODUCTION": "false",
             "MY_DOMAIN": "test.vtkidsdata.org",
             "MY_URI": "https://api.test.vtkidsdata.org/oauthcallback",
+            "NAMESPACE": "test",
             "REDIRECT_URI": "https://ui.test.vtkidsdata.org",
-            "TABLE_NAME": {
-              "Ref": "SessionTable8953B218",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
             },
           },
         },
@@ -2172,7 +2239,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "TracingConfig": {
           "Mode": "Active",
         },
@@ -2264,12 +2331,23 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               "Resource": [
                 {
                   "Fn::GetAtt": [
-                    "SessionTable8953B218",
+                    "SingleServiceTableABC698C2",
                     "Arn",
                   ],
                 },
                 {
-                  "Ref": "AWS::NoValue",
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
                 },
               ],
             },
@@ -2306,8 +2384,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.handler",
@@ -2318,7 +2400,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 30,
         "TracingConfig": {
           "Mode": "Active",
@@ -2436,8 +2518,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.handler",
@@ -2448,7 +2534,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 30,
         "TracingConfig": {
           "Mode": "Active",
@@ -2566,8 +2652,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.handler",
@@ -2578,7 +2668,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 30,
         "TracingConfig": {
           "Mode": "Active",
@@ -2696,8 +2786,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.handler",
@@ -2708,7 +2802,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 30,
         "TracingConfig": {
           "Mode": "Active",
@@ -2826,8 +2920,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "index.handler",
@@ -2838,7 +2936,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 30,
         "TracingConfig": {
           "Mode": "Active",
@@ -2943,28 +3041,83 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
-    "SessionTable8953B218": {
-      "DeletionPolicy": "Delete",
+    "SingleServiceTableABC698C2": {
+      "DeletionPolicy": "Retain",
       "Properties": {
         "AttributeDefinitions": [
           {
-            "AttributeName": "session_id",
+            "AttributeName": "PK",
             "AttributeType": "S",
+          },
+          {
+            "AttributeName": "SK",
+            "AttributeType": "S",
+          },
+          {
+            "AttributeName": "GSI1PK",
+            "AttributeType": "S",
+          },
+          {
+            "AttributeName": "GSI1SK",
+            "AttributeType": "S",
+          },
+          {
+            "AttributeName": "GSI2PK",
+            "AttributeType": "S",
+          },
+          {
+            "AttributeName": "GSI2SK",
+            "AttributeType": "S",
+          },
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "GSI1",
+            "KeySchema": [
+              {
+                "AttributeName": "GSI1PK",
+                "KeyType": "HASH",
+              },
+              {
+                "AttributeName": "GSI1SK",
+                "KeyType": "RANGE",
+              },
+            ],
+            "Projection": {
+              "ProjectionType": "ALL",
+            },
+          },
+          {
+            "IndexName": "GSI2",
+            "KeySchema": [
+              {
+                "AttributeName": "GSI2PK",
+                "KeyType": "HASH",
+              },
+              {
+                "AttributeName": "GSI2SK",
+                "KeyType": "RANGE",
+              },
+            ],
+            "Projection": {
+              "ProjectionType": "ALL",
+            },
           },
         ],
         "KeySchema": [
           {
-            "AttributeName": "session_id",
+            "AttributeName": "PK",
             "KeyType": "HASH",
           },
+          {
+            "AttributeName": "SK",
+            "KeyType": "RANGE",
+          },
         ],
-        "ProvisionedThroughput": {
-          "ReadCapacityUnits": 5,
-          "WriteCapacityUnits": 5,
-        },
       },
       "Type": "AWS::DynamoDB::Table",
-      "UpdateReplacePolicy": "Delete",
+      "UpdateReplacePolicy": "Retain",
     },
     "TestDBFunction6436BF3A": {
       "DependsOn": [
@@ -2979,8 +3132,12 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
           },
         },
         "Handler": "testcitylambda.queryDB",
@@ -2991,7 +3148,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 15,
         "TracingConfig": {
           "Mode": "Active",
@@ -3095,13 +3252,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
             "S3_BUCKET_NAME": {
               "Ref": "Uploadsbucket86F42938",
             },
-            "STATUS_TABLE": {
-              "Ref": "UploadstatustableA9E2FF87",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
             },
           },
         },
@@ -3113,7 +3271,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 900,
         "TracingConfig": {
           "Mode": "Active",
@@ -3249,12 +3407,23 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               "Resource": [
                 {
                   "Fn::GetAtt": [
-                    "UploadstatustableA9E2FF87",
+                    "SingleServiceTableABC698C2",
                     "Arn",
                   ],
                 },
                 {
-                  "Ref": "AWS::NoValue",
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
                 },
               ],
             },
@@ -3302,12 +3471,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "IS_PRODUCTION": "false",
+            "NAMESPACE": "test",
             "REGION": "aq-south-1",
             "S3_BUCKET_NAME": {
               "Ref": "Uploadsbucket86F42938",
             },
-            "STATUS_TABLE": {
-              "Ref": "UploadstatustableA9E2FF87",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
             },
           },
         },
@@ -3319,7 +3490,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 5,
         "TracingConfig": {
           "Mode": "Active",
@@ -3412,12 +3583,23 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               "Resource": [
                 {
                   "Fn::GetAtt": [
-                    "UploadstatustableA9E2FF87",
+                    "SingleServiceTableABC698C2",
                     "Arn",
                   ],
                 },
                 {
-                  "Ref": "AWS::NoValue",
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
                 },
               ],
             },
@@ -3590,6 +3772,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           "Statement": [
             {
               "Action": [
+                "s3:PutBucketPolicy",
                 "s3:GetBucket*",
                 "s3:List*",
                 "s3:DeleteObject*",
@@ -3670,26 +3853,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "UploadstatustableA9E2FF87": {
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "AttributeDefinitions": [
-          {
-            "AttributeName": "id",
-            "AttributeType": "S",
-          },
-        ],
-        "BillingMode": "PAY_PER_REQUEST",
-        "KeySchema": [
-          {
-            "AttributeName": "id",
-            "KeyType": "HASH",
-          },
-        ],
-      },
-      "Type": "AWS::DynamoDB::Table",
-      "UpdateReplacePolicy": "Retain",
-    },
     "becertCertificateRequestorFunction3ACDE82F": {
       "DependsOn": [
         "becertCertificateRequestorFunctionServiceRoleDefaultPolicyB4472907",
@@ -3707,7 +3870,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "nodejs16.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
@@ -4068,7 +4231,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C714c07f5d88bfbad96cdd6c38ded682fb": {
+    "testVermontKidsDataDeployment82D2B8C7dd78e2d7cf6674e95897ef1bdb6c1769": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -4148,7 +4311,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C714c07f5d88bfbad96cdd6c38ded682fb",
+          "Ref": "testVermontKidsDataDeployment82D2B8C7dd78e2d7cf6674e95897ef1bdb6c1769",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -4254,6 +4417,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDatachartOPTIONS88BF083C": {
       "Properties": {
+        "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
@@ -4268,8 +4432,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
-#if($origin.matches("http://localhost:3000"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
   #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
 #end",
               },
@@ -4441,6 +4607,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDatacodesOPTIONS8255224F": {
       "Properties": {
+        "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
@@ -4455,8 +4622,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
-#if($origin.matches("http://localhost:3000"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
   #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
 #end",
               },
@@ -4999,6 +5168,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDatacredentialsOPTIONSFEB59669": {
       "Properties": {
+        "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
@@ -5013,8 +5183,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
-#if($origin.matches("http://localhost:3000"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
   #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
 #end",
               },
@@ -5064,6 +5236,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDatadashboardOPTIONS299AC35B": {
       "Properties": {
+        "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
@@ -5078,8 +5251,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
-#if($origin.matches("http://localhost:3000"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
   #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
 #end",
               },
@@ -5613,6 +5788,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataoauthcallbackOPTIONSE95BCC4B": {
       "Properties": {
+        "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
@@ -5627,8 +5803,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
-#if($origin.matches("http://localhost:3000"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
   #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
 #end",
               },
@@ -5793,6 +5971,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataqueriesOPTIONSB95DAF7C": {
       "Properties": {
+        "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
@@ -5807,8 +5986,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
-#if($origin.matches("http://localhost:3000"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
   #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
 #end",
               },
@@ -6200,6 +6381,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataqueriesidOPTIONS6C956D6C": {
       "Properties": {
+        "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
@@ -6214,8 +6396,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
-#if($origin.matches("http://localhost:3000"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
   #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
 #end",
               },
@@ -6392,6 +6576,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDatatableOPTIONS2601EA66": {
       "Properties": {
+        "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
@@ -6406,8 +6591,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
-#if($origin.matches("http://localhost:3000"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
   #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
 #end",
               },
@@ -6814,6 +7001,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDatauploadOPTIONSB49CCAFD": {
       "Properties": {
+        "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "HttpMethod": "OPTIONS",
         "Integration": {
@@ -6828,8 +7016,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "") #set($origin = $input.params().header.get("origin")) #end
-#if($origin.matches("http://localhost:3000"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
   #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
 #end",
               },

@@ -4,11 +4,14 @@ import middy from '@middy/core';
 import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { CORSConfigDefault } from './cors-config';
+import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
+
+const {LOG_LEVEL, NAMESPACE} = process.env;
 
 // Set your service name. This comes out in service lens etc.
-const serviceName = `options-${process.env.NAMESPACE}`;
+const serviceName = `options-${NAMESPACE}`;
 const logger = new Logger({
-  logLevel: process.env.LOG_LEVEL || 'INFO',
+  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
   serviceName
 });
 const tracer = new Tracer({ serviceName });

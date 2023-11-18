@@ -1,3 +1,5 @@
+process.env.SERVICE_TABLE = 'vkd-qa-service-table';
+
 import { APIGatewayProxyEventV2, APIGatewayProxyEventV2WithLambdaAuthorizer } from 'aws-lambda';
 import { randomUUID } from 'crypto';
 import { VKDAuthorizerContext } from 'src/authorizer';

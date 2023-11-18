@@ -1,3 +1,5 @@
+process.env.SERVICE_TABLE = 'vkd-qa-service-table';
+
 import { APIGatewayProxyEventV2 } from 'aws-lambda';
 import * as dbUtils from '../src/db-utils';
 import * as tablesApi from '../src/tablesApi';

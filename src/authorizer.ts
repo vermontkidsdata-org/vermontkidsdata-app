@@ -1,13 +1,14 @@
 import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
+import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
-import { DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
 import middy from '@middy/core';
 import { APIGatewayAuthorizerResult, APIGatewayRequestAuthorizerEvent, Context, PolicyDocument, Statement } from 'aws-lambda';
-const { ENV_NAME, TABLE_NAME, AWS_REGION } = process.env;
+import { getSessionKey, Session } from './db-utils';
+const { ENV_NAME, SERVICE_TABLE, LOG_LEVEL } = process.env;
 
 export const serviceName = `bff-api-authorizer-${ENV_NAME}`;
 export const logger = new Logger({
-  logLevel: 'INFO',
+  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
   serviceName: serviceName
 });
 export const tracer = new Tracer({ serviceName: serviceName });
@@ -19,7 +20,6 @@ export interface VKDAuthorizerContext {
   timestamp: string,
 }
 
-const ddbClient = new DynamoDBClient({ region: AWS_REGION });
 const COOKIE_PREFIX = 'VKD_AUTH=';
 
 export async function lambdaHandler(
@@ -54,36 +54,30 @@ export async function lambdaHandler(
     console.log({ message: 'no VKD_AUTH cookie, denying' });
     // return Deny below
   } else {
-    if (TABLE_NAME == null) {
-      console.log({ message: 'Needs TABLE_NAME configured in CDK' });
-      throw new Error('Needs TABLE_NAME');
+    if (SERVICE_TABLE == null) {
+      console.log({ message: 'Needs SERVICE_TABLE configured in CDK' });
+      throw new Error('Needs SERVICE_TABLE');
     }
 
     // Pull off the session id from cookie value
     const session_id = authCookie.trim().substring(COOKIE_PREFIX.length).trim();
-    console.log({ message: `Session id ${session_id} lookup in table ${TABLE_NAME}` });
+    console.log({ message: `Session id ${session_id} lookup in table ${SERVICE_TABLE}` });
 
-    let session = await ddbClient.send(new GetItemCommand({
-      TableName: TABLE_NAME,
-      Key: {
-        session_id: { S: session_id }
-      }
-    }));
-
+    let session = await Session.get(getSessionKey(session_id));
     if (session.Item) {
       // If we are here, we have a valid session. So just return the pieces.
       statement.Effect = 'Allow';
       response.context = {
-        access_token: session.Item.access_token.S,
-        id_token: session.Item.id_token.S,
-        domain: session.Item.domain.S,
-        refresh_token: session.Item.refresh_token.S,
-        timestamp: session.Item.timestamp.S,
+        access_token: session.Item.access_token,
+        id_token: session.Item.id_token,
+        domain: session.Item.domain,
+        refresh_token: session.Item.refresh_token,
+        timestamp: session.Item.timestamp,
       };
 
       logger.info({ message: 'authorizer allow response', response });
     } else {
-      console.log({ message: `Session id ${session_id} not found in table ${TABLE_NAME}` });
+      console.log({ message: `Session id ${session_id} not found in table ${SERVICE_TABLE}` });
       // return Deny below
     }
   }

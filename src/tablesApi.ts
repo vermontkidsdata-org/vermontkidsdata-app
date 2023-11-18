@@ -5,13 +5,16 @@ import { CensusResultRow, GeoHierarchy, census } from './citysdk-utils';
 import { httpMessageResponse, httpResponse } from './cors';
 import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
 import { ServerMetadata } from './server-metadata';
+import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 
 // Set your service name. This comes out in service lens etc.
 const { NAMESPACE, LOG_LEVEL } = process.env;
 
 const serviceName = `tables-api-${NAMESPACE}`;
 const logger = new Logger({
-  logLevel: LOG_LEVEL || 'INFO',
+  logLevel: (LOG_LEVEL ||
+    
+    'INFO') as LogLevel,
   serviceName
 });
 const tracer = new Tracer({ serviceName });
