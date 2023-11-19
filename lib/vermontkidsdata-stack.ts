@@ -226,7 +226,7 @@ export class VermontkidsdataStack extends Stack {
       memorySize: 128,
       timeout: Duration.seconds(30),
       runtime,
-      entry: join(__dirname, "../src/chartsApi.ts"),
+      entry: join(__dirname, "../src/charts-api.ts"),
       handler: 'bar',
       logRetention: RetentionDays.ONE_DAY,
       environment: {
@@ -268,8 +268,8 @@ export class VermontkidsdataStack extends Stack {
       memorySize: 128,
       timeout: Duration.seconds(30),
       runtime,
-      handler: 'handler',
-      entry: join(__dirname, "../src/queries-api-getList.ts"),
+      handler: 'handlerGetList',
+      entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
         ...commonEnv
@@ -282,8 +282,8 @@ export class VermontkidsdataStack extends Stack {
       memorySize: 128,
       timeout: Duration.seconds(30),
       runtime,
-      handler: 'handler',
-      entry: join(__dirname, "../src/queries-api-get.ts"),
+      handler: 'handlerGet',
+      entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
         ...commonEnv
@@ -296,8 +296,8 @@ export class VermontkidsdataStack extends Stack {
       memorySize: 128,
       timeout: Duration.seconds(30),
       runtime,
-      handler: 'handler',
-      entry: join(__dirname, "../src/queries-api-put.ts"),
+      handler: 'handlerPut',
+      entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
         ...commonEnv
@@ -310,8 +310,8 @@ export class VermontkidsdataStack extends Stack {
       memorySize: 128,
       timeout: Duration.seconds(30),
       runtime,
-      handler: 'handler',
-      entry: join(__dirname, "../src/queries-api-delete.ts"),
+      handler: 'handlerDelete',
+      entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
         ...commonEnv
@@ -324,8 +324,8 @@ export class VermontkidsdataStack extends Stack {
       memorySize: 128,
       timeout: Duration.seconds(30),
       runtime,
-      handler: 'handler',
-      entry: join(__dirname, "../src/queries-api-post.ts"),
+      handler: 'handlerPost',
+      entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
         ...commonEnv

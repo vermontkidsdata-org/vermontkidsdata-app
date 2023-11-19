@@ -2392,7 +2392,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
           },
         },
-        "Handler": "index.handler",
+        "Handler": "index.handlerDelete",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": [
@@ -2526,7 +2526,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
           },
         },
-        "Handler": "index.handler",
+        "Handler": "index.handlerGet",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": [
@@ -2660,7 +2660,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
           },
         },
-        "Handler": "index.handler",
+        "Handler": "index.handlerGetList",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": [
@@ -2794,7 +2794,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
           },
         },
-        "Handler": "index.handler",
+        "Handler": "index.handlerPost",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": [
@@ -2928,7 +2928,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
           },
         },
-        "Handler": "index.handler",
+        "Handler": "index.handlerPut",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": [

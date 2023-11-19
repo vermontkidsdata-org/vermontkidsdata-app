@@ -1,24 +1,21 @@
 // process.env.NAMESPACE = 'qa';
 
-import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
+import { Logger } from '@aws-lambda-powertools/logger';
 import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
-import middy from '@middy/core';
-import cors from '@middy/http-cors';
+import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2WithLambdaAuthorizer, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { VKDAuthorizerContext } from './authorizer';
-import { CORSConfigDefault } from './cors-config';
 import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
 
 const {NAMESPACE, LOG_LEVEL} = process.env;
 
 // Set your service name. This comes out in service lens etc.
 const serviceName = `queries-api-getList-${NAMESPACE}`;
-const logger = new Logger({
+export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
   serviceName
 });
-const tracer = new Tracer({ serviceName });
+export const tracer = new Tracer({ serviceName });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2WithLambdaAuthorizer<VKDAuthorizerContext>,
@@ -40,14 +37,6 @@ export async function lambdaHandler(
     await doDBClose();
   }
 }
-
-export const handler = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger))
-  .use(
-    // cors(new CORSConfig(process.env))
-    cors(CORSConfigDefault)
-  );
 
 if (!module.parent) {
   (async () => {

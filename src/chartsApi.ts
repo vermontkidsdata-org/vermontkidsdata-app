@@ -1,8 +1,6 @@
-import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
+import { Logger } from '@aws-lambda-powertools/logger';
 import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
-import middy from '@middy/core';
-import cors from '@middy/http-cors';
+import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
 
@@ -10,13 +8,13 @@ const {LOG_LEVEL, NAMESPACE} = process.env;
 
 // Set your service name. This comes out in service lens etc.
 const serviceName = `charts-api-${NAMESPACE}`;
-const logger = new Logger({
+export const loggerCharts = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
   serviceName
 });
-const tracer = new Tracer({ serviceName });
+export const tracerCharts = new Tracer({ serviceName });
 
-export async function lambdaHandler(
+export async function lambdaHandlerBar(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   console.log('event 👉', event);
@@ -120,15 +118,6 @@ if (!module.parent) {
         queryId: '59'
       }
     } as unknown as APIGatewayProxyEventV2;
-    console.log(await lambdaHandler(event));
+    console.log(await lambdaHandlerBar(event));
   })();
 }
-
-export const bar = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger))
-  .use(
-    cors({
-      origin: "*",
-    })
-  );

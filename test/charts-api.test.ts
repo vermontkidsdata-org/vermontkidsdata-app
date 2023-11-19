@@ -1,7 +1,7 @@
 process.env.SERVICE_TABLE = 'vkd-qa-service-table';
 
 import { APIGatewayProxyEventV2 } from 'aws-lambda';
-import { lambdaHandler } from '../src/chartsApi';
+import { lambdaHandlerBar } from '../src/chartsApi';
 import { } from '../src/db-utils';
 import { expectCORS, LambdaResponse } from './utils';
 
@@ -14,7 +14,7 @@ describe('chartsApi', () => {
   test('basic query', async () => {
     // queryDBSpy.mock.invocationCall in mockResolvedValue(BOGUS_BRANCH_NAME);
 
-    const ret = await lambdaHandler({
+    const ret = await lambdaHandlerBar({
       pathParameters: {
         queryId: '60'
       }
@@ -37,7 +37,7 @@ describe('chartsApi', () => {
   test('returns null on -1', async () => {
     // queryDBSpy.mock.invocationCall in mockResolvedValue(BOGUS_BRANCH_NAME);
 
-    const ret = await lambdaHandler({
+    const ret = await lambdaHandlerBar({
       pathParameters: {
         queryId: 'women_no_leave:chart'
       }
