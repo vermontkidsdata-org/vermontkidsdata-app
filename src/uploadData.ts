@@ -6,19 +6,28 @@ if (!module.parent) {
 }
 
 import { GetObjectCommand, GetObjectTaggingCommand, S3Client } from '@aws-sdk/client-s3';
+import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs';
 import { PutCommandOutput } from '@aws-sdk/lib-dynamodb';
 import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2, S3Event } from 'aws-lambda';
 import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
-import { UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret, getUploadStatusKey } from "./db-utils";
+import { DatasetVersion, DatasetVersionData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret, getUploadStatusKey } from "./db-utils";
 
 interface UploadInfo {
   type: string;
   key: string;
 }
 
+// {"dataset":"general:residentialcare","version":"2023-11-24T14:07:43.874Z","identifier":"20231124-1"}
+export interface DatasetBackupMessage {
+  dataset: string,
+  version: string,
+  identifier: string,
+}
+
 const { S3_BUCKET_NAME: bucketName, REGION, SERVICE_TABLE } = process.env;
 const s3 = new S3Client({ region: REGION });
+const sqs = new SQSClient({ region: REGION });
 
 type CsvProcessCallback = (uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any) => Promise<void>;
 
@@ -197,7 +206,7 @@ function matchColumns(record: string[], uploadType: UploadType): { matchedColumn
 
 async function recreateDashboardTable(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
   await truncateTable(uploadType, record, lnum, identifier, dryRun, errors, clientData);
-  
+
   const keepColumns = ((type) => {
     return [
       ...new Set([`id`,
@@ -215,8 +224,8 @@ async function recreateDashboardTable(uploadType: UploadType, record: string[], 
   const dropCols = uploadType.columns.filter(col => dropColsInternal.includes(humanToInternalName(col.columnName)));
 
   if (dropCols.length) {
-    const dropDDL = "alter table `"+table+"` "+dropCols.map(dc => `drop \`${dc.columnName}\``).join(', ');
-    console.log({message: '**** keepColumns', keepColumns, dropCols, dropDDL});
+    const dropDDL = "alter table `" + table + "` " + dropCols.map(dc => `drop \`${dc.columnName}\``).join(', ');
+    console.log({ message: '**** keepColumns', keepColumns, dropCols, dropDDL });
 
     // Make a copy first!
     await doDBQuery(`DROP TABLE IF EXISTS \`${table}_backup\`;`);
@@ -232,7 +241,7 @@ async function recreateDashboardTable(uploadType: UploadType, record: string[], 
   }
 }
 
-async function truncateTable(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+export async function truncateTable(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
   const sql = `truncate table ${uploadType.table}`;
   if (dryRun) {
     console.log({ sql });
@@ -372,19 +381,28 @@ async function processAssessmentRow(type: UploadType, record: string[], lnum: nu
   }
 }
 
-async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[]): Promise<PutCommandOutput> {
-  return UploadStatus.put({
+async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[], exists?: boolean): Promise<PutCommandOutput> {
+  const data = {
     id,
     status,
     numRecords,
     percent,
     errors,
     lastUpdated: new Date().toISOString()
-  });
+  };
+
+  return exists != null ?
+    UploadStatus.put(data, {
+      conditions: {
+        attr: 'id',
+        exists
+      }
+    }) :
+    UploadStatus.put(data);
 }
 
 export async function status(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> {
-  const {uploadId} = event.pathParameters!;
+  const { uploadId } = event.pathParameters!;
   if (uploadId == null) {
     return {
       statusCode: 400,
@@ -422,17 +440,39 @@ export async function status(event: APIGatewayProxyEventV2): Promise<APIGatewayP
   }
 }
 
+/**
+ * Really process an upload, from whatever source.
+ * @param props 
+ * @returns Errors, total number of records saved, and the last update percentage
+ */
 export async function processUpload(props: {
   bodyContents: string,
-  typeConfig: TypesConfigElement,
   identifier: string,
-  uploadType: UploadType,
-  dryRun: boolean,
+  uploadType: string,
+  dryRun?: boolean,
+  doTruncateTable?: boolean,
+  updateUploadStatus?: boolean,
 }): Promise<{
   errors: Error[],
   saveTotal: number,
   statusUpdatePct: number,
 }> {
+  const { uploadType: uploadTypeStr, bodyContents, dryRun, identifier, updateUploadStatus, doTruncateTable } = props;
+
+  console.log('opening connection');
+  await doDBOpen();
+  console.log('connection open');
+
+  const uploadType = await getUploadType(uploadTypeStr);
+
+  // Assume the type has two pieces separated by a colon
+  // - the typesConfig value
+  // - the rest of it, depends on the typesConfig value
+  const typePrefix = uploadTypeStr.includes(':') ? uploadTypeStr.substring(0, uploadTypeStr.indexOf(':')) : uploadTypeStr;
+  const typeConfig = typesConfig[typePrefix];
+
+  console.log({ typePrefix, typeConfig });
+
   const errors: Error[] = []
   let saveTotal = 0;
   let statusUpdatePct = 0;
@@ -441,32 +481,43 @@ export async function processUpload(props: {
     // Client data - handlers can put anything they want in there
     const clientData: any = {};
 
-    await processCSV(props.bodyContents, props.uploadType, async (record, index, total) => {
+    // Start by truncating the table if requested
+    if (doTruncateTable) {
+      await truncateTable(uploadType, [], 0, identifier, dryRun ?? false, errors, clientData);
+    }
+
+    await processCSV(bodyContents, uploadType, async (record, index, total) => {
       console.log({ message: 'row', index, record });
 
-      if (index === 1 && props.typeConfig.preFunction) {
+      if (index === 1 && typeConfig.preFunction) {
         console.log({ message: 'executing pre-function' });
 
-        await props.typeConfig.preFunction(props.uploadType, record, index, props.identifier, props.dryRun, errors, clientData);
+        await typeConfig.preFunction(uploadType, record, index, identifier, dryRun ?? false, errors, clientData);
       }
-      await props.typeConfig.processRowFunction(props.uploadType, record, index, props.identifier, props.dryRun, errors, clientData);
-      if (index === total && props.typeConfig.postFunction) {
+      await typeConfig.processRowFunction(uploadType, record, index, identifier, dryRun ?? false, errors, clientData);
+      if (index === total && typeConfig.postFunction) {
         console.log({ message: 'executing post-function' });
 
-        await props.typeConfig.postFunction(props.uploadType, record, index, props.identifier, props.dryRun, errors, clientData);
+        await typeConfig.postFunction(uploadType, record, index, identifier, dryRun ?? false, errors, clientData);
       }
 
       // Update status every 10%
       statusUpdatePct = Math.round(100 * index / total);
       if (Math.floor(lastStatusUpdatePct / 10) != Math.floor(statusUpdatePct / 10)) {
         lastStatusUpdatePct = statusUpdatePct;
-        await updateStatus(props.identifier, 'In progress', statusUpdatePct, total, []);
+        if (updateUploadStatus) {
+          await updateStatus(identifier, 'In progress', statusUpdatePct, total, []);
+        }
       }
       saveTotal = total;
     });
+
+    await doDBCommit();
   } catch (e) {
     console.error(e);
     errors.push(e as Error);
+  } finally {
+    await doDBClose();
   }
 
   return { errors, saveTotal, statusUpdatePct };
@@ -486,6 +537,7 @@ export async function main(
     Key: key,
   };
   console.log('params', params);
+
   try {
     const { ContentType, Body } = await s3.send(new GetObjectCommand(params));
     const { TagSet } = await s3.send(new GetObjectTaggingCommand(params));
@@ -496,7 +548,7 @@ export async function main(
     console.log('TAGS:', TagSet);
     const tags: { [key: string]: string } = {};
     if (TagSet != null) {
-      TagSet.forEach(tag => tags[tag.Key?.toLowerCase() ?? UNKNOWN] = tag.Value?.toLowerCase()?? UNKNOWN);
+      TagSet.forEach(tag => tags[tag.Key?.toLowerCase() ?? UNKNOWN] = tag.Value?.toLowerCase() ?? UNKNOWN);
     }
     console.log(`tags = ${tags}`);
     if (tags.type == null || bodyContents == null) {
@@ -505,33 +557,44 @@ export async function main(
 
     // Get the identifier. Just create a UUID if one not provided like it should be.
     const identifier = tags.identifier || uuidv4();
+
     console.log(`set in progress ${identifier}`);
-    await updateStatus(identifier, 'In progress', 0, 0, []);
+    await updateStatus(identifier, 'In progress', 0, 0, [], false);
 
-    console.log('opening connection');
-    await doDBOpen();
-    console.log('connection open');
-    try {
-      // Assume the type has two pieces separated by a colon
-      // - the typesConfig value
-      // - the rest of it, depends on the typesConfig value
-      const typePrefix = tags.type.includes(':') ? tags.type.substring(0, tags.type.indexOf(':')) : tags.type;
-      const typeConfig = typesConfig[typePrefix];
+    // Get the upload type. We'll need it later for multiple purposes
+    const uploadType = tags.type;
+    const { errors, saveTotal, statusUpdatePct } = await processUpload({
+      bodyContents,
+      uploadType,
+      identifier,
+      dryRun: false,
+      updateUploadStatus: true,
+    });
 
-      console.log({ typePrefix, typeConfig });
+    await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
 
-      const { errors, saveTotal, statusUpdatePct } = await processUpload({
-        bodyContents,
-        typeConfig,
-        uploadType: await getUploadType(tags.type),
+    // When an upload completes, write a record to the upload backup queue so a backup can be made
+    const queueUrl = process.env.DATASET_BACKUP_QUEUE_URL;
+    if (queueUrl) {
+      const datasetVersionData: DatasetVersionData = {
+        dataset: uploadType,
+        version: new Date().toISOString(),
+        status: STATUS_DATASET_VERSION_QUEUED,
         identifier,
-        dryRun: false,
-      });
+      } as DatasetVersionData;
 
-      await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
-      await doDBCommit();
-    } finally {
-      await doDBClose();
+      await DatasetVersion.update(datasetVersionData);
+
+      const queueResp = await sqs.send(new SendMessageCommand({
+        QueueUrl: queueUrl,
+        MessageBody: JSON.stringify({
+          dataset: datasetVersionData.dataset,
+          version: datasetVersionData.version,
+          identifier,
+        })
+      }));
+
+      console.log({ message: 'backup queue response', queueResp });
     }
 
     return ContentType || UNKNOWN;
@@ -574,10 +637,10 @@ if (!module.parent) {
       await doDBOpen();
       console.log('connection open');
       for (const t of [
-        {t: 'dashboard:categories', c: 'Category,Topics,Goals,Geographies'},
-        {t: 'dashboard:indicators', c: 'wp_id,slug,Chart_url,link,title,BN:Cost of living,BN:Housing,BN:Food security and nutrition,BN:Financial assistance,Housing:Housing,Demographic:Living arrangements,Demographics:Population,Econ:Cost of living,Econ:Financial assistance,Econ:Economic impact,Child Care:Access,Child development:Service access and utilization,Child development:Standardized tests and screening,Education:Standardized tests,Education:Student characteristics,Mental health:Access,Mental health:Prevalence,PH:Mental health,PH:Access and utilization,PH:Food security and nutrition,PH:Perinatal health,R:Food security and nutrition,R:Housing,R:Cost of living,R:Mental health,R:Other environmental factors,R:Social and emotional,UPK:Access and utilization,UPK:Standardized tests,Workforce:Paid Leave,Geo_state,Geo_AHS_District,Geo_County,Geo_SU_SD,Geo_HSA,Goal 1 (healthy start),Goal 2 (families and comm),Goal 3 (opportunties),Goal 4 (integrated/resource/data-drive)'},
-        {t: 'dashboard:subcategories', c: 'Category,Basic Needs,Child Care,Child Development,Demographics,Economics,Education,Housing,Mental Health,Physical Health,Resilience,UPK,Workforce'},
-        {t: 'dashboard:topics', c: 'name'},
+        { t: 'dashboard:categories', c: 'Category,Topics,Goals,Geographies' },
+        { t: 'dashboard:indicators', c: 'wp_id,slug,Chart_url,link,title,BN:Cost of living,BN:Housing,BN:Food security and nutrition,BN:Financial assistance,Housing:Housing,Demographic:Living arrangements,Demographics:Population,Econ:Cost of living,Econ:Financial assistance,Econ:Economic impact,Child Care:Access,Child development:Service access and utilization,Child development:Standardized tests and screening,Education:Standardized tests,Education:Student characteristics,Mental health:Access,Mental health:Prevalence,PH:Mental health,PH:Access and utilization,PH:Food security and nutrition,PH:Perinatal health,R:Food security and nutrition,R:Housing,R:Cost of living,R:Mental health,R:Other environmental factors,R:Social and emotional,UPK:Access and utilization,UPK:Standardized tests,Workforce:Paid Leave,Geo_state,Geo_AHS_District,Geo_County,Geo_SU_SD,Geo_HSA,Goal 1 (healthy start),Goal 2 (families and comm),Goal 3 (opportunties),Goal 4 (integrated/resource/data-drive)' },
+        { t: 'dashboard:subcategories', c: 'Category,Basic Needs,Child Care,Child Development,Demographics,Economics,Education,Housing,Mental Health,Physical Health,Resilience,UPK,Workforce' },
+        { t: 'dashboard:topics', c: 'name' },
       ]) {
         const uploadType = await getUploadType(t.t);
         console.log(uploadType);

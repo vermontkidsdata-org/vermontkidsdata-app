@@ -7,6 +7,9 @@ import { CfnIdentityPool, CfnIdentityPoolRoleAttachment, UserPool, UserPoolClien
 import { AttributeType, BillingMode, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { Effect, FederatedPrincipal, PolicyDocument, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
+import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
+import { Queue } from 'aws-cdk-lib/aws-sqs';
+
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
@@ -168,12 +171,18 @@ export class VermontkidsdataStack extends Stack {
       sortKey: { name: 'GSI2SK', type: AttributeType.STRING }
     });
 
+    // Create SQS queue to start a backup
+    const queue = new Queue(this, 'Backup queue', {
+      visibilityTimeout: Duration.minutes(15),
+    });
+
     // common environment for all lambdas
     const commonEnv = {
       REGION: this.region,
       SERVICE_TABLE: serviceTable.tableName,
       NAMESPACE: ns,
-      IS_PRODUCTION: `${props.isProduction}`
+      IS_PRODUCTION: `${props.isProduction}`,
+      DATASET_BACKUP_QUEUE_URL: queue.queueUrl,
     };
 
     // Upload data function.
@@ -191,6 +200,80 @@ export class VermontkidsdataStack extends Stack {
       tracing: Tracing.ACTIVE
     });
     bucket.grantRead(uploadFunction);
+    queue.grantSendMessages(uploadFunction);
+
+    const getSecretValueStatement = new PolicyStatement({
+      actions: ["secretsmanager:GetSecretValue"],
+      resources: ["*"]
+    });
+
+    const datasetBackupFunction = new NodejsFunction(this, 'Dataset Backup Function', {
+      memorySize: 1024,
+      timeout: Duration.minutes(15),
+      runtime,
+      handler: 'main',
+      entry: join(__dirname, "../src/datasetBackup.ts"),
+      logRetention: RetentionDays.ONE_DAY,
+      environment: {
+        ...commonEnv,
+        S3_BUCKET_NAME: bucketName,
+      },
+      tracing: Tracing.ACTIVE
+    });
+    datasetBackupFunction.addToRolePolicy(getSecretValueStatement);
+    datasetBackupFunction.addEventSource(new SqsEventSource(queue, {
+      batchSize: 1,
+    }));
+    serviceTable.grantReadWriteData(datasetBackupFunction);
+    bucket.grantReadWrite(datasetBackupFunction);
+
+    const listDataSetBackupsFunction = new NodejsFunction(this, 'List Dataset Backups Function', {
+      memorySize: 1024,
+      timeout: Duration.minutes(1),
+      runtime,
+      handler: 'main',
+      entry: join(__dirname, "../src/datasetBackupList.ts"),
+      logRetention: RetentionDays.ONE_DAY,
+      environment: {
+        ...commonEnv,
+      },
+      tracing: Tracing.ACTIVE
+    });
+    serviceTable.grantReadWriteData(listDataSetBackupsFunction);
+
+    const getDataSetBackupFunction = new NodejsFunction(this, 'Get Dataset Backup Function', {
+      memorySize: 1024,
+      timeout: Duration.minutes(15),
+      runtime,
+      handler: 'main',
+      entry: join(__dirname, "../src/datasetBackupGet.ts"),
+      logRetention: RetentionDays.ONE_DAY,
+      environment: {
+        ...commonEnv,
+        S3_BUCKET_NAME: bucketName,
+      },
+      tracing: Tracing.ACTIVE
+    });
+    serviceTable.grantReadWriteData(getDataSetBackupFunction);
+    bucket.grantReadWrite(getDataSetBackupFunction);
+
+    const dataSetRevertFunction = new NodejsFunction(this, 'Dataset Revert Function', {
+      memorySize: 1024,
+      timeout: Duration.minutes(15),
+      runtime,
+      handler: 'main',
+      entry: join(__dirname, "../src/datasetBackupRevert.ts"),
+      logRetention: RetentionDays.ONE_DAY,
+      environment: {
+        ...commonEnv,
+        S3_BUCKET_NAME: bucketName,
+      },
+      tracing: Tracing.ACTIVE
+    });
+    serviceTable.grantReadWriteData(dataSetRevertFunction);
+    bucket.grantReadWrite(dataSetRevertFunction);
+    dataSetRevertFunction.addToRolePolicy(getSecretValueStatement);
+
     const notify = new LambdaDestination(uploadFunction);
     notify.bind(this, bucket);
     bucket.addObjectCreatedNotification(notify, {
@@ -334,10 +417,6 @@ export class VermontkidsdataStack extends Stack {
     });
     secret.grantRead(queriesPostFunction);
 
-    const getSecretValueStatement = new PolicyStatement({
-      actions: ["secretsmanager:GetSecretValue"],
-      resources: ["*"]
-    });
     const tableCensusByGeoFunction = new NodejsFunction(this, 'Census Table By Geo Function', {
       memorySize: 1024,
       timeout: Duration.seconds(15),
@@ -444,8 +523,8 @@ export class VermontkidsdataStack extends Stack {
     //   entry: join(__dirname, "../src/options.ts"),
     //   logRetention: RetentionDays.ONE_DAY,
     //   environment: {
-      // ...commonEnv
-      //   },
+    // ...commonEnv
+    //   },
     //   tracing: Tracing.ACTIVE
     // });
 
@@ -605,6 +684,13 @@ export class VermontkidsdataStack extends Stack {
       }
     }] as MethodResponse[];
 
+    // Apply to all the methods that need authorization
+    const auth = {
+      authorizationType: AuthorizationType.CUSTOM,
+      authorizer,
+      methodResponses
+    };
+
     const rDownload = api.root.addResource('download');
     const rDownloadByType = rDownload.addResource('{uploadType}');
     rDownloadByType.addMethod("GET", new LambdaIntegration(downloadFunction));
@@ -620,7 +706,18 @@ export class VermontkidsdataStack extends Stack {
     // rDataset.addCorsPreflight(corsOptions);
     const rDatasetYears = rDataset.addResource('years');
     const rDatasetYearsDataset = rDatasetYears.addResource('{dataset}');
+    // GET /dataset/years/{dataset}
     rDatasetYearsDataset.addMethod("GET", new LambdaIntegration(getDataSetYearsByDatasetFunction));
+
+    const rDatasetBackups = rDataset.addResource('backups');
+    const rDatasetBackupsDataset = rDatasetBackups.addResource('{dataset}');
+    // GET /dataset/backups/{dataset}
+    rDatasetBackupsDataset.addMethod("GET", new LambdaIntegration(listDataSetBackupsFunction));
+    const rDatasetBackupsDatasetVersion = rDatasetBackupsDataset.addResource('{version}');
+    // GET /dataset/backups/{dataset}/{version}
+    rDatasetBackupsDatasetVersion.addMethod("GET", new LambdaIntegration(getDataSetBackupFunction));
+    // POST /dataset/backups/{dataset}/{version}/revert
+    rDatasetBackupsDatasetVersion.addResource('revert').addMethod("POST", new LambdaIntegration(dataSetRevertFunction), auth);
 
     const rUpload = api.root.addResource("upload");
     rUpload.addCorsPreflight(corsOptions);
@@ -647,13 +744,6 @@ export class VermontkidsdataStack extends Stack {
     rDashboard.addCorsPreflight(corsOptions);
     const rDashboardCheck = rDashboard.addResource("check");
     rDashboardCheck.addMethod("GET", new LambdaIntegration(dashboardCheckFunction));
-
-    // Apply to all the methods that need authorization
-    const auth = {
-      authorizationType: AuthorizationType.CUSTOM,
-      authorizer,
-      methodResponses
-    };
 
     const rCredentials = api.root.addResource('credentials');
     rCredentials.addCorsPreflight(corsOptions);

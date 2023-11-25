@@ -2,13 +2,14 @@ import { Logger } from '@aws-lambda-powertools/logger';
 import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
-import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, QueryCommandOutput } from '@aws-sdk/lib-dynamodb';
 import { Entity, Table } from 'dynamodb-toolbox';
 import * as mysql from 'mysql';
 const region = 'us-east-1';
 
 const ALL_UPLOAD_STATUS = 'ALL_UPLOAD_STATUS';
 const ALL_SESSIONS = 'ALL_SESSIONS';
+const ALL_DATASET_VERSIONS = 'ALL_DATASET_VERSIONS';
 
 const { NAMESPACE, LOG_LEVEL } = process.env;
 
@@ -264,6 +265,116 @@ export const Session = new Entity({
   },
   table: serviceTable
 });
+
+export function getDatasetKeyPrefix(): string {
+  return `DATASET#`;
+}
+
+export function getDatasetKeyAttribute(id: string): string {
+  return `${getDatasetKeyPrefix()}${id}`;
+}
+
+export function getDatasetKey(id: string): { PK: string, SK: string } {
+  return {
+    PK: getDatasetKeyAttribute(id),
+    SK: getDatasetKeyAttribute(id),
+  };
+}
+
+export function getVersionKeyPrefix(): string {
+  return `VERSION#`;
+}
+
+export function getVersionKeyAttribute(version: string): string {
+  return `${getVersionKeyPrefix()}${version}`;
+}
+
+export const STATUS_DATASET_VERSION_QUEUED = 'QUEUED';
+export const STATUS_DATASET_VERSION_RUNNING = 'RUNNING';
+export const STATUS_DATASET_VERSION_SUCCESS = 'SUCCESS';
+
+export const DatasetVersion = new Entity({
+  name: 'DatasetVersion',
+  attributes: {
+    PK: { partitionKey: true, hidden: true, default: (data: { dataset: string }) => getDatasetKeyAttribute(data.dataset) },
+    SK: { sortKey: true, hidden: true, default: (data: { version: string }) => getVersionKeyAttribute(data.version) },
+    GSI1PK: { hidden: true, default: () => ALL_DATASET_VERSIONS },
+    GSI1SK: {
+      hidden: true, default: (data: { dataset: string, version: string }) =>
+        getDatasetKeyAttribute(data.dataset) + '#' + getVersionKeyAttribute(data.version)
+    },
+
+    dataset: { type: 'string', required: true },
+    version: { type: 'string', required: true },
+    identifier: { type: 'string', required: true },
+    status: { type: 'string', required: true }, // QUEUED, RUNNING, SUCCESS
+
+    s3key: { type: 'string' },
+    numrows: { type: 'number' },
+  },
+  table: serviceTable
+});
+
+export function getDatasetVersionKey(dataset: string, version: string): { PK: string, SK: string } {
+  return {
+    PK: getDatasetKeyAttribute(dataset),
+    SK: getVersionKeyAttribute(version),
+  };
+}
+
+export interface DatasetVersionData {
+  dataset: string,
+  version: string,
+  identifier: string,
+  status: string,
+  s3key?: string,
+  numrows?: number,
+}
+
+async function forEachThing<T extends Record<string, any>>(
+  init: () => Promise<QueryCommandOutput>,
+  callback: (thing: T) => Promise<void>
+): Promise<void[]> {
+  const returnPromises: Promise<void>[] = [];
+
+  const things: QueryCommandOutput & { next?: () => Promise<void> } =
+    await init();
+
+  for (;;) {
+    if (things.Items == null) {
+      break;
+    }
+
+    for (const district of things.Items) {
+      // logger.info({ message: 'each district', district });
+      returnPromises.push(callback(district as T));
+    }
+
+    if (things.next) {
+      await things.next();
+    } else {
+      break;
+    }
+  }
+
+  return Promise.all(returnPromises);
+}
+
+export async function forEachDatasetVersion(
+  districtUid: string,
+  callback: (districtRequest: DatasetVersionData) => Promise<void>,
+  index?: string
+): Promise<void[]> {
+  return forEachThing<DatasetVersionData>(
+    () =>
+      DatasetVersion.query(getDatasetKeyAttribute(districtUid), {
+        index,
+        beginsWith: getVersionKeyPrefix(),
+        reverse: true,
+      }),
+    (datasetVersion) => callback(datasetVersion)
+  );
+}
 
 // Now read some test data
 // const [rows, fields] = await connection.execute(`select * from dbvermontkidsdata.acs_dataset`);

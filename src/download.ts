@@ -89,14 +89,75 @@ function toCSV(row: (string | number)[]): string {
   return row.map(el => `${el}`.includes(',') ? `"${el}"` : el).join(',');
 }
 
+export async function getCSVData(uploadType: string, limit: number): Promise<
+  { body: string, numrows: number } |
+  { errorMessage: string, errorStatus: number }
+> {
+  const lookupUploadType = uploadType.includes(":") ? uploadType.substring(0, uploadType.indexOf(':')) : uploadType;
+  const entry = typesConfig[lookupUploadType];
+
+  if (entry == null) {
+    return { errorMessage: `unknown upload type ${uploadType}`, errorStatus: 400 };
+  }
+
+  await doDBOpen();
+
+  const uploadTypeData: { type: string, table: string, index_columns: string, download_query?: string }[] = await doDBQuery('select * from `upload_types` where `type`=?', [uploadType]);
+
+  if (uploadTypeData.length !== 1) {
+    return { errorMessage: `expected 1 row from upload_types for ${uploadType} got ${uploadTypeData.length}`, errorStatus: 400 };
+  } else {
+    // Allow for a custom query
+    const sqlText = (() => {
+      if (uploadTypeData[0].download_query != null && uploadTypeData[0].download_query != '') {
+        return uploadTypeData[0].download_query;
+      } else {
+        const table_name = entry.getTableNameForFunction(uploadType);
+
+        return `select * from ${table_name} ` +
+          (uploadTypeData[0].index_columns.length > 0 ?
+            ` order by ${uploadTypeData[0].index_columns}` :
+            '') +
+          ` limit ${limit > 0 ? limit : 1}`;
+      }
+    })();
+
+    console.log({ uploadType, uploadTypeData, sqlText });
+
+    const resp = await doDBQuery(sqlText);
+    let lnum = 1;
+    const errors: Error[] = [];
+
+    const rows: string[][] = [];
+
+    // Client data - handlers can put anything they want in there
+    const clientData: any = {};
+
+    for (const row of resp) {
+      entry.processRowFunction(uploadType, row, lnum, rows, errors, clientData);
+
+      lnum++;
+    }
+
+    // Now append all the rows into a long CSV string
+    return {
+      body: rows.map(row => toCSV(row)).join('\n'),
+      numrows: rows.length-1
+    }
+  }
+}
+
+export function isErrorResponse(resp: any): resp is { errorMessage: string, errorStatus: number } {
+  return resp.errorMessage != null;
+}
+
 export async function lambdaHandler(
   event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResultV2> {
   console.log(`REGION=${REGION}, event 👉`, event);
 
-  const MAX_LIMIT = 999999999999;
   const limitArg = event.queryStringParameters?.limit;
-  const limit = limitArg != null ? parseInt(limitArg) : MAX_LIMIT;
+  const limit = limitArg != null ? parseInt(limitArg) : Number.MAX_SAFE_INTEGER;
 
   const response: { statusCode: number, body: string, headers: { [key: string]: string } } = {
     statusCode: 500,
@@ -107,68 +168,23 @@ export async function lambdaHandler(
   try {
     // GET /download/general:bed
     const uploadType = event.pathParameters?.uploadType;
+
     if (uploadType == null) {
       updateResponse(response, {
         message: 'missing upload type'
       }, 400);
     } else {
-      const lookupUploadType = uploadType.includes(":") ? uploadType.substring(0, uploadType.indexOf(':')) : uploadType;
-      const entry = typesConfig[lookupUploadType];
-
-      if (entry == null) {
+      // We have a callback function to call. Query the table.
+      const resp = await getCSVData(uploadType, limit);
+      if (isErrorResponse(resp)) {
         updateResponse(response, {
-          message: `invalid upload type ${uploadType}`
-        }, 400);
+          message: resp.errorMessage
+        }, resp.errorStatus);
       } else {
-        // We have a callback function to call. Query the table.
-        await doDBOpen();
-
-        const uploadTypeData: { type: string, table: string, index_columns: string, download_query?: string }[] = await doDBQuery('select * from `upload_types` where `type`=?', [uploadType]);
-        
-        if (uploadTypeData.length !== 1) {
-          updateResponse(response, {
-            message: `expected 1 row from upload_types for ${uploadType} got ${uploadTypeData.length}`
-          });
-        } else {
-          // Allow for a custom query
-          const sqlText = (() => {
-            if (uploadTypeData[0].download_query != null && uploadTypeData[0].download_query != '') {
-              return uploadTypeData[0].download_query;
-            } else {
-              const table_name = entry.getTableNameForFunction(uploadType);
-  
-              return `select * from ${table_name} ` +
-                (uploadTypeData[0].index_columns.length > 0 ?
-                  ` order by ${uploadTypeData[0].index_columns}` :
-                  '') +
-                ` limit ${limit > 0 ? limit : 1}`;
-            }
-          })();
-
-          console.log({ uploadType, uploadTypeData, sqlText });
-
-          const resp = await doDBQuery(sqlText);
-          let lnum = 1;
-          const errors: Error[] = [];
-
-          const rows: string[][] = [];
-
-          // Client data - handlers can put anything they want in there
-          const clientData: any = {};
-
-          for (const row of resp) {
-            entry.processRowFunction(uploadType, row, lnum, rows, errors, clientData);
-
-            lnum++;
-          }
-
-          // Now append all the rows into a long CSV string
-          response.body = rows.map(row => toCSV(row)).join('\n');
-          response.statusCode = 200;
-          response.headers['Content-Type'] = 'text/csv';
-        }
+        response.body = resp.body ?? 'unknown-csv';
+        response.statusCode = 200;
+        response.headers['Content-Type'] = 'text/csv';
       }
-
     }
   } finally {
     await doDBClose()

@@ -126,6 +126,9 @@ exports[`Lambda Snapshot Test 1`] = `
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "ENV_NAME": "test",
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
@@ -287,6 +290,14 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::Lambda::Permission",
     },
+    "BackupqueueE3E58E0E": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "VisibilityTimeout": 900,
+      },
+      "Type": "AWS::SQS::Queue",
+      "UpdateReplacePolicy": "Delete",
+    },
     "BarChartAPIFunction8D100D69": {
       "DependsOn": [
         "BarChartAPIFunctionServiceRoleDefaultPolicyEED5A1D7",
@@ -300,6 +311,9 @@ exports[`Lambda Snapshot Test 1`] = `
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -434,6 +448,9 @@ exports[`Lambda Snapshot Test 1`] = `
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -742,6 +759,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -862,6 +882,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -982,6 +1005,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "ENV_NAME": "test",
             "IDENTITY_POOL_ID": {
               "Ref": "identitypool",
@@ -1335,6 +1361,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -1455,6 +1484,441 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+    "DatasetBackupFunctionC91238D9": {
+      "DependsOn": [
+        "DatasetBackupFunctionServiceRoleDefaultPolicyD6EBE967",
+        "DatasetBackupFunctionServiceRoleCB80604D",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "IS_PRODUCTION": "false",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "S3_BUCKET_NAME": {
+              "Ref": "Uploadsbucket86F42938",
+            },
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+          },
+        },
+        "Handler": "index.main",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "DatasetBackupFunctionServiceRoleCB80604D",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Timeout": 900,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "DatasetBackupFunctionLogRetentionFC134E05": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "DatasetBackupFunctionC91238D9",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "DatasetBackupFunctionServiceRoleCB80604D": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "DatasetBackupFunctionServiceRoleDefaultPolicyD6EBE967": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": "secretsmanager:GetSecretValue",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
+                "sqs:ReceiveMessage",
+                "sqs:ChangeMessageVisibility",
+                "sqs:GetQueueUrl",
+                "sqs:DeleteMessage",
+                "sqs:GetQueueAttributes",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "BackupqueueE3E58E0E",
+                  "Arn",
+                ],
+              },
+            },
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SingleServiceTableABC698C2",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:PutObjectLegalHold",
+                "s3:PutObjectRetention",
+                "s3:PutObjectTagging",
+                "s3:PutObjectVersionTagging",
+                "s3:Abort*",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "Uploadsbucket86F42938",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "Uploadsbucket86F42938",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "DatasetBackupFunctionServiceRoleDefaultPolicyD6EBE967",
+        "Roles": [
+          {
+            "Ref": "DatasetBackupFunctionServiceRoleCB80604D",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "DatasetBackupFunctionSqsEventSourcetestTestStackBackupqueueF7E46FBD79E39644": {
+      "Properties": {
+        "BatchSize": 1,
+        "EventSourceArn": {
+          "Fn::GetAtt": [
+            "BackupqueueE3E58E0E",
+            "Arn",
+          ],
+        },
+        "FunctionName": {
+          "Ref": "DatasetBackupFunctionC91238D9",
+        },
+      },
+      "Type": "AWS::Lambda::EventSourceMapping",
+    },
+    "DatasetRevertFunction219B9FBB": {
+      "DependsOn": [
+        "DatasetRevertFunctionServiceRoleDefaultPolicyCC687689",
+        "DatasetRevertFunctionServiceRoleD489927F",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "IS_PRODUCTION": "false",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "S3_BUCKET_NAME": {
+              "Ref": "Uploadsbucket86F42938",
+            },
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+          },
+        },
+        "Handler": "index.main",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "DatasetRevertFunctionServiceRoleD489927F",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Timeout": 900,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "DatasetRevertFunctionLogRetentionDFCA3F6E": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "DatasetRevertFunction219B9FBB",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "DatasetRevertFunctionServiceRoleD489927F": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "DatasetRevertFunctionServiceRoleDefaultPolicyCC687689": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SingleServiceTableABC698C2",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:PutObjectLegalHold",
+                "s3:PutObjectRetention",
+                "s3:PutObjectTagging",
+                "s3:PutObjectVersionTagging",
+                "s3:Abort*",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "Uploadsbucket86F42938",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "Uploadsbucket86F42938",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": "secretsmanager:GetSecretValue",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "DatasetRevertFunctionServiceRoleDefaultPolicyCC687689",
+        "Roles": [
+          {
+            "Ref": "DatasetRevertFunctionServiceRoleD489927F",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
     },
     "DeployWebsiteAwsCliLayer17DBC421": {
       "Properties": {
@@ -1661,6 +2125,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -1781,6 +2248,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -1888,6 +2358,203 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
+    "GetDatasetBackupFunction960C1285": {
+      "DependsOn": [
+        "GetDatasetBackupFunctionServiceRoleDefaultPolicy0600C4B9",
+        "GetDatasetBackupFunctionServiceRole2C334398",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "IS_PRODUCTION": "false",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "S3_BUCKET_NAME": {
+              "Ref": "Uploadsbucket86F42938",
+            },
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+          },
+        },
+        "Handler": "index.main",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "GetDatasetBackupFunctionServiceRole2C334398",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Timeout": 900,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "GetDatasetBackupFunctionLogRetentionBCCDE9D4": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "GetDatasetBackupFunction960C1285",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "GetDatasetBackupFunctionServiceRole2C334398": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "GetDatasetBackupFunctionServiceRoleDefaultPolicy0600C4B9": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SingleServiceTableABC698C2",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:PutObjectLegalHold",
+                "s3:PutObjectRetention",
+                "s3:PutObjectTagging",
+                "s3:PutObjectVersionTagging",
+                "s3:Abort*",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "Uploadsbucket86F42938",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "Uploadsbucket86F42938",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "GetDatasetBackupFunctionServiceRoleDefaultPolicy0600C4B9",
+        "Roles": [
+          {
+            "Ref": "GetDatasetBackupFunctionServiceRole2C334398",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "GetGeosbyTypeFunctionE6591A7E": {
       "DependsOn": [
         "GetGeosbyTypeFunctionServiceRoleDefaultPolicy5EBEFE1F",
@@ -1901,6 +2568,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -2021,6 +2691,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -2128,6 +2801,163 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
+    "ListDatasetBackupsFunction0650E3F1": {
+      "DependsOn": [
+        "ListDatasetBackupsFunctionServiceRoleDefaultPolicy44503DDD",
+        "ListDatasetBackupsFunctionServiceRoleD0AB32C5",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "IS_PRODUCTION": "false",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+          },
+        },
+        "Handler": "index.main",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "ListDatasetBackupsFunctionServiceRoleD0AB32C5",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Timeout": 60,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ListDatasetBackupsFunctionLogRetentionD7E9CA82": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "ListDatasetBackupsFunction0650E3F1",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "ListDatasetBackupsFunctionServiceRoleD0AB32C5": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ListDatasetBackupsFunctionServiceRoleDefaultPolicy44503DDD": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SingleServiceTableABC698C2",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ListDatasetBackupsFunctionServiceRoleDefaultPolicy44503DDD",
+        "Roles": [
+          {
+            "Ref": "ListDatasetBackupsFunctionServiceRoleD0AB32C5",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A": {
       "DependsOn": [
         "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
@@ -2220,6 +3050,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "COGNITO_CLIENT_ID": "bogus-client",
             "COGNITO_SECRET": "bogus-secret",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "ENV_NAME": "test",
             "IS_PRODUCTION": "false",
             "MY_DOMAIN": "test.vtkidsdata.org",
@@ -2384,6 +3217,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -2518,6 +3354,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -2652,6 +3491,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -2786,6 +3628,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -2920,6 +3765,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -3132,6 +3980,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -3252,6 +4103,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -3390,6 +4244,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
             {
               "Action": [
+                "sqs:SendMessage",
+                "sqs:GetQueueAttributes",
+                "sqs:GetQueueUrl",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "BackupqueueE3E58E0E",
+                  "Arn",
+                ],
+              },
+            },
+            {
+              "Action": [
                 "dynamodb:BatchGetItem",
                 "dynamodb:GetRecords",
                 "dynamodb:GetShardIterator",
@@ -3471,6 +4339,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Environment": {
           "Variables": {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
             "IS_PRODUCTION": "false",
             "NAMESPACE": "test",
             "REGION": "aq-south-1",
@@ -4231,7 +5102,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C7dd78e2d7cf6674e95897ef1bdb6c1769": {
+    "testVermontKidsDataDeployment82D2B8C72e19416f6c52123421a3a4062c72031b": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -4262,6 +5133,13 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatadashboardcheck87818EFA",
         "testVermontKidsDatadashboardOPTIONS299AC35B",
         "testVermontKidsDatadashboardA8315A8C",
+        "testVermontKidsDatadatasetbackupsdatasetversionGET918F2D32",
+        "testVermontKidsDatadatasetbackupsdatasetversionA7A5FA0E",
+        "testVermontKidsDatadatasetbackupsdatasetversionrevertPOSTDF5ECC4B",
+        "testVermontKidsDatadatasetbackupsdatasetversionrevert6D14AFD2",
+        "testVermontKidsDatadatasetbackupsdatasetGET17AAE0B4",
+        "testVermontKidsDatadatasetbackupsdataset2CB8887C",
+        "testVermontKidsDatadatasetbackups61E152F2",
         "testVermontKidsDatadatasetD39C03ED",
         "testVermontKidsDatadatasetyearsdatasetGETABE2E121",
         "testVermontKidsDatadatasetyearsdataset9B3C2388",
@@ -4311,7 +5189,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C7dd78e2d7cf6674e95897ef1bdb6c1769",
+          "Ref": "testVermontKidsDataDeployment82D2B8C72e19416f6c52123421a3a4062c72031b",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -5411,6 +6289,365 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
       },
       "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadatasetbackups61E152F2": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDatadatasetD39C03ED",
+        },
+        "PathPart": "backups",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadatasetbackupsdataset2CB8887C": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDatadatasetbackups61E152F2",
+        },
+        "PathPart": "{dataset}",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetGET17AAE0B4": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "ListDatasetBackupsFunction0650E3F1",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDatadatasetbackupsdataset2CB8887C",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETdatasetbackupsdatasetE615EB60": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "ListDatasetBackupsFunction0650E3F1",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/GET/dataset/backups/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETdatasetbackupsdataset1A2F8E69": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "ListDatasetBackupsFunction0650E3F1",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/GET/dataset/backups/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetversionA7A5FA0E": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDatadatasetbackupsdataset2CB8887C",
+        },
+        "PathPart": "{version}",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetversionGET918F2D32": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetDatasetBackupFunction960C1285",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDatadatasetbackupsdatasetversionA7A5FA0E",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetversionGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETdatasetbackupsdatasetversion4035722F": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetDatasetBackupFunction960C1285",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/GET/dataset/backups/*/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetversionGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETdatasetbackupsdatasetversion9CB3483E": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetDatasetBackupFunction960C1285",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/GET/dataset/backups/*/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetversionrevert6D14AFD2": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDatadatasetbackupsdatasetversionA7A5FA0E",
+        },
+        "PathPart": "revert",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetversionrevertPOSTApiPermissionTesttestTestStacktestVermontKidsData62A09AC6POSTdatasetbackupsdatasetversionrevert7FCAE24D": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetRevertFunction219B9FBB",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/POST/dataset/backups/*/*/revert",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetversionrevertPOSTApiPermissiontestTestStacktestVermontKidsData62A09AC6POSTdatasetbackupsdatasetversionrevert2C6D822C": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetRevertFunction219B9FBB",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/POST/dataset/backups/*/*/revert",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadatasetbackupsdatasetversionrevertPOSTDF5ECC4B": {
+      "Properties": {
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "DatasetRevertFunction219B9FBB",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "testVermontKidsDatadatasetbackupsdatasetversionrevert6D14AFD2",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
     },
     "testVermontKidsDatadatasetyears672FB4DC": {
       "Properties": {
