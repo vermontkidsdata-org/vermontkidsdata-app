@@ -3058,7 +3058,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "MY_DOMAIN": "test.vtkidsdata.org",
             "MY_URI": "https://api.test.vtkidsdata.org/oauthcallback",
             "NAMESPACE": "test",
-            "REDIRECT_URI": "https://ui.test.vtkidsdata.org",
+            "REDIRECT_URI": "https://ui.test.vtkidsdata.org/admin",
             "REGION": "aq-south-1",
             "SERVICE_TABLE": {
               "Ref": "SingleServiceTableABC698C2",
@@ -5102,7 +5102,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C72e19416f6c52123421a3a4062c72031b": {
+    "testVermontKidsDataDeployment82D2B8C7799c78e2ee3b1eb8e6ada8be7ffdbde2": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -5189,7 +5189,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C72e19416f6c52123421a3a4062c72031b",
+          "Ref": "testVermontKidsDataDeployment82D2B8C7799c78e2ee3b1eb8e6ada8be7ffdbde2",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -5305,7 +5305,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
                 "method.response.header.Vary": "'Origin'",
               },
               "ResponseTemplates": {
@@ -5495,7 +5495,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
                 "method.response.header.Vary": "'Origin'",
               },
               "ResponseTemplates": {
@@ -6056,7 +6056,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
                 "method.response.header.Vary": "'Origin'",
               },
               "ResponseTemplates": {
@@ -6124,7 +6124,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
                 "method.response.header.Vary": "'Origin'",
               },
               "ResponseTemplates": {
@@ -7035,7 +7035,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
                 "method.response.header.Vary": "'Origin'",
               },
               "ResponseTemplates": {
@@ -7218,7 +7218,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
                 "method.response.header.Vary": "'Origin'",
               },
               "ResponseTemplates": {
@@ -7628,7 +7628,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
                 "method.response.header.Vary": "'Origin'",
               },
               "ResponseTemplates": {
@@ -7823,7 +7823,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
                 "method.response.header.Vary": "'Origin'",
               },
               "ResponseTemplates": {
@@ -8248,7 +8248,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
                 "method.response.header.Vary": "'Origin'",
               },
               "ResponseTemplates": {

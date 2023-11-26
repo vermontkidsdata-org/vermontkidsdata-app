@@ -557,7 +557,7 @@ export class VermontkidsdataStack extends Stack {
       throw new Error("Must define COGNITO_CLIENT_ID and COGNITO_SECRET");
     }
 
-    const uiOrigin = `https://ui.${domainName}`;
+    const uiOrigin = `https://ui.${domainName}/admin`;
 
     const oauthCallbackFunction = new NodejsFunction(this, 'OAuth callback function', {
       runtime,
