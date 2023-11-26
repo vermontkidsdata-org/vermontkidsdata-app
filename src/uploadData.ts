@@ -253,7 +253,7 @@ export async function truncateTable(uploadType: UploadType, record: string[], ln
 async function processDashboardRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
 }
 
-function fixNumber(v: string): string {
+function fixGeneralValue(v: string): string {
   // If it looks like a number, strip any commas
   if (v.match(/^-?[\d,.]+$/)) {
     return v.replace(/,/g, '');
@@ -323,10 +323,10 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
 
       for (let i = 0; i < record.length; i++) {
         // First set the insert values, then the update ones
-        inserts.push(fixNumber(record[i]));
+        inserts.push(fixGeneralValue(record[i]));
 
         if (!indexColumns.includes(uploadColumns[i])) {
-          updates.push(fixNumber(record[i]));
+          updates.push(fixGeneralValue(record[i]));
         }
       }
       return [...inserts, ...updates];
