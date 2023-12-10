@@ -119,13 +119,13 @@ async function getColumns(table: string): Promise<Column[]> {
   }
 }
 
-async function getUploadType(type: string): Promise<UploadType> {
+export async function getUploadType(type: string): Promise<UploadType | string> {
   // console.log({ message: 'getUploadType', type, lookup: uploadTypes[type] });
   if (uploadTypes[type] == null) {
     const types = await doDBQuery('select * from `upload_types` where `type`=?', [type]);
     // console.log({ message: 'getUploadType ret', type: types[0] });
     if (types == null || types.length !== 1) {
-      throw new Error(`no types found for type=${type}`);
+      return `no types found for type=${type}`;
     } else {
       const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string } = types[0];
       // Get the columns list
@@ -464,6 +464,9 @@ export async function processUpload(props: {
   console.log('connection open');
 
   const uploadType = await getUploadType(uploadTypeStr);
+  if (typeof uploadType === 'string') {
+    throw new Error(uploadType);
+  }
 
   // Assume the type has two pieces separated by a colon
   // - the typesConfig value
@@ -511,6 +514,18 @@ export async function processUpload(props: {
       }
       saveTotal = total;
     });
+
+    // Update the last upload timestamp
+    const now = new Date();
+    const timestamp = now.toISOString();
+
+    await doDBQuery(
+      'update upload_types set `last_upload`=? where `type`=?',
+      [
+        timestamp,
+        uploadTypeStr,
+      ]
+    );
 
     await doDBCommit();
   } catch (e) {
@@ -643,6 +658,10 @@ if (!module.parent) {
         { t: 'dashboard:topics', c: 'name' },
       ]) {
         const uploadType = await getUploadType(t.t);
+        if (typeof uploadType === 'string') {
+          throw new Error(uploadType);
+        }
+          
         console.log(uploadType);
         await recreateDashboardTable(uploadType, t.c.split(','), 1, 'foo', false, [], { uploadType, uploadColumns: [] });
       }

@@ -417,6 +417,21 @@ export class VermontkidsdataStack extends Stack {
     });
     secret.grantRead(queriesPostFunction);
 
+    const datasetPostFunction = new NodejsFunction(this, 'Dataset post API Function', {
+      memorySize: 128,
+      timeout: Duration.seconds(30),
+      runtime,
+      handler: 'handlerPost',
+      entry: join(__dirname, "../src/dataset-api.ts"),
+      logRetention: RetentionDays.ONE_DAY,
+      environment: {
+        ...commonEnv,
+        S3_BUCKET_NAME: bucketName,
+      },
+      tracing: Tracing.ACTIVE
+    });
+    secret.grantRead(datasetPostFunction);
+    
     const tableCensusByGeoFunction = new NodejsFunction(this, 'Census Table By Geo Function', {
       memorySize: 1024,
       timeout: Duration.seconds(15),
@@ -703,6 +718,10 @@ export class VermontkidsdataStack extends Stack {
     // rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
     const rDataset = api.root.addResource('dataset');
+    const rDatasetDataset = rDataset.addResource('{dataset}');
+    // POST /dataset/{dataset}
+    rDatasetDataset.addMethod("POST", new LambdaIntegration(datasetPostFunction), auth);
+
     // rDataset.addCorsPreflight(corsOptions);
     const rDatasetYears = rDataset.addResource('years');
     const rDatasetYearsDataset = rDatasetYears.addResource('{dataset}');

@@ -1920,6 +1920,146 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
+    "DatasetpostAPIFunctionB555A2CF": {
+      "DependsOn": [
+        "DatasetpostAPIFunctionServiceRoleDefaultPolicy619AFDF1",
+        "DatasetpostAPIFunctionServiceRole63551C9C",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "IS_PRODUCTION": "false",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "S3_BUCKET_NAME": {
+              "Ref": "Uploadsbucket86F42938",
+            },
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+          },
+        },
+        "Handler": "index.handlerPost",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::GetAtt": [
+            "DatasetpostAPIFunctionServiceRole63551C9C",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "DatasetpostAPIFunctionLogRetentionB9878A39": {
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/aws/lambda/",
+              {
+                "Ref": "DatasetpostAPIFunctionB555A2CF",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "DatasetpostAPIFunctionServiceRole63551C9C": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "DatasetpostAPIFunctionServiceRoleDefaultPolicy619AFDF1": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":secretsmanager:aq-south-1:999999999:secret:vkd/test/dbcreds-??????",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "DatasetpostAPIFunctionServiceRoleDefaultPolicy619AFDF1",
+        "Roles": [
+          {
+            "Ref": "DatasetpostAPIFunctionServiceRole63551C9C",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "DeployWebsiteAwsCliLayer17DBC421": {
       "Properties": {
         "Content": {
@@ -5102,7 +5242,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C7799c78e2ee3b1eb8e6ada8be7ffdbde2": {
+    "testVermontKidsDataDeployment82D2B8C7f0c11b4a91dd074f2ed259bcb086cf7a": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -5133,6 +5273,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatadashboardcheck87818EFA",
         "testVermontKidsDatadashboardOPTIONS299AC35B",
         "testVermontKidsDatadashboardA8315A8C",
+        "testVermontKidsDatadatasetdatasetPOSTD4665036",
+        "testVermontKidsDatadatasetdatasetC15A3388",
         "testVermontKidsDatadatasetbackupsdatasetversionGET918F2D32",
         "testVermontKidsDatadatasetbackupsdatasetversionA7A5FA0E",
         "testVermontKidsDatadatasetbackupsdatasetversionrevertPOSTDF5ECC4B",
@@ -5189,7 +5331,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C7799c78e2ee3b1eb8e6ada8be7ffdbde2",
+          "Ref": "testVermontKidsDataDeployment82D2B8C7f0c11b4a91dd074f2ed259bcb086cf7a",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -6642,6 +6784,133 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         ],
         "ResourceId": {
           "Ref": "testVermontKidsDatadatasetbackupsdatasetversionrevert6D14AFD2",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDatadatasetdatasetC15A3388": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDatadatasetD39C03ED",
+        },
+        "PathPart": "{dataset}",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadatasetdatasetPOSTApiPermissionTesttestTestStacktestVermontKidsData62A09AC6POSTdatasetdatasetDC2F8FA0": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetpostAPIFunctionB555A2CF",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/POST/dataset/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadatasetdatasetPOSTApiPermissiontestTestStacktestVermontKidsData62A09AC6POSTdatasetdatasetE89C2A8C": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetpostAPIFunctionB555A2CF",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/POST/dataset/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDatadatasetdatasetPOSTD4665036": {
+      "Properties": {
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "DatasetpostAPIFunctionB555A2CF",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "testVermontKidsDatadatasetdatasetC15A3388",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
