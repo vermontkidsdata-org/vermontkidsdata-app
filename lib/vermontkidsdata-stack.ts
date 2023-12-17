@@ -157,6 +157,7 @@ export class VermontkidsdataStack extends Stack {
       partitionKey: { name: 'PK', type: AttributeType.STRING },
       sortKey: { name: 'SK', type: AttributeType.STRING },
       billingMode: BillingMode.PAY_PER_REQUEST,
+      timeToLiveAttribute: 'TTL',
     });
 
     serviceTable.addGlobalSecondaryIndex({
@@ -684,8 +685,30 @@ export class VermontkidsdataStack extends Stack {
         IDENTITY_PROVIDER: cognitoProviderInfo.providerName
       }
     });
-
     serviceTable.grantReadWriteData(getCredentialsFunction);
+
+    const getSessionFunction = new NodejsFunction(this, 'Get Session function', {
+      runtime,
+      entry: join(__dirname, "../src/get-session.ts"),
+      handler: 'main',
+      logRetention: RetentionDays.FIVE_DAYS,
+      environment: {
+        ...commonEnv,
+      }
+    });
+    serviceTable.grantReadWriteData(getSessionFunction);
+
+    const deleteSessionFunction = new NodejsFunction(this, 'Delete Session function', {
+      runtime,
+      entry: join(__dirname, "../src/delete-session.ts"),
+      handler: 'main',
+      logRetention: RetentionDays.FIVE_DAYS,
+      environment: {
+        ...commonEnv,
+        REDIRECT_URI: uiOrigin,
+      }
+    });
+    serviceTable.grantReadWriteData(deleteSessionFunction);
 
     const methodResponses = [{
       statusCode: '401',
@@ -705,6 +728,10 @@ export class VermontkidsdataStack extends Stack {
       authorizer,
       methodResponses
     };
+
+    const rSession = api.root.addResource('session');
+    rSession.addMethod("GET", new LambdaIntegration(getSessionFunction));
+    rSession.addResource('end').addMethod("GET", new LambdaIntegration(deleteSessionFunction));
 
     const rDownload = api.root.addResource('download');
     const rDownloadByType = rDownload.addResource('{uploadType}');

@@ -3,7 +3,7 @@ import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
 import { APIGatewayAuthorizerResult, APIGatewayRequestAuthorizerEvent, Context, PolicyDocument, Statement } from 'aws-lambda';
-import { getSessionKey, Session } from './db-utils';
+import { getSessionKey, Session, SessionData } from './db-utils';
 const { ENV_NAME, SERVICE_TABLE, LOG_LEVEL } = process.env;
 
 export const serviceName = `bff-api-authorizer-${ENV_NAME}`;
@@ -21,6 +21,35 @@ export interface VKDAuthorizerContext {
 }
 
 const COOKIE_PREFIX = 'VKD_AUTH=';
+
+export async function getSession(event: {
+  headers?: { [name: string]: string | undefined; } | null
+}): Promise<SessionData | undefined> {
+  // Cookie: VKD_AUTH=12345q13245; SOMETHING_ELSE=a039480w3984
+  const authCookie = (event.headers?.Cookie || event.headers?.cookie || '').split(';').find(cookie => cookie.trim().startsWith(COOKIE_PREFIX));
+  if (!authCookie) {
+    logger.info({ message: 'no VKD_AUTH cookie, denying' });
+    // return Deny below
+  } else {
+    if (SERVICE_TABLE == null) {
+      logger.info({ message: 'Needs SERVICE_TABLE configured in CDK' });
+      throw new Error('Needs SERVICE_TABLE');
+    }
+
+    // Pull off the session id from cookie value
+    const session_id = authCookie.trim().substring(COOKIE_PREFIX.length).trim();
+    logger.info({ message: `Session id ${session_id} lookup in table ${SERVICE_TABLE}` });
+
+    const session = await Session.get(getSessionKey(session_id));
+    const now = Date.now() / 1000;
+    logger.info({ message: `Session lookup result`, session_id, session, now });
+    if (session?.Item?.TTL && session?.Item?.TTL >= now) {
+      return session.Item;
+    }
+  }
+
+  return undefined;
+}
 
 export async function lambdaHandler(
   event: APIGatewayRequestAuthorizerEvent,
@@ -47,39 +76,24 @@ export async function lambdaHandler(
     policyDocument,
     context: {}
   };
-  
-  // Cookie: VKD_AUTH=12345q13245; SOMETHING_ELSE=a039480w3984
-  const authCookie = (event.headers?.Cookie || event.headers?.cookie || '').split(';').find(cookie => cookie.trim().startsWith(COOKIE_PREFIX));
-  if (!authCookie) {
-    console.log({ message: 'no VKD_AUTH cookie, denying' });
-    // return Deny below
+
+  const session = await getSession(event);
+  if (session) {
+    // If we are here, we have a valid session. So just return the pieces.
+    statement.Effect = 'Allow';
+    response.context = {
+      access_token: session.access_token,
+      id_token: session.id_token,
+      domain: session.domain,
+      refresh_token: session.refresh_token,
+      timestamp: session.timestamp,
+      TTL: session.TTL,
+    };
+
+    logger.info({ message: 'authorizer allow response', response });
   } else {
-    if (SERVICE_TABLE == null) {
-      console.log({ message: 'Needs SERVICE_TABLE configured in CDK' });
-      throw new Error('Needs SERVICE_TABLE');
-    }
-
-    // Pull off the session id from cookie value
-    const session_id = authCookie.trim().substring(COOKIE_PREFIX.length).trim();
-    console.log({ message: `Session id ${session_id} lookup in table ${SERVICE_TABLE}` });
-
-    let session = await Session.get(getSessionKey(session_id));
-    if (session.Item) {
-      // If we are here, we have a valid session. So just return the pieces.
-      statement.Effect = 'Allow';
-      response.context = {
-        access_token: session.Item.access_token,
-        id_token: session.Item.id_token,
-        domain: session.Item.domain,
-        refresh_token: session.Item.refresh_token,
-        timestamp: session.Item.timestamp,
-      };
-
-      logger.info({ message: 'authorizer allow response', response });
-    } else {
-      console.log({ message: `Session id ${session_id} not found in table ${SERVICE_TABLE}` });
-      // return Deny below
-    }
+    console.log({ message: `Session not found in table ${SERVICE_TABLE}` });
+    // return Deny below
   }
 
   return response;

@@ -5,7 +5,6 @@ import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-sec
 import { DynamoDBDocumentClient, QueryCommandOutput } from '@aws-sdk/lib-dynamodb';
 import { Entity, Table } from 'dynamodb-toolbox';
 import * as mysql from 'mysql';
-const region = 'us-east-1';
 
 const ALL_UPLOAD_STATUS = 'ALL_UPLOAD_STATUS';
 const ALL_SESSIONS = 'ALL_SESSIONS';
@@ -248,6 +247,16 @@ export const UploadStatus = new Entity({
   table: serviceTable
 });
 
+export interface SessionData {
+  session_id: string,
+  domain: string,
+  access_token: string,
+  id_token: string,
+  refresh_token: string,
+  timestamp: string,
+  TTL: number,
+}
+
 export const Session = new Entity({
   name: 'Session',
   attributes: {
@@ -256,12 +265,13 @@ export const Session = new Entity({
     GSI1PK: { hidden: true, default: (data: { id: string }) => ALL_SESSIONS },
     GSI1SK: { hidden: true, default: (data: { session_id: string }) => getSessionKeyAttribute(data.session_id) },
 
-    session_id: { type: 'string' },
-    domain: { type: 'string' },
-    access_token: { type: 'string' },
-    id_token: { type: 'string' },
-    refresh_token: { type: 'string' },
-    timestamp: { type: 'string', default: () => new Date().toISOString() },
+    session_id: { type: 'string', required: true },
+    domain: { type: 'string', required: true },
+    access_token: { type: 'string', required: true },
+    id_token: { type: 'string', required: true },
+    refresh_token: { type: 'string', required: true },
+    timestamp: { type: 'string', required: true, default: () => new Date().toISOString() },
+    TTL: { type: 'number', required: true },
   },
   table: serviceTable
 });

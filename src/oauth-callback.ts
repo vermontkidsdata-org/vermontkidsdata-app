@@ -1,4 +1,5 @@
 import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
+import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
@@ -6,7 +7,6 @@ import axios from 'axios';
 import { randomUUID } from 'crypto';
 import express from 'express';
 import { Session } from './db-utils';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 const { LOG_LEVEL, IS_PRODUCTION, ENV_NAME, MY_URI, MY_DOMAIN, SERVICE_TABLE, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
 
 export const serviceName = `oauth-callback-${ENV_NAME}`;
@@ -15,6 +15,14 @@ export const logger = new Logger({
   serviceName: serviceName
 });
 export const tracer = new Tracer({ serviceName: serviceName });
+
+interface CognitoResponse {
+  id_token: string,
+  access_token: string,
+  refresh_token: string,
+  expires_in: number,
+  token_type: 'Bearer'
+}
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
@@ -44,7 +52,7 @@ export async function lambdaHandler(
 
   console.log({ message: 'qs', queryString });
   // Call cognito
-  let resp = await axios({
+  let resp = await axios<CognitoResponse>({
     method: 'post',
     url: 'https://vkd.auth.us-east-1.amazoncognito.com/oauth2/token',
     headers: {
@@ -57,8 +65,8 @@ export async function lambdaHandler(
     data: queryString
   });
   const { data } = resp;
-  const { access_token, refresh_token, id_token } = data;
-  console.log({ access_token, refresh_token });
+  const { access_token, refresh_token, id_token, expires_in, } = data;
+  console.log({ data, access_token, refresh_token, });
 
   const cookie = randomUUID();
 
@@ -68,6 +76,7 @@ export async function lambdaHandler(
     access_token,
     id_token,
     refresh_token,
+    TTL: Math.floor(Date.now() / 1000) + expires_in,
   });
 
   return {
