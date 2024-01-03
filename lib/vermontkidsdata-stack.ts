@@ -745,6 +745,7 @@ export class VermontkidsdataStack extends Stack {
     // rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
     const rDataset = api.root.addResource('dataset');
+    rDataset.addCorsPreflight(corsOptions);
     const rDatasetDataset = rDataset.addResource('{dataset}');
     // POST /dataset/{dataset}
     rDatasetDataset.addMethod("POST", new LambdaIntegration(datasetPostFunction), auth);
