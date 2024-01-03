@@ -5535,7 +5535,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C79aabac73868341907c5d979b0de66387": {
+    "testVermontKidsDataDeployment82D2B8C77ba80a8dec59e018caf496a76cdb3006": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -5575,6 +5575,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDatadatasetbackupsdatasetGET17AAE0B4",
         "testVermontKidsDatadatasetbackupsdataset2CB8887C",
         "testVermontKidsDatadatasetbackups61E152F2",
+        "testVermontKidsDatadatasetOPTIONSCBDAE62E",
         "testVermontKidsDatadatasetD39C03ED",
         "testVermontKidsDatadatasetyearsdatasetGETABE2E121",
         "testVermontKidsDatadatasetyearsdataset9B3C2388",
@@ -5628,7 +5629,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C79aabac73868341907c5d979b0de66387",
+          "Ref": "testVermontKidsDataDeployment82D2B8C77ba80a8dec59e018caf496a76cdb3006",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -6728,6 +6729,59 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
       },
       "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDatadatasetOPTIONSCBDAE62E": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org/admin'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "testVermontKidsDatadatasetD39C03ED",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
     },
     "testVermontKidsDatadatasetbackups61E152F2": {
       "Properties": {
