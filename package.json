@@ -10,6 +10,7 @@
     "build": "cd ui && npm run build",
     "watch": "tsc -w",
     "test": "jest",
+    "test:fix": "npm test -- -u",
     "cdk": "cdk",
     "deploy": "cdk deploy",
     "diff": "cdk diff",
