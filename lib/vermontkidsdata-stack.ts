@@ -614,12 +614,12 @@ export class VermontkidsdataStack extends Stack {
         domainName: apiDomainName
       },
       // Add OPTIONS call to all resources
-      // defaultCorsPreflightOptions: {
-      //   allowOrigins: Cors.ALL_ORIGINS,
-      //   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-      //   allowCredentials: true,
-      //   allowHeaders: Cors.DEFAULT_HEADERS
-      // }
+      defaultCorsPreflightOptions: {
+        allowOrigins: Cors.ALL_ORIGINS,
+        allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowCredentials: true,
+        allowHeaders: Cors.DEFAULT_HEADERS
+      }
     });
 
     const authorizer = new RequestAuthorizer(this, 'request authorizer', {
@@ -738,19 +738,16 @@ export class VermontkidsdataStack extends Stack {
     rDownloadByType.addMethod("GET", new LambdaIntegration(downloadFunction));
 
     const rOauthCallback = api.root.addResource('oauthcallback');
-    rOauthCallback.addCorsPreflight(corsOptions);
     rOauthCallback.addMethod("GET", new LambdaIntegration(oauthCallbackFunction), {
       methodResponses
     });
     // rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
     const rDataset = api.root.addResource('dataset');
-    rDataset.addCorsPreflight(corsOptions);
     const rDatasetDataset = rDataset.addResource('{dataset}');
     // POST /dataset/{dataset}
     rDatasetDataset.addMethod("POST", new LambdaIntegration(datasetPostFunction), auth);
 
-    // rDataset.addCorsPreflight(corsOptions);
     const rDatasetYears = rDataset.addResource('years');
     const rDatasetYearsDataset = rDatasetYears.addResource('{dataset}');
     // GET /dataset/years/{dataset}
@@ -767,18 +764,15 @@ export class VermontkidsdataStack extends Stack {
     rDatasetBackupsDatasetVersion.addResource('revert').addMethod("POST", new LambdaIntegration(dataSetRevertFunction), auth);
 
     const rUpload = api.root.addResource("upload");
-    rUpload.addCorsPreflight(corsOptions);
     const rUploadById = rUpload.addResource("{uploadId}");
     rUploadById.addMethod("GET", new LambdaIntegration(uploadStatusFunction));
 
     const rChart = api.root.addResource("chart");
-    rChart.addCorsPreflight(corsOptions);
     const rChartBar = rChart.addResource("bar");
     const rChartBarById = rChartBar.addResource("{queryId}");
     rChartBarById.addMethod("GET", new LambdaIntegration(apiChartBarFunction));
 
     const rTable = api.root.addResource("table");
-    rTable.addCorsPreflight(corsOptions);
     const rTableTable = rTable.addResource("table");
     const rTableTableById = rTableTable.addResource("{queryId}");
     rTableTableById.addMethod("GET", new LambdaIntegration(apiTableFunction));
@@ -788,16 +782,13 @@ export class VermontkidsdataStack extends Stack {
     rTableCensusTableByGeo.addMethod("GET", new LambdaIntegration(tableCensusByGeoFunction));
 
     const rDashboard = api.root.addResource("dashboard");
-    rDashboard.addCorsPreflight(corsOptions);
     const rDashboardCheck = rDashboard.addResource("check");
     rDashboardCheck.addMethod("GET", new LambdaIntegration(dashboardCheckFunction));
 
     const rCredentials = api.root.addResource('credentials');
-    rCredentials.addCorsPreflight(corsOptions);
     rCredentials.addMethod("GET", new LambdaIntegration(getCredentialsFunction), auth);
 
     const rQueries = api.root.addResource("queries");
-    rQueries.addCorsPreflight(corsOptions);
     rQueries.addMethod("GET", new LambdaIntegration(queriesGetListFunction), auth)
     rQueries.addMethod("POST", new LambdaIntegration(queriesPostFunction), auth);
 
@@ -811,14 +802,12 @@ export class VermontkidsdataStack extends Stack {
     // });
 
     const rQueriesById = rQueries.addResource("{id}");
-    rQueriesById.addCorsPreflight(corsOptions);
     rQueriesById.addMethod("GET", new LambdaIntegration(queriesGetFunction), auth);
     rQueriesById.addMethod("PUT", new LambdaIntegration(queriesPutFunction), auth);
     rQueriesById.addMethod("DELETE", new LambdaIntegration(queriesDeleteFunction), auth);
     // rQueriesById.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
     const rCodes = api.root.addResource("codes");
-    rCodes.addCorsPreflight(corsOptions);
     const rCodesGeos = rCodes.addResource("geos");
     const rCodesGeosByType = rCodesGeos.addResource("{geoType}");
     rCodesGeosByType.addMethod("GET", new LambdaIntegration(getGeosByTypeFunction));
