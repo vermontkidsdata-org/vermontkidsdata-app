@@ -28,6 +28,7 @@ import * as util from 'util';
 const S3_SERVICE_PRINCIPAL = new ServicePrincipal('s3.amazonaws.com');
 const HOSTED_ZONE_ID = 'Z01884571R5A9N33JR5NE';
 const BASE_DOMAIN_NAME = 'vtkidsdata.org';
+const LOCALHOST_ORIGIN = 'http://localhost:3000';
 const { COGNITO_CLIENT_ID, COGNITO_SECRET } = process.env;
 const USER_POOL_ID = 'us-east-1_wft0IBegY';
 const USER_POOL_CLIENT_ID = '60c446jr2ogigpg0nb5l593l93';
@@ -608,18 +609,20 @@ export class VermontkidsdataStack extends Stack {
 
     serviceTable.grantReadWriteData(authorizerFunction);
 
+    const corsOptions: CorsOptions = {
+      allowOrigins: [uiOrigin, LOCALHOST_ORIGIN],
+      allowHeaders: Cors.DEFAULT_HEADERS,
+      allowMethods: Cors.ALL_METHODS,
+      allowCredentials: true,
+    };
+
     const api = new RestApi(this, `${ns}-Vermont Kids Data`, {
       domainName: {
         certificate,
         domainName: apiDomainName
       },
       // Add OPTIONS call to all resources
-      defaultCorsPreflightOptions: {
-        allowOrigins: Cors.ALL_ORIGINS,
-        allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        allowCredentials: true,
-        allowHeaders: Cors.DEFAULT_HEADERS
-      }
+      defaultCorsPreflightOptions: corsOptions
     });
 
     const authorizer = new RequestAuthorizer(this, 'request authorizer', {
@@ -639,13 +642,6 @@ export class VermontkidsdataStack extends Stack {
     //   tsConfig: join(__dirname, '../tsconfig.json'),
     //   servers: [{ url: `https://${apiDomainName}` }]
     // });
-
-    const corsOptions: CorsOptions = {
-      allowOrigins: [uiOrigin, 'http://localhost:3000'],
-      allowHeaders: Cors.DEFAULT_HEADERS,
-      allowMethods: Cors.ALL_METHODS,
-      allowCredentials: true,
-    };
 
     // const rHello = api.root.addResource('hello');
     // rHello.addMethod("GET", new LambdaIntegration(helloFunction), { //  new MockIntegration()
