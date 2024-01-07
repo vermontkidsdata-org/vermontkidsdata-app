@@ -8,8 +8,10 @@ import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { Tracer, captureLambdaHandler } from '@aws-lambda-powertools/tracer';
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import middy from '@middy/core';
+import cors from '@middy/http-cors';
 import { APIGatewayEvent, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { DatasetVersion, getDatasetVersionKey } from './db-utils';
+import { CORSConfigDefault } from './cors-config';
 
 // Set your service name. This comes out in service lens etc.
 const serviceName = `get-dataset-backups-${process.env.NAMESPACE}`;
@@ -73,4 +75,6 @@ export async function lambdaHandler(event: APIGatewayEvent): Promise<APIGatewayP
 export const main = middy(lambdaHandler)
   .use(captureLambdaHandler(tracer))
   .use(injectLambdaContext(logger))
-  ;
+  .use(
+    cors(CORSConfigDefault)
+  );
