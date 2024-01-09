@@ -8,7 +8,9 @@ import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { Tracer, captureLambdaHandler } from '@aws-lambda-powertools/tracer';
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import middy from '@middy/core';
+import cors from '@middy/http-cors';
 import { APIGatewayEvent, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { CORSConfigDefault } from './cors-config';
 import { DatasetVersion, getDatasetVersionKey } from './db-utils';
 import { processUpload } from './uploadData';
 
@@ -83,4 +85,6 @@ export async function lambdaHandler(event: APIGatewayEvent): Promise<APIGatewayP
 export const main = middy(lambdaHandler)
   .use(captureLambdaHandler(tracer))
   .use(injectLambdaContext(logger))
-  ;
+  .use(
+    cors(CORSConfigDefault)
+  );

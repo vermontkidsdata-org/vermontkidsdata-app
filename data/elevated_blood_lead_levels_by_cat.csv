@@ -1,0 +1,37 @@
+Geo type,Geography,Year,Category,Value
+State,Vermont,2022,1 year olds screened,0.725
+State,Vermont,2022,1 year olds with undetectable levels,0.812
+State,Vermont,2022,1 year olds with elevated blood lead levels,0.188
+State,Vermont,2022,2 year olds screened,0.641
+State,Vermont,2022,2 year olds with undetectable levels,0.827
+State,Vermont,2022,2 year olds with elevated blood lead levels,0.173
+State,Vermont,2021,1 year olds screened,0.691
+State,Vermont,2021,1 year olds with <5µg/dl,0.954
+State,Vermont,2021,1 year olds with elevated blood lead levels,0.046
+State,Vermont,2021,2 year olds screened,0.615
+State,Vermont,2021,2 year olds with <5µg/dl,0.961
+State,Vermont,2021,2 year olds with elevated blood lead levels,0.039
+State,Vermont,2020,1 year olds screened,0.74
+State,Vermont,2020,1 year olds with <5µg/dl,0.941
+State,Vermont,2020,1 year olds with elevated blood lead levels,0.059
+State,Vermont,2020,2 year olds screened,0.64
+State,Vermont,2020,2 year olds with <5µg/dl,0.968
+State,Vermont,2020,2 year olds with elevated blood lead levels,0.032
+State,Vermont,2019,1 year olds screened,0.772
+State,Vermont,2019,1 year olds with <5µg/dl,0.957
+State,Vermont,2019,1 year olds with elevated blood lead levels,0.043
+State,Vermont,2019,2 year olds screened,0.695
+State,Vermont,2019,2 year olds with <5µg/dl,0.962
+State,Vermont,2019,2 year olds with elevated blood lead levels,0.038
+State,Vermont,2018,1 year olds screened,0.772
+State,Vermont,2018,1 year olds with <5µg/dl,0.957
+State,Vermont,2018,1 year olds with elevated blood lead levels,0.043
+State,Vermont,2018,2 year olds screened,0.695
+State,Vermont,2018,2 year olds with <5µg/dl,0.962
+State,Vermont,2018,2 year olds with elevated blood lead levels,0.038
+State,Vermont,2017,1 year olds screened,0.765
+State,Vermont,2017,1 year olds with <5µg/dl,0.949
+State,Vermont,2017,1 year olds with elevated blood lead levels,0.051
+State,Vermont,2017,2 year olds screened,0.684
+State,Vermont,2017,2 year olds with <5µg/dl,0.958
+State,Vermont,2017,2 year olds with elevated blood lead levels,0.042

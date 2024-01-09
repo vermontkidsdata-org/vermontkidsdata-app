@@ -1,0 +1,13 @@
+geo_type,geography,year,category,value
+State,Vermont,2016,Infants,0.62
+State,Vermont,2016,Preschool Aged,0
+State,Vermont,2016,Toddlers,0.2
+State,Vermont,2018,Infants,0.65
+State,Vermont,2018,Preschool Aged,0
+State,Vermont,2018,Toddlers,0.23
+State,Vermont,2020,Infants,0.62
+State,Vermont,2020,Preschool Aged,0.29
+State,Vermont,2020,Toddlers,0.27
+State,Vermont,2022,Infants,0.61
+State,Vermont,2022,Preschool Aged,0.31
+State,Vermont,2022,Toddlers,0.25

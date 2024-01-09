@@ -1,31 +1,31 @@
-Geo Type,Geography,Year,Category,Value
+geo_type,geography,year,category,value
 State,Vermont,2014,Persons in Households with at least One Adult & One Child,732
-State,Vermont,2015,Persons in Households with at least One Adult & One Child,613
-State,Vermont,2016,Persons in Households with at least One Adult & One Child,462
-State,Vermont,2017,Persons in Households with at least One Adult & One Child,528
-State,Vermont,2018,Persons in Households with at least One Adult & One Child,511
-State,Vermont,2019,Persons in Households with at least One Adult & One Child,408
-State,Vermont,2020,Persons in Households with at least One Adult & One Child,372
-State,Vermont,2021,Persons in Households with at least One Adult & One Child,629
-State,Vermont,2022,Persons in Households with at least One Adult & One Child,857
-State,Vermont,2023,Persons in Households with at least One Adult & One Child,1166
 State,Vermont,2014,Persons in households with Adults only,837
+State,Vermont,2014,Persons in Households with Children Only,0
+State,Vermont,2015,Persons in Households with at least One Adult & One Child,613
 State,Vermont,2015,Persons in households with Adults only,881
+State,Vermont,2015,Persons in Households with Children Only,0
+State,Vermont,2016,Persons in Households with at least One Adult & One Child,462
 State,Vermont,2016,Persons in households with Adults only,654
+State,Vermont,2016,Persons in Households with Children Only,0
+State,Vermont,2017,Persons in Households with at least One Adult & One Child,528
 State,Vermont,2017,Persons in households with Adults only,695
+State,Vermont,2017,Persons in Households with Children Only,0
+State,Vermont,2018,Persons in Households with at least One Adult & One Child,511
 State,Vermont,2018,Persons in households with Adults only,775
+State,Vermont,2018,Persons in Households with Children Only,0
+State,Vermont,2019,Persons in Households with at least One Adult & One Child,408
 State,Vermont,2019,Persons in households with Adults only,675
+State,Vermont,2019,Persons in Households with Children Only,0
+State,Vermont,2020,Persons in Households with at least One Adult & One Child,372
 State,Vermont,2020,Persons in households with Adults only,736
+State,Vermont,2020,Persons in Households with Children Only,0
+State,Vermont,2021,Persons in Households with at least One Adult & One Child,629
 State,Vermont,2021,Persons in households with Adults only,1833
+State,Vermont,2021,Persons in Households with Children Only,0
+State,Vermont,2022,Persons in Households with at least One Adult & One Child,857
 State,Vermont,2022,Persons in households with Adults only,1921
+State,Vermont,2022,Persons in Households with Children Only,0
+State,Vermont,2023,Persons in Households with at least One Adult & One Child,1166
 State,Vermont,2023,Persons in households with Adults only,2123
-State,Vermont,2014,Persons in Households with Children Only,**
-State,Vermont,2015,Persons in Households with Children Only,**
-State,Vermont,2016,Persons in Households with Children Only,**
-State,Vermont,2017,Persons in Households with Children Only,**
-State,Vermont,2018,Persons in Households with Children Only,**
-State,Vermont,2019,Persons in Households with Children Only,**
-State,Vermont,2020,Persons in Households with Children Only,**
-State,Vermont,2021,Persons in Households with Children Only,**
-State,Vermont,2022,Persons in Households with Children Only,**
-State,Vermont,2023,Persons in Households with Children Only,**
+State,Vermont,2023,Persons in Households with Children Only,0

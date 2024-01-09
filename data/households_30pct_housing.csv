@@ -1,0 +1,13 @@
+geo_type,geography,year,category,percent
+State,Vermont,2017,Rent,0.506
+State,Vermont,2017,Mortage,0.321
+State,Vermont,2018,Rent,0.47
+State,Vermont,2018,Mortage,0.3
+State,Vermont,2019,Rent,0.55
+State,Vermont,2019,Mortage,0.26
+State,Vermont,2020,Rent,0.459
+State,Vermont,2020,Mortage,0.294
+State,Vermont,2021,Rent,0.468
+State,Vermont,2021,Mortage,0.281
+State,Vermont,2022,Rent,0.47
+State,Vermont,2022,Mortage,0.298

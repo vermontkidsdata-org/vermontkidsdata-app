@@ -1,0 +1,91 @@
+geography,year,age,category,percent
+US,2017,0 to 5,0,0.656
+US,2017,0 to 5,1,0.229
+US,2017,0 to 5,2 or more,0.115
+US,2017,6 to 11,0,0.541
+US,2017,6 to 11,1,0.241
+US,2017,6 to 11,2 or more,0.218
+US,2017,0 to 12,0,0.597
+US,2017,0 to 12,1,0.235
+US,2017,0 to 12,2 or more,0.168
+US,2018,0 to 5,0,0.695
+US,2018,0 to 5,1,0.207
+US,2018,0 to 5,2 or more,0.098
+US,2018,6 to 11,0,0.571
+US,2018,6 to 11,1,0.225
+US,2018,6 to 11,2 or more,0.204
+US,2018,0 to 12,0,0.632
+US,2018,0 to 12,1,0.216
+US,2018,0 to 12,2 or more,0.152
+US,2019,0 to 5,0,0.731
+US,2019,0 to 5,1,0.181
+US,2019,0 to 5,2 or more,0.088
+US,2019,6 to 11,0,0.585
+US,2019,6 to 11,1,0.218
+US,2019,6 to 11,2 or more,0.197
+US,2019,0 to 12,0,0.656
+US,2019,0 to 12,1,0.02
+US,2019,0 to 12,2 or more,0.144
+US,2020,0 to 5,0,0.736
+US,2020,0 to 5,1,0.173
+US,2020,0 to 5,2 or more,0.091
+US,2020,6 to 11,0,0.584
+US,2020,6 to 11,1,0.227
+US,2020,6 to 11,2 or more,0.19
+US,2020,0 to 12,0,0.658
+US,2020,0 to 12,1,0.201
+US,2020,0 to 12,2 or more,0.141
+US,2021,0 to 5,0,0.745
+US,2021,0 to 5,1,0.162
+US,2021,0 to 5,2 or more,0.094
+US,2021,6 to 11,0,0.605
+US,2021,6 to 11,1,0.225
+US,2021,6 to 11,2 or more,0.17
+US,2021,0 to 12,0,0.673
+US,2021,0 to 12,1,0.194
+US,2021,0 to 12,2 or more,0.133
+Vermont,2017,0 to 5,0,0.654
+Vermont,2017,0 to 5,1,0.228
+Vermont,2017,0 to 5,2 or more,0.118
+Vermont,2017,6 to 11,0,0.503
+Vermont,2017,6 to 11,1,0.23
+Vermont,2017,6 to 11,2 or more,0.268
+Vermont,2017,0 to 12,0,0.578
+Vermont,2017,0 to 12,1,0.229
+Vermont,2017,0 to 12,2 or more,0.193
+Vermont,2018,0 to 5,0,0.685
+Vermont,2018,0 to 5,1,0.198
+Vermont,2018,0 to 5,2 or more,0.117
+Vermont,2018,6 to 11,0,0.538
+Vermont,2018,6 to 11,1,0.232
+Vermont,2018,6 to 11,2 or more,0.23
+Vermont,2018,0 to 12,0,0.611
+Vermont,2018,0 to 12,1,0.215
+Vermont,2018,0 to 12,2 or more,0.173
+Vermont,2019,0 to 5,0,0.739
+Vermont,2019,0 to 5,1,0.179
+Vermont,2019,0 to 5,2 or more,0.082
+Vermont,2019,6 to 11,0,0.573
+Vermont,2019,6 to 11,1,0.206
+Vermont,2019,6 to 11,2 or more,0.222
+Vermont,2019,0 to 12,0,0.654
+Vermont,2019,0 to 12,1,0.193
+Vermont,2019,0 to 12,2 or more,0.153
+Vermont,2020,0 to 5,0,0.779
+Vermont,2020,0 to 5,1,0.118
+Vermont,2020,0 to 5,2 or more,0.103
+Vermont,2020,6 to 11,0,0.554
+Vermont,2020,6 to 11,1,0.18
+Vermont,2020,6 to 11,2 or more,0.265
+Vermont,2020,0 to 12,0,0.659
+Vermont,2020,0 to 12,1,0.151
+Vermont,2020,0 to 12,2 or more,0.189
+Vermont,2021,0 to 5,0,0.792
+Vermont,2021,0 to 5,1,0.113
+Vermont,2021,0 to 5,2 or more,0.095
+Vermont,2021,6 to 11,0,0.539
+Vermont,2021,6 to 11,1,0.194
+Vermont,2021,6 to 11,2 or more,0.267
+Vermont,2021,0 to 12,0,0.658
+Vermont,2021,0 to 12,1,0.156
+Vermont,2021,0 to 12,2 or more,0.186
