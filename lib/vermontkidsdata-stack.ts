@@ -574,7 +574,8 @@ export class VermontkidsdataStack extends Stack {
       throw new Error("Must define COGNITO_CLIENT_ID and COGNITO_SECRET");
     }
 
-    const uiOrigin = `https://ui.${domainName}/admin`;
+    const uiOrigin = `https://ui.${domainName}`;
+    const REDIRECT_URI = `${uiOrigin}/admin`;
 
     const oauthCallbackFunction = new NodejsFunction(this, 'OAuth callback function', {
       runtime,
@@ -586,7 +587,7 @@ export class VermontkidsdataStack extends Stack {
         COGNITO_CLIENT_ID,
         COGNITO_SECRET,
         MY_DOMAIN: domainName,
-        REDIRECT_URI: uiOrigin,
+        REDIRECT_URI,
         MY_URI: `https://api.${domainName}/oauthcallback`,
         ENV_NAME: ns,
         IS_PRODUCTION: `${props.isProduction}`
@@ -701,7 +702,7 @@ export class VermontkidsdataStack extends Stack {
       logRetention: RetentionDays.FIVE_DAYS,
       environment: {
         ...commonEnv,
-        REDIRECT_URI: uiOrigin,
+        REDIRECT_URI,
       }
     });
     serviceTable.grantReadWriteData(deleteSessionFunction);
