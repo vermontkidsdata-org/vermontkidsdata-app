@@ -4786,7 +4786,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
           },
         },
-        "Handler": "index.status",
+        "Handler": "index.handler",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": [
