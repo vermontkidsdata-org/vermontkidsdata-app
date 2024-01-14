@@ -153,9 +153,10 @@ export async function lambdaHandlerBar(
 // Only run if executed directly
 if (!module.parent) {
   (async () => {
+    console.log('starting');
     const event: APIGatewayProxyEventV2 = {
       pathParameters: {
-        queryId: '59'
+        queryId: 'dashboard:indicators:chart'
       }
     } as unknown as APIGatewayProxyEventV2;
     console.log(await lambdaHandlerBar(event));

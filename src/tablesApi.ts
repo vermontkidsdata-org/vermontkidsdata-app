@@ -1,11 +1,11 @@
 import { Logger } from '@aws-lambda-powertools/logger';
+import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { CensusResultRow, GeoHierarchy, census } from './citysdk-utils';
 import { httpMessageResponse, httpResponse } from './cors';
 import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
 import { ServerMetadata } from './server-metadata';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 
 // Set your service name. This comes out in service lens etc.
 const { NAMESPACE, LOG_LEVEL } = process.env;
@@ -140,6 +140,12 @@ export function transformRow(rowval: DataRow, metadata: ServerMetadata | undefin
   return ret;
 }
 
+interface GetQueryResponse {
+  sqlText: string, 
+  columnMap: string,
+  metadata: string
+}
+
 async function getQuery(queryId: string): Promise<{ rows: QueryRow[] }> {
   // Just in case
   await doDBOpen();
@@ -162,14 +168,20 @@ export function makeDefaultColumnMapName(colName: string): string {
 async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?: ColumnMap, metadata?: any }> {
   const info = await getQuery(queryId);
 
+  console.log({ message: 'localDBQuery def', queryDef: JSON.stringify(info) });
+
   // Now run the query. Should always return three columns, with the following names
   // - cat: The category(s)
   // - label: The label for the values
   // - value: The value for the values
-  const resultRows = await doDBQuery(info.rows[0].sqlText);
+  const sqlText = info.rows[0].sqlText;
+  const resultRows = await doDBQuery(sqlText);
+  if (resultRows.length === 0) {
+    throw new Error(`no results from query: ${sqlText}`);
+  }
 
   // Generate a default column map if one isn't present
-  console.log({ dbColumnMap: info.rows[0].columnMap });
+  console.log({ message: 'enriched', sqlText: info.rows[0].sqlText, dbColumnMap: info.rows[0].columnMap, resultRows });
   const columnMap = info.rows[0].columnMap != null ? JSON.parse(info.rows[0].columnMap) as ColumnMap : (() => {
     const map: ColumnMap = {}
     for (const colName of Object.keys(resultRows[0])) {

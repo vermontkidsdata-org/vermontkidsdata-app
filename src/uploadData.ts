@@ -8,10 +8,10 @@ if (!module.parent) {
 import { GetObjectCommand, GetObjectTaggingCommand, S3Client } from '@aws-sdk/client-s3';
 import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs';
 import { PutCommandOutput } from '@aws-sdk/lib-dynamodb';
-import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2, S3Event } from 'aws-lambda';
+import { S3Event } from 'aws-lambda';
 import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
-import { DatasetVersion, DatasetVersionData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret, getUploadStatusKey } from "./db-utils";
+import { DatasetVersion, DatasetVersionData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
 
 interface UploadInfo {
   type: string;
@@ -29,11 +29,12 @@ const { S3_BUCKET_NAME: bucketName, REGION, SERVICE_TABLE } = process.env;
 const s3 = new S3Client({ region: REGION });
 const sqs = new SQSClient({ region: REGION });
 
-type CsvProcessCallback = (uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any) => Promise<void>;
+type CsvProcessCallback = (uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any) => Promise<boolean>;
+type PreFunctionCallback = (props: {uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, doTruncateTable?: boolean, errors: Error[], clientData: any}) => Promise<boolean>;
 
 interface TypesConfigElement {
   processRowFunction: CsvProcessCallback; // Called on each row
-  preFunction?: CsvProcessCallback; // Called before any rows
+  preFunction?: PreFunctionCallback; // Called before any rows
   postFunction?: CsvProcessCallback; // Called after all rows
 }
 
@@ -111,7 +112,7 @@ async function getColumns(table: string): Promise<Column[]> {
         dataType: getDataType(colRaw.DATA_TYPE),
         isNullable: colRaw.IS_NULLABLE === 'YES'
       }));
-      // console.log({ colsRaw, cols });
+      console.log({ message: 'getColumns for UploadType', colsRaw, cols });
 
       columns[table] = cols;
       return cols;
@@ -204,7 +205,20 @@ function matchColumns(record: string[], uploadType: UploadType): { matchedColumn
   return { matchedColumns, unmatchedColumns };
 }
 
-async function recreateDashboardTable(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+async function recreateDashboardTable(props: {uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], doTruncateTable?: boolean, clientData: ProcessGeneralRowClientData}): Promise<boolean> {
+  const { uploadType, record, lnum, identifier, dryRun, errors, doTruncateTable, clientData } = props;
+
+  // Check the first row to see if it looks right.
+  const allColumnNames = record.map(col => humanToInternalName(col));
+  console.log({ message: 'recreateDashboardTable, checking for column names', allColumnNames, uploadType });
+  for (const indexCol of uploadType.indexColumns) {
+    console.log('checking for index column', indexCol, allColumnNames);
+    if (!allColumnNames.includes(humanToInternalName(indexCol))) {
+      errors.push(new Error(`missing index column ${indexCol}`));
+      return true;
+    }
+  }
+
   await truncateTable(uploadType, record, lnum, identifier, dryRun, errors, clientData);
 
   const keepColumns = ((type) => {
@@ -219,9 +233,12 @@ async function recreateDashboardTable(uploadType: UploadType, record: string[], 
   const table = uploadType.table;
   const allColumns = (await getColumns(table)).map(col => humanToInternalName(col.columnName));
 
+
   // These are the "internal" names. Need to map these back to real column names to re-create them.
   const dropColsInternal = allColumns.filter(col => !keepColumns.includes(col));
   const dropCols = uploadType.columns.filter(col => dropColsInternal.includes(humanToInternalName(col.columnName)));
+
+  console.log({ message: 'looking to drop', keepColumns, allColumns, uploadType, record, lnum, identifier, dryRun, errors, clientData, dropColsInternal, dropCols });
 
   if (dropCols.length) {
     const dropDDL = "alter table `" + table + "` " + dropCols.map(dc => `drop \`${dc.columnName}\``).join(', ');
@@ -239,6 +256,8 @@ async function recreateDashboardTable(uploadType: UploadType, record: string[], 
   if (createCols.length) {
     await doDBQuery(`ALTER TABLE \`${table}\` ` + createCols.map(col => `ADD \`${col}\` INT`).join(', '));
   }
+
+  return false;
 }
 
 export async function truncateTable(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
@@ -262,7 +281,7 @@ function fixGeneralValue(v: string): string {
   }
 }
 
-async function processGeneralRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+async function processGeneralRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<boolean> {
   // console.log({ message: 'processGeneralRow start', type, record, lnum });
   if (lnum === 1) {
     // Assume this has the column names. Check against the value ones for this type. But first we need to look it up...
@@ -338,9 +357,11 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
       await doDBQuery(sql, values);
     }
   }
+
+  return false;
 }
 
-async function processIndicatorsRow(type: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any): Promise<void> {
+async function processIndicatorsRow(type: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any): Promise<boolean> {
   if (lnum === 1) {
     // First row, the column headers are important because they give the topics (or sub-topics).
     // But this is only from column F on. The other columns should be fixed, so we will validate
@@ -350,9 +371,10 @@ async function processIndicatorsRow(type: UploadType, record: string[], lnum: nu
   } else {
 
   }
+  return false;
 }
 
-async function processAssessmentRow(type: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any): Promise<void> {
+async function processAssessmentRow(type: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any): Promise<boolean> {
   if (lnum > 1) {
     if (record.length != 9) throw new Error(`lines expected to have 9 columns`);
 
@@ -379,6 +401,8 @@ async function processAssessmentRow(type: UploadType, record: string[], lnum: nu
       ]
     );
   }
+
+  return false;
 }
 
 async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[], exists?: boolean): Promise<PutCommandOutput> {
@@ -401,45 +425,6 @@ async function updateStatus(id: string, status: string, percent: number, numReco
     UploadStatus.put(data);
 }
 
-export async function status(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> {
-  const { uploadId } = event.pathParameters!;
-  if (uploadId == null) {
-    return {
-      statusCode: 400,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Methods": "GET",
-      },
-      body: JSON.stringify({ message: `uploadId is required` })
-    };
-  }
-
-  const uploadStatus = await UploadStatus.get(getUploadStatusKey(uploadId));
-
-  if (uploadStatus.Item == null) {
-    return {
-      statusCode: 500
-    };
-  } else {
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Methods": "GET",
-      },
-      body: JSON.stringify({
-        status: uploadStatus.Item.status,
-        numRecords: uploadStatus.Item.numRecords,
-        percent: uploadStatus.Item.percent,
-        errors: uploadStatus.Item.errors,
-        lastUpdated: uploadStatus.Item.lastUpdated,
-      })
-    };
-  }
-}
-
 /**
  * Really process an upload, from whatever source.
  * @param props 
@@ -450,7 +435,7 @@ export async function processUpload(props: {
   identifier: string,
   uploadType: string,
   dryRun?: boolean,
-  doTruncateTable?: boolean,
+  doTruncateTable?: boolean, // overrides
   updateUploadStatus?: boolean,
 }): Promise<{
   errors: Error[],
@@ -484,28 +469,31 @@ export async function processUpload(props: {
     // Client data - handlers can put anything they want in there
     const clientData: any = {};
 
-    // Start by truncating the table if requested
-    if (doTruncateTable) {
-      await truncateTable(uploadType, [], 0, identifier, dryRun ?? false, errors, clientData);
-    }
+    await processCSV(bodyContents, uploadType, async (record, lnum, total) => {
+      console.log({ message: 'row', index: lnum, record });
 
-    await processCSV(bodyContents, uploadType, async (record, index, total) => {
-      console.log({ message: 'row', index, record });
-
-      if (index === 1 && typeConfig.preFunction) {
+      if (lnum === 1 && typeConfig.preFunction) {
         console.log({ message: 'executing pre-function' });
 
-        await typeConfig.preFunction(uploadType, record, index, identifier, dryRun ?? false, errors, clientData);
+        const quit = await typeConfig.preFunction({uploadType, record, lnum, identifier, dryRun: dryRun ?? false, errors, clientData, doTruncateTable});
+        if (quit) {
+          return quit;
+        }
+
+        // Start by truncating the table if requested. We only do this if the preFunction returns OK.
+        if (doTruncateTable) {
+          await truncateTable(uploadType, [], 0, identifier, dryRun ?? false, errors, clientData);
+        }
       }
-      await typeConfig.processRowFunction(uploadType, record, index, identifier, dryRun ?? false, errors, clientData);
-      if (index === total && typeConfig.postFunction) {
+      await typeConfig.processRowFunction(uploadType, record, lnum, identifier, dryRun ?? false, errors, clientData);
+      if (lnum === total && typeConfig.postFunction) {
         console.log({ message: 'executing post-function' });
 
-        await typeConfig.postFunction(uploadType, record, index, identifier, dryRun ?? false, errors, clientData);
+        await typeConfig.postFunction(uploadType, record, lnum, identifier, dryRun ?? false, errors, clientData);
       }
 
       // Update status every 10%
-      statusUpdatePct = Math.round(100 * index / total);
+      statusUpdatePct = Math.round(100 * lnum / total);
       if (Math.floor(lastStatusUpdatePct / 10) != Math.floor(statusUpdatePct / 10)) {
         lastStatusUpdatePct = statusUpdatePct;
         if (updateUploadStatus) {
@@ -513,6 +501,8 @@ export async function processUpload(props: {
         }
       }
       saveTotal = total;
+
+      return false;
     });
 
     // Update the last upload timestamp
@@ -634,15 +624,21 @@ async function parseCSV(recordsString: string): Promise<string[][]> {
   })
 }
 
-async function processCSV(recordsString: string, uploadType: UploadType, callback: (record: string[], index: number, total: number) => Promise<void>): Promise<void> {
+async function processCSV(recordsString: string, uploadType: UploadType, callback: (record: string[], index: number, total: number) => Promise<boolean>): Promise<boolean> {
   // First parse into array. Hopefully there are not too many!
   let records: string[][] = await parseCSV(recordsString);
 
   // Now process the records
   console.log(`number of records: ${records.length}`);
+  let quit = false;
   for (let i = 0; i < records.length; i++) {
-    await callback(records[i], i + 1, records.length);
+    quit = await callback(records[i], i + 1, records.length);
+    if (quit) {
+      break;
+    }
   }
+
+  return quit;
 }
 
 if (!module.parent) {
@@ -661,9 +657,9 @@ if (!module.parent) {
         if (typeof uploadType === 'string') {
           throw new Error(uploadType);
         }
-          
+
         console.log(uploadType);
-        await recreateDashboardTable(uploadType, t.c.split(','), 1, 'foo', false, [], { uploadType, uploadColumns: [] });
+        // await recreateDashboardTable(uploadType, t.c.split(','), 1, 'foo', false, [], { uploadType, uploadColumns: [] });
       }
       //       const bodyContents = `SY,Org id,Test Name,Indicator Label,Assess Group,Assess Label,School Value,Supervisory Union Value,State Value
       // 2021,VT001,SB English Language Arts Grade 03,Total Proficient and Above,All Students,All Students,,,0.425

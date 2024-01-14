@@ -291,8 +291,8 @@ export class VermontkidsdataStack extends Stack {
       memorySize: 128,
       timeout: Duration.seconds(5),
       runtime,
-      handler: 'status',
-      entry: join(__dirname, "../src/uploadData.ts"),
+      handler: 'handler',
+      entry: join(__dirname, "../src/upload-get-status.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
         ...commonEnv,

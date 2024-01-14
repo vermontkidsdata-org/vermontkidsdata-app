@@ -1,6 +1,6 @@
 import { APIGatewayProxyEventV2 } from "aws-lambda";
-import { QueryRow } from "src/chartsApi";
-import { table } from "src/tablesApi";
+import { QueryRow } from "../chartsApi";
+import { table } from "../tablesApi";
 
 interface Response {
   body: string,
@@ -74,11 +74,12 @@ export async function getResponse(queryRow: QueryRow): Promise<CustomResponse> {
   const indicatorsResp = await table({
     pathParameters: { queryId: 'dashboard:indicators:table' },
   } as unknown as APIGatewayProxyEventV2) as Response;
+  console.log({ message: 'raw indicatorsResp', indicatorsResp });
 
   // console.log({ resp: 'topicsResp', rows: JSON.parse(topicsResp.body).rows });
-  console.log({ resp: 'categoriesResp', rows: JSON.parse(categoriesResp.body).rows });
-  console.log({ resp: 'subcategoriesResp', rows: JSON.parse(subcategoriesResp.body).rows });
-  console.log({ resp: 'indicatorsResp', rows: JSON.parse(indicatorsResp.body).rows });
+  // console.log({ resp: 'categoriesResp', rows: JSON.parse(categoriesResp.body).rows });
+  // console.log({ resp: 'subcategoriesResp', rows: JSON.parse(subcategoriesResp.body).rows });
+  // console.log({ resp: 'indicatorsResp', rows: JSON.parse(indicatorsResp.body).rows });
 
   // const topicRows: TopicsRow[] = JSON.parse(topicsResp.body).rows;
   const categoryRows: CategoryRow[] = JSON.parse(categoriesResp.body).rows;
