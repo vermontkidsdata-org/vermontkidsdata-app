@@ -13,11 +13,6 @@ import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
 import { DatasetVersion, DatasetVersionData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
 
-interface UploadInfo {
-  type: string;
-  key: string;
-}
-
 // {"dataset":"general:residentialcare","version":"2023-11-24T14:07:43.874Z","identifier":"20231124-1"}
 export interface DatasetBackupMessage {
   dataset: string,
@@ -30,7 +25,7 @@ const s3 = new S3Client({ region: REGION });
 const sqs = new SQSClient({ region: REGION });
 
 type CsvProcessCallback = (uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: any) => Promise<boolean>;
-type PreFunctionCallback = (props: {uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, doTruncateTable?: boolean, errors: Error[], clientData: any}) => Promise<boolean>;
+type PreFunctionCallback = (props: { uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, doTruncateTable?: boolean, errors: Error[], clientData: any }) => Promise<boolean>;
 
 interface TypesConfigElement {
   processRowFunction: CsvProcessCallback; // Called on each row
@@ -205,7 +200,7 @@ function matchColumns(record: string[], uploadType: UploadType): { matchedColumn
   return { matchedColumns, unmatchedColumns };
 }
 
-async function recreateDashboardTable(props: {uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], doTruncateTable?: boolean, clientData: ProcessGeneralRowClientData}): Promise<boolean> {
+async function recreateDashboardTable(props: { uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], doTruncateTable?: boolean, clientData: ProcessGeneralRowClientData }): Promise<boolean> {
   const { uploadType, record, lnum, identifier, dryRun, errors, doTruncateTable, clientData } = props;
 
   // Check the first row to see if it looks right.
@@ -475,7 +470,7 @@ export async function processUpload(props: {
       if (lnum === 1 && typeConfig.preFunction) {
         console.log({ message: 'executing pre-function' });
 
-        const quit = await typeConfig.preFunction({uploadType, record, lnum, identifier, dryRun: dryRun ?? false, errors, clientData, doTruncateTable});
+        const quit = await typeConfig.preFunction({ uploadType, record, lnum, identifier, dryRun: dryRun ?? false, errors, clientData, doTruncateTable });
         if (quit) {
           return quit;
         }
@@ -530,6 +525,52 @@ export async function processUpload(props: {
 
 const UNKNOWN = 'unknown';
 
+interface UploadInfo {
+  tags: { [key: string]: string },
+  bodyContents: string | undefined,
+  contentType: string | undefined,
+}
+
+async function getUploadFile(props: {
+  bucket: string,
+  key: string,
+}): Promise<UploadInfo> {
+  const { bucket, key } = props;
+
+  const params = {
+    Bucket: bucket,
+    Key: key,
+  };
+  console.log('params', params);
+
+  let tags: { [key: string]: string } = {};
+  let bodyContents: string | undefined = undefined;
+  let contentType: string | undefined = undefined;
+  for (let i = 0; i < 5; i++) {
+    try {
+      await s3.send(new GetObjectCommand(params));
+      const { ContentType, Body } = await s3.send(new GetObjectCommand(params));
+      const { TagSet } = await s3.send(new GetObjectTaggingCommand(params));
+      console.log('CONTENT TYPE:', ContentType);
+
+      contentType = ContentType;
+      bodyContents = await Body?.transformToString();
+
+      //[ { Key: 'type', Value: 'assessments' } ]
+      console.log('TAGS:', TagSet);
+      if (TagSet != null) {
+        TagSet.forEach(tag => tags[tag.Key?.toLowerCase() ?? UNKNOWN] = tag.Value?.toLowerCase() ?? UNKNOWN);
+      }
+      break;
+    } catch (e) {
+      console.error(e);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
+  }
+
+  return { tags, bodyContents, contentType };
+}
+
 export async function main(
   event: S3Event,
 ): Promise<string> {
@@ -537,78 +578,66 @@ export async function main(
 
   const bucket = event.Records[0].s3.bucket.name;
   const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, ' '));
-  const params = {
-    Bucket: bucket,
-    Key: key,
-  };
-  console.log('params', params);
+
+  // Try it a few times, might be a delay in the file being available in S3
+  const { bodyContents, contentType, tags } = await getUploadFile({ bucket, key });
 
   try {
-    const { ContentType, Body } = await s3.send(new GetObjectCommand(params));
-    const { TagSet } = await s3.send(new GetObjectTaggingCommand(params));
-    console.log('CONTENT TYPE:', ContentType);
-    const bodyContents = await Body?.transformToString();
-
-    //[ { Key: 'type', Value: 'assessments' } ]
-    console.log('TAGS:', TagSet);
-    const tags: { [key: string]: string } = {};
-    if (TagSet != null) {
-      TagSet.forEach(tag => tags[tag.Key?.toLowerCase() ?? UNKNOWN] = tag.Value?.toLowerCase() ?? UNKNOWN);
-    }
-    console.log(`tags = ${tags}`);
-    if (tags.type == null || bodyContents == null) {
-      return UNKNOWN;
-    }
-
-    // Get the identifier. Just create a UUID if one not provided like it should be.
-    const identifier = tags.identifier || uuidv4();
-
-    console.log(`set in progress ${identifier}`);
-    await updateStatus(identifier, 'In progress', 0, 0, [], false);
-
-    // Get the upload type. We'll need it later for multiple purposes
-    const uploadType = tags.type;
-    const { errors, saveTotal, statusUpdatePct } = await processUpload({
-      bodyContents,
-      uploadType,
-      identifier,
-      dryRun: false,
-      updateUploadStatus: true,
-    });
-
-    await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
-
-    // When an upload completes, write a record to the upload backup queue so a backup can be made
-    const queueUrl = process.env.DATASET_BACKUP_QUEUE_URL;
-    if (queueUrl) {
-      const datasetVersionData: DatasetVersionData = {
-        dataset: uploadType,
-        version: new Date().toISOString(),
-        status: STATUS_DATASET_VERSION_QUEUED,
-        identifier,
-      } as DatasetVersionData;
-
-      await DatasetVersion.update(datasetVersionData);
-
-      const queueResp = await sqs.send(new SendMessageCommand({
-        QueueUrl: queueUrl,
-        MessageBody: JSON.stringify({
-          dataset: datasetVersionData.dataset,
-          version: datasetVersionData.version,
-          identifier,
-        })
-      }));
-
-      console.log({ message: 'backup queue response', queueResp });
-    }
-
-    return ContentType || UNKNOWN;
   } catch (err) {
     console.error(err);
     const message = `Error getting object ${key} from bucket ${bucket}. Make sure they exist and your bucket is in the same region as this function.`;
     console.log(message);
     throw new Error(message);
   }
+
+  console.log(`tags = ${tags}`);
+  if (tags.type == null || bodyContents == null) {
+    return UNKNOWN;
+  }
+
+  // Get the identifier. Just create a UUID if one not provided like it should be.
+  const identifier = tags.identifier || uuidv4();
+
+  console.log(`set in progress ${identifier}`);
+  await updateStatus(identifier, 'In progress', 0, 0, [], false);
+
+  // Get the upload type. We'll need it later for multiple purposes
+  const uploadType = tags.type;
+  const { errors, saveTotal, statusUpdatePct } = await processUpload({
+    bodyContents,
+    uploadType,
+    identifier,
+    dryRun: false,
+    updateUploadStatus: true,
+  });
+
+  await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
+
+  // When an upload completes, write a record to the upload backup queue so a backup can be made
+  const queueUrl = process.env.DATASET_BACKUP_QUEUE_URL;
+  if (queueUrl) {
+    const datasetVersionData: DatasetVersionData = {
+      dataset: uploadType,
+      version: new Date().toISOString(),
+      status: STATUS_DATASET_VERSION_QUEUED,
+      identifier,
+    } as DatasetVersionData;
+
+    await DatasetVersion.update(datasetVersionData);
+
+    const queueResp = await sqs.send(new SendMessageCommand({
+      QueueUrl: queueUrl,
+      MessageBody: JSON.stringify({
+        dataset: datasetVersionData.dataset,
+        version: datasetVersionData.version,
+        identifier,
+      })
+    }));
+
+    console.log({ message: 'backup queue response', queueResp });
+  }
+
+  return contentType || UNKNOWN;
 }
 
 async function parseCSV(recordsString: string): Promise<string[][]> {
