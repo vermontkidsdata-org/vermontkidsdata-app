@@ -1,8 +1,11 @@
 
-import { Logger } from "@aws-lambda-powertools/logger";
+import { Logger, injectLambdaContext } from "@aws-lambda-powertools/logger";
 import { LogLevel } from "@aws-lambda-powertools/logger/lib/types";
-import { Tracer } from "@aws-lambda-powertools/tracer";
+import { Tracer, captureLambdaHandler } from "@aws-lambda-powertools/tracer";
+import middy from "@middy/core";
+import cors from "@middy/http-cors";
 import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from "aws-lambda";
+import { CORSConfigDefault } from "./cors-config";
 import { UploadStatus, getUploadStatusKey } from "./db-utils";
 
 const { NAMESPACE, LOG_LEVEL } = process.env;
@@ -53,16 +56,16 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
   }
 }
 
-// export const handler = middy(lambdaHandler)
-//   .use(captureLambdaHandler(tracer))
-//   .use(injectLambdaContext(logger))
-//   .use(
-//     // cors(new CORSConfig(process.env))
-//     cors(CORSConfigDefault)
-//   );
+export const handler = middy(lambdaHandler)
+  .use(captureLambdaHandler(tracer))
+  .use(injectLambdaContext(logger))
+  .use(
+    // cors(new CORSConfig(process.env))
+    cors(CORSConfigDefault)
+  );
 
-if (!module.parent) {
-  (async () => {
-    console.log(await lambdaHandler({ pathParameters: { uploadId: "35cb223f-08e2-446b-9909-6d18b8bb0a11" } } as any));
-  })();
-}
+// if (!module.parent) {
+//   (async () => {
+//     console.log(await lambdaHandler({ pathParameters: { uploadId: "b9752e4c-cd99-472f-9b70-9f4a15b96a62" } } as any));
+//   })();
+// }

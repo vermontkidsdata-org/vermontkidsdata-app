@@ -7,7 +7,7 @@ if (!module.parent) {
 
 import { GetObjectCommand, GetObjectTaggingCommand, S3Client } from '@aws-sdk/client-s3';
 import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs';
-import { PutCommandOutput } from '@aws-sdk/lib-dynamodb';
+import { UpdateCommandOutput } from '@aws-sdk/lib-dynamodb';
 import { S3Event } from 'aws-lambda';
 import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
@@ -400,7 +400,7 @@ async function processAssessmentRow(type: UploadType, record: string[], lnum: nu
   return false;
 }
 
-async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[], exists?: boolean): Promise<PutCommandOutput> {
+async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[]): Promise<UpdateCommandOutput> {
   const data = {
     id,
     status,
@@ -410,14 +410,7 @@ async function updateStatus(id: string, status: string, percent: number, numReco
     lastUpdated: new Date().toISOString()
   };
 
-  return exists != null ?
-    UploadStatus.put(data, {
-      conditions: {
-        attr: 'id',
-        exists
-      }
-    }) :
-    UploadStatus.put(data);
+  return UploadStatus.update(data);
 }
 
 /**
@@ -579,62 +572,64 @@ export async function main(
   const bucket = event.Records[0].s3.bucket.name;
   const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, ' '));
 
-  // Try it a few times, might be a delay in the file being available in S3
+  // Try it a few times, might be a delay in the file being available in S3. After that,
+  // I'm not sure why it should fail, but we'll log it as the status anyway.
   const { bodyContents, contentType, tags } = await getUploadFile({ bucket, key });
-
-  try {
-  } catch (err) {
-    console.error(err);
-    const message = `Error getting object ${key} from bucket ${bucket}. Make sure they exist and your bucket is in the same region as this function.`;
-    console.log(message);
-    throw new Error(message);
-  }
 
   console.log(`tags = ${tags}`);
   if (tags.type == null || bodyContents == null) {
+    await updateStatus(tags.identifier ?? UNKNOWN, 'Error', 0, 0, [new Error(`missing type or bodyContents`)]);
     return UNKNOWN;
   }
 
-  // Get the identifier. Just create a UUID if one not provided like it should be.
-  const identifier = tags.identifier || uuidv4();
+  // Everything else, we'll just write a generic error status
+  try {
+    // Get the identifier. Just create a UUID if one not provided like it should be.
+    const identifier = tags.identifier || uuidv4();
 
-  console.log(`set in progress ${identifier}`);
-  await updateStatus(identifier, 'In progress', 0, 0, [], false);
+    console.log(`set in progress ${identifier}`);
+    await updateStatus(identifier, 'In progress', 0, 0, []);
 
-  // Get the upload type. We'll need it later for multiple purposes
-  const uploadType = tags.type;
-  const { errors, saveTotal, statusUpdatePct } = await processUpload({
-    bodyContents,
-    uploadType,
-    identifier,
-    dryRun: false,
-    updateUploadStatus: true,
-  });
-
-  await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
-
-  // When an upload completes, write a record to the upload backup queue so a backup can be made
-  const queueUrl = process.env.DATASET_BACKUP_QUEUE_URL;
-  if (queueUrl) {
-    const datasetVersionData: DatasetVersionData = {
-      dataset: uploadType,
-      version: new Date().toISOString(),
-      status: STATUS_DATASET_VERSION_QUEUED,
+    // Get the upload type. We'll need it later for multiple purposes
+    const uploadType = tags.type;
+    const { errors, saveTotal, statusUpdatePct } = await processUpload({
+      bodyContents,
+      uploadType,
       identifier,
-    } as DatasetVersionData;
+      dryRun: false,
+      updateUploadStatus: true,
+    });
 
-    await DatasetVersion.update(datasetVersionData);
+    await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
 
-    const queueResp = await sqs.send(new SendMessageCommand({
-      QueueUrl: queueUrl,
-      MessageBody: JSON.stringify({
-        dataset: datasetVersionData.dataset,
-        version: datasetVersionData.version,
+    // When an upload completes, write a record to the upload backup queue so a backup can be made
+    const queueUrl = process.env.DATASET_BACKUP_QUEUE_URL;
+    if (queueUrl) {
+      const datasetVersionData: DatasetVersionData = {
+        dataset: uploadType,
+        version: new Date().toISOString(),
+        status: STATUS_DATASET_VERSION_QUEUED,
         identifier,
-      })
-    }));
+      } as DatasetVersionData;
 
-    console.log({ message: 'backup queue response', queueResp });
+      await DatasetVersion.update(datasetVersionData);
+
+      const queueResp = await sqs.send(new SendMessageCommand({
+        QueueUrl: queueUrl,
+        MessageBody: JSON.stringify({
+          dataset: datasetVersionData.dataset,
+          version: datasetVersionData.version,
+          identifier,
+        })
+      }));
+
+      console.log({ message: 'backup queue response', queueResp });
+    }
+
+  } catch (e) {
+    const error = e as Error;
+    console.error(error);
+    await updateStatus(tags.identifier ?? UNKNOWN, 'Error', 0, 0, [error]);
   }
 
   return contentType || UNKNOWN;
