@@ -161,3 +161,29 @@ insert into
     'general:children_in_poverty_under_12',
     '{"yAxis": {"type": "percent"}}'
   );
+
+-- third_grade_sbac
+CREATE TABLE `data_third_grade_sbac` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `geo_type` VARCHAR(16) NOT NULL,
+  `geography` VARCHAR(32) NOT NULL,
+  `category` enum (
+    'English All Students',
+    'English Historically Advantaged',
+    'English Historically Marginalized',
+    'English Total Proficient and Above',
+    'Math All Students',
+    'Math Historically Advantaged',
+    'Math Historically Marginalized',
+    'Math Total Proficient and Above'
+  ) NOT NULL,
+  `year` INT NOT NULL,
+  `value` FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `UPDATE_UNIQUE` (
+    `geo_type` ASC,
+    `geography` ASC,
+    `year` ASC,
+    `category` ASC
+  ) VISIBLE
+);

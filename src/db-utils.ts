@@ -9,6 +9,7 @@ import * as mysql from 'mysql';
 const ALL_UPLOAD_STATUS = 'ALL_UPLOAD_STATUS';
 const ALL_SESSIONS = 'ALL_SESSIONS';
 const ALL_DATASET_VERSIONS = 'ALL_DATASET_VERSIONS';
+const ALL_NAME_MAPS = 'ALL_NAME_MAPS';
 
 const { NAMESPACE, LOG_LEVEL } = process.env;
 
@@ -229,6 +230,16 @@ export function getSessionKey(id: string): { PK: string, SK: string } {
   };
 }
 
+export interface UploadStatusData {
+  id: string,
+  status?: string,
+  numRecords?: number,
+  percent?: number,
+  errors?: string[],
+  locked?: boolean,
+  lastUpdated?: string,
+}
+
 export const UploadStatus = new Entity({
   name: 'UploadStatus',
   attributes: {
@@ -237,12 +248,36 @@ export const UploadStatus = new Entity({
     GSI1PK: { hidden: true, default: (data: { id: string }) => ALL_UPLOAD_STATUS },
     GSI1SK: { hidden: true, default: (data: { id: string }) => getUploadStatusKeyAttribute(data.id) },
 
-    id: { type: 'string' },
+    id: { type: 'string', required: true },
     status: { type: 'string' },
     numRecords: { type: 'number' },
     percent: { type: 'number' },
     errors: { type: 'list' },
+    locked: { type: 'boolean' },
     lastUpdated: { type: 'string' },
+  },
+  table: serviceTable
+});
+
+export function getNameMapKeyAttribute(name: string): string {
+  return `NAMEMAPKEY#${name}`;
+}
+
+export interface NameMapData {
+  key: string,
+  name: string,
+}
+
+export const NameMap = new Entity({
+  name: 'NameMap',
+  attributes: {
+    PK: { partitionKey: true, hidden: true, default: (data: { key: string }) => getNameMapKeyAttribute(data.key) },
+    SK: { sortKey: true, hidden: true, default: () => '$' },
+    GSI1PK: { hidden: true, default: () => ALL_NAME_MAPS },
+    GSI1SK: { hidden: true, default: (data: { key: string }) => getNameMapKeyAttribute(data.key) },
+
+    key: { type: 'string', required: true },
+    name: { type: 'string', required: true },
   },
   table: serviceTable
 });
@@ -350,7 +385,7 @@ async function forEachThing<T extends Record<string, any>>(
   const things: QueryCommandOutput & { next?: () => Promise<void> } =
     await init();
 
-  for (;;) {
+  for (; ;) {
     if (things.Items == null) {
       break;
     }
@@ -384,6 +419,21 @@ export async function forEachDatasetVersion(
       }),
     (datasetVersion) => callback(datasetVersion)
   );
+}
+
+export async function getAllNameMaps(): Promise<NameMapData[]> {
+  const nameMaps: NameMapData[] = [];
+
+  await forEachThing<NameMapData>(
+    () => NameMap.query(ALL_NAME_MAPS, {
+      index: 'GSI1',
+    }),
+    async (nameMap) => {
+      nameMaps.push(nameMap);
+    }
+  );
+
+  return nameMaps;
 }
 
 // Now read some test data

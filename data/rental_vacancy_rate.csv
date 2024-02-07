@@ -1,0 +1,13 @@
+Geo type,Geography,Year,Category,Value
+State,Vermont,2017,homeowner,0.01
+State,Vermont,2018,homeowner,0.02
+State,Vermont,2019,homeowner,0.02
+State,Vermont,2020,homeowner,--
+State,Vermont,2021,homeowner,0.06
+State,Vermont,2022,homeowner,0.01
+State,Vermont,2017,rental,0.04
+State,Vermont,2018,rental,0.05
+State,Vermont,2019,rental,0.05
+State,Vermont,2020,rental,--
+State,Vermont,2021,rental,0.02
+State,Vermont,2022,rental,0.03

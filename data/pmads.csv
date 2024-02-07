@@ -1,0 +1,5 @@
+Geo type,Geography,Year,Category,Value
+State,Vermont,2020,prevalence ,0.25
+State,Vermont,2020,screening,0.9
+Country,US,2020,prevalence,0.115
+Country,US,2020,screening,0.79

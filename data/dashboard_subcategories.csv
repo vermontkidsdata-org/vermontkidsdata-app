@@ -11,6 +11,7 @@ Demographics:Population,0,0,0,1,0,0,0,0,0,0,0,0
 Econ:Cost of living,0,0,0,0,1,0,0,0,0,0,0,0
 Econ:Economic impact,0,0,0,0,1,0,0,0,0,0,0,0
 Econ:Financial assistance,0,0,0,0,1,0,0,0,0,0,0,0
+Education:Enrollment,0,0,0,0,0,1,0,0,0,0,0,0
 Education:Standardized tests,0,0,0,0,0,1,0,0,0,0,0,0
 Education:Student characteristics,0,0,0,0,0,1,0,0,0,0,0,0
 Housing:Housing,0,0,0,0,0,0,1,0,0,0,0,0

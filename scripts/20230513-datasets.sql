@@ -38,9 +38,8 @@ insert into
     'general:families_no_05_care',
     '{"yAxis": {"type": "percent"}}'
   );
-  
---    '{"yAxis": {"type": "number", "title": "", "labels": {"format": "{value:0.2f}"}}, "colors": ["#007155", "#3b886e", "#60a088", "#84b8a3", "#a7d0bf", "#cae9dc"], "tooltip": "'Percent <b>' + this.x +'</b>: <b>' + this.y + '</b>'", "plotOptions": {"series": {"dataLabels": {"format": "{point.y:0.2f}"}}}}'
 
+--    '{"yAxis": {"type": "number", "title": "", "labels": {"format": "{value:0.2f}"}}, "colors": ["#007155", "#3b886e", "#60a088", "#84b8a3", "#a7d0bf", "#cae9dc"], "tooltip": "'Percent <b>' + this.x +'</b>: <b>' + this.y + '</b>'", "plotOptions": {"series": {"dataLabels": {"format": "{point.y:0.2f}"}}}}'
 CREATE TABLE `data_poverty_under_12` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -98,16 +97,12 @@ insert into
   );
 
 -- households_30pct_housing
-
 CREATE TABLE `data_households_30pct_housing` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
   `geography` VARCHAR(32) NOT NULL,
   `year` INT NOT NULL,
-  `category` enum (
-    'Rent',
-    'Mortage'
-  ) NOT NULL,
+  `category` enum ('Rent', 'Mortage') NOT NULL,
   `percent` FLOAT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `UPDATE_UNIQUE` (
@@ -144,7 +139,6 @@ insert into
   );
 
 -- free_reduced_lunch
-
 CREATE TABLE `data_free_reduced_lunch` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -186,7 +180,6 @@ insert into
   );
 
 -- households_food_insecure
-
 CREATE TABLE `data_households_food_insecure` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -272,7 +265,6 @@ insert into
   );
 
 -- children_designated_mental_agencies
-
 CREATE TABLE `data_children_designated_mental_agencies` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -305,7 +297,6 @@ insert into
   );
 
 -- children_crisis_services
-
 CREATE TABLE `data_children_crisis_services` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -329,10 +320,24 @@ VALUES
     'geo_type,geography,year'
   );
 
-
+insert into
+  queries (
+    name,
+    sqlText,
+    columnMap,
+    metadata,
+    uploadType
+  )
+values
+  (
+    'children_crisis_services:chart',
+    'SELECT `year` as cat, \"Vermont\" as label, `value` as `value` FROM `data_children_crisis_services` where geo_type=\"State\" and geography=\"Vermont\" order by `year`',
+    '',
+    '{\"yAxis\": {\"type\": \"number\"}}',
+    'general:children_crisis_services'
+  );
 
 -- children_exclusionary_discipline
-
 CREATE TABLE `data_children_exclusionary_discipline` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -372,7 +377,6 @@ insert into
   );
 
 -- intended_pregnancies
-
 CREATE TABLE `data_intended_pregnancies` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -405,7 +409,6 @@ insert into
   );
 
 -- women_no_leave
-
 CREATE TABLE `data_women_no_leave` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -438,7 +441,6 @@ insert into
   );
 
 -- children_improved_early_intervention
-
 CREATE TABLE `data_children_improved_early_intervention` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -471,7 +473,6 @@ insert into
   );
 
 -- families_early_intervention
-
 CREATE TABLE `data_families_early_intervention` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -504,16 +505,12 @@ insert into
   );
 
 -- children_ccfap
-
 CREATE TABLE `data_children_ccfap` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
   `geography` VARCHAR(32) NOT NULL,
   `year` INT NOT NULL,
-  `category` enum (
-    'Total',
-    'Under 5'
-  ) NOT NULL,
+  `category` enum ('Total', 'Under 5') NOT NULL,
   `value` FLOAT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `UPDATE_UNIQUE` (
@@ -540,9 +537,8 @@ insert into
     'general:children_ccfap',
     '{"yAxis": {"type": "number"}}'
   );
-  
--- well_visits
 
+-- well_visits
 CREATE TABLE `data_well_visits` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -575,17 +571,12 @@ insert into
   );
 
 -- preventative_dental
-
 CREATE TABLE `data_preventative_dental` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
   `geography` VARCHAR(32) NOT NULL,
   `year` INT NOT NULL,
-  `age` enum (
-    '1-2',
-    '3-5',
-    '6-8'
-  ) NOT NULL,
+  `age` enum ('1-2', '3-5', '6-8') NOT NULL,
   `percent` FLOAT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `UPDATE_UNIQUE` (
@@ -646,7 +637,6 @@ insert into
   );
 
 -- health_insurance
-
 CREATE TABLE `data_health_insurance` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -679,7 +669,6 @@ insert into
   );
 
 -- substance_use_pregnancy
-
 CREATE TABLE `data_substance_use_pregnancy` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -719,7 +708,6 @@ insert into
   );
 
 -- prenatal_visits
-
 CREATE TABLE `data_prenatal_visits` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,
@@ -752,7 +740,6 @@ insert into
   );
 
 -- breastfed_infants
-
 CREATE TABLE `data_breastfed_infants` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `geo_type` VARCHAR(16) NOT NULL,

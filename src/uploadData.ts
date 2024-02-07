@@ -11,7 +11,7 @@ import { UpdateCommandOutput } from '@aws-sdk/lib-dynamodb';
 import { S3Event } from 'aws-lambda';
 import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
-import { DatasetVersion, DatasetVersionData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
+import { DatasetVersion, DatasetVersionData, NameMapData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
 
 // {"dataset":"general:residentialcare","version":"2023-11-24T14:07:43.874Z","identifier":"20231124-1"}
 export interface DatasetBackupMessage {
@@ -52,6 +52,9 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
 interface ProcessGeneralRowClientData {
   uploadType: UploadType;
   uploadColumns: string[];
+  mangleMap?: {
+    nameMaps: NameMapData[];
+  }
 }
 
 interface UploadType {
@@ -76,10 +79,9 @@ interface Column {
   isNullable: boolean
 }
 
-// Cache upload_types and columns for the table
-
-const uploadTypes: Record<string, UploadType> = {}; // key by type
-const columns: Record<string, Column[]> = {}; // key by table
+// Don't cache anything anymore...
+// const uploadTypes: Record<string, UploadType> = {}; // key by type
+// const columns: Record<string, Column[]> = {}; // key by table
 
 function getDataType(data_type: string): ColumnDataType {
   if (data_type === 'int') return ColumnDataType.INTEGER;
@@ -92,80 +94,80 @@ function getDataType(data_type: string): ColumnDataType {
 
 async function getColumns(table: string): Promise<Column[]> {
   // console.log({ message: 'getColumns', table });
-  if (columns[table] != null) {
-    return columns[table];
+  // if (columns[table] != null) {
+  //   return columns[table];
+  // } else {
+  const info = await getDBSecret();
+  const colsRaw = await doDBQuery(
+    'select `column_name`, `data_type`, `is_nullable` from `information_schema`.`columns` where `table_name`=? and table_schema=? order by `ordinal_position`',
+    [table, info.schema]);
+  if (colsRaw == null || colsRaw.length == 0) {
+    throw new Error(`unknown table ${table}`);
   } else {
-    const info = await getDBSecret();
-    const colsRaw = await doDBQuery(
-      'select `column_name`, `data_type`, `is_nullable` from `information_schema`.`columns` where `table_name`=? and table_schema=? order by `ordinal_position`',
-      [table, info.schema]);
-    if (colsRaw == null || colsRaw.length == 0) {
-      throw new Error(`unknown table ${table}`);
-    } else {
-      const cols = colsRaw.map(colRaw => ({
-        columnName: colRaw.COLUMN_NAME as string,
-        dataType: getDataType(colRaw.DATA_TYPE),
-        isNullable: colRaw.IS_NULLABLE === 'YES'
-      }));
-      console.log({ message: 'getColumns for UploadType', colsRaw, cols });
+    const cols = colsRaw.map(colRaw => ({
+      columnName: colRaw.COLUMN_NAME as string,
+      dataType: getDataType(colRaw.DATA_TYPE),
+      isNullable: colRaw.IS_NULLABLE === 'YES'
+    }));
+    console.log({ message: 'getColumns for UploadType', colsRaw, cols });
 
-      columns[table] = cols;
-      return cols;
-    }
+    // columns[table] = cols;
+    return cols;
   }
+  // }
 }
 
 export async function getUploadType(type: string): Promise<UploadType | string> {
   // console.log({ message: 'getUploadType', type, lookup: uploadTypes[type] });
-  if (uploadTypes[type] == null) {
-    const types = await doDBQuery('select * from `upload_types` where `type`=?', [type]);
-    // console.log({ message: 'getUploadType ret', type: types[0] });
-    if (types == null || types.length !== 1) {
-      return `no types found for type=${type}`;
-    } else {
-      const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string } = types[0];
-      // Get the columns list
-      const columns = await getColumns(uploadTypeRaw.table);
-      const { columnMap, preserve } = (() => {
-        let cookedMap: Record<string, string> | undefined = undefined;
-        let preserve: Array<string> | undefined = undefined;
+  // if (uploadTypes[type] == null) {
+  const types = await doDBQuery('select * from `upload_types` where `type`=?', [type]);
+  // console.log({ message: 'getUploadType ret', type: types[0] });
+  if (types == null || types.length !== 1) {
+    return `no types found for type=${type}`;
+  } else {
+    const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string } = types[0];
+    // Get the columns list
+    const columns = await getColumns(uploadTypeRaw.table);
+    const { columnMap, preserve } = (() => {
+      let cookedMap: Record<string, string> | undefined = undefined;
+      let preserve: Array<string> | undefined = undefined;
 
-        if (uploadTypeRaw.column_map) {
-          const column_map = JSON.parse(uploadTypeRaw.column_map);
-          if (column_map.map) {
-            const rawMap: Record<string, string> = column_map.map;
-            cookedMap = {};
+      if (uploadTypeRaw.column_map) {
+        const column_map = JSON.parse(uploadTypeRaw.column_map);
+        if (column_map.map) {
+          const rawMap: Record<string, string> = column_map.map;
+          cookedMap = {};
 
-            for (const key of Object.keys(rawMap)) {
-              cookedMap[key] = humanToInternalName(rawMap[key]);
-            }
-          }
-
-          if (column_map.preserve) {
-            preserve = column_map.preserve;
+          for (const key of Object.keys(rawMap)) {
+            cookedMap[key] = humanToInternalName(rawMap[key]);
           }
         }
 
-        return { columnMap: cookedMap, preserve };
-      })();
+        if (column_map.preserve) {
+          preserve = column_map.preserve;
+        }
+      }
 
-      // console.log({ type, uploadTypeRaw, columns })
-      const uploadType = {
-        id: uploadTypeRaw.id,
-        type: uploadTypeRaw.type,
-        table: uploadTypeRaw.table,
-        columns,
-        columnMap,
-        preserve,
-        indexColumns: uploadTypeRaw.index_columns.split(',').map(c => c.trim()),
-      } as UploadType;
+      return { columnMap: cookedMap, preserve };
+    })();
 
-      uploadTypes[type] = uploadType;
-      return uploadType;
-    }
-  } else {
-    return uploadTypes[type];
+    // console.log({ type, uploadTypeRaw, columns })
+    const uploadType = {
+      id: uploadTypeRaw.id,
+      type: uploadTypeRaw.type,
+      table: uploadTypeRaw.table,
+      columns,
+      columnMap,
+      preserve,
+      indexColumns: uploadTypeRaw.index_columns.split(',').map(c => c.trim()),
+    } as UploadType;
+
+    // uploadTypes[type] = uploadType;
+    return uploadType;
   }
+  // } else {
+  //   return uploadTypes[type];
+  // }
 }
 
 function humanToInternalName(col: string): string {
@@ -200,8 +202,33 @@ function matchColumns(record: string[], uploadType: UploadType): { matchedColumn
   return { matchedColumns, unmatchedColumns };
 }
 
+// async function mapColumnNamesToInternal(names: string[], createForUnknown: boolean, nameMaps: NameMapData[]): Promise<{ key: string, name: string }[]> {
+//   const colsRet: { key: string, name: string }[] = [];
+
+//   for (const name of names) {
+//     const foundEntry = nameMaps.find(e => e.name === name);
+//     if (foundEntry == null) {
+//       if (createForUnknown) {
+//         const key = uuidv4();
+//         await NameMap.update({ key, name });
+//         nameMaps.push({ key, name });
+//         colsRet.push({ key, name });
+//       }
+//     } else {
+//       colsRet.push(foundEntry);
+//     }
+//   }
+
+//   return colsRet;
+// }
+
 async function recreateDashboardTable(props: { uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], doTruncateTable?: boolean, clientData: ProcessGeneralRowClientData }): Promise<boolean> {
   const { uploadType, record, lnum, identifier, dryRun, errors, doTruncateTable, clientData } = props;
+
+  // // Tell the general uploader to mangle the column names
+  // clientData.mangleMap = {
+  //   nameMaps: await getAllNameMaps()
+  // };
 
   // Check the first row to see if it looks right.
   const allColumnNames = record.map(col => humanToInternalName(col));
@@ -236,6 +263,10 @@ async function recreateDashboardTable(props: { uploadType: UploadType, record: s
   console.log({ message: 'looking to drop', keepColumns, allColumns, uploadType, record, lnum, identifier, dryRun, errors, clientData, dropColsInternal, dropCols });
 
   if (dropCols.length) {
+    // const dropColKeys = await mapColumnNamesToInternal(dropCols.map(c => c.columnName), false, clientData.mangleMap.nameMaps);
+
+    // const dropDDL = "alter table `" + table + "` " + dropColKeys.map(dck => `drop \`${dck.key}\``).join(', ');
+    // console.log({ message: '**** keepColumns', keepColumns, dropColKeys, dropDDL });
     const dropDDL = "alter table `" + table + "` " + dropCols.map(dc => `drop \`${dc.columnName}\``).join(', ');
     console.log({ message: '**** keepColumns', keepColumns, dropCols, dropDDL });
 
@@ -249,6 +280,8 @@ async function recreateDashboardTable(props: { uploadType: UploadType, record: s
   // Go thru headers and see if there's anything we need to create
   const createCols = record.filter(c => !keepColumns.includes(humanToInternalName(c)));
   if (createCols.length) {
+    // const createColKeys = await mapColumnNamesToInternal(createCols, true, clientData.mangleMap.nameMaps);
+    // await doDBQuery(`ALTER TABLE \`${table}\` ` + createColKeys.map(col => `ADD \`${col.key}\` INT`).join(', '));
     await doDBQuery(`ALTER TABLE \`${table}\` ` + createCols.map(col => `ADD \`${col}\` INT`).join(', '));
   }
 
@@ -322,8 +355,13 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
       updates.push('`id`=`id`');
     }
 
+    // Mangle column names if necessary
+    // const insertCols = clientData.mangleMap ?
+    //   await mapColumnNamesToInternal(clientData.uploadColumns, true, clientData.mangleMap.nameMaps) :
+    //   clientData.uploadColumns;
+    const insertCols = clientData.uploadColumns;
     const sql = `insert into \`${clientData.uploadType.table}\` (` +
-      clientData.uploadColumns.map(c => `\`${c}\``).join(',') +
+      insertCols.map(c => `\`${c}\``).join(',') +
       `) values (` +
       record.map(v => '?').join(',') +
       `) on duplicate key update ` +
@@ -400,17 +438,37 @@ async function processAssessmentRow(type: UploadType, record: string[], lnum: nu
   return false;
 }
 
-async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[]): Promise<UpdateCommandOutput> {
+enum LockAction {
+  Lock,
+  Unlock
+};
+
+async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[], lockAction?: LockAction): Promise<UpdateCommandOutput> {
   const data = {
     id,
     status,
     numRecords,
     percent,
-    errors,
+    errors: errors?.map(e => e.message) ?? [],
     lastUpdated: new Date().toISOString()
   };
 
-  return UploadStatus.update(data);
+  if (lockAction === LockAction.Lock) {
+    return UploadStatus.update({
+      ...data,
+      locked: true,
+    }, {
+      conditions: [{
+        attr: 'locked',
+        exists: false
+      }]
+    });
+  } else {
+    return UploadStatus.update({
+      ...data,
+      ...(lockAction === LockAction.Unlock ? { $remove: 'locked' } : {}),
+    });
+  }
 }
 
 /**
@@ -576,7 +634,9 @@ export async function main(
   // I'm not sure why it should fail, but we'll log it as the status anyway.
   const { bodyContents, contentType, tags } = await getUploadFile({ bucket, key });
 
-  console.log(`tags = ${tags}`);
+  // Get the identifier. Just create a UUID if one not provided like it should be.
+  const identifier = tags.identifier || uuidv4();
+
   if (tags.type == null || bodyContents == null) {
     await updateStatus(tags.identifier ?? UNKNOWN, 'Error', 0, 0, [new Error(`missing type or bodyContents`)]);
     return UNKNOWN;
@@ -584,11 +644,8 @@ export async function main(
 
   // Everything else, we'll just write a generic error status
   try {
-    // Get the identifier. Just create a UUID if one not provided like it should be.
-    const identifier = tags.identifier || uuidv4();
-
     console.log(`set in progress ${identifier}`);
-    await updateStatus(identifier, 'In progress', 0, 0, []);
+    await updateStatus(identifier, 'In progress', 0, 0, [], LockAction.Lock);
 
     // Get the upload type. We'll need it later for multiple purposes
     const uploadType = tags.type;
@@ -600,7 +657,7 @@ export async function main(
       updateUploadStatus: true,
     });
 
-    await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors);
+    await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors, LockAction.Unlock);
 
     // When an upload completes, write a record to the upload backup queue so a backup can be made
     const queueUrl = process.env.DATASET_BACKUP_QUEUE_URL;
@@ -629,7 +686,7 @@ export async function main(
   } catch (e) {
     const error = e as Error;
     console.error(error);
-    await updateStatus(tags.identifier ?? UNKNOWN, 'Error', 0, 0, [error]);
+    await updateStatus(tags.identifier ?? UNKNOWN, 'Error', 0, 0, [error], LockAction.Unlock);
   }
 
   return contentType || UNKNOWN;

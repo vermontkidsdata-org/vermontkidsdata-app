@@ -1,0 +1,1 @@
+aws dynamodb get-item --table-name qa-LocalDevBranch-SingleServiceTableABC698C2-1LAA1LXM8NBCU --key "{\"PK\":{\"S\":\"UPLOADSTATUS#%1\"},\"SK\":{\"S\":\"UPLOADSTATUS#%1\"}}"

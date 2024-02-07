@@ -1,0 +1,53 @@
+Geo type,Geography,Year,Age,Value
+County,Addison,2023,Under 5,24
+County,Addison,2023,5-12,26
+County,Addison,2023,Under 18,254
+County,Addison,2023,13-17,10
+County,Bennington,2023,Under 5,95
+County,Bennington,2023,5-12,115
+County,Bennington,2023,Under 18,834
+County,Bennington,2023,13-17,73
+County,Caledonia/Essex,2023,Under 5,42
+County,Caledonia/Essex,2023,5-12,71
+County,Caledonia/Essex,2023,Under 18,479
+County,Caledonia/Essex,2023,13-17,44
+County,Chittenden,2023,Under 5,79
+County,Chittenden,2023,5-12,105
+County,Chittenden,2023,Under 18,1389
+County,Chittenden,2023,13-17,61
+County,Franklin/Grand Isle,2023,Under 5,37
+County,Franklin/Grand Isle,2023,5-12,38
+County,Franklin/Grand Isle,2023,Under 18,429
+County,Franklin/Grand Isle,2023,13-17,22
+County,Lamoille,2023,Under 5,37
+County,Lamoille,2023,5-12,82
+County,Lamoille,2023,Under 18,503
+County,Lamoille,2023,13-17,41
+County,Orange/Windsor,2023,Under 18,649
+County,Orange/Windsor,2023,13-17,44
+County,Orange/Windsor,2023,Under 5,52
+County,Orange/Windsor,2023,5-12,60
+County,Orleans,2023,Under 18,269
+County,Orleans,2023,13-17,22
+County,Orleans,2023,Under 5,34
+County,Orleans,2023,5-12,51
+County,Rutland,2023,Under 18,582
+County,Rutland,2023,13-17,26
+County,Rutland,2023,Under 5,64
+County,Rutland,2023,5-12,51
+State,Vermont,2023,Under 18,7485
+State,Vermont,2023,13-17,459
+State,Vermont,2023,Under 5,620
+State,Vermont,2023,5-12,821
+County,Washington,2023,Under 18,1307
+County,Washington,2023,13-17,63
+County,Washington,2023,Under 5,95
+County,Washington,2023,5-12,145
+County,Windham South,2023,Under 18,585
+County,Windham South,2023,13-17,29
+County,Windham South,2023,Under 5,27
+County,Windham South,2023,5-12,37
+County,Windsor South/Windham North,2023,Under 18,565
+County,Windsor South/Windham North,2023,Under 5,70
+County,Windsor South/Windham North,2023,5-12,80
+County,Windsor South/Windham North,2023,13-17,40
