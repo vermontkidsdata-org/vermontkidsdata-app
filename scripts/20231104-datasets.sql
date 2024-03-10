@@ -184,15 +184,6 @@ VALUES
     'geo_type,geography,year,category'
   );
 
-INSERT INTO
-  `upload_types` (`type`, `table`, `index_columns`)
-VALUES
-  (
-    'query:wage_benchmarks:chart',
-    '',
-    'cat,label,value'
-  );
-
 alter table upload_types add column `download_query` varchar(4000) not null default '' after `table`;
 ALTER TABLE `upload_types` 
   ADD COLUMN `read_only` TINYINT NOT NULL DEFAULT 0 AFTER `download_query`;

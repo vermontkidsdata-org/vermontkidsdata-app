@@ -17,7 +17,7 @@ import { ApiGateway } from 'aws-cdk-lib/aws-route53-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3'; // For some reason we need this one...
 import { BlockPublicAccess, Bucket, BucketEncryption, EventType } from 'aws-cdk-lib/aws-s3';
 import { BucketDeployment, Source } from 'aws-cdk-lib/aws-s3-deployment';
-import { LambdaDestination } from 'aws-cdk-lib/aws-s3-notifications';
+import { SqsDestination } from 'aws-cdk-lib/aws-s3-notifications';
 import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 import { Construct } from 'constructs';
 import { readFileSync, readdirSync } from 'fs';
@@ -178,6 +178,11 @@ export class VermontkidsdataStack extends Stack {
       visibilityTimeout: Duration.minutes(15),
     });
 
+    // Another SQS queue to serialize processing on the S3 uploads
+    const uploadQueue = new Queue(this, 'Upload queue', {
+      visibilityTimeout: Duration.minutes(15),
+    });
+
     // common environment for all lambdas
     const commonEnv = {
       REGION: this.region,
@@ -276,15 +281,21 @@ export class VermontkidsdataStack extends Stack {
     bucket.grantReadWrite(dataSetRevertFunction);
     dataSetRevertFunction.addToRolePolicy(getSecretValueStatement);
 
-    const notify = new LambdaDestination(uploadFunction);
+    const notify = new SqsDestination(uploadQueue);
+    //  LambdaDestination(uploadFunction);
     notify.bind(this, bucket);
-    bucket.addObjectCreatedNotification(notify, {
-      suffix: 'csv'
-    });
+    // bucket.addObjectCreatedNotification(notify, {
+    //   suffix: 'csv'
+    // });
     bucket.addEventNotification(EventType.OBJECT_TAGGING_PUT, notify, {
       suffix: 'csv'
     });
-    uploadFunction.grantInvoke(S3_SERVICE_PRINCIPAL);
+    uploadQueue.grantSendMessages(S3_SERVICE_PRINCIPAL);
+    uploadFunction.addEventSource(new SqsEventSource(uploadQueue, {
+      batchSize: 1,
+    }));
+
+    // uploadFunction.grantInvoke(S3_SERVICE_PRINCIPAL);
 
     // Also shows status of uploads.
     const uploadStatusFunction = new NodejsFunction(this, 'Upload Status Function', {

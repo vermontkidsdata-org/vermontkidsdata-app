@@ -1,78 +1,56 @@
-Category,Basic Needs,Child Care,Child Development,Demographics,Economics,Education,Housing,Mental Health,Physical Health,Resilience,UPK,Workforce,Goal 1: Children Have a Healthy Start,Goal 2: Families and Communities Play A Leading Role,Goal 3: Access to High-Quality Opportunities,"Goal 4: Integrated, Well-Resourced, and Data-Informed System",AHS District,BBF Region,County,Hospital Service Area,Vermont
-BN:Cost of living,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-BN:Financial assistance,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-BN:Food security and nutrition,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-BN:Housing,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Child care:Access,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Child development:Service access and utilization,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Child development:Standardized tests and screenings,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Demographics:Living arrangements,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Demographics:Population,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Econ:Cost of living,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Econ:Economic impact,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Econ:Financial assistance,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Education:Enrollment,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Education:Standardized tests,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Education:Student characteristics,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Housing:Housing,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Mental Health:Access,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-Mental Health:Prevalence,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-PH:Access and utilization,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-PH:Food security and nutrition,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-PH:Mental health,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-PH:Perinatal health,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-PH:Other,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-R:Cost of living,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-R:Food security and nutrition,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-R:Housing,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-R:Mental health,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-R:Other environmental factors,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-R:Social and emotional,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-UPK:Access and utilization,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-UPK:Standardized tests,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-Workforce:Paid leave,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
-Workforce:Labor Force,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
-G1:Physical Health,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
-G1:Mental Health,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
-G1:Development and Education,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
-G1:Basic Needs,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
-G1:Other,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
-G2:Strong Families,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
-G2:Strong Communities,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
-"G2:Family Partnership, Leadership, and Decision-Making",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
-G3:Physical Health Access,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
-G2:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
-G3:Mental Health Access,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
-G3:Development and Education Access,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
-G3:Basic Needs Access,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
-G3:Early Childhood Workforce,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
-G3:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
-G4:Integration,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-G4:Well-Resourced,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-G4:Data Informed,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-G4:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-AHS:Basic Needs,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-AHS:Development and Education,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-AHS:Health,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-AHS:Demographics,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-AHS:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-HSA:Basic Needs,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
-HSA:Development and Education,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
-HSA:Health,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
-HSA:Demographics,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
-HSA:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
-County:Basic Needs,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
-County:Development and Education,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
-County:Health,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
-County:Demographics,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
-County:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
-BBF:Basic Needs,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-BBF:Development and Education,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-BBF:Health,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-BBF:Demographics,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-BBF:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-Vermont:Basic Needs,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
-Vermont:Development and Education,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
-Vermont:Health,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
-Vermont:Demographics,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
-Vermont:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Category,Basic Needs,Child Care,Child Development,Demographics,Economics,Education,Housing,Mental Health,Physical Health,Resilience,UPK,Workforce,Goal 1: Children Have a Healthy Start,Goal 2: Families and Communities Play A Leading Role,Goal 3: Access to High-Quality Opportunities,"Goal 4: Integrated, Well-Resourced, and Data-Informed System","AHS District, BBF Region, Health Services District",County,Hospital Service Area,Vermont
+BN:Cost of living,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+BN:Financial assistance,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+BN:Food security and nutrition,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+BN:Housing,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Child care:Child Care,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Child development:Child Development,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Child development:Service Access and Utilization,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Child development:Standardized tests and screenings,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Demographics:Living arrangements,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Demographics:Population,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Econ:Cost of living,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Econ:Economic impact,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Econ:Financial assistance,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Education:Enrollment,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Education:General,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Housing:Housing,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Mental Health:Access,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Mental Health:Prevalence,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+PH:Access and utilization,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+PH:Food security and nutrition,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+PH:Mental health,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+PH:Perinatal health,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+PH:Other,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+R:Cost of living,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+R:Food security and nutrition,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+R:Housing,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+R:Mental health,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+R:Other environmental factors,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+R:Social and emotional,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+UPK:UPK,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+Workforce:Workforce,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+G1:Physical Health,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+G1:Mental Health,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+G1:Development and Education,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+G1:Basic Needs,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+G1:Other,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+G2:Strong Families,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+G2:Strong Communities,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+"G2:Family Partnership, Leadership, and Decision-Making",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+G3:Physical Health Access,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+G2:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+G3:Mental Health Access,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+G3:Development and Education Access,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+G3:Basic Needs Access,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+G3:Early Childhood Workforce,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+G3:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+"G4:Integrated, Well-Resourced, Data Informed",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+"AHS:AHS District, BBF Region, Health Services District",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+HSA:Hospital Service Area,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+County:County,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Vermont:Basic Needs,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Vermont:Development and Education,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Vermont:Health,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Vermont:Demographics,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Vermont:Other,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1

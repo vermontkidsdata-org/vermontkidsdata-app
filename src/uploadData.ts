@@ -8,7 +8,7 @@ if (!module.parent) {
 import { GetObjectCommand, GetObjectTaggingCommand, S3Client } from '@aws-sdk/client-s3';
 import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs';
 import { UpdateCommandOutput } from '@aws-sdk/lib-dynamodb';
-import { S3Event } from 'aws-lambda';
+import { SQSEvent } from 'aws-lambda';
 import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
 import { DatasetVersion, DatasetVersionData, NameMapData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
@@ -19,6 +19,56 @@ export interface DatasetBackupMessage {
   version: string,
   identifier: string,
 }
+
+// The fixed columns for each type
+const dashboardFixedColumns: Record<string, string[]> = {
+  'dashboard:categories': ['Category'].map(c => humanToInternalName(c)),
+  'dashboard:indicators': ['wp_id', 'slug', 'Chart_url', 'link', 'title'].map(c => humanToInternalName(c)),
+  'dashboard:subcategories': ['Category'].map(c => humanToInternalName(c)),
+  'dashboard:topics': ['name'].map(c => humanToInternalName(c)),
+};
+
+const dashboardCreateTableDDL: Record<string, string> = {
+  'dashboard:categories': `
+  CREATE TABLE \`dashboard_categories\` (
+    \`id\` int NOT NULL AUTO_INCREMENT,
+    \`Category\` varchar(256) NOT NULL,
+    PRIMARY KEY (\`id\`),
+    UNIQUE KEY \`Category_UNIQUE\` (\`Category\`)
+  ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1
+  `,
+
+  'dashboard:indicators': `
+  CREATE TABLE \`dashboard_indicators\` (
+    \`id\` int NOT NULL AUTO_INCREMENT,
+    \`wp_id\` int NOT NULL,
+    \`slug\` varchar(256) NOT NULL,
+    \`Chart_url\` varchar(256) DEFAULT NULL,
+    \`link\` varchar(256) DEFAULT NULL,
+    \`title\` varchar(256) DEFAULT NULL,
+    PRIMARY KEY (\`id\`),
+    UNIQUE KEY \`slug_UNIQUE\` (\`slug\`)
+  ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1
+  `,
+
+  'dashboard:subcategories': `
+  CREATE TABLE \`dashboard_subcategories\` (
+    \`id\` int NOT NULL AUTO_INCREMENT,
+    \`Category\` varchar(256) NOT NULL,
+    PRIMARY KEY (\`id\`),
+    UNIQUE KEY \`Category_UNIQUE\` (\`Category\`)
+  ) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1
+  `,
+
+  'dashboard:topics': `
+  CREATE TABLE \`dashboard_topics\` (
+    \`id\` int NOT NULL AUTO_INCREMENT,
+    \`name\` varchar(255) NOT NULL,
+    PRIMARY KEY (\`id\`),
+    UNIQUE KEY \`name_UNIQUE\` (\`name\`)
+  ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `,
+};
 
 const { S3_BUCKET_NAME: bucketName, REGION, SERVICE_TABLE } = process.env;
 const s3 = new S3Client({ region: REGION });
@@ -117,13 +167,13 @@ async function getColumns(table: string): Promise<Column[]> {
   // }
 }
 
-export async function getUploadType(type: string): Promise<UploadType | string> {
+export async function getUploadType(type: string): Promise<UploadType> {
   // console.log({ message: 'getUploadType', type, lookup: uploadTypes[type] });
   // if (uploadTypes[type] == null) {
   const types = await doDBQuery('select * from `upload_types` where `type`=?', [type]);
   // console.log({ message: 'getUploadType ret', type: types[0] });
   if (types == null || types.length !== 1) {
-    return `no types found for type=${type}`;
+    throw new Error(`no types found for type=${type}`);
   } else {
     const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string } = types[0];
     // Get the columns list
@@ -241,47 +291,23 @@ async function recreateDashboardTable(props: { uploadType: UploadType, record: s
     }
   }
 
-  await truncateTable(uploadType, record, lnum, identifier, dryRun, errors, clientData);
-
-  const keepColumns = ((type) => {
-    return [
-      ...new Set([`id`,
-        ...(uploadType.indexColumns || []),
-        ...(uploadType.preserve ?? []),
-      ])
-    ];
-  })(uploadType.type).map(col => humanToInternalName(col));
-
-  const table = uploadType.table;
-  const allColumns = (await getColumns(table)).map(col => humanToInternalName(col.columnName));
-
-
-  // These are the "internal" names. Need to map these back to real column names to re-create them.
-  const dropColsInternal = allColumns.filter(col => !keepColumns.includes(col));
-  const dropCols = uploadType.columns.filter(col => dropColsInternal.includes(humanToInternalName(col.columnName)));
-
-  console.log({ message: 'looking to drop', keepColumns, allColumns, uploadType, record, lnum, identifier, dryRun, errors, clientData, dropColsInternal, dropCols });
-
-  if (dropCols.length) {
-    // const dropColKeys = await mapColumnNamesToInternal(dropCols.map(c => c.columnName), false, clientData.mangleMap.nameMaps);
-
-    // const dropDDL = "alter table `" + table + "` " + dropColKeys.map(dck => `drop \`${dck.key}\``).join(', ');
-    // console.log({ message: '**** keepColumns', keepColumns, dropColKeys, dropDDL });
-    const dropDDL = "alter table `" + table + "` " + dropCols.map(dc => `drop \`${dc.columnName}\``).join(', ');
-    console.log({ message: '**** keepColumns', keepColumns, dropCols, dropDDL });
-
-    // Make a copy first!
-    await doDBQuery(`DROP TABLE IF EXISTS \`${table}_backup\`;`);
-    await doDBQuery(`CREATE TABLE \`${table}_backup\` AS SELECT * FROM \`${table}\`;`);
-
-    await doDBQuery(dropDDL);
+  if (dashboardCreateTableDDL[uploadType.type] == null) {
+    console.error({ message: 'no DDL for type', uploadType });
   }
 
+  // Now we just drop and recreate the table
+  const table = uploadType.table;
+  console.log({ message: 'recreateDashboardTable: dropping table', table });
+  await doDBQuery(`DROP TABLE IF EXISTS \`${table}\``);
+
+  // Now create the table
+  console.log({ message: 'recreateDashboardTable: re-creating table', table });
+  await doDBQuery(dashboardCreateTableDDL[uploadType.type]);
+
   // Go thru headers and see if there's anything we need to create
-  const createCols = record.filter(c => !keepColumns.includes(humanToInternalName(c)));
+  const createCols = record.filter(c => !dashboardFixedColumns[uploadType.type].includes(humanToInternalName(c)));
+  console.log({ message: 'recreateDashboardTable: columns to add', createCols });
   if (createCols.length) {
-    // const createColKeys = await mapColumnNamesToInternal(createCols, true, clientData.mangleMap.nameMaps);
-    // await doDBQuery(`ALTER TABLE \`${table}\` ` + createColKeys.map(col => `ADD \`${col.key}\` INT`).join(', '));
     await doDBQuery(`ALTER TABLE \`${table}\` ` + createCols.map(col => `ADD \`${col}\` INT`).join(', '));
   }
 
@@ -494,10 +520,8 @@ export async function processUpload(props: {
   await doDBOpen();
   console.log('connection open');
 
-  const uploadType = await getUploadType(uploadTypeStr);
-  if (typeof uploadType === 'string') {
-    throw new Error(uploadType);
-  }
+  // We will re-evaluate this after the preFunction
+  let uploadType = await getUploadType(uploadTypeStr);
 
   // Assume the type has two pieces separated by a colon
   // - the typesConfig value
@@ -526,6 +550,9 @@ export async function processUpload(props: {
           return quit;
         }
 
+        // The preFunction may have changed the upload type, we need to re-evaluate it
+        uploadType = await getUploadType(uploadTypeStr);
+      
         // Start by truncating the table if requested. We only do this if the preFunction returns OK.
         if (doTruncateTable) {
           await truncateTable(uploadType, [], 0, identifier, dryRun ?? false, errors, clientData);
@@ -622,13 +649,67 @@ async function getUploadFile(props: {
   return { tags, bodyContents, contentType };
 }
 
+export interface S3EventBody {
+  Records: S3EventRecord[]
+}
+
+export interface S3EventRecord {
+  eventVersion: string
+  eventSource: string
+  awsRegion: string
+  eventTime: string
+  eventName: string
+  userIdentity: UserIdentity
+  requestParameters: RequestParameters
+  responseElements: ResponseElements
+  s3: S3
+}
+
+export interface UserIdentity {
+  principalId: string
+}
+
+export interface RequestParameters {
+  sourceIPAddress: string
+}
+
+export interface ResponseElements {
+  "x-amz-request-id": string
+  "x-amz-id-2": string
+}
+
+export interface S3 {
+  s3SchemaVersion: string
+  configurationId: string
+  bucket: Bucket
+  object: Object
+}
+
+export interface Bucket {
+  name: string
+  ownerIdentity: OwnerIdentity
+  arn: string
+}
+
+export interface OwnerIdentity {
+  principalId: string
+}
+
+export interface Object {
+  key: string
+  eTag: string
+}
+
 export async function main(
-  event: S3Event,
+  event: SQSEvent,
 ): Promise<string> {
   console.log(`S3_BUCKET_NAME=${bucketName}, REGION=${REGION}, event 👉`, event);
 
-  const bucket = event.Records[0].s3.bucket.name;
-  const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, ' '));
+  const body = JSON.parse(event.Records[0].body) as S3EventBody;
+  const record = body.Records[0];
+  console.log({ message: `record`, record });
+  const bucket = record.s3.bucket.name;
+  const key = decodeURIComponent(record.s3.object.key.replace(/\+/g, ' '));
 
   // Try it a few times, might be a delay in the file being available in S3. After that,
   // I'm not sure why it should fail, but we'll log it as the status anyway.
