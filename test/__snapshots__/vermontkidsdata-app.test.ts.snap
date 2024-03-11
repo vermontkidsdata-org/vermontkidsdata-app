@@ -4566,19 +4566,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Lambda::Function",
     },
-    "UploadDataFunctionInvoke7Tjz5KX7GRQDyjRPBytArERKUwy73V0WhTiHDj2lAwA6E00DED": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "UploadDataFunction2E82FB6B",
-            "Arn",
-          ],
-        },
-        "Principal": "s3.amazonaws.com",
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
     "UploadDataFunctionLogRetentionC11AAF2E": {
       "Properties": {
         "LogGroupName": {
@@ -4691,6 +4678,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
             {
               "Action": [
+                "sqs:ReceiveMessage",
+                "sqs:ChangeMessageVisibility",
+                "sqs:GetQueueUrl",
+                "sqs:DeleteMessage",
+                "sqs:GetQueueAttributes",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "UploadqueueE932C434",
+                  "Arn",
+                ],
+              },
+            },
+            {
+              "Action": [
                 "dynamodb:BatchGetItem",
                 "dynamodb:GetRecords",
                 "dynamodb:GetShardIterator",
@@ -4758,6 +4761,21 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         ],
       },
       "Type": "AWS::IAM::Policy",
+    },
+    "UploadDataFunctionSqsEventSourcetestTestStackUploadqueueC7063E9FC7E87162": {
+      "Properties": {
+        "BatchSize": 1,
+        "EventSourceArn": {
+          "Fn::GetAtt": [
+            "UploadqueueE932C434",
+            "Arn",
+          ],
+        },
+        "FunctionName": {
+          "Ref": "UploadDataFunction2E82FB6B",
+        },
+      },
+      "Type": "AWS::Lambda::EventSourceMapping",
     },
     "UploadStatusFunction296B6E97": {
       "DependsOn": [
@@ -4919,6 +4937,73 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::IAM::Policy",
     },
+    "UploadqueueE932C434": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "VisibilityTimeout": 900,
+      },
+      "Type": "AWS::SQS::Queue",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "UploadqueuePolicy914D0D01": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "sqs:SendMessage",
+                "sqs:GetQueueAttributes",
+                "sqs:GetQueueUrl",
+              ],
+              "Condition": {
+                "ArnLike": {
+                  "aws:SourceArn": {
+                    "Fn::GetAtt": [
+                      "Uploadsbucket86F42938",
+                      "Arn",
+                    ],
+                  },
+                },
+              },
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "s3.amazonaws.com",
+              },
+              "Resource": {
+                "Fn::GetAtt": [
+                  "UploadqueueE932C434",
+                  "Arn",
+                ],
+              },
+            },
+            {
+              "Action": [
+                "sqs:SendMessage",
+                "sqs:GetQueueAttributes",
+                "sqs:GetQueueUrl",
+              ],
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "s3.amazonaws.com",
+              },
+              "Resource": {
+                "Fn::GetAtt": [
+                  "UploadqueueE932C434",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Queues": [
+          {
+            "Ref": "UploadqueueE932C434",
+          },
+        ],
+      },
+      "Type": "AWS::SQS::QueuePolicy",
+    },
     "Uploadsbucket86F42938": {
       "DeletionPolicy": "Delete",
       "Properties": {
@@ -4964,26 +5049,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Delete",
     },
-    "UploadsbucketAllowBucketNotificationsTotestTestStackUploadDataFunctionC2D16AC2DFACE21F": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "UploadDataFunction2E82FB6B",
-            "Arn",
-          ],
-        },
-        "Principal": "s3.amazonaws.com",
-        "SourceAccount": "999999999",
-        "SourceArn": {
-          "Fn::GetAtt": [
-            "Uploadsbucket86F42938",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
     "UploadsbucketAutoDeleteObjectsCustomResource66D0EADD": {
       "DeletionPolicy": "Delete",
       "DependsOn": [
@@ -5005,7 +5070,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "UploadsbucketNotifications8DBD3ABE": {
       "DependsOn": [
-        "UploadsbucketAllowBucketNotificationsTotestTestStackUploadDataFunctionC2D16AC2DFACE21F",
+        "UploadqueuePolicy914D0D01",
+        "UploadqueueE932C434",
       ],
       "Properties": {
         "BucketName": {
@@ -5013,28 +5079,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Managed": true,
         "NotificationConfiguration": {
-          "LambdaFunctionConfigurations": [
-            {
-              "Events": [
-                "s3:ObjectCreated:*",
-              ],
-              "Filter": {
-                "Key": {
-                  "FilterRules": [
-                    {
-                      "Name": "suffix",
-                      "Value": "csv",
-                    },
-                  ],
-                },
-              },
-              "LambdaFunctionArn": {
-                "Fn::GetAtt": [
-                  "UploadDataFunction2E82FB6B",
-                  "Arn",
-                ],
-              },
-            },
+          "QueueConfigurations": [
             {
               "Events": [
                 "s3:ObjectTagging:Put",
@@ -5049,9 +5094,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                   ],
                 },
               },
-              "LambdaFunctionArn": {
+              "QueueArn": {
                 "Fn::GetAtt": [
-                  "UploadDataFunction2E82FB6B",
+                  "UploadqueueE932C434",
                   "Arn",
                 ],
               },
