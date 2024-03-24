@@ -319,7 +319,7 @@ export class VermontkidsdataStack extends Stack {
     secret.grantRead(uploadFunction);
 
     const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
-      memorySize: 128,
+      memorySize: 1024,
       timeout: Duration.seconds(30),
       runtime,
       entry: join(__dirname, "../src/charts-api.ts"),
@@ -333,7 +333,7 @@ export class VermontkidsdataStack extends Stack {
     secret.grantRead(apiChartBarFunction);
 
     const apiTableFunction = new NodejsFunction(this, 'Basic table API Function', {
-      memorySize: 128,
+      memorySize: 1024,
       timeout: Duration.seconds(30),
       runtime,
       handler: 'table',
@@ -361,7 +361,7 @@ export class VermontkidsdataStack extends Stack {
     secret.grantRead(dashboardCheckFunction);
 
     const queriesGetListFunction = new NodejsFunction(this, 'Queries getList API Function', {
-      memorySize: 128,
+      memorySize: 1024,
       timeout: Duration.seconds(30),
       runtime,
       handler: 'handlerGetList',

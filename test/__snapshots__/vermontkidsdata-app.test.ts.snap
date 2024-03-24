@@ -323,7 +323,7 @@ exports[`Lambda Snapshot Test 1`] = `
           },
         },
         "Handler": "index.bar",
-        "MemorySize": 128,
+        "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
             "BarChartAPIFunctionServiceRole24B14B18",
@@ -460,7 +460,7 @@ exports[`Lambda Snapshot Test 1`] = `
           },
         },
         "Handler": "index.table",
-        "MemorySize": 128,
+        "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
             "BasictableAPIFunctionServiceRole1E828EAE",
@@ -3932,7 +3932,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           },
         },
         "Handler": "index.handlerGetList",
-        "MemorySize": 128,
+        "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
             "QueriesgetListAPIFunctionServiceRole8D01FE5E",

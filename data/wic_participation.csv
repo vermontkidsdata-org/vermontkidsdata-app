@@ -1,0 +1,820 @@
+Geo type,Geography,Year,Category,Value
+State,Vermont,2019-01,Women,2341
+District,Barre,2019-01,Women,220
+District,Bennington,2019-01,Women,184
+District,Brattleboro,2019-01,Women,126
+District,Burlington,2019-01,Women,493
+District,Middlebury,2019-01,Women,127
+District,Morrisville,2019-01,Women,148
+District,Newport,2019-01,Women,166
+District,Rutland,2019-01,Women,240
+District,Springfield,2019-01,Women,105
+District,St Albans,2019-01,Women,234
+District,St Johnsbury,2019-01,Women,149
+District,White River Junction,2019-01,Women,149
+State,Vermont,2019-01,Infants,2126
+District,Barre,2019-01,Infants,207
+District,Bennington,2019-01,Infants,189
+District,Brattleboro,2019-01,Infants,126
+District,Burlington,2019-01,Infants,420
+District,Middlebury,2019-01,Infants,110
+District,Morrisville,2019-01,Infants,112
+District,Newport,2019-01,Infants,171
+District,Rutland,2019-01,Infants,203
+District,Springfield,2019-01,Infants,97
+District,St Albans,2019-01,Infants,227
+District,St Johnsbury,2019-01,Infants,131
+District,White River Junction,2019-01,Infants,133
+State,Vermont,2019-01,Children,6895
+District,Barre,2019-01,Children,605
+District,Bennington,2019-01,Children,474
+District,Brattleboro,2019-01,Children,409
+District,Burlington,2019-01,Children,1269
+District,Middlebury,2019-01,Children,447
+District,Morrisville,2019-01,Children,485
+District,Newport,2019-01,Children,487
+District,Rutland,2019-01,Children,667
+District,Springfield,2019-01,Children,394
+District,St Albans,2019-01,Children,657
+District,St Johnsbury,2019-01,Children,513
+District,White River Junction,2019-01,Children,488
+State,Vermont,2019-04,Women,2339
+District,Barre,2019-04,Women,202
+District,Bennington,2019-04,Women,167
+District,Brattleboro,2019-04,Women,128
+District,Burlington,2019-04,Women,489
+District,Middlebury,2019-04,Women,142
+District,Morrisville,2019-04,Women,151
+District,Newport,2019-04,Women,181
+District,Rutland,2019-04,Women,246
+District,Springfield,2019-04,Women,115
+District,St Albans,2019-04,Women,223
+District,St Johnsbury,2019-04,Women,147
+District,White River Junction,2019-04,Women,148
+State,Vermont,2019-04,Infants,2114
+District,Barre,2019-04,Infants,195
+District,Bennington,2019-04,Infants,181
+District,Brattleboro,2019-04,Infants,122
+District,Burlington,2019-04,Infants,418
+District,Middlebury,2019-04,Infants,123
+District,Morrisville,2019-04,Infants,128
+District,Newport,2019-04,Infants,165
+District,Rutland,2019-04,Infants,205
+District,Springfield,2019-04,Infants,95
+District,St Albans,2019-04,Infants,215
+District,St Johnsbury,2019-04,Infants,134
+District,White River Junction,2019-04,Infants,133
+State,Vermont,2019-04,Children,6785
+District,Barre,2019-04,Children,612
+District,Bennington,2019-04,Children,453
+District,Brattleboro,2019-04,Children,396
+District,Burlington,2019-04,Children,1285
+District,Middlebury,2019-04,Children,459
+District,Morrisville,2019-04,Children,460
+District,Newport,2019-04,Children,488
+District,Rutland,2019-04,Children,697
+District,Springfield,2019-04,Children,379
+District,St Albans,2019-04,Children,601
+District,St Johnsbury,2019-04,Children,483
+District,White River Junction,2019-04,Children,472
+State,Vermont,2019-07,Women,2380
+District,Barre,2019-07,Women,201
+District,Bennington,2019-07,Women,167
+District,Brattleboro,2019-07,Women,133
+District,Burlington,2019-07,Women,499
+District,Middlebury,2019-07,Women,146
+District,Morrisville,2019-07,Women,163
+District,Newport,2019-07,Women,192
+District,Rutland,2019-07,Women,250
+District,Springfield,2019-07,Women,116
+District,St Albans,2019-07,Women,225
+District,St Johnsbury,2019-07,Women,161
+District,White River Junction,2019-07,Women,127
+State,Vermont,2019-07,Infants,2109
+District,Barre,2019-07,Infants,201
+District,Bennington,2019-07,Infants,160
+District,Brattleboro,2019-07,Infants,125
+District,Burlington,2019-07,Infants,407
+District,Middlebury,2019-07,Infants,121
+District,Morrisville,2019-07,Infants,132
+District,Newport,2019-07,Infants,157
+District,Rutland,2019-07,Infants,213
+District,Springfield,2019-07,Infants,94
+District,St Albans,2019-07,Infants,225
+District,St Johnsbury,2019-07,Infants,138
+District,White River Junction,2019-07,Infants,136
+State,Vermont,2019-07,Children,6796
+District,Barre,2019-07,Children,618
+District,Bennington,2019-07,Children,478
+District,Brattleboro,2019-07,Children,404
+District,Burlington,2019-07,Children,1307
+District,Middlebury,2019-07,Children,446
+District,Morrisville,2019-07,Children,444
+District,Newport,2019-07,Children,502
+District,Rutland,2019-07,Children,688
+District,Springfield,2019-07,Children,364
+District,St Albans,2019-07,Children,592
+District,St Johnsbury,2019-07,Children,489
+District,White River Junction,2019-07,Children,464
+State,Vermont,2019-10,Women,2377
+District,Barre,2019-10,Women,210
+District,Bennington,2019-10,Women,160
+District,Brattleboro,2019-10,Women,138
+District,Burlington,2019-10,Women,469
+District,Middlebury,2019-10,Women,134
+District,Morrisville,2019-10,Women,178
+District,Newport,2019-10,Women,172
+District,Rutland,2019-10,Women,254
+District,Springfield,2019-10,Women,118
+District,St Albans,2019-10,Women,222
+District,St Johnsbury,2019-10,Women,173
+District,White River Junction,2019-10,Women,149
+State,Vermont,2019-10,Infants,2084
+District,Barre,2019-10,Infants,188
+District,Bennington,2019-10,Infants,152
+District,Brattleboro,2019-10,Infants,131
+District,Burlington,2019-10,Infants,394
+District,Middlebury,2019-10,Infants,126
+District,Morrisville,2019-10,Infants,133
+District,Newport,2019-10,Infants,155
+District,Rutland,2019-10,Infants,218
+District,Springfield,2019-10,Infants,85
+District,St Albans,2019-10,Infants,216
+District,St Johnsbury,2019-10,Infants,145
+District,White River Junction,2019-10,Infants,141
+State,Vermont,2019-10,Children,6792
+District,Barre,2019-10,Children,617
+District,Bennington,2019-10,Children,484
+District,Brattleboro,2019-10,Children,413
+District,Burlington,2019-10,Children,1307
+District,Middlebury,2019-10,Children,442
+District,Morrisville,2019-10,Children,442
+District,Newport,2019-10,Children,492
+District,Rutland,2019-10,Children,687
+District,Springfield,2019-10,Children,372
+District,St Albans,2019-10,Children,594
+District,St Johnsbury,2019-10,Children,491
+District,White River Junction,2019-10,Children,451
+State,Vermont,2020-01,Women,2250
+District,Barre,2020-01,Women,206
+District,Bennington,2020-01,Women,153
+District,Brattleboro,2020-01,Women,120
+District,Burlington,2020-01,Women,433
+District,Middlebury,2020-01,Women,126
+District,Morrisville,2020-01,Women,161
+District,Newport,2020-01,Women,165
+District,Rutland,2020-01,Women,240
+District,Springfield,2020-01,Women,108
+District,St Albans,2020-01,Women,226
+District,St Johnsbury,2020-01,Women,157
+District,White River Junction,2020-01,Women,155
+State,Vermont,2020-01,Infants,2041
+District,Barre,2020-01,Infants,177
+District,Bennington,2020-01,Infants,151
+District,Brattleboro,2020-01,Infants,115
+District,Burlington,2020-01,Infants,364
+District,Middlebury,2020-01,Infants,114
+District,Morrisville,2020-01,Infants,141
+District,Newport,2020-01,Infants,161
+District,Rutland,2020-01,Infants,223
+District,Springfield,2020-01,Infants,96
+District,St Albans,2020-01,Infants,220
+District,St Johnsbury,2020-01,Infants,147
+District,White River Junction,2020-01,Infants,132
+State,Vermont,2020-01,Children,6639
+District,Barre,2020-01,Children,619
+District,Bennington,2020-01,Children,453
+District,Brattleboro,2020-01,Children,394
+District,Burlington,2020-01,Children,1274
+District,Middlebury,2020-01,Children,446
+District,Morrisville,2020-01,Children,447
+District,Newport,2020-01,Children,477
+District,Rutland,2020-01,Children,656
+District,Springfield,2020-01,Children,354
+District,St Albans,2020-01,Children,597
+District,St Johnsbury,2020-01,Children,482
+District,White River Junction,2020-01,Children,440
+State,Vermont,2020-04,Women,2327
+District,Barre,2020-04,Women,205
+District,Bennington,2020-04,Women,160
+District,Brattleboro,2020-04,Women,125
+District,Burlington,2020-04,Women,442
+District,Middlebury,2020-04,Women,121
+District,Morrisville,2020-04,Women,154
+District,Newport,2020-04,Women,170
+District,Rutland,2020-04,Women,234
+District,Springfield,2020-04,Women,120
+District,St Albans,2020-04,Women,269
+District,St Johnsbury,2020-04,Women,172
+District,White River Junction,2020-04,Women,155
+State,Vermont,2020-04,Infants,2112
+District,Barre,2020-04,Infants,191
+District,Bennington,2020-04,Infants,159
+District,Brattleboro,2020-04,Infants,117
+District,Burlington,2020-04,Infants,359
+District,Middlebury,2020-04,Infants,117
+District,Morrisville,2020-04,Infants,140
+District,Newport,2020-04,Infants,152
+District,Rutland,2020-04,Infants,232
+District,Springfield,2020-04,Infants,104
+District,St Albans,2020-04,Infants,249
+District,St Johnsbury,2020-04,Infants,153
+District,White River Junction,2020-04,Infants,139
+State,Vermont,2020-04,Children,6935
+District,Barre,2020-04,Children,641
+District,Bennington,2020-04,Children,476
+District,Brattleboro,2020-04,Children,411
+District,Burlington,2020-04,Children,1375
+District,Middlebury,2020-04,Children,435
+District,Morrisville,2020-04,Children,471
+District,Newport,2020-04,Children,479
+District,Rutland,2020-04,Children,662
+District,Springfield,2020-04,Children,367
+District,St Albans,2020-04,Children,665
+District,St Johnsbury,2020-04,Children,492
+District,White River Junction,2020-04,Children,461
+State,Vermont,2020-07,Women,2276
+District,Barre,2020-07,Women,197
+District,Bennington,2020-07,Women,163
+District,Brattleboro,2020-07,Women,115
+District,Burlington,2020-07,Women,444
+District,Middlebury,2020-07,Women,128
+District,Morrisville,2020-07,Women,133
+District,Newport,2020-07,Women,171
+District,Rutland,2020-07,Women,263
+District,Springfield,2020-07,Women,110
+District,St Albans,2020-07,Women,256
+District,St Johnsbury,2020-07,Women,152
+District,White River Junction,2020-07,Women,144
+State,Vermont,2020-07,Infants,2010
+District,Barre,2020-07,Infants,167
+District,Bennington,2020-07,Infants,157
+District,Brattleboro,2020-07,Infants,109
+District,Burlington,2020-07,Infants,353
+District,Middlebury,2020-07,Infants,101
+District,Morrisville,2020-07,Infants,117
+District,Newport,2020-07,Infants,156
+District,Rutland,2020-07,Infants,225
+District,Springfield,2020-07,Infants,109
+District,St Albans,2020-07,Infants,255
+District,St Johnsbury,2020-07,Infants,135
+District,White River Junction,2020-07,Infants,126
+State,Vermont,2020-07,Children,7162
+District,Barre,2020-07,Children,646
+District,Bennington,2020-07,Children,470
+District,Brattleboro,2020-07,Children,407
+District,Burlington,2020-07,Children,1462
+District,Middlebury,2020-07,Children,441
+District,Morrisville,2020-07,Children,481
+District,Newport,2020-07,Children,468
+District,Rutland,2020-07,Children,700
+District,Springfield,2020-07,Children,369
+District,St Albans,2020-07,Children,732
+District,St Johnsbury,2020-07,Children,497
+District,White River Junction,2020-07,Children,489
+State,Vermont,2020-10,Women,2273
+District,Barre,2020-10,Women,190
+District,Bennington,2020-10,Women,166
+District,Brattleboro,2020-10,Women,119
+District,Burlington,2020-10,Women,448
+District,Middlebury,2020-10,Women,113
+District,Morrisville,2020-10,Women,135
+District,Newport,2020-10,Women,177
+District,Rutland,2020-10,Women,266
+District,Springfield,2020-10,Women,114
+District,St Albans,2020-10,Women,250
+District,St Johnsbury,2020-10,Women,151
+District,White River Junction,2020-10,Women,144
+State,Vermont,2020-10,Infants,2037
+District,Barre,2020-10,Infants,172
+District,Bennington,2020-10,Infants,155
+District,Brattleboro,2020-10,Infants,99
+District,Burlington,2020-10,Infants,367
+District,Middlebury,2020-10,Infants,100
+District,Morrisville,2020-10,Infants,112
+District,Newport,2020-10,Infants,156
+District,Rutland,2020-10,Infants,248
+District,Springfield,2020-10,Infants,104
+District,St Albans,2020-10,Infants,255
+District,St Johnsbury,2020-10,Infants,141
+District,White River Junction,2020-10,Infants,128
+State,Vermont,2020-10,Children,7316
+District,Barre,2020-10,Children,653
+District,Bennington,2020-10,Children,480
+District,Brattleboro,2020-10,Children,407
+District,Burlington,2020-10,Children,1495
+District,Middlebury,2020-10,Children,445
+District,Morrisville,2020-10,Children,463
+District,Newport,2020-10,Children,473
+District,Rutland,2020-10,Children,712
+District,Springfield,2020-10,Children,384
+District,St Albans,2020-10,Children,782
+District,St Johnsbury,2020-10,Children,512
+District,White River Junction,2020-10,Children,510
+State,Vermont,2021-01,Women,2247
+District,Barre,2021-01,Women,203
+District,Bennington,2021-01,Women,147
+District,Brattleboro,2021-01,Women,111
+District,Burlington,2021-01,Women,455
+District,Middlebury,2021-01,Women,118
+District,Morrisville,2021-01,Women,135
+District,Newport,2021-01,Women,170
+District,Rutland,2021-01,Women,256
+District,Springfield,2021-01,Women,120
+District,St Albans,2021-01,Women,233
+District,St Johnsbury,2021-01,Women,157
+District,White River Junction,2021-01,Women,142
+State,Vermont,2021-01,Infants,2021
+District,Barre,2021-01,Infants,165
+District,Bennington,2021-01,Infants,157
+District,Brattleboro,2021-01,Infants,96
+District,Burlington,2021-01,Infants,367
+District,Middlebury,2021-01,Infants,113
+District,Morrisville,2021-01,Infants,104
+District,Newport,2021-01,Infants,160
+District,Rutland,2021-01,Infants,250
+District,Springfield,2021-01,Infants,107
+District,St Albans,2021-01,Infants,235
+District,St Johnsbury,2021-01,Infants,143
+District,White River Junction,2021-01,Infants,124
+State,Vermont,2021-01,Children,7406
+District,Barre,2021-01,Children,657
+District,Bennington,2021-01,Children,496
+District,Brattleboro,2021-01,Children,405
+District,Burlington,2021-01,Children,1494
+District,Middlebury,2021-01,Children,445
+District,Morrisville,2021-01,Children,493
+District,Newport,2021-01,Children,487
+District,Rutland,2021-01,Children,725
+District,Springfield,2021-01,Children,392
+District,St Albans,2021-01,Children,790
+District,St Johnsbury,2021-01,Children,518
+District,White River Junction,2021-01,Children,504
+State,Vermont,2021-04,Women,2162
+District,Barre,2021-04,Women,193
+District,Bennington,2021-04,Women,136
+District,Brattleboro,2021-04,Women,94
+District,Burlington,2021-04,Women,457
+District,Middlebury,2021-04,Women,136
+District,Morrisville,2021-04,Women,121
+District,Newport,2021-04,Women,160
+District,Rutland,2021-04,Women,242
+District,Springfield,2021-04,Women,109
+District,St Albans,2021-04,Women,235
+District,St Johnsbury,2021-04,Women,144
+District,White River Junction,2021-04,Women,135
+State,Vermont,2021-04,Infants,1913
+District,Barre,2021-04,Infants,165
+District,Bennington,2021-04,Infants,150
+District,Brattleboro,2021-04,Infants,87
+District,Burlington,2021-04,Infants,373
+District,Middlebury,2021-04,Infants,107
+District,Morrisville,2021-04,Infants,101
+District,Newport,2021-04,Infants,144
+District,Rutland,2021-04,Infants,241
+District,Springfield,2021-04,Infants,97
+District,St Albans,2021-04,Infants,201
+District,St Johnsbury,2021-04,Infants,130
+District,White River Junction,2021-04,Infants,117
+State,Vermont,2021-04,Children,7362
+District,Barre,2021-04,Children,655
+District,Bennington,2021-04,Children,478
+District,Brattleboro,2021-04,Children,407
+District,Burlington,2021-04,Children,1455
+District,Middlebury,2021-04,Children,451
+District,Morrisville,2021-04,Children,481
+District,Newport,2021-04,Children,467
+District,Rutland,2021-04,Children,720
+District,Springfield,2021-04,Children,395
+District,St Albans,2021-04,Children,824
+District,St Johnsbury,2021-04,Children,528
+District,White River Junction,2021-04,Children,501
+State,Vermont,2021-07,Women,2099
+District,Barre,2021-07,Women,179
+District,Bennington,2021-07,Women,124
+District,Brattleboro,2021-07,Women,108
+District,Burlington,2021-07,Women,457
+District,Middlebury,2021-07,Women,135
+District,Morrisville,2021-07,Women,121
+District,Newport,2021-07,Women,137
+District,Rutland,2021-07,Women,232
+District,Springfield,2021-07,Women,114
+District,St Albans,2021-07,Women,227
+District,St Johnsbury,2021-07,Women,136
+District,White River Junction,2021-07,Women,129
+State,Vermont,2021-07,Infants,1889
+District,Barre,2021-07,Infants,158
+District,Bennington,2021-07,Infants,131
+District,Brattleboro,2021-07,Infants,96
+District,Burlington,2021-07,Infants,376
+District,Middlebury,2021-07,Infants,103
+District,Morrisville,2021-07,Infants,99
+District,Newport,2021-07,Infants,145
+District,Rutland,2021-07,Infants,224
+District,Springfield,2021-07,Infants,106
+District,St Albans,2021-07,Infants,212
+District,St Johnsbury,2021-07,Infants,118
+District,White River Junction,2021-07,Infants,121
+State,Vermont,2021-07,Children,7209
+State,Barre,2021-07,Children,646
+State,Bennington,2021-07,Children,493
+State,Brattleboro,2021-07,Children,387
+State,Burlington,2021-07,Children,1401
+State,Middlebury,2021-07,Children,468
+State,Morrisville,2021-07,Children,457
+State,Newport,2021-07,Children,454
+State,Rutland,2021-07,Children,718
+State,Springfield,2021-07,Children,397
+State,St Albans,2021-07,Children,782
+State,St Johnsbury,2021-07,Children,530
+State,White River Junction,2021-07,Children,476
+State,Vermont,2021-10,Women,2118
+District,Barre,2021-10,Women,189
+District,Bennington,2021-10,Women,112
+District,Brattleboro,2021-10,Women,113
+District,Burlington,2021-10,Women,267
+District,Middlebury,2021-10,Women,131
+District,Morrisville,2021-10,Women,121
+District,Newport,2021-10,Women,131
+District,Rutland,2021-10,Women,229
+District,Springfield,2021-10,Women,121
+District,St Albans,2021-10,Women,238
+District,St Johnsbury,2021-10,Women,129
+District,White River Junction,2021-10,Women,137
+State,Vermont,2021-10,Infants,1863
+District,Barre,2021-10,Infants,157
+District,Bennington,2021-10,Infants,118
+District,Brattleboro,2021-10,Infants,99
+District,Burlington,2021-10,Infants,358
+District,Middlebury,2021-10,Infants,125
+District,Morrisville,2021-10,Infants,99
+District,Newport,2021-10,Infants,136
+District,Rutland,2021-10,Infants,214
+District,Springfield,2021-10,Infants,104
+District,St Albans,2021-10,Infants,215
+District,St Johnsbury,2021-10,Infants,119
+District,White River Junction,2021-10,Infants,119
+State,Vermont,2021-10,Children,7158
+District,Barre,2021-10,Children,620
+District,Bennington,2021-10,Children,481
+District,Brattleboro,2021-10,Children,371
+District,Burlington,2021-10,Children,1411
+District,Middlebury,2021-10,Children,481
+District,Morrisville,2021-10,Children,466
+District,Newport,2021-10,Children,450
+District,Rutland,2021-10,Children,723
+District,Springfield,2021-10,Children,399
+District,St Albans,2021-10,Children,774
+District,St Johnsbury,2021-10,Children,520
+District,White River Junction,2021-10,Children,462
+State,Vermont,2022-01,Women,2164
+District,Barre,2022-01,Women,184
+District,Bennington,2022-01,Women,135
+District,Brattleboro,2022-01,Women,116
+District,Burlington,2022-01,Women,452
+District,Middlebury,2022-01,Women,122
+District,Morrisville,2022-01,Women,133
+District,Newport,2022-01,Women,136
+District,Rutland,2022-01,Women,237
+District,Springfield,2022-01,Women,123
+District,St Albans,2022-01,Women,250
+District,St Johnsbury,2022-01,Women,137
+District,White River Junction,2022-01,Women,139
+State,Vermont,2022-01,Infants,1923
+District,Barre,2022-01,Infants,166
+District,Bennington,2022-01,Infants,108
+District,Brattleboro,2022-01,Infants,108
+District,Burlington,2022-01,Infants,388
+District,Middlebury,2022-01,Infants,119
+District,Morrisville,2022-01,Infants,100
+District,Newport,2022-01,Infants,128
+District,Rutland,2022-01,Infants,228
+District,Springfield,2022-01,Infants,110
+District,St Albans,2022-01,Infants,228
+District,St Johnsbury,2022-01,Infants,119
+District,White River Junction,2022-01,Infants,121
+State,Vermont,2022-01,Children,7136
+District,Barre,2022-01,Children,608
+District,Bennington,2022-01,Children,458
+District,Brattleboro,2022-01,Children,369
+District,Burlington,2022-01,Children,1392
+District,Middlebury,2022-01,Children,488
+District,Morrisville,2022-01,Children,462
+District,Newport,2022-01,Children,472
+District,Rutland,2022-01,Children,733
+District,Springfield,2022-01,Children,398
+District,St Albans,2022-01,Children,779
+District,St Johnsbury,2022-01,Children,512
+District,White River Junction,2022-01,Children,465
+State,Vermont,2022-04,Women,2158
+District,Barre,2022-04,Women,179
+District,Bennington,2022-04,Women,142
+District,Brattleboro,2022-04,Women,125
+District,Burlington,2022-04,Women,457
+District,Middlebury,2022-04,Women,123
+District,Morrisville,2022-04,Women,133
+District,Newport,2022-04,Women,139
+District,Rutland,2022-04,Women,249
+District,Springfield,2022-04,Women,113
+District,St Albans,2022-04,Women,226
+District,St Johnsbury,2022-04,Women,135
+District,White River Junction,2022-04,Women,137
+State,Vermont,2022-04,Infants,1950
+District,Barre,2022-04,Infants,174
+District,Bennington,2022-04,Infants,120
+District,Brattleboro,2022-04,Infants,108
+District,Burlington,2022-04,Infants,383
+District,Middlebury,2022-04,Infants,111
+District,Morrisville,2022-04,Infants,102
+District,Newport,2022-04,Infants,130
+District,Rutland,2022-04,Infants,229
+District,Springfield,2022-04,Infants,119
+District,St Albans,2022-04,Infants,231
+District,St Johnsbury,2022-04,Infants,120
+District,White River Junction,2022-04,Infants,123
+State,Vermont,2022-04,Children,7092
+District,Barre,2022-04,Children,609
+District,Bennington,2022-04,Children,463
+District,Brattleboro,2022-04,Children,383
+District,Burlington,2022-04,Children,1413
+District,Middlebury,2022-04,Children,484
+District,Morrisville,2022-04,Children,447
+District,Newport,2022-04,Children,471
+District,Rutland,2022-04,Children,737
+District,Springfield,2022-04,Children,381
+District,St Albans,2022-04,Children,739
+District,St Johnsbury,2022-04,Children,508
+District,White River Junction,2022-04,Children,457
+State,Vermont,2022-07,Women,2178
+District,Barre,2022-07,Women,170
+District,Bennington,2022-07,Women,137
+District,Brattleboro,2022-07,Women,127
+District,Burlington,2022-07,Women,452
+District,Middlebury,2022-07,Women,125
+District,Morrisville,2022-07,Women,138
+District,Newport,2022-07,Women,141
+District,Rutland,2022-07,Women,251
+District,Springfield,2022-07,Women,119
+District,St Albans,2022-07,Women,244
+District,St Johnsbury,2022-07,Women,135
+District,White River Junction,2022-07,Women,139
+State,Vermont,2022-07,Infants,1923
+District,Barre,2022-07,Infants,142
+District,Bennington,2022-07,Infants,130
+District,Brattleboro,2022-07,Infants,115
+District,Burlington,2022-07,Infants,377
+District,Middlebury,2022-07,Infants,100
+District,Morrisville,2022-07,Infants,107
+District,Newport,2022-07,Infants,130
+District,Rutland,2022-07,Infants,233
+District,Springfield,2022-07,Infants,124
+District,St Albans,2022-07,Infants,212
+District,St Johnsbury,2022-07,Infants,122
+District,White River Junction,2022-07,Infants,122
+State,Vermont,2022-07,Children,7134
+District,Barre,2022-07,Children,612
+District,Bennington,2022-07,Children,443
+District,Brattleboro,2022-07,Children,397
+District,Burlington,2022-07,Children,1402
+District,Middlebury,2022-07,Children,487
+District,Morrisville,2022-07,Children,441
+District,Newport,2022-07,Children,505
+District,Rutland,2022-07,Children,749
+District,Springfield,2022-07,Children,384
+District,St Albans,2022-07,Children,772
+District,St Johnsbury,2022-07,Children,491
+District,White River Junction,2022-07,Children,451
+State,Vermont,2022-10,Women,2199
+District,Barre,2022-10,Women,184
+District,Bennington,2022-10,Women,124
+District,Brattleboro,2022-10,Women,139
+District,Burlington,2022-10,Women,425
+District,Middlebury,2022-10,Women,123
+District,Morrisville,2022-10,Women,140
+District,Newport,2022-10,Women,157
+District,Rutland,2022-10,Women,271
+District,Springfield,2022-10,Women,112
+District,St Albans,2022-10,Women,243
+District,St Johnsbury,2022-10,Women,145
+District,White River Junction,2022-10,Women,136
+State,Vermont,2022-10,Infants,1913
+District,Barre,2022-10,Infants,147
+District,Bennington,2022-10,Infants,127
+District,Brattleboro,2022-10,Infants,120
+District,Burlington,2022-10,Infants,361
+District,Middlebury,2022-10,Infants,93
+District,Morrisville,2022-10,Infants,118
+District,Newport,2022-10,Infants,139
+District,Rutland,2022-10,Infants,239
+District,Springfield,2022-10,Infants,115
+District,St Albans,2022-10,Infants,212
+District,St Johnsbury,2022-10,Infants,120
+District,White River Junction,2022-10,Infants,122
+State,Vermont,2022-10,Children,7150
+District,Barre,2022-10,Children,592
+District,Bennington,2022-10,Children,433
+District,Brattleboro,2022-10,Children,413
+District,Burlington,2022-10,Children,1393
+District,Middlebury,2022-10,Children,480
+District,Morrisville,2022-10,Children,434
+District,Newport,2022-10,Children,534
+District,Rutland,2022-10,Children,756
+District,Springfield,2022-10,Children,373
+District,St Albans,2022-10,Children,784
+District,St Johnsbury,2022-10,Children,506
+District,White River Junction,2022-10,Children,452
+State,Vermont,2023-01,Women,2161
+State,Barre,2023-01,Women,194
+District,Bennington,2023-01,Women,117
+District,Brattleboro,2023-01,Women,132
+District,Burlington,2023-01,Women,419
+District,Middlebury,2023-01,Women,125
+District,Morrisville,2023-01,Women,136
+District,Newport,2023-01,Women,156
+District,Rutland,2023-01,Women,259
+District,Springfield,2023-01,Women,109
+District,St Albans,2023-01,Women,248
+District,St Johnsbury,2023-01,Women,141
+District,White River Junction,2023-01,Women,125
+State,Vermont,2023-01,Infants,1869
+District,Barre,2023-01,Infants,154
+District,Bennington,2023-01,Infants,119
+District,Brattleboro,2023-01,Infants,106
+District,Burlington,2023-01,Infants,349
+District,Middlebury,2023-01,Infants,99
+District,Morrisville,2023-01,Infants,124
+District,Newport,2023-01,Infants,142
+District,Rutland,2023-01,Infants,224
+District,Springfield,2023-01,Infants,106
+District,St Albans,2023-01,Infants,219
+District,St Johnsbury,2023-01,Infants,115
+District,White River Junction,2023-01,Infants,112
+State,Vermont,2023-01,Children,6853
+District,Barre,2023-01,Children,601
+District,Bennington,2023-01,Children,407
+District,Brattleboro,2023-01,Children,400
+District,Burlington,2023-01,Children,1298
+District,Middlebury,2023-01,Children,456
+District,Morrisville,2023-01,Children,407
+District,Newport,2023-01,Children,538
+District,Rutland,2023-01,Children,724
+District,Springfield,2023-01,Children,348
+District,St Albans,2023-01,Children,754
+District,St Johnsbury,2023-01,Children,486
+District,White River Junction,2023-01,Children,434
+State,Vermont,2023-04,Women,2157
+District,Barre,2023-04,Women,198
+District,Bennington,2023-04,Women,126
+District,Brattleboro,2023-04,Women,130
+District,Burlington,2023-04,Women,428
+District,Middlebury,2023-04,Women,139
+District,Morrisville,2023-04,Women,155
+District,Newport,2023-04,Women,155
+District,Rutland,2023-04,Women,236
+District,Springfield,2023-04,Women,112
+District,St Albans,2023-04,Women,235
+District,St Johnsbury,2023-04,Women,129
+District,White River Junction,2023-04,Women,114
+State,Vermont,2023-04,Infants,1870
+District,Barre,2023-04,Infants,156
+District,Bennington,2023-04,Infants,122
+District,Brattleboro,2023-04,Infants,115
+District,Burlington,2023-04,Infants,350
+District,Middlebury,2023-04,Infants,111
+District,Morrisville,2023-04,Infants,127
+District,Newport,2023-04,Infants,140
+District,Rutland,2023-04,Infants,230
+District,Springfield,2023-04,Infants,82
+District,St Albans,2023-04,Infants,219
+District,St Johnsbury,2023-04,Infants,118
+District,White River Junction,2023-04,Infants,100
+State,Vermont,2023-04,Children,6863
+District,Barre,2023-04,Children,597
+District,Bennington,2023-04,Children,404
+District,Brattleboro,2023-04,Children,383
+District,Burlington,2023-04,Children,1320
+District,Middlebury,2023-04,Children,453
+District,Morrisville,2023-04,Children,413
+District,Newport,2023-04,Children,552
+District,Rutland,2023-04,Children,734
+District,Springfield,2023-04,Children,367
+District,St Albans,2023-04,Children,719
+District,St Johnsbury,2023-04,Children,486
+District,White River Junction,2023-04,Children,435
+State,Vermont,2023-07,Women,2186
+District,Barre,2023-07,Women,196
+District,Bennington,2023-07,Women,135
+District,Brattleboro,2023-07,Women,127
+District,Burlington,2023-07,Women,437
+District,Middlebury,2023-07,Women,142
+District,Morrisville,2023-07,Women,150
+District,Newport,2023-07,Women,166
+District,Rutland,2023-07,Women,236
+District,Springfield,2023-07,Women,110
+District,St Albans,2023-07,Women,232
+District,St Johnsbury,2023-07,Women,141
+District,White River Junction,2023-07,Women,114
+State,Vermont,2023-07,Infants,1848
+District,Barre,2023-07,Infants,172
+District,Bennington,2023-07,Infants,109
+District,Brattleboro,2023-07,Infants,113
+District,Burlington,2023-07,Infants,351
+District,Middlebury,2023-07,Infants,117
+District,Morrisville,2023-07,Infants,117
+District,Newport,2023-07,Infants,136
+District,Rutland,2023-07,Infants,216
+District,Springfield,2023-07,Infants,84
+District,St Albans,2023-07,Infants,217
+District,St Johnsbury,2023-07,Infants,120
+District,White River Junction,2023-07,Infants,96
+State,Vermont,2023-07,Children,6924
+District,Barre,2023-07,Children,585
+District,Bennington,2023-07,Children,430
+District,Brattleboro,2023-07,Children,378
+District,Burlington,2023-07,Children,1362
+District,Middlebury,2023-07,Children,444
+District,Morrisville,2023-07,Children,439
+District,Newport,2023-07,Children,535
+District,Rutland,2023-07,Children,765
+District,Springfield,2023-07,Children,360
+District,St Albans,2023-07,Children,713
+District,St Johnsbury,2023-07,Children,474
+District,White River Junction,2023-07,Children,439
+State,Vermont,2023-10,Women,2147
+District,Barre,2023-10,Women,195
+District,Bennington,2023-10,Women,145
+District,Brattleboro,2023-10,Women,109
+District,Burlington,2023-10,Women,433
+District,Middlebury,2023-10,Women,135
+District,Morrisville,2023-10,Women,137
+District,Newport,2023-10,Women,159
+District,Rutland,2023-10,Women,230
+District,Springfield,2023-10,Women,115
+District,St Albans,2023-10,Women,236
+District,St Johnsbury,2023-10,Women,148
+District,White River Junction,2023-10,Women,105
+State,Vermont,2023-10,Infants,1827
+District,Barre,2023-10,Infants,179
+District,Bennington,2023-10,Infants,120
+District,Brattleboro,2023-10,Infants,101
+District,Burlington,2023-10,Infants,350
+District,Middlebury,2023-10,Infants,120
+District,Morrisville,2023-10,Infants,106
+District,Newport,2023-10,Infants,134
+District,Rutland,2023-10,Infants,197
+District,Springfield,2023-10,Infants,90
+District,St Albans,2023-10,Infants,216
+District,St Johnsbury,2023-10,Infants,128
+District,White River Junction,2023-10,Infants,86
+State,Vermont,2023-10,Children,6659
+District,Barre,2023-10,Children,533
+District,Bennington,2023-10,Children,418
+District,Brattleboro,2023-10,Children,316
+District,Burlington,2023-10,Children,1274
+District,Middlebury,2023-10,Children,429
+District,Morrisville,2023-10,Children,457
+District,Newport,2023-10,Children,498
+District,Rutland,2023-10,Children,747
+District,Springfield,2023-10,Children,339
+District,St Albans,2023-10,Children,707
+District,St Johnsbury,2023-10,Children,468
+District,White River Junction,2023-10,Children,428
+State,Vermont,2024-10,Women,2079
+District,Barre,2024-10,Women,191
+District,Bennington,2024-10,Women,143
+District,Brattleboro,2024-10,Women,105
+District,Burlington,2024-10,Women,409
+District,Middlebury,2024-10,Women,127
+District,Morrisville,2024-10,Women,140
+District,Newport,2024-10,Women,166
+District,Rutland,2024-10,Women,211
+District,Springfield,2024-10,Women,113
+District,St Albans,2024-10,Women,217
+District,St Johnsbury,2024-10,Women,143
+District,White River Junction,2024-10,Women,114
+State,Vermont,2024-10,Infants,1779
+District,Barre,2024-10,Infants,166
+District,Bennington,2024-10,Infants,131
+District,Brattleboro,2024-10,Infants,89
+District,Burlington,2024-10,Infants,342
+District,Middlebury,2024-10,Infants,110
+District,Morrisville,2024-10,Infants,105
+District,Newport,2024-10,Infants,141
+District,Rutland,2024-10,Infants,182
+District,Springfield,2024-10,Infants,82
+District,St Albans,2024-10,Infants,209
+District,St Johnsbury,2024-10,Infants,125
+District,White River Junction,2024-10,Infants,97
+State,Vermont,2024-10,Children,6409
+District,Barre,2024-10,Children,535
+District,Bennington,2024-10,Children,386
+District,Brattleboro,2024-10,Children,351
+District,Burlington,2024-10,Children,1185
+District,Middlebury,2024-10,Children,423
+District,Morrisville,2024-10,Children,457
+District,Newport,2024-10,Children,497
+District,Rutland,2024-10,Children,704
+District,Springfield,2024-10,Children,335
+District,St Albans,2024-10,Children,682
+District,St Johnsbury,2024-10,Children,453
+District,White River Junction,2024-10,Children,401
