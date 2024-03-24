@@ -236,7 +236,17 @@ VALUES
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'wic_participation:chart',
-    'SELECT `year` as `cat`, `category` as `label`, `value` FROM data_wic_participation order by `year`',
+    'SELECT concat((case when substr(`year`,6,8)="01" then "Jan" else "Jul" end), " ", substr(`year`,1,4)) as `cat`, `category` as `label`, `value` FROM data_wic_participation where (`year` like "%-01" or `year` like "%-07") and `geography`="Vermont" order by `year`',
     'general:wic_participation',
     '{"yAxis": {"type": "number"}}'
   );
+
+-- node scripts\upload-csv.js child_sexual_abuse prod -d data
+-- node scripts\upload-csv.js children_abuse_services prod -d data
+-- node scripts\upload-csv.js da_ssa_turnover prod -d data
+-- node scripts\upload-csv.js preventative_dental prod -d data
+-- node scripts\upload-csv.js children_kinship_care prod -d data
+-- node scripts\upload-csv.js building_broadband_access prod -d data
+-- node scripts\upload-csv.js wic_participation prod -d data
+
+
