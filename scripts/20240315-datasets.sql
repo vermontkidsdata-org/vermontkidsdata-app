@@ -154,7 +154,7 @@ insert into
   queries (name, sqlText, uploadType, metadata) value (
     'reachup_max_benefit:chart',
     'SELECT `year` as `cat`, `geography` as `label`, `value` FROM data_reachup where `geography`="Vermont" and `category`="Annual Maximum Benefit for a Family of Four" order by `year`',
-    'general:children_kinship_care',
+    'general:reachup',
     '{"yAxis": {"type": "number"}}'
   );
 
@@ -162,9 +162,14 @@ insert into
   queries (name, sqlText, uploadType, metadata) value (
     'reachup_caseload:chart',
     'SELECT `year` as `cat`, `geography` as `label`, `value` FROM data_reachup where `geography`="Vermont" and `category`="Caseload" order by `year`',
-    'general:children_kinship_care',
+    'general:reachup',
     '{"yAxis": {"type": "number"}}'
   );
+
+-- Because it should have had this before...
+ALTER TABLE `queries` 
+  ADD UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE;
+;
 
 -- building_broadband_access
 CREATE TABLE `data_building_broadband_access` (
