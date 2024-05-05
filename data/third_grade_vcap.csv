@@ -1,0 +1,2401 @@
+Geo type,Geography ,Category ,Year,Value
+State,Vermont,English All Students,2023,0.489123
+State,Vermont,English No Special Ed,2023,0.562872
+State,Vermont,English Special Ed,2023,0.139113
+State,Vermont,English ELL,2023,0.285714
+State,Vermont,English Not ELL,2023,0.4953
+State,Vermont,English FRL,2023,0.29062
+State,Vermont,English Not FRL,2023,0.592425
+State,Vermont,English Foster,2023,0.178571
+State,Vermont,English Not Foster,2023,0.492204
+State,Vermont,English Female,2023,0.531585
+State,Vermont,English Male,2023,0.450718
+State,Vermont,English Historically Marginalized,2023,0.314439
+State,Vermont,English Not Historically Marginalized,2023,0.658377
+State,Vermont,English McKinney Vento Eligible,2023,0.182692
+State,Vermont,English Not McKinney Vento Eligible,2023,0.494818
+State,Vermont,English Migrant,2023,***
+State,Vermont,English Not Migrant,2023,***
+State,Vermont,English Military,2023,0.307692
+State,Vermont,English Not Military,2023,0.489954
+State,Vermont,English American Indian or Alaskan Native,2023,0.404762
+State,Vermont,English Asian,2023,0.612903
+State,Vermont,English Black,2023,0.327465
+State,Vermont,English Hispanic,2023,0.466258
+State,Vermont,English Native Hawaiian or Pacific Islander,2023,0.684211
+State,Vermont,English White,2023,0.492237
+State,Vermont,Math All Students,2023,0.371938
+State,Vermont,Math No Special Ed,2023,0.427331
+State,Vermont,Math Special Ed,2023,0.109438
+State,Vermont,Math ELL,2023,0.212291
+State,Vermont,Math Not ELL,2023,0.3771
+State,Vermont,Math FRL,2023,0.181586
+State,Vermont,Math Not FRL,2023,0.470885
+State,Vermont,Math Foster,2023,0.142857
+State,Vermont,Math Not Foster,2023,0.374205
+State,Vermont,Math Female,2023,0.352227
+State,Vermont,Math Male,2023,0.389797
+State,Vermont,Math Historically Marginalized,2023,0.215679
+State,Vermont,Math Not Historically Marginalized,2023,0.52399
+State,Vermont,Math McKinney Vento Eligible,2023,0.095238
+State,Vermont,Math Not McKinney Vento Eligible,2023,0.377116
+State,Vermont,Math Migrant,2023,***
+State,Vermont,Math Not Migrant,2023,***
+State,Vermont,Math Military,2023,0.269231
+State,Vermont,Math Not Military,2023,0.372408
+State,Vermont,Math American Indian or Alaskan Native,2023,0.27907
+State,Vermont,Math Asian,2023,0.47619
+State,Vermont,Math Black,2023,0.212544
+State,Vermont,Math Hispanic,2023,0.309524
+State,Vermont,Math Native Hawaiian or Pacific Islander,2023,0.578947
+State,Vermont,Math White,2023,0.376638
+Supervisory Union/School District,Addison Central SD,English All Students,2023,0.544715
+Supervisory Union/School District,Addison Central SD,English No Special Ed,2023,***
+Supervisory Union/School District,Addison Central SD,English Special Ed,2023,***
+Supervisory Union/School District,Addison Central SD,English ELL,2023,***
+Supervisory Union/School District,Addison Central SD,English Not ELL,2023,***
+Supervisory Union/School District,Addison Central SD,English FRL,2023,0.212121
+Supervisory Union/School District,Addison Central SD,English Not FRL,2023,0.666667
+Supervisory Union/School District,Addison Central SD,English Foster,2023,0
+Supervisory Union/School District,Addison Central SD,English Not Foster,2023,0.544715
+Supervisory Union/School District,Addison Central SD,English Female,2023,0.631579
+Supervisory Union/School District,Addison Central SD,English Male,2023,0.469697
+Supervisory Union/School District,Addison Central SD,English Historically Marginalized,2023,0.294118
+Supervisory Union/School District,Addison Central SD,English Not Historically Marginalized,2023,0.722222
+Supervisory Union/School District,Addison Central SD,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Addison Central SD,English Not McKinney Vento Eligible,2023,0.544715
+Supervisory Union/School District,Addison Central SD,English Migrant,2023,0
+Supervisory Union/School District,Addison Central SD,English Not Migrant,2023,0.544715
+Supervisory Union/School District,Addison Central SD,English Military,2023,0
+Supervisory Union/School District,Addison Central SD,English Not Military,2023,0.544715
+Supervisory Union/School District,Addison Central SD,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Addison Central SD,English Asian,2023,***
+Supervisory Union/School District,Addison Central SD,English Black,2023,***
+Supervisory Union/School District,Addison Central SD,English Hispanic,2023,***
+Supervisory Union/School District,Addison Central SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Addison Central SD,English White,2023,0.517544
+Supervisory Union/School District,Addison Central SD,Math All Students,2023,0.390244
+Supervisory Union/School District,Addison Central SD,Math No Special Ed,2023,***
+Supervisory Union/School District,Addison Central SD,Math Special Ed,2023,***
+Supervisory Union/School District,Addison Central SD,Math ELL,2023,***
+Supervisory Union/School District,Addison Central SD,Math Not ELL,2023,***
+Supervisory Union/School District,Addison Central SD,Math FRL,2023,0.060606
+Supervisory Union/School District,Addison Central SD,Math Not FRL,2023,0.511111
+Supervisory Union/School District,Addison Central SD,Math Foster,2023,0
+Supervisory Union/School District,Addison Central SD,Math Not Foster,2023,0.390244
+Supervisory Union/School District,Addison Central SD,Math Female,2023,0.368421
+Supervisory Union/School District,Addison Central SD,Math Male,2023,0.409091
+Supervisory Union/School District,Addison Central SD,Math Historically Marginalized,2023,0.176471
+Supervisory Union/School District,Addison Central SD,Math Not Historically Marginalized,2023,0.541667
+Supervisory Union/School District,Addison Central SD,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Addison Central SD,Math Not McKinney Vento Eligible,2023,0.390244
+Supervisory Union/School District,Addison Central SD,Math Migrant,2023,0
+Supervisory Union/School District,Addison Central SD,Math Not Migrant,2023,0.390244
+Supervisory Union/School District,Addison Central SD,Math Military,2023,0
+Supervisory Union/School District,Addison Central SD,Math Not Military,2023,0.390244
+Supervisory Union/School District,Addison Central SD,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Addison Central SD,Math Asian,2023,***
+Supervisory Union/School District,Addison Central SD,Math Black,2023,***
+Supervisory Union/School District,Addison Central SD,Math Hispanic,2023,***
+Supervisory Union/School District,Addison Central SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Addison Central SD,Math White,2023,0.359649
+Supervisory Union/School District,Addison Northwest SD,English All Students,2023,***
+Supervisory Union/School District,Addison Northwest SD,English No Special Ed,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Special Ed,2023,***
+Supervisory Union/School District,Addison Northwest SD,English ELL,2023,0
+Supervisory Union/School District,Addison Northwest SD,English Not ELL,2023,***
+Supervisory Union/School District,Addison Northwest SD,English FRL,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Not FRL,2023,0.473684
+Supervisory Union/School District,Addison Northwest SD,English Foster,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Not Foster,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Female,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Male,2023,0.458333
+Supervisory Union/School District,Addison Northwest SD,English Historically Marginalized,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Not Historically Marginalized,2023,0.548387
+Supervisory Union/School District,Addison Northwest SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Migrant,2023,0
+Supervisory Union/School District,Addison Northwest SD,English Not Migrant,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Military,2023,0
+Supervisory Union/School District,Addison Northwest SD,English Not Military,2023,***
+Supervisory Union/School District,Addison Northwest SD,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Addison Northwest SD,English Asian,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Black,2023,0
+Supervisory Union/School District,Addison Northwest SD,English Hispanic,2023,***
+Supervisory Union/School District,Addison Northwest SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Addison Northwest SD,English White,2023,0.431373
+Supervisory Union/School District,Addison Northwest SD,Math All Students,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math No Special Ed,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Special Ed,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math ELL,2023,0
+Supervisory Union/School District,Addison Northwest SD,Math Not ELL,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math FRL,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Not FRL,2023,0.473684
+Supervisory Union/School District,Addison Northwest SD,Math Foster,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Not Foster,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Female,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Male,2023,0.5
+Supervisory Union/School District,Addison Northwest SD,Math Historically Marginalized,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Not Historically Marginalized,2023,0.548387
+Supervisory Union/School District,Addison Northwest SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Migrant,2023,0
+Supervisory Union/School District,Addison Northwest SD,Math Not Migrant,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Military,2023,0
+Supervisory Union/School District,Addison Northwest SD,Math Not Military,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Addison Northwest SD,Math Asian,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Black,2023,0
+Supervisory Union/School District,Addison Northwest SD,Math Hispanic,2023,***
+Supervisory Union/School District,Addison Northwest SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Addison Northwest SD,Math White,2023,0.470588
+Supervisory Union/School District,Barre SU,English All Students,2023,***
+Supervisory Union/School District,Barre SU,English No Special Ed,2023,0.509434
+Supervisory Union/School District,Barre SU,English Special Ed,2023,***
+Supervisory Union/School District,Barre SU,English ELL,2023,***
+Supervisory Union/School District,Barre SU,English Not ELL,2023,***
+Supervisory Union/School District,Barre SU,English FRL,2023,***
+Supervisory Union/School District,Barre SU,English Not FRL,2023,0.510638
+Supervisory Union/School District,Barre SU,English Foster,2023,***
+Supervisory Union/School District,Barre SU,English Not Foster,2023,***
+Supervisory Union/School District,Barre SU,English Female,2023,***
+Supervisory Union/School District,Barre SU,English Male,2023,***
+Supervisory Union/School District,Barre SU,English Historically Marginalized,2023,0.252874
+Supervisory Union/School District,Barre SU,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Barre SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Barre SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Barre SU,English Migrant,2023,0
+Supervisory Union/School District,Barre SU,English Not Migrant,2023,***
+Supervisory Union/School District,Barre SU,English Military,2023,0
+Supervisory Union/School District,Barre SU,English Not Military,2023,***
+Supervisory Union/School District,Barre SU,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Barre SU,English Asian,2023,***
+Supervisory Union/School District,Barre SU,English Black,2023,***
+Supervisory Union/School District,Barre SU,English Hispanic,2023,***
+Supervisory Union/School District,Barre SU,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Barre SU,English White,2023,0.4
+Supervisory Union/School District,Barre SU,Math All Students,2023,***
+Supervisory Union/School District,Barre SU,Math No Special Ed,2023,0.283019
+Supervisory Union/School District,Barre SU,Math Special Ed,2023,***
+Supervisory Union/School District,Barre SU,Math ELL,2023,***
+Supervisory Union/School District,Barre SU,Math Not ELL,2023,***
+Supervisory Union/School District,Barre SU,Math FRL,2023,***
+Supervisory Union/School District,Barre SU,Math Not FRL,2023,0.322581
+Supervisory Union/School District,Barre SU,Math Foster,2023,***
+Supervisory Union/School District,Barre SU,Math Not Foster,2023,***
+Supervisory Union/School District,Barre SU,Math Female,2023,***
+Supervisory Union/School District,Barre SU,Math Male,2023,***
+Supervisory Union/School District,Barre SU,Math Historically Marginalized,2023,0.151163
+Supervisory Union/School District,Barre SU,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Barre SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Barre SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Barre SU,Math Migrant,2023,0
+Supervisory Union/School District,Barre SU,Math Not Migrant,2023,***
+Supervisory Union/School District,Barre SU,Math Military,2023,0
+Supervisory Union/School District,Barre SU,Math Not Military,2023,***
+Supervisory Union/School District,Barre SU,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Barre SU,Math Asian,2023,***
+Supervisory Union/School District,Barre SU,Math Black,2023,***
+Supervisory Union/School District,Barre SU,Math Hispanic,2023,***
+Supervisory Union/School District,Barre SU,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Barre SU,Math White,2023,0.244604
+Supervisory Union/School District,Bennington Rutland SU,English All Students,2023,0.521429
+Supervisory Union/School District,Bennington Rutland SU,English No Special Ed,2023,0.568
+Supervisory Union/School District,Bennington Rutland SU,English Special Ed,2023,0.133333
+Supervisory Union/School District,Bennington Rutland SU,English ELL,2023,***
+Supervisory Union/School District,Bennington Rutland SU,English Not ELL,2023,***
+Supervisory Union/School District,Bennington Rutland SU,English FRL,2023,0.314286
+Supervisory Union/School District,Bennington Rutland SU,English Not FRL,2023,0.590476
+Supervisory Union/School District,Bennington Rutland SU,English Foster,2023,***
+Supervisory Union/School District,Bennington Rutland SU,English Not Foster,2023,***
+Supervisory Union/School District,Bennington Rutland SU,English Female,2023,0.558442
+Supervisory Union/School District,Bennington Rutland SU,English Male,2023,0.47619
+Supervisory Union/School District,Bennington Rutland SU,English Historically Marginalized,2023,0.291667
+Supervisory Union/School District,Bennington Rutland SU,English Not Historically Marginalized,2023,0.641304
+Supervisory Union/School District,Bennington Rutland SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Bennington Rutland SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Bennington Rutland SU,English Migrant,2023,0
+Supervisory Union/School District,Bennington Rutland SU,English Not Migrant,2023,0.521429
+Supervisory Union/School District,Bennington Rutland SU,English Military,2023,0
+Supervisory Union/School District,Bennington Rutland SU,English Not Military,2023,0.521429
+Supervisory Union/School District,Bennington Rutland SU,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Bennington Rutland SU,English Asian,2023,***
+Supervisory Union/School District,Bennington Rutland SU,English Black,2023,***
+Supervisory Union/School District,Bennington Rutland SU,English Hispanic,2023,***
+Supervisory Union/School District,Bennington Rutland SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Bennington Rutland SU,English White,2023,0.528986
+Supervisory Union/School District,Bennington Rutland SU,Math All Students,2023,0.450704
+Supervisory Union/School District,Bennington Rutland SU,Math No Special Ed,2023,0.464567
+Supervisory Union/School District,Bennington Rutland SU,Math Special Ed,2023,0.333333
+Supervisory Union/School District,Bennington Rutland SU,Math ELL,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Not ELL,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math FRL,2023,0.243243
+Supervisory Union/School District,Bennington Rutland SU,Math Not FRL,2023,0.52381
+Supervisory Union/School District,Bennington Rutland SU,Math Foster,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Not Foster,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Female,2023,0.410256
+Supervisory Union/School District,Bennington Rutland SU,Math Male,2023,0.5
+Supervisory Union/School District,Bennington Rutland SU,Math Historically Marginalized,2023,0.24
+Supervisory Union/School District,Bennington Rutland SU,Math Not Historically Marginalized,2023,0.565217
+Supervisory Union/School District,Bennington Rutland SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Migrant,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Not Migrant,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Military,2023,0
+Supervisory Union/School District,Bennington Rutland SU,Math Not Military,2023,0.450704
+Supervisory Union/School District,Bennington Rutland SU,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Bennington Rutland SU,Math Asian,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Black,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Hispanic,2023,***
+Supervisory Union/School District,Bennington Rutland SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Bennington Rutland SU,Math White,2023,0.457143
+Supervisory Union/School District,Burlington SD,English All Students,2023,***
+Supervisory Union/School District,Burlington SD,English No Special Ed,2023,0.582888
+Supervisory Union/School District,Burlington SD,English Special Ed,2023,***
+Supervisory Union/School District,Burlington SD,English ELL,2023,***
+Supervisory Union/School District,Burlington SD,English Not ELL,2023,0.645714
+Supervisory Union/School District,Burlington SD,English FRL,2023,***
+Supervisory Union/School District,Burlington SD,English Not FRL,2023,0.790323
+Supervisory Union/School District,Burlington SD,English Foster,2023,***
+Supervisory Union/School District,Burlington SD,English Not Foster,2023,***
+Supervisory Union/School District,Burlington SD,English Female,2023,***
+Supervisory Union/School District,Burlington SD,English Male,2023,***
+Supervisory Union/School District,Burlington SD,English Historically Marginalized,2023,0.292683
+Supervisory Union/School District,Burlington SD,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Burlington SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Burlington SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Burlington SD,English Migrant,2023,0
+Supervisory Union/School District,Burlington SD,English Not Migrant,2023,***
+Supervisory Union/School District,Burlington SD,English Military,2023,***
+Supervisory Union/School District,Burlington SD,English Not Military,2023,***
+Supervisory Union/School District,Burlington SD,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Burlington SD,English Asian,2023,0.375
+Supervisory Union/School District,Burlington SD,English Black,2023,0.22449
+Supervisory Union/School District,Burlington SD,English Hispanic,2023,***
+Supervisory Union/School District,Burlington SD,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Burlington SD,English White,2023,0.652174
+Supervisory Union/School District,Burlington SD,Math All Students,2023,***
+Supervisory Union/School District,Burlington SD,Math No Special Ed,2023,0.352632
+Supervisory Union/School District,Burlington SD,Math Special Ed,2023,***
+Supervisory Union/School District,Burlington SD,Math ELL,2023,***
+Supervisory Union/School District,Burlington SD,Math Not ELL,2023,0.384181
+Supervisory Union/School District,Burlington SD,Math FRL,2023,***
+Supervisory Union/School District,Burlington SD,Math Not FRL,2023,0.507937
+Supervisory Union/School District,Burlington SD,Math Foster,2023,***
+Supervisory Union/School District,Burlington SD,Math Not Foster,2023,***
+Supervisory Union/School District,Burlington SD,Math Female,2023,0.324324
+Supervisory Union/School District,Burlington SD,Math Male,2023,***
+Supervisory Union/School District,Burlington SD,Math Historically Marginalized,2023,0.134921
+Supervisory Union/School District,Burlington SD,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Burlington SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Burlington SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Burlington SD,Math Migrant,2023,0
+Supervisory Union/School District,Burlington SD,Math Not Migrant,2023,***
+Supervisory Union/School District,Burlington SD,Math Military,2023,***
+Supervisory Union/School District,Burlington SD,Math Not Military,2023,***
+Supervisory Union/School District,Burlington SD,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Burlington SD,Math Asian,2023,0.269231
+Supervisory Union/School District,Burlington SD,Math Black,2023,0.08
+Supervisory Union/School District,Burlington SD,Math Hispanic,2023,***
+Supervisory Union/School District,Burlington SD,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Burlington SD,Math White,2023,0.397516
+Supervisory Union/School District,Caledonia Central,English All Students,2023,***
+Supervisory Union/School District,Caledonia Central,English No Special Ed,2023,0.538462
+Supervisory Union/School District,Caledonia Central,English Special Ed,2023,***
+Supervisory Union/School District,Caledonia Central,English ELL,2023,0
+Supervisory Union/School District,Caledonia Central,English Not ELL,2023,***
+Supervisory Union/School District,Caledonia Central,English FRL,2023,***
+Supervisory Union/School District,Caledonia Central,English Not FRL,2023,0.457143
+Supervisory Union/School District,Caledonia Central,English Foster,2023,0
+Supervisory Union/School District,Caledonia Central,English Not Foster,2023,***
+Supervisory Union/School District,Caledonia Central,English Female,2023,***
+Supervisory Union/School District,Caledonia Central,English Male,2023,0.407407
+Supervisory Union/School District,Caledonia Central,English Historically Marginalized,2023,***
+Supervisory Union/School District,Caledonia Central,English Not Historically Marginalized,2023,0.538462
+Supervisory Union/School District,Caledonia Central,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Caledonia Central,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Caledonia Central,English Migrant,2023,0
+Supervisory Union/School District,Caledonia Central,English Not Migrant,2023,***
+Supervisory Union/School District,Caledonia Central,English Military,2023,***
+Supervisory Union/School District,Caledonia Central,English Not Military,2023,***
+Supervisory Union/School District,Caledonia Central,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Caledonia Central,English Asian,2023,***
+Supervisory Union/School District,Caledonia Central,English Black,2023,***
+Supervisory Union/School District,Caledonia Central,English Hispanic,2023,***
+Supervisory Union/School District,Caledonia Central,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Caledonia Central,English White,2023,0.43299
+Supervisory Union/School District,Caledonia Central,Math All Students,2023,***
+Supervisory Union/School District,Caledonia Central,Math No Special Ed,2023,0.25641
+Supervisory Union/School District,Caledonia Central,Math Special Ed,2023,***
+Supervisory Union/School District,Caledonia Central,Math ELL,2023,0
+Supervisory Union/School District,Caledonia Central,Math Not ELL,2023,***
+Supervisory Union/School District,Caledonia Central,Math FRL,2023,***
+Supervisory Union/School District,Caledonia Central,Math Not FRL,2023,0.228571
+Supervisory Union/School District,Caledonia Central,Math Foster,2023,0
+Supervisory Union/School District,Caledonia Central,Math Not Foster,2023,***
+Supervisory Union/School District,Caledonia Central,Math Female,2023,***
+Supervisory Union/School District,Caledonia Central,Math Male,2023,0.185185
+Supervisory Union/School District,Caledonia Central,Math Historically Marginalized,2023,***
+Supervisory Union/School District,Caledonia Central,Math Not Historically Marginalized,2023,0.288462
+Supervisory Union/School District,Caledonia Central,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Caledonia Central,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Caledonia Central,Math Migrant,2023,0
+Supervisory Union/School District,Caledonia Central,Math Not Migrant,2023,***
+Supervisory Union/School District,Caledonia Central,Math Military,2023,***
+Supervisory Union/School District,Caledonia Central,Math Not Military,2023,***
+Supervisory Union/School District,Caledonia Central,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Caledonia Central,Math Asian,2023,***
+Supervisory Union/School District,Caledonia Central,Math Black,2023,***
+Supervisory Union/School District,Caledonia Central,Math Hispanic,2023,***
+Supervisory Union/School District,Caledonia Central,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Caledonia Central,Math White,2023,0.206186
+Supervisory Union/School District,Central Vermont SU,English All Students,2023,0.449438
+Supervisory Union/School District,Central Vermont SU,English No Special Ed,2023,***
+Supervisory Union/School District,Central Vermont SU,English Special Ed,2023,***
+Supervisory Union/School District,Central Vermont SU,English ELL,2023,0
+Supervisory Union/School District,Central Vermont SU,English Not ELL,2023,0.449438
+Supervisory Union/School District,Central Vermont SU,English FRL,2023,0.285714
+Supervisory Union/School District,Central Vermont SU,English Not FRL,2023,0.52459
+Supervisory Union/School District,Central Vermont SU,English Foster,2023,***
+Supervisory Union/School District,Central Vermont SU,English Not Foster,2023,***
+Supervisory Union/School District,Central Vermont SU,English Female,2023,0.469388
+Supervisory Union/School District,Central Vermont SU,English Male,2023,0.425
+Supervisory Union/School District,Central Vermont SU,English Historically Marginalized,2023,0.243902
+Supervisory Union/School District,Central Vermont SU,English Not Historically Marginalized,2023,0.625
+Supervisory Union/School District,Central Vermont SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Central Vermont SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Central Vermont SU,English Migrant,2023,0
+Supervisory Union/School District,Central Vermont SU,English Not Migrant,2023,0.449438
+Supervisory Union/School District,Central Vermont SU,English Military,2023,0
+Supervisory Union/School District,Central Vermont SU,English Not Military,2023,0.449438
+Supervisory Union/School District,Central Vermont SU,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Central Vermont SU,English Asian,2023,0
+Supervisory Union/School District,Central Vermont SU,English Black,2023,***
+Supervisory Union/School District,Central Vermont SU,English Hispanic,2023,***
+Supervisory Union/School District,Central Vermont SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Central Vermont SU,English White,2023,0.448276
+Supervisory Union/School District,Central Vermont SU,Math All Students,2023,0.280899
+Supervisory Union/School District,Central Vermont SU,Math No Special Ed,2023,***
+Supervisory Union/School District,Central Vermont SU,Math Special Ed,2023,***
+Supervisory Union/School District,Central Vermont SU,Math ELL,2023,0
+Supervisory Union/School District,Central Vermont SU,Math Not ELL,2023,0.280899
+Supervisory Union/School District,Central Vermont SU,Math FRL,2023,0.214286
+Supervisory Union/School District,Central Vermont SU,Math Not FRL,2023,0.311475
+Supervisory Union/School District,Central Vermont SU,Math Foster,2023,***
+Supervisory Union/School District,Central Vermont SU,Math Not Foster,2023,***
+Supervisory Union/School District,Central Vermont SU,Math Female,2023,0.265306
+Supervisory Union/School District,Central Vermont SU,Math Male,2023,0.3
+Supervisory Union/School District,Central Vermont SU,Math Historically Marginalized,2023,0.170732
+Supervisory Union/School District,Central Vermont SU,Math Not Historically Marginalized,2023,0.375
+Supervisory Union/School District,Central Vermont SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Central Vermont SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Central Vermont SU,Math Migrant,2023,0
+Supervisory Union/School District,Central Vermont SU,Math Not Migrant,2023,0.280899
+Supervisory Union/School District,Central Vermont SU,Math Military,2023,0
+Supervisory Union/School District,Central Vermont SU,Math Not Military,2023,0.280899
+Supervisory Union/School District,Central Vermont SU,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Central Vermont SU,Math Asian,2023,0
+Supervisory Union/School District,Central Vermont SU,Math Black,2023,***
+Supervisory Union/School District,Central Vermont SU,Math Hispanic,2023,***
+Supervisory Union/School District,Central Vermont SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Central Vermont SU,Math White,2023,0.287356
+Supervisory Union/School District,Champlain Valley SD,English All Students,2023,0.697987
+Supervisory Union/School District,Champlain Valley SD,English No Special Ed,2023,0.748175
+Supervisory Union/School District,Champlain Valley SD,English Special Ed,2023,0.125
+Supervisory Union/School District,Champlain Valley SD,English ELL,2023,0.1875
+Supervisory Union/School District,Champlain Valley SD,English Not ELL,2023,0.72695
+Supervisory Union/School District,Champlain Valley SD,English FRL,2023,0.32
+Supervisory Union/School District,Champlain Valley SD,English Not FRL,2023,0.732601
+Supervisory Union/School District,Champlain Valley SD,English Foster,2023,0
+Supervisory Union/School District,Champlain Valley SD,English Not Foster,2023,0.697987
+Supervisory Union/School District,Champlain Valley SD,English Female,2023,0.699346
+Supervisory Union/School District,Champlain Valley SD,English Male,2023,0.696552
+Supervisory Union/School District,Champlain Valley SD,English Historically Marginalized,2023,0.394366
+Supervisory Union/School District,Champlain Valley SD,English Not Historically Marginalized,2023,0.792952
+Supervisory Union/School District,Champlain Valley SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Champlain Valley SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Champlain Valley SD,English Migrant,2023,0
+Supervisory Union/School District,Champlain Valley SD,English Not Migrant,2023,0.697987
+Supervisory Union/School District,Champlain Valley SD,English Military,2023,***
+Supervisory Union/School District,Champlain Valley SD,English Not Military,2023,***
+Supervisory Union/School District,Champlain Valley SD,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Champlain Valley SD,English Asian,2023,***
+Supervisory Union/School District,Champlain Valley SD,English Black,2023,***
+Supervisory Union/School District,Champlain Valley SD,English Hispanic,2023,***
+Supervisory Union/School District,Champlain Valley SD,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Champlain Valley SD,English White,2023,0.70922
+Supervisory Union/School District,Champlain Valley SD,Math All Students,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math No Special Ed,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Special Ed,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math ELL,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Not ELL,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math FRL,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Not FRL,2023,0.653285
+Supervisory Union/School District,Champlain Valley SD,Math Foster,2023,0
+Supervisory Union/School District,Champlain Valley SD,Math Not Foster,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Female,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Male,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Historically Marginalized,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Not Historically Marginalized,2023,0.701754
+Supervisory Union/School District,Champlain Valley SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Migrant,2023,0
+Supervisory Union/School District,Champlain Valley SD,Math Not Migrant,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Military,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Not Military,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Asian,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Black,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Hispanic,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Champlain Valley SD,Math White,2023,***
+Supervisory Union/School District,Colchester SD,English All Students,2023,0.640244
+Supervisory Union/School District,Colchester SD,English No Special Ed,2023,0.695035
+Supervisory Union/School District,Colchester SD,English Special Ed,2023,0.304348
+Supervisory Union/School District,Colchester SD,English ELL,2023,***
+Supervisory Union/School District,Colchester SD,English Not ELL,2023,***
+Supervisory Union/School District,Colchester SD,English FRL,2023,0.444444
+Supervisory Union/School District,Colchester SD,English Not FRL,2023,0.714286
+Supervisory Union/School District,Colchester SD,English Foster,2023,***
+Supervisory Union/School District,Colchester SD,English Not Foster,2023,***
+Supervisory Union/School District,Colchester SD,English Female,2023,0.666667
+Supervisory Union/School District,Colchester SD,English Male,2023,0.619565
+Supervisory Union/School District,Colchester SD,English Historically Marginalized,2023,0.478261
+Supervisory Union/School District,Colchester SD,English Not Historically Marginalized,2023,0.757895
+Supervisory Union/School District,Colchester SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Colchester SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Colchester SD,English Migrant,2023,0
+Supervisory Union/School District,Colchester SD,English Not Migrant,2023,0.640244
+Supervisory Union/School District,Colchester SD,English Military,2023,***
+Supervisory Union/School District,Colchester SD,English Not Military,2023,***
+Supervisory Union/School District,Colchester SD,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Colchester SD,English Asian,2023,***
+Supervisory Union/School District,Colchester SD,English Black,2023,0.375
+Supervisory Union/School District,Colchester SD,English Hispanic,2023,***
+Supervisory Union/School District,Colchester SD,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Colchester SD,English White,2023,0.676471
+Supervisory Union/School District,Colchester SD,Math All Students,2023,0.6
+Supervisory Union/School District,Colchester SD,Math No Special Ed,2023,0.647887
+Supervisory Union/School District,Colchester SD,Math Special Ed,2023,0.304348
+Supervisory Union/School District,Colchester SD,Math ELL,2023,0.272727
+Supervisory Union/School District,Colchester SD,Math Not ELL,2023,0.623377
+Supervisory Union/School District,Colchester SD,Math FRL,2023,0.288889
+Supervisory Union/School District,Colchester SD,Math Not FRL,2023,0.716667
+Supervisory Union/School District,Colchester SD,Math Foster,2023,***
+Supervisory Union/School District,Colchester SD,Math Not Foster,2023,***
+Supervisory Union/School District,Colchester SD,Math Female,2023,0.479452
+Supervisory Union/School District,Colchester SD,Math Male,2023,0.695652
+Supervisory Union/School District,Colchester SD,Math Historically Marginalized,2023,0.371429
+Supervisory Union/School District,Colchester SD,Math Not Historically Marginalized,2023,0.768421
+Supervisory Union/School District,Colchester SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Colchester SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Colchester SD,Math Migrant,2023,0
+Supervisory Union/School District,Colchester SD,Math Not Migrant,2023,0.6
+Supervisory Union/School District,Colchester SD,Math Military,2023,***
+Supervisory Union/School District,Colchester SD,Math Not Military,2023,***
+Supervisory Union/School District,Colchester SD,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Colchester SD,Math Asian,2023,***
+Supervisory Union/School District,Colchester SD,Math Black,2023,0.375
+Supervisory Union/School District,Colchester SD,Math Hispanic,2023,***
+Supervisory Union/School District,Colchester SD,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Colchester SD,Math White,2023,0.639706
+Supervisory Union/School District,Essex North SU,English All Students,2023,***
+Supervisory Union/School District,Essex North SU,English No Special Ed,2023,***
+Supervisory Union/School District,Essex North SU,English Special Ed,2023,0
+Supervisory Union/School District,Essex North SU,English ELL,2023,0
+Supervisory Union/School District,Essex North SU,English Not ELL,2023,***
+Supervisory Union/School District,Essex North SU,English FRL,2023,***
+Supervisory Union/School District,Essex North SU,English Not FRL,2023,***
+Supervisory Union/School District,Essex North SU,English Foster,2023,0
+Supervisory Union/School District,Essex North SU,English Not Foster,2023,***
+Supervisory Union/School District,Essex North SU,English Female,2023,***
+Supervisory Union/School District,Essex North SU,English Male,2023,***
+Supervisory Union/School District,Essex North SU,English Historically Marginalized,2023,***
+Supervisory Union/School District,Essex North SU,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Essex North SU,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Essex North SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Essex North SU,English Migrant,2023,0
+Supervisory Union/School District,Essex North SU,English Not Migrant,2023,***
+Supervisory Union/School District,Essex North SU,English Military,2023,0
+Supervisory Union/School District,Essex North SU,English Not Military,2023,***
+Supervisory Union/School District,Essex North SU,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Essex North SU,English Asian,2023,0
+Supervisory Union/School District,Essex North SU,English Black,2023,0
+Supervisory Union/School District,Essex North SU,English Hispanic,2023,0
+Supervisory Union/School District,Essex North SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Essex North SU,English White,2023,***
+Supervisory Union/School District,Essex North SU,Math All Students,2023,***
+Supervisory Union/School District,Essex North SU,Math No Special Ed,2023,***
+Supervisory Union/School District,Essex North SU,Math Special Ed,2023,0
+Supervisory Union/School District,Essex North SU,Math ELL,2023,0
+Supervisory Union/School District,Essex North SU,Math Not ELL,2023,***
+Supervisory Union/School District,Essex North SU,Math FRL,2023,***
+Supervisory Union/School District,Essex North SU,Math Not FRL,2023,***
+Supervisory Union/School District,Essex North SU,Math Foster,2023,0
+Supervisory Union/School District,Essex North SU,Math Not Foster,2023,***
+Supervisory Union/School District,Essex North SU,Math Female,2023,***
+Supervisory Union/School District,Essex North SU,Math Male,2023,***
+Supervisory Union/School District,Essex North SU,Math Historically Marginalized,2023,***
+Supervisory Union/School District,Essex North SU,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Essex North SU,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Essex North SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Essex North SU,Math Migrant,2023,0
+Supervisory Union/School District,Essex North SU,Math Not Migrant,2023,***
+Supervisory Union/School District,Essex North SU,Math Military,2023,0
+Supervisory Union/School District,Essex North SU,Math Not Military,2023,***
+Supervisory Union/School District,Essex North SU,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Essex North SU,Math Asian,2023,0
+Supervisory Union/School District,Essex North SU,Math Black,2023,0
+Supervisory Union/School District,Essex North SU,Math Hispanic,2023,0
+Supervisory Union/School District,Essex North SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Essex North SU,Math White,2023,***
+Supervisory Union/School District,Essex Westford SD,English All Students,2023,0.641026
+Supervisory Union/School District,Essex Westford SD,English No Special Ed,2023,0.69802
+Supervisory Union/School District,Essex Westford SD,English Special Ed,2023,0.28125
+Supervisory Union/School District,Essex Westford SD,English ELL,2023,***
+Supervisory Union/School District,Essex Westford SD,English Not ELL,2023,***
+Supervisory Union/School District,Essex Westford SD,English FRL,2023,0.409091
+Supervisory Union/School District,Essex Westford SD,English Not FRL,2023,0.694737
+Supervisory Union/School District,Essex Westford SD,English Foster,2023,0
+Supervisory Union/School District,Essex Westford SD,English Not Foster,2023,0.641026
+Supervisory Union/School District,Essex Westford SD,English Female,2023,0.638095
+Supervisory Union/School District,Essex Westford SD,English Male,2023,0.643411
+Supervisory Union/School District,Essex Westford SD,English Historically Marginalized,2023,0.456522
+Supervisory Union/School District,Essex Westford SD,English Not Historically Marginalized,2023,0.760563
+Supervisory Union/School District,Essex Westford SD,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Essex Westford SD,English Not McKinney Vento Eligible,2023,0.641026
+Supervisory Union/School District,Essex Westford SD,English Migrant,2023,0
+Supervisory Union/School District,Essex Westford SD,English Not Migrant,2023,0.641026
+Supervisory Union/School District,Essex Westford SD,English Military,2023,0
+Supervisory Union/School District,Essex Westford SD,English Not Military,2023,0.641026
+Supervisory Union/School District,Essex Westford SD,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Essex Westford SD,English Asian,2023,0.6875
+Supervisory Union/School District,Essex Westford SD,English Black,2023,***
+Supervisory Union/School District,Essex Westford SD,English Hispanic,2023,***
+Supervisory Union/School District,Essex Westford SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Essex Westford SD,English White,2023,0.652968
+Supervisory Union/School District,Essex Westford SD,Math All Students,2023,0.52766
+Supervisory Union/School District,Essex Westford SD,Math No Special Ed,2023,0.576355
+Supervisory Union/School District,Essex Westford SD,Math Special Ed,2023,0.21875
+Supervisory Union/School District,Essex Westford SD,Math ELL,2023,0.363636
+Supervisory Union/School District,Essex Westford SD,Math Not ELL,2023,0.535714
+Supervisory Union/School District,Essex Westford SD,Math FRL,2023,0.295455
+Supervisory Union/School District,Essex Westford SD,Math Not FRL,2023,0.581152
+Supervisory Union/School District,Essex Westford SD,Math Foster,2023,0
+Supervisory Union/School District,Essex Westford SD,Math Not Foster,2023,0.52766
+Supervisory Union/School District,Essex Westford SD,Math Female,2023,0.462264
+Supervisory Union/School District,Essex Westford SD,Math Male,2023,0.581395
+Supervisory Union/School District,Essex Westford SD,Math Historically Marginalized,2023,0.333333
+Supervisory Union/School District,Essex Westford SD,Math Not Historically Marginalized,2023,0.65493
+Supervisory Union/School District,Essex Westford SD,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Essex Westford SD,Math Not McKinney Vento Eligible,2023,0.52766
+Supervisory Union/School District,Essex Westford SD,Math Migrant,2023,0
+Supervisory Union/School District,Essex Westford SD,Math Not Migrant,2023,0.52766
+Supervisory Union/School District,Essex Westford SD,Math Military,2023,0
+Supervisory Union/School District,Essex Westford SD,Math Not Military,2023,0.52766
+Supervisory Union/School District,Essex Westford SD,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Essex Westford SD,Math Asian,2023,0.5625
+Supervisory Union/School District,Essex Westford SD,Math Black,2023,***
+Supervisory Union/School District,Essex Westford SD,Math Hispanic,2023,***
+Supervisory Union/School District,Essex Westford SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Essex Westford SD,Math White,2023,0.545455
+Supervisory Union/School District,Franklin Northeast ,English All Students,2023,0.331034
+Supervisory Union/School District,Franklin Northeast ,English No Special Ed,2023,0.376
+Supervisory Union/School District,Franklin Northeast ,English Special Ed,2023,0.05
+Supervisory Union/School District,Franklin Northeast ,English ELL,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Not ELL,2023,***
+Supervisory Union/School District,Franklin Northeast ,English FRL,2023,0.2
+Supervisory Union/School District,Franklin Northeast ,English Not FRL,2023,0.453333
+Supervisory Union/School District,Franklin Northeast ,English Foster,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Not Foster,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Female,2023,0.4
+Supervisory Union/School District,Franklin Northeast ,English Male,2023,0.257143
+Supervisory Union/School District,Franklin Northeast ,English Historically Marginalized,2023,0.204545
+Supervisory Union/School District,Franklin Northeast ,English Not Historically Marginalized,2023,0.526316
+Supervisory Union/School District,Franklin Northeast ,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Migrant,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Not Migrant,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Military,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Not Military,2023,***
+Supervisory Union/School District,Franklin Northeast ,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Asian,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Black,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Hispanic,2023,***
+Supervisory Union/School District,Franklin Northeast ,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Franklin Northeast ,English White,2023,0.335714
+Supervisory Union/School District,Franklin Northeast ,Math All Students,2023,0.275862
+Supervisory Union/School District,Franklin Northeast ,Math No Special Ed,2023,0.296
+Supervisory Union/School District,Franklin Northeast ,Math Special Ed,2023,0.15
+Supervisory Union/School District,Franklin Northeast ,Math ELL,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Not ELL,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math FRL,2023,0.185714
+Supervisory Union/School District,Franklin Northeast ,Math Not FRL,2023,0.36
+Supervisory Union/School District,Franklin Northeast ,Math Foster,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Not Foster,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Female,2023,0.24
+Supervisory Union/School District,Franklin Northeast ,Math Male,2023,0.314286
+Supervisory Union/School District,Franklin Northeast ,Math Historically Marginalized,2023,0.181818
+Supervisory Union/School District,Franklin Northeast ,Math Not Historically Marginalized,2023,0.421053
+Supervisory Union/School District,Franklin Northeast ,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Migrant,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Not Migrant,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Military,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Not Military,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Asian,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Black,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Hispanic,2023,***
+Supervisory Union/School District,Franklin Northeast ,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Franklin Northeast ,Math White,2023,0.278571
+Supervisory Union/School District,Franklin West SU,English All Students,2023,0.477419
+Supervisory Union/School District,Franklin West SU,English No Special Ed,2023,0.568
+Supervisory Union/School District,Franklin West SU,English Special Ed,2023,0.1
+Supervisory Union/School District,Franklin West SU,English ELL,2023,0
+Supervisory Union/School District,Franklin West SU,English Not ELL,2023,0.477419
+Supervisory Union/School District,Franklin West SU,English FRL,2023,0.241379
+Supervisory Union/School District,Franklin West SU,English Not FRL,2023,0.531746
+Supervisory Union/School District,Franklin West SU,English Foster,2023,0
+Supervisory Union/School District,Franklin West SU,English Not Foster,2023,0.477419
+Supervisory Union/School District,Franklin West SU,English Female,2023,0.461538
+Supervisory Union/School District,Franklin West SU,English Male,2023,0.493506
+Supervisory Union/School District,Franklin West SU,English Historically Marginalized,2023,0.25
+Supervisory Union/School District,Franklin West SU,English Not Historically Marginalized,2023,0.592233
+Supervisory Union/School District,Franklin West SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Franklin West SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Franklin West SU,English Migrant,2023,0
+Supervisory Union/School District,Franklin West SU,English Not Migrant,2023,0.477419
+Supervisory Union/School District,Franklin West SU,English Military,2023,0
+Supervisory Union/School District,Franklin West SU,English Not Military,2023,0.477419
+Supervisory Union/School District,Franklin West SU,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Franklin West SU,English Asian,2023,***
+Supervisory Union/School District,Franklin West SU,English Black,2023,***
+Supervisory Union/School District,Franklin West SU,English Hispanic,2023,***
+Supervisory Union/School District,Franklin West SU,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Franklin West SU,English White,2023,0.469799
+Supervisory Union/School District,Franklin West SU,Math All Students,2023,0.320513
+Supervisory Union/School District,Franklin West SU,Math No Special Ed,2023,0.368
+Supervisory Union/School District,Franklin West SU,Math Special Ed,2023,0.129032
+Supervisory Union/School District,Franklin West SU,Math ELL,2023,0
+Supervisory Union/School District,Franklin West SU,Math Not ELL,2023,0.320513
+Supervisory Union/School District,Franklin West SU,Math FRL,2023,0.133333
+Supervisory Union/School District,Franklin West SU,Math Not FRL,2023,0.365079
+Supervisory Union/School District,Franklin West SU,Math Foster,2023,0
+Supervisory Union/School District,Franklin West SU,Math Not Foster,2023,0.320513
+Supervisory Union/School District,Franklin West SU,Math Female,2023,0.320513
+Supervisory Union/School District,Franklin West SU,Math Male,2023,0.320513
+Supervisory Union/School District,Franklin West SU,Math Historically Marginalized,2023,0.188679
+Supervisory Union/School District,Franklin West SU,Math Not Historically Marginalized,2023,0.38835
+Supervisory Union/School District,Franklin West SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Franklin West SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Franklin West SU,Math Migrant,2023,0
+Supervisory Union/School District,Franklin West SU,Math Not Migrant,2023,0.320513
+Supervisory Union/School District,Franklin West SU,Math Military,2023,0
+Supervisory Union/School District,Franklin West SU,Math Not Military,2023,0.320513
+Supervisory Union/School District,Franklin West SU,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Franklin West SU,Math Asian,2023,***
+Supervisory Union/School District,Franklin West SU,Math Black,2023,***
+Supervisory Union/School District,Franklin West SU,Math Hispanic,2023,***
+Supervisory Union/School District,Franklin West SU,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Franklin West SU,Math White,2023,0.313333
+Supervisory Union/School District,Grand Isle SU,English All Students,2023,0.416667
+Supervisory Union/School District,Grand Isle SU,English No Special Ed,2023,***
+Supervisory Union/School District,Grand Isle SU,English Special Ed,2023,***
+Supervisory Union/School District,Grand Isle SU,English ELL,2023,0
+Supervisory Union/School District,Grand Isle SU,English Not ELL,2023,0.416667
+Supervisory Union/School District,Grand Isle SU,English FRL,2023,0.304348
+Supervisory Union/School District,Grand Isle SU,English Not FRL,2023,0.486486
+Supervisory Union/School District,Grand Isle SU,English Foster,2023,***
+Supervisory Union/School District,Grand Isle SU,English Not Foster,2023,***
+Supervisory Union/School District,Grand Isle SU,English Female,2023,0.555556
+Supervisory Union/School District,Grand Isle SU,English Male,2023,0.208333
+Supervisory Union/School District,Grand Isle SU,English Historically Marginalized,2023,0.25
+Supervisory Union/School District,Grand Isle SU,English Not Historically Marginalized,2023,0.5625
+Supervisory Union/School District,Grand Isle SU,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Grand Isle SU,English Not McKinney Vento Eligible,2023,0.416667
+Supervisory Union/School District,Grand Isle SU,English Migrant,2023,0
+Supervisory Union/School District,Grand Isle SU,English Not Migrant,2023,0.416667
+Supervisory Union/School District,Grand Isle SU,English Military,2023,***
+Supervisory Union/School District,Grand Isle SU,English Not Military,2023,***
+Supervisory Union/School District,Grand Isle SU,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Grand Isle SU,English Asian,2023,***
+Supervisory Union/School District,Grand Isle SU,English Black,2023,***
+Supervisory Union/School District,Grand Isle SU,English Hispanic,2023,***
+Supervisory Union/School District,Grand Isle SU,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Grand Isle SU,English White,2023,0.431034
+Supervisory Union/School District,Grand Isle SU,Math All Students,2023,0.266667
+Supervisory Union/School District,Grand Isle SU,Math No Special Ed,2023,***
+Supervisory Union/School District,Grand Isle SU,Math Special Ed,2023,***
+Supervisory Union/School District,Grand Isle SU,Math ELL,2023,0
+Supervisory Union/School District,Grand Isle SU,Math Not ELL,2023,0.266667
+Supervisory Union/School District,Grand Isle SU,Math FRL,2023,0.130435
+Supervisory Union/School District,Grand Isle SU,Math Not FRL,2023,0.351351
+Supervisory Union/School District,Grand Isle SU,Math Foster,2023,***
+Supervisory Union/School District,Grand Isle SU,Math Not Foster,2023,***
+Supervisory Union/School District,Grand Isle SU,Math Female,2023,0.333333
+Supervisory Union/School District,Grand Isle SU,Math Male,2023,0.166667
+Supervisory Union/School District,Grand Isle SU,Math Historically Marginalized,2023,0.142857
+Supervisory Union/School District,Grand Isle SU,Math Not Historically Marginalized,2023,0.375
+Supervisory Union/School District,Grand Isle SU,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Grand Isle SU,Math Not McKinney Vento Eligible,2023,0.266667
+Supervisory Union/School District,Grand Isle SU,Math Migrant,2023,0
+Supervisory Union/School District,Grand Isle SU,Math Not Migrant,2023,0.266667
+Supervisory Union/School District,Grand Isle SU,Math Military,2023,***
+Supervisory Union/School District,Grand Isle SU,Math Not Military,2023,***
+Supervisory Union/School District,Grand Isle SU,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Grand Isle SU,Math Asian,2023,***
+Supervisory Union/School District,Grand Isle SU,Math Black,2023,***
+Supervisory Union/School District,Grand Isle SU,Math Hispanic,2023,***
+Supervisory Union/School District,Grand Isle SU,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Grand Isle SU,Math White,2023,0.275862
+Supervisory Union/School District,Hartford SD,English All Students,2023,***
+Supervisory Union/School District,Hartford SD,English No Special Ed,2023,***
+Supervisory Union/School District,Hartford SD,English Special Ed,2023,***
+Supervisory Union/School District,Hartford SD,English ELL,2023,***
+Supervisory Union/School District,Hartford SD,English Not ELL,2023,***
+Supervisory Union/School District,Hartford SD,English FRL,2023,***
+Supervisory Union/School District,Hartford SD,English Not FRL,2023,0.625
+Supervisory Union/School District,Hartford SD,English Foster,2023,0
+Supervisory Union/School District,Hartford SD,English Not Foster,2023,***
+Supervisory Union/School District,Hartford SD,English Female,2023,***
+Supervisory Union/School District,Hartford SD,English Male,2023,0.555556
+Supervisory Union/School District,Hartford SD,English Historically Marginalized,2023,***
+Supervisory Union/School District,Hartford SD,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Hartford SD,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Hartford SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Hartford SD,English Migrant,2023,0
+Supervisory Union/School District,Hartford SD,English Not Migrant,2023,***
+Supervisory Union/School District,Hartford SD,English Military,2023,0
+Supervisory Union/School District,Hartford SD,English Not Military,2023,***
+Supervisory Union/School District,Hartford SD,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Hartford SD,English Asian,2023,***
+Supervisory Union/School District,Hartford SD,English Black,2023,***
+Supervisory Union/School District,Hartford SD,English Hispanic,2023,***
+Supervisory Union/School District,Hartford SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Hartford SD,English White,2023,0.573333
+Supervisory Union/School District,Hartford SD,Math All Students,2023,***
+Supervisory Union/School District,Hartford SD,Math No Special Ed,2023,***
+Supervisory Union/School District,Hartford SD,Math Special Ed,2023,***
+Supervisory Union/School District,Hartford SD,Math ELL,2023,***
+Supervisory Union/School District,Hartford SD,Math Not ELL,2023,***
+Supervisory Union/School District,Hartford SD,Math FRL,2023,***
+Supervisory Union/School District,Hartford SD,Math Not FRL,2023,0.578947
+Supervisory Union/School District,Hartford SD,Math Foster,2023,0
+Supervisory Union/School District,Hartford SD,Math Not Foster,2023,***
+Supervisory Union/School District,Hartford SD,Math Female,2023,***
+Supervisory Union/School District,Hartford SD,Math Male,2023,0.565217
+Supervisory Union/School District,Hartford SD,Math Historically Marginalized,2023,***
+Supervisory Union/School District,Hartford SD,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Hartford SD,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Hartford SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Hartford SD,Math Migrant,2023,0
+Supervisory Union/School District,Hartford SD,Math Not Migrant,2023,***
+Supervisory Union/School District,Hartford SD,Math Military,2023,0
+Supervisory Union/School District,Hartford SD,Math Not Military,2023,***
+Supervisory Union/School District,Hartford SD,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Hartford SD,Math Asian,2023,***
+Supervisory Union/School District,Hartford SD,Math Black,2023,***
+Supervisory Union/School District,Hartford SD,Math Hispanic,2023,***
+Supervisory Union/School District,Hartford SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Hartford SD,Math White,2023,0.513158
+Supervisory Union/School District,Kingdom East,English All Students,2023,0.418033
+Supervisory Union/School District,Kingdom East,English No Special Ed,2023,***
+Supervisory Union/School District,Kingdom East,English Special Ed,2023,***
+Supervisory Union/School District,Kingdom East,English ELL,2023,***
+Supervisory Union/School District,Kingdom East,English Not ELL,2023,***
+Supervisory Union/School District,Kingdom East,English FRL,2023,0.264151
+Supervisory Union/School District,Kingdom East,English Not FRL,2023,0.536232
+Supervisory Union/School District,Kingdom East,English Foster,2023,***
+Supervisory Union/School District,Kingdom East,English Not Foster,2023,***
+Supervisory Union/School District,Kingdom East,English Female,2023,0.482759
+Supervisory Union/School District,Kingdom East,English Male,2023,0.359375
+Supervisory Union/School District,Kingdom East,English Historically Marginalized,2023,0.254237
+Supervisory Union/School District,Kingdom East,English Not Historically Marginalized,2023,0.571429
+Supervisory Union/School District,Kingdom East,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Kingdom East,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Kingdom East,English Migrant,2023,0
+Supervisory Union/School District,Kingdom East,English Not Migrant,2023,0.418033
+Supervisory Union/School District,Kingdom East,English Military,2023,0
+Supervisory Union/School District,Kingdom East,English Not Military,2023,0.418033
+Supervisory Union/School District,Kingdom East,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Kingdom East,English Asian,2023,***
+Supervisory Union/School District,Kingdom East,English Black,2023,***
+Supervisory Union/School District,Kingdom East,English Hispanic,2023,***
+Supervisory Union/School District,Kingdom East,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Kingdom East,English White,2023,0.420168
+Supervisory Union/School District,Kingdom East,Math All Students,2023,0.319672
+Supervisory Union/School District,Kingdom East,Math No Special Ed,2023,***
+Supervisory Union/School District,Kingdom East,Math Special Ed,2023,***
+Supervisory Union/School District,Kingdom East,Math ELL,2023,***
+Supervisory Union/School District,Kingdom East,Math Not ELL,2023,***
+Supervisory Union/School District,Kingdom East,Math FRL,2023,0.169811
+Supervisory Union/School District,Kingdom East,Math Not FRL,2023,0.434783
+Supervisory Union/School District,Kingdom East,Math Foster,2023,***
+Supervisory Union/School District,Kingdom East,Math Not Foster,2023,***
+Supervisory Union/School District,Kingdom East,Math Female,2023,0.275862
+Supervisory Union/School District,Kingdom East,Math Male,2023,0.359375
+Supervisory Union/School District,Kingdom East,Math Historically Marginalized,2023,0.169492
+Supervisory Union/School District,Kingdom East,Math Not Historically Marginalized,2023,0.460317
+Supervisory Union/School District,Kingdom East,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Kingdom East,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Kingdom East,Math Migrant,2023,0
+Supervisory Union/School District,Kingdom East,Math Not Migrant,2023,0.319672
+Supervisory Union/School District,Kingdom East,Math Military,2023,0
+Supervisory Union/School District,Kingdom East,Math Not Military,2023,0.319672
+Supervisory Union/School District,Kingdom East,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Kingdom East,Math Asian,2023,***
+Supervisory Union/School District,Kingdom East,Math Black,2023,***
+Supervisory Union/School District,Kingdom East,Math Hispanic,2023,***
+Supervisory Union/School District,Kingdom East,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Kingdom East,Math White,2023,0.319328
+Supervisory Union/School District,Lamoille North SU,English All Students,2023,0.338583
+Supervisory Union/School District,Lamoille North SU,English No Special Ed,2023,0.386792
+Supervisory Union/School District,Lamoille North SU,English Special Ed,2023,0.095238
+Supervisory Union/School District,Lamoille North SU,English ELL,2023,***
+Supervisory Union/School District,Lamoille North SU,English Not ELL,2023,***
+Supervisory Union/School District,Lamoille North SU,English FRL,2023,0.245902
+Supervisory Union/School District,Lamoille North SU,English Not FRL,2023,0.424242
+Supervisory Union/School District,Lamoille North SU,English Foster,2023,***
+Supervisory Union/School District,Lamoille North SU,English Not Foster,2023,***
+Supervisory Union/School District,Lamoille North SU,English Female,2023,0.357143
+Supervisory Union/School District,Lamoille North SU,English Male,2023,0.323944
+Supervisory Union/School District,Lamoille North SU,English Historically Marginalized,2023,0.226667
+Supervisory Union/School District,Lamoille North SU,English Not Historically Marginalized,2023,0.5
+Supervisory Union/School District,Lamoille North SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Lamoille North SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Lamoille North SU,English Migrant,2023,0
+Supervisory Union/School District,Lamoille North SU,English Not Migrant,2023,0.338583
+Supervisory Union/School District,Lamoille North SU,English Military,2023,***
+Supervisory Union/School District,Lamoille North SU,English Not Military,2023,***
+Supervisory Union/School District,Lamoille North SU,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Lamoille North SU,English Asian,2023,0
+Supervisory Union/School District,Lamoille North SU,English Black,2023,***
+Supervisory Union/School District,Lamoille North SU,English Hispanic,2023,***
+Supervisory Union/School District,Lamoille North SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Lamoille North SU,English White,2023,0.341463
+Supervisory Union/School District,Lamoille North SU,Math All Students,2023,0.267717
+Supervisory Union/School District,Lamoille North SU,Math No Special Ed,2023,0.301887
+Supervisory Union/School District,Lamoille North SU,Math Special Ed,2023,0.095238
+Supervisory Union/School District,Lamoille North SU,Math ELL,2023,***
+Supervisory Union/School District,Lamoille North SU,Math Not ELL,2023,***
+Supervisory Union/School District,Lamoille North SU,Math FRL,2023,0.213115
+Supervisory Union/School District,Lamoille North SU,Math Not FRL,2023,0.318182
+Supervisory Union/School District,Lamoille North SU,Math Foster,2023,***
+Supervisory Union/School District,Lamoille North SU,Math Not Foster,2023,***
+Supervisory Union/School District,Lamoille North SU,Math Female,2023,0.25
+Supervisory Union/School District,Lamoille North SU,Math Male,2023,0.28169
+Supervisory Union/School District,Lamoille North SU,Math Historically Marginalized,2023,0.2
+Supervisory Union/School District,Lamoille North SU,Math Not Historically Marginalized,2023,0.365385
+Supervisory Union/School District,Lamoille North SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Lamoille North SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Lamoille North SU,Math Migrant,2023,0
+Supervisory Union/School District,Lamoille North SU,Math Not Migrant,2023,0.267717
+Supervisory Union/School District,Lamoille North SU,Math Military,2023,***
+Supervisory Union/School District,Lamoille North SU,Math Not Military,2023,***
+Supervisory Union/School District,Lamoille North SU,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Lamoille North SU,Math Asian,2023,0
+Supervisory Union/School District,Lamoille North SU,Math Black,2023,***
+Supervisory Union/School District,Lamoille North SU,Math Hispanic,2023,***
+Supervisory Union/School District,Lamoille North SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Lamoille North SU,Math White,2023,0.276423
+Supervisory Union/School District,Lamoille South SU,English All Students,2023,0.632653
+Supervisory Union/School District,Lamoille South SU,English No Special Ed,2023,0.703704
+Supervisory Union/School District,Lamoille South SU,English Special Ed,2023,0.294118
+Supervisory Union/School District,Lamoille South SU,English ELL,2023,0
+Supervisory Union/School District,Lamoille South SU,English Not ELL,2023,0.632653
+Supervisory Union/School District,Lamoille South SU,English FRL,2023,0.555556
+Supervisory Union/School District,Lamoille South SU,English Not FRL,2023,0.661972
+Supervisory Union/School District,Lamoille South SU,English Foster,2023,***
+Supervisory Union/School District,Lamoille South SU,English Not Foster,2023,***
+Supervisory Union/School District,Lamoille South SU,English Female,2023,0.652174
+Supervisory Union/School District,Lamoille South SU,English Male,2023,0.615385
+Supervisory Union/School District,Lamoille South SU,English Historically Marginalized,2023,0.5
+Supervisory Union/School District,Lamoille South SU,English Not Historically Marginalized,2023,0.724138
+Supervisory Union/School District,Lamoille South SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Lamoille South SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Lamoille South SU,English Migrant,2023,0
+Supervisory Union/School District,Lamoille South SU,English Not Migrant,2023,0.632653
+Supervisory Union/School District,Lamoille South SU,English Military,2023,0
+Supervisory Union/School District,Lamoille South SU,English Not Military,2023,0.632653
+Supervisory Union/School District,Lamoille South SU,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Lamoille South SU,English Asian,2023,0
+Supervisory Union/School District,Lamoille South SU,English Black,2023,***
+Supervisory Union/School District,Lamoille South SU,English Hispanic,2023,***
+Supervisory Union/School District,Lamoille South SU,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Lamoille South SU,English White,2023,0.648936
+Supervisory Union/School District,Lamoille South SU,Math All Students,2023,0.520408
+Supervisory Union/School District,Lamoille South SU,Math No Special Ed,2023,0.604938
+Supervisory Union/School District,Lamoille South SU,Math Special Ed,2023,0.117647
+Supervisory Union/School District,Lamoille South SU,Math ELL,2023,0
+Supervisory Union/School District,Lamoille South SU,Math Not ELL,2023,0.520408
+Supervisory Union/School District,Lamoille South SU,Math FRL,2023,0.333333
+Supervisory Union/School District,Lamoille South SU,Math Not FRL,2023,0.591549
+Supervisory Union/School District,Lamoille South SU,Math Foster,2023,***
+Supervisory Union/School District,Lamoille South SU,Math Not Foster,2023,***
+Supervisory Union/School District,Lamoille South SU,Math Female,2023,0.478261
+Supervisory Union/School District,Lamoille South SU,Math Male,2023,0.557692
+Supervisory Union/School District,Lamoille South SU,Math Historically Marginalized,2023,0.35
+Supervisory Union/School District,Lamoille South SU,Math Not Historically Marginalized,2023,0.637931
+Supervisory Union/School District,Lamoille South SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Lamoille South SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Lamoille South SU,Math Migrant,2023,0
+Supervisory Union/School District,Lamoille South SU,Math Not Migrant,2023,0.520408
+Supervisory Union/School District,Lamoille South SU,Math Military,2023,0
+Supervisory Union/School District,Lamoille South SU,Math Not Military,2023,0.520408
+Supervisory Union/School District,Lamoille South SU,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Lamoille South SU,Math Asian,2023,0
+Supervisory Union/School District,Lamoille South SU,Math Black,2023,***
+Supervisory Union/School District,Lamoille South SU,Math Hispanic,2023,***
+Supervisory Union/School District,Lamoille South SU,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Lamoille South SU,Math White,2023,0.542553
+Supervisory Union/School District,Maple Run SD,English All Students,2023,***
+Supervisory Union/School District,Maple Run SD,English No Special Ed,2023,0.603053
+Supervisory Union/School District,Maple Run SD,English Special Ed,2023,***
+Supervisory Union/School District,Maple Run SD,English ELL,2023,***
+Supervisory Union/School District,Maple Run SD,English Not ELL,2023,***
+Supervisory Union/School District,Maple Run SD,English FRL,2023,***
+Supervisory Union/School District,Maple Run SD,English Not FRL,2023,0.65625
+Supervisory Union/School District,Maple Run SD,English Foster,2023,***
+Supervisory Union/School District,Maple Run SD,English Not Foster,2023,***
+Supervisory Union/School District,Maple Run SD,English Female,2023,0.488636
+Supervisory Union/School District,Maple Run SD,English Male,2023,***
+Supervisory Union/School District,Maple Run SD,English Historically Marginalized,2023,***
+Supervisory Union/School District,Maple Run SD,English Not Historically Marginalized,2023,0.686747
+Supervisory Union/School District,Maple Run SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Maple Run SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Maple Run SD,English Migrant,2023,***
+Supervisory Union/School District,Maple Run SD,English Not Migrant,2023,***
+Supervisory Union/School District,Maple Run SD,English Military,2023,0
+Supervisory Union/School District,Maple Run SD,English Not Military,2023,***
+Supervisory Union/School District,Maple Run SD,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Maple Run SD,English Asian,2023,***
+Supervisory Union/School District,Maple Run SD,English Black,2023,***
+Supervisory Union/School District,Maple Run SD,English Hispanic,2023,***
+Supervisory Union/School District,Maple Run SD,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Maple Run SD,English White,2023,0.50641
+Supervisory Union/School District,Maple Run SD,Math All Students,2023,***
+Supervisory Union/School District,Maple Run SD,Math No Special Ed,2023,0.282443
+Supervisory Union/School District,Maple Run SD,Math Special Ed,2023,***
+Supervisory Union/School District,Maple Run SD,Math ELL,2023,***
+Supervisory Union/School District,Maple Run SD,Math Not ELL,2023,***
+Supervisory Union/School District,Maple Run SD,Math FRL,2023,***
+Supervisory Union/School District,Maple Run SD,Math Not FRL,2023,***
+Supervisory Union/School District,Maple Run SD,Math Foster,2023,***
+Supervisory Union/School District,Maple Run SD,Math Not Foster,2023,***
+Supervisory Union/School District,Maple Run SD,Math Female,2023,0.170455
+Supervisory Union/School District,Maple Run SD,Math Male,2023,***
+Supervisory Union/School District,Maple Run SD,Math Historically Marginalized,2023,***
+Supervisory Union/School District,Maple Run SD,Math Not Historically Marginalized,2023,0.313253
+Supervisory Union/School District,Maple Run SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Maple Run SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Maple Run SD,Math Migrant,2023,***
+Supervisory Union/School District,Maple Run SD,Math Not Migrant,2023,***
+Supervisory Union/School District,Maple Run SD,Math Military,2023,0
+Supervisory Union/School District,Maple Run SD,Math Not Military,2023,***
+Supervisory Union/School District,Maple Run SD,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Maple Run SD,Math Asian,2023,***
+Supervisory Union/School District,Maple Run SD,Math Black,2023,***
+Supervisory Union/School District,Maple Run SD,Math Hispanic,2023,***
+Supervisory Union/School District,Maple Run SD,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Maple Run SD,Math White,2023,0.224359
+Supervisory Union/School District,Mill River Unified Union SD,English All Students,2023,0.321429
+Supervisory Union/School District,Mill River Unified Union SD,English No Special Ed,2023,0.404762
+Supervisory Union/School District,Mill River Unified Union SD,English Special Ed,2023,0.071429
+Supervisory Union/School District,Mill River Unified Union SD,English ELL,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,English Not ELL,2023,0.321429
+Supervisory Union/School District,Mill River Unified Union SD,English FRL,2023,0.16129
+Supervisory Union/School District,Mill River Unified Union SD,English Not FRL,2023,0.52
+Supervisory Union/School District,Mill River Unified Union SD,English Foster,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,English Not Foster,2023,0.321429
+Supervisory Union/School District,Mill River Unified Union SD,English Female,2023,0.5
+Supervisory Union/School District,Mill River Unified Union SD,English Male,2023,0.1875
+Supervisory Union/School District,Mill River Unified Union SD,English Historically Marginalized,2023,0.166667
+Supervisory Union/School District,Mill River Unified Union SD,English Not Historically Marginalized,2023,0.6
+Supervisory Union/School District,Mill River Unified Union SD,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,English Not McKinney Vento Eligible,2023,0.321429
+Supervisory Union/School District,Mill River Unified Union SD,English Migrant,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,English Not Migrant,2023,0.321429
+Supervisory Union/School District,Mill River Unified Union SD,English Military,2023,***
+Supervisory Union/School District,Mill River Unified Union SD,English Not Military,2023,***
+Supervisory Union/School District,Mill River Unified Union SD,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,English Asian,2023,***
+Supervisory Union/School District,Mill River Unified Union SD,English Black,2023,***
+Supervisory Union/School District,Mill River Unified Union SD,English Hispanic,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,English White,2023,0.321429
+Supervisory Union/School District,Mill River Unified Union SD,Math All Students,2023,0.142857
+Supervisory Union/School District,Mill River Unified Union SD,Math No Special Ed,2023,0.166667
+Supervisory Union/School District,Mill River Unified Union SD,Math Special Ed,2023,0.071429
+Supervisory Union/School District,Mill River Unified Union SD,Math ELL,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,Math Not ELL,2023,0.142857
+Supervisory Union/School District,Mill River Unified Union SD,Math FRL,2023,0.096774
+Supervisory Union/School District,Mill River Unified Union SD,Math Not FRL,2023,0.2
+Supervisory Union/School District,Mill River Unified Union SD,Math Foster,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,Math Not Foster,2023,0.142857
+Supervisory Union/School District,Mill River Unified Union SD,Math Female,2023,0.125
+Supervisory Union/School District,Mill River Unified Union SD,Math Male,2023,0.15625
+Supervisory Union/School District,Mill River Unified Union SD,Math Historically Marginalized,2023,0.083333
+Supervisory Union/School District,Mill River Unified Union SD,Math Not Historically Marginalized,2023,0.25
+Supervisory Union/School District,Mill River Unified Union SD,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,Math Not McKinney Vento Eligible,2023,0.142857
+Supervisory Union/School District,Mill River Unified Union SD,Math Migrant,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,Math Not Migrant,2023,0.142857
+Supervisory Union/School District,Mill River Unified Union SD,Math Military,2023,***
+Supervisory Union/School District,Mill River Unified Union SD,Math Not Military,2023,***
+Supervisory Union/School District,Mill River Unified Union SD,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,Math Asian,2023,***
+Supervisory Union/School District,Mill River Unified Union SD,Math Black,2023,***
+Supervisory Union/School District,Mill River Unified Union SD,Math Hispanic,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Mill River Unified Union SD,Math White,2023,0.142857
+Supervisory Union/School District,Milton SD,English All Students,2023,***
+Supervisory Union/School District,Milton SD,English No Special Ed,2023,0.530864
+Supervisory Union/School District,Milton SD,English Special Ed,2023,***
+Supervisory Union/School District,Milton SD,English ELL,2023,***
+Supervisory Union/School District,Milton SD,English Not ELL,2023,***
+Supervisory Union/School District,Milton SD,English FRL,2023,***
+Supervisory Union/School District,Milton SD,English Not FRL,2023,0.537313
+Supervisory Union/School District,Milton SD,English Foster,2023,***
+Supervisory Union/School District,Milton SD,English Not Foster,2023,***
+Supervisory Union/School District,Milton SD,English Female,2023,***
+Supervisory Union/School District,Milton SD,English Male,2023,0.385965
+Supervisory Union/School District,Milton SD,English Historically Marginalized,2023,0.31746
+Supervisory Union/School District,Milton SD,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Milton SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Milton SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Milton SD,English Migrant,2023,0
+Supervisory Union/School District,Milton SD,English Not Migrant,2023,***
+Supervisory Union/School District,Milton SD,English Military,2023,***
+Supervisory Union/School District,Milton SD,English Not Military,2023,***
+Supervisory Union/School District,Milton SD,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Milton SD,English Asian,2023,***
+Supervisory Union/School District,Milton SD,English Black,2023,***
+Supervisory Union/School District,Milton SD,English Hispanic,2023,***
+Supervisory Union/School District,Milton SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Milton SD,English White,2023,0.427083
+Supervisory Union/School District,Milton SD,Math All Students,2023,0.336449
+Supervisory Union/School District,Milton SD,Math No Special Ed,2023,0.395062
+Supervisory Union/School District,Milton SD,Math Special Ed,2023,0.153846
+Supervisory Union/School District,Milton SD,Math ELL,2023,***
+Supervisory Union/School District,Milton SD,Math Not ELL,2023,***
+Supervisory Union/School District,Milton SD,Math FRL,2023,0.153846
+Supervisory Union/School District,Milton SD,Math Not FRL,2023,0.441176
+Supervisory Union/School District,Milton SD,Math Foster,2023,***
+Supervisory Union/School District,Milton SD,Math Not Foster,2023,***
+Supervisory Union/School District,Milton SD,Math Female,2023,0.326531
+Supervisory Union/School District,Milton SD,Math Male,2023,0.344828
+Supervisory Union/School District,Milton SD,Math Historically Marginalized,2023,0.234375
+Supervisory Union/School District,Milton SD,Math Not Historically Marginalized,2023,0.488372
+Supervisory Union/School District,Milton SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Milton SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Milton SD,Math Migrant,2023,0
+Supervisory Union/School District,Milton SD,Math Not Migrant,2023,0.336449
+Supervisory Union/School District,Milton SD,Math Military,2023,***
+Supervisory Union/School District,Milton SD,Math Not Military,2023,***
+Supervisory Union/School District,Milton SD,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Milton SD,Math Asian,2023,***
+Supervisory Union/School District,Milton SD,Math Black,2023,***
+Supervisory Union/School District,Milton SD,Math Hispanic,2023,***
+Supervisory Union/School District,Milton SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Milton SD,Math White,2023,0.340206
+Supervisory Union/School District,Missisquoi Valley SD,English All Students,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English No Special Ed,2023,0.504425
+Supervisory Union/School District,Missisquoi Valley SD,English Special Ed,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English ELL,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Not ELL,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English FRL,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Not FRL,2023,0.528571
+Supervisory Union/School District,Missisquoi Valley SD,English Foster,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Not Foster,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Female,2023,0.47541
+Supervisory Union/School District,Missisquoi Valley SD,English Male,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Historically Marginalized,2023,0.417722
+Supervisory Union/School District,Missisquoi Valley SD,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Missisquoi Valley SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Migrant,2023,0
+Supervisory Union/School District,Missisquoi Valley SD,English Not Migrant,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Military,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Not Military,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English American Indian or Alaskan Native,2023,0.48
+Supervisory Union/School District,Missisquoi Valley SD,English Asian,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Black,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Hispanic,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Missisquoi Valley SD,English White,2023,0.472
+Supervisory Union/School District,Missisquoi Valley SD,Math All Students,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math No Special Ed,2023,0.345133
+Supervisory Union/School District,Missisquoi Valley SD,Math Special Ed,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math ELL,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Not ELL,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math FRL,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Not FRL,2023,0.428571
+Supervisory Union/School District,Missisquoi Valley SD,Math Foster,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Not Foster,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Female,2023,0.327869
+Supervisory Union/School District,Missisquoi Valley SD,Math Male,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Historically Marginalized,2023,0.278481
+Supervisory Union/School District,Missisquoi Valley SD,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Missisquoi Valley SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Migrant,2023,0
+Supervisory Union/School District,Missisquoi Valley SD,Math Not Migrant,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Military,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Not Military,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math American Indian or Alaskan Native,2023,0.36
+Supervisory Union/School District,Missisquoi Valley SD,Math Asian,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Black,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Hispanic,2023,***
+Supervisory Union/School District,Missisquoi Valley SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Missisquoi Valley SD,Math White,2023,0.336
+Supervisory Union/School District,Montpelier Roxbury ,English All Students,2023,0.706522
+Supervisory Union/School District,Montpelier Roxbury ,English No Special Ed,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English Special Ed,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English ELL,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English Not ELL,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English FRL,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English Not FRL,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English Foster,2023,0
+Supervisory Union/School District,Montpelier Roxbury ,English Not Foster,2023,0.706522
+Supervisory Union/School District,Montpelier Roxbury ,English Female,2023,0.8
+Supervisory Union/School District,Montpelier Roxbury ,English Male,2023,0.649123
+Supervisory Union/School District,Montpelier Roxbury ,English Historically Marginalized,2023,0.621622
+Supervisory Union/School District,Montpelier Roxbury ,English Not Historically Marginalized,2023,0.763636
+Supervisory Union/School District,Montpelier Roxbury ,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Montpelier Roxbury ,English Not McKinney Vento Eligible,2023,0.706522
+Supervisory Union/School District,Montpelier Roxbury ,English Migrant,2023,0
+Supervisory Union/School District,Montpelier Roxbury ,English Not Migrant,2023,0.706522
+Supervisory Union/School District,Montpelier Roxbury ,English Military,2023,0
+Supervisory Union/School District,Montpelier Roxbury ,English Not Military,2023,0.706522
+Supervisory Union/School District,Montpelier Roxbury ,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English Asian,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English Black,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English Hispanic,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,English White,2023,0.714286
+Supervisory Union/School District,Montpelier Roxbury ,Math All Students,2023,0.521739
+Supervisory Union/School District,Montpelier Roxbury ,Math No Special Ed,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math Special Ed,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math ELL,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math Not ELL,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math FRL,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math Not FRL,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math Foster,2023,0
+Supervisory Union/School District,Montpelier Roxbury ,Math Not Foster,2023,0.521739
+Supervisory Union/School District,Montpelier Roxbury ,Math Female,2023,0.542857
+Supervisory Union/School District,Montpelier Roxbury ,Math Male,2023,0.508772
+Supervisory Union/School District,Montpelier Roxbury ,Math Historically Marginalized,2023,0.324324
+Supervisory Union/School District,Montpelier Roxbury ,Math Not Historically Marginalized,2023,0.654545
+Supervisory Union/School District,Montpelier Roxbury ,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Montpelier Roxbury ,Math Not McKinney Vento Eligible,2023,0.521739
+Supervisory Union/School District,Montpelier Roxbury ,Math Migrant,2023,0
+Supervisory Union/School District,Montpelier Roxbury ,Math Not Migrant,2023,0.521739
+Supervisory Union/School District,Montpelier Roxbury ,Math Military,2023,0
+Supervisory Union/School District,Montpelier Roxbury ,Math Not Military,2023,0.521739
+Supervisory Union/School District,Montpelier Roxbury ,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math Asian,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math Black,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math Hispanic,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Montpelier Roxbury ,Math White,2023,0.52381
+Supervisory Union/School District,Mount Abraham Union,English All Students,2023,0.481928
+Supervisory Union/School District,Mount Abraham Union,English No Special Ed,2023,***
+Supervisory Union/School District,Mount Abraham Union,English Special Ed,2023,***
+Supervisory Union/School District,Mount Abraham Union,English ELL,2023,0
+Supervisory Union/School District,Mount Abraham Union,English Not ELL,2023,0.481928
+Supervisory Union/School District,Mount Abraham Union,English FRL,2023,***
+Supervisory Union/School District,Mount Abraham Union,English Not FRL,2023,***
+Supervisory Union/School District,Mount Abraham Union,English Foster,2023,0
+Supervisory Union/School District,Mount Abraham Union,English Not Foster,2023,0.481928
+Supervisory Union/School District,Mount Abraham Union,English Female,2023,0.490196
+Supervisory Union/School District,Mount Abraham Union,English Male,2023,0.46875
+Supervisory Union/School District,Mount Abraham Union,English Historically Marginalized,2023,0.275862
+Supervisory Union/School District,Mount Abraham Union,English Not Historically Marginalized,2023,0.592593
+Supervisory Union/School District,Mount Abraham Union,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Mount Abraham Union,English Not McKinney Vento Eligible,2023,0.481928
+Supervisory Union/School District,Mount Abraham Union,English Migrant,2023,0
+Supervisory Union/School District,Mount Abraham Union,English Not Migrant,2023,0.481928
+Supervisory Union/School District,Mount Abraham Union,English Military,2023,***
+Supervisory Union/School District,Mount Abraham Union,English Not Military,2023,***
+Supervisory Union/School District,Mount Abraham Union,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Mount Abraham Union,English Asian,2023,***
+Supervisory Union/School District,Mount Abraham Union,English Black,2023,0
+Supervisory Union/School District,Mount Abraham Union,English Hispanic,2023,0
+Supervisory Union/School District,Mount Abraham Union,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Mount Abraham Union,English White,2023,0.481928
+Supervisory Union/School District,Mount Abraham Union,Math All Students,2023,0.46988
+Supervisory Union/School District,Mount Abraham Union,Math No Special Ed,2023,***
+Supervisory Union/School District,Mount Abraham Union,Math Special Ed,2023,***
+Supervisory Union/School District,Mount Abraham Union,Math ELL,2023,0
+Supervisory Union/School District,Mount Abraham Union,Math Not ELL,2023,0.46988
+Supervisory Union/School District,Mount Abraham Union,Math FRL,2023,***
+Supervisory Union/School District,Mount Abraham Union,Math Not FRL,2023,***
+Supervisory Union/School District,Mount Abraham Union,Math Foster,2023,0
+Supervisory Union/School District,Mount Abraham Union,Math Not Foster,2023,0.46988
+Supervisory Union/School District,Mount Abraham Union,Math Female,2023,0.509804
+Supervisory Union/School District,Mount Abraham Union,Math Male,2023,0.40625
+Supervisory Union/School District,Mount Abraham Union,Math Historically Marginalized,2023,0.241379
+Supervisory Union/School District,Mount Abraham Union,Math Not Historically Marginalized,2023,0.592593
+Supervisory Union/School District,Mount Abraham Union,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Mount Abraham Union,Math Not McKinney Vento Eligible,2023,0.46988
+Supervisory Union/School District,Mount Abraham Union,Math Migrant,2023,0
+Supervisory Union/School District,Mount Abraham Union,Math Not Migrant,2023,0.46988
+Supervisory Union/School District,Mount Abraham Union,Math Military,2023,***
+Supervisory Union/School District,Mount Abraham Union,Math Not Military,2023,***
+Supervisory Union/School District,Mount Abraham Union,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Mount Abraham Union,Math Asian,2023,***
+Supervisory Union/School District,Mount Abraham Union,Math Black,2023,0
+Supervisory Union/School District,Mount Abraham Union,Math Hispanic,2023,0
+Supervisory Union/School District,Mount Abraham Union,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Mount Abraham Union,Math White,2023,0.46988
+Supervisory Union/School District,Mount Mansfield Unified Union,English All Students,2023,0.56383
+Supervisory Union/School District,Mount Mansfield Unified Union,English No Special Ed,2023,0.660131
+Supervisory Union/School District,Mount Mansfield Unified Union,English Special Ed,2023,0.142857
+Supervisory Union/School District,Mount Mansfield Unified Union,English ELL,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Not ELL,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English FRL,2023,0.333333
+Supervisory Union/School District,Mount Mansfield Unified Union,English Not FRL,2023,0.592814
+Supervisory Union/School District,Mount Mansfield Unified Union,English Foster,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Not Foster,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Female,2023,0.659091
+Supervisory Union/School District,Mount Mansfield Unified Union,English Male,2023,0.48
+Supervisory Union/School District,Mount Mansfield Unified Union,English Historically Marginalized,2023,0.290909
+Supervisory Union/School District,Mount Mansfield Unified Union,English Not Historically Marginalized,2023,0.676692
+Supervisory Union/School District,Mount Mansfield Unified Union,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Migrant,2023,0
+Supervisory Union/School District,Mount Mansfield Unified Union,English Not Migrant,2023,0.56383
+Supervisory Union/School District,Mount Mansfield Unified Union,English Military,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Not Military,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Asian,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Black,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Hispanic,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Mount Mansfield Unified Union,English White,2023,0.564516
+Supervisory Union/School District,Mount Mansfield Unified Union,Math All Students,2023,0.521053
+Supervisory Union/School District,Mount Mansfield Unified Union,Math No Special Ed,2023,0.606452
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Special Ed,2023,0.142857
+Supervisory Union/School District,Mount Mansfield Unified Union,Math ELL,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Not ELL,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math FRL,2023,0.045455
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Not FRL,2023,0.583333
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Foster,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Not Foster,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Female,2023,0.577778
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Male,2023,0.47
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Historically Marginalized,2023,0.210526
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Not Historically Marginalized,2023,0.654135
+Supervisory Union/School District,Mount Mansfield Unified Union,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Migrant,2023,0
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Not Migrant,2023,0.521053
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Military,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Not Military,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Asian,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Black,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Hispanic,2023,***
+Supervisory Union/School District,Mount Mansfield Unified Union,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Mount Mansfield Unified Union,Math White,2023,0.524064
+Supervisory Union/School District,North Country SU,English All Students,2023,0.288136
+Supervisory Union/School District,North Country SU,English No Special Ed,2023,0.349206
+Supervisory Union/School District,North Country SU,English Special Ed,2023,0.137255
+Supervisory Union/School District,North Country SU,English ELL,2023,***
+Supervisory Union/School District,North Country SU,English Not ELL,2023,***
+Supervisory Union/School District,North Country SU,English FRL,2023,0.278261
+Supervisory Union/School District,North Country SU,English Not FRL,2023,0.306452
+Supervisory Union/School District,North Country SU,English Foster,2023,***
+Supervisory Union/School District,North Country SU,English Not Foster,2023,***
+Supervisory Union/School District,North Country SU,English Female,2023,0.307692
+Supervisory Union/School District,North Country SU,English Male,2023,0.272727
+Supervisory Union/School District,North Country SU,English Historically Marginalized,2023,0.277778
+Supervisory Union/School District,North Country SU,English Not Historically Marginalized,2023,0.313725
+Supervisory Union/School District,North Country SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,North Country SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,North Country SU,English Migrant,2023,0
+Supervisory Union/School District,North Country SU,English Not Migrant,2023,0.288136
+Supervisory Union/School District,North Country SU,English Military,2023,0
+Supervisory Union/School District,North Country SU,English Not Military,2023,0.288136
+Supervisory Union/School District,North Country SU,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,North Country SU,English Asian,2023,***
+Supervisory Union/School District,North Country SU,English Black,2023,***
+Supervisory Union/School District,North Country SU,English Hispanic,2023,***
+Supervisory Union/School District,North Country SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,North Country SU,English White,2023,0.289773
+Supervisory Union/School District,North Country SU,Math All Students,2023,0.19209
+Supervisory Union/School District,North Country SU,Math No Special Ed,2023,0.246032
+Supervisory Union/School District,North Country SU,Math Special Ed,2023,0.058824
+Supervisory Union/School District,North Country SU,Math ELL,2023,***
+Supervisory Union/School District,North Country SU,Math Not ELL,2023,***
+Supervisory Union/School District,North Country SU,Math FRL,2023,0.182609
+Supervisory Union/School District,North Country SU,Math Not FRL,2023,0.209677
+Supervisory Union/School District,North Country SU,Math Foster,2023,***
+Supervisory Union/School District,North Country SU,Math Not Foster,2023,***
+Supervisory Union/School District,North Country SU,Math Female,2023,0.166667
+Supervisory Union/School District,North Country SU,Math Male,2023,0.212121
+Supervisory Union/School District,North Country SU,Math Historically Marginalized,2023,0.174603
+Supervisory Union/School District,North Country SU,Math Not Historically Marginalized,2023,0.235294
+Supervisory Union/School District,North Country SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,North Country SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,North Country SU,Math Migrant,2023,0
+Supervisory Union/School District,North Country SU,Math Not Migrant,2023,0.19209
+Supervisory Union/School District,North Country SU,Math Military,2023,0
+Supervisory Union/School District,North Country SU,Math Not Military,2023,0.19209
+Supervisory Union/School District,North Country SU,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,North Country SU,Math Asian,2023,***
+Supervisory Union/School District,North Country SU,Math Black,2023,***
+Supervisory Union/School District,North Country SU,Math Hispanic,2023,***
+Supervisory Union/School District,North Country SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,North Country SU,Math White,2023,0.193182
+Supervisory Union/School District,Orange East,English All Students,2023,0.424
+Supervisory Union/School District,Orange East,English No Special Ed,2023,0.545455
+Supervisory Union/School District,Orange East,English Special Ed,2023,0.135135
+Supervisory Union/School District,Orange East,English ELL,2023,***
+Supervisory Union/School District,Orange East,English Not ELL,2023,***
+Supervisory Union/School District,Orange East,English FRL,2023,0.22
+Supervisory Union/School District,Orange East,English Not FRL,2023,0.56
+Supervisory Union/School District,Orange East,English Foster,2023,***
+Supervisory Union/School District,Orange East,English Not Foster,2023,***
+Supervisory Union/School District,Orange East,English Female,2023,0.473684
+Supervisory Union/School District,Orange East,English Male,2023,0.382353
+Supervisory Union/School District,Orange East,English Historically Marginalized,2023,0.220588
+Supervisory Union/School District,Orange East,English Not Historically Marginalized,2023,0.666667
+Supervisory Union/School District,Orange East,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orange East,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orange East,English Migrant,2023,0
+Supervisory Union/School District,Orange East,English Not Migrant,2023,0.424
+Supervisory Union/School District,Orange East,English Military,2023,***
+Supervisory Union/School District,Orange East,English Not Military,2023,***
+Supervisory Union/School District,Orange East,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Orange East,English Asian,2023,***
+Supervisory Union/School District,Orange East,English Black,2023,***
+Supervisory Union/School District,Orange East,English Hispanic,2023,***
+Supervisory Union/School District,Orange East,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Orange East,English White,2023,0.427419
+Supervisory Union/School District,Orange East,Math All Students,2023,0.344
+Supervisory Union/School District,Orange East,Math No Special Ed,2023,0.454545
+Supervisory Union/School District,Orange East,Math Special Ed,2023,0.081081
+Supervisory Union/School District,Orange East,Math ELL,2023,***
+Supervisory Union/School District,Orange East,Math Not ELL,2023,***
+Supervisory Union/School District,Orange East,Math FRL,2023,0.2
+Supervisory Union/School District,Orange East,Math Not FRL,2023,0.44
+Supervisory Union/School District,Orange East,Math Foster,2023,***
+Supervisory Union/School District,Orange East,Math Not Foster,2023,***
+Supervisory Union/School District,Orange East,Math Female,2023,0.298246
+Supervisory Union/School District,Orange East,Math Male,2023,0.382353
+Supervisory Union/School District,Orange East,Math Historically Marginalized,2023,0.205882
+Supervisory Union/School District,Orange East,Math Not Historically Marginalized,2023,0.508772
+Supervisory Union/School District,Orange East,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orange East,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orange East,Math Migrant,2023,0
+Supervisory Union/School District,Orange East,Math Not Migrant,2023,0.344
+Supervisory Union/School District,Orange East,Math Military,2023,***
+Supervisory Union/School District,Orange East,Math Not Military,2023,***
+Supervisory Union/School District,Orange East,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Orange East,Math Asian,2023,***
+Supervisory Union/School District,Orange East,Math Black,2023,***
+Supervisory Union/School District,Orange East,Math Hispanic,2023,***
+Supervisory Union/School District,Orange East,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Orange East,Math White,2023,0.346774
+Supervisory Union/School District,Orange Southwest,English All Students,2023,***
+Supervisory Union/School District,Orange Southwest,English No Special Ed,2023,***
+Supervisory Union/School District,Orange Southwest,English Special Ed,2023,***
+Supervisory Union/School District,Orange Southwest,English ELL,2023,***
+Supervisory Union/School District,Orange Southwest,English Not ELL,2023,***
+Supervisory Union/School District,Orange Southwest,English FRL,2023,***
+Supervisory Union/School District,Orange Southwest,English Not FRL,2023,***
+Supervisory Union/School District,Orange Southwest,English Foster,2023,0
+Supervisory Union/School District,Orange Southwest,English Not Foster,2023,***
+Supervisory Union/School District,Orange Southwest,English Female,2023,***
+Supervisory Union/School District,Orange Southwest,English Male,2023,***
+Supervisory Union/School District,Orange Southwest,English Historically Marginalized,2023,***
+Supervisory Union/School District,Orange Southwest,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Orange Southwest,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orange Southwest,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orange Southwest,English Migrant,2023,0
+Supervisory Union/School District,Orange Southwest,English Not Migrant,2023,***
+Supervisory Union/School District,Orange Southwest,English Military,2023,0
+Supervisory Union/School District,Orange Southwest,English Not Military,2023,***
+Supervisory Union/School District,Orange Southwest,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Orange Southwest,English Asian,2023,***
+Supervisory Union/School District,Orange Southwest,English Black,2023,***
+Supervisory Union/School District,Orange Southwest,English Hispanic,2023,0
+Supervisory Union/School District,Orange Southwest,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Orange Southwest,English White,2023,***
+Supervisory Union/School District,Orange Southwest,Math All Students,2023,***
+Supervisory Union/School District,Orange Southwest,Math No Special Ed,2023,***
+Supervisory Union/School District,Orange Southwest,Math Special Ed,2023,***
+Supervisory Union/School District,Orange Southwest,Math ELL,2023,***
+Supervisory Union/School District,Orange Southwest,Math Not ELL,2023,***
+Supervisory Union/School District,Orange Southwest,Math FRL,2023,***
+Supervisory Union/School District,Orange Southwest,Math Not FRL,2023,***
+Supervisory Union/School District,Orange Southwest,Math Foster,2023,0
+Supervisory Union/School District,Orange Southwest,Math Not Foster,2023,***
+Supervisory Union/School District,Orange Southwest,Math Female,2023,***
+Supervisory Union/School District,Orange Southwest,Math Male,2023,***
+Supervisory Union/School District,Orange Southwest,Math Historically Marginalized,2023,***
+Supervisory Union/School District,Orange Southwest,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Orange Southwest,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orange Southwest,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orange Southwest,Math Migrant,2023,0
+Supervisory Union/School District,Orange Southwest,Math Not Migrant,2023,***
+Supervisory Union/School District,Orange Southwest,Math Military,2023,0
+Supervisory Union/School District,Orange Southwest,Math Not Military,2023,***
+Supervisory Union/School District,Orange Southwest,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Orange Southwest,Math Asian,2023,***
+Supervisory Union/School District,Orange Southwest,Math Black,2023,***
+Supervisory Union/School District,Orange Southwest,Math Hispanic,2023,0
+Supervisory Union/School District,Orange Southwest,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Orange Southwest,Math White,2023,***
+Supervisory Union/School District,Orleans Central SU,English All Students,2023,***
+Supervisory Union/School District,Orleans Central SU,English No Special Ed,2023,0.52381
+Supervisory Union/School District,Orleans Central SU,English Special Ed,2023,***
+Supervisory Union/School District,Orleans Central SU,English ELL,2023,***
+Supervisory Union/School District,Orleans Central SU,English Not ELL,2023,***
+Supervisory Union/School District,Orleans Central SU,English FRL,2023,0.354839
+Supervisory Union/School District,Orleans Central SU,English Not FRL,2023,***
+Supervisory Union/School District,Orleans Central SU,English Foster,2023,***
+Supervisory Union/School District,Orleans Central SU,English Not Foster,2023,***
+Supervisory Union/School District,Orleans Central SU,English Female,2023,***
+Supervisory Union/School District,Orleans Central SU,English Male,2023,0.419355
+Supervisory Union/School District,Orleans Central SU,English Historically Marginalized,2023,0.309524
+Supervisory Union/School District,Orleans Central SU,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Orleans Central SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orleans Central SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orleans Central SU,English Migrant,2023,0
+Supervisory Union/School District,Orleans Central SU,English Not Migrant,2023,***
+Supervisory Union/School District,Orleans Central SU,English Military,2023,0
+Supervisory Union/School District,Orleans Central SU,English Not Military,2023,***
+Supervisory Union/School District,Orleans Central SU,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Orleans Central SU,English Asian,2023,***
+Supervisory Union/School District,Orleans Central SU,English Black,2023,***
+Supervisory Union/School District,Orleans Central SU,English Hispanic,2023,***
+Supervisory Union/School District,Orleans Central SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Orleans Central SU,English White,2023,0.410714
+Supervisory Union/School District,Orleans Central SU,Math All Students,2023,***
+Supervisory Union/School District,Orleans Central SU,Math No Special Ed,2023,0.261905
+Supervisory Union/School District,Orleans Central SU,Math Special Ed,2023,***
+Supervisory Union/School District,Orleans Central SU,Math ELL,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Not ELL,2023,***
+Supervisory Union/School District,Orleans Central SU,Math FRL,2023,0.225806
+Supervisory Union/School District,Orleans Central SU,Math Not FRL,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Foster,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Not Foster,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Female,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Male,2023,0.225806
+Supervisory Union/School District,Orleans Central SU,Math Historically Marginalized,2023,0.214286
+Supervisory Union/School District,Orleans Central SU,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Orleans Central SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Migrant,2023,0
+Supervisory Union/School District,Orleans Central SU,Math Not Migrant,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Military,2023,0
+Supervisory Union/School District,Orleans Central SU,Math Not Military,2023,***
+Supervisory Union/School District,Orleans Central SU,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Asian,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Black,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Hispanic,2023,***
+Supervisory Union/School District,Orleans Central SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Orleans Central SU,Math White,2023,0.196429
+Supervisory Union/School District,Orleans Southwest SU,English All Students,2023,0.306667
+Supervisory Union/School District,Orleans Southwest SU,English No Special Ed,2023,0.37931
+Supervisory Union/School District,Orleans Southwest SU,English Special Ed,2023,0.058824
+Supervisory Union/School District,Orleans Southwest SU,English ELL,2023,0
+Supervisory Union/School District,Orleans Southwest SU,English Not ELL,2023,0.306667
+Supervisory Union/School District,Orleans Southwest SU,English FRL,2023,0.264706
+Supervisory Union/School District,Orleans Southwest SU,English Not FRL,2023,0.341463
+Supervisory Union/School District,Orleans Southwest SU,English Foster,2023,***
+Supervisory Union/School District,Orleans Southwest SU,English Not Foster,2023,***
+Supervisory Union/School District,Orleans Southwest SU,English Female,2023,0.388889
+Supervisory Union/School District,Orleans Southwest SU,English Male,2023,0.230769
+Supervisory Union/School District,Orleans Southwest SU,English Historically Marginalized,2023,0.227273
+Supervisory Union/School District,Orleans Southwest SU,English Not Historically Marginalized,2023,0.419355
+Supervisory Union/School District,Orleans Southwest SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orleans Southwest SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orleans Southwest SU,English Migrant,2023,0
+Supervisory Union/School District,Orleans Southwest SU,English Not Migrant,2023,0.306667
+Supervisory Union/School District,Orleans Southwest SU,English Military,2023,***
+Supervisory Union/School District,Orleans Southwest SU,English Not Military,2023,***
+Supervisory Union/School District,Orleans Southwest SU,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Orleans Southwest SU,English Asian,2023,0
+Supervisory Union/School District,Orleans Southwest SU,English Black,2023,***
+Supervisory Union/School District,Orleans Southwest SU,English Hispanic,2023,0
+Supervisory Union/School District,Orleans Southwest SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Orleans Southwest SU,English White,2023,0.306667
+Supervisory Union/School District,Orleans Southwest SU,Math All Students,2023,0.226667
+Supervisory Union/School District,Orleans Southwest SU,Math No Special Ed,2023,0.293103
+Supervisory Union/School District,Orleans Southwest SU,Math Special Ed,2023,0
+Supervisory Union/School District,Orleans Southwest SU,Math ELL,2023,0
+Supervisory Union/School District,Orleans Southwest SU,Math Not ELL,2023,0.226667
+Supervisory Union/School District,Orleans Southwest SU,Math FRL,2023,0.235294
+Supervisory Union/School District,Orleans Southwest SU,Math Not FRL,2023,0.219512
+Supervisory Union/School District,Orleans Southwest SU,Math Foster,2023,***
+Supervisory Union/School District,Orleans Southwest SU,Math Not Foster,2023,***
+Supervisory Union/School District,Orleans Southwest SU,Math Female,2023,0.222222
+Supervisory Union/School District,Orleans Southwest SU,Math Male,2023,0.230769
+Supervisory Union/School District,Orleans Southwest SU,Math Historically Marginalized,2023,0.181818
+Supervisory Union/School District,Orleans Southwest SU,Math Not Historically Marginalized,2023,0.290323
+Supervisory Union/School District,Orleans Southwest SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orleans Southwest SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Orleans Southwest SU,Math Migrant,2023,0
+Supervisory Union/School District,Orleans Southwest SU,Math Not Migrant,2023,0.226667
+Supervisory Union/School District,Orleans Southwest SU,Math Military,2023,***
+Supervisory Union/School District,Orleans Southwest SU,Math Not Military,2023,***
+Supervisory Union/School District,Orleans Southwest SU,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Orleans Southwest SU,Math Asian,2023,0
+Supervisory Union/School District,Orleans Southwest SU,Math Black,2023,***
+Supervisory Union/School District,Orleans Southwest SU,Math Hispanic,2023,0
+Supervisory Union/School District,Orleans Southwest SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Orleans Southwest SU,Math White,2023,0.226667
+Supervisory Union/School District,Rutland City SD,English All Students,2023,0.257576
+Supervisory Union/School District,Rutland City SD,English No Special Ed,2023,0.32
+Supervisory Union/School District,Rutland City SD,English Special Ed,2023,0.0625
+Supervisory Union/School District,Rutland City SD,English ELL,2023,***
+Supervisory Union/School District,Rutland City SD,English Not ELL,2023,***
+Supervisory Union/School District,Rutland City SD,English FRL,2023,0.111111
+Supervisory Union/School District,Rutland City SD,English Not FRL,2023,0.433333
+Supervisory Union/School District,Rutland City SD,English Foster,2023,***
+Supervisory Union/School District,Rutland City SD,English Not Foster,2023,***
+Supervisory Union/School District,Rutland City SD,English Female,2023,0.245283
+Supervisory Union/School District,Rutland City SD,English Male,2023,0.265823
+Supervisory Union/School District,Rutland City SD,English Historically Marginalized,2023,0.142857
+Supervisory Union/School District,Rutland City SD,English Not Historically Marginalized,2023,0.512195
+Supervisory Union/School District,Rutland City SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Rutland City SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Rutland City SD,English Migrant,2023,0
+Supervisory Union/School District,Rutland City SD,English Not Migrant,2023,0.257576
+Supervisory Union/School District,Rutland City SD,English Military,2023,0
+Supervisory Union/School District,Rutland City SD,English Not Military,2023,0.257576
+Supervisory Union/School District,Rutland City SD,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Rutland City SD,English Asian,2023,***
+Supervisory Union/School District,Rutland City SD,English Black,2023,0.1875
+Supervisory Union/School District,Rutland City SD,English Hispanic,2023,***
+Supervisory Union/School District,Rutland City SD,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Rutland City SD,English White,2023,0.255814
+Supervisory Union/School District,Rutland City SD,Math All Students,2023,0.198473
+Supervisory Union/School District,Rutland City SD,Math No Special Ed,2023,0.242424
+Supervisory Union/School District,Rutland City SD,Math Special Ed,2023,0.0625
+Supervisory Union/School District,Rutland City SD,Math ELL,2023,***
+Supervisory Union/School District,Rutland City SD,Math Not ELL,2023,***
+Supervisory Union/School District,Rutland City SD,Math FRL,2023,0.140845
+Supervisory Union/School District,Rutland City SD,Math Not FRL,2023,0.266667
+Supervisory Union/School District,Rutland City SD,Math Foster,2023,***
+Supervisory Union/School District,Rutland City SD,Math Not Foster,2023,***
+Supervisory Union/School District,Rutland City SD,Math Female,2023,0.132075
+Supervisory Union/School District,Rutland City SD,Math Male,2023,0.24359
+Supervisory Union/School District,Rutland City SD,Math Historically Marginalized,2023,0.155556
+Supervisory Union/School District,Rutland City SD,Math Not Historically Marginalized,2023,0.292683
+Supervisory Union/School District,Rutland City SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Rutland City SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Rutland City SD,Math Migrant,2023,0
+Supervisory Union/School District,Rutland City SD,Math Not Migrant,2023,0.198473
+Supervisory Union/School District,Rutland City SD,Math Military,2023,0
+Supervisory Union/School District,Rutland City SD,Math Not Military,2023,0.198473
+Supervisory Union/School District,Rutland City SD,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Rutland City SD,Math Asian,2023,***
+Supervisory Union/School District,Rutland City SD,Math Black,2023,0.2
+Supervisory Union/School District,Rutland City SD,Math Hispanic,2023,***
+Supervisory Union/School District,Rutland City SD,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Rutland City SD,Math White,2023,0.195313
+Supervisory Union/School District,Rutland Northeast,English All Students,2023,0.378151
+Supervisory Union/School District,Rutland Northeast,English No Special Ed,2023,0.423077
+Supervisory Union/School District,Rutland Northeast,English Special Ed,2023,0.066667
+Supervisory Union/School District,Rutland Northeast,English ELL,2023,0
+Supervisory Union/School District,Rutland Northeast,English Not ELL,2023,0.378151
+Supervisory Union/School District,Rutland Northeast,English FRL,2023,0.282609
+Supervisory Union/School District,Rutland Northeast,English Not FRL,2023,0.438356
+Supervisory Union/School District,Rutland Northeast,English Foster,2023,***
+Supervisory Union/School District,Rutland Northeast,English Not Foster,2023,***
+Supervisory Union/School District,Rutland Northeast,English Female,2023,0.362069
+Supervisory Union/School District,Rutland Northeast,English Male,2023,0.393443
+Supervisory Union/School District,Rutland Northeast,English Historically Marginalized,2023,0.305085
+Supervisory Union/School District,Rutland Northeast,English Not Historically Marginalized,2023,0.45
+Supervisory Union/School District,Rutland Northeast,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Rutland Northeast,English Not McKinney Vento Eligible,2023,0.378151
+Supervisory Union/School District,Rutland Northeast,English Migrant,2023,0
+Supervisory Union/School District,Rutland Northeast,English Not Migrant,2023,0.378151
+Supervisory Union/School District,Rutland Northeast,English Military,2023,0
+Supervisory Union/School District,Rutland Northeast,English Not Military,2023,0.378151
+Supervisory Union/School District,Rutland Northeast,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Rutland Northeast,English Asian,2023,***
+Supervisory Union/School District,Rutland Northeast,English Black,2023,***
+Supervisory Union/School District,Rutland Northeast,English Hispanic,2023,***
+Supervisory Union/School District,Rutland Northeast,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Rutland Northeast,English White,2023,0.376068
+Supervisory Union/School District,Rutland Northeast,Math All Students,2023,0.294118
+Supervisory Union/School District,Rutland Northeast,Math No Special Ed,2023,0.336538
+Supervisory Union/School District,Rutland Northeast,Math Special Ed,2023,0
+Supervisory Union/School District,Rutland Northeast,Math ELL,2023,0
+Supervisory Union/School District,Rutland Northeast,Math Not ELL,2023,0.294118
+Supervisory Union/School District,Rutland Northeast,Math FRL,2023,0.130435
+Supervisory Union/School District,Rutland Northeast,Math Not FRL,2023,0.39726
+Supervisory Union/School District,Rutland Northeast,Math Foster,2023,***
+Supervisory Union/School District,Rutland Northeast,Math Not Foster,2023,***
+Supervisory Union/School District,Rutland Northeast,Math Female,2023,0.224138
+Supervisory Union/School District,Rutland Northeast,Math Male,2023,0.360656
+Supervisory Union/School District,Rutland Northeast,Math Historically Marginalized,2023,0.152542
+Supervisory Union/School District,Rutland Northeast,Math Not Historically Marginalized,2023,0.433333
+Supervisory Union/School District,Rutland Northeast,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Rutland Northeast,Math Not McKinney Vento Eligible,2023,0.294118
+Supervisory Union/School District,Rutland Northeast,Math Migrant,2023,0
+Supervisory Union/School District,Rutland Northeast,Math Not Migrant,2023,0.294118
+Supervisory Union/School District,Rutland Northeast,Math Military,2023,0
+Supervisory Union/School District,Rutland Northeast,Math Not Military,2023,0.294118
+Supervisory Union/School District,Rutland Northeast,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Rutland Northeast,Math Asian,2023,***
+Supervisory Union/School District,Rutland Northeast,Math Black,2023,***
+Supervisory Union/School District,Rutland Northeast,Math Hispanic,2023,***
+Supervisory Union/School District,Rutland Northeast,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Rutland Northeast,Math White,2023,0.299145
+Supervisory Union/School District,Slate Valley Unified Union,English All Students,2023,0.348837
+Supervisory Union/School District,Slate Valley Unified Union,English No Special Ed,2023,***
+Supervisory Union/School District,Slate Valley Unified Union,English Special Ed,2023,***
+Supervisory Union/School District,Slate Valley Unified Union,English ELL,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,English Not ELL,2023,0.348837
+Supervisory Union/School District,Slate Valley Unified Union,English FRL,2023,0.2
+Supervisory Union/School District,Slate Valley Unified Union,English Not FRL,2023,0.428571
+Supervisory Union/School District,Slate Valley Unified Union,English Foster,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,English Not Foster,2023,0.348837
+Supervisory Union/School District,Slate Valley Unified Union,English Female,2023,0.439024
+Supervisory Union/School District,Slate Valley Unified Union,English Male,2023,0.266667
+Supervisory Union/School District,Slate Valley Unified Union,English Historically Marginalized,2023,0.166667
+Supervisory Union/School District,Slate Valley Unified Union,English Not Historically Marginalized,2023,0.522727
+Supervisory Union/School District,Slate Valley Unified Union,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Slate Valley Unified Union,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Slate Valley Unified Union,English Migrant,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,English Not Migrant,2023,0.348837
+Supervisory Union/School District,Slate Valley Unified Union,English Military,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,English Not Military,2023,0.348837
+Supervisory Union/School District,Slate Valley Unified Union,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,English Asian,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,English Black,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,English Hispanic,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,English White,2023,0.348837
+Supervisory Union/School District,Slate Valley Unified Union,Math All Students,2023,0.206897
+Supervisory Union/School District,Slate Valley Unified Union,Math No Special Ed,2023,***
+Supervisory Union/School District,Slate Valley Unified Union,Math Special Ed,2023,***
+Supervisory Union/School District,Slate Valley Unified Union,Math ELL,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,Math Not ELL,2023,0.206897
+Supervisory Union/School District,Slate Valley Unified Union,Math FRL,2023,0.1
+Supervisory Union/School District,Slate Valley Unified Union,Math Not FRL,2023,0.263158
+Supervisory Union/School District,Slate Valley Unified Union,Math Foster,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,Math Not Foster,2023,0.206897
+Supervisory Union/School District,Slate Valley Unified Union,Math Female,2023,0.195122
+Supervisory Union/School District,Slate Valley Unified Union,Math Male,2023,0.217391
+Supervisory Union/School District,Slate Valley Unified Union,Math Historically Marginalized,2023,0.095238
+Supervisory Union/School District,Slate Valley Unified Union,Math Not Historically Marginalized,2023,0.311111
+Supervisory Union/School District,Slate Valley Unified Union,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Slate Valley Unified Union,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Slate Valley Unified Union,Math Migrant,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,Math Not Migrant,2023,0.206897
+Supervisory Union/School District,Slate Valley Unified Union,Math Military,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,Math Not Military,2023,0.206897
+Supervisory Union/School District,Slate Valley Unified Union,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,Math Asian,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,Math Black,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,Math Hispanic,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Slate Valley Unified Union,Math White,2023,0.206897
+Supervisory Union/School District,South Burlington SD,English All Students,2023,0.647399
+Supervisory Union/School District,South Burlington SD,English No Special Ed,2023,0.733333
+Supervisory Union/School District,South Burlington SD,English Special Ed,2023,0.086957
+Supervisory Union/School District,South Burlington SD,English ELL,2023,0.5
+Supervisory Union/School District,South Burlington SD,English Not ELL,2023,0.660377
+Supervisory Union/School District,South Burlington SD,English FRL,2023,0.393939
+Supervisory Union/School District,South Burlington SD,English Not FRL,2023,0.707143
+Supervisory Union/School District,South Burlington SD,English Foster,2023,***
+Supervisory Union/School District,South Burlington SD,English Not Foster,2023,***
+Supervisory Union/School District,South Burlington SD,English Female,2023,0.72619
+Supervisory Union/School District,South Burlington SD,English Male,2023,0.573034
+Supervisory Union/School District,South Burlington SD,English Historically Marginalized,2023,0.525
+Supervisory Union/School District,South Burlington SD,English Not Historically Marginalized,2023,0.752688
+Supervisory Union/School District,South Burlington SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,South Burlington SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,South Burlington SD,English Migrant,2023,0
+Supervisory Union/School District,South Burlington SD,English Not Migrant,2023,0.647399
+Supervisory Union/School District,South Burlington SD,English Military,2023,0
+Supervisory Union/School District,South Burlington SD,English Not Military,2023,0.647399
+Supervisory Union/School District,South Burlington SD,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,South Burlington SD,English Asian,2023,0.793103
+Supervisory Union/School District,South Burlington SD,English Black,2023,***
+Supervisory Union/School District,South Burlington SD,English Hispanic,2023,***
+Supervisory Union/School District,South Burlington SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,South Burlington SD,English White,2023,0.654676
+Supervisory Union/School District,South Burlington SD,Math All Students,2023,0.571429
+Supervisory Union/School District,South Burlington SD,Math No Special Ed,2023,0.651316
+Supervisory Union/School District,South Burlington SD,Math Special Ed,2023,0.043478
+Supervisory Union/School District,South Burlington SD,Math ELL,2023,0.4
+Supervisory Union/School District,South Burlington SD,Math Not ELL,2023,0.5875
+Supervisory Union/School District,South Burlington SD,Math FRL,2023,0.2
+Supervisory Union/School District,South Burlington SD,Math Not FRL,2023,0.664286
+Supervisory Union/School District,South Burlington SD,Math Foster,2023,***
+Supervisory Union/School District,South Burlington SD,Math Not Foster,2023,***
+Supervisory Union/School District,South Burlington SD,Math Female,2023,0.576471
+Supervisory Union/School District,South Burlington SD,Math Male,2023,0.566667
+Supervisory Union/School District,South Burlington SD,Math Historically Marginalized,2023,0.414634
+Supervisory Union/School District,South Burlington SD,Math Not Historically Marginalized,2023,0.709677
+Supervisory Union/School District,South Burlington SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,South Burlington SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,South Burlington SD,Math Migrant,2023,0
+Supervisory Union/School District,South Burlington SD,Math Not Migrant,2023,0.571429
+Supervisory Union/School District,South Burlington SD,Math Military,2023,0
+Supervisory Union/School District,South Burlington SD,Math Not Military,2023,0.571429
+Supervisory Union/School District,South Burlington SD,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,South Burlington SD,Math Asian,2023,0.666667
+Supervisory Union/School District,South Burlington SD,Math Black,2023,***
+Supervisory Union/School District,South Burlington SD,Math Hispanic,2023,***
+Supervisory Union/School District,South Burlington SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,South Burlington SD,Math White,2023,0.607143
+Supervisory Union/School District,Southwest Vermont,English All Students,2023,0.268657
+Supervisory Union/School District,Southwest Vermont,English No Special Ed,2023,0.309524
+Supervisory Union/School District,Southwest Vermont,English Special Ed,2023,0.060606
+Supervisory Union/School District,Southwest Vermont,English ELL,2023,***
+Supervisory Union/School District,Southwest Vermont,English Not ELL,2023,***
+Supervisory Union/School District,Southwest Vermont,English FRL,2023,0.195122
+Supervisory Union/School District,Southwest Vermont,English Not FRL,2023,0.384615
+Supervisory Union/School District,Southwest Vermont,English Foster,2023,***
+Supervisory Union/School District,Southwest Vermont,English Not Foster,2023,***
+Supervisory Union/School District,Southwest Vermont,English Female,2023,0.301205
+Supervisory Union/School District,Southwest Vermont,English Male,2023,0.245763
+Supervisory Union/School District,Southwest Vermont,English Historically Marginalized,2023,0.207143
+Supervisory Union/School District,Southwest Vermont,English Not Historically Marginalized,2023,0.409836
+Supervisory Union/School District,Southwest Vermont,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Southwest Vermont,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Southwest Vermont,English Migrant,2023,0
+Supervisory Union/School District,Southwest Vermont,English Not Migrant,2023,0.268657
+Supervisory Union/School District,Southwest Vermont,English Military,2023,0
+Supervisory Union/School District,Southwest Vermont,English Not Military,2023,0.268657
+Supervisory Union/School District,Southwest Vermont,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Southwest Vermont,English Asian,2023,***
+Supervisory Union/School District,Southwest Vermont,English Black,2023,0.214286
+Supervisory Union/School District,Southwest Vermont,English Hispanic,2023,***
+Supervisory Union/School District,Southwest Vermont,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Southwest Vermont,English White,2023,0.269036
+Supervisory Union/School District,Southwest Vermont,Math All Students,2023,0.129353
+Supervisory Union/School District,Southwest Vermont,Math No Special Ed,2023,0.154762
+Supervisory Union/School District,Southwest Vermont,Math Special Ed,2023,0
+Supervisory Union/School District,Southwest Vermont,Math ELL,2023,***
+Supervisory Union/School District,Southwest Vermont,Math Not ELL,2023,***
+Supervisory Union/School District,Southwest Vermont,Math FRL,2023,0.097561
+Supervisory Union/School District,Southwest Vermont,Math Not FRL,2023,0.179487
+Supervisory Union/School District,Southwest Vermont,Math Foster,2023,***
+Supervisory Union/School District,Southwest Vermont,Math Not Foster,2023,***
+Supervisory Union/School District,Southwest Vermont,Math Female,2023,0.120482
+Supervisory Union/School District,Southwest Vermont,Math Male,2023,0.135593
+Supervisory Union/School District,Southwest Vermont,Math Historically Marginalized,2023,0.107143
+Supervisory Union/School District,Southwest Vermont,Math Not Historically Marginalized,2023,0.180328
+Supervisory Union/School District,Southwest Vermont,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Southwest Vermont,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Southwest Vermont,Math Migrant,2023,0
+Supervisory Union/School District,Southwest Vermont,Math Not Migrant,2023,0.129353
+Supervisory Union/School District,Southwest Vermont,Math Military,2023,0
+Supervisory Union/School District,Southwest Vermont,Math Not Military,2023,0.129353
+Supervisory Union/School District,Southwest Vermont,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Southwest Vermont,Math Asian,2023,***
+Supervisory Union/School District,Southwest Vermont,Math Black,2023,0.214286
+Supervisory Union/School District,Southwest Vermont,Math Hispanic,2023,***
+Supervisory Union/School District,Southwest Vermont,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Southwest Vermont,Math White,2023,0.13198
+Supervisory Union/School District,Springfield SD,English All Students,2023,0.304878
+Supervisory Union/School District,Springfield SD,English No Special Ed,2023,0.367647
+Supervisory Union/School District,Springfield SD,English Special Ed,2023,0
+Supervisory Union/School District,Springfield SD,English ELL,2023,***
+Supervisory Union/School District,Springfield SD,English Not ELL,2023,***
+Supervisory Union/School District,Springfield SD,English FRL,2023,0.282609
+Supervisory Union/School District,Springfield SD,English Not FRL,2023,0.333333
+Supervisory Union/School District,Springfield SD,English Foster,2023,0
+Supervisory Union/School District,Springfield SD,English Not Foster,2023,0.304878
+Supervisory Union/School District,Springfield SD,English Female,2023,0.484848
+Supervisory Union/School District,Springfield SD,English Male,2023,0.183673
+Supervisory Union/School District,Springfield SD,English Historically Marginalized,2023,0.232143
+Supervisory Union/School District,Springfield SD,English Not Historically Marginalized,2023,0.461538
+Supervisory Union/School District,Springfield SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Springfield SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Springfield SD,English Migrant,2023,***
+Supervisory Union/School District,Springfield SD,English Not Migrant,2023,***
+Supervisory Union/School District,Springfield SD,English Military,2023,0
+Supervisory Union/School District,Springfield SD,English Not Military,2023,0.304878
+Supervisory Union/School District,Springfield SD,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Springfield SD,English Asian,2023,***
+Supervisory Union/School District,Springfield SD,English Black,2023,***
+Supervisory Union/School District,Springfield SD,English Hispanic,2023,***
+Supervisory Union/School District,Springfield SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Springfield SD,English White,2023,0.308642
+Supervisory Union/School District,Springfield SD,Math All Students,2023,0.109756
+Supervisory Union/School District,Springfield SD,Math No Special Ed,2023,0.132353
+Supervisory Union/School District,Springfield SD,Math Special Ed,2023,0
+Supervisory Union/School District,Springfield SD,Math ELL,2023,***
+Supervisory Union/School District,Springfield SD,Math Not ELL,2023,***
+Supervisory Union/School District,Springfield SD,Math FRL,2023,0.108696
+Supervisory Union/School District,Springfield SD,Math Not FRL,2023,0.111111
+Supervisory Union/School District,Springfield SD,Math Foster,2023,0
+Supervisory Union/School District,Springfield SD,Math Not Foster,2023,0.109756
+Supervisory Union/School District,Springfield SD,Math Female,2023,0.121212
+Supervisory Union/School District,Springfield SD,Math Male,2023,0.102041
+Supervisory Union/School District,Springfield SD,Math Historically Marginalized,2023,0.089286
+Supervisory Union/School District,Springfield SD,Math Not Historically Marginalized,2023,0.153846
+Supervisory Union/School District,Springfield SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Springfield SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Springfield SD,Math Migrant,2023,***
+Supervisory Union/School District,Springfield SD,Math Not Migrant,2023,***
+Supervisory Union/School District,Springfield SD,Math Military,2023,0
+Supervisory Union/School District,Springfield SD,Math Not Military,2023,0.109756
+Supervisory Union/School District,Springfield SD,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Springfield SD,Math Asian,2023,***
+Supervisory Union/School District,Springfield SD,Math Black,2023,***
+Supervisory Union/School District,Springfield SD,Math Hispanic,2023,***
+Supervisory Union/School District,Springfield SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Springfield SD,Math White,2023,0.111111
+Supervisory Union/School District,St Johnsbury SD,English All Students,2023,0.45283
+Supervisory Union/School District,St Johnsbury SD,English No Special Ed,2023,0.636364
+Supervisory Union/School District,St Johnsbury SD,English Special Ed,2023,0.15
+Supervisory Union/School District,St Johnsbury SD,English ELL,2023,0
+Supervisory Union/School District,St Johnsbury SD,English Not ELL,2023,0.45283
+Supervisory Union/School District,St Johnsbury SD,English FRL,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Not FRL,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Foster,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Not Foster,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Female,2023,0.576923
+Supervisory Union/School District,St Johnsbury SD,English Male,2023,0.333333
+Supervisory Union/School District,St Johnsbury SD,English Historically Marginalized,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,St Johnsbury SD,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Migrant,2023,0
+Supervisory Union/School District,St Johnsbury SD,English Not Migrant,2023,0.45283
+Supervisory Union/School District,St Johnsbury SD,English Military,2023,0
+Supervisory Union/School District,St Johnsbury SD,English Not Military,2023,0.45283
+Supervisory Union/School District,St Johnsbury SD,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,St Johnsbury SD,English Asian,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Black,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Hispanic,2023,***
+Supervisory Union/School District,St Johnsbury SD,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,St Johnsbury SD,English White,2023,0.45098
+Supervisory Union/School District,St Johnsbury SD,Math All Students,2023,0.264151
+Supervisory Union/School District,St Johnsbury SD,Math No Special Ed,2023,0.424242
+Supervisory Union/School District,St Johnsbury SD,Math Special Ed,2023,0
+Supervisory Union/School District,St Johnsbury SD,Math ELL,2023,0
+Supervisory Union/School District,St Johnsbury SD,Math Not ELL,2023,0.264151
+Supervisory Union/School District,St Johnsbury SD,Math FRL,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Not FRL,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Foster,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Not Foster,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Female,2023,0.192308
+Supervisory Union/School District,St Johnsbury SD,Math Male,2023,0.333333
+Supervisory Union/School District,St Johnsbury SD,Math Historically Marginalized,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Migrant,2023,0
+Supervisory Union/School District,St Johnsbury SD,Math Not Migrant,2023,0.264151
+Supervisory Union/School District,St Johnsbury SD,Math Military,2023,0
+Supervisory Union/School District,St Johnsbury SD,Math Not Military,2023,0.264151
+Supervisory Union/School District,St Johnsbury SD,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,St Johnsbury SD,Math Asian,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Black,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Hispanic,2023,***
+Supervisory Union/School District,St Johnsbury SD,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,St Johnsbury SD,Math White,2023,0.254902
+Supervisory Union/School District,Two Rivers SU,English All Students,2023,0.530303
+Supervisory Union/School District,Two Rivers SU,English No Special Ed,2023,0.603774
+Supervisory Union/School District,Two Rivers SU,English Special Ed,2023,0.230769
+Supervisory Union/School District,Two Rivers SU,English ELL,2023,0
+Supervisory Union/School District,Two Rivers SU,English Not ELL,2023,0.530303
+Supervisory Union/School District,Two Rivers SU,English FRL,2023,0.37037
+Supervisory Union/School District,Two Rivers SU,English Not FRL,2023,0.641026
+Supervisory Union/School District,Two Rivers SU,English Foster,2023,0
+Supervisory Union/School District,Two Rivers SU,English Not Foster,2023,0.530303
+Supervisory Union/School District,Two Rivers SU,English Female,2023,0.642857
+Supervisory Union/School District,Two Rivers SU,English Male,2023,0.447368
+Supervisory Union/School District,Two Rivers SU,English Historically Marginalized,2023,0.4
+Supervisory Union/School District,Two Rivers SU,English Not Historically Marginalized,2023,0.677419
+Supervisory Union/School District,Two Rivers SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Two Rivers SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Two Rivers SU,English Migrant,2023,0
+Supervisory Union/School District,Two Rivers SU,English Not Migrant,2023,0.530303
+Supervisory Union/School District,Two Rivers SU,English Military,2023,0
+Supervisory Union/School District,Two Rivers SU,English Not Military,2023,0.530303
+Supervisory Union/School District,Two Rivers SU,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Two Rivers SU,English Asian,2023,0
+Supervisory Union/School District,Two Rivers SU,English Black,2023,***
+Supervisory Union/School District,Two Rivers SU,English Hispanic,2023,***
+Supervisory Union/School District,Two Rivers SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Two Rivers SU,English White,2023,0.538462
+Supervisory Union/School District,Two Rivers SU,Math All Students,2023,0.363636
+Supervisory Union/School District,Two Rivers SU,Math No Special Ed,2023,0.433962
+Supervisory Union/School District,Two Rivers SU,Math Special Ed,2023,0.076923
+Supervisory Union/School District,Two Rivers SU,Math ELL,2023,0
+Supervisory Union/School District,Two Rivers SU,Math Not ELL,2023,0.363636
+Supervisory Union/School District,Two Rivers SU,Math FRL,2023,0.259259
+Supervisory Union/School District,Two Rivers SU,Math Not FRL,2023,0.435897
+Supervisory Union/School District,Two Rivers SU,Math Foster,2023,0
+Supervisory Union/School District,Two Rivers SU,Math Not Foster,2023,0.363636
+Supervisory Union/School District,Two Rivers SU,Math Female,2023,0.285714
+Supervisory Union/School District,Two Rivers SU,Math Male,2023,0.421053
+Supervisory Union/School District,Two Rivers SU,Math Historically Marginalized,2023,0.257143
+Supervisory Union/School District,Two Rivers SU,Math Not Historically Marginalized,2023,0.483871
+Supervisory Union/School District,Two Rivers SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Two Rivers SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Two Rivers SU,Math Migrant,2023,0
+Supervisory Union/School District,Two Rivers SU,Math Not Migrant,2023,0.363636
+Supervisory Union/School District,Two Rivers SU,Math Military,2023,0
+Supervisory Union/School District,Two Rivers SU,Math Not Military,2023,0.363636
+Supervisory Union/School District,Two Rivers SU,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Two Rivers SU,Math Asian,2023,0
+Supervisory Union/School District,Two Rivers SU,Math Black,2023,***
+Supervisory Union/School District,Two Rivers SU,Math Hispanic,2023,***
+Supervisory Union/School District,Two Rivers SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Two Rivers SU,Math White,2023,0.369231
+Supervisory Union/School District,Washington Central SU,English All Students,2023,0.632911
+Supervisory Union/School District,Washington Central SU,English No Special Ed,2023,0.813559
+Supervisory Union/School District,Washington Central SU,English Special Ed,2023,0.1
+Supervisory Union/School District,Washington Central SU,English ELL,2023,***
+Supervisory Union/School District,Washington Central SU,English Not ELL,2023,***
+Supervisory Union/School District,Washington Central SU,English FRL,2023,0.347826
+Supervisory Union/School District,Washington Central SU,English Not FRL,2023,0.75
+Supervisory Union/School District,Washington Central SU,English Foster,2023,0
+Supervisory Union/School District,Washington Central SU,English Not Foster,2023,0.632911
+Supervisory Union/School District,Washington Central SU,English Female,2023,0.65625
+Supervisory Union/School District,Washington Central SU,English Male,2023,0.617021
+Supervisory Union/School District,Washington Central SU,English Historically Marginalized,2023,0.390244
+Supervisory Union/School District,Washington Central SU,English Not Historically Marginalized,2023,0.894737
+Supervisory Union/School District,Washington Central SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Washington Central SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Washington Central SU,English Migrant,2023,0
+Supervisory Union/School District,Washington Central SU,English Not Migrant,2023,0.632911
+Supervisory Union/School District,Washington Central SU,English Military,2023,***
+Supervisory Union/School District,Washington Central SU,English Not Military,2023,***
+Supervisory Union/School District,Washington Central SU,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Washington Central SU,English Asian,2023,***
+Supervisory Union/School District,Washington Central SU,English Black,2023,***
+Supervisory Union/School District,Washington Central SU,English Hispanic,2023,***
+Supervisory Union/School District,Washington Central SU,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Washington Central SU,English White,2023,0.628205
+Supervisory Union/School District,Washington Central SU,Math All Students,2023,0.468354
+Supervisory Union/School District,Washington Central SU,Math No Special Ed,2023,0.627119
+Supervisory Union/School District,Washington Central SU,Math Special Ed,2023,0
+Supervisory Union/School District,Washington Central SU,Math ELL,2023,***
+Supervisory Union/School District,Washington Central SU,Math Not ELL,2023,***
+Supervisory Union/School District,Washington Central SU,Math FRL,2023,0.217391
+Supervisory Union/School District,Washington Central SU,Math Not FRL,2023,0.571429
+Supervisory Union/School District,Washington Central SU,Math Foster,2023,0
+Supervisory Union/School District,Washington Central SU,Math Not Foster,2023,0.468354
+Supervisory Union/School District,Washington Central SU,Math Female,2023,0.5
+Supervisory Union/School District,Washington Central SU,Math Male,2023,0.446809
+Supervisory Union/School District,Washington Central SU,Math Historically Marginalized,2023,0.219512
+Supervisory Union/School District,Washington Central SU,Math Not Historically Marginalized,2023,0.736842
+Supervisory Union/School District,Washington Central SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Washington Central SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Washington Central SU,Math Migrant,2023,0
+Supervisory Union/School District,Washington Central SU,Math Not Migrant,2023,0.468354
+Supervisory Union/School District,Washington Central SU,Math Military,2023,***
+Supervisory Union/School District,Washington Central SU,Math Not Military,2023,***
+Supervisory Union/School District,Washington Central SU,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Washington Central SU,Math Asian,2023,***
+Supervisory Union/School District,Washington Central SU,Math Black,2023,***
+Supervisory Union/School District,Washington Central SU,Math Hispanic,2023,***
+Supervisory Union/School District,Washington Central SU,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Washington Central SU,Math White,2023,0.461538
+Supervisory Union/School District,White River Central SU,English All Students,2023,0.537037
+Supervisory Union/School District,White River Central SU,English No Special Ed,2023,0.639535
+Supervisory Union/School District,White River Central SU,English Special Ed,2023,0.136364
+Supervisory Union/School District,White River Central SU,English ELL,2023,0
+Supervisory Union/School District,White River Central SU,English Not ELL,2023,0.537037
+Supervisory Union/School District,White River Central SU,English FRL,2023,0.433962
+Supervisory Union/School District,White River Central SU,English Not FRL,2023,0.636364
+Supervisory Union/School District,White River Central SU,English Foster,2023,***
+Supervisory Union/School District,White River Central SU,English Not Foster,2023,***
+Supervisory Union/School District,White River Central SU,English Female,2023,0.578947
+Supervisory Union/School District,White River Central SU,English Male,2023,0.490196
+Supervisory Union/School District,White River Central SU,English Historically Marginalized,2023,0.396825
+Supervisory Union/School District,White River Central SU,English Not Historically Marginalized,2023,0.733333
+Supervisory Union/School District,White River Central SU,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,White River Central SU,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,White River Central SU,English Migrant,2023,0
+Supervisory Union/School District,White River Central SU,English Not Migrant,2023,0.537037
+Supervisory Union/School District,White River Central SU,English Military,2023,0
+Supervisory Union/School District,White River Central SU,English Not Military,2023,0.537037
+Supervisory Union/School District,White River Central SU,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,White River Central SU,English Asian,2023,***
+Supervisory Union/School District,White River Central SU,English Black,2023,***
+Supervisory Union/School District,White River Central SU,English Hispanic,2023,0
+Supervisory Union/School District,White River Central SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,White River Central SU,English White,2023,0.542056
+Supervisory Union/School District,White River Central SU,Math All Students,2023,0.407407
+Supervisory Union/School District,White River Central SU,Math No Special Ed,2023,0.488372
+Supervisory Union/School District,White River Central SU,Math Special Ed,2023,0.090909
+Supervisory Union/School District,White River Central SU,Math ELL,2023,0
+Supervisory Union/School District,White River Central SU,Math Not ELL,2023,0.407407
+Supervisory Union/School District,White River Central SU,Math FRL,2023,0.320755
+Supervisory Union/School District,White River Central SU,Math Not FRL,2023,0.490909
+Supervisory Union/School District,White River Central SU,Math Foster,2023,***
+Supervisory Union/School District,White River Central SU,Math Not Foster,2023,***
+Supervisory Union/School District,White River Central SU,Math Female,2023,0.385965
+Supervisory Union/School District,White River Central SU,Math Male,2023,0.431373
+Supervisory Union/School District,White River Central SU,Math Historically Marginalized,2023,0.301587
+Supervisory Union/School District,White River Central SU,Math Not Historically Marginalized,2023,0.555556
+Supervisory Union/School District,White River Central SU,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,White River Central SU,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,White River Central SU,Math Migrant,2023,0
+Supervisory Union/School District,White River Central SU,Math Not Migrant,2023,0.407407
+Supervisory Union/School District,White River Central SU,Math Military,2023,0
+Supervisory Union/School District,White River Central SU,Math Not Military,2023,0.407407
+Supervisory Union/School District,White River Central SU,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,White River Central SU,Math Asian,2023,***
+Supervisory Union/School District,White River Central SU,Math Black,2023,***
+Supervisory Union/School District,White River Central SU,Math Hispanic,2023,0
+Supervisory Union/School District,White River Central SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,White River Central SU,Math White,2023,0.411215
+Supervisory Union/School District,Windham Central,English All Students,2023,***
+Supervisory Union/School District,Windham Central,English No Special Ed,2023,***
+Supervisory Union/School District,Windham Central,English Special Ed,2023,***
+Supervisory Union/School District,Windham Central,English ELL,2023,0
+Supervisory Union/School District,Windham Central,English Not ELL,2023,***
+Supervisory Union/School District,Windham Central,English FRL,2023,***
+Supervisory Union/School District,Windham Central,English Not FRL,2023,***
+Supervisory Union/School District,Windham Central,English Foster,2023,***
+Supervisory Union/School District,Windham Central,English Not Foster,2023,***
+Supervisory Union/School District,Windham Central,English Female,2023,***
+Supervisory Union/School District,Windham Central,English Male,2023,***
+Supervisory Union/School District,Windham Central,English Historically Marginalized,2023,0.37931
+Supervisory Union/School District,Windham Central,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Windham Central,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Windham Central,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Central,English Migrant,2023,0
+Supervisory Union/School District,Windham Central,English Not Migrant,2023,***
+Supervisory Union/School District,Windham Central,English Military,2023,0
+Supervisory Union/School District,Windham Central,English Not Military,2023,***
+Supervisory Union/School District,Windham Central,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windham Central,English Asian,2023,0
+Supervisory Union/School District,Windham Central,English Black,2023,***
+Supervisory Union/School District,Windham Central,English Hispanic,2023,***
+Supervisory Union/School District,Windham Central,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Windham Central,English White,2023,***
+Supervisory Union/School District,Windham Central,Math All Students,2023,***
+Supervisory Union/School District,Windham Central,Math No Special Ed,2023,***
+Supervisory Union/School District,Windham Central,Math Special Ed,2023,***
+Supervisory Union/School District,Windham Central,Math ELL,2023,0
+Supervisory Union/School District,Windham Central,Math Not ELL,2023,***
+Supervisory Union/School District,Windham Central,Math FRL,2023,***
+Supervisory Union/School District,Windham Central,Math Not FRL,2023,***
+Supervisory Union/School District,Windham Central,Math Foster,2023,***
+Supervisory Union/School District,Windham Central,Math Not Foster,2023,***
+Supervisory Union/School District,Windham Central,Math Female,2023,***
+Supervisory Union/School District,Windham Central,Math Male,2023,***
+Supervisory Union/School District,Windham Central,Math Historically Marginalized,2023,0.275862
+Supervisory Union/School District,Windham Central,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Windham Central,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Windham Central,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Central,Math Migrant,2023,0
+Supervisory Union/School District,Windham Central,Math Not Migrant,2023,***
+Supervisory Union/School District,Windham Central,Math Military,2023,0
+Supervisory Union/School District,Windham Central,Math Not Military,2023,***
+Supervisory Union/School District,Windham Central,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windham Central,Math Asian,2023,0
+Supervisory Union/School District,Windham Central,Math Black,2023,***
+Supervisory Union/School District,Windham Central,Math Hispanic,2023,***
+Supervisory Union/School District,Windham Central,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Windham Central,Math White,2023,***
+Supervisory Union/School District,Windham Northeast,English All Students,2023,***
+Supervisory Union/School District,Windham Northeast,English No Special Ed,2023,0.38
+Supervisory Union/School District,Windham Northeast,English Special Ed,2023,***
+Supervisory Union/School District,Windham Northeast,English ELL,2023,0
+Supervisory Union/School District,Windham Northeast,English Not ELL,2023,***
+Supervisory Union/School District,Windham Northeast,English FRL,2023,0.333333
+Supervisory Union/School District,Windham Northeast,English Not FRL,2023,***
+Supervisory Union/School District,Windham Northeast,English Foster,2023,***
+Supervisory Union/School District,Windham Northeast,English Not Foster,2023,***
+Supervisory Union/School District,Windham Northeast,English Female,2023,***
+Supervisory Union/School District,Windham Northeast,English Male,2023,0.212121
+Supervisory Union/School District,Windham Northeast,English Historically Marginalized,2023,0.297872
+Supervisory Union/School District,Windham Northeast,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Windham Northeast,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Northeast,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Northeast,English Migrant,2023,0
+Supervisory Union/School District,Windham Northeast,English Not Migrant,2023,***
+Supervisory Union/School District,Windham Northeast,English Military,2023,0
+Supervisory Union/School District,Windham Northeast,English Not Military,2023,***
+Supervisory Union/School District,Windham Northeast,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windham Northeast,English Asian,2023,0
+Supervisory Union/School District,Windham Northeast,English Black,2023,***
+Supervisory Union/School District,Windham Northeast,English Hispanic,2023,***
+Supervisory Union/School District,Windham Northeast,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Windham Northeast,English White,2023,0.296875
+Supervisory Union/School District,Windham Northeast,Math All Students,2023,***
+Supervisory Union/School District,Windham Northeast,Math No Special Ed,2023,0.2
+Supervisory Union/School District,Windham Northeast,Math Special Ed,2023,***
+Supervisory Union/School District,Windham Northeast,Math ELL,2023,0
+Supervisory Union/School District,Windham Northeast,Math Not ELL,2023,***
+Supervisory Union/School District,Windham Northeast,Math FRL,2023,0.128205
+Supervisory Union/School District,Windham Northeast,Math Not FRL,2023,***
+Supervisory Union/School District,Windham Northeast,Math Foster,2023,***
+Supervisory Union/School District,Windham Northeast,Math Not Foster,2023,***
+Supervisory Union/School District,Windham Northeast,Math Female,2023,***
+Supervisory Union/School District,Windham Northeast,Math Male,2023,***
+Supervisory Union/School District,Windham Northeast,Math Historically Marginalized,2023,0.106383
+Supervisory Union/School District,Windham Northeast,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Windham Northeast,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Northeast,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Northeast,Math Migrant,2023,0
+Supervisory Union/School District,Windham Northeast,Math Not Migrant,2023,***
+Supervisory Union/School District,Windham Northeast,Math Military,2023,0
+Supervisory Union/School District,Windham Northeast,Math Not Military,2023,***
+Supervisory Union/School District,Windham Northeast,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windham Northeast,Math Asian,2023,0
+Supervisory Union/School District,Windham Northeast,Math Black,2023,***
+Supervisory Union/School District,Windham Northeast,Math Hispanic,2023,***
+Supervisory Union/School District,Windham Northeast,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Windham Northeast,Math White,2023,0.15625
+Supervisory Union/School District,Windham Southeast,English All Students,2023,0.475676
+Supervisory Union/School District,Windham Southeast,English No Special Ed,2023,0.532895
+Supervisory Union/School District,Windham Southeast,English Special Ed,2023,0.212121
+Supervisory Union/School District,Windham Southeast,English ELL,2023,***
+Supervisory Union/School District,Windham Southeast,English Not ELL,2023,***
+Supervisory Union/School District,Windham Southeast,English FRL,2023,0.309524
+Supervisory Union/School District,Windham Southeast,English Not FRL,2023,0.613861
+Supervisory Union/School District,Windham Southeast,English Foster,2023,***
+Supervisory Union/School District,Windham Southeast,English Not Foster,2023,***
+Supervisory Union/School District,Windham Southeast,English Female,2023,0.47191
+Supervisory Union/School District,Windham Southeast,English Male,2023,0.479167
+Supervisory Union/School District,Windham Southeast,English Historically Marginalized,2023,0.357143
+Supervisory Union/School District,Windham Southeast,English Not Historically Marginalized,2023,0.657534
+Supervisory Union/School District,Windham Southeast,English McKinney Vento Eligible,2023,0.25
+Supervisory Union/School District,Windham Southeast,English Not McKinney Vento Eligible,2023,0.491329
+Supervisory Union/School District,Windham Southeast,English Migrant,2023,0
+Supervisory Union/School District,Windham Southeast,English Not Migrant,2023,0.475676
+Supervisory Union/School District,Windham Southeast,English Military,2023,0
+Supervisory Union/School District,Windham Southeast,English Not Military,2023,0.475676
+Supervisory Union/School District,Windham Southeast,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Windham Southeast,English Asian,2023,***
+Supervisory Union/School District,Windham Southeast,English Black,2023,0.357143
+Supervisory Union/School District,Windham Southeast,English Hispanic,2023,0.315789
+Supervisory Union/School District,Windham Southeast,English Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Windham Southeast,English White,2023,0.480226
+Supervisory Union/School District,Windham Southeast,Math All Students,2023,0.322404
+Supervisory Union/School District,Windham Southeast,Math No Special Ed,2023,0.366667
+Supervisory Union/School District,Windham Southeast,Math Special Ed,2023,0.121212
+Supervisory Union/School District,Windham Southeast,Math ELL,2023,***
+Supervisory Union/School District,Windham Southeast,Math Not ELL,2023,***
+Supervisory Union/School District,Windham Southeast,Math FRL,2023,0.182927
+Supervisory Union/School District,Windham Southeast,Math Not FRL,2023,0.435644
+Supervisory Union/School District,Windham Southeast,Math Foster,2023,***
+Supervisory Union/School District,Windham Southeast,Math Not Foster,2023,***
+Supervisory Union/School District,Windham Southeast,Math Female,2023,0.292135
+Supervisory Union/School District,Windham Southeast,Math Male,2023,0.351064
+Supervisory Union/School District,Windham Southeast,Math Historically Marginalized,2023,0.227273
+Supervisory Union/School District,Windham Southeast,Math Not Historically Marginalized,2023,0.465753
+Supervisory Union/School District,Windham Southeast,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Windham Southeast,Math Not McKinney Vento Eligible,2023,0.343023
+Supervisory Union/School District,Windham Southeast,Math Migrant,2023,0
+Supervisory Union/School District,Windham Southeast,Math Not Migrant,2023,0.322404
+Supervisory Union/School District,Windham Southeast,Math Military,2023,0
+Supervisory Union/School District,Windham Southeast,Math Not Military,2023,0.322404
+Supervisory Union/School District,Windham Southeast,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Windham Southeast,Math Asian,2023,***
+Supervisory Union/School District,Windham Southeast,Math Black,2023,0.357143
+Supervisory Union/School District,Windham Southeast,Math Hispanic,2023,0.210526
+Supervisory Union/School District,Windham Southeast,Math Native Hawaiian or Pacific Islander,2023,***
+Supervisory Union/School District,Windham Southeast,Math White,2023,0.331429
+Supervisory Union/School District,Windham Southwest,English All Students,2023,0.509804
+Supervisory Union/School District,Windham Southwest,English No Special Ed,2023,***
+Supervisory Union/School District,Windham Southwest,English Special Ed,2023,***
+Supervisory Union/School District,Windham Southwest,English ELL,2023,***
+Supervisory Union/School District,Windham Southwest,English Not ELL,2023,***
+Supervisory Union/School District,Windham Southwest,English FRL,2023,0.47619
+Supervisory Union/School District,Windham Southwest,English Not FRL,2023,0.533333
+Supervisory Union/School District,Windham Southwest,English Foster,2023,0
+Supervisory Union/School District,Windham Southwest,English Not Foster,2023,0.509804
+Supervisory Union/School District,Windham Southwest,English Female,2023,0.571429
+Supervisory Union/School District,Windham Southwest,English Male,2023,0.434783
+Supervisory Union/School District,Windham Southwest,English Historically Marginalized,2023,0.384615
+Supervisory Union/School District,Windham Southwest,English Not Historically Marginalized,2023,0.64
+Supervisory Union/School District,Windham Southwest,English McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Southwest,English Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Southwest,English Migrant,2023,0
+Supervisory Union/School District,Windham Southwest,English Not Migrant,2023,0.509804
+Supervisory Union/School District,Windham Southwest,English Military,2023,0
+Supervisory Union/School District,Windham Southwest,English Not Military,2023,0.509804
+Supervisory Union/School District,Windham Southwest,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windham Southwest,English Asian,2023,0
+Supervisory Union/School District,Windham Southwest,English Black,2023,0
+Supervisory Union/School District,Windham Southwest,English Hispanic,2023,***
+Supervisory Union/School District,Windham Southwest,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Windham Southwest,English White,2023,0.509804
+Supervisory Union/School District,Windham Southwest,Math All Students,2023,0.264151
+Supervisory Union/School District,Windham Southwest,Math No Special Ed,2023,***
+Supervisory Union/School District,Windham Southwest,Math Special Ed,2023,***
+Supervisory Union/School District,Windham Southwest,Math ELL,2023,***
+Supervisory Union/School District,Windham Southwest,Math Not ELL,2023,***
+Supervisory Union/School District,Windham Southwest,Math FRL,2023,0.272727
+Supervisory Union/School District,Windham Southwest,Math Not FRL,2023,0.258065
+Supervisory Union/School District,Windham Southwest,Math Foster,2023,0
+Supervisory Union/School District,Windham Southwest,Math Not Foster,2023,0.264151
+Supervisory Union/School District,Windham Southwest,Math Female,2023,0.206897
+Supervisory Union/School District,Windham Southwest,Math Male,2023,0.333333
+Supervisory Union/School District,Windham Southwest,Math Historically Marginalized,2023,0.214286
+Supervisory Union/School District,Windham Southwest,Math Not Historically Marginalized,2023,0.32
+Supervisory Union/School District,Windham Southwest,Math McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Southwest,Math Not McKinney Vento Eligible,2023,***
+Supervisory Union/School District,Windham Southwest,Math Migrant,2023,0
+Supervisory Union/School District,Windham Southwest,Math Not Migrant,2023,0.264151
+Supervisory Union/School District,Windham Southwest,Math Military,2023,0
+Supervisory Union/School District,Windham Southwest,Math Not Military,2023,0.264151
+Supervisory Union/School District,Windham Southwest,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windham Southwest,Math Asian,2023,0
+Supervisory Union/School District,Windham Southwest,Math Black,2023,0
+Supervisory Union/School District,Windham Southwest,Math Hispanic,2023,***
+Supervisory Union/School District,Windham Southwest,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Windham Southwest,Math White,2023,0.264151
+Supervisory Union/School District,Windsor Central SU,English All Students,2023,0.574713
+Supervisory Union/School District,Windsor Central SU,English No Special Ed,2023,0.662162
+Supervisory Union/School District,Windsor Central SU,English Special Ed,2023,0.076923
+Supervisory Union/School District,Windsor Central SU,English ELL,2023,0
+Supervisory Union/School District,Windsor Central SU,English Not ELL,2023,0.574713
+Supervisory Union/School District,Windsor Central SU,English FRL,2023,***
+Supervisory Union/School District,Windsor Central SU,English Not FRL,2023,***
+Supervisory Union/School District,Windsor Central SU,English Foster,2023,0
+Supervisory Union/School District,Windsor Central SU,English Not Foster,2023,0.574713
+Supervisory Union/School District,Windsor Central SU,English Female,2023,0.511111
+Supervisory Union/School District,Windsor Central SU,English Male,2023,0.642857
+Supervisory Union/School District,Windsor Central SU,English Historically Marginalized,2023,0.259259
+Supervisory Union/School District,Windsor Central SU,English Not Historically Marginalized,2023,0.716667
+Supervisory Union/School District,Windsor Central SU,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Windsor Central SU,English Not McKinney Vento Eligible,2023,0.574713
+Supervisory Union/School District,Windsor Central SU,English Migrant,2023,0
+Supervisory Union/School District,Windsor Central SU,English Not Migrant,2023,0.574713
+Supervisory Union/School District,Windsor Central SU,English Military,2023,0
+Supervisory Union/School District,Windsor Central SU,English Not Military,2023,0.574713
+Supervisory Union/School District,Windsor Central SU,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windsor Central SU,English Asian,2023,***
+Supervisory Union/School District,Windsor Central SU,English Black,2023,***
+Supervisory Union/School District,Windsor Central SU,English Hispanic,2023,***
+Supervisory Union/School District,Windsor Central SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Windsor Central SU,English White,2023,0.588235
+Supervisory Union/School District,Windsor Central SU,Math All Students,2023,0.425287
+Supervisory Union/School District,Windsor Central SU,Math No Special Ed,2023,0.459459
+Supervisory Union/School District,Windsor Central SU,Math Special Ed,2023,0.230769
+Supervisory Union/School District,Windsor Central SU,Math ELL,2023,0
+Supervisory Union/School District,Windsor Central SU,Math Not ELL,2023,0.425287
+Supervisory Union/School District,Windsor Central SU,Math FRL,2023,***
+Supervisory Union/School District,Windsor Central SU,Math Not FRL,2023,***
+Supervisory Union/School District,Windsor Central SU,Math Foster,2023,0
+Supervisory Union/School District,Windsor Central SU,Math Not Foster,2023,0.425287
+Supervisory Union/School District,Windsor Central SU,Math Female,2023,0.377778
+Supervisory Union/School District,Windsor Central SU,Math Male,2023,0.47619
+Supervisory Union/School District,Windsor Central SU,Math Historically Marginalized,2023,0.296296
+Supervisory Union/School District,Windsor Central SU,Math Not Historically Marginalized,2023,0.483333
+Supervisory Union/School District,Windsor Central SU,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Windsor Central SU,Math Not McKinney Vento Eligible,2023,0.425287
+Supervisory Union/School District,Windsor Central SU,Math Migrant,2023,0
+Supervisory Union/School District,Windsor Central SU,Math Not Migrant,2023,0.425287
+Supervisory Union/School District,Windsor Central SU,Math Military,2023,0
+Supervisory Union/School District,Windsor Central SU,Math Not Military,2023,0.425287
+Supervisory Union/School District,Windsor Central SU,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windsor Central SU,Math Asian,2023,***
+Supervisory Union/School District,Windsor Central SU,Math Black,2023,***
+Supervisory Union/School District,Windsor Central SU,Math Hispanic,2023,***
+Supervisory Union/School District,Windsor Central SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Windsor Central SU,Math White,2023,0.435294
+Supervisory Union/School District,Windsor Southeast SU,English All Students,2023,0.43956
+Supervisory Union/School District,Windsor Southeast SU,English No Special Ed,2023,0.560606
+Supervisory Union/School District,Windsor Southeast SU,English Special Ed,2023,0.12
+Supervisory Union/School District,Windsor Southeast SU,English ELL,2023,***
+Supervisory Union/School District,Windsor Southeast SU,English Not ELL,2023,***
+Supervisory Union/School District,Windsor Southeast SU,English FRL,2023,0.304348
+Supervisory Union/School District,Windsor Southeast SU,English Not FRL,2023,0.485294
+Supervisory Union/School District,Windsor Southeast SU,English Foster,2023,0
+Supervisory Union/School District,Windsor Southeast SU,English Not Foster,2023,0.43956
+Supervisory Union/School District,Windsor Southeast SU,English Female,2023,0.588235
+Supervisory Union/School District,Windsor Southeast SU,English Male,2023,0.350877
+Supervisory Union/School District,Windsor Southeast SU,English Historically Marginalized,2023,0.261905
+Supervisory Union/School District,Windsor Southeast SU,English Not Historically Marginalized,2023,0.591837
+Supervisory Union/School District,Windsor Southeast SU,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Windsor Southeast SU,English Not McKinney Vento Eligible,2023,0.43956
+Supervisory Union/School District,Windsor Southeast SU,English Migrant,2023,0
+Supervisory Union/School District,Windsor Southeast SU,English Not Migrant,2023,0.43956
+Supervisory Union/School District,Windsor Southeast SU,English Military,2023,0
+Supervisory Union/School District,Windsor Southeast SU,English Not Military,2023,0.43956
+Supervisory Union/School District,Windsor Southeast SU,English American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windsor Southeast SU,English Asian,2023,***
+Supervisory Union/School District,Windsor Southeast SU,English Black,2023,***
+Supervisory Union/School District,Windsor Southeast SU,English Hispanic,2023,***
+Supervisory Union/School District,Windsor Southeast SU,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Windsor Southeast SU,English White,2023,0.435294
+Supervisory Union/School District,Windsor Southeast SU,Math All Students,2023,0.362637
+Supervisory Union/School District,Windsor Southeast SU,Math No Special Ed,2023,0.454545
+Supervisory Union/School District,Windsor Southeast SU,Math Special Ed,2023,0.12
+Supervisory Union/School District,Windsor Southeast SU,Math ELL,2023,***
+Supervisory Union/School District,Windsor Southeast SU,Math Not ELL,2023,***
+Supervisory Union/School District,Windsor Southeast SU,Math FRL,2023,0.227273
+Supervisory Union/School District,Windsor Southeast SU,Math Not FRL,2023,0.405797
+Supervisory Union/School District,Windsor Southeast SU,Math Foster,2023,0
+Supervisory Union/School District,Windsor Southeast SU,Math Not Foster,2023,0.362637
+Supervisory Union/School District,Windsor Southeast SU,Math Female,2023,0.411765
+Supervisory Union/School District,Windsor Southeast SU,Math Male,2023,0.333333
+Supervisory Union/School District,Windsor Southeast SU,Math Historically Marginalized,2023,0.190476
+Supervisory Union/School District,Windsor Southeast SU,Math Not Historically Marginalized,2023,0.510204
+Supervisory Union/School District,Windsor Southeast SU,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Windsor Southeast SU,Math Not McKinney Vento Eligible,2023,0.362637
+Supervisory Union/School District,Windsor Southeast SU,Math Migrant,2023,0
+Supervisory Union/School District,Windsor Southeast SU,Math Not Migrant,2023,0.362637
+Supervisory Union/School District,Windsor Southeast SU,Math Military,2023,0
+Supervisory Union/School District,Windsor Southeast SU,Math Not Military,2023,0.362637
+Supervisory Union/School District,Windsor Southeast SU,Math American Indian or Alaskan Native,2023,0
+Supervisory Union/School District,Windsor Southeast SU,Math Asian,2023,***
+Supervisory Union/School District,Windsor Southeast SU,Math Black,2023,***
+Supervisory Union/School District,Windsor Southeast SU,Math Hispanic,2023,***
+Supervisory Union/School District,Windsor Southeast SU,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Windsor Southeast SU,Math White,2023,0.376471
+Supervisory Union/School District,Winooski,English All Students,2023,0.37037
+Supervisory Union/School District,Winooski,English No Special Ed,2023,0.439024
+Supervisory Union/School District,Winooski,English Special Ed,2023,0.153846
+Supervisory Union/School District,Winooski,English ELL,2023,0.111111
+Supervisory Union/School District,Winooski,English Not ELL,2023,0.5
+Supervisory Union/School District,Winooski,English FRL,2023,0.15625
+Supervisory Union/School District,Winooski,English Not FRL,2023,0.681818
+Supervisory Union/School District,Winooski,English Foster,2023,***
+Supervisory Union/School District,Winooski,English Not Foster,2023,***
+Supervisory Union/School District,Winooski,English Female,2023,0.4
+Supervisory Union/School District,Winooski,English Male,2023,0.352941
+Supervisory Union/School District,Winooski,English Historically Marginalized,2023,***
+Supervisory Union/School District,Winooski,English Not Historically Marginalized,2023,***
+Supervisory Union/School District,Winooski,English McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Winooski,English Not McKinney Vento Eligible,2023,0.37037
+Supervisory Union/School District,Winooski,English Migrant,2023,0
+Supervisory Union/School District,Winooski,English Not Migrant,2023,0.37037
+Supervisory Union/School District,Winooski,English Military,2023,0
+Supervisory Union/School District,Winooski,English Not Military,2023,0.37037
+Supervisory Union/School District,Winooski,English American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Winooski,English Asian,2023,0.4375
+Supervisory Union/School District,Winooski,English Black,2023,0.333333
+Supervisory Union/School District,Winooski,English Hispanic,2023,***
+Supervisory Union/School District,Winooski,English Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Winooski,English White,2023,0.428571
+Supervisory Union/School District,Winooski,Math All Students,2023,0.277778
+Supervisory Union/School District,Winooski,Math No Special Ed,2023,0.317073
+Supervisory Union/School District,Winooski,Math Special Ed,2023,0.153846
+Supervisory Union/School District,Winooski,Math ELL,2023,0.055556
+Supervisory Union/School District,Winooski,Math Not ELL,2023,0.388889
+Supervisory Union/School District,Winooski,Math FRL,2023,0.09375
+Supervisory Union/School District,Winooski,Math Not FRL,2023,0.545455
+Supervisory Union/School District,Winooski,Math Foster,2023,***
+Supervisory Union/School District,Winooski,Math Not Foster,2023,***
+Supervisory Union/School District,Winooski,Math Female,2023,0.25
+Supervisory Union/School District,Winooski,Math Male,2023,0.294118
+Supervisory Union/School District,Winooski,Math Historically Marginalized,2023,***
+Supervisory Union/School District,Winooski,Math Not Historically Marginalized,2023,***
+Supervisory Union/School District,Winooski,Math McKinney Vento Eligible,2023,0
+Supervisory Union/School District,Winooski,Math Not McKinney Vento Eligible,2023,0.277778
+Supervisory Union/School District,Winooski,Math Migrant,2023,0
+Supervisory Union/School District,Winooski,Math Not Migrant,2023,0.277778
+Supervisory Union/School District,Winooski,Math Military,2023,0
+Supervisory Union/School District,Winooski,Math Not Military,2023,0.277778
+Supervisory Union/School District,Winooski,Math American Indian or Alaskan Native,2023,***
+Supervisory Union/School District,Winooski,Math Asian,2023,0.375
+Supervisory Union/School District,Winooski,Math Black,2023,0.083333
+Supervisory Union/School District,Winooski,Math Hispanic,2023,***
+Supervisory Union/School District,Winooski,Math Native Hawaiian or Pacific Islander,2023,0
+Supervisory Union/School District,Winooski,Math White,2023,0.321429

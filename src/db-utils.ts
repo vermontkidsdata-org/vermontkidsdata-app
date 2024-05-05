@@ -41,6 +41,10 @@ let secret: DBSecret | undefined = undefined;
 let cachedConnection: mysql.Connection | undefined = undefined;
 const smClient = new SecretsManagerClient({ region: 'us-east-1' });
 
+export function getCachedConnection(): mysql.Connection | undefined {
+  return cachedConnection;
+}
+
 export async function getDBSecret(): Promise<DBSecret> {
   logger.debug({ message: 'getDBSecret, secret', secret })
   if (secret) return secret;

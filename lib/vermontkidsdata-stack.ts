@@ -23,6 +23,7 @@ import { Construct } from 'constructs';
 import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import * as util from 'util';
+import { PortalsFunctions } from './portals-functions';
 // import { OpenApiBuilder } from './openapi';
 
 const S3_SERVICE_PRINCIPAL = new ServicePrincipal('s3.amazonaws.com');
@@ -444,7 +445,7 @@ export class VermontkidsdataStack extends Stack {
       tracing: Tracing.ACTIVE
     });
     secret.grantRead(datasetPostFunction);
-    
+
     const tableCensusByGeoFunction = new NodejsFunction(this, 'Census Table By Geo Function', {
       memorySize: 1024,
       timeout: Duration.seconds(15),
@@ -635,6 +636,15 @@ export class VermontkidsdataStack extends Stack {
       },
       // Add OPTIONS call to all resources
       defaultCorsPreflightOptions: corsOptions
+    });
+
+    new PortalsFunctions(this, 'portals functions', {
+      api,
+      commonEnv,
+      onAdd: (fn) => {
+        serviceTable.grantReadWriteData(fn);
+        secret.grantRead(fn);
+      }
     });
 
     const authorizer = new RequestAuthorizer(this, 'request authorizer', {
