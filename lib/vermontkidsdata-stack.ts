@@ -638,15 +638,6 @@ export class VermontkidsdataStack extends Stack {
       defaultCorsPreflightOptions: corsOptions
     });
 
-    new PortalsFunctions(this, 'portals functions', {
-      api,
-      commonEnv,
-      onAdd: (fn) => {
-        serviceTable.grantReadWriteData(fn);
-        secret.grantRead(fn);
-      }
-    });
-
     const authorizer = new RequestAuthorizer(this, 'request authorizer', {
       handler: authorizerFunction,
       identitySources: [
@@ -746,6 +737,16 @@ export class VermontkidsdataStack extends Stack {
       authorizer,
       methodResponses
     };
+
+    new PortalsFunctions(this, 'portals functions', {
+      api,
+      commonEnv,
+      methodOptions: auth,
+      onAdd: (fn) => {
+        serviceTable.grantReadWriteData(fn);
+        secret.grantRead(fn);
+      }
+    });
 
     const rSession = api.root.addResource('session');
     rSession.addMethod("GET", new LambdaIntegration(getSessionFunction));
