@@ -10,7 +10,7 @@ const {NAMESPACE, LOG_LEVEL} = process.env;
 const serviceName = `queries-api-post-${process.env.NAMESPACE}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 export const tracer = new Tracer({ serviceName });
 
@@ -24,8 +24,8 @@ export async function lambdaHandler(
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: 'empty body passed'
-      })
+        message: 'empty body passed',
+      }),
     };
   }
 
@@ -34,8 +34,8 @@ export async function lambdaHandler(
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: 'POST requires at least name and sqlText'
-      })
+        message: 'POST requires at least name and sqlText',
+      }),
     };
   }
 
@@ -47,8 +47,8 @@ export async function lambdaHandler(
       return {
         statusCode: 400,
         body: JSON.stringify({
-          message: 'POST requires unique name'
-        })
+          message: 'POST requires unique name',
+        }),
       };
     }
 
@@ -59,8 +59,8 @@ export async function lambdaHandler(
     return {
       statusCode: 200,
       body: JSON.stringify({
-        id
-      })
+        id,
+      }),
     };
   } finally {
     await doDBClose();

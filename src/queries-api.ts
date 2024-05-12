@@ -14,7 +14,7 @@ export const handlerGet = middy(queriestApiGet.lambdaHandler)
   .use(injectLambdaContext(queriestApiGet.logger))
   .use(
     // cors(new CORSConfig(process.env))
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   );
 
 export const handlerGetList = middy(queriestApiGetList.lambdaHandler)
@@ -22,7 +22,7 @@ export const handlerGetList = middy(queriestApiGetList.lambdaHandler)
   .use(injectLambdaContext(queriestApiGetList.logger))
   .use(
     // cors(new CORSConfig(process.env))
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   );
 
 export const handlerPost = middy(queriestApiPost.lambdaHandler)
@@ -30,7 +30,7 @@ export const handlerPost = middy(queriestApiPost.lambdaHandler)
   .use(injectLambdaContext(queriestApiPost.logger))
   .use(
     // cors(new CORSConfig(process.env))
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   );
 
 export const handlerDelete = middy(queriestApiDelete.lambdaHandler)
@@ -38,7 +38,7 @@ export const handlerDelete = middy(queriestApiDelete.lambdaHandler)
   .use(injectLambdaContext(queriestApiDelete.logger))
   .use(
     // cors(new CORSConfig(process.env))
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   );
 
 export const handlerPut = middy(queriestApiPut.lambdaHandler)
@@ -46,5 +46,5 @@ export const handlerPut = middy(queriestApiPut.lambdaHandler)
   .use(injectLambdaContext(queriestApiPut.logger))
   .use(
     // cors(new CORSConfig(process.env))
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   );

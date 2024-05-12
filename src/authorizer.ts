@@ -9,7 +9,7 @@ const { ENV_NAME, SERVICE_TABLE, LOG_LEVEL } = process.env;
 export const serviceName = `bff-api-authorizer-${ENV_NAME}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName: serviceName
+  serviceName: serviceName,
 });
 export const tracer = new Tracer({ serviceName: serviceName });
 export interface VKDAuthorizerContext {
@@ -53,7 +53,7 @@ export async function getSession(event: {
 
 export async function lambdaHandler(
   event: APIGatewayRequestAuthorizerEvent,
-  context: Context // eslint-disable-line no-unused-vars, @typescript-eslint/no-unused-vars
+  context: Context, // eslint-disable-line no-unused-vars, @typescript-eslint/no-unused-vars
 ): Promise<APIGatewayAuthorizerResult> {
   console.log({ message: 'Authorizer', event });
 
@@ -61,20 +61,20 @@ export async function lambdaHandler(
   const statement: Statement = {
     Action: 'execute-api:Invoke', // default action
     Effect: 'Deny',
-    Resource: event.methodArn // Point to resource to which access is being authorized
+    Resource: event.methodArn, // Point to resource to which access is being authorized
   };
 
   // Create policy document with statement
   const policyDocument: PolicyDocument = {
     Version: '2012-10-17', // default version
-    Statement: [statement]
+    Statement: [statement],
   };
 
   // Create response
   const response: APIGatewayAuthorizerResult = {
     principalId: 'user', // Not sure that this value actually matters
     policyDocument,
-    context: {}
+    context: {},
   };
 
   const session = await getSession(event);

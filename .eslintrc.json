@@ -31,8 +31,7 @@
   "plugins": ["@typescript-eslint"],
   // Some rules are disabled for practical purposes
   "rules": {
-    // Disable requiring a comma on last item in comma list (just seems wrong)
-    "comma-dangle": ["error", "never"],
+    "comma-dangle": ["warn", "always-multiline"],
     // Avoids: "Missing file extension ‘tsx’ for ‘<something>’"
     "import/extensions": [
       "error",

@@ -12,7 +12,7 @@ const { LOG_LEVEL, IS_PRODUCTION, ENV_NAME, MY_URI, MY_DOMAIN, SERVICE_TABLE, RE
 export const serviceName = `oauth-callback-${ENV_NAME}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName: serviceName
+  serviceName: serviceName,
 });
 export const tracer = new Tracer({ serviceName: serviceName });
 
@@ -45,28 +45,28 @@ export async function lambdaHandler(
     code: code,
     grant_type: 'authorization_code',
     client_id: COGNITO_CLIENT_ID,
-    client_secret: COGNITO_SECRET
+    client_secret: COGNITO_SECRET,
   })
     .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v || '')}`)
     .join('&');
 
   console.log({ message: 'qs', queryString });
   // Call cognito
-  let resp = await axios<CognitoResponse>({
+  const resp = await axios<CognitoResponse>({
     method: 'post',
     url: 'https://vkd.auth.us-east-1.amazoncognito.com/oauth2/token',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
     auth: {
       username: COGNITO_CLIENT_ID,
-      password: COGNITO_SECRET
+      password: COGNITO_SECRET,
     },
-    data: queryString
+    data: queryString,
   });
   const { data } = resp;
-  const { access_token, refresh_token, id_token, expires_in, } = data;
-  console.log({ data, access_token, refresh_token, });
+  const { access_token, refresh_token, id_token, expires_in } = data;
+  console.log({ data, access_token, refresh_token });
 
   const cookie = randomUUID();
 
@@ -86,8 +86,8 @@ export async function lambdaHandler(
       "Location": state || REDIRECT_URI,
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST",
-      "Set-Cookie": `VKD_AUTH=${cookie}; path=/; domain=${MY_DOMAIN}${isProduction ? '; SameSite=Lax' : '; SameSite=None'}; secure; HttpOnly; Max-Age=3540`
-    }
+      "Set-Cookie": `VKD_AUTH=${cookie}; path=/; domain=${MY_DOMAIN}${isProduction ? '; SameSite=Lax' : '; SameSite=None'}; secure; HttpOnly; Max-Age=3540`,
+    },
   };
 }
 
@@ -101,8 +101,8 @@ if (!module.parent) {
         console.log({ message: 'calling main', code });
         const result = await lambdaHandler({
           queryStringParameters: {
-            code
-          }
+            code,
+          },
         } as unknown as APIGatewayProxyEventV2);
         console.log({ message: 'done with main', result });
         res.json(result);

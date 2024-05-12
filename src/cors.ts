@@ -20,7 +20,7 @@ export function httpResponse(statusCode: number, body: any, addOpenCors?: boolea
 export function httpMessageResponse(statusCode: number, message: string, addOpenCors?: boolean): any {
   return {
     body: JSON.stringify({
-      message
+      message,
     }),
     headers: getHeaders("application/json", addOpenCors),
     statusCode,

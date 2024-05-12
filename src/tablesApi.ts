@@ -15,7 +15,7 @@ const logger = new Logger({
   logLevel: (LOG_LEVEL ||
     
     'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 const tracer = new Tracer({ serviceName });
 
@@ -74,11 +74,11 @@ interface QueryRow {
   sqlText: string,
   columnMap?: string,
   metadata: string
-};
+}
 
 interface DataRow { [key: string]: any }
 
-interface URLParts { prefix: string, api: string, env: string, suffix: string };
+interface URLParts { prefix: string, api: string, env: string, suffix: string }
 
 export function getUrlParts(sval: string): URLParts | undefined {
   const matches = sval.match(/^(.*?)(api\.)?(qa\.)?vtkidsdata\.org(.*)$/);
@@ -156,7 +156,7 @@ async function getQuery(queryId: string): Promise<{ rows: QueryRow[] }> {
     throw new Error('unknown query');
   } else {
     return {
-      rows: queryRows
+      rows: queryRows,
     }
   }
 }
@@ -216,7 +216,7 @@ export async function table(
         cat: string,
         label: string,
         value: string
-      };
+      }
 
       const columns: { id: string, label: string }[] = [];
       const rows: DataRow[] = [];
@@ -237,7 +237,7 @@ export async function table(
               : key;
             columns.push({
               id: key,
-              label: label
+              label: label,
             });
           }
 
@@ -273,7 +273,7 @@ export async function table(
         id: queryId,
         metadata,
         columns,
-        rows
+        rows,
       };
       // console.log('body', JSON.stringify(body, null, 2));
       return httpResponse(200, body, true);
@@ -368,7 +368,7 @@ async function getTownRollupMap(geoType: string): Promise<TownRollupMap | undefi
   const ret: TownRollupMap = {};
   mappings.forEach(mapping => ret[mapping.gaz_county_subdivision] = {
     geography_map_geoid: mapping.geography_map_geoid,
-    geography_map_name: mapping.geography_map_name
+    geography_map_name: mapping.geography_map_name,
   });
   return ret;
 }
@@ -488,7 +488,7 @@ export async function getCensusByGeo(
     acsVars.forEach(acsVar => {
       dBVariables[acsVar.variable] = {
         used: false,
-        label: acsVar.label
+        label: acsVar.label,
       }
     });
 
@@ -546,7 +546,7 @@ export async function getCensusByGeo(
 
     if (geoType === 'county') {
       const geoHierarchy: GeoHierarchy = {
-        state: "50"
+        state: "50",
       };
       if (geo) {
         geoHierarchy.county = geo;
@@ -579,7 +579,7 @@ export async function getCensusByGeo(
         vintage: year,
         geoHierarchy: {
           state: '50',
-          "county subdivision": getCountySubdivisions(geoType, geo)
+          "county subdivision": getCountySubdivisions(geoType, geo),
         },
         sourcePath,
         values: queryVars,
@@ -594,7 +594,7 @@ export async function getCensusByGeo(
     const censusStateResults = await census({
       vintage: year,
       geoHierarchy: {
-        state: "50"
+        state: "50",
       },
       sourcePath,
       values: queryVars,
@@ -610,10 +610,10 @@ export async function getCensusByGeo(
         year,
         geo,
         sourcePath,
-        variables
+        variables,
       },
       columns: columns,
-      rows: rows
+      rows: rows,
     }, true);
   } catch (e) {
     console.error(e);
@@ -636,17 +636,17 @@ export async function codesCensusVariablesByTable(
   } else {
     return httpResponse(200, {
       metadata: {
-        tableType: acsVars[0].tableType || undefined
+        tableType: acsVars[0].tableType || undefined,
       },
       variables: acsVars.map(acsVar => {
         return {
           variable: acsVar.variable,
           concept: acsVar.concept,
-          label: acsVar.label
+          label: acsVar.label,
         };
-      })
+      }),
     }, true);
-  };
+  }
 }
 
 export async function getCensusTablesSearch(
@@ -672,9 +672,9 @@ export async function getCensusTablesSearch(
     tables: vars.map(t => {
       return {
         table: t.group,
-        concept: t.concept
+        concept: t.concept,
       }
-    })
+    }),
   }, true);
 }
 
@@ -903,7 +903,7 @@ if (!module.parent) {
       "Physical Health": 0,
       "Resilience": 0,
       "UPK": 0,
-      "Workforce": 0
+      "Workforce": 0,
     }, { "transforms": { "Category": [{ "op": "striptag" }] } }))
   })().catch(err => {
     console.log(`exception`, err);

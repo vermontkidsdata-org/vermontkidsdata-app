@@ -4,7 +4,7 @@ export interface GeoHierarchy {
   state: string,
   county?: string,
   "county subdivision"?: string,
-};
+}
 
 export interface CitySDKParams {
   vintage: number|string,
@@ -30,7 +30,7 @@ export interface CensusResultRow {
   
   // The header above, plus the individual variable values
   [varname: string]: string | undefined;
-};
+}
 
 /**
  * Simple TypeScript wrapper for citysdk
@@ -46,7 +46,7 @@ export async function census(params: CitySDKParams): Promise<CensusResultRow[]> 
 
         if (err) reject(err);
         else resolve(res);
-      }
+      },
     )
   })
 }

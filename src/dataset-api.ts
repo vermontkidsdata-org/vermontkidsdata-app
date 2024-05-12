@@ -10,5 +10,5 @@ export const handlerPost = middy(datasetApiPost.lambdaHandler)
   .use(injectLambdaContext(datasetApiPost.logger))
   .use(
     // cors(new CORSConfig(process.env))
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   );

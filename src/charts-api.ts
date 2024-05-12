@@ -10,5 +10,5 @@ export const bar = middy(lambdaHandlerBar)
   .use(
     cors({
       origin: "*",
-    })
+    }),
   );

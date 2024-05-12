@@ -12,7 +12,7 @@ const { NAMESPACE, LOG_LEVEL } = process.env;
 export const serviceName = `get-session-${NAMESPACE}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName: serviceName
+  serviceName: serviceName,
 });
 export const tracer = new Tracer({ serviceName: serviceName });
 
@@ -30,7 +30,7 @@ export async function lambdaHandler(
         active: session != null,
         expires_in: session ? Math.floor(session.TTL - Date.now()/1000) : undefined,
       },
-    )
+    ),
   }
 }
 
@@ -38,6 +38,6 @@ export const main = middy(lambdaHandler)
   .use(captureLambdaHandler(tracer))
   .use(injectLambdaContext(logger))
   .use(
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   )
   ;

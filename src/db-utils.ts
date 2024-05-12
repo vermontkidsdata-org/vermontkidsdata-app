@@ -17,7 +17,7 @@ const { NAMESPACE, LOG_LEVEL } = process.env;
 const serviceName = `queries-api-getList-${NAMESPACE}`;
 const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 
 function getRegion(): string {
@@ -37,7 +37,7 @@ export interface DBSecret {
 }
 
 // Cached DB Secret and connection
-let secret: DBSecret | undefined = undefined;
+const secret: DBSecret | undefined = undefined;
 let cachedConnection: mysql.Connection | undefined = undefined;
 const smClient = new SecretsManagerClient({ region: 'us-east-1' });
 
@@ -51,14 +51,14 @@ export async function getDBSecret(): Promise<DBSecret> {
   else {
     logger.debug({ message: 'getDBSecret, get SecretsManagerClient' });
     const SecretId = `vkd/${getNamespace()}/dbcreds`;
-    logger.debug({ message: 'getDBSecret, SecretId', SecretId, })
+    logger.debug({ message: 'getDBSecret, SecretId', SecretId })
 
     // Get secret connection info
     try {
       logger.debug({ message: 'getDBSecret, trying' });
 
       const secrets = await smClient.send(new GetSecretValueCommand({
-        SecretId
+        SecretId,
       }));
       logger.debug({ message: 'getDBSecret, got secrets', secrets });
 
@@ -149,7 +149,7 @@ export async function doDBOpen(): Promise<void> {
     cachedConnection = mysql.createConnection({
       host: info.host,
       user: info.username,
-      password: info.password
+      password: info.password,
     });
     await doDBQuery(`use ${info.schema}`);
     // logger.debug({message: 'doOpen: opened connection', schema: info.schema });
@@ -160,10 +160,10 @@ export async function queryDB(sqlText: string, params?: any[]): Promise<any[]> {
   const connectInfo = await getDBSecret();
 
   // Get secret connection info
-  let connection = mysql.createConnection({
+  const connection = mysql.createConnection({
     host: connectInfo.host,
     user: connectInfo.username,
-    password: connectInfo.password
+    password: connectInfo.password,
   });
 
   return new Promise<any[]>((resolve, reject) => {
@@ -201,15 +201,15 @@ export const serviceTable = new Table({
   indexes: {
     GSI1: {
       partitionKey: 'GSI1PK',
-      sortKey: 'GSI1SK'
+      sortKey: 'GSI1SK',
     },
     GSI2: {
       partitionKey: 'GSI2PK',
-      sortKey: 'GSI2SK'
-    }
+      sortKey: 'GSI2SK',
+    },
   },
 
-  DocumentClient: DynamoDBDocumentClient.from(new DynamoDBClient({ region: getRegion() }))
+  DocumentClient: DynamoDBDocumentClient.from(new DynamoDBClient({ region: getRegion() })),
 });
 
 export function getUploadStatusKeyAttribute(id: string): string {
@@ -260,7 +260,7 @@ export const UploadStatus = new Entity({
     locked: { type: 'boolean' },
     lastUpdated: { type: 'string' },
   },
-  table: serviceTable
+  table: serviceTable,
 });
 
 export function getNameMapKeyAttribute(name: string): string {
@@ -283,7 +283,7 @@ export const NameMap = new Entity({
     key: { type: 'string', required: true },
     name: { type: 'string', required: true },
   },
-  table: serviceTable
+  table: serviceTable,
 });
 
 export interface SessionData {
@@ -312,7 +312,7 @@ export const Session = new Entity({
     timestamp: { type: 'string', required: true, default: () => new Date().toISOString() },
     TTL: { type: 'number', required: true },
   },
-  table: serviceTable
+  table: serviceTable,
 });
 
 export function getDatasetKeyPrefix(): string {
@@ -350,7 +350,7 @@ export const DatasetVersion = new Entity({
     GSI1PK: { hidden: true, default: () => ALL_DATASET_VERSIONS },
     GSI1SK: {
       hidden: true, default: (data: { dataset: string, version: string }) =>
-        getDatasetKeyAttribute(data.dataset) + '#' + getVersionKeyAttribute(data.version)
+        getDatasetKeyAttribute(data.dataset) + '#' + getVersionKeyAttribute(data.version),
     },
 
     dataset: { type: 'string', required: true },
@@ -361,7 +361,7 @@ export const DatasetVersion = new Entity({
     s3key: { type: 'string' },
     numrows: { type: 'number' },
   },
-  table: serviceTable
+  table: serviceTable,
 });
 
 export function getDatasetVersionKey(dataset: string, version: string): { PK: string, SK: string } {
@@ -382,7 +382,7 @@ export interface DatasetVersionData {
 
 async function forEachThing<T extends Record<string, any>>(
   init: () => Promise<QueryCommandOutput>,
-  callback: (thing: T) => Promise<void>
+  callback: (thing: T) => Promise<void>,
 ): Promise<void[]> {
   const returnPromises: Promise<void>[] = [];
 
@@ -412,7 +412,7 @@ async function forEachThing<T extends Record<string, any>>(
 export async function forEachDatasetVersion(
   districtUid: string,
   callback: (districtRequest: DatasetVersionData) => Promise<void>,
-  index?: string
+  index?: string,
 ): Promise<void[]> {
   return forEachThing<DatasetVersionData>(
     () =>
@@ -421,7 +421,7 @@ export async function forEachDatasetVersion(
         beginsWith: getVersionKeyPrefix(),
         reverse: true,
       }),
-    (datasetVersion) => callback(datasetVersion)
+    (datasetVersion) => callback(datasetVersion),
   );
 }
 
@@ -434,7 +434,7 @@ export async function getAllNameMaps(): Promise<NameMapData[]> {
     }),
     async (nameMap) => {
       nameMaps.push(nameMap);
-    }
+    },
   );
 
   return nameMaps;

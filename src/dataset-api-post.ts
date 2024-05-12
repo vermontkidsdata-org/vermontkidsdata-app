@@ -14,7 +14,7 @@ import { getUploadType } from './uploadData';
 const serviceName = `post-dataset-${process.env.NAMESPACE}`;
 export const logger = new Logger({
   logLevel: (process.env.LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 export const tracer = new Tracer({ serviceName });
 
@@ -26,8 +26,8 @@ export async function updateDataset(dataset: string, { name }: { name?: string }
       return {
         statusCode: 400,
         body: JSON.stringify({
-          message: uploadType
-        })
+          message: uploadType,
+        }),
       };
     }
 
@@ -55,7 +55,7 @@ export async function updateDataset(dataset: string, { name }: { name?: string }
           {
             message: `dataset info updated`,
           },
-        )
+        ),
       }
     } else {
       return {
@@ -64,7 +64,7 @@ export async function updateDataset(dataset: string, { name }: { name?: string }
           {
             message: `no changes recorded`,
           },
-        )
+        ),
       }
     }  
   } finally {
@@ -82,8 +82,8 @@ export async function lambdaHandler(event: APIGatewayEvent): Promise<APIGatewayP
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: 'empty body or dataset passed'
-      })
+        message: 'empty body or dataset passed',
+      }),
     };
   }
 

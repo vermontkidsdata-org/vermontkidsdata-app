@@ -17,7 +17,7 @@ import { DatasetBackupMessage } from './uploadData';
 const serviceName = `download-${process.env.NAMESPACE}`;
 const logger = new Logger({
   logLevel: (process.env.LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 const tracer = new Tracer({ serviceName });
 

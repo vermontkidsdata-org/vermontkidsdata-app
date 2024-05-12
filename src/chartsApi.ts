@@ -10,7 +10,7 @@ const { LOG_LEVEL, NAMESPACE } = process.env;
 const serviceName = `charts-api-${NAMESPACE}`;
 export const loggerCharts = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 export const tracerCharts = new Tracer({ serviceName });
 
@@ -57,7 +57,7 @@ export async function getDefaultDataset(queryRow: QueryRow): Promise<any> {
       cat: string,
       label: string,
       value: string
-    };
+    }
     const categories: string[] = [];
     const series: { [label: string]: { [key: string]: string } } = {};
     resultRows.forEach((row: QueryResult) => {
@@ -82,7 +82,7 @@ export async function getDefaultDataset(queryRow: QueryRow): Promise<any> {
         data: categories.map(cat => {
           const val = parseFloat(series[label][cat]);
           return (val < 0 ? null : val);
-        })
+        }),
       };
     });
     // console.log('retSeries', retSeries);
@@ -90,10 +90,10 @@ export async function getDefaultDataset(queryRow: QueryRow): Promise<any> {
       id: queryRow.name,
       metadata: {
         config: metadata,
-        uploadType
+        uploadType,
       },
       series: retSeries,
-      categories: categories
+      categories: categories,
     }
   } finally {
     await doDBClose();
@@ -106,7 +106,7 @@ export async function lambdaHandlerBar(
   console.log('event 👉', event);
   if (event.pathParameters == null || event.pathParameters.queryId == null) {
     return {
-      statusCode: 400
+      statusCode: 400,
     };
   } else {
     const queryId = event.pathParameters.queryId;
@@ -116,7 +116,7 @@ export async function lambdaHandlerBar(
     if (queryRow == null) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ message: 'unknown chart' })
+        body: JSON.stringify({ message: 'unknown chart' }),
       };
     }
 
@@ -136,13 +136,13 @@ export async function lambdaHandlerBar(
           "Content-Type": "application/json",
           "Access-Control-Allow-Methods": "GET",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       };
     } catch (e) {
       console.error(e);
       return {
         statusCode: 500,
-        body: (e as Error).message
+        body: (e as Error).message,
       };
     } finally {
       await doDBClose();
@@ -156,8 +156,8 @@ if (!module.parent) {
     console.log('starting');
     const event: APIGatewayProxyEventV2 = {
       pathParameters: {
-        queryId: 'dashboard:indicators:chart'
-      }
+        queryId: 'dashboard:indicators:chart',
+      },
     } as unknown as APIGatewayProxyEventV2;
     console.log(await lambdaHandlerBar(event));
   })();

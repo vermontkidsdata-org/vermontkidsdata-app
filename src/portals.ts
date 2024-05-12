@@ -1,42 +1,40 @@
-import { APIGatewayEvent } from "aws-lambda";
+import { Logger, injectLambdaContext } from "@aws-lambda-powertools/logger";
+import { LogLevel } from "@aws-lambda-powertools/logger/lib/types";
+import { Tracer, captureLambdaHandler } from "@aws-lambda-powertools/tracer";
+import middy from "@middy/core";
+import cors from "@middy/http-cors";
+import { APIGatewayEvent, APIGatewayProxyResultV2 } from "aws-lambda";
 import { doDBClose, doDBCommit, doDBInsert, doDBOpen, doDBQuery } from "./db-utils";
 
-/*
-  // GET /
-  export async function portalsGetList() {
-  // * GET /:id
-  export async function portalsGetById(event: APIGatewayEvent) {
-  // router.post('/addelement/:elttype/:eltval/:eltparent', async function (req, res, next) {
-  export async function portalsPostAddElement(event: APIGatewayEvent) {
-  // router.post('/addmapping/:elttype/:eltid/:eltparent', async function (req, res, next) {
-  export async function portalsPostAddMapping(event: APIGatewayEvent) {
-  // router.post('/addindicator', async function (req, res, next) {
-  export async function portalsPostAddIndicator(event: APIGatewayEvent) {
-  // router.post('/addindicatormapping', async function (req, res, next) {
-  export async function portalsPostAddIndicatorMapping(event: APIGatewayEvent) {
-  // router.post('/deleteelement', async function (req, res, next) {
-  export async function portalsPostDeleteElement(event: APIGatewayEvent) {
-  // router.post('/editelement', async function (req, res, next) {
-  export async function portalsPostEditElement(event: APIGatewayEvent) {
-  // router.get('/element/:elt/:id', async function (req, res, next) {
-  export async function portalsGetElementById(event: APIGatewayEvent) {
-  // router.get('/topics/:id', async function (req, res, next) {
-  export async function portalsGetTopics(event: APIGatewayEvent) {
-  // router.get('/categories/:id', async function (req, res, next) {
-  export async function portalsGetCategories(event: APIGatewayEvent) {
-  // router.get('/subcategories/:id', async function (req, res, next) {
-  export async function portalsGetSubCategories(event: APIGatewayEvent) {
-  // router.get('/indicators/:id', async function (req, res, next) {
-  export async function portalsGetIndicators(event: APIGatewayEvent) {
-*/
+import { CORSConfigDefault } from "./cors-config";
 
-/* GET home page. */
-// GET /
-export async function portalsGetList() {
+// Set your service name. This comes out in service lens etc.
+const { LOG_LEVEL, NAMESPACE } = process.env;
+const serviceName = `charts-api-${NAMESPACE}`;
+export const loggerCharts = new Logger({
+  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
+  serviceName,
+});
+export const tracerCharts = new Tracer({ serviceName });
+
+function prepare(fn: (event: APIGatewayEvent) => Promise<APIGatewayProxyResultV2>) {
+  // return fn;
+  return middy(fn)
+    .use(captureLambdaHandler(tracerCharts))
+    .use(injectLambdaContext(loggerCharts))
+    .use(
+      cors(CORSConfigDefault),
+    )
+}
+
+/* 
+ * GET /
+ */
+export const portalsGetList = prepare(async () => {
   await doDBOpen();
 
   // get the topics
-  let sql = 'select * from portals';
+  const sql = 'select * from portals';
   // const [rows, fields] = await connection.execute(sql);
   const rows = await doDBQuery(sql);
   console.log('PORTALS', rows);
@@ -45,26 +43,26 @@ export async function portalsGetList() {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(rows)
+    body: JSON.stringify(rows),
   }
-}
+});
 
 /**
   * GET /:id
   */
-export async function portalsGetById(event: APIGatewayEvent) {
+export const portalsGetById = prepare(async (event: APIGatewayEvent) => {
   const id = event.pathParameters?.id;
   if (id == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing ID" })
+      body: JSON.stringify({ error: "Missing ID" }),
     }
   }
 
   await doDBOpen();
 
   // get the topics
-  let sql = `select * from portals where id = ${id}`;
+  const sql = `select * from portals where id = ${id}`;
   const rows = await doDBQuery(sql);
 
   console.log('PORTAL', rows);
@@ -73,29 +71,29 @@ export async function portalsGetById(event: APIGatewayEvent) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(rows)
+    body: JSON.stringify(rows),
   }
-}
+});
 
 // router.post('/addelement/:elttype/:eltval/:eltparent', async function (req, res, next) {
-export async function portalsPostAddElement(event: APIGatewayEvent) {
+export const portalsPostAddElement = prepare(async (event: APIGatewayEvent) => {
   const id = event.pathParameters?.id;
-  let parent = event.pathParameters?.eltparent;
-  let elttype = event.pathParameters?.elttype;
-  let eltval = event.pathParameters?.eltval;
+  const parent = event.pathParameters?.eltparent;
+  const elttype = event.pathParameters?.elttype;
+  const eltval = event.pathParameters?.eltval;
 
   if (parent == null || elttype == null || eltval == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
   await doDBOpen();
 
   // get the topics
-  let idElts = parent.split('_');
-  let portal = idElts[0].replace('p', '');
+  const idElts = parent.split('_');
+  const portal = idElts[0].replace('p', '');
   let topic: string | undefined;
   let category: string | undefined;
   //let subcategory: string | undefined;
@@ -152,27 +150,27 @@ export async function portalsPostAddElement(event: APIGatewayEvent) {
 
   return {
     statusCode: 201,
-    body: JSON.stringify('created element')
+    body: JSON.stringify('created element'),
   }
-}
+});
 
 // router.post('/addmapping/:elttype/:eltid/:eltparent', async function (req, res, next) {
-export async function portalsPostAddMapping(event: APIGatewayEvent) {
-  let parent = event.pathParameters?.eltparent;
-  let elttype = event.pathParameters?.elttype;
-  let eltId = event.pathParameters?.eltid;
+export const portalsPostAddMapping = prepare(async (event: APIGatewayEvent) => {
+  const parent = event.pathParameters?.eltparent;
+  const elttype = event.pathParameters?.elttype;
+  const eltId = event.pathParameters?.eltid;
   if (parent == null || elttype == null || eltId == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
   await doDBOpen();
 
   // get the topics
-  let idElts = parent.split('_');
-  let portal = idElts[0].replace('p', '');
+  const idElts = parent.split('_');
+  const portal = idElts[0].replace('p', '');
   let topic: string | undefined;
   let category: string | undefined;
   //let subcategory: string | undefined;
@@ -214,21 +212,21 @@ export async function portalsPostAddMapping(event: APIGatewayEvent) {
     statusCode: 201,
     body: JSON.stringify('created mapping'),
   }
-}
+});
 
 // router.post('/addindicator', async function (req, res, next) {
-export async function portalsPostAddIndicator(event: APIGatewayEvent) {
+export const portalsPostAddIndicator = prepare(async (event: APIGatewayEvent) => {
   const body = JSON.parse(event.body || '{}');
-  let parent = body.eltparent;
-  let elttype = body.elttype;
-  let eltval = body.eltval;
-  let elturl = body.elturl;
-  let eltlink = body.eltlink;
+  const parent = body.eltparent;
+  const elttype = body.elttype;
+  const eltval = body.eltval;
+  const elturl = body.elturl;
+  const eltlink = body.eltlink;
 
   if (parent == null || elttype == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
@@ -236,8 +234,8 @@ export async function portalsPostAddIndicator(event: APIGatewayEvent) {
 
   // get the topics
   //let eltindicator = event.pathParameters?.eltindicator;
-  let idElts = parent.split('_');
-  let portal = idElts[0].replace('p', '');
+  const idElts = parent.split('_');
+  const portal = idElts[0].replace('p', '');
   let topic = -1;
   let category = -1;
   let subcategory = -1;
@@ -266,7 +264,6 @@ export async function portalsPostAddIndicator(event: APIGatewayEvent) {
     console.log('SUB CATEGORY', subcategory);
   }
 
-
   try {
     sql = `insert into portal_indicators (chart_url, link, title, portal) values ('${elturl}','${eltlink}','${eltval}', ${portal}); `
     const createdId = await doDBInsert(sql);
@@ -283,29 +280,29 @@ export async function portalsPostAddIndicator(event: APIGatewayEvent) {
 
   return {
     statusCode: 201,
-    body: JSON.stringify('created indicator')
+    body: JSON.stringify('created indicator'),
   }
 
-}
+});
 
 // router.post('/addindicatormapping', async function (req, res, next) {
-export async function portalsPostAddIndicatorMapping(event: APIGatewayEvent) {
+export const portalsPostAddIndicatorMapping = prepare(async (event: APIGatewayEvent) => {
   const body = JSON.parse(event.body || '{}');
-  let parent = body.eltparent;
-  let elttype = body.elttype;
-  let eltid = body.eltid;
+  const parent = body.eltparent;
+  const elttype = body.elttype;
+  const eltid = body.eltid;
   if (parent == null || elttype == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
   await doDBOpen();
 
   // get the topics
-  let idElts = parent.split('_');
-  let portal = idElts[0].replace('p', '');
+  const idElts = parent.split('_');
+  const portal = idElts[0].replace('p', '');
   let topic = -1;
   let category = -1;
   let subcategory = -1;
@@ -345,27 +342,27 @@ export async function portalsPostAddIndicatorMapping(event: APIGatewayEvent) {
 
   return {
     statusCode: 201,
-    body: JSON.stringify('created indicator mapping')
+    body: JSON.stringify('created indicator mapping'),
   }
-}
+});
 
 // router.post('/deleteelement', async function (req, res, next) {
-export async function portalsPostDeleteElement(event: APIGatewayEvent) {
+export const portalsPostDeleteElement = prepare(async (event: APIGatewayEvent) => {
   const body = JSON.parse(event.body || '{}');
   console.log(body);
-  let eltid = body.eltid;
-  let eltval = body.eltval;
-  let elttype = body.elttype;
+  const eltid = body.eltid;
+  const eltval = body.eltval;
+  const elttype = body.elttype;
   if (elttype == null || eltid == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
   await doDBOpen();
 
-  let idElts = eltid.split('_');
+  const idElts = eltid.split('_');
 
   console.log(eltid);
   console.log(elttype);
@@ -399,28 +396,28 @@ export async function portalsPostDeleteElement(event: APIGatewayEvent) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify('element deleted')
+    body: JSON.stringify('element deleted'),
   }
-}
+});
 
 // router.post('/editelement', async function (req, res, next) {
-export async function portalsPostEditElement(event: APIGatewayEvent) {
+export const portalsPostEditElement = prepare(async (event: APIGatewayEvent) => {
   const body = JSON.parse(event.body || '{}');
   console.log(body);
 
-  let eltid = body.eltid;
-  let eltval = body.eltval;
-  let elttype = body.elttype;
+  const eltid = body.eltid;
+  const eltval = body.eltval;
+  const elttype = body.elttype;
   if (elttype == null || eltid == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
   await doDBOpen();
 
-  let idElts = eltid.split('_');
+  const idElts = eltid.split('_');
 
   console.log(eltid);
   console.log(elttype);
@@ -453,19 +450,19 @@ export async function portalsPostEditElement(event: APIGatewayEvent) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify('element updated')
+    body: JSON.stringify('element updated'),
   }
-}
+});
 
 /* GET an individual element by ID */
 // router.get('/element/:elt/:id', async function (req, res, next) {
-export async function portalsGetElementById(event: APIGatewayEvent) {
-  let id = event.pathParameters?.id;
-  let elt = event.pathParameters?.elt;
+export const portalsGetElementById = prepare(async (event: APIGatewayEvent) => {
+  const id = event.pathParameters?.id;
+  const elt = event.pathParameters?.elt;
   if (elt == null || id == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
@@ -493,25 +490,25 @@ export async function portalsGetElementById(event: APIGatewayEvent) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(rows)
+    body: JSON.stringify(rows),
   }
-}
+});
 
 /* GET topics */
 // router.get('/topics/:id', async function (req, res, next) {
-export async function portalsGetTopics(event: APIGatewayEvent) {
-  let id = event.pathParameters?.id;
+export const portalsGetTopics = prepare(async (event: APIGatewayEvent) => {
+  const id = event.pathParameters?.id;
   if (id == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
   await doDBOpen();
 
   // get the topics
-  let sql = `select * from portal_topics where portal_id = ${id}`;
+  const sql = `select * from portal_topics where portal_id = ${id}`;
   const rows = await doDBQuery(sql);
   await doDBClose();
 
@@ -519,25 +516,25 @@ export async function portalsGetTopics(event: APIGatewayEvent) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(rows)
+    body: JSON.stringify(rows),
   }
-}
+});
 
 /* GET categories */
 // router.get('/categories/:id', async function (req, res, next) {
-export async function portalsGetCategories(event: APIGatewayEvent) {
-  let id = event.pathParameters?.id;
+export const portalsGetCategories = prepare(async (event: APIGatewayEvent) => {
+  const id = event.pathParameters?.id;
   if (id == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
   await doDBOpen();
 
   //get the categories
-  let sql = `select id, topic, id_category, name from portal_category_topic_map m 
+  const sql = `select id, topic, id_category, name from portal_category_topic_map m 
 join portal_categories pc on pc.id_category = m.category
 where m.portal = ${id}`;
   const rows = await doDBQuery(sql);
@@ -545,25 +542,25 @@ where m.portal = ${id}`;
 
   return {
     statusCode: 200,
-    body: JSON.stringify(rows)
+    body: JSON.stringify(rows),
   }
-}
+});
 
 /* GET subcategories */
 // router.get('/subcategories/:id', async function (req, res, next) {
-export async function portalsGetSubCategories(event: APIGatewayEvent) {
-  let id = event.pathParameters?.id;
+export const portalsGetSubCategories = prepare(async (event: APIGatewayEvent) => {
+  const id = event.pathParameters?.id;
   if (id == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
   await doDBOpen();
 
   //get the categories
-  let sql = `select id, topic, category, id_subcategory, name from portal_subcategory_category_map m 
+  const sql = `select id, topic, category, id_subcategory, name from portal_subcategory_category_map m 
   join portal_subcategories sc on sc.id_subcategory = m.subcategory
   where m.portal = ${id}`;
   const rows = await doDBQuery(sql);
@@ -571,25 +568,25 @@ export async function portalsGetSubCategories(event: APIGatewayEvent) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(rows)
+    body: JSON.stringify(rows),
   }
-}
+});
 
 /* GET indicators */
 // router.get('/indicators/:id', async function (req, res, next) {
-export async function portalsGetIndicators(event: APIGatewayEvent) {
-  let id = event.pathParameters?.id;
+export const portalsGetIndicators = prepare(async (event: APIGatewayEvent) => {
+  const id = event.pathParameters?.id;
   if (id == null) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "Missing param values" })
+      body: JSON.stringify({ error: "Missing param values" }),
     }
   }
 
   await doDBOpen();
 
   //get the categories
-  let sql = `SELECT * FROM portal_indicator_map m
+  const sql = `SELECT * FROM portal_indicator_map m
   join portal_indicators i on i.id = m.indicator
   where m.portal = ${id} order by i.title`;
   const rows = await doDBQuery(sql);
@@ -597,6 +594,6 @@ export async function portalsGetIndicators(event: APIGatewayEvent) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(rows)
+    body: JSON.stringify(rows),
   }
-}
+});

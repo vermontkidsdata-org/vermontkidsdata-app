@@ -13,7 +13,7 @@ const { NAMESPACE, LOG_LEVEL, REDIRECT_URI } = process.env;
 export const serviceName = `delete-session-${NAMESPACE}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName: serviceName
+  serviceName: serviceName,
 });
 export const tracer = new Tracer({ serviceName: serviceName });
 
@@ -43,7 +43,7 @@ export async function lambdaHandler(
       "Location": state || REDIRECT_URI!,
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST",
-    }
+    },
   }
 }
 
@@ -51,6 +51,6 @@ export const main = middy(lambdaHandler)
   .use(captureLambdaHandler(tracer))
   .use(injectLambdaContext(logger))
   .use(
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   )
   ;

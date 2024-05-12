@@ -3,7 +3,6 @@ import { LambdaIntegration, MethodOptions, Resource, RestApi } from "aws-cdk-lib
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
 import { join } from "path";
-import { portalsGetById, portalsGetCategories, portalsGetElementById, portalsGetIndicators, portalsGetList, portalsGetSubCategories, portalsGetTopics, portalsPostAddElement, portalsPostAddIndicator, portalsPostAddIndicatorMapping, portalsPostAddMapping, portalsPostDeleteElement, portalsPostEditElement } from "../src/portals";
 
 export type OnAddCallback = (fn: NodejsFunction) => void;
 
@@ -52,7 +51,7 @@ export class PortalsFunctions extends Construct {
     // GET /
     portalsRoot.addMethod('GET', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsGetList.name,
+      handler: 'portalsGetList',
       commonEnv,
       onAdd,
     })), methodOptions);
@@ -61,97 +60,97 @@ export class PortalsFunctions extends Construct {
     const portalsRootId = addResource(portalsRoot, '{id}');
     portalsRootId.addMethod('GET', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsGetById.name,
+      handler: 'portalsGetById',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.post('/addelement/:elttype/:eltval/:eltparent', async function (req, res, next) {
     addResource(portalsRoot, 'addelement/{elttype}/{eltval}/{eltparent}').addMethod('POST', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsPostAddElement.name,
+      handler: 'portalsPostAddElement',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.post('/addmapping/:elttype/:eltid/:eltparent', async function (req, res, next) {
     addResource(portalsRoot, '/addmapping/:elttype/:eltid/:eltparent').addMethod('POST', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsPostAddMapping.name,
+      handler: 'portalsPostAddMapping',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.post('/addindicator', async function (req, res, next) {
     addResource(portalsRoot, '/addindicator').addMethod('POST', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsPostAddIndicator.name,
+      handler: 'portalsPostAddIndicator',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.post('/addindicatormapping', async function (req, res, next) {
     addResource(portalsRoot, '/addindicatormapping').addMethod('POST', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsPostAddIndicatorMapping.name,
+      handler: 'portalsPostAddIndicatorMapping',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.post('/deleteelement', async function (req, res, next) {
     addResource(portalsRoot, '/deleteelement').addMethod('POST', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsPostDeleteElement.name,
+      handler: 'portalsPostDeleteElement',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.post('/editelement', async function (req, res, next) {
     addResource(portalsRoot, '/editelement').addMethod('POST', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsPostEditElement.name,
+      handler: 'portalsPostEditElement',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.get('/element/:elt/:id', async function (req, res, next) {
     addResource(portalsRoot, '/element/{elt}/{id}').addMethod('GET', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsGetElementById.name,
+      handler: 'portalsGetElementById',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.get('/topics/:id', async function (req, res, next) {
     addResource(portalsRoot, '/topics/{id}').addMethod('GET', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsGetTopics.name,
+      handler: 'portalsGetTopics',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.get('/categories/:id', async function (req, res, next) {
     addResource(portalsRoot, '/categories/{id}').addMethod('GET', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsGetCategories.name,
+      handler: 'portalsGetCategories',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.get('/subcategories/:id', async function (req, res, next) {
     addResource(portalsRoot, '/subcategories/{id}').addMethod('GET', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsGetSubCategories.name,
+      handler: 'portalsGetSubCategories',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
 
     // router.get('/indicators/:id', async function (req, res, next) {
     addResource(portalsRoot, '/indicators/{id}').addMethod('GET', new LambdaIntegration(getPortalsLambda({
       scope: this,
-      handler: portalsGetIndicators.name,
+      handler: 'portalsGetIndicators',
       commonEnv,
-      onAdd
+      onAdd,
     })), methodOptions);
   }
 }

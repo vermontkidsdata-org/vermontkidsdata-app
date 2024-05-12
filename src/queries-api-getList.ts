@@ -13,7 +13,7 @@ const {NAMESPACE, LOG_LEVEL} = process.env;
 const serviceName = `queries-api-getList-${NAMESPACE}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 export const tracer = new Tracer({ serviceName });
 
@@ -30,8 +30,8 @@ export async function lambdaHandler(
     return {
       statusCode: 200,
       body: JSON.stringify({
-        rows: queryRows
-      })
+        rows: queryRows,
+      }),
     };
   } finally {
     await doDBClose();

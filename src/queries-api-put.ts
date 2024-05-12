@@ -10,7 +10,7 @@ const {NAMESPACE, LOG_LEVEL} = process.env;
 const serviceName = `queries-api-put-${NAMESPACE}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 export const tracer = new Tracer({ serviceName });
 
@@ -25,8 +25,8 @@ export async function lambdaHandler(
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: 'empty body passed'
-      })
+        message: 'empty body passed',
+      }),
     };
   }
 
@@ -35,8 +35,8 @@ export async function lambdaHandler(
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: 'PUT requires at least sqlText'
-      })
+        message: 'PUT requires at least sqlText',
+      }),
     };
   }
 
@@ -51,8 +51,8 @@ export async function lambdaHandler(
           return {
             statusCode: 400,
             body: JSON.stringify({
-              message: 'PUT cannot change name'
-            })
+              message: 'PUT cannot change name',
+            }),
           };
         }
 
@@ -68,8 +68,8 @@ export async function lambdaHandler(
         return {
           statusCode: 200,
           body: JSON.stringify({
-            row: { name, sqlText, columnMap, metadata, id }
-          })
+            row: { name, sqlText, columnMap, metadata, id },
+          }),
         };
       }
     } finally {
@@ -80,7 +80,7 @@ export async function lambdaHandler(
   return {
     statusCode: 404,
     body: JSON.stringify({
-      message: 'query not found'
-    })
+      message: 'query not found',
+    }),
   };
 }

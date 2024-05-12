@@ -17,7 +17,7 @@ import { CORSConfigDefault } from './cors-config';
 const serviceName = `get-dataset-backups-${process.env.NAMESPACE}`;
 const logger = new Logger({
   logLevel: (process.env.LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 const tracer = new Tracer({ serviceName });
 
@@ -66,7 +66,7 @@ export async function lambdaHandler(event: APIGatewayEvent): Promise<APIGatewayP
   return {
     statusCode: 200,
     headers: {
-      'Content-Type': 'text/csv'
+      'Content-Type': 'text/csv',
     },
     body,
   }
@@ -76,5 +76,5 @@ export const main = middy(lambdaHandler)
   .use(captureLambdaHandler(tracer))
   .use(injectLambdaContext(logger))
   .use(
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   );

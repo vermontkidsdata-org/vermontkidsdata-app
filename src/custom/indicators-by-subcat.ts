@@ -117,8 +117,8 @@ export async function getResponse(queryRow: QueryRow): Promise<CustomResponse> {
     "metadata": {
       "config": {
         "yAxis": {
-          "type": "number"
-        }
+          "type": "number",
+        },
       },
       // "uploadType": "general:residentialcare" <-- no upload
     },
@@ -132,11 +132,11 @@ export async function getResponse(queryRow: QueryRow): Promise<CustomResponse> {
       // },
       Object.keys(catCounts).map(key => ({
         "name": key.substring(key.indexOf('|') + 1),
-        "data": [catCounts[key]]
+        "data": [catCounts[key]],
       })),
     "categories": [
-      'indicators'
-    ]
+      'indicators',
+    ],
   };
   return data;
 }

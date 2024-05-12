@@ -23,8 +23,8 @@ interface TypesConfigElement {
 
 const typesConfig: { [type: string]: TypesConfigElement } = {
   assessments: {
-    processRowFunction: processAssessmentRow
-  }
+    processRowFunction: processAssessmentRow,
+  },
 }
 
 // CREATE TABLE `dbvkd`.`data_assessments` (
@@ -66,7 +66,7 @@ async function processAssessmentRow(record: string[], lnum: number, identifier: 
       assess_label: record[5],
       value_w: (record[6] == '' || record[6] == 'NULL') ? null : parseFloat(record[6]),
       value_w_st: (record[7] == '' || record[7] == 'NULL') ? null : parseFloat(record[7]),
-      value_w_susd: (record[8] == '' || record[8] == 'NULL') ? null : parseFloat(record[8])
+      value_w_susd: (record[8] == '' || record[8] == 'NULL') ? null : parseFloat(record[8]),
     };
     await doDBQuery(
       `insert into data_assessments (sy, org_id, test_name, indicator_label, assess_group, assess_label, value_w, value_w_st, value_w_susd) 
@@ -75,8 +75,8 @@ async function processAssessmentRow(record: string[], lnum: number, identifier: 
             sy=?, org_id=?, test_name=?, indicator_label=?, assess_group=?, assess_label=?, value_w=?, value_w_st=?, value_w_susd=?`,
       [
         values.sy, values.org_id, values.test_name, values.indicator_label, values.assess_group, values.assess_label, values.value_w, values.value_w_st, values.value_w_susd,
-        values.sy, values.org_id, values.test_name, values.indicator_label, values.assess_group, values.assess_label, values.value_w, values.value_w_st, values.value_w_susd
-      ]
+        values.sy, values.org_id, values.test_name, values.indicator_label, values.assess_group, values.assess_label, values.value_w, values.value_w_st, values.value_w_susd,
+      ],
     );
   }
 }
@@ -90,8 +90,8 @@ async function updateStatus(id: string, status: string, percent: number, numReco
       numRecords: { N: numRecords.toString() },
       percent: { N: percent.toString() },
       errors: { S: JSON.stringify(errors.map(e => e.message)) },
-      lastUpdated: { S: new Date().toISOString() }
-    }
+      lastUpdated: { S: new Date().toISOString() },
+    },
   }).promise();
 }
 
@@ -99,13 +99,13 @@ export async function status(event: APIGatewayProxyEventV2): Promise<APIGatewayP
   const ret = await dynamodb.getItem({
     TableName: statusTableName!,
     Key: {
-      id: { S: event.pathParameters!.uploadId }
-    }
+      id: { S: event.pathParameters!.uploadId },
+    },
   }).promise();
 
   if (ret.Item == null) {
     return {
-      statusCode: 500
+      statusCode: 500,
     };
   } else {
     return {
@@ -120,8 +120,8 @@ export async function status(event: APIGatewayProxyEventV2): Promise<APIGatewayP
         numRecords: ret.Item.numRecords.N,
         percent: ret.Item.percent.N,
         errors: ret.Item.errors.S,
-        lastUpdated: ret.Item.lastUpdated.S
-      })
+        lastUpdated: ret.Item.lastUpdated.S,
+      }),
     };
   }
 }
@@ -177,9 +177,9 @@ export async function main(
     await doDBOpen();
 
     const errors: Error[] = []
-    let rowCount = 0;
-    let saveTotal = 0;
-    let statusUpdatePct = 0;
+    const rowCount = 0;
+    const saveTotal = 0;
+    const statusUpdatePct = 0;
     // try {
     //     let lastStatusUpdatePct = 0;
     //     await processCSV(bodyContents, async (record, index, total) => {
@@ -226,7 +226,7 @@ async function parseCSV(recordsString: string): Promise<string[][]> {
 
 async function processCSV(recordsString: string, callback: (record: string[], index: number, total: number) => Promise<void>): Promise<void> {
   // First parse into array. Hopefully there are not too many!
-  let records: string[][] = await parseCSV(recordsString);
+  const records: string[][] = await parseCSV(recordsString);
 
   // Now process the records
   console.log(`number of records: ${records.length}`);
@@ -241,13 +241,13 @@ if (!module.parent) {
       Records: [{
         s3: {
           bucket: {
-            name: 'master-localdevbranch-uploadsbucket86f42938-1x6dlq695pl4z'
+            name: 'master-localdevbranch-uploadsbucket86f42938-1x6dlq695pl4z',
           },
           object: {
-            key: 'Assessment_2019a.csv'
-          }
-        }
-      }]
+            key: 'Assessment_2019a.csv',
+          },
+        },
+      }],
     } as S3Event)
   })().catch(err => {
     console.log(`exception`, err);

@@ -10,15 +10,15 @@ interface Response {
 
 const tableInfo = {
   topics: {
-    ref: 'name'
+    ref: 'name',
   },
   categories: {
     ignored: ['id', 'Category'],
-    ref: 'Category'
+    ref: 'Category',
   },
   subcategories: {
     ignored: ['id', 'Category'],
-    ref: 'Category'
+    ref: 'Category',
   },
   indicators: {
     ignored: ['id', 'link', 'slug', 'title', 'wp_id', 'Chart_url',
@@ -33,8 +33,8 @@ const tableInfo = {
     'goal 3 (opportunties)',
     'goal 4 (integrated/resource/data-drive)',
   ],
-    ref: 'Category'
-  }
+    ref: 'Category',
+  },
 }
 
 type ValidThingNames = 'categories' | 'subcategories' | 'indicators';
@@ -127,7 +127,7 @@ export async function check(
   interface TableErrors {
     columnsNotFound?: string[],
     unusedRefs?: string[],
-  };
+  }
 
   // console.log({ topics, categories, subcategories, indicators });
   // First make sure topics -> categories, using front end comparison

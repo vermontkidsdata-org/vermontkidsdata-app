@@ -16,7 +16,7 @@ import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 export const serviceName = `get-credentials-${ENV_NAME}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName: serviceName
+  serviceName: serviceName,
 });
 export const tracer = new Tracer({ serviceName: serviceName });
 
@@ -54,7 +54,7 @@ export async function lambdaHandler(
 
   if (IDENTITY_POOL_ID == null || IDENTITY_PROVIDER == null || AWS_REGION == null || SERVICE_TABLE == null) {
     return httpResponse(500, {
-      message: 'Cognito callback needs IDENTITY_POOL_ID, IDENTITY_PROVIDER, AWS_REGION, SERVICE_TABLE'
+      message: 'Cognito callback needs IDENTITY_POOL_ID, IDENTITY_PROVIDER, AWS_REGION, SERVICE_TABLE',
     });
   }
 
@@ -62,7 +62,7 @@ export async function lambdaHandler(
     IDENTITY_POOL_ID,
     IDENTITY_PROVIDER,
     idToken,
-    AWS_REGION
+    AWS_REGION,
   );
   logger.info({ message: 'creds', creds });
 
@@ -81,6 +81,6 @@ export const main = middy(lambdaHandler)
   .use(captureLambdaHandler(tracer))
   .use(injectLambdaContext(logger))
   .use(
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   )
   ;

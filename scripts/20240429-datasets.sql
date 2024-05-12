@@ -180,7 +180,7 @@ insert into
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'idea_bc:chart_by_age',
-    'SELECT `age` as `cat`, `geography` as `label`, sum(`value`) as `value` FROM data_idea_bc where `geography`="Vermont" and `school_year`=(select max(`school_year`) from data_idea_bc) group by `age` order by `age`',
+    'SELECT `age` as `cat`, `category` as `label`, sum(`value`) as `value` FROM data_idea_bc where `geography`="Vermont" and `school_year`=(select max(`school_year`) from data_idea_bc) group by `age` order by `age`',
     'general:idea_bc',
     '{"yAxis": {"type": "number"}}'
   );
@@ -269,6 +269,7 @@ case
   when category like 'English No %' then 'English' 
   when category like 'English %' then 'English' 
   when category like 'Math Not %' then 'Math' 
+  when category like 'Math No %' then 'Math' 
   when category like 'Math %' then 'Math' 
   else '??' end as `subject`,
 case 
@@ -276,6 +277,7 @@ case
   when category like 'English No %' then substring(category, 12)
   when category like 'English %' then substring(category, 9)
   when category like 'Math Not %' then substring(category, 10)
+  when category like 'Math No %' then substring(category, 9)
   when category like 'Math %' then substring(category, 6)
   else '??' end as `group`,
 case
@@ -283,6 +285,7 @@ case
   when category like 'English No %' then 'No' 
   when category like 'English %' then 'Yes' 
   when category like 'Math Not %' then 'No' 
+  when category like 'Math No %' then 'No' 
   when category like 'Math %' then 'Yes' 
   else '??' end as `included`,
   `value`

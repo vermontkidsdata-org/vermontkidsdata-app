@@ -13,7 +13,7 @@ const { NAMESPACE, LOG_LEVEL } = process.env;
 const serviceName = `charts-api-${NAMESPACE}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 export const tracer = new Tracer({ serviceName });
 
@@ -27,7 +27,7 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
         "Content-Type": "application/json",
         "Access-Control-Allow-Methods": "GET",
       },
-      body: JSON.stringify({ message: `uploadId is required` })
+      body: JSON.stringify({ message: `uploadId is required` }),
     };
   }
 
@@ -35,7 +35,7 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
 
   if (uploadStatus.Item == null) {
     return {
-      statusCode: 500
+      statusCode: 500,
     };
   } else {
     return {
@@ -51,7 +51,7 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
         percent: uploadStatus.Item.percent,
         errors: uploadStatus.Item.errors,
         lastUpdated: uploadStatus.Item.lastUpdated,
-      })
+      }),
     };
   }
 }
@@ -61,7 +61,7 @@ export const handler = middy(lambdaHandler)
   .use(injectLambdaContext(logger))
   .use(
     // cors(new CORSConfig(process.env))
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   );
 
 // if (!module.parent) {

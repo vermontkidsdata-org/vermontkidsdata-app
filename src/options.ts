@@ -12,7 +12,7 @@ const {LOG_LEVEL, NAMESPACE} = process.env;
 const serviceName = `options-${NAMESPACE}`;
 const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 const tracer = new Tracer({ serviceName });
 
@@ -23,8 +23,8 @@ export async function lambdaHandler(
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: 'success'
-    })
+      message: 'success',
+    }),
   };
 }
 
@@ -33,5 +33,5 @@ export const handler = middy(lambdaHandler)
   .use(injectLambdaContext(logger))
   .use(
     // cors(new CORSConfig(process.env, true))
-    cors(CORSConfigDefault)
+    cors(CORSConfigDefault),
   );

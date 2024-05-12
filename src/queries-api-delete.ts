@@ -10,7 +10,7 @@ const {NAMESPACE, LOG_LEVEL} = process.env;
 const serviceName = `queries-api-delete-${NAMESPACE}`;
 export const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 export const tracer = new Tracer({ serviceName });
 
@@ -33,8 +33,8 @@ export async function lambdaHandler(
         return {
           statusCode: 200,
           body: JSON.stringify({
-            message: 'query deleted'
-          })
+            message: 'query deleted',
+          }),
         };
       }
     } finally {
@@ -45,7 +45,7 @@ export async function lambdaHandler(
   return {
     statusCode: 404,
     body: JSON.stringify({
-      message: 'query not found'
-    })
+      message: 'query not found',
+    }),
   };
 }

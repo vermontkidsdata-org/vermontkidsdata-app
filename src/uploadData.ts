@@ -91,7 +91,7 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
     processRowFunction: processAssessmentRow,
   },
   general: {
-    processRowFunction: processGeneralRow
+    processRowFunction: processGeneralRow,
   },
   dashboard: {
     processRowFunction: processGeneralRow,
@@ -157,7 +157,7 @@ async function getColumns(table: string): Promise<Column[]> {
     const cols = colsRaw.map(colRaw => ({
       columnName: colRaw.COLUMN_NAME as string,
       dataType: getDataType(colRaw.DATA_TYPE),
-      isNullable: colRaw.IS_NULLABLE === 'YES'
+      isNullable: colRaw.IS_NULLABLE === 'YES',
     }));
     console.log({ message: 'getColumns for UploadType', colsRaw, cols });
 
@@ -234,7 +234,7 @@ function matchColumns(record: string[], uploadType: UploadType): { matchedColumn
   for (const col of record) {
     // "Match" is defined as "case insensitive comparison where spaces and underscores are equivalent".
     // But first we need to see if there's a column mapping, and substitute the incoming name.
-    let lccolExternal = humanToInternalName(col);
+    const lccolExternal = humanToInternalName(col);
     const mappedColumn = uploadType.columnMap ?
       Object.entries(uploadType.columnMap).find(e => e[1] === lccolExternal)?.[0] :
       undefined;
@@ -447,7 +447,7 @@ async function processAssessmentRow(type: UploadType, record: string[], lnum: nu
       assess_label: record[5],
       value_w: (record[6] == '' || record[6] == 'NULL') ? null : parseFloat(record[6]),
       value_w_st: (record[7] == '' || record[7] == 'NULL') ? null : parseFloat(record[7]),
-      value_w_susd: (record[8] == '' || record[8] == 'NULL') ? null : parseFloat(record[8])
+      value_w_susd: (record[8] == '' || record[8] == 'NULL') ? null : parseFloat(record[8]),
     };
     await doDBQuery(
       `insert into data_assessments (sy, org_id, test_name, indicator_label, assess_group, assess_label, value_w, value_w_st, value_w_susd) 
@@ -456,8 +456,8 @@ async function processAssessmentRow(type: UploadType, record: string[], lnum: nu
             sy=?, org_id=?, test_name=?, indicator_label=?, assess_group=?, assess_label=?, value_w=?, value_w_st=?, value_w_susd=?`,
       [
         values.sy, values.org_id, values.test_name, values.indicator_label, values.assess_group, values.assess_label, values.value_w, values.value_w_st, values.value_w_susd,
-        values.sy, values.org_id, values.test_name, values.indicator_label, values.assess_group, values.assess_label, values.value_w, values.value_w_st, values.value_w_susd
-      ]
+        values.sy, values.org_id, values.test_name, values.indicator_label, values.assess_group, values.assess_label, values.value_w, values.value_w_st, values.value_w_susd,
+      ],
     );
   }
 
@@ -467,7 +467,7 @@ async function processAssessmentRow(type: UploadType, record: string[], lnum: nu
 enum LockAction {
   Lock,
   Unlock
-};
+}
 
 async function updateStatus(id: string, status: string, percent: number, numRecords: number, errors: Error[], lockAction?: LockAction): Promise<UpdateCommandOutput> {
   const data = {
@@ -476,7 +476,7 @@ async function updateStatus(id: string, status: string, percent: number, numReco
     numRecords,
     percent,
     errors: errors?.map(e => e.message) ?? [],
-    lastUpdated: new Date().toISOString()
+    lastUpdated: new Date().toISOString(),
   };
 
   if (lockAction === LockAction.Lock) {
@@ -486,8 +486,8 @@ async function updateStatus(id: string, status: string, percent: number, numReco
     }, {
       conditions: [{
         attr: 'locked',
-        exists: false
-      }]
+        exists: false,
+      }],
     });
   } else {
     return UploadStatus.update({
@@ -587,7 +587,7 @@ export async function processUpload(props: {
       [
         timestamp,
         uploadTypeStr,
-      ]
+      ],
     );
 
     await doDBCommit();
@@ -621,7 +621,7 @@ async function getUploadFile(props: {
   };
   console.log('params', params);
 
-  let tags: { [key: string]: string } = {};
+  const tags: { [key: string]: string } = {};
   let bodyContents: string | undefined = undefined;
   let contentType: string | undefined = undefined;
   for (let i = 0; i < 5; i++) {
@@ -758,7 +758,7 @@ export async function main(
           dataset: datasetVersionData.dataset,
           version: datasetVersionData.version,
           identifier,
-        })
+        }),
       }));
 
       console.log({ message: 'backup queue response', queueResp });
@@ -788,7 +788,7 @@ async function parseCSV(recordsString: string): Promise<string[][]> {
 
 async function processCSV(recordsString: string, uploadType: UploadType, callback: (record: string[], index: number, total: number) => Promise<boolean>): Promise<boolean> {
   // First parse into array. Hopefully there are not too many!
-  let records: string[][] = await parseCSV(recordsString);
+  const records: string[][] = await parseCSV(recordsString);
 
   // Now process the records
   console.log(`number of records: ${records.length}`);

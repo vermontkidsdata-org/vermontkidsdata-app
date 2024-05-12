@@ -16,14 +16,14 @@ export const CORSConfigDefault = {
   },
   credentials: true,
   methods: "GET, PUT, POST, DELETE",
-  headers: "Content-Type"
+  headers: "Content-Type",
 };
 
 export const CORSConfigOpen = {
   origin: '*',
   credentials: false,
   methods: "GET",
-  headers: "Content-Type"
+  headers: "Content-Type",
 };
 
 export class CORSConfig implements Options {
@@ -34,17 +34,17 @@ export class CORSConfig implements Options {
     const ret = "*";
     console.log(`CORSConfig.origin() call: returning ${ret}`);
     return ret;
-  };
+  }
 
   get methods(): string {
     const ret = "PUT, POST, DELETE";
     console.log(`CORSConfig.methods() call: returning ${ret}`);
     return ret;
-  };
+  }
 
   get headers(): string {
     const ret = "Content-Type";
     console.log(`CORSConfig.headers() call: returning ${ret}`);
     return ret;
-  };
+  }
 }

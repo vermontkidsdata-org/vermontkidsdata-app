@@ -18,20 +18,20 @@ export async function queryDB(
   // let connection: mysql.Connection;
   // Get secret connection info
   const secrets = (await smClient.send(new GetSecretValueCommand({
-    SecretId: `vkd/${getNamespace()}/dbcreds`
+    SecretId: `vkd/${getNamespace()}/dbcreds`,
   }))).SecretString;
 
   if (secrets == null) {
     return {
       body: JSON.stringify({ message: 'DB connection info not found' }),
-      statusCode: 500
+      statusCode: 500,
     };
   } else {
     const info: {host: string, username: string, password: string} = JSON.parse(secrets);
     if (info.host == null || info.username == null || info.password == null) {
       return {
         body: JSON.stringify({ message: 'DB connection info missing information' }),
-        statusCode: 500
+        statusCode: 500,
       };
     } else {
       // connection = await mysql.createConnection({

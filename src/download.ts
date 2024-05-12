@@ -16,7 +16,7 @@ import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
 const serviceName = `download-${process.env.NAMESPACE}`;
 const logger = new Logger({
   logLevel: (process.env.LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName
+  serviceName,
 });
 const tracer = new Tracer({ serviceName });
 
@@ -24,7 +24,7 @@ const { REGION } = process.env;
 
 interface DBRow {
   [key: string]: string | number
-};
+}
 
 type CsvProcessCallback = (type: string, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any) => Promise<void>;
 type GetTableNameForFunction = (type: string) => string;
@@ -55,7 +55,7 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
     readonly: true,
     processRowFunction: processGeneralRow,
     getTableNameForFunction: (type: string) => "data_" + type.substring('general'.length + 1),
-  }
+  },
 }
 
 async function processAssessmentRow(type: string, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any): Promise<void> {
@@ -142,7 +142,7 @@ export async function getCSVData(uploadType: string, limit: number): Promise<
     // Now append all the rows into a long CSV string
     return {
       body: rows.map(row => toCSV(row)).join('\n'),
-      numrows: rows.length-1
+      numrows: rows.length-1,
     }
   }
 }
@@ -162,7 +162,7 @@ export async function lambdaHandler(
   const response: { statusCode: number, body: string, headers: { [key: string]: string } } = {
     statusCode: 500,
     body: '',
-    headers: {}
+    headers: {},
   };
 
   try {
@@ -171,14 +171,14 @@ export async function lambdaHandler(
 
     if (uploadType == null) {
       updateResponse(response, {
-        message: 'missing upload type'
+        message: 'missing upload type',
       }, 400);
     } else {
       // We have a callback function to call. Query the table.
       const resp = await getCSVData(uploadType, limit);
       if (isErrorResponse(resp)) {
         updateResponse(response, {
-          message: resp.errorMessage
+          message: resp.errorMessage,
         }, resp.errorStatus);
       } else {
         response.body = resp.body ?? 'unknown-csv';
@@ -197,8 +197,8 @@ if (!module.parent) {
   (async () => {
     console.log(await lambdaHandler({
       pathParameters: {
-        uploadType: 'dashboard:indicators'
-      }
+        uploadType: 'dashboard:indicators',
+      },
     } as unknown as APIGatewayProxyEvent))
   })().catch(err => {
     console.log(`exception`, err);
@@ -211,5 +211,5 @@ export const main = middy(lambdaHandler)
   .use(injectLambdaContext(logger))
   .use(
     // cors(new CORSConfig(process.env))
-    cors(CORSConfigOpen)
+    cors(CORSConfigOpen),
   );

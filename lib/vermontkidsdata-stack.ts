@@ -64,9 +64,9 @@ export class VermontkidsdataStack extends Stack {
         {
           allowedMethods: [s3.HttpMethods.GET, s3.HttpMethods.POST, s3.HttpMethods.HEAD, s3.HttpMethods.PUT],
           allowedOrigins: ['*'],
-          allowedHeaders: ['*']
-        }
-      ]
+          allowedHeaders: ['*'],
+        },
+      ],
     });
 
     // Look up the user pool. There's only one and we create it
@@ -96,7 +96,7 @@ export class VermontkidsdataStack extends Stack {
       allowUnauthenticatedIdentities: false,
       cognitoIdentityProviders: [{
         providerName: `cognito-idp.${this.region}.amazonaws.com/${userPool.userPoolId}`,
-        clientId: userPoolClient.userPoolClientId
+        clientId: userPoolClient.userPoolClientId,
       }],
     });
 
@@ -121,16 +121,16 @@ export class VermontkidsdataStack extends Stack {
               effect: Effect.ALLOW,
               actions: ['s3:PutObject', 's3:PutObjectTagging'],
               resources: [`${bucket.bucketArn}/*`],
-            })
-          ]
-        })
-      }
+            }),
+          ],
+        }),
+      },
     });
 
     new CfnIdentityPoolRoleAttachment(this, 'identity pool role attachment', {
       identityPoolId: identityPool.ref,
       roles: {
-        authenticated: isUserCognitoGroupRole.roleArn
+        authenticated: isUserCognitoGroupRole.roleArn,
       },
       roleMappings: {
         mapping: {
@@ -140,7 +140,7 @@ export class VermontkidsdataStack extends Stack {
             }.amazonaws.com/${userPool.userPoolId}:${userPoolClient.userPoolClientId
             }`,
         },
-      }
+      },
     });
 
     // s3Role.addToPolicy(new PolicyStatement({
@@ -150,7 +150,7 @@ export class VermontkidsdataStack extends Stack {
     // }));
 
     new CfnOutput(this, "Bucket name", {
-      value: bucket.bucketName
+      value: bucket.bucketName,
     });
 
     const bucketName = bucket.bucketName;
@@ -165,13 +165,13 @@ export class VermontkidsdataStack extends Stack {
     serviceTable.addGlobalSecondaryIndex({
       indexName: 'GSI1',
       partitionKey: { name: 'GSI1PK', type: AttributeType.STRING },
-      sortKey: { name: 'GSI1SK', type: AttributeType.STRING }
+      sortKey: { name: 'GSI1SK', type: AttributeType.STRING },
     });
 
     serviceTable.addGlobalSecondaryIndex({
       indexName: 'GSI2',
       partitionKey: { name: 'GSI2PK', type: AttributeType.STRING },
-      sortKey: { name: 'GSI2SK', type: AttributeType.STRING }
+      sortKey: { name: 'GSI2SK', type: AttributeType.STRING },
     });
 
     // Create SQS queue to start a backup
@@ -191,6 +191,7 @@ export class VermontkidsdataStack extends Stack {
       NAMESPACE: ns,
       IS_PRODUCTION: `${props.isProduction}`,
       DATASET_BACKUP_QUEUE_URL: queue.queueUrl,
+      LOG_LEVEL: 'info',
     };
 
     // Upload data function.
@@ -205,14 +206,14 @@ export class VermontkidsdataStack extends Stack {
         ...commonEnv,
         S3_BUCKET_NAME: bucketName,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     bucket.grantRead(uploadFunction);
     queue.grantSendMessages(uploadFunction);
 
     const getSecretValueStatement = new PolicyStatement({
       actions: ["secretsmanager:GetSecretValue"],
-      resources: ["*"]
+      resources: ["*"],
     });
 
     const datasetBackupFunction = new NodejsFunction(this, 'Dataset Backup Function', {
@@ -226,7 +227,7 @@ export class VermontkidsdataStack extends Stack {
         ...commonEnv,
         S3_BUCKET_NAME: bucketName,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     datasetBackupFunction.addToRolePolicy(getSecretValueStatement);
     datasetBackupFunction.addEventSource(new SqsEventSource(queue, {
@@ -245,7 +246,7 @@ export class VermontkidsdataStack extends Stack {
       environment: {
         ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     serviceTable.grantReadWriteData(listDataSetBackupsFunction);
 
@@ -260,7 +261,7 @@ export class VermontkidsdataStack extends Stack {
         ...commonEnv,
         S3_BUCKET_NAME: bucketName,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     serviceTable.grantReadWriteData(getDataSetBackupFunction);
     bucket.grantReadWrite(getDataSetBackupFunction);
@@ -276,7 +277,7 @@ export class VermontkidsdataStack extends Stack {
         ...commonEnv,
         S3_BUCKET_NAME: bucketName,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     serviceTable.grantReadWriteData(dataSetRevertFunction);
     bucket.grantReadWrite(dataSetRevertFunction);
@@ -289,7 +290,7 @@ export class VermontkidsdataStack extends Stack {
     //   suffix: 'csv'
     // });
     bucket.addEventNotification(EventType.OBJECT_TAGGING_PUT, notify, {
-      suffix: 'csv'
+      suffix: 'csv',
     });
     uploadQueue.grantSendMessages(S3_SERVICE_PRINCIPAL);
     uploadFunction.addEventSource(new SqsEventSource(uploadQueue, {
@@ -310,7 +311,7 @@ export class VermontkidsdataStack extends Stack {
         ...commonEnv,
         S3_BUCKET_NAME: bucketName,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     serviceTable.grantReadWriteData(uploadFunction);
     serviceTable.grantReadWriteData(uploadStatusFunction);
@@ -327,9 +328,9 @@ export class VermontkidsdataStack extends Stack {
       handler: 'bar',
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     secret.grantRead(apiChartBarFunction);
 
@@ -341,9 +342,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     secret.grantRead(apiTableFunction);
 
@@ -355,9 +356,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/dashboard-check.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     secret.grantRead(dashboardCheckFunction);
 
@@ -369,9 +370,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     secret.grantRead(queriesGetListFunction);
 
@@ -383,9 +384,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     secret.grantRead(queriesGetFunction);
 
@@ -397,9 +398,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     secret.grantRead(queriesPutFunction);
 
@@ -411,9 +412,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     secret.grantRead(queriesDeleteFunction);
 
@@ -425,9 +426,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/queries-api.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     secret.grantRead(queriesPostFunction);
 
@@ -442,7 +443,7 @@ export class VermontkidsdataStack extends Stack {
         ...commonEnv,
         S3_BUCKET_NAME: bucketName,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     secret.grantRead(datasetPostFunction);
 
@@ -454,9 +455,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     tableCensusByGeoFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -468,9 +469,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     codesCensusVariablesByTable.addToRolePolicy(getSecretValueStatement);
 
@@ -482,9 +483,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     getDataSetYearsByDatasetFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -496,9 +497,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     getGeosByTypeFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -510,9 +511,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     getCensusTablesSearchFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -524,9 +525,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/tablesApi.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     testDBFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -538,9 +539,9 @@ export class VermontkidsdataStack extends Stack {
       entry: join(__dirname, "../src/download.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {
-        ...commonEnv
+        ...commonEnv,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
     downloadFunction.addToRolePolicy(getSecretValueStatement);
 
@@ -563,8 +564,8 @@ export class VermontkidsdataStack extends Stack {
       `route53-zone`,
       {
         hostedZoneId: HOSTED_ZONE_ID,
-        zoneName: BASE_DOMAIN_NAME
-      }
+        zoneName: BASE_DOMAIN_NAME,
+      },
     );
 
     const domainName = props.isProduction ?
@@ -578,8 +579,8 @@ export class VermontkidsdataStack extends Stack {
       {
         domainName: apiDomainName,
         hostedZone,
-        region: "us-east-1"
-      }
+        region: "us-east-1",
+      },
     );
 
     if (COGNITO_CLIENT_ID == null || COGNITO_SECRET == null) {
@@ -602,9 +603,9 @@ export class VermontkidsdataStack extends Stack {
         REDIRECT_URI,
         MY_URI: `https://api.${domainName}/oauthcallback`,
         ENV_NAME: ns,
-        IS_PRODUCTION: `${props.isProduction}`
+        IS_PRODUCTION: `${props.isProduction}`,
       },
-      tracing: Tracing.ACTIVE
+      tracing: Tracing.ACTIVE,
     });
 
     serviceTable.grantReadWriteData(oauthCallbackFunction);
@@ -616,8 +617,8 @@ export class VermontkidsdataStack extends Stack {
       logRetention: RetentionDays.FIVE_DAYS,
       environment: {
         ...commonEnv,
-        ENV_NAME: ns
-      }
+        ENV_NAME: ns,
+      },
     });
 
     serviceTable.grantReadWriteData(authorizerFunction);
@@ -632,18 +633,18 @@ export class VermontkidsdataStack extends Stack {
     const api = new RestApi(this, `${ns}-Vermont Kids Data`, {
       domainName: {
         certificate,
-        domainName: apiDomainName
+        domainName: apiDomainName,
       },
       // Add OPTIONS call to all resources
-      defaultCorsPreflightOptions: corsOptions
+      defaultCorsPreflightOptions: corsOptions,
     });
 
     const authorizer = new RequestAuthorizer(this, 'request authorizer', {
       handler: authorizerFunction,
       identitySources: [
-        IdentitySource.header('Cookie')
+        IdentitySource.header('Cookie'),
       ],
-      resultsCacheTtl: Duration.seconds(0) // Disable cache on authorizer
+      resultsCacheTtl: Duration.seconds(0), // Disable cache on authorizer
     });
 
     // const openApi = new OpenApiBuilder({
@@ -669,7 +670,7 @@ export class VermontkidsdataStack extends Stack {
           "Access-Control-Allow-Origin": "method.request.header.origin",
           "Access-Control-Allow-Methods": "'*'",
           "Access-Control-Allow-Credentials": "'true'",
-        }
+        },
       });
     }
 
@@ -691,8 +692,8 @@ export class VermontkidsdataStack extends Stack {
         ...commonEnv,
         ENV_NAME: ns,
         IDENTITY_POOL_ID: identityPool.ref,
-        IDENTITY_PROVIDER: cognitoProviderInfo.providerName
-      }
+        IDENTITY_PROVIDER: cognitoProviderInfo.providerName,
+      },
     });
     serviceTable.grantReadWriteData(getCredentialsFunction);
 
@@ -703,7 +704,7 @@ export class VermontkidsdataStack extends Stack {
       logRetention: RetentionDays.FIVE_DAYS,
       environment: {
         ...commonEnv,
-      }
+      },
     });
     serviceTable.grantReadWriteData(getSessionFunction);
 
@@ -715,27 +716,27 @@ export class VermontkidsdataStack extends Stack {
       environment: {
         ...commonEnv,
         REDIRECT_URI,
-      }
+      },
     });
     serviceTable.grantReadWriteData(deleteSessionFunction);
 
     const methodResponses = [{
       statusCode: '401',
       responseParameters: {
-        "method.response.header.Access-Control-Allow-Origin": true
-      }
+        "method.response.header.Access-Control-Allow-Origin": true,
+      },
     }, {
       statusCode: '403',
       responseParameters: {
-        "method.response.header.Access-Control-Allow-Origin": true
-      }
+        "method.response.header.Access-Control-Allow-Origin": true,
+      },
     }] as MethodResponse[];
 
     // Apply to all the methods that need authorization
     const auth = {
       authorizationType: AuthorizationType.CUSTOM,
       authorizer,
-      methodResponses
+      methodResponses,
     };
 
     new PortalsFunctions(this, 'portals functions', {
@@ -745,7 +746,7 @@ export class VermontkidsdataStack extends Stack {
       onAdd: (fn) => {
         serviceTable.grantReadWriteData(fn);
         secret.grantRead(fn);
-      }
+      },
     });
 
     const rSession = api.root.addResource('session');
@@ -758,7 +759,7 @@ export class VermontkidsdataStack extends Stack {
 
     const rOauthCallback = api.root.addResource('oauthcallback');
     rOauthCallback.addMethod("GET", new LambdaIntegration(oauthCallbackFunction), {
-      methodResponses
+      methodResponses,
     });
     // rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
@@ -846,7 +847,7 @@ export class VermontkidsdataStack extends Stack {
 
     const destinationBucket = new Bucket(this, 'Docs bucket', {
       encryption: BucketEncryption.S3_MANAGED,
-      removalPolicy: RemovalPolicy.DESTROY
+      removalPolicy: RemovalPolicy.DESTROY,
     });
 
     const docUIdir = join(__dirname, "../swagger-dist");
@@ -857,14 +858,14 @@ export class VermontkidsdataStack extends Stack {
         Source.data(objectKey, readFileSync(join(__dirname, "../apidocs.yaml")).toString().replace(/{{host}}/g, apiDomainName)),
         ...(readdirSync(docUIdir).map(fn =>
           Source.data(fn, readFileSync(join(docUIdir, fn)).toString().replace(/{{host}}/g, apiDomainName)))
-        )
+        ),
       ],
       prune: false,
-      memoryLimit: 1024
+      memoryLimit: 1024,
     });
 
     const bucketRole = new Role(this, 'API Doc Bucket Role', {
-      assumedBy: new ServicePrincipal('apigateway.amazonaws.com')
+      assumedBy: new ServicePrincipal('apigateway.amazonaws.com'),
     });
     destinationBucket.grantRead(bucketRole);
 
@@ -879,7 +880,7 @@ export class VermontkidsdataStack extends Stack {
     });
 
     new CfnOutput(this, 'docs domain', {
-      value: distro.domainName
+      value: distro.domainName,
     });
 
     const apiDocsPath = api.root.addResource('apidocs.yaml');
@@ -905,40 +906,40 @@ export class VermontkidsdataStack extends Stack {
                   "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
                 'method.response.header.Access-Control-Allow-Methods':
                   "'GET,OPTIONS'",
-                'method.response.header.Access-Control-Allow-Origin': "'*'"
-              }
+                'method.response.header.Access-Control-Allow-Origin': "'*'",
+              },
             } as IntegrationResponse,
-            { statusCode: '400' }
-          ]
-        }
+            { statusCode: '400' },
+          ],
+        },
       }),
       {
         methodResponses: [
           {
             statusCode: '200',
             responseModels: {
-              'application/json': Model.EMPTY_MODEL
+              'application/json': Model.EMPTY_MODEL,
             },
             responseParameters: {
               'method.response.header.Access-Control-Allow-Headers': true,
               'method.response.header.Access-Control-Allow-Methods': true,
-              'method.response.header.Access-Control-Allow-Origin': true
-            }
-          }
-        ]
-      }
+              'method.response.header.Access-Control-Allow-Origin': true,
+            },
+          },
+        ],
+      },
     );
 
     new ARecord(this, 'r53-be-arec', {
       zone: hostedZone,
       target: RecordTarget.fromAlias(
-        new ApiGateway(api)
+        new ApiGateway(api),
       ),
-      recordName: apiDomainName
+      recordName: apiDomainName,
     });
 
     new CfnOutput(this, "API Domain Name", {
-      value: apiDomainName
+      value: apiDomainName,
     });
   }
 }
