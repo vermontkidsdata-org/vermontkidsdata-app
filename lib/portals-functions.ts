@@ -1,14 +1,21 @@
 import { Duration } from "aws-cdk-lib";
-import { LambdaIntegration, MethodOptions, Resource, RestApi } from "aws-cdk-lib/aws-apigateway";
+import { AuthorizationType, LambdaIntegration, MethodOptions, MethodResponse, RequestAuthorizer, Resource, RestApi } from "aws-cdk-lib/aws-apigateway";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
 import { join } from "path";
 
 export type OnAddCallback = (fn: NodejsFunction) => void;
 
+export interface AuthInfo {
+  authorizationType: AuthorizationType,
+  authorizer: RequestAuthorizer,
+  methodResponses: MethodResponse[],
+}
+
 export interface PortalsFunctionsProps {
   api: RestApi;
   methodOptions?: MethodOptions;
+  auth?: AuthInfo;
   commonEnv: Record<string, string>;
   onAdd?: OnAddCallback;
 }
@@ -45,8 +52,14 @@ export class PortalsFunctions extends Construct {
   constructor(scope: Construct, id: string, props: PortalsFunctionsProps) {
     super(scope, id);
 
-    const { api, commonEnv, onAdd, methodOptions } = props;
+    const { api, commonEnv, onAdd, methodOptions, auth } = props;
     const portalsRoot = api.root.addResource('portals');
+
+    // Mix in the auth (POST endpoints only)
+    const methodOptionsWithAuth = {
+      ...methodOptions,
+      ...auth,
+    };
 
     // GET /
     portalsRoot.addMethod('GET', new LambdaIntegration(getPortalsLambda({
@@ -66,20 +79,20 @@ export class PortalsFunctions extends Construct {
     })), methodOptions);
 
     // router.post('/addelement/:elttype/:eltval/:eltparent', async function (req, res, next) {
-    addResource(portalsRoot, 'addelement/{elttype}/{eltval}/{eltparent}').addMethod('POST', new LambdaIntegration(getPortalsLambda({
+    addResource(portalsRoot, 'addelement').addMethod('POST', new LambdaIntegration(getPortalsLambda({
       scope: this,
       handler: 'portalsPostAddElement',
       commonEnv,
       onAdd,
-    })), methodOptions);
+    })), methodOptionsWithAuth);
 
     // router.post('/addmapping/:elttype/:eltid/:eltparent', async function (req, res, next) {
-    addResource(portalsRoot, '/addmapping/:elttype/:eltid/:eltparent').addMethod('POST', new LambdaIntegration(getPortalsLambda({
+    addResource(portalsRoot, '/addmapping').addMethod('POST', new LambdaIntegration(getPortalsLambda({
       scope: this,
       handler: 'portalsPostAddMapping',
       commonEnv,
       onAdd,
-    })), methodOptions);
+    })), methodOptionsWithAuth);
 
     // router.post('/addindicator', async function (req, res, next) {
     addResource(portalsRoot, '/addindicator').addMethod('POST', new LambdaIntegration(getPortalsLambda({
@@ -87,7 +100,7 @@ export class PortalsFunctions extends Construct {
       handler: 'portalsPostAddIndicator',
       commonEnv,
       onAdd,
-    })), methodOptions);
+    })), methodOptionsWithAuth);
 
     // router.post('/addindicatormapping', async function (req, res, next) {
     addResource(portalsRoot, '/addindicatormapping').addMethod('POST', new LambdaIntegration(getPortalsLambda({
@@ -95,7 +108,7 @@ export class PortalsFunctions extends Construct {
       handler: 'portalsPostAddIndicatorMapping',
       commonEnv,
       onAdd,
-    })), methodOptions);
+    })), methodOptionsWithAuth);
 
     // router.post('/deleteelement', async function (req, res, next) {
     addResource(portalsRoot, '/deleteelement').addMethod('POST', new LambdaIntegration(getPortalsLambda({
@@ -103,7 +116,7 @@ export class PortalsFunctions extends Construct {
       handler: 'portalsPostDeleteElement',
       commonEnv,
       onAdd,
-    })), methodOptions);
+    })), methodOptionsWithAuth);
 
     // router.post('/editelement', async function (req, res, next) {
     addResource(portalsRoot, '/editelement').addMethod('POST', new LambdaIntegration(getPortalsLambda({
@@ -111,7 +124,7 @@ export class PortalsFunctions extends Construct {
       handler: 'portalsPostEditElement',
       commonEnv,
       onAdd,
-    })), methodOptions);
+    })), methodOptionsWithAuth);
 
     // router.get('/element/:elt/:id', async function (req, res, next) {
     addResource(portalsRoot, '/element/{elt}/{id}').addMethod('GET', new LambdaIntegration(getPortalsLambda({

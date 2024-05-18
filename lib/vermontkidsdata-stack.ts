@@ -23,7 +23,7 @@ import { Construct } from 'constructs';
 import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import * as util from 'util';
-import { PortalsFunctions } from './portals-functions';
+import { AuthInfo, PortalsFunctions } from './portals-functions';
 // import { OpenApiBuilder } from './openapi';
 
 const S3_SERVICE_PRINCIPAL = new ServicePrincipal('s3.amazonaws.com');
@@ -733,7 +733,7 @@ export class VermontkidsdataStack extends Stack {
     }] as MethodResponse[];
 
     // Apply to all the methods that need authorization
-    const auth = {
+    const auth: AuthInfo = {
       authorizationType: AuthorizationType.CUSTOM,
       authorizer,
       methodResponses,
@@ -742,7 +742,7 @@ export class VermontkidsdataStack extends Stack {
     new PortalsFunctions(this, 'portals functions', {
       api,
       commonEnv,
-      methodOptions: auth,
+      auth,
       onAdd: (fn) => {
         serviceTable.grantReadWriteData(fn);
         secret.grantRead(fn);

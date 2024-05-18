@@ -62,8 +62,8 @@ export const portalsGetById = prepare(async (event: APIGatewayEvent) => {
   await doDBOpen();
 
   // get the topics
-  const sql = `select * from portals where id = ${id}`;
-  const rows = await doDBQuery(sql);
+  const sql = `select * from portals where id = ?`;
+  const rows = await doDBQuery(sql, [id]);
 
   console.log('PORTAL', rows);
 
@@ -75,12 +75,17 @@ export const portalsGetById = prepare(async (event: APIGatewayEvent) => {
   }
 });
 
+interface AddElementParams {
+  type: string;
+  val: string;
+  parent: string;
+}
+
 // router.post('/addelement/:elttype/:eltval/:eltparent', async function (req, res, next) {
+// path params now moved to the body as JSON (AddElementParams)
 export const portalsPostAddElement = prepare(async (event: APIGatewayEvent) => {
-  const id = event.pathParameters?.id;
-  const parent = event.pathParameters?.eltparent;
-  const elttype = event.pathParameters?.elttype;
-  const eltval = event.pathParameters?.eltval;
+  const body = JSON.parse(event.body || '{}') as AddElementParams;
+  const { type: elttype, val: eltval, parent } = body;
 
   if (parent == null || elttype == null || eltval == null) {
     return {
@@ -114,36 +119,36 @@ export const portalsPostAddElement = prepare(async (event: APIGatewayEvent) => {
   }
 
   if (elttype === 'topic') {
-    sql = `insert into portal_topics (name, portal_id) values ('${eltval}', ${portal}); `
+    sql = `insert into portal_topics (name, portal_id) values (?, ?)`
     console.log(sql);
-    const createdId = await doDBInsert(sql);
+    const createdId = await doDBInsert(sql, [eltval, portal]);
     await doDBCommit();
 
     console.log(createdId);
   }
 
   if (elttype === 'category') {
-    sql = `insert into portal_categories (name,portal) values ('${eltval}', ${portal}); `
+    sql = `insert into portal_categories (name,portal) values (?, ?); `
     console.log(sql);
-    const createdId = await doDBInsert(sql);
+    const createdId = await doDBInsert(sql, [eltval, portal]);
     console.log(createdId);
 
     //create the mapping
-    sql = `insert into portal_category_topic_map (topic, category, portal) values (${topic},${createdId}, ${portal}); `
+    sql = `insert into portal_category_topic_map (topic, category, portal) values (?, ?, ?); `
     console.log(sql);
-    await doDBInsert(sql);
+    await doDBInsert(sql, [topic, createdId, portal]);
   }
 
   if (elttype === 'subcategory') {
-    sql = `insert into portal_subcategories (name, portal) values ('${eltval}', ${portal}); `
+    sql = `insert into portal_subcategories (name, portal) values (?, ?); `
     console.log(sql);
-    const createdId = await doDBInsert(sql);
+    const createdId = await doDBInsert(sql, [eltval, portal]);
     console.log(createdId);
     //create the mapping
 
-    sql = `insert into portal_subcategory_category_map (topic, category, subcategory, portal) values (${topic},${category}, ${createdId}, ${portal}); `
+    sql = `insert into portal_subcategory_category_map (topic, category, subcategory, portal) values (?, ?, ?, ?); `
     console.log(sql);
-    await doDBInsert(sql);
+    await doDBInsert(sql, [topic, category, createdId, portal]);
   }
 
   await doDBClose();
@@ -154,11 +159,17 @@ export const portalsPostAddElement = prepare(async (event: APIGatewayEvent) => {
   }
 });
 
+interface AddMappingParams {
+  type: string;
+  id: string;
+  parent: string;
+}
+
 // router.post('/addmapping/:elttype/:eltid/:eltparent', async function (req, res, next) {
 export const portalsPostAddMapping = prepare(async (event: APIGatewayEvent) => {
-  const parent = event.pathParameters?.eltparent;
-  const elttype = event.pathParameters?.elttype;
-  const eltId = event.pathParameters?.eltid;
+  const body = JSON.parse(event.body || '{}') as AddMappingParams;
+  const { type: elttype, id: eltId, parent } = body;
+
   if (parent == null || elttype == null || eltId == null) {
     return {
       statusCode: 400,
@@ -192,17 +203,17 @@ export const portalsPostAddMapping = prepare(async (event: APIGatewayEvent) => {
 
   if (elttype === 'category') {
     //create the mapping
-    sql = `insert into portal_category_topic_map (topic, category, portal) values (${topic},${eltId}, ${portal}); `
+    sql = `insert into portal_category_topic_map (topic, category, portal) values (?, ?, ?); `
     console.log(sql);
-    const createdId = await doDBInsert(sql);
+    const createdId = await doDBInsert(sql, [topic, eltId, portal]);
     console.log({ createdId });
   }
 
   if (elttype === 'subcategory') {
     //create the mapping
-    sql = `insert into portal_subcategory_category_map (topic, category, subcategory, portal) values (${topic},${category}, ${eltId}, ${portal}); `
+    sql = `insert into portal_subcategory_category_map (topic, category, subcategory, portal) values (?, ?, ?, ?); `
     console.log(sql);
-    const createdId = await doDBInsert(sql);
+    const createdId = await doDBInsert(sql, [topic, category, eltId, portal]);
     console.log({ createdId });
   }
 
@@ -265,13 +276,13 @@ export const portalsPostAddIndicator = prepare(async (event: APIGatewayEvent) =>
   }
 
   try {
-    sql = `insert into portal_indicators (chart_url, link, title, portal) values ('${elturl}','${eltlink}','${eltval}', ${portal}); `
-    const createdId = await doDBInsert(sql);
+    sql = `insert into portal_indicators (chart_url, link, title, portal) values (?, ?, ?, ?); `
+    const createdId = await doDBInsert(sql, [elturl, eltlink, eltval, portal]);
     console.log({ createdId });
 
     //add the mapping
-    sql = `insert into portal_indicator_map (portal, topic, category, subcategory, indicator) values (${portal},${topic},${category},${subcategory},${createdId}); `
-    await doDBInsert(sql);
+    sql = `insert into portal_indicator_map (portal, topic, category, subcategory, indicator) values (?, ?, ?, ?, ?); `
+    await doDBInsert(sql, [portal, topic, category, subcategory, createdId]);
   } catch (e) {
     console.log((e as Error).message);
   }
@@ -331,8 +342,8 @@ export const portalsPostAddIndicatorMapping = prepare(async (event: APIGatewayEv
 
   try {
     //add the mapping
-    sql = `insert into portal_indicator_map (portal, topic, category, subcategory, indicator) values (${portal},${topic},${category},${subcategory},${eltid}); `
-    const createdId = await doDBInsert(sql);
+    sql = `insert into portal_indicator_map (portal, topic, category, subcategory, indicator) values (?, ?, ?, ?, ?); `
+    const createdId = await doDBInsert(sql, [portal, topic, category, subcategory, eltid]);
     console.log({ createdId });
   } catch (e) {
     console.log((e as Error).message);
@@ -350,6 +361,7 @@ export const portalsPostAddIndicatorMapping = prepare(async (event: APIGatewayEv
 export const portalsPostDeleteElement = prepare(async (event: APIGatewayEvent) => {
   const body = JSON.parse(event.body || '{}');
   console.log(body);
+
   const eltid = body.eltid;
   const eltval = body.eltval;
   const elttype = body.elttype;
@@ -374,23 +386,28 @@ export const portalsPostDeleteElement = prepare(async (event: APIGatewayEvent) =
   //const [rows, fields] = await connection.execute(sql);
 
 
+  const params: string[] = [];
 
   if (elttype === 't') {
-    sql = `delete from portal_topics  where id_topic = ${idElts[1].replace('t', '')} `;
+    sql = `delete from portal_topics  where id_topic = ?`;
+    params.push(idElts[1].replace('t', ''));
   }
 
   if (elttype === 'c') {
-    sql = `delete from  portal_categories  where id_category = ${idElts[2].replace('c', '')} `;
+    sql = `delete from  portal_categories  where id_category = ? `;
+    params.push(idElts[2].replace('c', ''));
   }
 
   if (elttype === 's') {
-    sql = `delete from  portal_subcategories  where id_subcategory = ${idElts[3].replace('s', '')} `;
+    sql = `delete from  portal_subcategories  where id_subcategory = ? `;
+    params.push(idElts[3].replace('s', ''));
   }
   if (elttype === 'i') {
-    sql = `delete from  portal_indicators  where id = ${idElts[4].replace('i', '')} `;
+    sql = `delete from  portal_indicators  where id = ? `;
+    params.push(idElts[4].replace('i', ''));
   }
 
-  await doDBQuery(sql);
+  await doDBQuery(sql, params);
 
   await doDBClose();
 
@@ -429,23 +446,31 @@ export const portalsPostEditElement = prepare(async (event: APIGatewayEvent) => 
   //const [rows, fields] = await connection.execute(sql);
 
 
-
+  const params: string[] = [];
   if (elttype === 't') {
-    sql = `update portal_topics set name='${eltval}' where id_topic = ${idElts[1].replace('t', '')} `;
+    sql = `update portal_topics set name=? where id_topic = ? `;
+    params.push(eltval);
+    params.push(idElts[1].replace('t', ''));
   }
 
   if (elttype === 'c') {
-    sql = `update portal_categories set name='${eltval}' where id_category = ${idElts[2].replace('c', '')} `;
+    sql = `update portal_categories set name=? where id_category = ? `;
+    params.push(eltval);
+    params.push(idElts[2].replace('c', ''));
   }
 
   if (elttype === 's') {
-    sql = `update portal_subcategories set name='${eltval}' where id_subcategory = ${idElts[3].replace('s', '')} `;
+    sql = `update portal_subcategories set name=? where id_subcategory = ? `;
+    params.push(eltval);
+    params.push(idElts[3].replace('s', ''));
   }
   if (elttype === 'i') {
-    sql = `update portal_indicators set title='${eltval}' where id = ${idElts[4].replace('i', '')} `;
+    sql = `update portal_indicators set title=? where id = ? `;
+    params.push(eltval);
+    params.push(idElts[4].replace('i', ''));
   }
 
-  await doDBQuery(sql);
+  await doDBQuery(sql, params);
   await doDBClose();
 
   return {
@@ -472,18 +497,18 @@ export const portalsGetElementById = prepare(async (event: APIGatewayEvent) => {
   //res.json(elt);
   let sql = ``;
   if (elt === 'p') {
-    sql = `select * from portals where id = ${id}`;
+    sql = `select * from portals where id = ?`;
   } else if (elt === 't') {
-    sql = `select * from portal_topics where id_topic = ${id}`;
+    sql = `select * from portal_topics where id_topic = ?`;
   } else if (elt === 'c') {
-    sql = `select * from portal_categories where id_category = ${id}`
+    sql = `select * from portal_categories where id_category = ?`
   } else if (elt === 's') {
-    sql = `select * from portal_subcategories where id_subcategory = ${id}`;
+    sql = `select * from portal_subcategories where id_subcategory = ?`;
   } else {
-    sql = `select * from portal_indicators where id = ${id}`;
+    sql = `select * from portal_indicators where id = ?`;
   }
   console.log(sql);
-  const rows = await doDBQuery(sql);
+  const rows = await doDBQuery(sql, [id]);
   await doDBClose();
 
   console.log('TOPICS', rows);
@@ -508,8 +533,8 @@ export const portalsGetTopics = prepare(async (event: APIGatewayEvent) => {
   await doDBOpen();
 
   // get the topics
-  const sql = `select * from portal_topics where portal_id = ${id}`;
-  const rows = await doDBQuery(sql);
+  const sql = `select * from portal_topics where portal_id = ?`;
+  const rows = await doDBQuery(sql, [id]);
   await doDBClose();
 
   console.log('TOPICS', rows);
@@ -536,8 +561,8 @@ export const portalsGetCategories = prepare(async (event: APIGatewayEvent) => {
   //get the categories
   const sql = `select id, topic, id_category, name from portal_category_topic_map m 
 join portal_categories pc on pc.id_category = m.category
-where m.portal = ${id}`;
-  const rows = await doDBQuery(sql);
+where m.portal = ?`;
+  const rows = await doDBQuery(sql, [id]);
   await doDBClose();
 
   return {
@@ -562,8 +587,8 @@ export const portalsGetSubCategories = prepare(async (event: APIGatewayEvent) =>
   //get the categories
   const sql = `select id, topic, category, id_subcategory, name from portal_subcategory_category_map m 
   join portal_subcategories sc on sc.id_subcategory = m.subcategory
-  where m.portal = ${id}`;
-  const rows = await doDBQuery(sql);
+  where m.portal = ?`;
+  const rows = await doDBQuery(sql, [id]);
   await doDBClose();
 
   return {
@@ -588,8 +613,8 @@ export const portalsGetIndicators = prepare(async (event: APIGatewayEvent) => {
   //get the categories
   const sql = `SELECT * FROM portal_indicator_map m
   join portal_indicators i on i.id = m.indicator
-  where m.portal = ${id} order by i.title`;
-  const rows = await doDBQuery(sql);
+  where m.portal = ? order by i.title`;
+  const rows = await doDBQuery(sql, [id]);
   await doDBClose();
 
   return {
