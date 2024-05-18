@@ -7466,7 +7466,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C7260b4db81b66a6ce8003dbfb761e2ca3": {
+    "testVermontKidsDataDeployment82D2B8C7acb3a5aebea97f49fe3078c6d7a3b37e": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -7541,14 +7541,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDataportalsidGETBEB23CAB",
         "testVermontKidsDataportalsidOPTIONS6087975F",
         "testVermontKidsDataportalsid207B36E4",
-        "testVermontKidsDataportalsaddelementelttypeeltvaleltparentOPTIONSFEA85A79",
-        "testVermontKidsDataportalsaddelementelttypeeltvaleltparentPOSTB7551525",
-        "testVermontKidsDataportalsaddelementelttypeeltvaleltparent4F901FD8",
-        "testVermontKidsDataportalsaddelementelttypeeltvalOPTIONS9006CEF3",
-        "testVermontKidsDataportalsaddelementelttypeeltval67F5A8F5",
-        "testVermontKidsDataportalsaddelementelttypeOPTIONS5D3AA24D",
-        "testVermontKidsDataportalsaddelementelttypeA64043EB",
         "testVermontKidsDataportalsaddelementOPTIONS969BCFAE",
+        "testVermontKidsDataportalsaddelementPOST1B6FD6DE",
         "testVermontKidsDataportalsaddelementCED6E465",
         "testVermontKidsDataportalsaddindicatorOPTIONS1401AEF5",
         "testVermontKidsDataportalsaddindicatorPOST49C353CB",
@@ -7556,14 +7550,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "testVermontKidsDataportalsaddindicatormappingOPTIONSDDE20BC3",
         "testVermontKidsDataportalsaddindicatormappingPOSTB284023A",
         "testVermontKidsDataportalsaddindicatormapping536C542B",
-        "testVermontKidsDataportalsaddmappingelttypeeltideltparentOPTIONS13810BBD",
-        "testVermontKidsDataportalsaddmappingelttypeeltideltparentPOSTDCC735D3",
-        "testVermontKidsDataportalsaddmappingelttypeeltideltparent763B896E",
-        "testVermontKidsDataportalsaddmappingelttypeeltidOPTIONS9EF5F76F",
-        "testVermontKidsDataportalsaddmappingelttypeeltid4A03F597",
-        "testVermontKidsDataportalsaddmappingelttypeOPTIONSA200A98D",
-        "testVermontKidsDataportalsaddmappingelttype0BFC56B6",
         "testVermontKidsDataportalsaddmappingOPTIONS267D8838",
+        "testVermontKidsDataportalsaddmappingPOST8970F78A",
         "testVermontKidsDataportalsaddmapping9784145E",
         "testVermontKidsDataportalscategoriesidGET90AA7C6D",
         "testVermontKidsDataportalscategoriesidOPTIONS8CCA8F44",
@@ -7653,7 +7641,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C7260b4db81b66a6ce8003dbfb761e2ca3",
+          "Ref": "testVermontKidsDataDeployment82D2B8C7acb3a5aebea97f49fe3078c6d7a3b37e",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -10915,10 +10903,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataportalsGETB4A7D7EA": {
       "Properties": {
-        "AuthorizationType": "CUSTOM",
-        "AuthorizerId": {
-          "Ref": "requestauthorizerD239B518",
-        },
+        "AuthorizationType": "NONE",
         "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -10943,20 +10928,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "401",
-          },
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "403",
-          },
-        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataportals5C8DA17A",
         },
@@ -11084,264 +11055,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDataportalsaddelementelttypeA64043EB": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "testVermontKidsDataportalsaddelementCED6E465",
-        },
-        "PathPart": "{elttype}",
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "testVermontKidsDataportalsaddelementelttypeOPTIONS5D3AA24D": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "testVermontKidsDataportalsaddelementelttypeA64043EB",
-        },
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "testVermontKidsDataportalsaddelementelttypeeltval67F5A8F5": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "testVermontKidsDataportalsaddelementelttypeA64043EB",
-        },
-        "PathPart": "{eltval}",
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "testVermontKidsDataportalsaddelementelttypeeltvalOPTIONS9006CEF3": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "testVermontKidsDataportalsaddelementelttypeeltval67F5A8F5",
-        },
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "testVermontKidsDataportalsaddelementelttypeeltvaleltparent4F901FD8": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "testVermontKidsDataportalsaddelementelttypeeltval67F5A8F5",
-        },
-        "PathPart": "{eltparent}",
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "testVermontKidsDataportalsaddelementelttypeeltvaleltparentOPTIONSFEA85A79": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "testVermontKidsDataportalsaddelementelttypeeltvaleltparent4F901FD8",
-        },
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "testVermontKidsDataportalsaddelementelttypeeltvaleltparentPOSTApiPermissionTesttestTestStacktestVermontKidsData62A09AC6POSTportalsaddelementelttypeeltvaleltparent6AFFABAA": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddElement84E61D18",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/test-invoke-stage/POST/portals/addelement/*/*/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "testVermontKidsDataportalsaddelementelttypeeltvaleltparentPOSTApiPermissiontestTestStacktestVermontKidsData62A09AC6POSTportalsaddelementelttypeeltvaleltparentD0B0A44F": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddElement84E61D18",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/",
-              {
-                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
-              },
-              "/POST/portals/addelement/*/*/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "testVermontKidsDataportalsaddelementelttypeeltvaleltparentPOSTB7551525": {
+    "testVermontKidsDataportalsaddelementPOST1B6FD6DE": {
       "Properties": {
         "AuthorizationType": "CUSTOM",
         "AuthorizerId": {
@@ -11386,13 +11100,75 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           },
         ],
         "ResourceId": {
-          "Ref": "testVermontKidsDataportalsaddelementelttypeeltvaleltparent4F901FD8",
+          "Ref": "testVermontKidsDataportalsaddelementCED6E465",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataportalsaddelementPOSTApiPermissionTesttestTestStacktestVermontKidsData62A09AC6POSTportalsaddelementB3DFA8CC": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "portalsfunctionsPortalsLambdaportalsPostAddElement84E61D18",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/POST/portals/addelement",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataportalsaddelementPOSTApiPermissiontestTestStacktestVermontKidsData62A09AC6POSTportalsaddelementAFE6D1A6": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "portalsfunctionsPortalsLambdaportalsPostAddElement84E61D18",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/POST/portals/addelement",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
     },
     "testVermontKidsDataportalsaddindicator5AD247B2": {
       "Properties": {
@@ -11819,264 +11595,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "testVermontKidsDataportalsaddmappingelttype0BFC56B6": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "testVermontKidsDataportalsaddmapping9784145E",
-        },
-        "PathPart": ":elttype",
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "testVermontKidsDataportalsaddmappingelttypeOPTIONSA200A98D": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "testVermontKidsDataportalsaddmappingelttype0BFC56B6",
-        },
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "testVermontKidsDataportalsaddmappingelttypeeltid4A03F597": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "testVermontKidsDataportalsaddmappingelttype0BFC56B6",
-        },
-        "PathPart": ":eltid",
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "testVermontKidsDataportalsaddmappingelttypeeltidOPTIONS9EF5F76F": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "testVermontKidsDataportalsaddmappingelttypeeltid4A03F597",
-        },
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "testVermontKidsDataportalsaddmappingelttypeeltideltparent763B896E": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "testVermontKidsDataportalsaddmappingelttypeeltid4A03F597",
-        },
-        "PathPart": ":eltparent",
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "testVermontKidsDataportalsaddmappingelttypeeltideltparentOPTIONS13810BBD": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "testVermontKidsDataportalsaddmappingelttypeeltideltparent763B896E",
-        },
-        "RestApiId": {
-          "Ref": "testVermontKidsDataCC7D0909",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "testVermontKidsDataportalsaddmappingelttypeeltideltparentPOSTApiPermissionTesttestTestStacktestVermontKidsData62A09AC6POSTportalsaddmappingelttypeeltideltparentF30EBA82": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddMapping484B134C",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/test-invoke-stage/POST/portals/addmapping/:elttype/:eltid/:eltparent",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "testVermontKidsDataportalsaddmappingelttypeeltideltparentPOSTApiPermissiontestTestStacktestVermontKidsData62A09AC6POSTportalsaddmappingelttypeeltideltparentFD6422E1": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddMapping484B134C",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "testVermontKidsDataCC7D0909",
-              },
-              "/",
-              {
-                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
-              },
-              "/POST/portals/addmapping/:elttype/:eltid/:eltparent",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "testVermontKidsDataportalsaddmappingelttypeeltideltparentPOSTDCC735D3": {
+    "testVermontKidsDataportalsaddmappingPOST8970F78A": {
       "Properties": {
         "AuthorizationType": "CUSTOM",
         "AuthorizerId": {
@@ -12121,13 +11640,75 @@ def submit_response(event: dict, context, response_status: str, error_message: s
           },
         ],
         "ResourceId": {
-          "Ref": "testVermontKidsDataportalsaddmappingelttypeeltideltparent763B896E",
+          "Ref": "testVermontKidsDataportalsaddmapping9784145E",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
         },
       },
       "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataportalsaddmappingPOSTApiPermissionTesttestTestStacktestVermontKidsData62A09AC6POSTportalsaddmapping6B37F7BB": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "portalsfunctionsPortalsLambdaportalsPostAddMapping484B134C",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/POST/portals/addmapping",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataportalsaddmappingPOSTApiPermissiontestTestStacktestVermontKidsData62A09AC6POSTportalsaddmappingAF13B03D": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "portalsfunctionsPortalsLambdaportalsPostAddMapping484B134C",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/POST/portals/addmapping",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
     },
     "testVermontKidsDataportalscategories59073ED2": {
       "Properties": {
@@ -12208,10 +11789,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataportalscategoriesidGET90AA7C6D": {
       "Properties": {
-        "AuthorizationType": "CUSTOM",
-        "AuthorizerId": {
-          "Ref": "requestauthorizerD239B518",
-        },
+        "AuthorizationType": "NONE",
         "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -12236,20 +11814,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "401",
-          },
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "403",
-          },
-        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataportalscategoriesidC4FEE5AC",
         },
@@ -12878,10 +12442,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataportalselementeltidGET1866A3BC": {
       "Properties": {
-        "AuthorizationType": "CUSTOM",
-        "AuthorizerId": {
-          "Ref": "requestauthorizerD239B518",
-        },
+        "AuthorizationType": "NONE",
         "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -12906,20 +12467,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "401",
-          },
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "403",
-          },
-        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataportalselementeltid15E5DB05",
         },
@@ -13120,10 +12667,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataportalsidGETBEB23CAB": {
       "Properties": {
-        "AuthorizationType": "CUSTOM",
-        "AuthorizerId": {
-          "Ref": "requestauthorizerD239B518",
-        },
+        "AuthorizationType": "NONE",
         "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -13148,20 +12692,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "401",
-          },
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "403",
-          },
-        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataportalsid207B36E4",
         },
@@ -13365,10 +12895,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataportalsindicatorsidGETF3D3117F": {
       "Properties": {
-        "AuthorizationType": "CUSTOM",
-        "AuthorizerId": {
-          "Ref": "requestauthorizerD239B518",
-        },
+        "AuthorizationType": "NONE",
         "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -13393,20 +12920,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "401",
-          },
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "403",
-          },
-        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataportalsindicatorsidDCE3F24B",
         },
@@ -13548,10 +13061,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataportalssubcategoriesidGET845FAC62": {
       "Properties": {
-        "AuthorizationType": "CUSTOM",
-        "AuthorizerId": {
-          "Ref": "requestauthorizerD239B518",
-        },
+        "AuthorizationType": "NONE",
         "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -13576,20 +13086,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "401",
-          },
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "403",
-          },
-        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataportalssubcategoriesid3AC94A5C",
         },
@@ -13793,10 +13289,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
     },
     "testVermontKidsDataportalstopicsidGET2F632B6C": {
       "Properties": {
-        "AuthorizationType": "CUSTOM",
-        "AuthorizerId": {
-          "Ref": "requestauthorizerD239B518",
-        },
+        "AuthorizationType": "NONE",
         "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -13821,20 +13314,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             ],
           },
         },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "401",
-          },
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "403",
-          },
-        ],
         "ResourceId": {
           "Ref": "testVermontKidsDataportalstopicsid41599DF2",
         },
