@@ -44,6 +44,7 @@
     "@aws-sdk/client-s3": "^3.454.0",
     "@aws-sdk/client-secrets-manager": "^3.454.0",
     "@aws-sdk/client-sqs": "^3.454.0",
+    "@aws-sdk/client-sfn": "^3.454.0",
     "@aws-sdk/credential-providers": "^3.454.0",
     "@aws-sdk/lib-dynamodb": "^3.454.0",
     "@middy/core": "^5.3.3",
@@ -65,6 +66,7 @@
     "node-fetch": "^3.3.2",
     "node-stream-zip": "^1.15.0",
     "npm-check-updates": "^16.14.6",
+    "openai": "^4.38.5",
     "source-map-support": "^0.5.21",
     "ts-json-schema-generator": "^1.4.0",
     "uuid": "^9.0.1"

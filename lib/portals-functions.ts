@@ -1,16 +1,11 @@
 import { Duration } from "aws-cdk-lib";
-import { AuthorizationType, LambdaIntegration, MethodOptions, MethodResponse, RequestAuthorizer, Resource, RestApi } from "aws-cdk-lib/aws-apigateway";
+import { LambdaIntegration, MethodOptions, RestApi } from "aws-cdk-lib/aws-apigateway";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
 import { join } from "path";
+import { AuthInfo, addResource } from "./cdk-utils";
 
 export type OnAddCallback = (fn: NodejsFunction) => void;
-
-export interface AuthInfo {
-  authorizationType: AuthorizationType,
-  authorizer: RequestAuthorizer,
-  methodResponses: MethodResponse[],
-}
 
 export interface PortalsFunctionsProps {
   api: RestApi;
@@ -37,15 +32,6 @@ export function getPortalsLambda(props: { scope: Construct, handler: string, com
   }
 
   return fn;
-}
-
-function addResource(root: Resource, path: string): Resource {
-  const parts = path.split('/').filter(p => p);
-  let resource = root;
-  for (const part of parts) {
-    resource = resource.addResource(part);
-  }
-  return resource;
 }
 
 export class PortalsFunctions extends Construct {

@@ -9,7 +9,8 @@ describe('chartsApi', () => {
   beforeEach(() => {
     process.env.REGION = 'us-east-1';
     process.env.NAMESPACE = 'qa';
-});
+    process.env.DB_SECRET_NAME = `vkd/${process.env.NAMESPACE}/dbcreds`;
+  });
   
   test('basic query', async () => {
     // queryDBSpy.mock.invocationCall in mockResolvedValue(BOGUS_BRANCH_NAME);

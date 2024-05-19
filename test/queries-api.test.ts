@@ -17,6 +17,7 @@ describe('queries-api-getList', () => {
   beforeEach(() => {
     process.env.REGION = 'us-east-1';
     process.env.NAMESPACE = 'qa';
+    process.env.DB_SECRET_NAME = `vkd/${process.env.NAMESPACE}/dbcreds`;
   });
 
   it('does a basic query', async () => {

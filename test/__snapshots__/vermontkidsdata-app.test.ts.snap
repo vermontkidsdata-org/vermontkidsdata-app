@@ -50,6 +50,770 @@ exports[`Lambda Snapshot Test 1`] = `
     },
   },
   "Resources": {
+    "AIAssistantAIAssistantStateMachineDD03FFAF": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "AIAssistantAIAssistantStateMachineRoleDefaultPolicyCDA213E6",
+        "AIAssistantAIAssistantStateMachineRole4D68B250",
+      ],
+      "Properties": {
+        "DefinitionString": {
+          "Fn::Join": [
+            "",
+            [
+              "{"StartAt":"Invoke Start OpenAI Completion","States":{"Invoke Start OpenAI Completion":{"Next":"Invoke Check OpenAI Completion","Retry":[{"ErrorEquals":["Lambda.ClientExecutionTimeoutException","Lambda.ServiceException","Lambda.AWSLambdaException","Lambda.SdkClientException"],"IntervalSeconds":2,"MaxAttempts":6,"BackoffRate":2}],"Type":"Task","OutputPath":"$.Payload","Resource":"arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":states:::lambda:invoke","Parameters":{"FunctionName":"",
+              {
+                "Fn::GetAtt": [
+                  "AIAssistantStartOpenAICompletionEB80A99F",
+                  "Arn",
+                ],
+              },
+              "","Payload.$":"$"}},"Invoke Check OpenAI Completion":{"End":true,"Retry":[{"ErrorEquals":["Lambda.ClientExecutionTimeoutException","Lambda.ServiceException","Lambda.AWSLambdaException","Lambda.SdkClientException"],"IntervalSeconds":2,"MaxAttempts":6,"BackoffRate":2},{"ErrorEquals":["InProgressError"],"IntervalSeconds":5,"MaxAttempts":120,"BackoffRate":1}],"Type":"Task","OutputPath":"$.Payload","Resource":"arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":states:::lambda:invoke","Parameters":{"FunctionName":"",
+              {
+                "Fn::GetAtt": [
+                  "AIAssistantCheckOpenAICompletionCADA406D",
+                  "Arn",
+                ],
+              },
+              "","Payload.$":"$"}}}}",
+            ],
+          ],
+        },
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "AIAssistantAIAssistantStateMachineRole4D68B250",
+            "Arn",
+          ],
+        },
+        "TracingConfiguration": {
+          "Enabled": true,
+        },
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "AIAssistantAIAssistantStateMachineRole4D68B250": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "states.aq-south-1.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "AIAssistantAIAssistantStateMachineRoleDefaultPolicyCDA213E6": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+                "xray:GetSamplingRules",
+                "xray:GetSamplingTargets",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": "lambda:InvokeFunction",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantStartOpenAICompletionEB80A99F",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "AIAssistantStartOpenAICompletionEB80A99F",
+                          "Arn",
+                        ],
+                      },
+                      ":*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": "lambda:InvokeFunction",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantCheckOpenAICompletionCADA406D",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "AIAssistantCheckOpenAICompletionCADA406D",
+                          "Arn",
+                        ],
+                      },
+                      ":*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "AIAssistantAIAssistantStateMachineRoleDefaultPolicyCDA213E6",
+        "Roles": [
+          {
+            "Ref": "AIAssistantAIAssistantStateMachineRole4D68B250",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "AIAssistantCheckOpenAICompletionCADA406D": {
+      "DependsOn": [
+        "AIAssistantCheckOpenAICompletionServiceRoleDefaultPolicy11790894",
+        "AIAssistantCheckOpenAICompletionServiceRole6BE00432",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AI_SECRET_NAME": "openai-config",
+            "ASSISTANT_ID": "asst_TGWe7LGoOMxyTuRa9uOdLXwD",
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
+            "IS_PRODUCTION": "false",
+            "LOG_LEVEL": "info",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
+            "VKD_STATE_MACHINE_ARN": "",
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "AIAssistantCheckOpenAICompletionServiceRole6BE00432",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+        "Timeout": 29,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AIAssistantCheckOpenAICompletionServiceRole6BE00432": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "AIAssistantCheckOpenAICompletionServiceRoleDefaultPolicy11790894": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SingleServiceTableABC698C2",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":secretsmanager:aq-south-1:999999999:secret:openai-config-??????",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "AIAssistantCheckOpenAICompletionServiceRoleDefaultPolicy11790894",
+        "Roles": [
+          {
+            "Ref": "AIAssistantCheckOpenAICompletionServiceRole6BE00432",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "AIAssistantGETcompletionidsortKey0C567D69": {
+      "DependsOn": [
+        "AIAssistantGETcompletionidsortKeyServiceRoleDefaultPolicy20AB06B5",
+        "AIAssistantGETcompletionidsortKeyServiceRole8AED3BBD",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AI_SECRET_NAME": "openai-config",
+            "ASSISTANT_ID": "asst_TGWe7LGoOMxyTuRa9uOdLXwD",
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
+            "IS_PRODUCTION": "false",
+            "LOG_LEVEL": "info",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
+            "VKD_STATE_MACHINE_ARN": {
+              "Ref": "AIAssistantAIAssistantStateMachineDD03FFAF",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "AIAssistantGETcompletionidsortKeyServiceRole8AED3BBD",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+        "Timeout": 29,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AIAssistantGETcompletionidsortKeyServiceRole8AED3BBD": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "AIAssistantGETcompletionidsortKeyServiceRoleDefaultPolicy20AB06B5": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SingleServiceTableABC698C2",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SingleServiceTableABC698C2",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "AIAssistantGETcompletionidsortKeyServiceRoleDefaultPolicy20AB06B5",
+        "Roles": [
+          {
+            "Ref": "AIAssistantGETcompletionidsortKeyServiceRole8AED3BBD",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "AIAssistantPOSTcompletionB2A1489B": {
+      "DependsOn": [
+        "AIAssistantPOSTcompletionServiceRoleDefaultPolicy4E29DEF7",
+        "AIAssistantPOSTcompletionServiceRoleF22A71A0",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AI_SECRET_NAME": "openai-config",
+            "ASSISTANT_ID": "asst_TGWe7LGoOMxyTuRa9uOdLXwD",
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
+            "IS_PRODUCTION": "false",
+            "LOG_LEVEL": "info",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
+            "VKD_STATE_MACHINE_ARN": {
+              "Ref": "AIAssistantAIAssistantStateMachineDD03FFAF",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "AIAssistantPOSTcompletionServiceRoleF22A71A0",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+        "Timeout": 29,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AIAssistantPOSTcompletionServiceRoleDefaultPolicy4E29DEF7": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SingleServiceTableABC698C2",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": "states:StartExecution",
+              "Effect": "Allow",
+              "Resource": {
+                "Ref": "AIAssistantAIAssistantStateMachineDD03FFAF",
+              },
+            },
+            {
+              "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":secretsmanager:aq-south-1:999999999:secret:openai-config-??????",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "AIAssistantPOSTcompletionServiceRoleDefaultPolicy4E29DEF7",
+        "Roles": [
+          {
+            "Ref": "AIAssistantPOSTcompletionServiceRoleF22A71A0",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "AIAssistantPOSTcompletionServiceRoleF22A71A0": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "AIAssistantStartOpenAICompletionEB80A99F": {
+      "DependsOn": [
+        "AIAssistantStartOpenAICompletionServiceRoleDefaultPolicy0B75ED01",
+        "AIAssistantStartOpenAICompletionServiceRoleB7F214CA",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AI_SECRET_NAME": "openai-config",
+            "ASSISTANT_ID": "asst_TGWe7LGoOMxyTuRa9uOdLXwD",
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
+            "IS_PRODUCTION": "false",
+            "LOG_LEVEL": "info",
+            "NAMESPACE": "test",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
+            "VKD_STATE_MACHINE_ARN": "",
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "AIAssistantStartOpenAICompletionServiceRoleB7F214CA",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+        "Timeout": 29,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AIAssistantStartOpenAICompletionServiceRoleB7F214CA": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "AIAssistantStartOpenAICompletionServiceRoleDefaultPolicy0B75ED01": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "SingleServiceTableABC698C2",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "SingleServiceTableABC698C2",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":secretsmanager:aq-south-1:999999999:secret:openai-config-??????",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "AIAssistantStartOpenAICompletionServiceRoleDefaultPolicy0B75ED01",
+        "Roles": [
+          {
+            "Ref": "AIAssistantStartOpenAICompletionServiceRoleB7F214CA",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "APIDocBucketRole36E5CFCE": {
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -129,6 +893,7 @@ exports[`Lambda Snapshot Test 1`] = `
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "ENV_NAME": "test",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
@@ -315,6 +1080,7 @@ exports[`Lambda Snapshot Test 1`] = `
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -453,6 +1219,7 @@ exports[`Lambda Snapshot Test 1`] = `
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -765,6 +1532,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -889,6 +1657,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -1013,6 +1782,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "ENV_NAME": "test",
             "IDENTITY_POOL_ID": {
               "Ref": "identitypool",
@@ -1370,6 +2140,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -1508,6 +2279,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -1742,6 +2514,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -1945,6 +2718,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -2086,6 +2860,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -2424,6 +3199,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -2548,6 +3324,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -2672,6 +3449,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -2870,6 +3648,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -2994,6 +3773,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -3139,6 +3919,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -3263,6 +4044,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -3500,6 +4282,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "ENV_NAME": "test",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
@@ -3668,6 +4451,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -3806,6 +4590,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -3944,6 +4729,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -4082,6 +4868,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -4220,6 +5007,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -4440,6 +5228,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -4564,6 +5353,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -4819,6 +5609,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -5454,6 +6245,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -5597,6 +6389,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -5740,6 +6533,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -5883,6 +6677,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -6026,6 +6821,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -6169,6 +6965,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -6312,6 +7109,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -6455,6 +7253,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -6598,6 +7397,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -6636,6 +7436,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -6884,6 +7685,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -7027,6 +7829,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -7170,6 +7973,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
+            "DB_SECRET_NAME": "vkd/test/dbcreds",
             "IS_PRODUCTION": "false",
             "LOG_LEVEL": "info",
             "NAMESPACE": "test",
@@ -7466,11 +8270,21 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "testVermontKidsDataDeployment82D2B8C7acb3a5aebea97f49fe3078c6d7a3b37e": {
+    "testVermontKidsDataDeployment82D2B8C72c4e8c2feec4115583dc20aa47ce87da": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
         "gatewayresponseforDEFAULT5XX187AAE21",
+        "testVermontKidsDataaicompletionidsortKeyGET5987EE00",
+        "testVermontKidsDataaicompletionidsortKeyOPTIONS4D49F19E",
+        "testVermontKidsDataaicompletionidsortKey5EDA732F",
+        "testVermontKidsDataaicompletionidOPTIONSA8FD83C8",
+        "testVermontKidsDataaicompletionid511C5B28",
+        "testVermontKidsDataaicompletionOPTIONS1ED6A989",
+        "testVermontKidsDataaicompletionPOST3D8738CC",
+        "testVermontKidsDataaicompletionA9C62ED7",
+        "testVermontKidsDataaiOPTIONSBAEC4552",
+        "testVermontKidsDataai46FE61B8",
         "testVermontKidsDataapidocsyamlGET2432E319",
         "testVermontKidsDataapidocsyamlOPTIONS3AD64883",
         "testVermontKidsDataapidocsyamlD0CA29BA",
@@ -7641,7 +8455,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "testVermontKidsDataDeployment82D2B8C7acb3a5aebea97f49fe3078c6d7a3b37e",
+          "Ref": "testVermontKidsDataDeployment82D2B8C72c4e8c2feec4115583dc20aa47ce87da",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",
@@ -7699,6 +8513,465 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "testVermontKidsDataCC7D0909",
             "RootResourceId",
           ],
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataai46FE61B8": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "testVermontKidsDataCC7D0909",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "ai",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDataaiOPTIONSBAEC4552": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "testVermontKidsDataai46FE61B8",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataaicompletionA9C62ED7": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDataai46FE61B8",
+        },
+        "PathPart": "completion",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDataaicompletionOPTIONS1ED6A989": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "testVermontKidsDataaicompletionA9C62ED7",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataaicompletionPOST3D8738CC": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantPOSTcompletionB2A1489B",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDataaicompletionA9C62ED7",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataaicompletionPOSTApiPermissionTesttestTestStacktestVermontKidsData62A09AC6POSTaicompletion354E3E59": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantPOSTcompletionB2A1489B",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/POST/ai/completion",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataaicompletionPOSTApiPermissiontestTestStacktestVermontKidsData62A09AC6POSTaicompletion1893ACDC": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantPOSTcompletionB2A1489B",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/POST/ai/completion",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataaicompletionid511C5B28": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDataaicompletionA9C62ED7",
+        },
+        "PathPart": "{id}",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDataaicompletionidOPTIONSA8FD83C8": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "testVermontKidsDataaicompletionid511C5B28",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataaicompletionidsortKey5EDA732F": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "testVermontKidsDataaicompletionid511C5B28",
+        },
+        "PathPart": "{sortKey}",
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testVermontKidsDataaicompletionidsortKeyGET5987EE00": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantGETcompletionidsortKey0C567D69",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "testVermontKidsDataaicompletionidsortKey5EDA732F",
+        },
+        "RestApiId": {
+          "Ref": "testVermontKidsDataCC7D0909",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testVermontKidsDataaicompletionidsortKeyGETApiPermissionTesttestTestStacktestVermontKidsData62A09AC6GETaicompletionidsortKey8D0EDBFE": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETcompletionidsortKey0C567D69",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/test-invoke-stage/GET/ai/completion/*/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataaicompletionidsortKeyGETApiPermissiontestTestStacktestVermontKidsData62A09AC6GETaicompletionidsortKey956E9E69": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETcompletionidsortKey0C567D69",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "testVermontKidsDataCC7D0909",
+              },
+              "/",
+              {
+                "Ref": "testVermontKidsDataDeploymentStageprod8BC7562D",
+              },
+              "/GET/ai/completion/*/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testVermontKidsDataaicompletionidsortKeyOPTIONS4D49F19E": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.test.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "testVermontKidsDataaicompletionidsortKey5EDA732F",
         },
         "RestApiId": {
           "Ref": "testVermontKidsDataCC7D0909",

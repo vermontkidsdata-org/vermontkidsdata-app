@@ -7,6 +7,7 @@ describe('custom table API', () => {
   beforeEach(() => {
     process.env.REGION = 'us-east-1';
     process.env.NAMESPACE = 'qa';
+    process.env.DB_SECRET_NAME = `vkd/${process.env.NAMESPACE}/dbcreds`;
   });
 
   it('returns basic data', async () => {

@@ -49,8 +49,9 @@ export async function getDBSecret(): Promise<DBSecret> {
   logger.debug({ message: 'getDBSecret, secret', secret })
   if (secret) return secret;
   else {
+    const SecretId = process.env.DB_SECRET_NAME;
+    
     logger.debug({ message: 'getDBSecret, get SecretsManagerClient' });
-    const SecretId = `vkd/${getNamespace()}/dbcreds`;
     logger.debug({ message: 'getDBSecret, SecretId', SecretId })
 
     // Get secret connection info
@@ -378,6 +379,36 @@ export interface DatasetVersionData {
   status: string,
   s3key?: string,
   numrows?: number,
+}
+
+export function getConversationKeyAttribute(id: string): string {
+  return `CONV#${id}`;
+}
+
+// Define a completion
+export const Completion = new Entity({
+  name: 'Completion',
+  attributes: {
+    PK: { partitionKey: true, hidden: true, default: (data: { id: string }) => getConversationKeyAttribute(data.id) },
+    SK: { sortKey: true, hidden: true, default: (data: { sortKey: number }) => `SORT#${data.sortKey}` },
+
+    id: { type: 'string', required: true },
+    sortKey: { type: 'number', required: true },
+
+    status: { type: 'string', required: true },
+    message: { type: 'string' },
+    query: { type: 'string' },
+    thread: { type: 'map' }, // Same for all messages in a conversation
+  },
+
+  table: serviceTable,
+});
+
+export function getCompletionPK(id: string, sortKey: number): {PK: string, SK: string} {
+  return {
+    PK: getConversationKeyAttribute(id),
+    SK: `SORT#${sortKey}`,
+  };
 }
 
 async function forEachThing<T extends Record<string, any>>(

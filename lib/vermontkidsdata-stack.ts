@@ -23,7 +23,9 @@ import { Construct } from 'constructs';
 import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import * as util from 'util';
-import { AuthInfo, PortalsFunctions } from './portals-functions';
+import { AIAssistantConstruct } from './ai-assistant-construct';
+import { AuthInfo } from './cdk-utils';
+import { PortalsFunctions } from './portals-functions';
 // import { OpenApiBuilder } from './openapi';
 
 const S3_SERVICE_PRINCIPAL = new ServicePrincipal('s3.amazonaws.com');
@@ -184,6 +186,8 @@ export class VermontkidsdataStack extends Stack {
       visibilityTimeout: Duration.minutes(15),
     });
 
+    const DB_SECRET_NAME = `vkd/${ns}/dbcreds`;
+
     // common environment for all lambdas
     const commonEnv = {
       REGION: this.region,
@@ -192,6 +196,7 @@ export class VermontkidsdataStack extends Stack {
       IS_PRODUCTION: `${props.isProduction}`,
       DATASET_BACKUP_QUEUE_URL: queue.queueUrl,
       LOG_LEVEL: 'info',
+      DB_SECRET_NAME,
     };
 
     // Upload data function.
@@ -317,7 +322,7 @@ export class VermontkidsdataStack extends Stack {
     serviceTable.grantReadWriteData(uploadStatusFunction);
 
     // The secret where the DB login info is. Grant read access.
-    const secret = Secret.fromSecretNameV2(this, 'DB credentials', `vkd/${ns}/dbcreds`);
+    const secret = Secret.fromSecretNameV2(this, 'DB credentials', DB_SECRET_NAME);
     secret.grantRead(uploadFunction);
 
     const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
@@ -746,6 +751,16 @@ export class VermontkidsdataStack extends Stack {
       onAdd: (fn) => {
         serviceTable.grantReadWriteData(fn);
         secret.grantRead(fn);
+      },
+    });
+
+    new AIAssistantConstruct(this, 'AI Assistant', {
+      api,
+      commonEnv,
+      auth,
+      serviceTable,
+      onAdd: (fn) => {
+        serviceTable.grantReadWriteData(fn);
       },
     });
 

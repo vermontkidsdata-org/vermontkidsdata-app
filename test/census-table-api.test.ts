@@ -22,6 +22,7 @@ describe('Census Table API', () => {
         queryDBSpy = jest.spyOn(dbUtils, 'queryDB');
         process.env.NAMESPACE = 'qa';
         process.env.REGION = 'us-east-1';
+        process.env.DB_SECRET_NAME = `vkd/${process.env.NAMESPACE}/dbcreds`;
     });
     // Actions to be done after each test
     afterEach(() => {
