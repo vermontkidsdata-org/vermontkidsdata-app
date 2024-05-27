@@ -1,6 +1,6 @@
 import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import OpenAI from "openai";
-import { TextContentBlock } from "openai/resources/beta/threads/messages";
+import { TextContentBlock, TextDeltaBlock } from "openai/resources/beta/threads/messages";
 import { Thread } from "openai/resources/beta/threads/threads";
 
 export const IN_PROGRESS_ERROR = 'InProgressError';
@@ -22,6 +22,47 @@ export async function connectOpenAI(): Promise<void> {
 
 export async function createThread(): Promise<Thread> {
   return await openai.beta.threads.create();
+}
+
+
+function isTextDeltaBlock(block: any): block is TextDeltaBlock {
+  return block.type === "text";
+}
+
+export type StreamingCallback = (props: { finished: boolean, chunk?: string }) => Promise<void>;
+
+export async function askWithStreaming(props: { thread: Thread, userQuestion: string, assistantId: string, callback: StreamingCallback }): Promise<void> {
+  const { thread, userQuestion, assistantId, callback } = props;
+
+  // Pass in the user question into the existing thread
+  await openai.beta.threads.messages.create(thread.id, {
+    role: "user",
+    content: userQuestion,
+  });
+
+  // Create a run
+  const stream = await openai.beta.threads.runs.create(thread.id, {
+    assistant_id: assistantId,
+    stream: true,
+  });
+
+  for await (const event of stream) {
+    // console.log({ eventtype: event.event });
+    if (event.event === 'thread.run.completed') {
+      console.log("Run completed");
+    }
+    if (event.event === 'thread.message.delta') {
+      if (isTextDeltaBlock(event.data.delta.content?.[0])) {
+        const chunk = event.data.delta.content?.[0].text?.value;
+        if (chunk) {
+          console.log({ chunk });
+          await callback({ finished: false, chunk });
+        }
+      }
+    }
+  }
+
+  await callback({ finished: true });
 }
 
 export async function startAskWithoutStreaming(props: { thread: Thread, userQuestion: string, assistantId: string }): Promise<{

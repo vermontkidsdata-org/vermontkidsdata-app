@@ -20,6 +20,11 @@ export const handler = prepareStepFunction(async (event: StepFunctionInputOutput
     throw new Error(`Thread not found for ${event.id}:${event.sortKey}`);
   }
 
+  // If it's already done for whatever reason (usually streaming), just return
+  if (["completed", "error"].indexOf(item.Item.status) >= 0) {
+    return event;
+  }
+
   await connectOpenAI();
 
   const response = await checkAskWithoutStreaming({

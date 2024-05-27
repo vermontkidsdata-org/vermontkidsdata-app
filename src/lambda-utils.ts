@@ -49,6 +49,7 @@ export interface StepFunctionInputOutput {
   query: string;
   runId: string;
   status?: string;
+  stream?: boolean;
 }
 
 export function prepareStepFunction(fn: (event: StepFunctionInputOutput) => Promise<StepFunctionInputOutput>, props?: {

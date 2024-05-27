@@ -15,7 +15,8 @@ interface PostCompletionRequest {
   key: string,
   id: string,
   sortKey: number,
-  query: string
+  query: string,
+  stream?: boolean,
 }
 
 export const handler = prepareAPIGateway(async (event: APIGatewayEvent) => {
@@ -69,6 +70,7 @@ export const handler = prepareAPIGateway(async (event: APIGatewayEvent) => {
       id: data.id,
       sortKey: data.sortKey,
       query: data.query,
+      stream: data.stream,
     }),
   }));
 

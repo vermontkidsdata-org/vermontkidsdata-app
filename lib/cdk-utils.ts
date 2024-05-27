@@ -26,8 +26,8 @@ export function addResource(root: Resource, path: string): IResource {
 
 export type OnAddCallback = (fn: NodejsFunction) => void;
 
-export function makeLambda(props: { scope: Construct, name: string, entry: string, handler?: string, commonEnv: Record<string, string>, onAdd?: OnAddCallback }): NodejsFunction {
-  const { scope, entry: _entry, handler: _handler, commonEnv, onAdd, name } = props;
+export function makeLambda(props: { scope: Construct, name: string, entry: string, handler?: string, timeout?: Duration, commonEnv: Record<string, string>, onAdd?: OnAddCallback }): NodejsFunction {
+  const { scope, entry: _entry, handler: _handler, commonEnv, onAdd, name, timeout } = props;
   const entry = /[^0-9a-zA-Z]/.test(_entry) ? join(__dirname, '../src', _entry) : _entry;
   const handler = _handler || 'handler';
 
@@ -37,7 +37,7 @@ export function makeLambda(props: { scope: Construct, name: string, entry: strin
     entry,
     handler: handler,
     memorySize: 1024,
-    timeout: Duration.seconds(29),
+    timeout: timeout ?? Duration.seconds(29),
     environment: commonEnv,
   });
 

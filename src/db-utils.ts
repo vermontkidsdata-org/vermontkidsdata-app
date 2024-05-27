@@ -385,12 +385,16 @@ export function getConversationKeyAttribute(id: string): string {
   return `CONV#${id}`;
 }
 
+export function getSortKeyAttribute(sortKey: number): string {
+  return `SORT#${sortKey}`;
+}
+
 // Define a completion
 export const Completion = new Entity({
   name: 'Completion',
   attributes: {
     PK: { partitionKey: true, hidden: true, default: (data: { id: string }) => getConversationKeyAttribute(data.id) },
-    SK: { sortKey: true, hidden: true, default: (data: { sortKey: number }) => `SORT#${data.sortKey}` },
+    SK: { sortKey: true, hidden: true, default: (data: { sortKey: number }) => getSortKeyAttribute(data.sortKey) },
 
     id: { type: 'string', required: true },
     sortKey: { type: 'number', required: true },
@@ -399,6 +403,7 @@ export const Completion = new Entity({
     message: { type: 'string' },
     query: { type: 'string' },
     thread: { type: 'map' }, // Same for all messages in a conversation
+    stream: { type: 'boolean' },
   },
 
   table: serviceTable,
@@ -407,7 +412,7 @@ export const Completion = new Entity({
 export function getCompletionPK(id: string, sortKey: number): {PK: string, SK: string} {
   return {
     PK: getConversationKeyAttribute(id),
-    SK: `SORT#${sortKey}`,
+    SK: getSortKeyAttribute(sortKey),
   };
 }
 

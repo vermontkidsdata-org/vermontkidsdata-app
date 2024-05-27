@@ -122,16 +122,6 @@ exports[`Lambda Snapshot Test 1`] = `
         "PolicyDocument": {
           "Statement": [
             {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-                "xray:GetSamplingRules",
-                "xray:GetSamplingTargets",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
               "Action": "lambda:InvokeFunction",
               "Effect": "Allow",
               "Resource": [
@@ -182,6 +172,16 @@ exports[`Lambda Snapshot Test 1`] = `
                   ],
                 },
               ],
+            },
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+                "xray:GetSamplingRules",
+                "xray:GetSamplingTargets",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
             },
           ],
           "Version": "2012-10-17",
@@ -705,7 +705,7 @@ exports[`Lambda Snapshot Test 1`] = `
           ],
         },
         "Runtime": "nodejs16.x",
-        "Timeout": 29,
+        "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -889,7 +889,6 @@ exports[`Lambda Snapshot Test 1`] = `
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -1076,7 +1075,6 @@ exports[`Lambda Snapshot Test 1`] = `
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -1215,7 +1213,6 @@ exports[`Lambda Snapshot Test 1`] = `
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -1357,7 +1354,6 @@ import urllib.request
 s3 = boto3.client("s3")
 
 EVENTBRIDGE_CONFIGURATION = 'EventBridgeConfiguration'
-
 CONFIGURATION_TYPES = ["TopicConfigurations", "QueueConfigurations", "LambdaFunctionConfigurations"]
 
 def handler(event: dict, context):
@@ -1365,18 +1361,15 @@ def handler(event: dict, context):
   error_message = ""
   try:
     props = event["ResourceProperties"]
-    bucket = props["BucketName"]
     notification_configuration = props["NotificationConfiguration"]
-    request_type = event["RequestType"]
     managed = props.get('Managed', 'true').lower() == 'true'
     stack_id = event['StackId']
-
+    old = event.get("OldResourceProperties", {}).get("NotificationConfiguration", {})
     if managed:
-      config = handle_managed(request_type, notification_configuration)
+      config = handle_managed(event["RequestType"], notification_configuration)
     else:
-      config = handle_unmanaged(bucket, stack_id, request_type, notification_configuration)
-
-    put_bucket_notification_configuration(bucket, config)
+      config = handle_unmanaged(props["BucketName"], stack_id, event["RequestType"], notification_configuration, old)
+    s3.put_bucket_notification_configuration(Bucket=props["BucketName"], NotificationConfiguration=config)
   except Exception as e:
     logging.exception("Failed to put bucket notification configuration")
     response_status = "FAILED"
@@ -1389,15 +1382,27 @@ def handle_managed(request_type, notification_configuration):
     return {}
   return notification_configuration
 
-def handle_unmanaged(bucket, stack_id, request_type, notification_configuration):
-  external_notifications = find_external_notifications(bucket, stack_id)
+def handle_unmanaged(bucket, stack_id, request_type, notification_configuration, old):
+  def with_id(n):
+    n['Id'] = f"{stack_id}-{hash(json.dumps(n, sort_keys=True))}"
+    return n
+
+  external_notifications = {}
+  existing_notifications = s3.get_bucket_notification_configuration(Bucket=bucket)
+  for t in CONFIGURATION_TYPES:
+    if request_type == 'Update':
+        ids = [with_id(n) for n in old.get(t, [])]
+        old_incoming_ids = [n['Id'] for n in ids]
+        external_notifications[t] = [n for n in existing_notifications.get(t, []) if not n['Id'] in old_incoming_ids]
+    elif request_type == 'Delete':
+        external_notifications[t] = [n for n in existing_notifications.get(t, []) if not n['Id'].startswith(f"{stack_id}-")]
+    elif request_type == 'Create':
+        external_notifications[t] = [n for n in existing_notifications.get(t, [])]
+  if EVENTBRIDGE_CONFIGURATION in existing_notifications:
+    external_notifications[EVENTBRIDGE_CONFIGURATION] = existing_notifications[EVENTBRIDGE_CONFIGURATION]
 
   if request_type == 'Delete':
     return external_notifications
-
-  def with_id(notification):
-    notification['Id'] = f"{stack_id}-{hash(json.dumps(notification, sort_keys=True))}"
-    return notification
 
   notifications = {}
   for t in CONFIGURATION_TYPES:
@@ -1411,23 +1416,6 @@ def handle_unmanaged(bucket, stack_id, request_type, notification_configuration)
     notifications[EVENTBRIDGE_CONFIGURATION] = external_notifications[EVENTBRIDGE_CONFIGURATION]
 
   return notifications
-
-def find_external_notifications(bucket, stack_id):
-  existing_notifications = get_bucket_notification_configuration(bucket)
-  external_notifications = {}
-  for t in CONFIGURATION_TYPES:
-    external_notifications[t] = [n for n in existing_notifications.get(t, []) if not n['Id'].startswith(f"{stack_id}-")]
-
-  if EVENTBRIDGE_CONFIGURATION in existing_notifications:
-    external_notifications[EVENTBRIDGE_CONFIGURATION] = existing_notifications[EVENTBRIDGE_CONFIGURATION]
-
-  return external_notifications
-
-def get_bucket_notification_configuration(bucket):
-  return s3.get_bucket_notification_configuration(Bucket=bucket)
-
-def put_bucket_notification_configuration(bucket, notification_configuration):
-  s3.put_bucket_notification_configuration(Bucket=bucket, NotificationConfiguration=notification_configuration)
 
 def submit_response(event: dict, context, response_status: str, error_message: str):
   response_body = json.dumps(
@@ -1459,7 +1447,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             "Arn",
           ],
         },
-        "Runtime": "python3.9",
+        "Runtime": "python3.11",
         "Timeout": 300,
       },
       "Type": "AWS::Lambda::Function",
@@ -1528,7 +1516,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -1653,7 +1640,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -1778,7 +1764,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -2136,7 +2121,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -2275,7 +2259,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -2510,7 +2493,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -2714,7 +2696,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -2856,7 +2837,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -3195,7 +3175,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -3320,7 +3299,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -3445,7 +3423,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -3644,7 +3621,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -3769,7 +3745,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -3915,7 +3890,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -4040,7 +4014,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -4276,7 +4249,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "COGNITO_CLIENT_ID": "bogus-client",
             "COGNITO_SECRET": "bogus-secret",
             "DATASET_BACKUP_QUEUE_URL": {
@@ -4447,7 +4419,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -4586,7 +4557,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -4725,7 +4695,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -4864,7 +4833,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -5003,7 +4971,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -5224,7 +5191,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -5349,7 +5315,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -5605,7 +5570,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Environment": {
           "Variables": {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "DATASET_BACKUP_QUEUE_URL": {
               "Ref": "BackupqueueE3E58E0E",
             },
@@ -5890,6 +5854,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "DependsOn": [
         "UploadqueuePolicy914D0D01",
         "UploadqueueE932C434",
+        "UploadsbucketPolicy1532F88C",
       ],
       "Properties": {
         "BucketName": {

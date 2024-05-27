@@ -44,6 +44,7 @@ export class AIAssistantConstruct extends Construct {
       scope: this,
       name: 'Start OpenAI Completion',
       entry: 'ai-start-openai-completion.ts',
+      timeout: Duration.minutes(15),
       commonEnv: aiCommonEnv,
       onAdd,
     });
