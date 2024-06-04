@@ -759,6 +759,7 @@ export class VermontkidsdataStack extends Stack {
       commonEnv,
       auth,
       serviceTable,
+      secret,
       onAdd: (fn) => {
         serviceTable.grantReadWriteData(fn);
       },

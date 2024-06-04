@@ -21,7 +21,7 @@ export const handler = prepareStepFunction(async (event: StepFunctionInputOutput
   }
 
   // If it's already done for whatever reason (usually streaming), just return
-  if (["completed", "error"].indexOf(item.Item.status) >= 0) {
+  if (["success", "error"].indexOf(item.Item.status) >= 0) {
     return event;
   }
 

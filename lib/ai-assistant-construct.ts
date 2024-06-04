@@ -1,7 +1,7 @@
 import { Duration } from "aws-cdk-lib";
 import { MethodOptions, RestApi } from "aws-cdk-lib/aws-apigateway";
 import { ITable } from "aws-cdk-lib/aws-dynamodb";
-import { Secret } from "aws-cdk-lib/aws-secretsmanager";
+import { ISecret, Secret } from "aws-cdk-lib/aws-secretsmanager";
 import { StateMachine } from "aws-cdk-lib/aws-stepfunctions";
 import { LambdaInvoke } from "aws-cdk-lib/aws-stepfunctions-tasks";
 import { Construct } from "constructs";
@@ -15,6 +15,7 @@ interface AIAssistantProps {
   commonEnv: Record<string, string>;
   onAdd?: OnAddCallback;
   serviceTable: ITable;
+  secret: ISecret;
 }
 const VKD_API_KEY = '09848734-8745-afrt-8745-8745873487';
 
@@ -25,20 +26,20 @@ export class AIAssistantConstruct extends Construct {
     super(scope, id);
     this._props = props;
 
-    const { api, commonEnv, onAdd, methodOptions, auth, serviceTable, } = props;
+    const { api, commonEnv, onAdd, methodOptions, auth, serviceTable, secret, } = props;
     const aiAssistantRoot = api.root.addResource('ai');
 
-    const secret = Secret.fromSecretNameV2(this, 'AI Secret', 'openai-config');
+    const aiSecret = Secret.fromSecretNameV2(this, 'AI Secret', 'openai-config');
 
     const aiCommonEnv = {
       ...commonEnv,
-      ASSISTANT_ID: 'asst_TGWe7LGoOMxyTuRa9uOdLXwD',
+      // ASSISTANT_ID: 'asst_TGWe7LGoOMxyTuRa9uOdLXwD',
+      ASSISTANT_ID: 'asst_nJKMeBh1KxrqsrL9jGheMcHX',
       VKD_STATE_MACHINE_ARN: '',
       SERVICE_TABLE: serviceTable.tableName,
-      AI_SECRET_NAME: secret.secretName,
+      AI_SECRET_NAME: aiSecret.secretName,
       VKD_API_KEY,
     };
-
 
     const startOpenAICompletion = makeLambda({
       scope: this,
@@ -50,6 +51,7 @@ export class AIAssistantConstruct extends Construct {
     });
     ((fn) => {
       serviceTable.grantReadWriteData(fn);
+      aiSecret.grantRead(fn);
       secret.grantRead(fn);
     })(startOpenAICompletion);
 
@@ -62,6 +64,7 @@ export class AIAssistantConstruct extends Construct {
     });
     ((fn) => {
       serviceTable.grantReadWriteData(fn);
+      aiSecret.grantRead(fn);
       secret.grantRead(fn);
     })(checkOpenAICompletion);
 
@@ -99,7 +102,7 @@ export class AIAssistantConstruct extends Construct {
 
     (({ fn }) => {
       sf.grantStartExecution(fn);
-      secret.grantRead(fn);
+      aiSecret.grantRead(fn);
     })(addLambdaResource({
       scope: this,
       root: aiAssistantRoot,

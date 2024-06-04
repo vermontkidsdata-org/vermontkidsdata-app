@@ -1,0 +1,9 @@
+Stuff to talk with Dave about
+- modify the two POST APIs to have JSON payload
+  - adding Postman calls
+- AI
+  - Assistant becomes API
+  - Text chat box "data coach"
+  - We have reports - figure out a way to have a table that lists visualizations with a description; then use functions to find the indicator they're asking about
+  - First MVP is page like CLI tool
+  - Streaming?

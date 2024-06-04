@@ -100,6 +100,42 @@ export async function getDefaultDataset(queryRow: QueryRow): Promise<any> {
   }
 }
 
+export interface BarChartResult {
+  metadata: {
+    config: any,
+    uploadType: string,
+  },
+  series: {
+    name: string,
+    data: (number | null)[],
+  }[],
+  categories: (string | number)[],
+}
+
+class BadRequestError extends Error {
+  statusCode: number;
+  constructor(statusCode: number, message: string) {
+    super(message);
+    this.statusCode = statusCode;
+  }
+}
+
+export async function getChartData(queryId: string): Promise<BarChartResult> {
+  const queryRow = await getQueryRow(queryId);
+  const metadata = queryRow?.metadata ? JSON.parse(queryRow.metadata || '{}') : undefined;
+  if (queryRow == null) {
+    throw new BadRequestError(400, 'unknown chart');
+  }
+
+  return await (async (queryRow, metadata) => {
+    if (metadata.custom === "dashboard:indicators:chart") {
+      return await getIndicatorsBySubcat(queryRow);
+    } else {
+      return await getDefaultDataset(queryRow);
+    }
+  })(queryRow, metadata);
+}
+
 export async function lambdaHandlerBar(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
@@ -140,10 +176,18 @@ export async function lambdaHandlerBar(
       };
     } catch (e) {
       console.error(e);
-      return {
-        statusCode: 500,
-        body: (e as Error).message,
-      };
+      if (e instanceof BadRequestError) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ message: (e as Error).message }),
+        };
+      } else {
+        return {
+          statusCode: 500,
+          body: (e as Error).message,
+        };
+
+      }
     } finally {
       await doDBClose();
     }
