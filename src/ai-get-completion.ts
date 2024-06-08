@@ -1,5 +1,5 @@
 import { SFNClient } from "@aws-sdk/client-sfn";
-import { APIGatewayEvent } from "aws-lambda";
+import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { Completion, getCompletionPK } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 
@@ -16,7 +16,7 @@ interface PostCompletionRequest {
   query: string
 }
 
-export const handler = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   if (ASSISTANT_ID == null) {
     throw new Error('ASSISTANT_ID is not set');
   }
@@ -56,6 +56,8 @@ export const handler = prepareAPIGateway(async (event: APIGatewayEvent) => {
         message: record.Item.message,
         created: record.Item.created,
         modified: record.Item.modified,
+        reaction: record.Item.reaction,
+        comment: record.Item.comment,
       },
     })
   }

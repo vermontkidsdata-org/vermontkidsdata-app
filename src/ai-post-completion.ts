@@ -1,5 +1,5 @@
 import { SFNClient, StartExecutionCommand } from "@aws-sdk/client-sfn";
-import { APIGatewayEvent } from "aws-lambda";
+import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { Thread } from "openai/resources/beta/threads/threads";
 import { connectOpenAI, createThread } from "./ai-utils";
 import { Completion, getCompletionPK } from "./db-utils";
@@ -19,7 +19,7 @@ interface PostCompletionRequest {
   stream?: boolean,
 }
 
-export const handler = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   if (ASSISTANT_ID == null) {
     throw new Error('ASSISTANT_ID is not set');
   }

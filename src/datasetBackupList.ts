@@ -8,7 +8,7 @@ import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { Tracer, captureLambdaHandler } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
 import cors from '@middy/http-cors';
-import { APIGatewayEvent, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { CORSConfigDefault } from './cors-config';
 import { forEachDatasetVersion } from './db-utils';
 
@@ -20,7 +20,7 @@ const logger = new Logger({
 });
 const tracer = new Tracer({ serviceName });
 
-export async function lambdaHandler(event: APIGatewayEvent): Promise<APIGatewayProxyResultV2> {
+export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> {
   const dataset = event.pathParameters?.dataset;
   if (!dataset) {
     logger.error("Missing dataset", { event });

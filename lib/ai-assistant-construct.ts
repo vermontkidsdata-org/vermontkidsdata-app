@@ -16,6 +16,7 @@ interface AIAssistantProps {
   onAdd?: OnAddCallback;
   serviceTable: ITable;
   secret: ISecret;
+  ns: string;
 }
 const VKD_API_KEY = '09848734-8745-afrt-8745-8745873487';
 
@@ -26,7 +27,7 @@ export class AIAssistantConstruct extends Construct {
     super(scope, id);
     this._props = props;
 
-    const { api, commonEnv, onAdd, methodOptions, auth, serviceTable, secret, } = props;
+    const { api, commonEnv, onAdd, methodOptions, auth, serviceTable, secret, ns, } = props;
     const aiAssistantRoot = api.root.addResource('ai');
 
     const aiSecret = Secret.fromSecretNameV2(this, 'AI Secret', 'openai-config');
@@ -85,7 +86,7 @@ export class AIAssistantConstruct extends Construct {
         outputPath: '$.Payload',
       }).next(checkComplete);
 
-    const sf = new StateMachine(this, 'AIAssistantStateMachine', {
+    const sf = new StateMachine(this, `${ns}-AIAssistant`, {
       tracingEnabled: true,
       definition,
     });
@@ -122,6 +123,32 @@ export class AIAssistantConstruct extends Construct {
       method: 'GET',
       path: 'completion/{id}/{sortKey}',
       entry: 'ai-get-completion.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+    }));
+
+    (({ fn }) => {
+      serviceTable.grantReadData(fn);
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'POST',
+      path: 'completion/{id}/{sortKey}',
+      entry: 'ai-post-update.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+    }));
+
+    (({ fn }) => {
+      sf.grantStartExecution(fn);
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'completions',
+      entry: 'ai-get-completions.ts',
       commonEnv: aiCommonEnv,
       onAdd,
       methodOptions: methodOptionsWithAuth,

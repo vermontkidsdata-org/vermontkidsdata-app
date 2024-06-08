@@ -162,6 +162,14 @@ insert into
     '{"yAxis": {"type": "percent"}}'
   );
 
+insert into
+  queries (name, sqlText, uploadType, metadata) value (
+    'children_in_poverty_under_12_all:chart',
+    'SELECT `geography` as label, `year` as cat, `percent`*100 as value FROM `data_children_in_poverty_under_12` order by `year`, `geography`',
+    'general:children_in_poverty_under_12',
+    '{"yAxis": {"type": "percent"}}'
+  );
+
 -- third_grade_sbac
 CREATE TABLE `data_third_grade_sbac` (
   `id` INT NOT NULL AUTO_INCREMENT,

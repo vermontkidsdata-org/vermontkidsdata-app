@@ -176,6 +176,10 @@ export class VermontkidsdataStack extends Stack {
       sortKey: { name: 'GSI2SK', type: AttributeType.STRING },
     });
 
+    new CfnOutput(this, "Service table name", {
+      value: serviceTable.tableName,
+    });
+
     // Create SQS queue to start a backup
     const queue = new Queue(this, 'Backup queue', {
       visibilityTimeout: Duration.minutes(15),
@@ -757,6 +761,7 @@ export class VermontkidsdataStack extends Stack {
     new AIAssistantConstruct(this, 'AI Assistant', {
       api,
       commonEnv,
+      ns,
       auth,
       serviceTable,
       secret,

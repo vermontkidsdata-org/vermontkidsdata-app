@@ -1,4 +1,4 @@
-import { APIGatewayEvent } from "aws-lambda";
+import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { doDBClose, doDBCommit, doDBInsert, doDBOpen, doDBQuery } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 
@@ -27,7 +27,7 @@ export const portalsGetList = prepareAPIGateway(async () => {
 /**
   * GET /:id
   */
-export const portalsGetById = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsGetById = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const id = event.pathParameters?.id;
   if (id == null) {
     return {
@@ -60,7 +60,7 @@ interface AddElementParams {
 
 // router.post('/addelement/:elttype/:eltval/:eltparent', async function (req, res, next) {
 // path params now moved to the body as JSON (AddElementParams)
-export const portalsPostAddElement = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsPostAddElement = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const body = JSON.parse(event.body || '{}') as AddElementParams;
   const { type: elttype, val: eltval, parent } = body;
 
@@ -143,7 +143,7 @@ interface AddMappingParams {
 }
 
 // router.post('/addmapping/:elttype/:eltid/:eltparent', async function (req, res, next) {
-export const portalsPostAddMapping = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsPostAddMapping = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const body = JSON.parse(event.body || '{}') as AddMappingParams;
   const { type: elttype, id: eltId, parent } = body;
 
@@ -203,7 +203,7 @@ export const portalsPostAddMapping = prepareAPIGateway(async (event: APIGatewayE
 });
 
 // router.post('/addindicator', async function (req, res, next) {
-export const portalsPostAddIndicator = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsPostAddIndicator = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const body = JSON.parse(event.body || '{}');
   const parent = body.eltparent;
   const elttype = body.elttype;
@@ -274,7 +274,7 @@ export const portalsPostAddIndicator = prepareAPIGateway(async (event: APIGatewa
 });
 
 // router.post('/addindicatormapping', async function (req, res, next) {
-export const portalsPostAddIndicatorMapping = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsPostAddIndicatorMapping = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const body = JSON.parse(event.body || '{}');
   const parent = body.eltparent;
   const elttype = body.elttype;
@@ -335,7 +335,7 @@ export const portalsPostAddIndicatorMapping = prepareAPIGateway(async (event: AP
 });
 
 // router.post('/deleteelement', async function (req, res, next) {
-export const portalsPostDeleteElement = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsPostDeleteElement = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const body = JSON.parse(event.body || '{}');
   console.log(body);
 
@@ -395,7 +395,7 @@ export const portalsPostDeleteElement = prepareAPIGateway(async (event: APIGatew
 });
 
 // router.post('/editelement', async function (req, res, next) {
-export const portalsPostEditElement = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsPostEditElement = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const body = JSON.parse(event.body || '{}');
   console.log(body);
 
@@ -458,7 +458,7 @@ export const portalsPostEditElement = prepareAPIGateway(async (event: APIGateway
 
 /* GET an individual element by ID */
 // router.get('/element/:elt/:id', async function (req, res, next) {
-export const portalsGetElementById = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsGetElementById = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const id = event.pathParameters?.id;
   const elt = event.pathParameters?.elt;
   if (elt == null || id == null) {
@@ -498,7 +498,7 @@ export const portalsGetElementById = prepareAPIGateway(async (event: APIGatewayE
 
 /* GET topics */
 // router.get('/topics/:id', async function (req, res, next) {
-export const portalsGetTopics = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsGetTopics = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const id = event.pathParameters?.id;
   if (id == null) {
     return {
@@ -524,7 +524,7 @@ export const portalsGetTopics = prepareAPIGateway(async (event: APIGatewayEvent)
 
 /* GET categories */
 // router.get('/categories/:id', async function (req, res, next) {
-export const portalsGetCategories = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsGetCategories = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const id = event.pathParameters?.id;
   if (id == null) {
     return {
@@ -550,7 +550,7 @@ where m.portal = ?`;
 
 /* GET subcategories */
 // router.get('/subcategories/:id', async function (req, res, next) {
-export const portalsGetSubCategories = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsGetSubCategories = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const id = event.pathParameters?.id;
   if (id == null) {
     return {
@@ -576,7 +576,7 @@ export const portalsGetSubCategories = prepareAPIGateway(async (event: APIGatewa
 
 /* GET indicators */
 // router.get('/indicators/:id', async function (req, res, next) {
-export const portalsGetIndicators = prepareAPIGateway(async (event: APIGatewayEvent) => {
+export const portalsGetIndicators = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const id = event.pathParameters?.id;
   if (id == null) {
     return {

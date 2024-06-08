@@ -3,13 +3,14 @@ import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import { DynamoDBDocumentClient, QueryCommandOutput } from '@aws-sdk/lib-dynamodb';
-import { Entity, Table } from 'dynamodb-toolbox';
+import { Entity, EntityItem, Table } from 'dynamodb-toolbox';
 import * as mysql from 'mysql';
 
 const ALL_UPLOAD_STATUS = 'ALL_UPLOAD_STATUS';
 const ALL_SESSIONS = 'ALL_SESSIONS';
 const ALL_DATASET_VERSIONS = 'ALL_DATASET_VERSIONS';
 const ALL_NAME_MAPS = 'ALL_NAME_MAPS';
+export const ALL_WITH_COMMENTS = 'ALL_WITH_COMMENTS';
 
 const { NAMESPACE, LOG_LEVEL } = process.env;
 
@@ -50,7 +51,7 @@ export async function getDBSecret(): Promise<DBSecret> {
   if (secret) return secret;
   else {
     const SecretId = process.env.DB_SECRET_NAME;
-    
+
     logger.debug({ message: 'getDBSecret, get SecretsManagerClient' });
     logger.debug({ message: 'getDBSecret, SecretId', SecretId })
 
@@ -389,18 +390,37 @@ export function getSortKeyAttribute(sortKey: number): string {
   return `SORT#${sortKey}`;
 }
 
+export function getReactionKeyAttribute(reaction: string): string {
+  return `REACTION#${reaction}`;
+}
+
 // Define a completion
 export const Completion = new Entity({
   name: 'Completion',
   attributes: {
     PK: { partitionKey: true, hidden: true, default: (data: { id: string }) => getConversationKeyAttribute(data.id) },
     SK: { sortKey: true, hidden: true, default: (data: { sortKey: number }) => getSortKeyAttribute(data.sortKey) },
+    GSI1PK: { hidden: true, default: (data: { reaction: string }) => getReactionKeyAttribute(data.reaction) },
+    GSI1SK: {
+      hidden: true, default: (data: { id: string, sortKey: number }) =>
+        getConversationKeyAttribute(data.id) + '#' + getSortKeyAttribute(data.sortKey),
+    },
+    GSI2PK: { hidden: true, default: (data: { comment?: string }) => data.comment ? ALL_WITH_COMMENTS : undefined },
+    GSI2SK: {
+      hidden: true, default: (data: { comment?: string, id: string, sortKey: number }) =>
+        data.comment ? getConversationKeyAttribute(data.id) + '#' + getSortKeyAttribute(data.sortKey) : undefined,
+    },
 
     id: { type: 'string', required: true },
     sortKey: { type: 'number', required: true },
 
     status: { type: 'string', required: true },
     message: { type: 'string' },
+
+    // User response to the completion
+    reaction: { type: 'string' },
+    comment: { type: 'string' },
+
     query: { type: 'string' },
     thread: { type: 'map' }, // Same for all messages in a conversation
     stream: { type: 'boolean' },
@@ -409,14 +429,16 @@ export const Completion = new Entity({
   table: serviceTable,
 });
 
-export function getCompletionPK(id: string, sortKey: number): {PK: string, SK: string} {
+export type CompletionData = EntityItem<typeof Completion>;
+
+export function getCompletionPK(id: string, sortKey: number): { PK: string, SK: string } {
   return {
     PK: getConversationKeyAttribute(id),
     SK: getSortKeyAttribute(sortKey),
   };
 }
 
-async function forEachThing<T extends Record<string, any>>(
+export async function forEachThing<T extends Record<string, any>>(
   init: () => Promise<QueryCommandOutput>,
   callback: (thing: T) => Promise<void>,
 ): Promise<void[]> {

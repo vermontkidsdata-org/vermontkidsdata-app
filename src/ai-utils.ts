@@ -1,5 +1,6 @@
 import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import OpenAI from "openai";
+import { AssistantStreamEvent } from "openai/resources/beta/assistants";
 import { TextContentBlock, TextDeltaBlock } from "openai/resources/beta/threads/messages";
 import { Thread } from "openai/resources/beta/threads/threads";
 import { BarChartResult, getChartData } from "./chartsApi";
@@ -14,11 +15,17 @@ interface IThread {
 }
 
 export async function connectOpenAI(): Promise<void> {
-  const val = await secretManager.send(new GetSecretValueCommand({ SecretId: process.env.AI_SECRET_NAME }));
-  if (!val.SecretString) throw new Error('Secret not found');
+  // Allow API key to be set as an environment variable
+  let apiKey: string | undefined = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    const val = await secretManager.send(new GetSecretValueCommand({ SecretId: process.env.AI_SECRET_NAME }));
+    if (!val.SecretString) throw new Error('Secret not found');
 
-  const config = JSON.parse(val.SecretString);
-  openai = new OpenAI({ apiKey: config.OPENAI_API_KEY })
+    const config = JSON.parse(val.SecretString);
+    apiKey = config.OPENAI_API_KEY;
+  }
+
+  openai = new OpenAI({ apiKey });
 }
 
 export async function createThread(): Promise<Thread> {
@@ -49,6 +56,7 @@ async function getChartDataWithCache(queryId: string): Promise<BarChartResult> {
 }
 
 export type StreamingCallback = (props: { finished: boolean, chunk?: string }) => Promise<void>;
+export type StreamingDebugCallback = (props: { event: AssistantStreamEvent }) => Promise<void>;
 
 class EventHandler {
   async handleRequiresAction(data: any, runId: string, threadId: string, callback: StreamingCallback) {
@@ -62,13 +70,36 @@ class EventHandler {
           //   type: 'function',
           //   function: {
           //     name: 'get_child_poverty',
-          //     arguments: '{"location": "Chittenden", "type": "percent"}'
+          //     arguments: '{"location": "Chittenden", "type": "percent", "year": 2020}'
           //   }
           // }
           console.log("Processing get_child_poverty tool call", toolCall);
+          const data = await getChartDataWithCache("children_in_poverty_under_12_all:chart");
+          console.log("getChartData", data);
+          const { location, type, year } = JSON.parse(toolCall.function.arguments) as { location: string, type: string, year: number | string };
+
+          // See if we have the requested geography; else we'll just use "Vermont"
+          const series = data.series.find((s: any) => s.name.toLowerCase() === location.toLowerCase()) ||
+            data.series.find((s: any) => s.name.toLowerCase() === "vermont") ||
+            data.series[data.series.length - 1];
+
+          // See if we have the year; else we'll just use the last year
+          let yearPos = data.categories.indexOf(parseInt(`${year}`, 10));
+          if (yearPos < 0) {
+            yearPos = data.categories.length - 1;
+          }
+
+          const output = {
+            value: series.data[yearPos],
+            geography: series.name,
+            year: data.categories[yearPos],
+            url: "https://ui.vtkidsdata.org/linechart/children_in_poverty_under_12:chart",
+          };
+          console.log("output", output);
+
           toolOutputs.push({
             tool_call_id: toolCall.id,
-            output: "57",
+            output: JSON.stringify(output)
           });
         } else if (toolCall.function.name === "get_3squares_benefit_and_chart") {
           // {
@@ -95,7 +126,7 @@ class EventHandler {
                 tool_call_id: toolCall.id,
                 output: JSON.stringify({
                   value: `${value}`,
-                  url: "https://api.vtkidsdata.org/chart/bar/avgbenefit_3squares_vt:chart",
+                  url: "https://ui.vtkidsdata.org/columnchart/avgbenefit_3squares_vt:chart",
                 })
               });
 
@@ -156,8 +187,8 @@ async function handleEvent(event: any, callback: StreamingCallback): Promise<boo
   return false;
 }
 
-export async function askWithStreaming(props: { thread: Thread, userQuestion: string, assistantId: string, callback: StreamingCallback }): Promise<void> {
-  const { thread, userQuestion, assistantId, callback } = props;
+export async function askWithStreaming(props: { thread: Thread, userQuestion: string, assistantId: string, callback: StreamingCallback, debugCallback?: StreamingDebugCallback }): Promise<void> {
+  const { thread, userQuestion, assistantId, callback, debugCallback } = props;
 
   // Pass in the user question into the existing thread
   await openai.beta.threads.messages.create(thread.id, {
@@ -172,7 +203,9 @@ export async function askWithStreaming(props: { thread: Thread, userQuestion: st
   });
 
   for await (const event of stream) {
-    // console.log({ eventtype: event.event });
+    if (debugCallback) {
+      await debugCallback({ event });
+    }
     if (await handleEvent(event, callback)) break;
   }
 
@@ -257,4 +290,36 @@ export async function askWithoutStreaming(props: { thread: Thread, userQuestion:
   } while (runStatus.status !== "completed" && runStatus.status !== "failed");
 
   return runStatus;
+}
+
+if (!module.parent) {
+  if (!process.env.SERVICE_TABLE || !process.env.DB_SECRET_NAME) {
+    console.error("Please set environment variables");
+    console.error("Run `set SERVICE_TABLE=vkd-qa-service-table` and `set DB_SECRET_NAME=vkd/qa/dbcreds`")
+    process.exit(1);
+  }
+
+  (async () => {
+    await connectOpenAI();
+    const thread = await createThread();
+    console.log("Created thread", thread);
+
+    const result = await askWithStreaming({
+      thread,
+      userQuestion: // Pick one
+        // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
+        // "What is the latest year of the reports?"
+        // "What is the average household income for 2020 through 2023?"
+        // "How many children lived in poverty in Chittenden in 2020?"
+        // "How many children lived in poverty in Chittenden in 1942?"
+        "Please compare the state of Vermont's children in 2022 vs 2019. Consider primarily their mental and physical health, but also consider whether they have been able to successfully be educated."
+      ,
+      assistantId: process.env.ASSISTANT_ID || 'asst_nJKMeBh1KxrqsrL9jGheMcHX',
+      callback: async ({ finished, chunk }) => {
+        console.log("Callback", { finished, chunk });
+      }
+    });
+
+    console.log("Result", result);
+  })();
 }

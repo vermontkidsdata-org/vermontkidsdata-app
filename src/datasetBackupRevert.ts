@@ -9,7 +9,7 @@ import { Tracer, captureLambdaHandler } from '@aws-lambda-powertools/tracer';
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import middy from '@middy/core';
 import cors from '@middy/http-cors';
-import { APIGatewayEvent, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { CORSConfigDefault } from './cors-config';
 import { DatasetVersion, getDatasetVersionKey } from './db-utils';
 import { processUpload } from './uploadData';
@@ -25,7 +25,7 @@ const tracer = new Tracer({ serviceName });
 const { REGION, S3_BUCKET_NAME } = process.env;
 const s3 = new S3Client({ region: REGION });
 
-export async function lambdaHandler(event: APIGatewayEvent): Promise<APIGatewayProxyResultV2> {
+export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> {
   if (!S3_BUCKET_NAME) {
     throw new Error("S3_BUCKET_NAME not set");
   }

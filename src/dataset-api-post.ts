@@ -6,7 +6,7 @@ if (!module.parent) {
 import { Logger } from '@aws-lambda-powertools/logger';
 import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
 import { Tracer } from '@aws-lambda-powertools/tracer';
-import { APIGatewayEvent, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBCommit, doDBOpen, doDBQuery } from './db-utils';
 import { getUploadType } from './uploadData';
 
@@ -72,7 +72,7 @@ export async function updateDataset(dataset: string, { name }: { name?: string }
   }
 }
 
-export async function lambdaHandler(event: APIGatewayEvent): Promise<APIGatewayProxyResultV2> {
+export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> {
   logger.info({ message: serviceName, event });
 
   const dataset = event.pathParameters?.dataset;

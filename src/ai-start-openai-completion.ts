@@ -33,7 +33,11 @@ export const handler = prepareStepFunction(async (event: StepFunctionInputOutput
       thread,
       userQuestion: event.query,
       assistantId: ASSISTANT_ID,
+      debugCallback: async ({ event }) => {
+        pt.logger.info({ message: 'Debug callback', event });
+      },
       callback: async ({ finished, chunk }) => {
+        console.log("Callback", { finished, chunk });
         if (finished) {
           pt.logger.info({ message: 'Finished streaming' });
           await Completion.update({
