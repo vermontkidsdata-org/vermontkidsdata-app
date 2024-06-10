@@ -195,7 +195,7 @@ export async function queryDB(sqlText: string, params?: any[]): Promise<any[]> {
 }
 
 export const serviceTable = new Table({
-  name: process.env.SERVICE_TABLE!,
+  name: process.env.SERVICE_TABLE || 'ServiceTable',
 
   partitionKey: 'PK',
   sortKey: 'SK',
