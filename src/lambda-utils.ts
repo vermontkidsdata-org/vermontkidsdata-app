@@ -47,7 +47,7 @@ export interface StepFunctionInputOutput {
   id: string;
   sortKey: number;
   query: string;
-  runId: string;
+  runId?: string;
   status?: string;
   stream?: boolean;
 }

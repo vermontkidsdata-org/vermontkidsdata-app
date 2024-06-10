@@ -16,13 +16,22 @@ export const handler = prepareStepFunction(async (event: StepFunctionInputOutput
 
   const item = await Completion.get(getCompletionPK(event.id, event.sortKey));
   pt.logger.info({ message: 'Got completion item', item });
-  if (item?.Item?.thread == null) {
-    throw new Error(`Thread not found for ${event.id}:${event.sortKey}`);
+
+  if (item.Item == null) {
+    throw new Error(`Completion not found for ${event.id}:${event.sortKey}`);
   }
 
   // If it's already done for whatever reason (usually streaming), just return
-  if (["success", "error"].indexOf(item.Item.status) >= 0) {
+  if (["success", "error"].indexOf(item.Item.status ?? 'bogus') >= 0) {
     return event;
+  }
+
+  if (item.Item.thread == null) {
+    throw new Error(`Thread not found for ${event.id}:${event.sortKey}`);
+  }
+
+  if (event.runId == null) {
+    throw new Error('Missing runId in input event');
   }
 
   await connectOpenAI();
@@ -30,7 +39,7 @@ export const handler = prepareStepFunction(async (event: StepFunctionInputOutput
   const response = await checkAskWithoutStreaming({
     thread: item.Item.thread,
     runId: event.runId,
-  })
+  });
 
   pt.logger.info({ message: 'Checked OpenAI completion', response });
 

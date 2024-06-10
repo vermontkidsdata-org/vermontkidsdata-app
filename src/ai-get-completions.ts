@@ -31,22 +31,43 @@ export async function lambdaHandler(
     }
   }
 
+  // If there are specific list of fields in a query string parameter, only return those fields
+  const fields = event.queryStringParameters?.fields?.split(',').map((field) => field.trim());
+  const attributes = fields?.filter((field) =>
+    ['reaction', 'comment', 'query', 'status', 'message', 'stream', 'created', 'modified'].includes(field)
+  ) as (keyof CompletionData)[];
+  attributes?.push('id', 'sortKey');
+  if (fields?.some((field) => !(attributes as string[]).includes(field))) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: "Invalid field(s) requested",
+      }),
+    }
+  }
+
   // Fetch the requested completions from the database
   const { query, index } = {
     query: reaction ?
-      { GSI1PK: getReactionKeyAttribute(reaction) } :
-      { GSI2PK: ALL_WITH_COMMENTS },
+      getReactionKeyAttribute(reaction) :
+      ALL_WITH_COMMENTS,
     index: reaction ?
       { index: 'GSI1' } :
       { index: 'GSI2' }
   };
 
-  const completions: CompletionData[] = [];
+  const completions: Omit<CompletionData, 'thread' | 'entity'>[] = [];
+
+  pt.logger.info({ message: 'Fetching completions', query, index });
 
   await forEachThing<CompletionData>(
-    () => Completion.query(query, index),
+    () => Completion.query(query, {
+      ...index,
+      attributes,
+    }),
     async (completion) => {
-      completions.push(completion);
+      const { thread, entity, ...rest } = completion;
+      completions.push(rest);
     },
   );
 

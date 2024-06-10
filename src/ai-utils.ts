@@ -1,14 +1,43 @@
 import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import OpenAI from "openai";
 import { AssistantStreamEvent } from "openai/resources/beta/assistants";
-import { TextContentBlock, TextDeltaBlock } from "openai/resources/beta/threads/messages";
+import { AnnotationDelta, TextContentBlock, TextDeltaBlock } from "openai/resources/beta/threads/messages";
 import { Thread } from "openai/resources/beta/threads/threads";
 import { BarChartResult, getChartData } from "./chartsApi";
 
 export const IN_PROGRESS_ERROR = 'InProgressError';
 
 const secretManager = new SecretsManagerClient({});
-let openai: OpenAI;
+export let openai: OpenAI;
+
+/**
+ * This is a list of files that are available for citation in the AI responses.
+ */
+export const FILE_MAP = [{
+  "filename": "how_are_vermonts_young_children_2023.txt",
+  "url": "https://buildingbrightfutures.org/wp-content/uploads/the_state_of_vermonts_children_2023_year_in_review.pdf",
+  "name": "The State of Vermont's Children 2023 Year in Review"
+}, {
+  "filename": "how_are_vermonts_young_children_2022.txt",
+  "url": "https://buildingbrightfutures.org/wp-content/uploads/State-of-Vermonts-Children-2022.pdf",
+  "name": "The State of Vermont's Children 2022"
+}, {
+  "filename": "how_are_vermonts_young_children_2021.txt",
+  "url": "https://buildingbrightfutures.org/wp-content/uploads/2022/01/The-State-of-Vermonts-Children-2021-Year-in-Review.pdf",
+  "name": "The State of Vermont's Children 2021 Year in Review"
+}, {
+  "filename": "how_are_vermonts_young_children_2020.txt",
+  "url": "https://buildingbrightfutures.org/wp-content/uploads/2021/01/2020-How-Are-Vermonts-Young-Children-and-Families.pdf",
+  "name": "How Are Vermont's Young Children and Families 2020"
+}, {
+  "filename": "how_are_vermonts_young_children_2019.txt",
+  "url": "https://buildingbrightfutures.org/wp-content/uploads/2020/01/BBF-2019-HAVYCF-REPORT-SinglePgs.pdf",
+  "name": "How Are Vermont's Young Children 2019"
+}, {
+  "filename": "how_are_vermonts_young_children_2018.txt",
+  "url": "https://buildingbrightfutures.org/wp-content/uploads/2019/01/BBF-2018-HAVYCF-FINAL-SINGLES-1.pdf",
+  "name": "How Are Vermont's Young Children 2018"
+}];
 
 interface IThread {
   id: string;
@@ -55,7 +84,7 @@ async function getChartDataWithCache(queryId: string): Promise<BarChartResult> {
   return data;
 }
 
-export type StreamingCallback = (props: { finished: boolean, chunk?: string }) => Promise<void>;
+export type StreamingCallback = (props: { failed: boolean, event?: AssistantStreamEvent, finished: boolean, chunk?: string, annotations?: AnnotationDelta[] }) => Promise<void>;
 export type StreamingDebugCallback = (props: { event: AssistantStreamEvent }) => Promise<void>;
 
 class EventHandler {
@@ -171,13 +200,19 @@ const eventHandler = new EventHandler();
 
 async function handleEvent(event: any, callback: StreamingCallback): Promise<boolean> {
   if (event.event === 'thread.run.created') {
+  } else if (event.event === 'thread.run.failed') {
+    console.error("Run failed");
+    await callback({ finished: true, failed: true, event });
+    return true;
   } else if (event.event === 'thread.run.completed') {
     console.log("Run completed");
     return true;
   } else if (event.event === 'thread.message.delta') {
     if (isTextDeltaBlock(event.data.delta.content?.[0])) {
-      const chunk = event.data.delta.content?.[0].text?.value;
-      await callback({ finished: false, chunk });
+      const text = event.data.delta.content?.[0].text;
+      const annotations = text?.annotations;
+      const chunk = text?.value;
+      await callback({ finished: false, chunk, annotations, event, failed: false });
     }
   } else if (event.event === 'thread.run.requires_action') {
     console.log("Requires action: ", JSON.stringify(event.data.required_action));
@@ -209,7 +244,7 @@ export async function askWithStreaming(props: { thread: Thread, userQuestion: st
     if (await handleEvent(event, callback)) break;
   }
 
-  await callback({ finished: true });
+  await callback({ finished: true, failed: false });
 }
 
 
