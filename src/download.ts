@@ -3,22 +3,11 @@ if (!module.parent) {
   process.env.NAMESPACE = 'qa';
 }
 
-import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
-import middy from '@middy/core';
-import cors from '@middy/http-cors';
-import { APIGatewayProxyEvent, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { CORSConfigOpen } from './cors-config';
+import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
+import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-// Set your service name. This comes out in service lens etc.
-const serviceName = `download-${process.env.NAMESPACE}`;
-const logger = new Logger({
-  logLevel: (process.env.LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName,
-});
-const tracer = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `download-${process.env.NAMESPACE}` });
 
 const { REGION } = process.env;
 
@@ -152,7 +141,7 @@ export function isErrorResponse(resp: any): resp is { errorMessage: string, erro
 }
 
 export async function lambdaHandler(
-  event: APIGatewayProxyEvent,
+  event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   console.log(`REGION=${REGION}, event 👉`, event);
 
@@ -193,23 +182,17 @@ export async function lambdaHandler(
   return response;
 }
 
-if (!module.parent) {
-  (async () => {
-    console.log(await lambdaHandler({
-      pathParameters: {
-        uploadType: 'dashboard:indicators',
-      },
-    } as unknown as APIGatewayProxyEvent))
-  })().catch(err => {
-    console.log(`exception`, err);
-  });
-  process.exit(1);
-}
+// if (!module.parent) {
+//   (async () => {
+//     console.log(await lambdaHandler({
+//       pathParameters: {
+//         uploadType: 'dashboard:indicators',
+//       },
+//     } as unknown as APIGatewayProxyEvent))
+//   })().catch(err => {
+//     console.log(`exception`, err);
+//   });
+//   process.exit(1);
+// }
 
-export const main = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger))
-  .use(
-    // cors(new CORSConfig(process.env))
-    cors(CORSConfigOpen),
-  );
+export const main = prepareAPIGateway(lambdaHandler);

@@ -3,20 +3,13 @@ if (!module.parent) {
   process.env.NAMESPACE = 'qa';
 }
 
-import { Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBCommit, doDBOpen, doDBQuery } from './db-utils';
+import { makePowerTools } from './lambda-utils';
 import { getUploadType } from './uploadData';
 
 // Set your service name. This comes out in service lens etc.
-const serviceName = `post-dataset-${process.env.NAMESPACE}`;
-export const logger = new Logger({
-  logLevel: (process.env.LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName,
-});
-export const tracer = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `post-dataset-${process.env.NAMESPACE}` });
 
 export async function updateDataset(dataset: string, { name }: { name?: string }): Promise<APIGatewayProxyResultV2> {
   await doDBOpen();
@@ -44,7 +37,7 @@ export async function updateDataset(dataset: string, { name }: { name?: string }
       const sql = 'update upload_types set ' + updates.join(', ') + ' where `type` = ?';
       params.push(dataset);
 
-      logger.info({ message: 'updateDataset', sql, params });
+      pt.logger.info({ message: 'updateDataset', sql, params });
       await doDBQuery(sql, params);
 
       await doDBCommit();
@@ -73,7 +66,7 @@ export async function updateDataset(dataset: string, { name }: { name?: string }
 }
 
 export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> {
-  logger.info({ message: serviceName, event });
+  pt.logger.info({ message: pt.serviceName, event });
 
   const dataset = event.pathParameters?.dataset;
   const body = event.body;

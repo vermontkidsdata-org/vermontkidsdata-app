@@ -1,24 +1,13 @@
-import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
-import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
-import middy from '@middy/core';
-import cors from '@middy/http-cors';
-import { APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { APIGatewayEventRequestContextV2, APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2 } from 'aws-lambda';
 // import AWS, { CognitoIdentityCredentials } from 'aws-sdk';
 import { httpResponse } from './cors';
 const { IDENTITY_POOL_ID, IDENTITY_PROVIDER, ENV_NAME, SERVICE_TABLE, AWS_REGION, LOG_LEVEL } = process.env;
 // import getCognitoCreds from './cognito.js';
 import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
 import { fromCognitoIdentityPool as FromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
-import { VKDAuthorizerContext } from './authorizer';
-import { CORSConfigDefault } from './cors-config';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
+import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-export const serviceName = `get-credentials-${ENV_NAME}`;
-export const logger = new Logger({
-  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName: serviceName,
-});
-export const tracer = new Tracer({ serviceName: serviceName });
+const pt = makePowerTools({ prefix: `get-credentials-${process.env.NAMESPACE}` });
 
 export interface Creds {
   identityId: string,
@@ -43,7 +32,7 @@ async function getCognitoCreds(identityPoolId: string, identityProvider: string,
 }
 
 export async function lambdaHandler(
-  event: APIGatewayProxyEventV2WithRequestContext<VKDAuthorizerContext>,
+  event: APIGatewayProxyEventV2WithRequestContext<APIGatewayEventRequestContextV2>,
 ): Promise<APIGatewayProxyResultV2> {
   console.log({ message: 'get creds starting', event });
   console.log('request context try 3', JSON.stringify(event.requestContext));
@@ -64,7 +53,7 @@ export async function lambdaHandler(
     idToken,
     AWS_REGION,
   );
-  logger.info({ message: 'creds', creds });
+  pt.logger.info({ message: 'creds', creds });
 
   return httpResponse(200, creds);
 }
@@ -77,10 +66,4 @@ export async function lambdaHandler(
 //   })();
 // }
 
-export const main = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger))
-  .use(
-    cors(CORSConfigDefault),
-  )
-  ;
+export const main = prepareAPIGateway(lambdaHandler);

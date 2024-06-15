@@ -4,11 +4,18 @@ import { AssistantStreamEvent } from "openai/resources/beta/assistants";
 import { AnnotationDelta, TextContentBlock, TextDeltaBlock } from "openai/resources/beta/threads/messages";
 import { Thread } from "openai/resources/beta/threads/threads";
 import { BarChartResult, getChartData } from "./chartsApi";
+import { makePowerTools } from "./lambda-utils";
 
 export const IN_PROGRESS_ERROR = 'InProgressError';
 
+const pt = makePowerTools({ prefix: 'ai-utils' });
+
 const secretManager = new SecretsManagerClient({});
 export let openai: OpenAI;
+
+export function getOpenAI(): OpenAI {
+  return openai;
+}
 
 /**
  * This is a list of files that are available for citation in the AI responses.
@@ -325,6 +332,109 @@ export async function askWithoutStreaming(props: { thread: Thread, userQuestion:
   } while (runStatus.status !== "completed" && runStatus.status !== "failed");
 
   return runStatus;
+}
+
+export interface Footnote {
+  refnum: number,
+  filename: string,
+  url: string,
+  file_id: string,
+}
+
+export class ChunkHandler {
+  lastFootnotes: Footnote[] = [];
+  message: string = '';
+
+  getMessage(): string {
+    return this.message;
+  }
+
+  async handleChunk(props: {
+    openai: OpenAI,
+    footnotes: Footnote[],
+    refnum: number,
+    finished: boolean,
+    chunk?: string,
+    annotations?: AnnotationDelta[],
+  }): Promise<{ cleanChunk?: string, refnum: number }> {
+    const { finished, chunk, annotations, footnotes, openai: localOpenAI, } = props;
+    let cleanChunk = chunk;
+    let refnum = props.refnum;
+
+    pt.logger.info("handleChunk", { finished, chunk, annotations });
+
+    const localFootnotes: Footnote[] = [];
+
+    if (annotations) {
+      for (const annotation of annotations) {
+        if (annotation.type === 'file_citation' && annotation.file_citation?.file_id) {
+          const file = await localOpenAI.files.retrieve(annotation.file_citation.file_id);
+          pt.logger.info({
+            message: 'Cited file', info: {
+              id: file.id,
+              name: file.filename,
+              purpose: file.purpose,
+              bytes: file.bytes,
+            }
+          });
+
+          // See if we already have a footnote to this file
+          const existing = footnotes.find(f => f.filename === file.filename);
+          pt.logger.info({ message: 'Existing footnote? (no existing property if not)', existing });
+
+          if (existing) {
+            pt.logger.info({ message: 'Already have a footnote', existing });
+            localFootnotes.push(existing);
+          } else {
+            // Not yet, need to look it up in the map
+            const mapped = FILE_MAP.find(f => f.filename === file.filename);
+            pt.logger.info({ message: 'Mapped file', FILE_MAP, file, mapped });
+            if (mapped) {
+              pt.logger.info({ message: 'Mapped file', mapped });
+              const localFootnote = {
+                refnum: ++refnum,
+                filename: file.filename,
+                url: mapped.url,
+                file_id: file.id,
+              };
+              footnotes.push(localFootnote);
+              localFootnotes.push(localFootnote);
+            }
+          }
+        }
+      }
+    } else {
+      this.lastFootnotes = [];
+    }
+
+    if (cleanChunk && annotations) {
+      // Substitute the footnotes based on the text of each annotation
+      for (const annotation of annotations) {
+        if (annotation.type === 'file_citation' && annotation.file_citation?.file_id && annotation.text) {
+          const re = new RegExp(annotation.text, 'g');
+
+          // See if we just had these footnotes
+          const lastFootnotesFound = this.lastFootnotes.find(f => f.file_id === annotation.file_citation?.file_id);
+          if (lastFootnotesFound) {
+            pt.logger.info({ message: 'Last footnotes found, ignoring', lastFootnotesFound, file_id: annotation.file_citation?.file_id });
+            cleanChunk = cleanChunk.replace(re, '');
+          } else {
+            const localFootnote = localFootnotes.find(f => f.file_id === annotation.file_citation?.file_id);
+            pt.logger.info({ message: 'Local footnote', localFootnotes, file_id: annotation.file_citation?.file_id, localFootnote, text: annotation.text });
+            if (localFootnote) {
+              cleanChunk = cleanChunk.replace(re, `[[${localFootnote.refnum}]](${localFootnote.url})`);
+              this.lastFootnotes.push(localFootnote);
+            } else {
+              cleanChunk = cleanChunk.replace(re, '');
+            }
+          }
+        }
+      }
+    }
+
+    this.message += cleanChunk ?? '';
+    return { cleanChunk, refnum };
+  }
 }
 
 if (!module.parent) {

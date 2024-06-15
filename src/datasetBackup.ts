@@ -3,23 +3,18 @@ if (!module.parent) {
   process.env.NAMESPACE = 'qa';
 }
 
-import { Logger, injectLambdaContext } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { Tracer, captureLambdaHandler } from '@aws-lambda-powertools/tracer';
+import { injectLambdaContext } from '@aws-lambda-powertools/logger/middleware';
+import { captureLambdaHandler } from '@aws-lambda-powertools/tracer/middleware';
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import middy from '@middy/core';
 import { SQSEvent } from 'aws-lambda';
 import { DatasetVersion, STATUS_DATASET_VERSION_SUCCESS, getDatasetVersionKey } from './db-utils';
 import { getCSVData, isErrorResponse } from './download';
+import { makePowerTools } from './lambda-utils';
 import { DatasetBackupMessage } from './uploadData';
 
 // Set your service name. This comes out in service lens etc.
-const serviceName = `download-${process.env.NAMESPACE}`;
-const logger = new Logger({
-  logLevel: (process.env.LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName,
-});
-const tracer = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `download-${process.env.NAMESPACE}` });
 
 const { REGION, S3_BUCKET_NAME } = process.env;
 const s3 = new S3Client({ region: REGION });
@@ -53,12 +48,12 @@ export async function lambdaHandler(event: SQSEvent): Promise<void> {
         numrows: resp.numrows,
       });
 
-      logger.info("Backup done", { dataset: body.dataset, identifier: body.identifier });
+      pt.logger.info("Backup done", { dataset: body.dataset, identifier: body.identifier });
     }
   }
 }
 
 export const main = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger))
+  .use(captureLambdaHandler(pt.tracer))
+  .use(injectLambdaContext(pt.logger))
   ;

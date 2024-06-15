@@ -1,26 +1,17 @@
 // process.env.NAMESPACE = 'qa';
 
-import { Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { Tracer } from '@aws-lambda-powertools/tracer';
-import { APIGatewayProxyEventV2WithLambdaAuthorizer, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { VKDAuthorizerContext } from './authorizer';
+import { APIGatewayEventRequestContextV2, APIGatewayProxyEventV2, APIGatewayProxyEventV2WithLambdaAuthorizer, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
+import { makePowerTools } from './lambda-utils';
 
-const {NAMESPACE, LOG_LEVEL} = process.env;
+const {NAMESPACE, } = process.env;
 
-// Set your service name. This comes out in service lens etc.
-const serviceName = `queries-api-getList-${NAMESPACE}`;
-export const logger = new Logger({
-  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName,
-});
-export const tracer = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `queries-api-getList-${NAMESPACE}` });
 
 export async function lambdaHandler(
-  event: APIGatewayProxyEventV2WithLambdaAuthorizer<VKDAuthorizerContext>,
+  event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  logger.info({ message: 'get-list', serviceName, event, authorizerContext: event.requestContext?.authorizer });
+  pt.logger.info({ message: 'get-list', });
 
   await doDBOpen();
   try {
@@ -41,7 +32,7 @@ export async function lambdaHandler(
 if (!module.parent) {
   (async () => {
     console.log(await lambdaHandler({  
-    } as unknown as APIGatewayProxyEventV2WithLambdaAuthorizer<VKDAuthorizerContext>))
+    } as unknown as APIGatewayProxyEventV2WithLambdaAuthorizer<APIGatewayEventRequestContextV2>))
   })().catch(err => {
     console.log(`exception`, err);
   });

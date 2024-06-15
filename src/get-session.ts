@@ -1,27 +1,17 @@
-import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
-import middy from '@middy/core';
-import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { getSession } from './authorizer';
-import { CORSConfigDefault } from './cors-config';
+import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
 const { NAMESPACE, LOG_LEVEL } = process.env;
 
-export const serviceName = `get-session-${NAMESPACE}`;
-export const logger = new Logger({
-  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName: serviceName,
-});
-export const tracer = new Tracer({ serviceName: serviceName });
+const pt = makePowerTools({ prefix: `get-session-${NAMESPACE}` });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  logger.info({ message: `${serviceName} starting`, event });
+  pt.logger.info({ message: `${pt.serviceName} starting`, event });
   const session = await getSession(event);
-  logger.info({ message: `session`, session });
+  pt.logger.info({ message: `session`, session });
   return {
     statusCode: 200,
     body: JSON.stringify(
@@ -34,10 +24,4 @@ export async function lambdaHandler(
   }
 }
 
-export const main = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger))
-  .use(
-    cors(CORSConfigDefault),
-  )
-  ;
+export const main = prepareAPIGateway(lambdaHandler);

@@ -1,21 +1,11 @@
 
-import { Logger, injectLambdaContext } from "@aws-lambda-powertools/logger";
-import { LogLevel } from "@aws-lambda-powertools/logger/lib/types";
-import { Tracer, captureLambdaHandler } from "@aws-lambda-powertools/tracer";
-import middy from "@middy/core";
-import cors from "@middy/http-cors";
 import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from "aws-lambda";
-import { CORSConfigDefault } from "./cors-config";
 import { UploadStatus, getUploadStatusKey } from "./db-utils";
+import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 
-const { NAMESPACE, LOG_LEVEL } = process.env;
+const {NAMESPACE, } = process.env;
 
-const serviceName = `charts-api-${NAMESPACE}`;
-export const logger = new Logger({
-  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName,
-});
-export const tracer = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `upload-get-status-${NAMESPACE}` });
 
 export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> {
   const { uploadId } = event.pathParameters!;
@@ -56,13 +46,7 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
   }
 }
 
-export const handler = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger))
-  .use(
-    // cors(new CORSConfig(process.env))
-    cors(CORSConfigDefault),
-  );
+export const handler = prepareAPIGateway(lambdaHandler);
 
 // if (!module.parent) {
 //   (async () => {

@@ -1,14 +1,6 @@
-import { injectLambdaContext } from "@aws-lambda-powertools/logger";
-import { captureLambdaHandler } from "@aws-lambda-powertools/tracer";
-import middy from "@middy/core";
-import cors from "@middy/http-cors";
-import { lambdaHandlerBar, loggerCharts, tracerCharts } from "./chartsApi";
+import { lambdaHandlerBar } from "./chartsApi";
+import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 
-export const bar = middy(lambdaHandlerBar)
-  .use(captureLambdaHandler(tracerCharts))
-  .use(injectLambdaContext(loggerCharts))
-  .use(
-    cors({
-      origin: "*",
-    }),
-  );
+const pt = makePowerTools({ prefix: `charts-api` });
+
+export const bar = prepareAPIGateway(lambdaHandlerBar);

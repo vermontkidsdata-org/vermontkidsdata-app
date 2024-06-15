@@ -31,8 +31,6 @@ export function makeLambda(props: { scope: Construct, name: string, entry: strin
   const entry = /[^0-9a-zA-Z]/.test(_entry) ? join(__dirname, '../src', _entry) : _entry;
   const handler = _handler || 'handler';
 
-  console.log({ message: 'makeLambda', entry, handler });
-
   const fn = new NodejsFunction(scope, name, {
     entry,
     handler: handler,

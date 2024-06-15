@@ -9,13 +9,6 @@ const pt = makePowerTools({ prefix: 'ai-post-completion' });
 
 const sfn = new SFNClient({});
 
-interface PostCompletionRequest {
-  key: string,
-  id: string,
-  sortKey: number,
-  query: string
-}
-
 export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   if (ASSISTANT_ID == null) {
     throw new Error('ASSISTANT_ID is not set');

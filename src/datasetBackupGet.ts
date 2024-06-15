@@ -3,23 +3,12 @@ if (!module.parent) {
   process.env.NAMESPACE = 'qa';
 }
 
-import { Logger, injectLambdaContext } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { Tracer, captureLambdaHandler } from '@aws-lambda-powertools/tracer';
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
-import middy from '@middy/core';
-import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { CORSConfigDefault } from './cors-config';
 import { DatasetVersion, getDatasetVersionKey } from './db-utils';
+import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-// Set your service name. This comes out in service lens etc.
-const serviceName = `get-dataset-backups-${process.env.NAMESPACE}`;
-const logger = new Logger({
-  logLevel: (process.env.LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName,
-});
-const tracer = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `get-dataset-backup-${process.env.NAMESPACE}` });
 
 const { REGION, S3_BUCKET_NAME } = process.env;
 const s3 = new S3Client({ region: REGION });
@@ -32,13 +21,13 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
   const dataset = event.pathParameters?.dataset;
   const version = event.pathParameters?.version;
   if (!dataset || !version) {
-    logger.error("Missing dataset and/or version", { event });
+    pt.logger.error("Missing dataset and/or version", { event });
     throw new Error("Missing dataset and/or version");
   }
 
   const datasetVersion = await DatasetVersion.get(getDatasetVersionKey(dataset, version));
   if (!datasetVersion.Item) {
-    logger.error("Unknown dataset version", { dataset, version });
+    pt.logger.error("Unknown dataset version", { dataset, version });
     return {
       statusCode: 400,
       body: JSON.stringify({
@@ -53,7 +42,7 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
   }));
   
   if (!backup.Body) {
-    logger.error("No backup body", { dataset, version });
+    pt.logger.error("No backup body", { dataset, version });
     return {
       statusCode: 400,
       body: JSON.stringify({
@@ -72,9 +61,4 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
   }
 }
 
-export const main = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger))
-  .use(
-    cors(CORSConfigDefault),
-  );
+export const main = prepareAPIGateway(lambdaHandler);

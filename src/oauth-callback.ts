@@ -1,20 +1,12 @@
-import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
-import middy from '@middy/core';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import axios from 'axios';
 import { randomUUID } from 'crypto';
 import express from 'express';
 import { Session } from './db-utils';
-const { LOG_LEVEL, IS_PRODUCTION, ENV_NAME, MY_URI, MY_DOMAIN, SERVICE_TABLE, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET, AWS_REGION } = process.env;
+import { makePowerTools, prepareAPIGateway } from './lambda-utils';
+const { IS_PRODUCTION, ENV_NAME, MY_URI, MY_DOMAIN, SERVICE_TABLE, REDIRECT_URI, COGNITO_CLIENT_ID, COGNITO_SECRET } = process.env;
 
-export const serviceName = `oauth-callback-${ENV_NAME}`;
-export const logger = new Logger({
-  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName: serviceName,
-});
-export const tracer = new Tracer({ serviceName: serviceName });
+const pt = makePowerTools({ prefix: `oauth-callback-${ENV_NAME}` });
 
 interface CognitoResponse {
   id_token: string,
@@ -115,6 +107,4 @@ if (!module.parent) {
   })();
 }
 
-export const main = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger));
+export const main = prepareAPIGateway(lambdaHandler);

@@ -1,5 +1,5 @@
 import { Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
+import { LogLevel } from '@aws-lambda-powertools/logger/types';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import { DynamoDBDocumentClient, QueryCommandOutput } from '@aws-sdk/lib-dynamodb';

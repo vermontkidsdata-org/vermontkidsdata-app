@@ -1,15 +1,19 @@
-import { Logger, injectLambdaContext } from "@aws-lambda-powertools/logger";
-import { LogLevel } from "@aws-lambda-powertools/logger/lib/types";
-import { Tracer, captureLambdaHandler } from "@aws-lambda-powertools/tracer";
+import { Logger } from '@aws-lambda-powertools/logger';
+import { injectLambdaContext, } from '@aws-lambda-powertools/logger/middleware';
+import { LogLevel } from '@aws-lambda-powertools/logger/types';
+import { Tracer } from '@aws-lambda-powertools/tracer';
+import { captureLambdaHandler } from '@aws-lambda-powertools/tracer/middleware';
+
 import middy from "@middy/core";
 import cors from "@middy/http-cors";
-import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
-import { CORSConfigDefault } from "src/cors-config";
+import { APIGatewayEventRequestContextV2, APIGatewayProxyEventV2, APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2 } from "aws-lambda";
+import { CORSConfigDefault } from "./cors-config";
 
 const { LOG_LEVEL, NAMESPACE } = process.env;
 let powerToolsResources: PowerToolsResources;
 
 interface PowerToolsResources {
+  serviceName: string;
   logger: Logger;
   tracer: Tracer;
 }
@@ -23,13 +27,17 @@ export function makePowerTools(props: { prefix: string }): PowerToolsResources {
       logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
       serviceName,
     }),
-    tracer: new Tracer({ serviceName })
+    tracer: new Tracer({ serviceName }),
+    serviceName,
   };
 
   return powerToolsResources;
 }
 
-export function prepareAPIGateway(fn: (event: APIGatewayProxyEventV2) => Promise<APIGatewayProxyResultV2>, props?: {
+type LambdaHandlerWithoutAuth = (event: APIGatewayProxyEventV2) => Promise<APIGatewayProxyResultV2>;
+type LambdaHandlerWithAuth = (event: APIGatewayProxyEventV2WithRequestContext<APIGatewayEventRequestContextV2>) => Promise<APIGatewayProxyResultV2>;
+
+export function prepareAPIGateway(fn: LambdaHandlerWithoutAuth | LambdaHandlerWithAuth, props?: {
 }) {
   if (!powerToolsResources) {
     makePowerTools({ prefix: 'give-power-tools-a-name' });
@@ -41,6 +49,18 @@ export function prepareAPIGateway(fn: (event: APIGatewayProxyEventV2) => Promise
     .use(
       cors(CORSConfigDefault),
     )
+}
+
+export function prepareLambda(fn: (event: any) => Promise<any>, props?: {
+}) {
+  if (!powerToolsResources) {
+    makePowerTools({ prefix: 'give-power-tools-a-name' });
+  }
+
+  return middy(fn)
+    .use(captureLambdaHandler(powerToolsResources.tracer))
+    .use(injectLambdaContext(powerToolsResources.logger))
+    ;
 }
 
 export interface StepFunctionInputOutput {

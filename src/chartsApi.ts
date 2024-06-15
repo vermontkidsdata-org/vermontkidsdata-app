@@ -1,18 +1,10 @@
-import { Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { getResponse as getIndicatorsBySubcat } from './custom/indicators-by-subcat';
 import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
-const { LOG_LEVEL, NAMESPACE } = process.env;
+import { makePowerTools } from './lambda-utils';
+const { NAMESPACE } = process.env;
 
-// Set your service name. This comes out in service lens etc.
-const serviceName = `charts-api-${NAMESPACE}`;
-export const loggerCharts = new Logger({
-  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName,
-});
-export const tracerCharts = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `charts-api-${NAMESPACE}` });
 
 export interface QueryRow {
   id: number,

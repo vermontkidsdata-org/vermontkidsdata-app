@@ -1,23 +1,13 @@
-import { Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { CensusResultRow, GeoHierarchy, census } from './citysdk-utils';
 import { httpMessageResponse, httpResponse } from './cors';
 import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
+import { makePowerTools } from './lambda-utils';
 import { ServerMetadata } from './server-metadata';
 
-// Set your service name. This comes out in service lens etc.
-const { NAMESPACE, LOG_LEVEL } = process.env;
+const {NAMESPACE, } = process.env;
 
-const serviceName = `tables-api-${NAMESPACE}`;
-const logger = new Logger({
-  logLevel: (LOG_LEVEL ||
-    
-    'INFO') as LogLevel,
-  serviceName,
-});
-const tracer = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `tables-api-${NAMESPACE}` });
 
 interface GazCounty {
   id: number, // 2819
@@ -168,7 +158,7 @@ export function makeDefaultColumnMapName(colName: string): string {
 async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?: ColumnMap, metadata?: any }> {
   const info = await getQuery(queryId);
 
-  console.log({ message: 'localDBQuery def', queryDef: JSON.stringify(info) });
+  // console.log({ message: 'localDBQuery def', queryDef: JSON.stringify(info) });
 
   // Now run the query. Should always return three columns, with the following names
   // - cat: The category(s)
@@ -181,7 +171,7 @@ async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?:
   }
 
   // Generate a default column map if one isn't present
-  console.log({ message: 'enriched', sqlText: info.rows[0].sqlText, dbColumnMap: info.rows[0].columnMap, resultRows });
+  // console.log({ message: 'enriched', sqlText: info.rows[0].sqlText, dbColumnMap: info.rows[0].columnMap, resultRows });
   const columnMap = info.rows[0].columnMap != null ? JSON.parse(info.rows[0].columnMap) as ColumnMap : (() => {
     const map: ColumnMap = {}
     for (const colName of Object.keys(resultRows[0])) {
@@ -189,14 +179,14 @@ async function localDBQuery(queryId: string): Promise<{ rows: any[], columnMap?:
     }
     return map;
   })();
-  console.log({ columnMap });
+  // console.log({ columnMap });
   return { rows: resultRows, columnMap: columnMap, metadata: JSON.parse(info.rows[0].metadata) };
 }
 
 export async function table(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  logger.info({ message: 'event 👉', event });
+  pt.logger.info({ message: 'event 👉', event });
   if (event.pathParameters == null || event.pathParameters.queryId == null) {
     return httpMessageResponse(400, 'missing path parameters', true);
   } else {
@@ -701,14 +691,6 @@ export async function getGeosByType(
 
   return httpResponse(200, { geos }, true);
 }
-
-// export const handler = middy(lambdaHandler)
-//   .use(captureLambdaHandler(tracer))
-//   .use(injectLambdaContext(logger))
-//   .use(
-//     // cors(new CORSConfig(process.env))
-//     cors(CORSConfigDefault)
-//   );
 
 // Only run if executed directly
 if (!module.parent) {

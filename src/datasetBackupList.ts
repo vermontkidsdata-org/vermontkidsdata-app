@@ -3,27 +3,16 @@ if (!module.parent) {
   process.env.NAMESPACE = 'qa';
 }
 
-import { Logger, injectLambdaContext } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { Tracer, captureLambdaHandler } from '@aws-lambda-powertools/tracer';
-import middy from '@middy/core';
-import cors from '@middy/http-cors';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { CORSConfigDefault } from './cors-config';
 import { forEachDatasetVersion } from './db-utils';
+import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-// Set your service name. This comes out in service lens etc.
-const serviceName = `get-dataset-backups-${process.env.NAMESPACE}`;
-const logger = new Logger({
-  logLevel: (process.env.LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName,
-});
-const tracer = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `get-dataset-backups-${process.env.NAMESPACE}` });
 
 export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> {
   const dataset = event.pathParameters?.dataset;
   if (!dataset) {
-    logger.error("Missing dataset", { event });
+    pt.logger.error("Missing dataset", { event });
     throw new Error("Missing dataset");
   }
 
@@ -45,9 +34,4 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
   }
 }
 
-export const main = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger))
-  .use(
-    cors(CORSConfigDefault),
-  );
+export const main = prepareAPIGateway(lambdaHandler);

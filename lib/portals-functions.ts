@@ -17,7 +17,6 @@ export interface PortalsFunctionsProps {
 
 export function getPortalsLambda(props: { scope: Construct, handler: string, commonEnv: Record<string, string>, onAdd?: OnAddCallback }): NodejsFunction {
   const { scope, handler, commonEnv, onAdd } = props;
-  console.log({ message: 'getPortalsLambda', handler });
 
   const fn = new NodejsFunction(scope, `PortalsLambda ${handler}`, {
     entry: join(__dirname, '../src/portals.ts'),

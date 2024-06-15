@@ -1,17 +1,15 @@
-import { injectLambdaContext, Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { captureLambdaHandler, Tracer } from '@aws-lambda-powertools/tracer';
+
+import { injectLambdaContext, } from '@aws-lambda-powertools/logger/middleware';
+import { captureLambdaHandler } from '@aws-lambda-powertools/tracer/middleware';
 import middy from '@middy/core';
 import { APIGatewayAuthorizerResult, APIGatewayRequestAuthorizerEvent, Context, PolicyDocument, Statement } from 'aws-lambda';
-import { getSessionKey, Session, SessionData } from './db-utils';
-const { ENV_NAME, SERVICE_TABLE, LOG_LEVEL } = process.env;
+import { Session, SessionData, getSessionKey } from './db-utils';
+import { makePowerTools } from './lambda-utils';
 
-export const serviceName = `bff-api-authorizer-${ENV_NAME}`;
-export const logger = new Logger({
-  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName: serviceName,
-});
-export const tracer = new Tracer({ serviceName: serviceName });
+const { ENV_NAME, SERVICE_TABLE, } = process.env;
+
+const pt = makePowerTools({ prefix: `api-authorizer-${ENV_NAME}` });
+
 export interface VKDAuthorizerContext {
   access_token: string,
   id_token: string,
@@ -28,21 +26,21 @@ export async function getSession(event: {
   // Cookie: VKD_AUTH=12345q13245; SOMETHING_ELSE=a039480w3984
   const authCookie = (event.headers?.Cookie || event.headers?.cookie || '').split(';').find(cookie => cookie.trim().startsWith(COOKIE_PREFIX));
   if (!authCookie) {
-    logger.info({ message: 'no VKD_AUTH cookie, denying' });
+    pt.logger.info({ message: 'no VKD_AUTH cookie, denying' });
     // return Deny below
   } else {
     if (SERVICE_TABLE == null) {
-      logger.info({ message: 'Needs SERVICE_TABLE configured in CDK' });
+      pt.logger.info({ message: 'Needs SERVICE_TABLE configured in CDK' });
       throw new Error('Needs SERVICE_TABLE');
     }
 
     // Pull off the session id from cookie value
     const session_id = authCookie.trim().substring(COOKIE_PREFIX.length).trim();
-    logger.info({ message: `Session id ${session_id} lookup in table ${SERVICE_TABLE}` });
+    pt.logger.info({ message: `Session id ${session_id} lookup in table ${SERVICE_TABLE}` });
 
     const session = await Session.get(getSessionKey(session_id));
     const now = Date.now() / 1000;
-    logger.info({ message: `Session lookup result`, session_id, session, now });
+    pt.logger.info({ message: `Session lookup result`, session_id, session, now });
     if (session?.Item?.TTL && session?.Item?.TTL >= now) {
       return session.Item;
     }
@@ -90,7 +88,7 @@ export async function lambdaHandler(
       TTL: session.TTL,
     };
 
-    logger.info({ message: 'authorizer allow response', response });
+    pt.logger.info({ message: 'authorizer allow response', response });
   } else {
     console.log({ message: `Session not found in table ${SERVICE_TABLE}` });
     // return Deny below
@@ -105,5 +103,5 @@ if (!module.parent) {
 }
 
 export const main = middy(lambdaHandler)
-  .use(captureLambdaHandler(tracer))
-  .use(injectLambdaContext(logger));
+  .use(captureLambdaHandler(pt.tracer))
+  .use(injectLambdaContext(pt.logger));

@@ -1,23 +1,15 @@
-import { Logger } from '@aws-lambda-powertools/logger';
-import { LogLevel } from '@aws-lambda-powertools/logger/lib/types';
-import { Tracer } from '@aws-lambda-powertools/tracer';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
+import { makePowerTools } from './lambda-utils';
 
-const {NAMESPACE, LOG_LEVEL} = process.env;
+const {NAMESPACE, } = process.env;
 
-// Set your service name. This comes out in service lens etc.
-const serviceName = `queries-api-get-${NAMESPACE}`;
-export const logger = new Logger({
-  logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
-  serviceName,
-});
-export const tracer = new Tracer({ serviceName });
+const pt = makePowerTools({ prefix: `queries-api-get-${NAMESPACE}` });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  logger.info({message: 'event 👉', event});
+  pt.logger.info({message: 'event 👉', event});
   const id = event.pathParameters?.id;
   let row: any = undefined;
   if (id != null) {
