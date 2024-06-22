@@ -92,16 +92,20 @@ export async function getDefaultDataset(queryRow: QueryRow): Promise<any> {
   }
 }
 
+export interface BarChartSeriesItem {
+  name: string,
+  data: (number | null)[],
+}
+
+export type BarChartCategoryItem = string | number;
+
 export interface BarChartResult {
   metadata: {
     config: any,
     uploadType: string,
   },
-  series: {
-    name: string,
-    data: (number | null)[],
-  }[],
-  categories: (string | number)[],
+  series: BarChartSeriesItem[],
+  categories: BarChartCategoryItem[],
 }
 
 class BadRequestError extends Error {

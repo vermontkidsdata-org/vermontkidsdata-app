@@ -1,7 +1,8 @@
 import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import OpenAI from "openai";
-import { AssistantStreamEvent } from "openai/resources/beta/assistants";
+import { AssistantStreamEvent, FunctionTool } from "openai/resources/beta/assistants";
 import { AnnotationDelta, TextContentBlock, TextDeltaBlock } from "openai/resources/beta/threads/messages";
+import { RequiredActionFunctionToolCall } from "openai/resources/beta/threads/runs/runs";
 import { Thread } from "openai/resources/beta/threads/threads";
 import { BarChartResult, getChartData } from "./chartsApi";
 import { makePowerTools } from "./lambda-utils";
@@ -93,100 +94,167 @@ async function getChartDataWithCache(queryId: string): Promise<BarChartResult> {
 
 export type StreamingCallback = (props: { failed: boolean, event?: AssistantStreamEvent, finished: boolean, chunk?: string, annotations?: AnnotationDelta[] }) => Promise<void>;
 export type StreamingDebugCallback = (props: { event: AssistantStreamEvent }) => Promise<void>;
+const assistantCache: Record<string, OpenAI.Beta.Assistants.Assistant> = {};
+
+interface FunctionParameter {
+  type: string,
+  description: string,
+  enum?: (string | number)[],
+  _vkd_query?: {
+    type: string, // "series"
+  }
+}
+
+function str(value: any): string {
+  if (value === null || value === undefined) {
+    return '';
+  }
+  return `${value}`.toLowerCase();
+}
+
+async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFunctionToolCall, functionDef: FunctionTool }) {
+  const { toolCall, functionDef } = props;
+
+  // {
+  //   id: 'call_IP9awjq6zdppsJQRVHnA4sUZ',
+  //   type: 'function',
+  //   function: {
+  //     name: 'get_3squares_benefit',
+  //     arguments: '{"group": "individual", "year": "2022"}'
+  //   }
+  // }
+  const functionArgs = JSON.parse(toolCall.function.arguments);
+  const queryName = toolCall.function.name.replace(/-/g, ":");
+  const data = await getChartDataWithCache(queryName);
+  console.log({ message: "new output data", data });
+  // if (1 == 1) { process.exit(1); }
+
+  // Find the series and category parameters
+  const params = {
+    series: {
+      name: undefined as string | undefined,
+      parameter: undefined as FunctionParameter | undefined,
+    },
+    category: {
+      name: undefined as string | undefined,
+      parameter: undefined as FunctionParameter | undefined,
+    }
+  }
+
+  if (functionDef.function.parameters?.properties) {
+    for (const parameterEntry of Object.entries(functionDef.function.parameters.properties)) {
+      console.log({ message: 'parameter check for query type (series or category)', parameterEntry });
+      const name = parameterEntry[0];
+      const parameter: FunctionParameter = parameterEntry[1] as FunctionParameter;
+
+      if (parameter._vkd_query?.type === "series") {
+        // We have a series parameter
+        params.series = { name, parameter };
+      } else if (parameter._vkd_query?.type === "category") {
+        // We have a category parameter
+        params.category = { name, parameter };
+      }
+    }
+  }
+
+  console.log({ message: 'params', params, functionArgs });
+
+  const [seriesName, categoryName] = [params.series.name, params.category.name];
+  if (seriesName && categoryName) {
+    let categoryPos = data.categories.map(c => str(c)).indexOf(str(functionArgs[categoryName]));
+    console.log({ message: 'categoryPos', categoryPos, categories: data.categories, categoryName });
+    if (categoryPos < 0) {
+      categoryPos = data.categories.length - 1;
+    }
+
+    console.log({ message: 'looking for series', seriesName, series: data.series, lookingFor: str(functionArgs[seriesName.toLowerCase()]) });
+
+    const series = data.series.find((s: any) => str(s.name) === str(functionArgs[seriesName.toLowerCase()]));
+    console.log({ message: 'series', series, seriesName, originalSeries: data.series });
+    if (series) {
+      const value = series.data[categoryPos];
+      return {
+        tool_call_id: toolCall.id,
+        output: JSON.stringify({
+          value: `${value}`,
+          url: `https://ui.vtkidsdata.org/columnchart/${queryName}`,
+        })
+      };
+    }
+  }
+
+  // Don't know what to do
+  return {
+    tool_call_id: toolCall.id,
+    output: JSON.stringify({
+      value: "unknown value",
+      url: `https://ui.vtkidsdata.org/columnchart/${queryName}`,
+    })
+  };
+}
+
+class ToolCallHandler {
+  async handleToolCall(props: {
+    toolCall: RequiredActionFunctionToolCall,
+    assistant: OpenAI.Beta.Assistants.Assistant,
+  }): Promise<{
+    tool_call_id: string,
+    output: string
+  } | undefined> {
+    const { toolCall, assistant } = props;
+    const functionDef = assistant.tools.find((t) => t.type === 'function' && t.function.name === toolCall.function.name) as FunctionTool;
+    console.log('*** toolCall', toolCall);
+    console.log('*** functionDef', JSON.stringify(functionDef));
+
+    const output = await getFunctionResponseFromSeries({ toolCall, functionDef });
+    console.log({ message: 'new output', output });
+    return output;
+  }
+}
 
 class EventHandler {
-  async handleRequiresAction(data: any, runId: string, threadId: string, callback: StreamingCallback) {
+  readonly toolCallHandler: ToolCallHandler;
+  constructor() {
+    this.toolCallHandler = new ToolCallHandler();
+  }
+
+  async handleRequiresAction(props: {
+    required_action: OpenAI.Beta.Threads.Runs.Run.RequiredAction,
+    runId: string,
+    threadId: string,
+    callback: StreamingCallback,
+    assistant: OpenAI.Beta.Assistants.Assistant,
+  }) {
+    const { required_action, runId, threadId, callback, assistant } = props;
+
     try {
       const toolOutputs: { tool_call_id: string, output: string }[] = [];
 
-      for (const toolCall of data.required_action.submit_tool_outputs.tool_calls) {
-        if (toolCall.function.name === "get_child_poverty") {
-          // {
-          //   id: 'call_eTKIWrpcyUxfImkh4koY1Yc8',
-          //   type: 'function',
-          //   function: {
-          //     name: 'get_child_poverty',
-          //     arguments: '{"location": "Chittenden", "type": "percent", "year": 2020}'
-          //   }
-          // }
-          console.log("Processing get_child_poverty tool call", toolCall);
-          const data = await getChartDataWithCache("children_in_poverty_under_12_all:chart");
-          console.log("getChartData", data);
-          const { location, type, year } = JSON.parse(toolCall.function.arguments) as { location: string, type: string, year: number | string };
-
-          // See if we have the requested geography; else we'll just use "Vermont"
-          const series = data.series.find((s: any) => s.name.toLowerCase() === location.toLowerCase()) ||
-            data.series.find((s: any) => s.name.toLowerCase() === "vermont") ||
-            data.series[data.series.length - 1];
-
-          // See if we have the year; else we'll just use the last year
-          let yearPos = data.categories.indexOf(parseInt(`${year}`, 10));
-          if (yearPos < 0) {
-            yearPos = data.categories.length - 1;
-          }
-
-          const output = {
-            value: series.data[yearPos],
-            geography: series.name,
-            year: data.categories[yearPos],
-            url: "https://ui.vtkidsdata.org/linechart/children_in_poverty_under_12:chart",
-          };
-          console.log("output", output);
-
-          toolOutputs.push({
-            tool_call_id: toolCall.id,
-            output: JSON.stringify(output)
-          });
-        } else if (toolCall.function.name === "get_3squares_benefit_and_chart") {
-          // {
-          //   id: 'call_IP9awjq6zdppsJQRVHnA4sUZ',
-          //   type: 'function',
-          //   function: {
-          //     name: 'get_3squares_benefit',
-          //     arguments: '{"group": "individual", "year": "2022"}'
-          //   }
-          // }
-          const { group, year } = JSON.parse(toolCall.function.arguments);
-          console.log({ message: "Processing get_3squares_benefit tool call", toolCall, group, year });
-
-          const data = await getChartDataWithCache("avgbenefit_3squares_vt:chart");
-          console.log("getChartData", data);
-          const series = data.series.find((s: any) => s.name.toLowerCase() === group.toLowerCase());
-          if (series) {
-            console.log("series", series);
-            const yearPos = data.categories.indexOf(parseInt(year, 10));
-            if (yearPos >= 0) {
-              const value = series.data[yearPos];
-              console.log("found value", value);
-              toolOutputs.push({
-                tool_call_id: toolCall.id,
-                output: JSON.stringify({
-                  value: `${value}`,
-                  url: "https://ui.vtkidsdata.org/columnchart/avgbenefit_3squares_vt:chart",
-                })
-              });
-
-              continue;
-            }
-          }
-
-          // Give up
-          toolOutputs.push({
-            tool_call_id: toolCall.id,
-            output: "unknown",
-          });
+      for (const toolCall of required_action.submit_tool_outputs.tool_calls) {
+        const output = await this.toolCallHandler.handleToolCall({ toolCall, assistant });
+        console.log({ message: 'tool call output', output });
+        if (output) {
+          toolOutputs.push(output);
         }
       }
 
       // Submit all the tool outputs at the same time
       console.log({ toolOutputs });
-      await this.submitToolOutputs(toolOutputs, runId, threadId, callback);
+      await this.submitToolOutputs({ toolOutputs, runId, threadId, callback, assistant });
     } catch (error) {
       console.error("Error processing required action:", error);
     }
   }
 
-  async submitToolOutputs(toolOutputs: any, runId: string, threadId: string, callback: StreamingCallback) {
+  async submitToolOutputs(props: {
+    toolOutputs: any,
+    runId: string,
+    threadId: string,
+    callback: StreamingCallback,
+    assistant: OpenAI.Beta.Assistants.Assistant
+  }) {
+    const { toolOutputs, runId, threadId, callback, assistant } = props;
+
     try {
       // Use the submitToolOutputsStream helper
       const stream = openai.beta.threads.runs.submitToolOutputsStream(
@@ -195,7 +263,7 @@ class EventHandler {
         { tool_outputs: toolOutputs },
       );
       for await (const event of stream) {
-        if (await handleEvent(event, callback)) break;
+        if (await handleEvent({ event, callback, assistant })) break;
       }
     } catch (error) {
       console.error("Error submitting tool outputs:", error);
@@ -205,7 +273,13 @@ class EventHandler {
 
 const eventHandler = new EventHandler();
 
-async function handleEvent(event: any, callback: StreamingCallback): Promise<boolean> {
+async function handleEvent(props: {
+  event: OpenAI.Beta.Assistants.AssistantStreamEvent,
+  callback: StreamingCallback,
+  assistant: OpenAI.Beta.Assistants.Assistant,
+}): Promise<boolean> {
+  const { event, callback, assistant } = props;
+
   if (event.event === 'thread.run.created') {
   } else if (event.event === 'thread.run.failed') {
     console.error("Run failed");
@@ -221,9 +295,15 @@ async function handleEvent(event: any, callback: StreamingCallback): Promise<boo
       const chunk = text?.value;
       await callback({ finished: false, chunk, annotations, event, failed: false });
     }
-  } else if (event.event === 'thread.run.requires_action') {
+  } else if (event.event === 'thread.run.requires_action' && event.data.required_action) {
     console.log("Requires action: ", JSON.stringify(event.data.required_action));
-    await eventHandler.handleRequiresAction(event.data, event.data.id, event.data.thread_id, callback);
+    await eventHandler.handleRequiresAction({
+      required_action: event.data.required_action,
+      runId: event.data.id,
+      threadId: event.data.thread_id,
+      callback,
+      assistant
+    });
   }
 
   return false;
@@ -231,6 +311,13 @@ async function handleEvent(event: any, callback: StreamingCallback): Promise<boo
 
 export async function askWithStreaming(props: { thread: Thread, userQuestion: string, assistantId: string, callback: StreamingCallback, debugCallback?: StreamingDebugCallback }): Promise<void> {
   const { thread, userQuestion, assistantId, callback, debugCallback } = props;
+
+  let assistant = assistantCache[assistantId];
+  if (assistant == null) {
+    assistant = await openai.beta.assistants.retrieve(assistantId);
+    pt.logger.info({ message: 'askWithStreaming', myAssistant: assistant });
+    assistantCache[assistantId] = assistant;
+  }
 
   // Pass in the user question into the existing thread
   await openai.beta.threads.messages.create(thread.id, {
@@ -248,7 +335,7 @@ export async function askWithStreaming(props: { thread: Thread, userQuestion: st
     if (debugCallback) {
       await debugCallback({ event });
     }
-    if (await handleEvent(event, callback)) break;
+    if (await handleEvent({ event, callback, assistant })) break;
   }
 
   await callback({ finished: true, failed: false });
@@ -449,7 +536,7 @@ if (!module.parent) {
     const thread = await createThread();
     console.log("Created thread", thread);
 
-    const result = await askWithStreaming({
+    await askWithStreaming({
       thread,
       userQuestion: // Pick one
         // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
@@ -457,14 +544,14 @@ if (!module.parent) {
         // "What is the average household income for 2020 through 2023?"
         // "How many children lived in poverty in Chittenden in 2020?"
         // "How many children lived in poverty in Chittenden in 1942?"
-        "Please compare the state of Vermont's children in 2022 vs 2019. Consider primarily their mental and physical health, but also consider whether they have been able to successfully be educated."
+        // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
+        // "Did the number of IEPs go up or down in 2020 vs the previous year?"
+        "For 2021 how many school-age kids received IDEA services?"
       ,
       assistantId: process.env.ASSISTANT_ID || 'asst_nJKMeBh1KxrqsrL9jGheMcHX',
       callback: async ({ finished, chunk }) => {
         console.log("Callback", { finished, chunk });
       }
     });
-
-    console.log("Result", result);
   })();
 }
