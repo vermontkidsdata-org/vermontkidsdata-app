@@ -35,7 +35,7 @@ const LOCALHOST_ORIGIN = 'http://localhost:3000';
 const { COGNITO_CLIENT_ID, COGNITO_SECRET } = process.env;
 const USER_POOL_ID = 'us-east-1_wft0IBegY';
 const USER_POOL_CLIENT_ID = '60c446jr2ogigpg0nb5l593l93';
-const runtime = Runtime.NODEJS_18_X;
+const runtime = Runtime.NODEJS_20_X;
 
 export interface VermontkidsdataStackProps extends StackProps {
   ns: string;
