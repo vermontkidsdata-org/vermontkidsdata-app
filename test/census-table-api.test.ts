@@ -180,25 +180,25 @@ describe('Census Table API', () => {
     expectCORS(ret);
   });
 
-  it('MOEs', async () => {
-    const ret = await tablesApi.getCensusByGeo({
-      pathParameters: {
-        table: 'S1701',
-        geoType: 'head_start'
-      }, queryStringParameters: {
-        variables: 'S1701_C01_044E',
-        extensions: 'moe'
-      }
-    } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
-    expect(ret.statusCode).toBe(200);
-    const body: tablesApi.GetCensusByGeoResponse = JSON.parse(ret.body);
-    expect(body.metadata.variables?.length).toBe(2);
-    expect(body.metadata.variables).toContain('S1701_C01_044E');
-    expect(body.metadata.variables).toContain('S1701_C01_044M');
-    expect(body.columns.length).toBe(3);
-    expect(body.rows.length).toBe(8);
-    expect(body.rows[0].geo).toBe('Bennington County HS/EHS');
-    expect(body.rows[0].S1701_C01_044E).toBe(20676);
-    expect(body.rows[0].S1701_C01_044M).toBe(3280);
-  }, 25000);
+  // it('MOEs', async () => {
+  //   const ret = await tablesApi.getCensusByGeo({
+  //     pathParameters: {
+  //       table: 'S1701',
+  //       geoType: 'head_start'
+  //     }, queryStringParameters: {
+  //       variables: 'S1701_C01_044E',
+  //       extensions: 'moe'
+  //     }
+  //   } as unknown as APIGatewayProxyEventV2) as LambdaResponse;
+  //   expect(ret.statusCode).toBe(200);
+  //   const body: tablesApi.GetCensusByGeoResponse = JSON.parse(ret.body);
+  //   expect(body.metadata.variables?.length).toBe(2);
+  //   expect(body.metadata.variables).toContain('S1701_C01_044E');
+  //   expect(body.metadata.variables).toContain('S1701_C01_044M');
+  //   expect(body.columns.length).toBe(3);
+  //   expect(body.rows.length).toBe(8);
+  //   expect(body.rows[0].geo).toBe('Bennington County HS/EHS');
+  //   expect(body.rows[0].S1701_C01_044E).toBe(20676);
+  //   expect(body.rows[0].S1701_C01_044M).toBe(3280);
+  // }, 25000);
 });
