@@ -127,8 +127,6 @@ jobs:
       - name: Deploy to Prod
         run: |
           export VKD_ENVIRONMENT=prod
-          npm run deploy:ci
-          export OPENAI_API_KEY=`aws secretsmanager get-secret-value --secret-id openai-config/qa | jq -r '.SecretString' | jq -r ".OPENAI_API_KEY"`
-          npx ts-node src/sync-assistant.ts
+          ./scripts/deploy.sh
       - name: Test Prod
         run: . ./.github/scripts/test-prod.sh
