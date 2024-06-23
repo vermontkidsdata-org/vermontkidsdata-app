@@ -76,9 +76,7 @@ jobs:
       - name: Deploy to QA
         run: |
           export VKD_ENVIRONMENT=qa
-          npm run deploy:ci
-          export OPENAI_API_KEY=`aws secretsmanager get-secret-value --secret-id openai-config/qa | jq -r '.SecretString' | jq -r ".OPENAI_API_KEY"`
-          npx ts-node src/sync-assistant.ts
+          . ./scripts/deploy.sh
       - name: Test QA
         run: . ./.github/scripts/test-qa.sh
   main-diff-prod:
@@ -127,6 +125,6 @@ jobs:
       - name: Deploy to Prod
         run: |
           export VKD_ENVIRONMENT=prod
-          ./scripts/deploy.sh
+          . ./scripts/deploy.sh
       - name: Test Prod
         run: . ./.github/scripts/test-prod.sh
