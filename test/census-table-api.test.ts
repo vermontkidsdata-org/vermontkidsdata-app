@@ -20,9 +20,9 @@ describe('Census Table API', () => {
     beforeEach(() => {
         // Stub all external dependency functions of module to be tested
         queryDBSpy = jest.spyOn(dbUtils, 'queryDB');
-        process.env.NAMESPACE = 'qa';
+        process.env.VKD_ENVIRONMENT = 'qa';
         process.env.REGION = 'us-east-1';
-        process.env.DB_SECRET_NAME = `vkd/${process.env.NAMESPACE}/dbcreds`;
+        process.env.DB_SECRET_NAME = `vkd/${process.env.VKD_ENVIRONMENT}/dbcreds`;
     });
     // Actions to be done after each test
     afterEach(() => {

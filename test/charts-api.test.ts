@@ -8,8 +8,8 @@ import { expectCORS, LambdaResponse } from './utils';
 describe('chartsApi', () => {
   beforeEach(() => {
     process.env.REGION = 'us-east-1';
-    process.env.NAMESPACE = 'qa';
-    process.env.DB_SECRET_NAME = `vkd/${process.env.NAMESPACE}/dbcreds`;
+    process.env.VKD_ENVIRONMENT = 'qa';
+    process.env.DB_SECRET_NAME = `vkd/${process.env.VKD_ENVIRONMENT}/dbcreds`;
   });
   
   test('basic query', async () => {

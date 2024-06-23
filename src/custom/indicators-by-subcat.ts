@@ -57,7 +57,7 @@ interface CustomResponse {
 }
 
 export async function getResponse(queryRow: QueryRow): Promise<CustomResponse> {
-  if (!process.env.NAMESPACE) process.env.NAMESPACE = 'qa';
+  if (!process.env.VKD_ENVIRONMENT) process.env.VKD_ENVIRONMENT = 'qa';
 
   // const topicsResp = await table({
   //   pathParameters: { queryId: 'dashboard:topics:table' },

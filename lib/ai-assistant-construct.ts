@@ -6,6 +6,7 @@ import { StateMachine } from "aws-cdk-lib/aws-stepfunctions";
 import { LambdaInvoke } from "aws-cdk-lib/aws-stepfunctions-tasks";
 import { Construct } from "constructs";
 import { IN_PROGRESS_ERROR } from "../src/ai-utils";
+import { getAssistantInfo } from "../src/assistant-def";
 import { AuthInfo, OnAddCallback, addLambdaResource, makeLambda } from "./cdk-utils";
 
 interface AIAssistantProps {
@@ -30,12 +31,12 @@ export class AIAssistantConstruct extends Construct {
     const { api, commonEnv, onAdd, methodOptions, auth, serviceTable, secret, ns, } = props;
     const aiAssistantRoot = api.root.addResource('ai');
 
-    const aiSecret = Secret.fromSecretNameV2(this, 'AI Secret', 'openai-config');
+    const aiSecret = Secret.fromSecretNameV2(this, 'AI Secret', `openai-config/${ns}`);
+    const assistantInfo = getAssistantInfo(ns);
 
     const aiCommonEnv = {
       ...commonEnv,
-      // ASSISTANT_ID: 'asst_TGWe7LGoOMxyTuRa9uOdLXwD',
-      ASSISTANT_ID: 'asst_nJKMeBh1KxrqsrL9jGheMcHX',
+      ASSISTANT_ID: assistantInfo.assistantId,
       VKD_STATE_MACHINE_ARN: '',
       SERVICE_TABLE: serviceTable.tableName,
       AI_SECRET_NAME: aiSecret.secretName,

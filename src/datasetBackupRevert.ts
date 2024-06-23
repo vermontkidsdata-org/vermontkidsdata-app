@@ -1,6 +1,6 @@
 if (!module.parent) {
   process.env.REGION = 'us-east-1';
-  process.env.NAMESPACE = 'qa';
+  process.env.VKD_ENVIRONMENT = 'qa';
 }
 
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
@@ -9,7 +9,7 @@ import { DatasetVersion, getDatasetVersionKey } from './db-utils';
 import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 import { processUpload } from './uploadData';
 
-const pt = makePowerTools({ prefix: `revert-dataset-backups-${process.env.NAMESPACE}` });
+const pt = makePowerTools({ prefix: `revert-dataset-backups-${process.env.VKD_ENVIRONMENT}` });
 
 const { REGION, S3_BUCKET_NAME } = process.env;
 const s3 = new S3Client({ region: REGION });

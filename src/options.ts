@@ -1,9 +1,9 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-const { NAMESPACE} = process.env;
+const { VKD_ENVIRONMENT} = process.env;
 
-const pt = makePowerTools({ prefix: `oauth-callback-${NAMESPACE}` });
+const pt = makePowerTools({ prefix: `oauth-callback-${VKD_ENVIRONMENT}` });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,

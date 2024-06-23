@@ -2,9 +2,9 @@ import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { getResponse as getIndicatorsBySubcat } from './custom/indicators-by-subcat';
 import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
 import { makePowerTools } from './lambda-utils';
-const { NAMESPACE } = process.env;
+const { VKD_ENVIRONMENT } = process.env;
 
-const pt = makePowerTools({ prefix: `charts-api-${NAMESPACE}` });
+const pt = makePowerTools({ prefix: `charts-api-${VKD_ENVIRONMENT}` });
 
 export interface QueryRow {
   id: number,

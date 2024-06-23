@@ -16,8 +16,8 @@ import { LambdaResponse } from './utils';
 describe('queries-api-getList', () => {
   beforeEach(() => {
     process.env.REGION = 'us-east-1';
-    process.env.NAMESPACE = 'qa';
-    process.env.DB_SECRET_NAME = `vkd/${process.env.NAMESPACE}/dbcreds`;
+    process.env.VKD_ENVIRONMENT = 'qa';
+    process.env.DB_SECRET_NAME = `vkd/${process.env.VKD_ENVIRONMENT}/dbcreds`;
   });
 
   it('does a basic query', async () => {
@@ -33,7 +33,7 @@ describe('queries-api-getList', () => {
 describe('queries-api-get', () => {
   beforeEach(() => {
     process.env.REGION = 'us-east-1';
-    process.env.NAMESPACE = 'qa';
+    process.env.VKD_ENVIRONMENT = 'qa';
   });
 
   it('basic query', async () => {
@@ -78,7 +78,7 @@ describe('queries-api-get', () => {
   describe('queries-api-put', () => {
     beforeEach(() => {
       process.env.REGION = 'us-east-1';
-      process.env.NAMESPACE = 'qa';
+      process.env.VKD_ENVIRONMENT = 'qa';
     });
 
     it('basic put', async () => {
@@ -169,7 +169,7 @@ describe('queries-api-delete', () => {
 
   beforeEach(() => {
     process.env.REGION = 'us-east-1';
-    process.env.NAMESPACE = 'qa';
+    process.env.VKD_ENVIRONMENT = 'qa';
     doDBOpenSpy = jest.spyOn(dbUtils, 'doDBOpen');
     doDBQuerySpy = jest.spyOn(dbUtils, 'doDBQuery');
     doDBCommitSpy = jest.spyOn(dbUtils, 'doDBCommit');

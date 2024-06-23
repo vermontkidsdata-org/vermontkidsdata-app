@@ -77,6 +77,7 @@ jobs:
         run: |
           export VKD_ENVIRONMENT=qa
           npm run deploy:ci
+          npx ts-node src/sync-assistant.ts
       - name: Test QA
         run: . ./.github/scripts/test-qa.sh
   main-diff-prod:
@@ -126,5 +127,6 @@ jobs:
         run: |
           export VKD_ENVIRONMENT=prod
           npm run deploy:ci
+          npx ts-node src/sync-assistant.ts
       - name: Test Prod
         run: . ./.github/scripts/test-prod.sh

@@ -1,12 +1,12 @@
-// process.env.NAMESPACE = 'qa';
+// process.env.VKD_ENVIRONMENT = 'qa';
 
 import { APIGatewayEventRequestContextV2, APIGatewayProxyEventV2, APIGatewayProxyEventV2WithLambdaAuthorizer, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
 import { makePowerTools } from './lambda-utils';
 
-const {NAMESPACE, } = process.env;
+const {VKD_ENVIRONMENT, } = process.env;
 
-const pt = makePowerTools({ prefix: `queries-api-getList-${NAMESPACE}` });
+const pt = makePowerTools({ prefix: `queries-api-getList-${VKD_ENVIRONMENT}` });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,

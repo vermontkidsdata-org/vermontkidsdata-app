@@ -196,7 +196,7 @@ export class VermontkidsdataStack extends Stack {
     const commonEnv = {
       REGION: this.region,
       SERVICE_TABLE: serviceTable.tableName,
-      NAMESPACE: ns,
+      VKD_ENVIRONMENT: ns,
       IS_PRODUCTION: `${props.isProduction}`,
       DATASET_BACKUP_QUEUE_URL: queue.queueUrl,
       LOG_LEVEL: 'info',

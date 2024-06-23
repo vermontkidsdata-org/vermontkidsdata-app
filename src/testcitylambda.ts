@@ -6,8 +6,8 @@ import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-sec
 const region = 'us-east-1';
 
 function getNamespace(): string {
-  if (process.env.NAMESPACE) return process.env.NAMESPACE;
-  else throw new Error("process.env.NAMESPACE not passed");  
+  if (process.env.VKD_ENVIRONMENT) return process.env.VKD_ENVIRONMENT;
+  else throw new Error("process.env.VKD_ENVIRONMENT not passed");  
 }
 
 export async function queryDB(

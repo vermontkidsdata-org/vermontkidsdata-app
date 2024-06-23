@@ -9,7 +9,7 @@ import cors from "@middy/http-cors";
 import { APIGatewayEventRequestContextV2, APIGatewayProxyEventV2, APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2 } from "aws-lambda";
 import { CORSConfigDefault } from "./cors-config";
 
-const { LOG_LEVEL, NAMESPACE } = process.env;
+const { LOG_LEVEL, VKD_ENVIRONMENT } = process.env;
 let powerToolsResources: PowerToolsResources;
 
 interface PowerToolsResources {
@@ -21,7 +21,7 @@ interface PowerToolsResources {
 export function makePowerTools(props: { prefix: string }): PowerToolsResources {
   const { prefix } = props;
 
-  const serviceName = `${prefix}-${NAMESPACE}`;
+  const serviceName = `${prefix}-${VKD_ENVIRONMENT}`;
   powerToolsResources = {
     logger: new Logger({
       logLevel: (LOG_LEVEL || 'INFO') as LogLevel,

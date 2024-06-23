@@ -5,9 +5,9 @@ import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
 import { makePowerTools } from './lambda-utils';
 import { ServerMetadata } from './server-metadata';
 
-const {NAMESPACE, } = process.env;
+const {VKD_ENVIRONMENT, } = process.env;
 
-const pt = makePowerTools({ prefix: `tables-api-${NAMESPACE}` });
+const pt = makePowerTools({ prefix: `tables-api-${VKD_ENVIRONMENT}` });
 
 interface GazCounty {
   id: number, // 2819
@@ -109,7 +109,7 @@ export function transformRow(rowval: DataRow, metadata: ServerMetadata | undefin
               const urlParts = getUrlParts(sval);
               if (urlParts) {
                 // (.*?)(api\.)?(qa\.)?vtkidsdata\.org(.*)
-                val = urlParts.prefix + urlParts.api + (NAMESPACE === 'qa' ? 'qa.' : '') + 'vtkidsdata.org' + urlParts.suffix;
+                val = urlParts.prefix + urlParts.api + (VKD_ENVIRONMENT === 'qa' ? 'qa.' : '') + 'vtkidsdata.org' + urlParts.suffix;
               }
               break;
             case 'striptag':

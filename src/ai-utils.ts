@@ -1,9 +1,10 @@
 import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import OpenAI from "openai";
-import { AssistantStreamEvent, FunctionTool } from "openai/resources/beta/assistants";
+import { AssistantStreamEvent } from "openai/resources/beta/assistants";
 import { AnnotationDelta, TextContentBlock, TextDeltaBlock } from "openai/resources/beta/threads/messages";
 import { RequiredActionFunctionToolCall } from "openai/resources/beta/threads/runs/runs";
 import { Thread } from "openai/resources/beta/threads/threads";
+import { LimitedAssistantDef, VKDFunctionTool, getAssistantInfo } from "./assistant-def";
 import { BarChartResult, getChartData } from "./chartsApi";
 import { makePowerTools } from "./lambda-utils";
 
@@ -100,7 +101,7 @@ interface FunctionParameter {
   type: string,
   description: string,
   enum?: (string | number)[],
-  _vkd_query?: {
+  _vkd?: {
     type: string, // "series"
   }
 }
@@ -112,22 +113,15 @@ function str(value: any): string {
   return `${value}`.toLowerCase();
 }
 
-async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFunctionToolCall, functionDef: FunctionTool }) {
+async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFunctionToolCall, functionDef: VKDFunctionTool }) {
   const { toolCall, functionDef } = props;
 
-  // {
-  //   id: 'call_IP9awjq6zdppsJQRVHnA4sUZ',
-  //   type: 'function',
-  //   function: {
-  //     name: 'get_3squares_benefit',
-  //     arguments: '{"group": "individual", "year": "2022"}'
-  //   }
-  // }
   const functionArgs = JSON.parse(toolCall.function.arguments);
-  const queryName = toolCall.function.name.replace(/-/g, ":");
+  const queryName = functionDef.function._vkd?.query ??
+    toolCall.function.name.replace(/-/g, ":");
+
   const data = await getChartDataWithCache(queryName);
   console.log({ message: "new output data", data });
-  // if (1 == 1) { process.exit(1); }
 
   // Find the series and category parameters
   const params = {
@@ -143,14 +137,13 @@ async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFu
 
   if (functionDef.function.parameters?.properties) {
     for (const parameterEntry of Object.entries(functionDef.function.parameters.properties)) {
-      console.log({ message: 'parameter check for query type (series or category)', parameterEntry });
       const name = parameterEntry[0];
       const parameter: FunctionParameter = parameterEntry[1] as FunctionParameter;
 
-      if (parameter._vkd_query?.type === "series") {
+      if (parameter._vkd?.type === "series") {
         // We have a series parameter
         params.series = { name, parameter };
-      } else if (parameter._vkd_query?.type === "category") {
+      } else if (parameter._vkd?.type === "category") {
         // We have a category parameter
         params.category = { name, parameter };
       }
@@ -159,27 +152,38 @@ async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFu
 
   console.log({ message: 'params', params, functionArgs });
 
-  const [seriesName, categoryName] = [params.series.name, params.category.name];
-  if (seriesName && categoryName) {
-    let categoryPos = data.categories.map(c => str(c)).indexOf(str(functionArgs[categoryName]));
-    console.log({ message: 'categoryPos', categoryPos, categories: data.categories, categoryName });
-    if (categoryPos < 0) {
-      categoryPos = data.categories.length - 1;
-    }
+  const seriesKey = params.series.name ?
+    functionArgs[params.series.name.toLowerCase()] :
+    functionDef.function._vkd?.defaultSeries;
+  const categoryName = params.category.name;
 
-    console.log({ message: 'looking for series', seriesName, series: data.series, lookingFor: str(functionArgs[seriesName.toLowerCase()]) });
+  if (!seriesKey || !categoryName) {
+    throw new Error("Series and category parameters are required");
+  }
 
-    const series = data.series.find((s: any) => str(s.name) === str(functionArgs[seriesName.toLowerCase()]));
-    console.log({ message: 'series', series, seriesName, originalSeries: data.series });
-    if (series) {
-      const value = series.data[categoryPos];
-      return {
-        tool_call_id: toolCall.id,
-        output: JSON.stringify({
-          value: `${value}`,
-          url: `https://ui.vtkidsdata.org/columnchart/${queryName}`,
-        })
-      };
+  let categoryPos = data.categories.map(c => str(c)).indexOf(str(functionArgs[categoryName]));
+  console.log({ message: 'categoryPos', categoryPos, categories: data.categories, categoryName });
+  if (categoryPos < 0) {
+    categoryPos = data.categories.length - 1;
+  }
+
+  console.log({ message: 'looking for series', seriesKey, series: data.series });
+
+  const series = data.series.find((s: any) => str(s.name) === str(seriesKey));
+  console.log({ message: 'found series?', series, seriesKey, originalSeries: data.series });
+
+  if (series) {
+    const value = series.data[categoryPos];
+    const path = functionDef.function._vkd?.urlPath ??
+      `${functionDef.function._vkd?.chartType ?? 'columnchart'
+      }/${queryName}`
+
+    return {
+      tool_call_id: toolCall.id,
+      output: JSON.stringify({
+        value: `${value}`,
+        url: `https://ui.vtkidsdata.org/${path}}`,
+      })
     }
   }
 
@@ -196,13 +200,13 @@ async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFu
 class ToolCallHandler {
   async handleToolCall(props: {
     toolCall: RequiredActionFunctionToolCall,
-    assistant: OpenAI.Beta.Assistants.Assistant,
+    assistant: LimitedAssistantDef,
   }): Promise<{
     tool_call_id: string,
     output: string
   } | undefined> {
     const { toolCall, assistant } = props;
-    const functionDef = assistant.tools.find((t) => t.type === 'function' && t.function.name === toolCall.function.name) as FunctionTool;
+    const functionDef = assistant.tools.find((t) => t.type === 'function' && t.function.name === toolCall.function.name) as VKDFunctionTool;
     console.log('*** toolCall', toolCall);
     console.log('*** functionDef', JSON.stringify(functionDef));
 
@@ -223,7 +227,7 @@ class EventHandler {
     runId: string,
     threadId: string,
     callback: StreamingCallback,
-    assistant: OpenAI.Beta.Assistants.Assistant,
+    assistant: LimitedAssistantDef,
   }) {
     const { required_action, runId, threadId, callback, assistant } = props;
 
@@ -251,7 +255,7 @@ class EventHandler {
     runId: string,
     threadId: string,
     callback: StreamingCallback,
-    assistant: OpenAI.Beta.Assistants.Assistant
+    assistant: LimitedAssistantDef
   }) {
     const { toolOutputs, runId, threadId, callback, assistant } = props;
 
@@ -276,7 +280,7 @@ const eventHandler = new EventHandler();
 async function handleEvent(props: {
   event: OpenAI.Beta.Assistants.AssistantStreamEvent,
   callback: StreamingCallback,
-  assistant: OpenAI.Beta.Assistants.Assistant,
+  assistant: LimitedAssistantDef,
 }): Promise<boolean> {
   const { event, callback, assistant } = props;
 
@@ -312,12 +316,13 @@ async function handleEvent(props: {
 export async function askWithStreaming(props: { thread: Thread, userQuestion: string, assistantId: string, callback: StreamingCallback, debugCallback?: StreamingDebugCallback }): Promise<void> {
   const { thread, userQuestion, assistantId, callback, debugCallback } = props;
 
-  let assistant = assistantCache[assistantId];
-  if (assistant == null) {
-    assistant = await openai.beta.assistants.retrieve(assistantId);
-    pt.logger.info({ message: 'askWithStreaming', myAssistant: assistant });
-    assistantCache[assistantId] = assistant;
+  const ns = process.env.VKD_ENVIRONMENT;
+  if (!ns) {
+    throw new Error("VKD_ENVIRONMENT not set");
   }
+
+  const info = getAssistantInfo(ns);
+  pt.logger.info({ message: 'Assistant info', info });
 
   // Pass in the user question into the existing thread
   await openai.beta.threads.messages.create(thread.id, {
@@ -335,7 +340,7 @@ export async function askWithStreaming(props: { thread: Thread, userQuestion: st
     if (debugCallback) {
       await debugCallback({ event });
     }
-    if (await handleEvent({ event, callback, assistant })) break;
+    if (await handleEvent({ event, callback, assistant: info.assistant })) break;
   }
 
   await callback({ finished: true, failed: false });
@@ -535,6 +540,7 @@ if (!module.parent) {
     await connectOpenAI();
     const thread = await createThread();
     console.log("Created thread", thread);
+    const assistantInfo = getAssistantInfo(process.env.VKD_ENVIRONMENT!);
 
     await askWithStreaming({
       thread,
@@ -546,11 +552,12 @@ if (!module.parent) {
         // "How many children lived in poverty in Chittenden in 1942?"
         // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
         // "Did the number of IEPs go up or down in 2020 vs the previous year?"
-        "For 2021 how many school-age kids received IDEA services?"
+        // "For 2021 how many school-age kids received IDEA services?"
+        "Were there more babies born in 2020 and 2021 than other years?"
       ,
-      assistantId: process.env.ASSISTANT_ID || 'asst_nJKMeBh1KxrqsrL9jGheMcHX',
+      assistantId: assistantInfo.assistantId,
       callback: async ({ finished, chunk }) => {
-        console.log("Callback", { finished, chunk });
+        process.stdout.write((chunk ?? '') + (finished ? '\n' : ''));
       }
     });
   })();

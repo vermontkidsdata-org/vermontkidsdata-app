@@ -36,9 +36,9 @@ export const lambdaHandler = async (event: StepFunctionInputOutput): Promise<Ste
       thread,
       userQuestion: event.query,
       assistantId: ASSISTANT_ID,
-      debugCallback: async ({ event }) => {
-        pt.logger.info({ message: 'Debug callback', event });
-      },
+      // debugCallback: async ({ event }) => {
+      //   pt.logger.info({ message: 'Debug callback', event });
+      // },
       callback: async ({ finished, chunk, annotations }) => {
         const { cleanChunk, refnum: newRefnum } = await chunkHandler.handleChunk({ openai: getOpenAI(), finished, chunk, annotations, footnotes, refnum });
         refnum = newRefnum;

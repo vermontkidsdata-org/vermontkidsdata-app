@@ -1,6 +1,6 @@
 if (!module.parent) {
   process.env.REGION = 'us-east-1';
-  process.env.NAMESPACE = 'qa';
+  process.env.VKD_ENVIRONMENT = 'qa';
 }
 
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
@@ -9,7 +9,7 @@ import { makePowerTools } from './lambda-utils';
 import { getUploadType } from './uploadData';
 
 // Set your service name. This comes out in service lens etc.
-const pt = makePowerTools({ prefix: `post-dataset-${process.env.NAMESPACE}` });
+const pt = makePowerTools({ prefix: `post-dataset-${process.env.VKD_ENVIRONMENT}` });
 
 export async function updateDataset(dataset: string, { name }: { name?: string }): Promise<APIGatewayProxyResultV2> {
   await doDBOpen();

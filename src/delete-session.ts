@@ -1,11 +1,11 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { getSession } from './authorizer';
-import { getSessionKey, Session } from './db-utils';
+import { Session, getSessionKey } from './db-utils';
 import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-const { NAMESPACE, LOG_LEVEL, REDIRECT_URI } = process.env;
+const { VKD_ENVIRONMENT, LOG_LEVEL, REDIRECT_URI } = process.env;
 
-const pt = makePowerTools({ prefix: `delete-session-${NAMESPACE}` });
+const pt = makePowerTools({ prefix: `delete-session-${VKD_ENVIRONMENT}` });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,

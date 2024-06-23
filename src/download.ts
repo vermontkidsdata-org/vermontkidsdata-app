@@ -1,13 +1,13 @@
 if (!module.parent) {
   process.env.REGION = 'us-east-1';
-  process.env.NAMESPACE = 'qa';
+  process.env.VKD_ENVIRONMENT = 'qa';
 }
 
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-const pt = makePowerTools({ prefix: `download-${process.env.NAMESPACE}` });
+const pt = makePowerTools({ prefix: `download-${process.env.VKD_ENVIRONMENT}` });
 
 const { REGION } = process.env;
 

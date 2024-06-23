@@ -7,7 +7,7 @@ import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
 import { fromCognitoIdentityPool as FromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-const pt = makePowerTools({ prefix: `get-credentials-${process.env.NAMESPACE}` });
+const pt = makePowerTools({ prefix: `get-credentials-${process.env.VKD_ENVIRONMENT}` });
 
 export interface Creds {
   identityId: string,

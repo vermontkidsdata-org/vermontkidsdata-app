@@ -1,13 +1,13 @@
 if (!module.parent) {
   process.env.REGION = 'us-east-1';
-  process.env.NAMESPACE = 'qa';
+  process.env.VKD_ENVIRONMENT = 'qa';
 }
 
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { forEachDatasetVersion } from './db-utils';
 import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-const pt = makePowerTools({ prefix: `get-dataset-backups-${process.env.NAMESPACE}` });
+const pt = makePowerTools({ prefix: `get-dataset-backups-${process.env.VKD_ENVIRONMENT}` });
 
 export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> {
   const dataset = event.pathParameters?.dataset;

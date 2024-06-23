@@ -12,10 +12,10 @@ const ALL_DATASET_VERSIONS = 'ALL_DATASET_VERSIONS';
 const ALL_NAME_MAPS = 'ALL_NAME_MAPS';
 export const ALL_WITH_COMMENTS = 'ALL_WITH_COMMENTS';
 
-const { NAMESPACE, LOG_LEVEL } = process.env;
+const { VKD_ENVIRONMENT, LOG_LEVEL } = process.env;
 
 // Set your service name. This comes out in service lens etc.
-const serviceName = `queries-api-getList-${NAMESPACE}`;
+const serviceName = `queries-api-getList-${VKD_ENVIRONMENT}`;
 const logger = new Logger({
   logLevel: (LOG_LEVEL || 'INFO') as LogLevel,
   serviceName,
@@ -26,8 +26,8 @@ function getRegion(): string {
 }
 
 function getNamespace(): string {
-  if (process.env.NAMESPACE) return process.env.NAMESPACE;
-  else throw new Error("process.env.NAMESPACE not passed");
+  if (process.env.VKD_ENVIRONMENT) return process.env.VKD_ENVIRONMENT;
+  else throw new Error("process.env.VKD_ENVIRONMENT not passed");
 }
 
 export interface DBSecret {

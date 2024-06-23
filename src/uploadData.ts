@@ -2,7 +2,7 @@ if (!module.parent) {
   process.env.S3_BUCKET_NAME = 'ctechnica-vkd-qa';
   process.env.SERVICE_TABLE = 'qa-LocalDevBranch-UploadstatustableA9E2FF87-1KSF20M176GXI';
   process.env.REGION = 'us-east-1';
-  process.env.NAMESPACE = 'qa';
+  process.env.VKD_ENVIRONMENT = 'qa';
 }
 
 import { GetObjectCommand, GetObjectTaggingCommand, S3Client } from '@aws-sdk/client-s3';

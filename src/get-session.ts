@@ -2,9 +2,9 @@ import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { getSession } from './authorizer';
 import { makePowerTools, prepareAPIGateway } from './lambda-utils';
 
-const { NAMESPACE, LOG_LEVEL } = process.env;
+const { VKD_ENVIRONMENT, LOG_LEVEL } = process.env;
 
-const pt = makePowerTools({ prefix: `get-session-${NAMESPACE}` });
+const pt = makePowerTools({ prefix: `get-session-${VKD_ENVIRONMENT}` });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,

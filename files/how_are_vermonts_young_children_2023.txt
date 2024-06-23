@@ -1,0 +1,3834 @@
+THE STATE OF
+VERMONT'S CHILDREN
+2023 YEAR IN REVIEW
+GOVERNOR
+I’m pleased to help introduce the 2023 issue of this report, which serves as a
+useful tool for understanding the status of the well-being of Vermont’s families and
+the early childhood system. Additionally, I look forward to VermontKidsData.org
+creating better data-driven decision-making on behalf of children and families.
+
+Since I first came to office, I have tried to focus on the fundamentals. From the economy,
+to infrastructure, to greater health and safety, we can revitalize areas of the state
+that have been left behind for far too long and build communities our kids can
+thrive in with more opportunities to succeed.
+
+It takes a holistic approach, because all the pieces must fit together. To give our kids
+the best possible start, we need to grow our workforce so we can deliver critical
+services to families. To grow our workforce, we need more housing, affordable
+childcare, good schools, and thriving downtowns. We also need to help families keep
+more of what they earn, so they can enjoy life in Vermont, instead of just getting by.
+
+To support community revitalization, we have prioritized considerable funding – more than $3 billion in state and federal funds since
+2020 – to help more towns and villages improve the infrastructure they need to grow, and to upskill our workforce. Our children will
+directly benefit from these investments. For example, we’ve invested to improve local libraries with enhanced accessibility, equipment,
+and supplies; fix aging housing stock and bring more new units online; expand broadband so kids can connect with the world;
+bring down the cost to become an early childhood educator; and more.
+
+But, most importantly, strong communities begin with the people in them. We know that the most common factor for resilient children
+is having at least one stable and caring relationship with a supportive parent, caregiver, or other adult. Those interactions and close
+relationships build positive social emotional development and provide opportunities for adults to model civility, flexibility, and kindness.
+
+As Vermonters, we pride ourselves on being resilient, caring about our neighbors, and developing strong relationships to solve problems
+and create change. After another challenging year, this time due to historic flooding, these were again made visible. We are Vermont Strong -
+and Tough Too. Our communities were significantly impacted by these events and in the wake of the damage, trauma, and loss we are
+committed to supporting recovery and revitalization. Embedding these skills and values in our youngest Vermonters has never been
+more important.
+
+Once again, I want to thank the early childhood workforce and all of those who work with and support Vermont children and their families.
+Without them, Vermont families and children would not have access to the care and services they deserve, and I’m deeply grateful for
+their work.
+
+Sincerely,
+
+Philip B. Scott
+Governor
+EXECUTIVE DIRECTOR AND STATE
+ADVISORY COUNCIL CO-CHAIRS
+The Building Bright Futures (BBF) Early Childhood State Advisory Council (SAC) Network
+is honored to present the 11th iteration of The State of Vermont’s Children. We are
+proud of the important role that this yearly report plays in supporting data-informed
+decision-making for Vermont’s early childhood system. This is one of the ways that the
+BBF Network serves as the state’s nonpartisan, independent source of data, research,
+publications, and important information for policymakers and early childhood partners
+on issues and priorities for children from the prenatal period through age 8 in Vermont.
+
+We are grateful for the expertise and guidance from our partners across the early
+childhood system throughout the development of this report, from informing the choice
+of indicators, to providing data, answering the seemingly endless questions, and crafting
+an accurate and accessible narrative. The production of this report exemplifies the power
+Morgan K. Crossman, Ph.D., M.A.
+of aligned vision, collaboration, and true partnership.
+Executive Director
+Building Bright Futures
+We want to draw your attention to the 2023 Data Spotlight (page 20), which is focused
+on the perinatal period, from pregnancy through one year after birth, because it is a key
+time for a child’s long-term development and the well-being of the birthing parent, child,
+and family system. The spotlight contains data on Perinatal Mood and Anxiety Disorders
+and Substance Use Disorder as well as opportunities for intervention.
+
+In addition, the 2024 Policy Recommendations (page 4), developed in partnership with
+Vermont’s Early Childhood Action Plan (VECAP) Committees and Regional Councils,
+are significant in scope and depth and have the potential to create strategic change
+for children and families in the coming year. Alongside the data centralized in
+this report, these recommendations call attention to urgent issues and priorities,
+support advocacy efforts, communicate cross-sector needs and priorities, and create
+accountability for policy change on behalf of the BBF Network.
+
+Finally, as a brief reminder, the data in this report provides only a snapshot of
+Ilisa Stalberg, MSS, MLSP
+the state’s early childhood system. There are additional data, context, narrative,
+SAC Public Co-Chair
+and limitations that cannot be included in this January year in review, as many
+Director, Family and Child Health
+indicators across sectors are released throughout the year. VermontKidsData.org
+Vermont Department of Health
+serves as a hub of high-quality, up-to-date information on the status of children and
+families across sectors. By consistently updating and centralizing data from the
+complex early childhood system, VermontKidsData.org makes it easier for leaders,
+policymakers, families, and communities to use data to make informed policy and
+program decisions. The updated Early Childhood Data Portal at VermontKidsData.org
+is where you can find all indicators, searchable by topics and policy area,
+with straightforward visualizations, context, and the ability to download more
+extensive datasets. The website includes all indicators presented in The State of
+Vermont’s Children and much more!
+
+We hope that together, this report and VermontKidsData.org will support partners across
+the early childhood system in continuing to make data-informed decisions while placing
+equity at the center. Using data and stories to shed light on opportunities to strengthen
+and embed equity in Vermont’s early childhood system is paramount to improving the
+lives of children and their families in our communities.
+Flor Diaz Smith
+SAC Private Co-Chair
+President of VSBA Board
+Vermont School Board Association
+TABLE OF CONTENTS
+
+About Building Bright Futures
+1
+4
+2024 Policy Recommendations
+9
+Demographics
+10
+Basic Needs
+14
+Challenging Childhood Experiences
+16
+Health and Well-Being
+20
+Spotlight: Perinatal Health and Wellbeing
+24
+Child Development and Education
+28
+Statewide Data Snapshot
+29
+Addison
+30
+Bennington
+31
+Caledonia and Southern Essex
+32
+Central Vermont
+33
+Chittenden
+34
+Franklin and Grand Isle
+35
+Lamoille
+36
+Northern Windsor and Orange
+37
+Orleans and Northern Essex
+38
+Rutland
+39
+Southeast Vermont
+40
+Springfield Area
+41
+Limitations
+42
+Acronyms
+43
+References
+46
+Acknowledgements
+ABOUT BBF
+
+MISSION
+To improve the well-being of children and families in Vermont by using
+evidence to inform policy and bringing voices together across sectors
+and within regions to discuss critical challenges and problem-solve.
+
+Building Bright Futures is Vermont’s Early Childhood State Advisory
+Council Network
+Building Bright Futures (BBF) is charged under state and federal statute as the primary advisor to Vermont’s Governor, Administration,
+and Legislature on the well-being of children and families from the prenatal period to age 8. BBF was strategically created as
+a public-private partnership to serve as an independent, nonpartisan entity. BBF has five primary responsibilities:
+
+We CONVENE early childhood partners, including policymakers, early childhood professionals, educators, health and mental
+health providers, business leaders, and families.
+
+We MONITOR the early childhood system through high-quality, up-to-date data.
+
+We EMPOWER families and on-the-ground early childhood educators, elevating their voices to make sure their needs are represented
+and their concerns are part of the conversation.
+
+We RESPOND to the needs of Vermont’s early childhood communities by drawing on our statewide network of over 500 early childhood
+partners and issuing annual Policy Recommendations based on our partners’ feedback and on robust data.
+
+We ADVISE Vermont’s Governor, Administration, and Legislature by making data-driven recommendations to inform decision-making.
+
+Vermont’s Early Childhood Action Plan (VECAP)
+BBF is charged to maintain and monitor the vision and strategic plan for Vermont’s early childhood system, Vermont’s Early
+Childhood Action Plan (VECAP). The VECAP helps hold Vermont leaders and decision-makers accountable to working towards the
+state’s early childhood system collective vision: to be an integrated continuum of comprehensive, high-quality services that
+is equitable, accessible, and improves outcomes for each and every child in the prenatal period through age 8 and their family.
+
+These are the four goals of VECAP:
+
+All children have a healthy start.
+Goal 1 
+Families and communities play a leading role in children’s well-being.
+Goal 2 
+Children have access to high-quality opportunities that meet their needs.
+Goal 3 
+The early childhood system will be integrated, well-resourced, and data informed.
+Goal 4 
+
+| 
+2023 Year in Review 1
+ABOUT BBF
+
+Ensuring Accountability and Data-Driven Decision-Making
+BBF is committed to compiling, producing, and using the most up-to-date, high-quality data to make recommendations and inform
+decision-making. Centralizing and consistently reviewing data allows us to decision-makers’ ability to identify where there are system gaps,
+where duplication exists, how resources are (or are not) successful in impacting outcomes, what to prioritize, and how to evaluate progress
+on existing initiatives. To help meet the need for a centralized source of data, BBF developed VermontKidsData.org, which provides
+access to data across sectors visualized in a straightforward way; the ability to download full datasets for additional queries; and current
+research and publications informing the early childhood system in Vermont and nationally.
+
+BBF also publishes The State of Vermont’s Children annually in January to give Vermont’s policymakers a snapshot of the early childhood
+data they need at the start of each session. With access to over 100 indicators, readers can find the data and context they need to inform decisions,
+support grant proposals, and advocate for policy change.
+
+The Vermont Early Childhood Fund
+The Vermont Early Childhood Fund (VECF) supports creative solutions that will improve the well-being of children from the prenatal period
+to age 8, their families, and the Vermont communities where they live. BBF recognizes that a wide variety of factors impact children during
+the early stages of development. Currently funded through the Sunflower Fund at the Vermont Community Foundation and the federal
+Preschool Development Grant, VECF will provide a total of $6 million in grants between 2023 and 2025.
+
+The BBF Network
+The BBF Network is made up of 500 early childhood partners across Vermont, including policymakers, early childhood professionals,
+educators, health and mental health providers, business leaders, and last but certainly not least, families. Partners invested in the well-being
+of Vermont children and their families engage in the BBF Network to make change. Through this Network, we have the ability to understand
+the needs of every corner of the state and elevate the voices of families and communities as a trusted, data-informed advisor.
+
+The BBF Network convenes in the following ways:
+• Twelve Early Childhood Regional Councils, focused on the specific needs of each region of the state
+• Seven VECAP Committees that carry out and monitor progress related to Vermont’s Early Childhood Action Plan (VECAP)
+• The Early Childhood State Advisory Council, a 23-member Governor-appointed board
+
+Early Childhood Regional Councils
+Our 12 Regional Councils bring together early childhood partners to identify gaps, share expertise and resources, elevate regional and
+family voices, and implement strategies in each region of Vermont. Fully integrated into their communities, Regional Councils work to
+improve access to supports across early care, health, and education in their communities. Regional Council members include mental
+health counselors, home visitors, pediatricians, social workers, food shelf directors, early childhood educators, and pre-K-12 administrators;
+families of children through age 8; and community members invested in the well-being of young children. Annually, each Regional Council
+selects two priorities to guide their work in the region.
+
+| 
+2 The State of Vermont's Children
+VECAP Committees
+The seven VECAP committees are guided by the goals and objectives that Vermont has identified as essential in Vermont’s Early
+Childhood Action Plan (VECAP). Annually, VECAP Committees elevate gaps and barriers impacting children and families and bring
+them to the State Advisory Council to inform policy recommendations.
+
+The Child Outcomes Accountability Team (COAT) is committed to improving the health and well-being of children and their
+families by addressing systemic issues and building coordination across the health, mental health, basic needs, and early childhood
+systems of care.
+
+The Data and Evaluation Committee is charged with prioritizing data integration; creating and monitoring a data
+development agenda; serving as the accountability mechanism to monitor progress toward the four goals of the VECAP; and serving
+as a primary advisor for research, data, and evaluation efforts.
+
+The Early Childhood Interagency Coordinating Team (ECICT) is composed of agency leaders committed to identifying
+and reducing barriers in state government to strengthen the early childhood system. They seek to implement the VECAP
+and build an integrated continuum of comprehensive, high-quality services that is equitable and accessible and will improve outcomes.
+
+The Early Childhood Investment Committee seeks to document and monitor investments in Vermont’s children and families.
+
+The Early Learning and Development Committee is devoted to improving the quality and capacity of services, with a focus
+on alignment and best practices for children and families from childcare through early elementary education.
+
+The Families and Communities Committee works to develop a statewide approach that enriches and expands family
+partnership and leadership at the provider, agency, and community levels.
+
+The Professional Preparation and Development (PPD) Committee’s mission is to develop, coordinate, and promote a
+comprehensive system of quality learning opportunities for current and prospective early childhood and afterschool professionals.
+
+Vermont’s Early Childhood State Advisory Council (SAC)
+Vermont’s Early Childhood State Advisory Council (SAC) is the state’s Governor-appointed primary advisory body on the well-being
+of children from the prenatal period through age 8 and their families. The SAC brings together 23 appointed members, with specific
+public seats for Vermont State Agency and Department leads as well as private at-large seats.
+
+Each year, in partnership with the VECAP Committees and Regional Councils, the SAC sets priorities and strategic direction for
+statewide initiatives by endorsing a series of Policy Recommendations. These Policy Recommendations are developed using
+the VECAP, up-to-date data, and the most pressing needs and challenges being faced in the early childhood system collected
+throughout the year. The annual recommendations identify current gaps in policy, promote action in strategic areas for the coming year,
+and aim to be measurable through BBF’s data collection and monitoring charge.
+
+| 
+2023 Year in Review 3
+RECOMMENDATIONS & STRATEGIES
+
+2024 Policy Recommendations of the Vermont Early
+Childhood State Advisory Council Network
+
+Vermont’s Early Childhood State Advisory Council (SAC) is the state’s Governor-appointed, primary advisory body on the well-
+being of children from the prenatal period through age 8 and their families. Building Bright Futures (BBF) advises the Governor,
+Administration, and Legislature on policy and systems improvements for children and their families. Each year, in partnership
+with Vermont’s Early Childhood Action Plan (VECAP) Committees and Regional Councils, the SAC sets priorities and strategic
+direction for statewide initiatives by endorsing a series of policy recommendations. These annual policy recommendations
+of Vermont’s Early Childhood State Advisory Council Network are developed using the VECAP, up-to-date data, and the
+most pressing feedback and challenges being faced in the early childhood system collected throughout the year. The annual
+recommendations identify the current gaps and needs in policy, promote action in strategic areas for the coming year, and aim
+to be measurable.
+
+ACCESS TO BASIC NEEDS (VECAP GOAL 1)
+
+Housing and Economic Security
+• Continue to invest at high levels in the creation of housing, to expand access and create more affordable housing
+for Vermont families, including providing full statutory funding for the Vermont Housing and Conservation Board.
+• Provide high-quality care coordination to support families in accessing housing and related services. Ensure that
+families navigating affordable housing and those experiencing homelessness are both supported through these
+processes and are assisted in navigating and accessing other related needs. Ensure documentation requirements
+are not a prohibitive barrier for families experiencing homelessness or those navigating affordable housing services.
+• Increase the Reach Up housing allowance, currently based on applicant-reported housing costs in 2001, to match
+the current year’s housing costs, and adjust annually. Study how TANF housing allowances are calculated in
+other states, and propose a method that accurately captures the cost of housing in Vermont.
+
+Paid Family and Medical Leave Insurance
+• Enact a Paid Family and Medical Leave Insurance program for Vermonters seeking to take time off to care for a
+family member or themselves while welcoming a new child into the family, while navigating an illness or injury,
+or after experiencing a loss. Ensure that the benefit through this program covers all caregivers in the case of
+a two-parent household, and that the benefit is generous enough that loss of income is not a barrier for those
+looking to utilize the program.
+
+| 
+4 The State of Vermont's Children
+FAMILY PARTNERSHIP AND RESILIENCE
+(VECAP GOAL 2)
+
+Renewed Policy Recommendation (2022):
+Guidance for Legislatively Mandated Bodies
+• Develop and enact a formal guidance/protocol for naming membership when creating new legislatively mandated
+bodies (study sections, councils, etc.). A membership template must include individuals with relevant and current
+lived experience. This guidance should also include resources and best practices for holding accessible meetings
+that are welcoming and inclusive for community and family representatives, as well as considerations for adopting
+a trauma and resilience-informed lens.
+
+Renewed Policy Recommendation (2022):
+Leveraging the Findings from the Family Needs Assessment
+• Utilize the findings of the 2022 Vermont Early Childhood Family Needs Assessment and future Family Needs
+Assessment projects and data collection efforts of the Families and Communities VECAP Committee to inform
+program implementation, policymaking, and decision-making.
+
+Invest in Statewide Family Leadership Training Opportunities
+• Invest in statewide family leadership training opportunities to prepare and support parents and caregivers with
+serving on boards, commissions, etc. In order to be effective in supporting the leadership development of families
+with lived experiences that will inform policymaking and decision-making, these opportunities must be free of
+charge and must compensate parents/caregivers for their time and any associated child care and transportation
+costs. Outreach and admissions for training opportunities must prioritize groups underrepresented in existing
+Vermont family leadership circles, including parents/caregivers of color, LGBTQ+ families, and families with special
+health care needs and disabilities.
+
+| 
+2023 Year in Review 5
+RECOMMENDATIONS & STRATEGIES
+
+HIGH-QUALITY AND INCLUSIVE PHYSICAL AND
+MENTAL HEALTH SERVICES (VECAP GOAL 3)
+
+Invest in Perinatal Supports
+• Invest in statewide strategies that center early relational health to ensure families are supported across clinical and
+community settings during the critical perinatal period, including after experiencing the loss of a child or loss of a caregiver.
+
+f Fund the expansion of Developmental Understanding and Legal Collaboration for Everyone (DULCE) approach sites.
+f Invest in peer- and community-based strategies such as multiagency collaboration teams, like regional
+CHARM/Community Response teams, to ensure families have the supports they need through a strength-
+based approach and in recognition that Vermont’s maternal mortality incidences have a concerning overlap
+with substance use disorders (SUD).
+f Ensure continuity of care and high-quality services are available for the perinatal population. Expand Children’s
+Integrated Services (CIS) supports past the 8-week postpartum period to the full year postpartum for the
+birthing person, in alignment with postpartum Medicaid expansion.
+f Pursue strategies that center equitable services and birth-related outcomes for parents/caregivers of color,
+including expanding Medicaid coverage to doula services.
+
+Mental Health
+• Invest in the mental health workforce and other proven strategies that are necessary to support Vermont children
+currently in high levels of crisis care in or out of state.
+f Expand rate increases for mental health services provided to Designated Agencies (DAs) and Specialized
+Services Agencies (SSAs) to include all mental health service providers that receive Medicaid funding.
+f Ensure that rate increases for mental health services keep pace with the true rate of inflation for
+those services.
+f Prioritize recruiting mental health professionals that represent Vermont’s population including people
+of color and disabled professionals.
+• Elevate the promise of mental health integration strategies as described in the Mental Health Integration Council’s
+Interim Report. Develop financial incentives and implementation support for initiatives aiming to integrate mental
+health into primary care settings serving children and families to promote wellness and upstream prevention.
+
+| 
+6 The State of Vermont's Children
+HIGH-QUALITY AND INCLUSIVE EARLY CARE/
+EDUCATION/AFTERSCHOOL PROGRAMS
+(VECAP GOAL 3)
+
+Renewed Policy Recommendation (2022):
+Universal Pre-K Access and Equity
+• Within the Universal Pre-K Implementation Committee mandated under Act 76, center equity of access by examining and
+making recommendations on how best to implement a full school-day, school-year prekindergarten education program
+and ensuring that the vision of universal, high-quality, equitable, mixed-delivery, inclusive education for all 3-, 4-,
+and 5-year-olds not yet enrolled in kindergarten is maintained. The committee should specifically address the following
+related to equity in access:
+
+f Determining how best to expand prekindergarten access from 10 hours per week to 35 hours per week while
+ensuring sufficient access to year-round services for children 0-8, including early childhood education,
+afterschool, and summer care
+f Determining appropriate weighting for full school-day pre-K students in regards to education funding
+f Examining parity between the quality, workforce qualifications, governing rules, and compensation in school-based
+and private program-based pre-K programs, including comparisons to national best practices
+f Ensuring that 3-year-olds are able to access Early Childhood Special Education services. Ensuring that funds for
+ECSE follow the child, even outside of their home district, to improve access and reduce barriers/burdens on families
+f Examining how best to provide a continuity of pre-K and related services for children in rural regions and
+border regions, some of whom go on to attend kindergarten in bordering states
+
+Screening, Assessment, and Services for Children with
+Autism Spectrum Disorder or Other Developmental Delays
+• Improve access to family-engaged developmental and behavioral/autism screening to improve early identification
+and support timely follow-up and referral to needed services.
+f Build capacity to improve access to autism assessments by training health care providers, early interventionists,
+and others to conduct developmental and autism screenings and by increasing collaboration between Children’s
+Integrated Services (CIS) and pediatric medical homes.
+f Support families by addressing barriers to accessing assessments including assessment paperwork, transportation,
+cost if not covered by insurance, and having documents in other languages and/or having interpreters available.
+
+| 
+2023 Year in Review 7
+RECOMMENDATIONS & STRATEGIES
+
+SEAMLESS, EQUITABLE, DATA-DRIVEN
+SYSTEM OF CARE (VECAP GOAL 4)
+
+Renewed Policy Recommendation (2023):
+Inequities in Data Collection
+• Respond to inequities in data collection and reporting in order to better represent and understand the intersectional
+experiences of people of color, children with disabilities, and other marginalized communities in Vermont.
+
+f Develop a statewide strategy to gather demographic information that allows people to self-identify in an authentic
+and appropriate manner while meeting federal demographic reporting requirements.
+f Value qualitative data. When the small population size of a group necessitates the suppression of their
+quantitative data, utilize qualitative data collection to ensure that everyone is counted.
+f Secure sustained funding to support high-quality data through compensation for direct service providers who
+collect and report data.
+f Partner with impacted communities throughout the data cycle to ensure that traditionally marginalized communities,
+in particular, have ownership of their experiences and are empowered to advocate for and make decisions
+for themselves.
+f To enable Vermont to execute the above recommendations, secure sustained funding for additional personnel to
+increase capacity with a specific focus on equitable data.
+
+Make Critical Investments in Data & Technological Infrastructure
+• Renewed Policy Recommendations (2020, 2021): Commit to early childhood data integration and governance through
+sustained funding, dedicated staffing, data infrastructure, and data-driven accountability.
+f Increase availability, coordination, and publication of cross-sector early childhood data.
+f Secure data-sharing agreements and prioritize data-sharing activities and procedures.
+f Fully fund and expedite the development and execution of the Child Development Division’s Information System
+(CDDIS), including a module for Children’s Integrated Services (CIS) that supports data collection, monitoring,
+and case management.
+f New policy recommendation: Secure sufficient state funding to fully implement the Comprehensive Child Welfare
+Information System (CCWIS).
+f Secure sustained funding for personnel to ensure high-quality data.
+• New Policy Recommendation: Invest in state agencies’ ability to execute contracts, grants, and agreements;
+make payments in a timely manner; and improve efficiencies.
+f Improve state agencies’ technological infrastructure, increase staff capacity, and build systems that prioritize
+transparency and communication among business offices, Departments/Divisions, and organizations/payees.
+f Prioritize providing accessible grant and contract opportunities that seek to reduce barriers for individuals and
+organizations who face challenges when applying for or receiving grant funding, including having sufficient funds
+on hand, having a bank account, and having the time, skill, and capacity to write a grant application.
+
+| 
+8 The State of Vermont's Children
+DEMOGRAPHICS
+
+The following chapters include key indicators of child and family well-being, many of which show trends
+over time. Indicators show a snapshot of the status of children and families, but may not reflect the entire
+context impacting outcomes.
+
+DEMOGRAPHICS
+
+In 2022, there were an estimated 59,173 children under the  Although the vast majority of Vermont’s population identifies as
+age of 10, including 5,379 babies born to Vermont residents.  white and non-Hispanic/Latina/o/x, the state is growing more
+Where Vermont’s children live aligns with Vermont’s population centers:  racially diverse, especially among young children. Table 1 shows
+The Chittenden region holds 25.3% of children under age 10,  that the percentage of the population under age 10 who identify
+while the St. Albans, Barre, and Rutland areas hold 10.9%, 10.3%,  as two or more races or multiracial (4.5%) is more than twice the
+1
+and 9.1% respectively.                     percentage of the Vermont population as a whole (2.2%). Similarly,
+as seen in Table 2, 3.4% of children under age 10 identify as Hispanic
+or Latino/a/x compared with 2.3% of the population as a whole. In
+Table 1: Vermont Population by Race
+2
+total, 12% of Vermont children under 10 identify as non-white and/or
+and Age Group (2022) 
+2
+identify with an ethnicity of Hispanic or Latina/o/x.
+Children   Total
+Race 
+Under 10  Population
+American Indian
+of children under 12 lived
+0.4% 0.4%
+and Alaska Native 
+28.5%
+in households with incomes
+below 185% of the federal poverty level in 2022,
+Asian 2.4% 2.1%
+3
+the benchmark for many benefit programs.
+
+f See page 10 for more information about basic needs.
+Black or African American 2.2% 1.5%
+
+Native Hawaiian
+*** ***
+and Other Pacific Islander 
+474 children under age 9
+4
+White 90.6% 93.8%
+living in out-of-home protective custody as of 9/30/23.
+
+f For more information about challenging childhood
+Two or more races 4.5% 2.1%
+experiences, see page 14
+
+Table 2: Vermont Population by Ethnicity
+In 2022, there were 8,021
+2
+and Age Group (2022)
+children under 18 living with
+Children   Total
+grandparents or other relatives.
+Ethnicity 
+Under 10  Population
+5
+(7.1% of children under 18). 
+Hispanic or Latina/o/x 3.2% 2.2%
+
+| 
+2023 Year in Review 9
+BASIC NEEDS
+
+BASIC NEEDS
+
+VECAP GOAL 1 :
+ALL CHILDREN HAVE
+A HEALTHY START
+
+guideline for eligibility for federal programs is 185% of the FPL.
+The stress of being unable to meet basic physiological needs such as
+5
+In 2023, 185% of the FPL for a family of four was $55,500. 
+food and shelter, often due to poverty, impacts the ability of
+parents and caregivers to create environments full of the warm and
+1
+responsive interactions that support early childhood development.
+There has been a 14.7% decrease in the percent of Vermont’s
+families with children under 12 living below 185% of the FPL,
+Food insecurity among children harms cognitive development
+2                                6 
+from 33.2% in 2017 to 28.5% in 2022. 
+and contributes to social and behavioral problems in school.
+Despite this decrease, many
+Housing instability can permanently affect brain development  Vermonters earning well above the FPL struggle to cover the cost
+3 4 
+in children                          of basic needs such as housing, transportation, and healthcare.
+and can impact physical health. Meeting these
+The reality is that the federal poverty level is not an adequate
+basic needs for all families is critical to ensuring that children have
+measure of family economic well-being. Inflation continues to
+the opportunity to thrive.
+be an important factor to consider as part of the cost of living.
+Median family income rose by almost $5,800 between 2021
+Cost of Living
+7 
+and 2022, to $96,345. 
+But after adjusting for inflation, median
+The cost of living is an important factor impacting access to
+family income actually fell by 1.5%, which meant that families had
+basic needs. There are several ways to look at this cost, from the
+8
+less buying power in 2022 than they had the previous year. 
+federal poverty level to estimates of the living wage.
+
+A more detailed picture of the true cost of living for Vermont families
+The federal poverty level (FPL) is a national guideline used to
+comes from The Massachusetts Institute of Technology’s (MIT’s)
+determine eligibility for programs and services. A common
+9
+living wage calculator, which is updated annually in January. 
+Figure 1: Vermont Wage Benchmarks for a Family of Four
+MIT defines a living wage as the “hourly rate that an individual in
+10, 5, 11, 7, 9
+with Two Working Adults and Two Children 
+a household must earn to support his or herself and their family.”
+The calculator shows that in Vermont, the necessary annual income
+to meet the basic needs of a household with two adults and two
+$104,193
+9 
+$96,345 
+children (before taxes) is $104,193.
+As seen in Figure 1, for a family
+of four the maximum Reach Up (Vermont’s Temporary Assistance
+10
+for Needy Families, or TANF, program) benefit is $12,000;
+5 
+$54,828
+the 2023 FPL is $30,000; 
+two adults working at Vermont’s
+11 
+minimum wage of $13.18
+make $54,828; and the median income
+7 
+$30,000
+in 2022 was $96,345 
+—all of which are less than the living wage
+$12,000
+needed for a family to comfortably meet their needs in Vermont.
+It is important to note that this living wage does not include funds
+Maximum
+Minimum
+Family Median
+Federal               MIT Living
+for savings, emergency expenses, or expenses like meals
+Reach Up
+Wage
+Income
+Poverty Level
+Wage
+Benefit
+(2023)
+(2023)
+(2022)   (2023)
+in restaurants. It also does not include potential benefits that
+(2022)
+9
+families may access depending on their income. 
+
+| 
+10 The State of Vermont's Children
+finding homeownership increasingly out of reach. In 2019,
+Housing and Homelessness
+the inflation-adjusted median primary home sale price
+Having stable housing is a critical element for children to thrive.
+6,8 
+was $261,215 
+, while in 2022, the median home sale price
+Efforts to increase access to stable housing include new state
+16 
+was $309,000, an 18.3% increase.
+Over the same time period,
+investments in affordable housing and Section 8 Vouchers, as well
+from 2019 to 2022, median family household income only
+as updates to zoning laws through Act 47. Despite such efforts,
+increased by 0.5%. Home loan interest rates increased dramatically
+access to stable and affordable housing continues to be a
+over that same period of time. The 30-year fixed rate mortgage
+challenge for families in Vermont.
+average was 3.6% in January 2020 and 6.1% in January 2023,
+17 
+further increasing the price of housing. 
+Of note, both rental and
+To meet expected demand and address extremely low
+ownership markets were impacted by the historic flooding seen in
+vacancy rates, Vermont Housing Finance Agency reports that
+July of 2023, which is not reflected in the data above.
+Vermont will need 30,000 to 40,000 more year-round homes
+by 2030. This means adding 5,000 to 6,700 more homes to
+Children and Families Experiencing Homelessness
+Vermont's primary home market each year, well above the 2,100
+12 
+homes that the state has been generating.
+In 2022, the passage
+and Housing Insecurity
+of Act 45 created statewide zoning regulations for municipal
+The trauma of homelessness, even short-term, can have a major
+planning and enacted zoning changes to simplify the
+effect on a child’s future development. Vermont is actively
+development of more housing in municipal districts. For example,
+experiencing a housing crisis, which is significantly impacting
+municipalities must allow duplexes where single-family units
+young children and families. Statewide efforts to provide temporary
+are allowed, and municipalities must permit multi-unit dwellings
+shelter to families, while important, are failing to provide permanent
+13
+in areas of the town served by sewer and water. 
+housing in an affordable and sustainable way.
+
+Figure 2: Students Under 9 Eligible for McKinney-Vento
+Children and families meeting the McKinney-Vento definition of
+19
+1 
+Homelessness Assistance
+homelessness 
+are entitled to a number of services, resources,
+18 
+and supports from their Local Education Agency. 
+As can be seen in
+457
+400
+Figure 2, there has been an increase of Vermont children under 9
+enrolled in school who meet the McKinney-Vento definition of
+398
+homelessness, from 337 in the 2018–2019 school year to 457 in
+300
+337
+19
+the 2022–2023 school year. 
+268
+200
+247
+Similarly, the Vermont Housing Coalition to End Homelessness’
+226
+2023 point-in-time count of those experiencing homelessness
+100
+shows the number of people in households with children under
+18 increased by 85% from pre-pandemic levels, from 629 in 2019
+0
+20
+to 1,166 in 2023. 
+2018 2019 2020 2021 2022 2023
+
+Vermont supports homeless children and families through various
+For families with access to stable housing, the costs can
+programs and resources, one of which is the Family Supportive
+be significant, with typical housing expenses above $15,000 per
+Housing program (FSH) through the Vermont Department for
+9 
+year for two working adults with two children. 
+Of all households
+Children and Families (DCF). FSH “provides intensive case
+in Vermont, 47% of Vermont households who rent and 29.8%
+management and service coordination to homeless families with
+of households who own report paying more than 30% of their
+children, following evidence-based practice for housing families
+income toward rent or a mortgage, more than what is commonly
+with complex needs and multiple systems involvement.” In 2023,
+14 
+agreed to be affordable.
+In addition, Vermont’s rental vacancy of
+FSH served 344 families with 650 children, compared to 368
+15 
+21
+3.5% in 2022 was the third-lowest in the country, 
+and finding any
+families with 693 children in 2022. 
+rental—let alone an affordable, desirable rental—can be extremely
+challenging for families.
+Vermont uses a Local Coordinated Entry Partnership model to ensure
+“people experiencing a housing crisis have fair and equal access
+Homeownership provides a path to building financial assets for
+and are quickly identified, assessed for, referred and connected to
+22 
+families and gives children a secure, stable housing situation,
+housing assistance based on their strengths and needs” 
+as
+15 
+but given the low homeowner vacancy rate of 1% 
+in 2022,
+required by The U.S. Department of Housing and Urban Development.
+paired with soaring interest rates, many Vermont families are
+Coordinated Entry in Vermont is used for people of all ages entering
+
+| 
+2023 Year in Review 11
+BASIC NEEDS
+
+23 
+and receiving services. Between January and October 2023,  on an annual basis, the Reach Up benefit level must stay within
+there were 1,402 children under the age of 12 in the Coordinated  the yearly budget appropriation approved by the legislature.
+24
+Entry system, 19% of all clients in Vermont. Unless that appropriation is increased, the Department cannot
+increase the Reach Up benefit level. Since 2021, the maximum
+benefit for a family of four has been $1,000 per month, an increase
+Emergency housing policies have been in flux since the onset of
+from $867 in FY2019 and FY2020, before which the maximum
+the COVID-19 pandemic as public health guidance has changed,
+30
+benefit was $795.
+funding sources have shifted, and the needs of Vermonters
+have evolved. The Vermont Emergency Rental Assistance Program,
+Vermont’s pandemic housing assistance, was reduced in early
+Child Hunger and Nutrition Security
+2023 and ended on June 30, 2023. Vermont’s General Assistance
+Children who live with food insecurity may struggle to pay attention
+Emergency Housing (GA) program continues to serve
+and be successful in learning environments and may face
+eligible households, and as of October 2, 2023, there were
+immediate and long-term risks to their physical and mental health.
+201 families with children and 12 pregnant people eligible for
+Food insecurity is defined as the limited or uncertain availability of
+25 
+the traditional GA program.
+In addition, low-income Vermonters
+nutritionally adequate and safe foods, or limited or uncertain ability
+may be eligible for Section 8 Assistance vouchers from the U.S.
+31
+to acquire acceptable foods in socially acceptable ways.
+Department of Housing and Urban Development (HUD) and
+administered by Public Housing Authorities (PHAs). The Burlington
+In 2022, 14.6% of children in the Northeast Census Region lived
+Housing Authority, one of Vermont’s PHAs, estimates wait times
+32 
+in households with food insecurity,
+up 46% from 10% in 2021,
+for this program to be five years due to the shortage of available
+33 
+when pandemic era benefits and tax credits were in place.
+Across
+26 
+units and the eligible population. 
+In July 2023 there were 7,448
+the country, 8.7% of children living in households with incomes
+27
+HUD housing choice vouchers in use in Vermont. 
+above 185% of FPL are food-insecure, yet they are likely ineligible
+32 
+for federal nutrition programs like 3SquaresVT.
+Typical annual
+Reach Up
+food expenses for a family of two adults and two children in 2023
+Reach Up, Vermont’s Temporary Assistance for Needy Families
+were estimated to be $13,429; this represents 25% of the household
+9
+(TANF) program, is tasked with providing foundational support to
+income of two adults working for minimum wage.
+help families meet basic needs, such as housing and transportation,
+Several programs are supported by both federal and Vermont
+along with coaching and support to overcome obstacles and reach
+funding streams to address child hunger and nutrition security:
+their goals. Reach Up has shifted their case management model
+universal school meals, the Child and Adult Care Food Program
+to a coaching framework and is now working more holistically
+(CACFP), 3SquaresVT, and Women, Infants, and Children (WIC).
+with the whole family. By 2024, the program will fully implement a
+“Universal Engagement” model, which uses coaching and family-
+Universal School Meals: Breakfast and lunch provided to students
+directed planning. Universal Engagement is designed to enable
+during the school day can mitigate food insecurity. Meals have been
+families to pursue both short- and longer-term goals such as
+provided free to all students since March 2020 and will continue with
+educational attainment, stable housing, and employment in
+the passage of Act 64, the “Universal School Meals bill,” in 2023.
+the way that allows them to be most successful given their
+individual circumstances. In fiscal year 2022, an average of 3,428
+While all meals are now free for Vermont students, federal funding
+families with 6,139 children received Reach Up services
+contributions continue to be determined by income eligibility for
+28
+each month, and 38% (2,343) of those children were under age 6.
+free (130% of FPL) and reduced price (185% of FPL) lunch. In the
+While caseloads have risen since fiscal year 2021, the average
+2022–2023 school year, 34.85% of children were eligible for free
+29
+34             35
+number of families has not risen above 4,000 since FY2017.
+and reduced lunch (FRL)
+, down from 37.4%, at least partially due
+to fewer families submitting applications.
+Unlike some other benefit programs that are automatically adjusted
+
+| 
+12 The State of Vermont's Children
+WIC served an average of approximately 11,000 participants
+Beginning in October 2023, the threshold for schools to participate in
+43 
+during FY23.
+the Community Eligibility Provision (CEP) decreased, allowing more
+Of those accessing WIC, fruit and vegetable
+36 
+schools to participate in the program.
+benefits redemption is one of the highest redeemed WIC
+In addition, beginning in the
+44 
+food categories, at around 70% redemption.
+2023-2024 school year, Vermont joined a Federal Demonstration
+As of October 2023,
+Project to directly certify students for free or reduced price meals
+monthly fruit and vegetable benefits allocated monthly were
+37 
+through their enrollment in Medicaid (DC-M).
+$25 per child, $44 for pregnant and postpartum individuals,
+This more accurate
+and $49 for breastfeeding participants, well above the pre-pandemic
+way of identifying students is expected to substantially increase the
+45
+monthly benefit amounts of $9 per child and $11 per adult.
+number of FRL eligible students. Starting this year, more eligible
+students will have their meals covered by federal funds, with
+Transportation
+reduced administrative burden for families and schools because
+The typical transportation expense for a two-adult, two-child
+of Medicaid Direct Certification and a lower threshold for the
+Community Eligibility Provision.
+household in Vermont is $11,821, 22% of the household
+9 
+income of two adults working for minimum wage. Many of
+Child and Adult Care Food Program: Early care and education
+these dollars will be spent on fuel. Vermonters statistically
+programs are eligible to participate in the Child and Adult Care
+travel more miles per capita than residents of many other
+Food Program (CACFP), which reimburses them for healthy food
+states, coming in at 11,772 vehicle miles traveled in 2019,
+46 
+and snacks provided to enrolled children. As of October 2023, 42%
+which was 13th-highest of all states in that year. 
+In 2019,
+(313) of center-based and family child care homes participated
+63% of Vermont children under 6 living in households with
+38,39 
+in CACFP.
+(This number does not include afterschool or
+incomes below the FPL live in rural areas where having a
+school-based programs.) A 2022 study highlighted four barriers to
+vehicle is critical to access basic goods and services, as well
+participation: cost, paperwork, staffing shortages, and the time it
+47 
+as to get to work and school. Many Vermont children rely on
+takes to procure, prepare, and serve food and administer
+district-provided busing for transportation to and from school.
+40 
+the program.
+Many programs provide food without participating
+Between September 1 and October 31, 2023, there were an
+in CACFP.
+average of 44 bus driver vacancies posted daily for the 128
+48
+Vermont school districts. 
+3SquaresVT: In July 2023, 3SquaresVT, Vermont’s Supplemental
+Nutrition Assistance Program (SNAP), served 20,860 children
+Connectivity
+41 
+under age 18.
+During the COVID-19 pandemic, Vermont issued
+Another long-standing challenge for Vermonters is digital connectivity.
+emergency allotments to eligible households, effectively ensuring
+that every household receiving 3SquaresVT was receiving the
+While a lack of high-speed internet was previously a hardship,
+maximum benefit allowed. The federal 2023 Consolidated
+connectivity is now an absolute necessity. According to the Vermont
+Appropriations Act ended the emergency allotments in March 2023.
+Department of Public Service, based on data from Vermont internet
+Average monthly benefits decreased 22% from $277 in December
+service providers, 81.4% of building locations in Vermont are
+42
+2022–February 2023 to $217 in March 2023–May 2023.
+served with speeds of at least 25/3 (25 Mbps download and 3
+Mbps upload), while only 34.5% have access to 100/100, up from
+WIC: Participation in the Women, Infants, and Children (WIC)
+49 
+For context, 25/3 is only fast enough for one virtual
+29.2% in 2021. 
+program has declined slightly since September 2022. Like many
+programs, COVID-era program accommodations allowing for virtual
+meeting with video if there are no other devices running.
+visits have recently ended with a return to a required annual in-
+Broadband access across the state varies and is largely aligned
+person appointment, which is new to many families who joined WIC
+with population density, with higher-density areas having higher
+during the COVID-19 public health emergency. WIC is monitoring the
+levels of access. Vermont has received $229 million in federal
+impact this operational change has on overall participation.
+dollars through the Broadband Equity, Access, and Deployment
+(BEAD) Program which will prioritize unserved, underserved,
+50
+and community anchor institutions. 
+20,860 Vermont children under
+Recommendations from Vermont’s Early Childhood State Advisory
+18 were served by 3SquaresVT,
+Council Network specific to access to basic needs can be found
+Vermont’s Supplemental Nutrition
+beginning on page 4.
+Assistance Program (SNAP) in
+41
+July 2023. 
+
+| 
+2023 Year in Review 13
+CHALLENGING CHILDHOOD EXPERIENCES
+
+CHALLENGING CHILDHOOD EXPERIENCES
+
+VECAP GOAL 1 :
+All Children Have
+a Healthy Start
+
+Toxic Stress and Trauma              The Impact of Positive Experiences
+Living in strong families within supportive communities provides
+Despite adversity, positive childhood experiences appear to have long-
+the foundation for long-term child health and well-being and the
+lasting effects. The single most common factor for children who
+ability to overcome adversity. Children who experience adverse
+develop resilience is having at least one stable and committed
+4
+childhood events like those listed in this chapter may have a
+relationship with a supportive parent, caregiver, or other adult.
+traumatic reaction with impacts on their functioning across
+settings and over time. The systems that support children who
+Adverse Childhood Experiences (ACE)
+experience trauma in response to these experiences are critical.
+The Adverse Childhood Experiences (ACE) score has become one
+Our support of such systems must be balanced with support for
+of the most common indicators used to measure exposure to
+prevention programs to build flourishing communities in which
+toxic stress and childhood adversity. Research has shown that
+children can thrive.
+ACEs can negatively impact health and well-being across the
+5 
+lifespan 
+if not buffered by nurturing and supportive relationships.
+Figure 3: Adverse Childhood Experiences for Children
+In Vermont, 22.8% of children under age 18 have had two or more
+5
+6 
+Under 18 
+adverse childhood experiences 
+(see Figure 3). The four most
+common ACEs for Vermont children under 18 are: experiencing the
+7 
+divorce of a parent or guardian (26.2%) 
+, living with someone with
+18.6%
+substance use disorder (14.2%), living with someone who has a
+Two
+serious mental health challenge (13%), and living in a home where
+15.6%
+it is hard to cover basic needs (12.6%). Of note, this measure fails
+65.8%
+to account for factors that mitigate or exacerbate toxic stress,
+None
+which are important factors in how trauma or adversity
+is experienced. Vermont encourages the use of standardized tools
+One
+for screening and assessment. Knowledge of ACEs as part of being
+trauma-responsive is encouraged within the broader context of a
+strength-based, person-centered, and culturally responsive approach.
+Trauma-Informed and Trauma-Responsive Policy
+Core principles of trauma-informed and trauma-responsive
+Domestic Violence
+care include: safety, trustworthiness and transparency,
+Children in Vermont are not always physically or emotionally safe in
+collaboration and peer support, empowerment, choice, and the
+their home environments. Nationally, 1 in 15 children are exposed to
+1 
+8 
+intersectionality of identity characteristics. 
+In 2018, Vermont
+intimate partner violence each year,
+and 1 in 5 children will be exposed
+9 
+enacted these principles in state statute and created the position
+in their lifetime.
+In 2023, 1,537 Vermont children and youth connected
+of Director of Trauma Prevention and Resilience Development
+with one of the 15 member organizations of the Vermont Network
+to implement a public health approach across the full Agency
+Against Domestic and Sexual Violence for help related to abuse toward
+of Human Services to become a trauma-informed system of
+a family member or toward themselves. These organizations also
+2 
+10
+care.
+By investing in systems and community-based solutions,
+supported 168 children impacted by child sexual abuse. 
+communities mitigate the impact of trauma, reduce the potential
+for re-traumatization, and improve overall community health,
+Additionally, these member organizations supported housing for
+thus also building resilience, connections, and capacity for
+those children likely impacted by domestic violence. Shelters housed
+facing future potential experiences of trauma and adversity.
+239 children (136 of whom were under age 7), motels and safe
+Preventive approaches are less expensive and more effective
+homes sheltered 224 children (123 under age 7), and transitional
+3
+11
+than addressing harm that has already occurred. 
+housing sheltered 26 children in 2023.
+
+| 
+14 The State of Vermont's Children
+Figure 5: Vermont Licensed Foster Homes and Children
+Child Welfare
+10
+in Custody 2018 to 2023
+When a child’s safety and or well-being is threatened, the Department
+for Children and Families-Family Services Division (DCF-FSD)
+1429
+1427 
+often becomes involved. Calls to the child protection hotline in
+1329 
+1500
+1203
+10
+2023 resulted in 2,027 assessments and 2,380 investigations. 
+1087 
+985
+The result of these interventions may include ongoing DCF-Family
+1301 
+1250 
+1239
+1000
+Services involvement in one of the following types of cases:
+1057
+990
+DCF out-of-home protective custody where a child is placed with
+834
+a relative or foster family, conditional custody where the child is
+500
+in the custody of a parent, relative, or fictive kin with DCF-Family
+Licensed Foster Homes Children in Custody
+Services supervision and services to ensure the child’s safety,
+0
+or family support where DCF-Family Services provides support
+2018 2019 2020 
+2021 2022 2023
+to families without court involvement. In 2023, there were 985
+children in out-of-home protective custody, 467 children in
+10
+To address these gaps, there continues to be Diligent Recruitment
+conditional custody, and 150 family support cases. 
+efforts in DCF-FSD to recruit, train, and retain foster parents.
+This includes but is not limited to, adjusting training and
+10
+Figure 4: Children Under 9 in DCF Protective Custody by Age
+training requirements, adjusting regulations for kinship providers,
+and targeted recruitment of foster parents.
+Total under 9
+0 to 2 3 to 5 6 to 8
+
+800
+Families Come First: The Department for Children and Families-
+721
+659
+Family Services Division is committed to preventive approaches.
+695
+657
+618
+The five-year Title IV-E Prevention Plan under the federal Families
+198
+541
+541
+First Prevention Services Act includes the implementation of two
+520
+509 
+600
+178
+174
+172
+evidence-based prevention services: Parent Child Interaction
+170
+14
+152
+474
+129
+Therapy (PCIT) and Motivational Interviewing.
+240
+146
+117
+251
+235
+228
+200
+127
+400
+181
+Updating the Child Welfare Information System
+175
+154
+152
+Vermont’s child welfare information system, used by DCF-FSD, was
+174
+283
+built in 1983 and is one of the oldest in the country. The national
+270
+257
+248
+246
+200
+standard for child welfare information systems, implemented in
+238
+237
+223
+208
+45 states and territories, is the Comprehensive Child Welfare
+173
+Information System (CCWIS). Family Services Workers who are
+2021   2023
+2019 
+2015   2017
+already managing large caseloads with complex situations and
+dynamics have a heavy administrative burden because of the lack of
+a CCWIS. This takes time away from the actual case management
+The number of children under age 9 in protective custody on
+needs of particularly vulnerable children and families. A modern
+13 
+September 30, 2023, was 474 out of 985 children under 18.
+As can
+CCWIS would enable Vermont’s DCF-FSD to move away from
+be seen in Figure 4, there appears to be a downward trend in the
+paper files, reduce administrative burden for frontline workers,
+number of children under 9 in DCF custody after an elevated number
+and expand data reporting to enable Vermont to track programmatic
+of children between 2015 and 2019.
+interventions and fully draw down federal funding for the child
+welfare system. The current system is preventing Vermont from
+Placement for Children in Custody
+accessing all federally available dollars and is resulting in increased
+There are different placement options for children in DCF custody
+15
+federal financial penalties annually.
+depending on their individual strengths and needs along with
+the available placement options. In 2023, 8% of children under
+In October 2023, Vermont’s Early Childhood State Advisory
+9 were living in an adoptive home in which the adoption was
+Council Network endorsed a policy recommendation to “secure
+not yet finalized, 43% were placed in a licensed foster home,
+sufficient state funding to fully implement the Comprehensive
+42% were placed with a relative, 6% were placed with a parent
+Child Welfare Information System (CCWIS).” See page 4 for the
+for trial reunification, and 2% were placed in a group or
+full slate of 2024 Policy Recommendations.
+institutional setting. As seen in Figure 5, the number of licensed
+foster homes (including kinship care) has declined since 2020 and
+fallen below the number of children in custody for the past two years,
+with 834 foster homes for 985 children in custody in 2023.
+
+| 
+2023 Year in Review 15
+HEALTH & WELL-BEING
+
+HEALTH & WELL-BEING
+
+VECAP GOAL 1 :
+All Children Have a Healthy Start
+
+Vermont Medicaid provides comprehensive health insurance
+Social Determinants of Health
+for the children of Vermont through the Dr. Dynasaur program.
+“The social determinants of health (SDOH) are the non-medical
+Vermont has some of the most generous Medicaid income
+factors that influence health outcomes. They are the conditions
+limits for children under 18, with eligibility for children set at
+in which people are born, grow, work, live, and age, and the wider
+6
+312% of the Federal Poverty Level. 
+set of forces and systems shaping the conditions of daily life.
+These forces and systems include economic policies and systems,
+development agendas, social norms, social policies and
+Medicaid coverage for qualified birthing Vermonters during
+1 
+Vermont’s holistic approach to early childhood
+political systems.”
+pregnancy provides health care access for prevention and
+well-being recognizes that we all have a role to play in ensuring
+intervention. The coverage period was permanently extended
+the health of our children by improving these social factors.
+from 60 days postpartum to 12 months in 2023. In 2022,
+7
+While the indicators below are only focused on physical and
+38% of births in Vermont were funded by Medicaid. 
+mental health access and utilization, additional SDOH can be
+found throughout this report, including in the Demographics
+Figure 6: Vermont Children Under 18 Insurance
+2
+section on page 9 and the Basic Needs section on page 10.
+Coverage 2022
+Other
+Employer-Sponsored
+Perinatal Health
+Uninsured
+The perinatal period, from pregnancy through one year after birth,
+3.2%
+is a key time for a child’s long-term development and the well-being
+Non-Group
+4.2%
+of the birthing parent, child, and family system. More information
+Insurance
+on the perinatal period specific to mental health and substance
+use can be found on page 20.
+
+Health Insurance
+50.3%
+Insurance Coverage: In 2022, 97% percent of Vermont children
+41%
+2 
+Of families
+under age 18 had some type of health insurance. 
+with children under 6, 78% reported that insurance for their
+3 
+This is down 4.9% from 2019,
+children was adequate in 2021. 
+primarily due to a decrease in the ability of children to see
+3 
+Medicaid
+In Vermont, 50.3% of children
+the health care providers they need.
+under 18 are covered by employer-sponsored insurance, 41% are
+covered by Medicaid (primary or secondary coverage), 4.2% are
+2
+covered by non-group insurance, and 3.2% are uninsured.
+Medicaid Redetermination and “Unwinding”: Each year,
+Vermonters receiving Medicaid, including children, go through
+There have been multiple initiatives to increase health insurance
+a redetermination process to ensure they are still eligible.
+enrollment among children. Beginning in January 2024,
+This process was suspended from March 2020 to March 2023
+Vermont will implement 12 months of continuous Medicaid
+due to funding changes brought about by the COVID-19 pandemic.
+eligibility for children so that they are not at risk of losing
+4 
+The Immigrant
+coverage outside of their annual redetermination. 
+During this pause, enrollment of children receiving Medicaid
+Health Insurance Program began in July 2022 and provides
+in Vermont rose by 8.6%, from 62,363 in March 2020 to
+8
+coverage for pregnant individuals and children under age 19
+67,705 in March 2023. 
+who have an immigration status for which Vermont Medicaid
+5 
+Of note,
+is not available (except for Emergency Medicaid). 
+The federal government required states to restart this
+this coverage does not extend to home- and community-based
+redetermination process in 2023, and “Medicaid Unwinding”
+services such as home visiting and Children’s Integrated Services.
+began in Vermont in April and is expected to last more than one year.
+
+| 
+16 The State of Vermont's Children
+with VCHIP and the American Association of Pediatrics
+Vermont has taken steps to support enrollees through this process,
+Vermont Chapter, is closely monitoring the impact of COVID-19
+including increased outreach, suspension of premiums,
+pandemic on immunization rates.
+and enhanced automatic renewals. However, there has been and
+will be an inevitable reduction in enrollment through this process.
+In September 2023, there were approximately 63,400 children
+Blood Lead Level Screening: Protecting children from exposure to
+9 
+enrolled in Dr. Dynasaur
+lead is important for lifelong good health. No safe blood lead level
+compared to 67,396 in September 2022,
+8 
+in children has been identified. Even low levels of lead in blood have
+a 5.9% decrease. 
+Medicaid for adults is available for eligible
+been shown to affect a child’s learning, ability to pay attention, and
+individuals after they age out of Dr. Dynasaur. In Vermont,
+13 
+academic achievement.
+and across the country, the impact of Medicaid redeterminations
+The state of Vermont requires primary
+14 
+for children will become clearer as the process is completed
+health care providers to test for lead at ages 1 and 2, 
+and the
+and additional data become available.
+Healthy Homes Lead Poisoning Prevention Program at the Vermont
+Department of Health (VDH) has updated its guidelines to include
+monitoring for children with any detectable level of lead, down from
+Preventive Care
+3.5μg/dl. VDH has identified detectable blood lead levels as a
+Well-Care Visits: Vermont emphasizes well-care visits, routine
+key indicator for the Healthy Vermonters 2030 goals. In 2022,
+healthcare visits held when the child is healthy, which allow
+the provider and parent to focus on prevention, track growth
+and development, address any concerns, and build a strong
+and trusting relationship. In 2021, 89.6% of children under 6
+72.5% of 1-year-old
+and 85.2% of children 6 to 11 had one or more preventive
+3 
+children in Vermont
+care visits with a health care professional. 
+Vermont is
+also committed to oral health and preventive dental care. In
+were screened for
+2021 60% of children ages 1 to 5 and 93% of children from
+lead in 2022.
+3
+6 to 11 years of age had a preventative dental care visit. 
+
+Immunizations: Receiving the full series of recommended
+immunizations shields children against 14 preventable diseases.
+Vaccinations also help protect vulnerable people from the
+risk of disease, especially infants who are too young to
+72.5% of 1-year-olds and 64.1% of 2-year-olds were screened.
+be vaccinated, and children and adults whose immune systems
+Of those screened, 81.2% of 1-year-olds and 82.7% of 2-year-olds
+10 
+are weaker. 
+In 2022, 76% of Vermont children received their
+had blood lead levels that were undetectable at the time of
+11 
+15 
+recommended immunizations by age 2, 
+compared to 70%
+their annual screening.
+Although screening rates are increasing,
+12 
+in the total United States. 
+However, rates differed by county,
+they are still lower than pre-pandemic rates as a result of a test
+from a high of 82% in Rutland County to a low of 60% in
+kit recall in 2021 and an absence of in-person WIC clinics.
+11 
+15
+Essex County.
+The Vermont Department of Health, in partnership
+Both barriers have been addressed and corrected.
+
+Policy recommendations on physical and mental health and well-being from Vermont’s Early Childhood State Advisory Network can be found
+on page 6.
+
+Data on perinatal health and well-being can be found in the Data Spotlight starting on page 20.
+
+Data on child development, including developmental screenings, early intervention, and Autism Spectrum Disorder, can be found in the Child
+Development and Education section starting on page 24.
+| 
+2023 Year in Review 17
+HEALTH & WELL-BEING
+
+MENTAL HEALTH FOR CHILDREN AND FAMILIES
+
+For children and families, mental health refers to social, emotional, and behavioral well-being, and includes the capacity to
+regulate and express emotion; form close, secure relationships; and explore and learn from the environment. Healthy social
+and emotional development and access to services, resources, and supports allow children to develop the resilience to ensure that
+stress is tolerable rather than toxic and to grow into well-rounded, healthy adults. Toxic stress without such supports can have
+lifelong impacts on the ability to develop peer relationships, learn, and thrive.
+
+Mental Health Services for Children in Vermont
+Vermont’s mental health system has multiple levels of services to support children and families with behavioral, emotional, and mental
+health conditions, from outpatient services to residential treatment.
+
+Community-Based
+Crisis Case Management
+Residential Treatement
+Outpatient Services
+Inpatient Care 
+Services & Supports
+& Placements 
+
+the lowest since 2012 despite the increased need for mental health
+Children with Behavioral, Emotional, and Mental
+17 
+services noted above. 
+DAs also provide crisis services for those
+Health Conditions
+children needing immediate care. In 2023, there were 232 children
+There is ample evidence of the rise in numbers of children
+under age 9 who received crisis services, with a five-year average
+requiring services and the increased acuity of those needs. Even
+17 
+of 237. 
+Of note, these indicators do not capture the current
+before the COVID-19 pandemic, rates of children with behavioral,
+need for either service, only utilization of services.
+emotional, and mental health conditions were rising. As can
+be seen in Figure 7, between 2017 and 2021, the rate of
+Mental Health Workforce
+children with diagnosis of ADHD, anxiety, depression and/
+As is the case with the majority of human services sectors,
+or a behavioral or conduct condition in Vermont rose from
+the turnover and vacancy rates for the mental health workforce
+8.8% to 16% for children ages 3 to 8. During this same period,
+16
+are directly impacting access to and utilization of services.
+overall U.S. rates remained stable between 9.8% and 10.5%. 
+The total number of positions at DAs and Specialized Service
+Agencies (SSAs) varies based on grant funding and special projects.
+Figure 7: Children with ADHD, Anxiety, Depression, and/or
+1
+Like many sectors, Vermont’s DAs and SSAs have high turnover
+Behavior or Conduct Condition, Vermont and U.S.
+and vacancy rates. In 2023, the average turnover rate for mental
+health program staff at DAs and SSAs was 23.3% and the average
+Vermont   US
+vacancy rate for mental health and substance use programs
+17
+was 18%, with rates by agency ranging from 10.0% to 24.6%. 
+16.1%
+12.6%
+Figure 8: Children Under 9 Served by Designated Mental
+2
+10.5%
+Health Agencies 2017 - 2023 
+9.9%
+9.8%
+8.8% 
+4,000
+
+2016-2017     2018-2019     2020-2021
+3,000
+
+Service Utilization
+2,000
+Routine mental health services provided by Vermont’s 10
+3,322
+3,322
+3,138
+3,171
+Designated Mental Health Agencies (DAs) are a primary
+2,967
+2,910
+1,000
+2,525
+intervention strategy for reducing the potential later use of
+higher-acuity services. As depicted in Figure 8, the number of
+0
+2017 2018 2019 2020 2021 2022 2023
+children under age 9 served by DAs over the past seven years
+has ranged from a high of 3,322 in 2021 to a low of 2,525 in 2023,
+
+| 
+| 
+18 The State of Vermont's Children
+18 
+The State of Vermont's Children
+Two other programs had to move children/youth temporarily.
+Residential Treatment
+Still others had temporary staff shortages as employees dealt
+For some children, community-based supports may not be
+18
+with flooding in their own homes and communities. 
+adequate to effectively address the clinical needs of the child
+and family. In these instances, the family and support team may
+Boarding in Emergency Departments
+consider out-of-home treatment such as a community-based
+As noted above, there are not enough inpatient or residential
+therapeutic foster home, small group home, or residential
+treatment beds for Vermont children in need of this resource.
+treatment program. However, Vermont currently has the lowest
+18
+In Vermont, and across the country, children are held in
+number of out-of-home treatment beds in over two decades. 
+emergency departments while awaiting a placement to keep
+Staffing shortages are a primary cause for this drop in residential
+them safe and provide critical care. According to data from
+capacity and are a problem across the country. The issue may
+the Vermont Association of Hospitals and Health Systems,
+be compounded by the increased acuity in children’s and youth’s
+in 2020, there were over 1,100 discharges from emergency
+behaviors and their struggle to access step-down programs.
+departments (EDs) for children with a primary mental health
+In addition to full program closures, some programs have
+diagnosis, with 18% of those children waiting two or more
+had to temporarily close beds or shift from seven to five days
+19 
+days for placement. 
+Though the average number of children
+of operations per week. These closures, bed reductions, and
+under 18 waiting in EDs for mental health placement has
+reduced days have been compounded by fiscal concerns
+decreased from a daily average of 15 in January 2022 to 7
+specific to the funding methodology that has existed for
+in October 2023, 71% of those children boarded in EDs for
+Private Non-Medical Institutions (PNMI). In recognition of
+19 
+more than 24 hours. 
+Boarding of individuals waiting for a
+these challenges, the State of Vermont has begun a multiphase
+mental health placement decreases the capacity of ED beds.
+approach to update the rate-setting rules and payment
+In October 2023, an average of 14% of ED beds on any given
+methodology. Draft rules have been proposed, but approval
+19
+day were used for mental health boarding. 
+is partially dependent on the funding necessary to implement
+the rule changes. In June 2023, there were 256 children ages
+21 and younger in licensed residential treatment programs,
+an increase of 27 children from 2021. Of these children,
+Many of the residential programs
+17
+34 children (13.3%) were under the age of 9. 
+in Vermont were impacted by the
+July flooding.
+Impacts of the July flooding: Since the June reporting was
+completed, many of the residential programs in Vermont were
+impacted by the July flooding. Two programs in Vermont
+experienced infrastructure impacts due the flooding in July—
+one had to close a building for repairs, and the second had to
+decrease bed capacity due to damage in a basement apartment.
+
+FEDERAL POLICY CONSIDERATION
+Two critical federal resources that build Vermont’s capacity to meet mental health needs cannot be used
+for prevention and promotion of mental health activities: Medicaid and the Mental Health Block Grant.
+Medicaid requires a diagnosis for services and the Mental Health Block Grant can only be used for adults
+with Severe Mental Illness and youth with Severe Emotional Disturbance. As children and families are
+facing new and compounded challenges from the ripple effects of the COVID-19 pandemic, funding for
+upstream prevention and promotion services is essential to Vermont’s ability to turn the curve on wellness.
+
+| 
+| 
+2023 Year in Review 19
+2023 Year in Review 19
+DATA SPOTLIGHT:
+PERINATAL HEALTH
+AND WELL-BEING
+
+those in the perinatal period, their families, and their communities.
+The foundation of child and family health and well-being starts
+before birth. The perinatal period, from pregnancy through one
+These include negative obstetric and non-obstetric physical health
+year after birth, is a key time for a child’s long-term development
+outcomes for both the birthing parent and child, productivity loss,
+and the well-being of the birthing parent, child, and family system.
+and increased spending on social services resulting in an estimated
+1
+This period is a critical opportunity for providing access to
+cost of $36,000 per birthing parent and their child in Vermont. 
+concrete supports when interventions are particularly impactful.
+This chapter includes data and context on the current landscape
+More information is needed about the prevalence of PMADs in non-
+and challenges as well as an overview of several long-standing
+birthing partners and adoptive parents. For non-birthing partners,
+and innovative opportunities for intervention, several of which
+a recent meta-analysis showed a global prevalence of 7.3% for paternal
+are contained in the 2024 Policy Recommendations of Vermont’s
+prenatal and postpartum depression and 10.7% for paternal prenatal
+3 
+Early Childhood State Advisory Council. (See page 4 for the full
+and postpartum anxiety.
+PMAD screening for non-birthing and
+slate of 2024 Policy Recommendations.)
+adoptive parents is inconsistent, as PMADs were historically thought to
+be linked to physiological changes only impacting the birthing parent.
+Perinatal Mood and Anxiety Disorders (PMADs)
+Perinatal mood and anxiety disorders (PMADs) are mental health  Perinatal Substance Use
+conditions that develop at any time during pregnancy or after having
+Substance use during the perinatal period can have lifelong effects
+a baby, through the year after delivery, adopting, or experiencing
+on a child’s ability to thrive. Vermont PRAMS (Pregnancy Risk
+pregnancy or infant loss. Vermont has prioritized the screening,
+Assessment Monitoring System) is an ongoing self-reporting
+referral, treatment, training, support for families, and public
+survey of Vermont parents who recently gave birth. The most
+awareness of PMADs for many years. PMADs affected more than
+recent Vermont PRAMS data from 2021 births reported by the
+25% of pregnant and postpartum people in Vermont in the 2018 to
+Vermont Department of Health (VDH) shows a moderate decrease
+1                                   2
+4
+2020 birth cohort
+, compared with a national prevalence of 11.5%.
+in substance use among perinatal people. 
+This may be in part due to increased public awareness, training,
+referrals, and higher screening rates, with 90% of pregnant people in
+Substance Use During Pregnancy: Opioid use in Vermont continues
+Vermont screened for PMADs compared with 79% for the country
+to occupy the headlines, with a “third wave” of the opioid epidemic
+1 
+as a whole.
+PMADs are highly detectable and treatable, but when
+arriving with inexpensive and potent fentanyl. In 2021, Vermont’s rate
+left untreated, PMADs have substantial impacts on the lives of
+of infants born with a diagnosis of drug withdrawal syndrome
+5 
+was 13.6 per 1,000 live births.
+However, the Vermont rate is down
+from 24 per 1,000 live births in 2018 and significantly decreased
+5
+from a peak of 35.7 per 1,000 live births in 2014. 
+25% of pregnant and postpartum
+Opioids are not the only substances used during pregnancy.
+people in Vermont in the 2018 to 2020
+As can be seen in Figure 9, non-exclusive categories show the
+birth cohort were affected by PMADS,
+use of alcohol, cigarettes, and other substances ranging from
+1
+compared with 11.5% nationally. 
+10.7% to 11.8% for children born in 2021, meaning that one or more
+4
+substances were used during more than 1 in 10 pregnancies. 
+
+| 
+20 The State of Vermont's Children
+Perinatal Mortality and Substance Use Disorder (SUD): Since 2012,
+Vermont has had an average of two to three perinatal deaths
+of perinatal deaths reviewed
+per year from any cause (from pregnancy through the first year
+were directly related to
+postpartum for the birthing individual). In 2022, Vermont saw a
+7
+100% 
+substance use disorder. 
+sharp increase in overall number of maternal deaths with a total
+6
+of six deaths. 
+
+Opportunities for Intervention and Health Promotion
+9
+Figure 9: Substance Use During Pregnancy (2021 Births)
+Strategies
+There are numerous long-standing and innovative approaches to
+supporting birthing parents, children, and family systems during
+the perinatal period. It is well known that prevention is more
+11.8%
+11.0% 
+10.7% 
+effective and less expensive than treatment, and the perinatal
+period is a key time for intervention. A partnership between the
+Vermont Child Health Improvement Project and the Family
+and Child Health Division at the Vermont Department
+of Health, the Perinatal Quality Collaborative Vermont (PQC-VT),
+mobilizes state networks to implement quality improvement
+efforts and improve care for perinatal people. The mission of the
+Alcohol
+Cigarette     Other
+PQC-VT is to optimize health access, treatment, and outcomes in
+Smoking    Substance
+the perinatal period and infancy through collaboration and
+continuous quality improvement. There are many additional
+regionally run initiatives to support birthing families, many of
+which are collaborations among providers, community partners,
+In 2023, the Vermont Maternal Mortality Review Panel (MMRP)
+perinatal health organizations, and other organizations focused
+reviewed seven perinatal deaths occurring between 2021
+on well-being.
+and 2023. All the deaths reviewed for this time period were
+either from accidental overdose or from infection resulting
+Prenatal and Postpartum Visits: Prenatal and postpartum care
+from intravenous drug use. Most of the accidental overdose
+is an essential tool for supporting healthy pregnancies and long-
+deaths involved polysubstance use. In addition, all deaths
+8
+term outcomes. Of the 5,379 Vermont babies born in 2021, 
+reviewed occurred in the postpartum period and in the home
+or in the community. The MMRP has identified the period from
+86.7% of birthing parents had adequate prenatal care (early entry
+3 to 12 months postpartum as particularly vulnerable for
+and regular visits), and 94.4% had a postpartum visit.
+perinatal people. In their 2024 legislative report, the MMRP
+Of birthing parents, 79.6% had a visit with a health care provider in
+4 
+issued multiple recommendations for the state, many of
+the year before pregnancy.
+Of births in 2021, 72% of pregnancies
+which were related to improvements to screening, support,
+were intended, surpassing the Healthy Vermonters 2030 goal
+7                         4
+and care coordination for those with SUD. 
+of 65%.
+
+| 
+2023 Year in Review 21
+SPOTLIGHT: PERINATAL HEALTH
+
+9
+two days of age (9.5% vs. 19.2%) among infants born in 2019. 
+Care and Feeding of Infants: Families make the best choice
+for their unique situation with recommendations from their
+Screening and Psychiatric Consultation for Perinatal Mood and
+health care providers about the feeding of their infants.
+Anxiety Disorders: When an individual is diagnosed with a PMAD,
+Breastfeeding and chestfeeding may not be available or may not
+clinicians in Vermont have the opportunity to consult with the
+be the right choice for all families for a multitude of reasons.
+Perinatal Psychiatric Consultation Service about medication
+For those who are able, breastfeeding/chestfeeding is associated
+treatment plans, therapeutic needs, and appropriate referrals.
+with preventing obesity and diabetes in children, and puts birthing
+The Perinatal Psychiatric Consultation Service also provides training
+parents at lower risk for breast and ovarian cancer, diabetes,
+and technical assistance to medical and mental health providers.
+hypertension, and cardiovascular disease. Across the board,
+Financial cost savings from this program are estimated at
+when compared to the whole U.S., Vermont has higher rates of
+$200,000 per year at current staffing and $650,000 per year with
+expanded capacity and coordination. In addition, it is estimated
+that 47% of individuals who receive this support will achieve
+Figure 10: Breastfeeding/Chestfeeding Rates for
+10
+9
+remission from a PMAD. 
+2019 Births, Vermont and U.S.
+
+Developmental Understanding and Legal Collaboration for
+Vermont
+US
+Everyone (DULCE): DULCE is implemented in pediatric practices
+91.8% 
+and proactively addresses social determinants of health,
+83.2%
+promotes the healthy development of infants, and provides
+support to their parents during the first six months of life.
+DULCE programs are currently offered at six sites across Vermont
+54%
+11
+and served 350 babies between January and October of 2023. 
+Three new sites will launch in 2024 serving Burlington, St. Albans
+35.9%
+36.2% 
+12 
+and St. Johnsbury. 
+DULCE embeds into the pediatric care
+24.9%
+team a Family Specialist, employed by the region’s Parent Child
+Initiation Exclusivity at
+Sustained at
+Center (PCC), who attends well-child visits with families and providers.
+6 Months 
+12 Months
+Trained in child development and relational practice, the Family
+Specialist connects families to the concrete supports and resources
+breastfeeding/chestfeeding initiation (91.8% vs. 83.2%), exclusive
+they need. DULCE implementation includes collaboration among
+breastfeeding/chestfeeding through 6 months (36.2% vs. 24.9%),
+the medical practice, the PCC as the early childhood sector lead,
+and sustained breastfeeding/chestfeeding through 12 months
+and a legal partner to universally support families by addressing
+(54% vs. 35.9%); and lower rates of infants receiving formula before
+the accumulated burden of social and economic hardship.
+
+HIGH-QUALITY AND INCLUSIVE PHYSICAL AND
+MENTAL HEALTH SERVICES (VECAP GOAL 3)
+
+Invest in Perinatal Supports
+• Invest in statewide strategies that center early relational health to ensure families are supported across clinical and community
+settings during the critical perinatal period, including after experiencing the loss of a child or loss of a caregiver.
+f Fund the expansion of Developmental Understanding and Legal Collaboration for Everyone (DULCE) approach sites.
+f Invest in peer- and community-based strategies such as multiagency collaboration teams, like regional CHARM/
+Community Response teams, to ensure families have the supports they need through a strength-based approach
+and in recognition that Vermont’s maternal mortality incidences have a concerning overlap with substance use
+disorders (SUD).
+f Ensure continuity of care and high-quality services are available for the perinatal population. Expand Children’s
+Integrated Services (CIS) supports past the 8-week postpartum period to the full year postpartum for the
+birthing person, in alignment with postpartum Medicaid expansion.
+f Pursue strategies that center equitable services and birth-related outcomes for parents/caregivers of color,
+including expanding Medicaid coverage to doula services.
+
+| 
+22 The State of Vermont's Children
+Home Visiting: The transition to parenthood is a time of celebration  policy through their employer and more than 90% have access
+16 
+as well as potential stress. Home visiting programs provide new  to unpaid family leave. 
+In Vermont, 47% of birthing parents
+and expectant parents with information, support, and referrals to
+returning to work after having a child do not have paid leave.
+community resources and services.
+Birthing parents returning to work in Vermont after paid leave
+Strong Families Vermont Home Visiting offers two evidence-
+are more likely to have private insurance (72%), while only
+based home visiting programs, the Maternal Early Childhood
+26% of birthing parents with access to paid leave are
+17 
+Sustained Home Visiting (MECSH program and Parents as
+on Medicaid. 
+Access to paid family leave has been associated
+Teachers (PAT)). The MECSH program just completed its fifth year
+with birthing parents being more likely to be working
+of implementation across the state. During program year 2022,
+(18.3% higher probability) one year following birth and an
+MECSH served 421 families and 393 children with a total of
+average increase of $3,400 in household income among
+13 18
+3,175 visits. 
+birthing parents of 1-year-olds. 
+The PAT program is in the development phase,
+with nine PAT affiliate programs across Vermont. Initial engagement
+for the development year of PAT has included 21 families with
+21 children served for a total of 315 visits. The program will shift
+to full implementation next year with a full staff and integration
+47% of birthing parents returning
+13
+into affiliate programs, which will increase capacity.
+to work after having a child do not
+18
+have paid leave in Vermont. 
+Home-based Early Head Start and Head Start home visiting
+served 308 infants and pregnant individuals during program
+14
+year 2023. 
+
+Paid Family and Medical Leave: Access to paid family and medical
+leave is associated with improved physical and mental health
+for new parents, decreased infant mortality, financial security
+Additional physical and mental health access and utilization data
+for caregivers in the short and long term, and improved
+can be found beginning on page 16, and related recommendations
+connections to the workforce, particularly for women, who are
+can be found on page 4.
+15
+more likely than men to be caregivers for children and older adults.
+Nationally, 27% of workers have access to a paid family leave
+
+ACCESS TO BASIC NEEDS (VECAP GOAL 1)
+
+Paid Family and Medical Leave Insurance
+• Enact a Paid Family and Medical Leave Insurance program for Vermonters seeking to take time off to care for a
+family member or themselves while welcoming a new child into the family, while navigating an illness or injury,
+or after experiencing a loss. Ensure that the benefit through this program covers all caregivers in the case of a two-
+parent household, and that the benefit is generous enough that loss of income is not a barrier for those looking to
+utilize the program.
+
+| 
+2023 Year in Review 23
+CHILD DEVELOPMENT & EDUCATION
+
+CHILD DEVELOPMENT AND EDUCATION
+
+connected to the services they need at an early age, when the
+Vermont’s early childhood system includes many resources,
+benefits are the greatest. Data from Vermont’s statewide medical
+services, and supports to give children the best opportunity to
+home initiative, the Blueprint for Health, shows that in 2021, 63% of
+succeed throughout their lives. Starting during pregnancy and
+Vermont children under age 3 had received a developmental
+extending through age 8, the system meets child and family needs
+5 
+screening in the past 12 months. 
+through creative and diverse programs. These programs can,
+Of note, this indicator does
+1 
+at times, be difficult to navigate,
+not capture all screening activities. As can be seen in Figure 11,
+but Vermont continues to improve
+hospital service area rates vary from 76% in Burlington to 44%
+equitable access and transitions between programs and services.
+5 
+in Newport. 
+Although the Newport Health Services Area is still
+showing the lowest screening rate, there was a 120% increase
+Children’s Integrated Services (CIS)
+between 2020 and 2021 due to continuous quality improvement
+CIS is designed to wrap around the whole family to help ensure
+6
+efforts implemented to address previously low screening rates. 
+the healthy development and well-being of children from before
+Efforts to increase the use of developmental screenings include
+birth through age 5. CIS offers four core services to families of
+the Ages and Stages Questionnaire (ASQ) Online Platform hosted
+young children facing challenges: Early Intervention (IDEA Part C),
+by Help Me Grow Vermont. In 2022, the ASQ Online logged or
+Specialized Child Care, Early Childhood and Family Mental Health,
+supported 4,688 ASQ-3 and 932 ASQ:SE (social-emotional) screens.
+and Strong Families Vermont Home Visiting. During FFY 2023,
+As of October 2023, there were 65 programs using the
+a total of 3,712 unique clients received at least one of the core
+2 
+ASQ Online, including 15 medical practices, 40 early childhood
+services within CIS. 
+Each client receiving services has a One Plan
+education programs, four Children’s Integrated Services regional teams,
+that includes six-month or annual goals. Goals address topics
+7
+and six home visitors. 
+such as a child’s developmental progress, continuity of placement
+in a quality early childhood education program, safe housing, and,
+with adult support, use of coping strategies during difficult situations.
+Figure 11: Children 3 and Under Who Received a
+In 2022, 88% of CIS clients achieved one or more individualized
+Developmental Screening in the Past 12 Months
+3
+5
+plan goals by their annual review or their exit from CIS. 
+by Health Service Area
+
+Parent Child Center Network
+The network of 15 Parent Child Centers (PCC) serves all of Vermont
+76%
+74%
+with a focus on early identification, intervention, and prevention
+73%
+71%
+68%
+through eight core services: parent education, parent support,
+63%
+home visits, early childhood services, concrete family supports,
+61%61%
+57%
+54%
+55%
+playgroups, community development, and information and referral.
+50%
+50%
+During FY23, over 70,000 participants were served across all 15
+44%
+4 
+PCC programs.
+When surveyed, over 94% of parents receiving
+supports from Parent Child Centers reported that they got the help
+4
+they needed and that they felt stronger and more confident as parents.
+
+Developmental Screening
+Developmental screening is a whole-population strategy designed
+to help families better understand children’s early development,
+BurlingtonMiddleburyRandolphSt. AlbansSpringfieldState of VermontBenningtonBattleboroBarreSt. JohnsburyMorrisvilleRutlandWhite River Jct.Newport
+celebrate milestones, and identify concerns so that children get
+
+| 
+24 The State of Vermont's Children
+VECAP GOAL 3 :
+Access to High-Quality Early Childhood Services and Supports
+
+6
+Autism Spectrum Disorder
+Table 3: Children Receiving Special Education Services 
+Ensuring children and their families have high-quality and timely
+developmental screenings, including behavioral/autism screening
+Age    IEP 504 EST
+and follow-up assessment, is a critical step in ensuring they
+533
+3
+12
+***
+can access needed services. Following screening, there are currently
+several potential barriers that families face when seeking follow-
+641
+4
+28
+***
+up assessment and evaluation for their child, including enduring
+750
+5
+144
+42
+long wait times, completing lengthy assessment paperwork,
+securing transportation, and navigating language barriers.
+844
+6
+344
+104
+Vermont’s pediatric and early intervention communities have
+931
+7
+401
+155
+identified a need for community-based developmental and
+autism assessments. Through a partnership with the Vermont
+1,106
+8
+468
+179
+Child Health Improvement Program (VCHIP) at the University
+4,805
+Total
+1,397
+480
+of Vermont, pediatricians are receiving training to conduct autism
+assessment and diagnosis in collaboration with Children’s
+Integrated Service teams. National data shows the prevalence
+Early Care and Education
+of autism spectrum disorders increased significantly between
+Vermont’s early care and education system is considered a “mixed
+8
+2000 (1 in 150 children) and 2020 (1 in 36 children). 
+delivery system,” meaning that it consists of a mix of programs that
+serve children 6 weeks to 5 years old and not yet in kindergarten,
+Individuals with Disabilities Education Act (IDEA)
+including licensed and registered family child care programs,
+services from birth through age 8
+center-based programs, and school-based programs. This mixed-
+The Individuals with Disabilities Education Act is a law that ensures
+delivery approach applies to the state’s Universal Prekindergarten
+access to special education and related services for eligible
+Education system as well and is considered a national best practice.
+children with disabilities. Infants and toddlers (birth through age 2)
+Vermont increases equitable access to licensed and regulated
+with disabilities, developmental delays, or who are at risk of a
+child care through the Child Care Financial Assistance Program.
+developmental delay due to a medical condition receive Early
+Changes to eligibility mandated in Act 76, Vermont’s child
+Intervention under IDEA Part C. Children and youth ages 3 through 21
+care law, will incrementally increase eligibility to allow
+9
+receive special education and related services under IDEA Part B. 
+financial assistance to families making up to 575% of the
+12
+federal poverty level ($172,000 for a family of four in 2023). 
+IDEA PART C: Early Intervention
+In September 2023, there were 5,367 children whose families
+In Vermont, IDEA Part C Early Intervention (EI) is provided through
+received support through the Child Care Financial Assistance
+Children’s Integrated Services (CIS). CIS-EI includes a broad
+Program (CCFAP), with 3,358 children (63%) being under
+array of services such as developmental education, speech and
+the age of 5. Approximately 1% of children receiving CCFAP
+language therapy, physical therapy, and occupational therapy.
+use out-of-state care in New Hampshire, Massachusetts,
+Between December 2, 2021, and December 1, 2022, 78.1% of the
+13
+or New York. 
+1,408 CIS-EI referrals resulted in an initial One Plan, Vermont’s
+Individualized Family Services Plan. During this same time frame,
+10
+2,207 children under age 3 received CIS-EI services. 
+
+IDEA PART B: Early Childhood Special Education Services
+In December 2022,
+Early Childhood Special Education Services supports children
+there were 7,288 individuals
+ages 3 to 6 years with special education extending to age 22.
+working in regulated child
+Individualized education plans (IEP) are developed and
+care settings in positions
+implemented to ensure a child’s right to a Free and Appropriate
+Public Education under IDEA. As can be seen in Table 3, during the
+working directly with children,
+15
+2022–2023 school year, 4,805 students ages 3 through 8
+a 1.9% increase from 2020. 
+received services through an individualized education plan (IEP),
+480 received services under a 504 plan, and 1,397 received
+11
+services from an educational support team (EST). 
+
+| 
+2023 Year in Review 25
+CHILD DEVELOPMENT & EDUCATION
+
+In December 2022, there were 16,707 children up to 5 (and not
+Figure 13: Universal Prekindergarten Education Enrollment
+19
+yet enrolled in kindergarten) enrolled in regulated child care, with
+by School Year
+14 
+an additional 3,899 school-aged children enrolled. 
+As can be
+seen in Figure 12, 18% were infants (under 2), 16% were toddlers
+8,841
+8,807 
+8,598 
+8,334
+(age 2) and 66% were preschoolers (ages 3–4). The vast majority
+8,115 
+8000
+7,541 
+7,301 
+of children were enrolled in center-based child care programs
+6,904 
+6,214 
+(85.9%), followed by registered family child care homes (12.6%) and
+14 
+6000
+licensed family child care homes (1.5%).
+This includes children
+enrolled in private Universal Prekindergarten Education (UPK)
+programs through Act 166 but does not include those enrolled
+4000
+in school-based UPK programs. Updated data on the supply and
+demand of child care will be released in spring 2024.
+2000
+
+Figure 12: Enrollment in Regulated Child Care Programs
+2018 2020 2022
+2016
+14
+(2022 - 2023) 
+12,000
+18 
+As can be seen in Figure 13, UPK enrollment dropped
+3,537 (42%).
+9,000
+to 6,904 during the 2020–2021 school year but is now approaching
+pre-pandemic levels, with 8,334 students enrolled during the
+6,000
+19 
+2022–2023 school year. 
+It is not yet clear what the consequences
+2,996
+2,620
+11,097
+3,000
+will be for the approximately 2,000 children who were not enrolled
+in UPK in the 2020–2021 school year.
+0
+Infants
+Toddlers Preschoolers
+Exclusionary Discipline (Suspension and Expulsion)
+Students who are suspended “are at a significantly higher risk of
+Head Start and Early Head Start
+falling behind academically, dropping out of school, and coming
+Head Start and Early Head Start (HS/EHS) are comprehensive
+20 
+into contact with the juvenile justice system.” 
+Act 35 of 2021
+early education programs for children from low-income and
+prohibits exclusionary discipline (broadly defined as suspension
+vulnerable families from birth to age 5. In addition to helping
+and expulsion) for children under age 8 in public schools except
+children prepare for kindergarten and beyond, HS/EHS help
+when the student “poses an imminent threat of harm or danger to
+facilitate critical health services, like immunizations and vision, dental,
+21 
+others.” 
+Act 166 of 2022 expanded the restrictions to students
+and hearing screenings, in addition to providing other wraparound
+attending independent schools and private prequalified Universal
+support services for families. From September 2022 to August 2023,
+21
+Prekindergarten Education programs. 
+Vermont Head Start (HS) served 725 children from age 3 to 5,
+and Early Head Start (EHS) served 508 infants and toddlers and
+16
+Between September 2022 and October 2023, there were 101
+41 prenatal birthing parents, for a total of 1,274 individuals. 
+reported exclusionary discipline incidents (suspensions
+For program year 2023, there were 577 staff in HS/EHS programs.
+and expulsions) for children enrolled in UPK, 28% of which
+Of all staff, 18.9% (109) left during the program year, with 18
+16
+vacancies remaining unfilled for a period of three months or longer.
+involved children on an Individualized Education Plan (IEP).
+These high rates of turnover and vacancy make it difficult to provide
+During this same time period, there were five incidents of
+consistent and high-quality services to particularly vulnerable
+restraint and seclusion. These reported events happened across
+children and families.
+21 programs in both school-based (52 incidents) and private
+22 
+programs (49 incidents).
+Across the country, exclusions impact
+certain groups of students disproportionately. Black or African
+Universal Prekindergarten Education
+American students are suspended at 2.5 times and expelled at
+Act 166 offers Universal Prekindergarten Education (UPK) to all
+3.2 times their rate of enrollment. Students receiving special
+3- and 4-year-olds, and to 5-year-olds not enrolled in kindergarten,
+education services through an IEP are suspended at 1.8 times
+for up to 10 hours a week of publicly-funded pre-K for 35 weeks of
+23 
+and expelled at 2.6 times their rates of enrollment. 
+The Agency
+the academic year. Vermont’s mixed-delivery system means that
+these hours can be used in school-based programs or in prequalified
+of Education and the Child Development Division are actively
+prekindergarten center-based child care and family child care
+partnering to improve and streamline the identification of incidents
+17 
+In September 2023, there was a reported preschool
+programs.
+and support programs to reduce exclusionary discipline and
+capacity of 8,432 slots. The 243 privately operated UPK programs
+provide more equitable access to inclusive early care and
+held 4,895 slots (58%) and the 147 school-based UPK programs held
+education opportunities.
+
+| 
+26 The State of Vermont's Children
+for all students, collectively and also broken up by various
+Afterschool and Out-of-School Time Care (Third Space)
+student characteristics. TSGold, R4K!S, and spring 2023 Cognia
+In September 2023, there were 11,233 regulated slots for
+math and reading results are expected to be released over the course
+18 
+school-aged children (6-13). 
+Of note, one slot may serve multiple
+of spring 2024. We look forward to publishing these indicators in
+children based on full-time or part-time schedules, and this data
+future reports and on VermontKidsData.org.
+only captures regulated programs rather than the broader array of
+afterschool and summer programming. A 2020 survey found that
+Third Grade Math and Language Arts Assessments
+over 39% of Vermont’s children would participate in an afterschool
+At the end of third grade, Vermont students are assessed on their
+24
+program if one were available to them.
+proficiency in reading and math. The Smarter Balanced Assessment
+Consortium (SBAC) for Third Grade Language Arts (reading) and
+In 2023, the Legislature directed that funds from the sales and use tax
+Math was last conducted in school year 2021–2022, and results
+on cannabis be used to expand summer and afterschool programs,
+are presented below. Of note, the Agency of Education includes
+with an emphasis on increasing access in underserved areas
+the following limitations to interpretation: “While the 2022
+25 
+of Vermont. 
+Before these funds became available, the creation
+administration of assessments was far smoother than the 2021
+and expansion of afterschool and summer programs were funded
+administration, there were pandemic-related challenges, such as
+by Elementary and Secondary School Emergency Relief through
+educator shortages leading to insufficient resources to properly
+Vermont Afterschool and supported by the AOE. In summer 2023,
+administer the assessments and the need to balance academic
+the last of the Expanding Access grant dollars were invested, with
+assessment with critical activities related to students’ social
+976 added days serving 4,734 elementary-aged children. In total,
+emotional well-being. These issues may have impacted student
+between May 2022 and August 2023, Expanding Access grants
+performance or test participation, which makes comparing 2022
+supported an additional 10,486 elementary-aged children in
+27
+data to previous years far more difficult.”
+26 
+accessing afterschool and summer programming. 
+In addition,
+Room for Me Grants, funded by the DCF-Child Development Division
+As can be seen in Figure 14, proficiency rates from the 2021–2022
+and administered by Vermont Afterschool, expanded access to an
+school year vary based on economic status, race, and homelessness,
+estimated 298 slots during the first grant cycle and 567 slots in the
+culminating in a comparison between historically marginalized and
+26
+second grant cycle.
+1 
+historically advantaged students.
+For “historically marginalized”
+students, 25.3% are proficient or above in reading, compared to
+Educational Assessments
+27
+52.7% for “historically advantaged” students.
+Three key assessments are currently used to measure Vermont
+children’s knowledge, skills, and behaviors: Teaching Strategies Gold
+In addition to variations in proficiency based on individual
+(TSGold), the Agency of Education’s Ready for Kindergarten! Survey
+student characteristics, there are large variations across the state.
+(R4K!S), and third grade assessments through the Smarter Balanced
+The percent of students proficient or above in third grade reading
+Assessments (SBAC) (through the 2021–2022 school year) and the
+ranges from a low of 8% in Winooski to a high of 67.53% in the
+Cognia Assessments (beginning in the 2022–2023 school year).
+27
+Washington Central Supervisory Union. 
+Below is the overview of spring 2022 SBAC assessments
+
+27
+Figure 14: Percent of Third Graders Proficient or Above in Reading by Characteristics Spring 2022
+
+51%
+53%
+48%
+41%
+41%
+42%
+
+31%
+25%
+24%
+12%
+8%
+
+All Students     FRL  Not FRL    Special Ed No Special                Black White HistoricallyHistorically
+McKinneyNot McKinney
+Eligible Eligible Ed                            Marginalized Advantaged
+Vento  Vento
+Eligible Eligible
+
+1 
+Historically Marginalized: Historically Marginalized Students are those students who have been historically underserved by educational institutions for any one, or more than
+one, characteristic including ethnic and racial minorities, English Learners, students with Free and Reduced Lunch, students with disabilities, and students who are migrant,
+28
+foster, or homeless. Historically Privileged Students are those students who have none of the characteristics that are associated with being underserved. 
+
+| 
+2023 Year in Review 27
+REGIONAL PROFILES
+
+Introduction to Regional Profiles
+The following regional profiles offer a snapshot of selected indicators of child and family well-being for each of Vermont’s 12 regions,
+which line up with the Agency of Human Services Districts. Each indicator represents the most high-quality, up-to-date data
+that is available at the regional level and includes comparison data when possible.
+
+This report draws from multiple sources of Vermont data, not all of which use the same geographic boundaries. Several indicators are only
+available at the county or hospital service area level. When necessary, multiple areas are included to provide a more inclusive picture of the region.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+59,173
+Decreased from 61,538 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+(20,838)
+28.9% 
+Decreased from 33.4% in 2017 (24,932)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)
+CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($25.05/hr)
+children under 9
+474 
+$104,193
+State of Vermont
+Decreased from 657 in 2018
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+children under 12
+State of Vermont
+1,441 
+63% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+7
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+
+All Students Historically Marginalized
+41.17%                          25.3%
+Historically Privileged
+52.7%
+
+| 
+28 The State of Vermont's Children
+Addison
+REGIONAL PRIORITIES:
+• Building resilience in children, families,
+and communities.
+• Quality and capacity of child care and early
+childhood services.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+3,144
+Decreased from 3,246 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+23.4% 
+(908)
+Decreased from 30% in 2017 (1,238)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($24.92/hr)
+children under 9
+31 
+$103,680
+Decreased from 37 in 2018
+Addison County
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+Middlebury HSA
+74% 
+children under 12
+210 
+Burlington HSA
+76% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+7
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+
+Historically Marginalized Students
+Supervisory Union/School District          All Students
+
+26.3%
+Addison Central SD                48.7%
+Not Available
+Addison Northwest SU               Not Available
+26.3%
+Mount Abraham Union SD             51.7%
+10.5%
+Slate Valley Unified Union SD            33.3%
+
+| 
+2023 Year in Review 29
+REGIONAL PROFILES
+
+Bennington
+REGIONAL PRIORITIES:
+• Building resilience in children, families,
+and communities.
+• Early childhood workforce.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+3,411
+Decreased from 3,537 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+38.3% 
+(1,701)
+Decreased from 43% in 2017 (1,833)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($24.12/hr)
+children under 9
+47 
+$100,326
+Decreased from 61 in 2018
+Bennington County
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+Bennington HSA
+children under 12
+210 
+61% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+
+Supervisory Union/School District          All Students           Historically Marginalized Students
+
+Bennington Rutland SU              42.0%              20.7%
+Southwest Vermont SU              Not Available           18.0%
+Windham Southwest SU              Not Available           Not Available
+
+| 
+30 The State of Vermont's Children
+Caledonia & Southern Essex
+REGIONAL PRIORITIES:
+• Child and family mental health.
+• Quality and capacity of child care and early
+childhood services.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+3,106
+Decreased from 3,338 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+37.3% 
+(1,368)
+Increased from 35.9% in 2017 (1,481)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($23.09/hr) Caledonia County
+$96,067 
+children under 9
+21 
+($22.01/hr) Essex County
+$91,553
+Decreased from 38 in 2018
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+St Johnsbury HSA
+55% 
+children under 12
+113 
+White River Junction HSA
+50% 
+Caledonia and Essex Counties
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+
+Supervisory Union/School District          All Students           Historically Marginalized Students
+
+Caledonia Central SU               42.6%              21.7%
+Kingdom East                  25.7%              Not Available
+Orange East SU                  46.6%              35.8%
+St. Johnsbury SD                 38.6%              26.9%
+
+| 
+2023 Year in Review 31
+REGIONAL PROFILES
+
+Central Vermont
+REGIONAL PRIORITIES:
+• Access to basic needs.
+• Early childhood workforce.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+6,120
+Decreased from 6,595 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+28.6% 
+(2,109)
+Decreased from 35% in 2017 (2,754)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($23.79/hr) Orange County
+$98,984 
+children under 9
+39
+
+
+($24.34/hr) Washington County
+$101,553
+Decreased from 67 in 2018
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+Orange and Windsor Counties
+112 
+Barre HSA
+57% 
+Washington County 
+240 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+All Students
+Supervisory Union/School District
+Historically Marginalized Students
+33.8%
+21.9%
+Barre SU
+42.6%
+21.7%
+Caledonia Central SU
+28.1%
+20%
+Central Vermont SU
+58.5%
+40%
+Harwood Unified Union SD
+55.3%
+25%
+Montpelier Roxbury SD
+43.7%
+30.3%
+Orange Southwest SU
+67.5%
+37%
+Washington Central SU
+
+| 
+32 The State of Vermont's Children
+Chittenden
+REGIONAL PRIORITIES:
+• Early childhood workforce.
+• Quality and capacity of child care and early
+childhood services.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+14,957
+Decreased from 15,621 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+22.6% 
+(4,131)
+Decreased from 27.9% in 2017 (5,183)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($27.04/hr)
+children under 9
+71 
+$112,467 
+Chittenden County
+Increased from 62 in 2018
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+Burlington HSA
+children under 12
+184 
+76% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+Supervisory Union/School District         All Students
+Historically Marginalized Students
+Burlington SD                  42.9%
+29.7%
+Champlain Valley SD              62.1%
+46.9%
+Colchester SD                 56.3%
+40.9%
+Essex Westford SD               51.8%
+Not Available
+Milton SD                   34%
+22.2%
+Mount Mansfield Unified Union SD        Not Available
+Not Available
+South Burlington SD               58.5%
+46.6%
+Winooski SD                  8%
+2.9%
+| 
+2023 Year in Review 33
+REGIONAL PROFILES
+
+Franklin & Grand Isle
+REGIONAL PRIORITIES:
+• Building resilience in children, families,
+and communities.
+• Early childhood workforce.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+6,478
+Decreased from 6,603 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+24.6% 
+(1,917)
+Decreased from 28% in 2017 (2,203)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($25.39/hr) Franklin County
+$105,622 
+children under 9
+56 
+($24.97/hr) Grand Isle County
+$103,884
+Decreased from 105 in 2018
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+Burlington HSA
+76% 
+children under 12
+75 
+St. Albans HSA
+71% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+
+Supervisory Union/School District          All Students
+Historically Marginalized Students
+
+Franklin Northeast SU               Not Available
+Not Available
+Franklin West SU                 31.9%
+2.6%
+Grand Isle SU                   34.9%
+20%
+Maple Run SD                  30.1%
+14.3%
+Missisquoi Valley SD               41.7%
+32.4%
+
+| 
+34 The State of Vermont's Children
+Lamoille Valley
+REGIONAL PRIORITIES:
+• Child and family mental health.
+• Building an accessible, equitable, and seamless
+system of services.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+3,190
+Decreased from 3,394 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+25.7% 
+(989)
+Decreased from 37.5% in 2017 (1,593)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+children under 9
+($23.93/hr)
+21 
+$99,553 
+Decreased from 38 in 2018
+Lamoille County
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+children under 12                 Morrisville HSA
+119 54% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+
+Supervisory Union/School District          All Students           Historically Marginalized Students
+
+Lamoille North SU                 Not Available           Not Available
+Lamoille South SU                 57.5%              57.5%
+Orleans Southwest SU               36.5%              36.5%
+
+| 
+2023 Year in Review 35
+REGIONAL PROFILES
+
+Northern Windsor & Orange
+REGIONAL PRIORITIES:
+• Child and family mental health.
+• Quality and capacity of child care and early
+childhood services.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+4,412
+Decreased from 4,537 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+31.9% 
+(1,814)
+Decreased from 33.5% in 2017 (1,861)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($23.79/hr) Orange County
+$98,984 
+children under 9
+21 
+($24.34/hr) Windsor County
+$101,272
+Increased from 42 in 2018
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+Randolph HSA
+73% 
+children under 12
+112 
+White River Junction HSA
+50% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+Supervisory Union/School District         All Students
+Historically Marginalized Students
+Hartford SD                  Not Available
+Not Available
+Orange East SU                 46.6%
+35.8%
+Orange Southwest SU              43.7%
+30.3%
+Rivendell Interstate SD              Not Available
+Not Available
+SAU 70                    77.5%
+54.6%
+White River Valley SU              37.4%
+30.4%
+Windsor Central SU               Not Available
+Not Available
+Windsor Southeast SU              33%
+18.2%
+| 
+36 The State of Vermont's Children
+Orleans & Northern Essex
+REGIONAL PRIORITIES:
+• Building resilience in children, families,
+and communities.
+• Access to basic needs.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+2,829
+Increased from 2,829 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+39.9% 
+(1,917)
+Increased from 38.4% in 2017 (1,301)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($25.39/hr) Essex County
+$91,553 
+children under 9
+32 
+($24.97/hr) Orleans County
+$97,438
+Increased from 21 in 2018
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+children under 12
+Newport HSA
+85 
+44% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+
+Historically Marginalized Students
+Supervisory Union/School District          All Students
+
+Not Available
+Essex North SU                  Not Available
+19.2%
+North Country SU                 23.8%
+Not Available
+Orleans Central SU                32.3%
+
+| 
+2023 Year in Review 37
+REGIONAL PROFILES
+
+Rutland
+REGIONAL PRIORITIES:
+• Child and family mental health.
+• Quality and capacity of child care and early
+childhood services.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+5,379
+Decreased from 5,498 from 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+27.4% 
+(1,775)
+Decreased from 31.1% in 2017 (2,066)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($23.82/hr)
+children under 9
+65 
+$99,106 
+Consistent with 65 in 2018
+Rutland County
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+children under 12
+Rutland HSA
+115 
+50% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+Supervisory Union/School District         All Students
+Historically Marginalized Students
+Bennington Rutland SU             42%
+20.7%
+Greater Rutland County SU            Not Available
+Not Available
+Mill River Unified Union SD            27.9%
+Not Available
+Rutland City SD                 18.3%
+9.3%
+Rutland Northeast SU              Not Available
+15.8%
+Slate Valley Unified Union SD           33.3%
+10.5%
+Two Rivers SU                 32.5%
+22.6%
+Windsor Central SU               Not Available
+Not Available
+| 
+38 The State of Vermont's Children
+Southeast Vermont
+REGIONAL PRIORITIES:
+• Building resilience in children, families,
+and communities.
+• Building an accessible, equitable, and seamless
+system of services.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+3,098
+Decreased from 3,194 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+40.3% 
+(1,551)
+Increased from 39.7% in 2017 (1,545)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($25.78/hr)
+children under 9
+35 
+$107,235 
+Decreased from 96 in 2018
+Windham County
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+Bennington HSA
+61% 
+children under 12
+35 
+Brattleboro HSA
+61% 
+In the past 12 months for children under 3
+From Coordinated Entry
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+
+Supervisory Union/School District          All Students           Historically Marginalized Students
+
+Windham Central SU                48.4%              Not Available
+Windham Northeast SU              Not Available           25.5%
+Windham Southeast SU                               25.5%
+38.8%
+Windham Southwest SU                               Not Available
+Not Available
+
+| 
+2023 Year in Review 39
+REGIONAL PROFILES
+
+Springfield Area
+
+REGIONAL PRIORITIES:
+• Child and family mental health.
+• Access to basic needs.
+
+1 
+CHILD POPULATION (2022)
+
+children under 10
+3,034
+Decreased from 3,146 in 2017
+
+* 
+CHILDREN LIVING IN POVERTY(2022)
+
+children under 12
+34.7% 
+(1,190)
+Decreased from 46.3% in 2017 (1,874)
+
+4 
+3 
+PRE-TAX ANNUAL LIVING WAGE (2023)            CHILDREN IN OUT-OF-HOME CUSTODY(2023)
+
+($25.78/hr) Windham County
+$107,235 
+children under 9
+21 
+($24.34/hr) Windsor County
+$101,272
+Decreased from 48 in 2018
+
+CHILDREN RECEIVING HOMELESSNESS
+6 
+5
+DEVELOPMENTAL SCREENING RATES(2021)
+SUPPORTS
+
+children under 12
+Springfield HSA
+21 
+68% 
+From Coordinated Entry
+In the past 12 months for children under 3
+*
+Under 185% of the Federal Poverty Level
+
+5
+Third Grade Reading All Third Grade Students Reading at or Above Proficient (Spring 2022)
+Supervisory Union/School District         All Students           Historically Marginalized Students
+
+Bennington Rutland SU             42%               20.7%
+
+Springfield SD                 28.6%              14.7%
+
+Two Rivers SU                 32.5%              22.6%
+
+Windham Central SU               48.4%              Not Available
+
+Windham Northeast SU             Not Available           25.5%
+
+Windsor Central SU               Not Available           Not Available
+
+Windsor Southeast SU              33%               18.6%
+
+| 
+40 The State of Vermont's Children
+LIMITATIONS
+
+The State of Vermont’s Children: 2023 Year in Review presents the most high-quality, up-to-date data available as of December
+2023. The staff at Building Bright Futures strive to put forward the best data possible in the report. However, there are several
+limitations worth noting.
+
+Age Ranges: Data used in this report focuses on different age ranges that may or may not be comparable across programs.
+For example, some datasets and programs focus on children from the prenatal period to age 3, while others capture data on children
+prenatal to age 6 or age 8, and others are only available for children under 18.
+
+The COVID-19 pandemic: The pandemic continues to affect the availability and quality of data. As programs have changed in response
+to evolving needs, monitoring and evaluation systems have been slow to be updated. It may take more years to determine if the changes
+that have occurred starting in March 2020 will be outliers or the start of new trends. In addition, gaps in data collection and issues with the
+quality of data collected during 2020 and 2021 will impact our ability to compare data over time.
+
+Data steward capacity: As with the majority of human services sectors, the capacity of data stewards across Vermont’s early childhood
+system has been challenged by workforce shortages. At the same time, existing data collections and reports require ongoing attention
+and maintenance, while new legislation has meant an increase in reporting and analysis requirements. In several cases, data were not
+available by the deadline for publication. When possible, these indicators will be available at VermontKidsData.org.
+
+Geography: This report draws from multiple sources of data, not all of which use the same geographic boundaries.
+
+Proxy measures: Due to the small population of Vermont and the current data infrastructure, proxy measures from national datasets
+and indicators that capture only a small part of the picture are standard. For example, regulated child care utilization data is available
+and reported, but neither the full scope of the demand for these services nor the utilization of unregulated child care is available.
+
+Time frames: The timing of data collection and reporting varies among and sometimes within programs. Data in this report capture a
+range of indicators from the last three years and include state and federal fiscal years, calendar years, school years, and point-in-time counts.
+High-quality data often take months or years to be released. Therefore, data in this report may not include recent events or policy changes,
+such as the July 2023 flooding or the changing policy for the Child Tax Credit.
+
+Validations: It is not possible for our small team to externally validate data provided to us. We rely on the integrity of the data provided to
+us by our experienced data partners.
+
+| 
+2023 Year in Review 41
+ACRONYMS
+
+3SquaresVT: Vermont’s Supplemental Nutrition           GA: General Assistance Emergency Housing
+Assistance Program (SNAP)
+HS/EHS: Head Start/Early Head Start
+504: Section 504 of the Rehabilitation Act of 1973
+HUD: Housing and Urban Development
+ACEs: Adverse Childhood Experience
+IDEA: Individuals with Disabilities Education Act
+AHS: Agency of Human Services
+IEP: Individualized Education Plan
+AOE: Agency of Education
+MAT: Medication Assisted Treatment
+ASQ: Ages and Stages Questionnaire
+MESCH: Maternal Early Childhood Sustained Home-Visiting
+BEAD: Broadband Equity, Access, and Deployment Program
+MIT: Massachusetts Institute of Technology
+BBF: Building Bright Futures
+MMRP: Maternal Mortality Review Panel
+CACFP: Child and Adult Care Food Program
+PAT: Parents as Teachers
+CCFAP: Child Care Financial Assistance Program
+PCC: Parent Child Center
+CCWIS: Comprehensive Child Welfare Information System
+PHA: Public Housing Agency
+CEP: Community Eligibility Provision
+PMAD: Perinatal Mood and Anxiety Disorders
+CDD: Child Development Division (A Division of the
+PNMI: Private Non-Medical Institutions
+Department for Children and Families)
+PRAMS: Pregnancy Risk Assessment Monitoring System
+CDDIS: Child Development Division Information System
+PQC-VT: Perinatal Quality Collaborative Vermont
+CIS: Children’s Integrated Services
+R4K!S: Ready for Kindergarten Survey
+COVID-19: Coronavirus Disease 2019
+SAC: State Advisory Council
+DA: Designated Mental Health Agency
+SBAC: Smarter Balanced Assessment Consortium
+DCF: Department for Children and Families
+SD/SU: School District/Supervisory Union
+DMH: Department of Mental Health
+SDOH: Social Determinants of Health
+DULCE: Developmental Understanding and Legal
+SSA: Specialized Service Agencies
+Collaboration for Everyone
+SUD: Substance Use Disorder
+ED: Emergency Department
+TANF: Temporary Assistance for Needy Families
+EI: Early Intervention
+TSGOLD: Teaching Strategies Gold
+ELL: English Language Learner
+UPK: Universal Prekindergarten Education
+EST: Educational Support Team
+VCHIP: Vermont Child Health Improvement Program
+FPL: Federal Poverty Level
+VDH: Vermont Department of Health
+FRL: Free and Reduced Lunch
+VECAP: Vermont’s Early Childhood Action Plan
+FSD: Family Services Division
+WIC: Women Infants and Children
+(A Division of the Department for Children and Families)
+FSH: Family Supportive Housing
+
+| 
+42 The State of Vermont's Children
+REFERENCES
+
+DEMOGRAPHICS
+1. Vermont Department of Health. Population of Vermont by AHS/VDH Districts, Age and Sex,  20. Vermont Coalition to End Homelessness and Chittenden County Homeless Alliance. (2023).
+2020-2022. https://www.healthvermont.gov/health-statistics-vital-records/vital-
+Vermont’s Annual Point-in-Time Count of Those Experiencing Homelessness.
+records-population-data/vermont-population-estimates
+https://helpingtohousevt.org/wp-content/uploads/2023/06/2023-Vermont-Point-in-
+Time-Report-6-6-23.pdf
+2. Vermont Department of Health
+. Population of Vermont by AHS/VDH Districts, Age and Sex,
+2020-2022. https://www.healthvermont.gov/health-statistics-vital-records/vital-
+21. Department of Children and Families. (2023).
+Family Supportive Housing Program Annual
+records-population-data/vermont-population-estimates
+Report: State Fiscal Year 2023. https://outside.vermont.gov/dept/DCF/Shared%20
+Documents/OEO/FSH/FSH-AR-SFY2023.pdf
+3. U.S. Census Bureau. American Community Survey 1-Year Estimates, (2017, 2022)
+Table B17024, Vermont. https://data.census.gov
+Coordinated Entry Overview.
+22. Vermont Coalition to End Homelessness. (2023).
+https://helpingtohousevt.org/whatwedo/coordinatedentry/overview/
+4. Department for Children and Families.(2022). FSD Quarterly Management Reports,
+Q3 annually. Data provided by the Division Quality Assurance Supervisor.
+23. U.S. Department of Housing and Urban Development (HUD). (2022).
+Establishing and Operating
+a Continuum of Care, 24 C.F.R § 578.5. https://www.govinfo.gov/content/pkg/CFR-2022-
+5. U.S. Census Bureau. (2023). TTable S0901 Children Characteristics.
+title24-vol3/pdf/CFR-2022-title24-vol3-sec578-7.pdf
+Retrieved from https://data.census.gov
+24. Institute for Community Alliances. (2023).
+Cumulative Coordinated Entry Data by Age.
+BASIC NEEDS
+Publicly accessible System Performance Measure data available at https://icalliances.
+1. Prenatal-To-3 Policy Impact Center. (n.d.).
+Sufficient Household Resources.
+org/vermont-system-performance-measures
+https://pn3policy.org/policy-goals/2022-sufficient-household-resources/#why-is-
+25. Department for Children and Families. (n.d.).
+Addressing and Preventing Unsheltered
+sufficient-household-resources-an-important-prenatal-to-3-goal
+Homelessness. https://dcf.vermont.gov/Addressing-and-Preventing-Unsheltered-
+Food Insecurity Literature Summary.
+2. U.S. Department of Health and Human Services.
+Homelessness
+https://health.gov/healthypeople/priority-areas/social-determinants-health/literature-
+26. Burlington Housing Authority. (n.d.). Applicants.
+summaries/food-insecurity
+https://burlingtonhousing.org/rental-assistance/super-section.php?id=3
+Stable housing is foundational to children's well-being. Center on Budget
+3. Acosta, S. (2022).
+27. U.S. Department of Housing and Urban Development (HUD). (n.d.). Housing Choice
+and Policy Priorities. https://www.cbpp.org/blog/stable-housing-is-foundational-to-
+Voucher (HCV) Data Dashboard. https://www.hud.gov/program_offices/public_indian_
+childrens-well-being
+housing/programs/hcv/dashboard
+28. Department of Children and Families. (2023).
+The effects of housing insecurity on children’s health: a scoping review.                Evaluation of Reach Up: State Fiscal Year 2023.
+4. Bess et al. (2022).
+Oxford Academic. https://academic.oup.com/heapro/advance-article-abstract/      https://legislature.vermont.gov/assets/Legislative-Reports/Evaluation-of-Reach-Up-
+doi/10.1093/heapro/daac006/6522744                   January-2023.pdf
+5. Office of the Assistant Secretary for Planning and Evaluation. (2022).        29. Department of Children and Families (2022).
+Poverty Guidelines.                 Reach Up Demographics and Caseload Trends:
+ASPE. https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines     State Fiscal Year 2022. https://outside.vermont.gov/dept/DCF/Shared%20Documents/
+ESD/Reports/RU-Demographics-FFY2022.pdf
+6. U.S. Census Bureau. American Community Survey 1-Year Estimates, (2017, 2022)
+30. Department for Children and Families.
+Reach up Benefit. Unpublished data.
+Table B17024, Vermont. data.census.gov
+31. USDA Economic Research Service. (2023).
+Food Security in the U.S. https://www.ers.
+7. U.S. Census Bureau. American Community Survey 1-Year Estimates, (2022)
+usda.gov/topics/food-nutrition-assistance/food-security-in-the-u-s/measurement/
+Table DP03, Vermont. data.census.gov
+32. USDA Economic Research Service. (2023).
+Statistical Supplement to Household
+8. R-CPI-U-RS Homepage: U.S. Bureau of Labor Statistics. (n.d.).
+Food Security in the United States in 2022. https://www.ers.usda.gov/webdocs/
+https://www.bls.gov/cpi/research-series/r-cpi-u-rs-home.htm
+publications/107710/ap-119.pdf?v=1067.8
+9. Glasmeier, Amy K. (2023). Living Wage Calculator. Massachusetts Institute of Technology
+33. USDA Economic Research Service. (2022). S
+tatistical Supplement to Household
+https://livingwage.mit.edu/
+Food Security in the United States in 2021. https://www.ers.usda.gov/webdocs/
+10. Basic Needs,
+Housing Allowance and Maximum Grants Outside and Inside Chittenden County.
+publications/104663/ap-105.pdf?v=6435.9
+(2022). https://outside.vermont.gov/dept/DCF/Shared%20Documents/ESD/Reports/RU-
+34. Vermont Agency of Education Child Nutrition Programs. (2023).
+Annual Statistical Report.
+Benefit-Calculation-FFY2022.pdf
+(2022–2023). https://education.vermont.gov/document/2023-free-and-reduced-
+11. FRED Economic Data | St. Louis Fed. (2023, January 1).
+State Minimum Wage Rate for Vermont.
+eligibility-report
+https://fred.stlouisfed.org/series/STTMINWGVT
+35. Vermont Agency of Education Child Nutrition Programs. (2022).
+Annual Statistical Report.
+12. Vermont Housing Finance Agency. (n.d.).
+30,000 to 40,000 more Vermont homes needed
+(2021–2022). https://education.vermont.gov/documents/edu-nutrition-2022-free-and-
+by 2030. https://www.vhfa.org/news/blog/30000-40000-more-vermont-homes-
+reduced-eligibility-report
+needed-2030#:~:text=To%20meet%20expected%20demand%20and
+36. Food and Nutrition Service. (n.d.).
+CEP Final Rule Summary.
+13. Act 47 of 2023. Vt. Stat. Ann. tit. 24 V.S.A. § 4414
+https://www.fns.usda.gov/cn/cep-final-rule-summary
+14. U.S. Census Bureau. American Community Survey 1-Year Estimates, (2023)
+37. Food and Nutrition Service. (n.d.).
+National School Lunch Program and School Breakfast
+Tables B25070 and B25091, Vermont (2022) data.census.gov
+Program Demonstration Projects to Evaluate Direct Certification with Medicaid.
+https://www.fns.usda.gov/cn/direct-certification-medicaid-demonstration-project
+15. U.S. Census Bureau. American Community Survey 1-Year Estimates, (2022)
+Table DP04, Vermont. data.census.gov
+38. Vermont Agency of Education (2023). Unpublished data.
+39. Department for Children and Families. (2023). Vermont Child Care Provider Data. https://
+Primary home sales, Directory of affordable rental housing.
+16. HousingData.org. (n.d.).
+data.vermont.gov/Education/Vermont-Child-Care-Provider-Data/ctdw-tmfz/about_data
+https://www.housingdata.org/profile/homeownership-costs/primary-home-sales
+40. Hunger Free Vermont. (2022).
+17. FRED Economic Data | St. Louis Fed. (2023).
+30-Year Fixed Rate Mortgage Average in the             Providing Meals in Early Childhood Settings Report.
+United States. https://fred.stlouisfed.org/series/MORTGAGE30US
+https://static1.squarespace.com/static/5f83855960657429dda4af3c/t/63974ad
+89923265b82c9f6ac/1670859484765/_OFFICIAL+FINAL_+2022_EC_Report-
+The McKinney-Vento
+18. U.S. Department of Housing and Urban Development (HUD). (2009).
+Rev_10_7_22+%281%29+%281%29.pdf
+Homeless Assistance Act. https://www.hud.gov/sites/documents/HAAA_HEARTH.PDF
+41. Department for Children and Families. (2022).
+3Squares, Monthly Report by County.
+The McKinney-Vento Homelessness Assistance Act defines homelessness
+https://outside.vermont.gov/dept/DCF/Shared%20Documents/ESD/ Reports/3SqVT-County.pdf
+as lacking a fixed, regular, and adequate nighttime residence which includes
+42. Hall, L. (2023, September 21).
+End of SNAP’s temporary emergency allotments resulted in
+sharing the housing of other persons, living in temporary housing, and places
+substantial benefit cut. 
+Center on Budget and Policy Priorities. https://www.cbpp.org/blog/
+not designed for regular sleeping accommodation.
+end-of-snaps-temporary-emergency-allotments-resulted-in-substantial-benefit-cut.
+19. Vermont Agency of Education.
+Number of McKinney Vento Eligible Children Enrolled in
+School under 9 by Age. Unpublished data.
+| 
+2023 Year in Review 43
+REFERENCES
+
+43. Vermont Department of Health. Provided by the Public Health Nutrition Specialist for   6. Kaiser Family Foundation. (2023, March 16). Medicaid and CHIP income eligibility
+WIC. Unpublished data.                       limits for children as a percent of the federal poverty level KFF.
+https://www.kff.org/health-reform/state-indicator/medicaid-and-chip-income-
+44. Vermont Department of Health. (n.d.).
+WIC Plans & Reports. https://www.healthvermont.
+eligibility-limits-for-children-as-a-percent-of-the-federal-poverty-level/
+gov/family/wic/wic-plans-reports
+This table shows Vermont’s eligibility at 317% which includes the 5% income
+45. Food and Nutrition Service. (n.d.).
+Monthly Cash-Value Voucher/Benefit for FY 2023
+disregard established under the Affordable Care Act.
+Fruit and Vegetable Purchases. https://www.fns.usda.gov/wic/monthly-cash-value-
+7. Kaiser Family Foundation. (2021, August 26). Medicaid Postpartum Coverage Extension Tracker.
+voucherbenefit-2023-fruit-vegetable
+KFF. https://www.kff.org/medicaid/issue-brief/medicaid-postpartum-coverage-
+46. Vermont Transportation Energy Profile 2021. (2022, March). https://vtrans.
+extension-tracker/
+vermont.gov/sites/aot/files/planning/documents/planning/2021%20Vermont%20
+8. Department of Vermont Health Access. (n.d.). Health Insurance Maps. Retrieved
+Transportation%20Energy%20Profile.pdf
+November 9, 2023, from https://dvha.vermont.gov/budget-legislative-and-rules/
+47. Lou, C. (2022). Updated analysis based on the Henly, J. R., Adams, G. (2018)
+Insights on
+reports-and-studies/health-insurance-maps
+Access to Quality Child Care for Families Living in Rural Areas. Urban Institute.
+9. Department of Vermont Health Access. Awaiting publication at Health Insurance Maps.
+48. SchoolSpring. Original analysis conducted by Steven Berbeco from 802 Ed of vacancy
+https://dvha.vermont.gov/budget-legislative-and-rules/reports-and-studies/health-
+data retrieved from https://www.schoolspring.com/
+insurance-maps
+49. State of Vermont Department of Public Service. (2022).
+Broadband High-Speed Internet
+10. Vermont Department of Health. Immunizations.
+Availability in Vermont. https://publicservice.vermont.gov/telecommunications-and-
+https://www.healthvermont.gov/disease-control/immunization
+connectivity/broadband-high-speed-internet-availability-vermont
+11. Vermont Department of Health. Immunization Registry. Awaiting publication at
+50. State of Vermont Department of Public Service. (n.d.).
+Vermont to Receive
+https://www.healthvermont.gov/stats/registries/immunization-registry
+$229 Million From the Federal Government for Broadband Buildout. https://
+12. National Center for Health Statistics at CDC. (2022). Immunization.
+publicservice.vermont.gov/document/vermont-receive-229-million-federal-
+https://www.cdc.gov/nchs/fastats/immunize.htm
+government-broadband-buildout
+13. CDC. (2022, August 30). Testing Children for Lead Poisoning.
+CHALLENGING CHILDHOOD EXPERIENCES
+https://www.cdc.gov/nceh/lead/prevention/testing-children-for-lead-poisoning.htm
+1. Bowen, E. A., & Murshid, N. S. (2016).
+Trauma-Informed Social Policy: A Conceptual
+14. Lead Poisoning Prevention. Vt. Stat. Ann. tit. 18 V.S.A. § 1755.
+Framework for Policy Analysis and Advocacy. American Journal of Public Health, 106(2),
+15. Division of Environmental Health. (2023). Report to The Vermont Legislature:
+Lead
+223–229. https://doi.org/10.2105/ajph.2015.302970
+Poisoning Prevention: Report on 2022 Program Outcomes and Activities. Retrieved from
+2. Act 204 of 2018. Vt. Stat. Ann. tit. 33 V.S.A. § 3401-3403
+https://legislature.vermont.gov/assets/Legislative-Reports/Lead-Report-2023final.pdf
+3. Quigley, L. B. (2023, July 19).
+Guide: Trauma-Informed Community Change. CTIPP.
+16. Child and Adolescent Health Measurement Initiative.
+National Survey of Children’s Health,
+https://www.ctipp.org/post/guide-to-trauma-informed-community-change
+2016-2021. Data Resource Center for Child and Adolescent Health supported by the U.S.
+4. Harvard University. (2015).
+Resilience. Center on the Developing Child at Harvard University.
+Department of Health and Human Services, Health Resources and Services Administration
+https://developingchild.harvard.edu/science/key-concepts/resilience/
+(HRSA), Maternal and Child Health Bureau (MCHB). https://www.childhealthdata.org/.
+5. Anda et al. (2006). National Scientific Council on the Developing Child, 2005/2014.
+Original analyses conducted by Dr. Valerie Harder, Associate Professor and Director, Health
+Services Research Team at the Vermont Child Health Improvement Program, University of
+6. Child and Adolescent Health Measurement Initiative.
+National Survey of Children’s Health,
+Vermont and Dora Levinson, MPH, Research and Data Director at Building Bright Futures.
+2016-2021. Data Resource Center for Child and Adolescent Health supported by the U.S.
+Department of Health and Human Services, Health Resources and Services Administration
+17. Vermont Care Partners. (2023). Provided by the Vermont Department of Mental Health.
+(HRSA), Maternal and Child Health Bureau (MCHB). https://www.childhealthdata.org/
+Unpublished data.
+7. National Coalition Against Domestic Violence. (2011).
+National Statistics.
+18. Vermont Department of Mental Health. (2023). Child and Adolescent Family Unit.
+https://ncadv.org/statistics#:~:text=1%20in%203%20women%20and
+Unpublished data.
+8. Holt, S., Buckley, H., & Whelan, S. (2008).
+The impact of exposure to domestic violence
+19. Vermont Association of Hospitals and Health Systems. (2023). Provided by the Director
+on children and young people: A review of the literature. Child Abuse and Neglect, 32(8),
+of Policy Analysis and Development. Unpublished data.
+797-810. https://doi.org/10.1016/j.chiabu.2008.02.004
+SPOTLIGHT: PERINATAL HEALTH
+9. Vermont Network. (2023). Provided by the Director of Member Relations at vtnetwork.org.
+1. Platt, I., Pendl-Robinson, E., Dehus, E., O’Neil, S., Vohra, D., & Zivin, K. (Mathematica);
+Awaiting publication in Vermont Network 2023 Data Snapshot.
+Kenny, M. & Pentenrieder, L. (Vermont Department of Health). (2023).
+Estimating the
+10. Department for Children and Families. (2022).
+FSD Quarterly Management Reports.
+Costs of Untreated Perinatal Mood and Anxiety Disorders in Vermont.
+11. Family First Report. (2021).Vermont’s Family First Prevention Services Act Prevention Plan.
+https://mathematica.org/publications/societal-costs-of-perinatal-mood-and-anxiety-
+https://legislature.vermont.gov/Documents/2022/WorkGroups/Child%20Protection%20
+disorders-in-vermont
+Oversight/Foster%20Care/W~Aryka%20Radke~Family%20FIrst%20Report~10-29-2021.pdf
+2. Luca, D.L., Margiotta, C., Staatz, C., Garlow, E., Christensen, A., & Zivin, K. (2020).
+12. Radke, A., Gooley, B., Sausville, B., Joyal, B., Hopkins, G., Mclain, H., Jorgenson, J., & Boudreau, L.
+Financial toll of untreated perinatal mood and anxiety disorders among 2017 births
+(n.d.).
+Vermont’s 2024 Annual Progress and Services Report.
+in the United States. American Journal of Public Health, 110(6):888-896. doi:10.2105/
+https://outside.vermont.gov/dept/DCF/Shared%20Documents/FSD/Reviews/APSR2024.pdf
+AJPH.2020.305619
+3. Leiferman, J.A., Farewell, C.V., Jewell, J., Lacy, R., Walls, J., Harnke, B., & Paulson, J.F.
+HEALTH AND WELL-BEING
+(2021).
+Anxiety among fathers during the prenatal and postpartum period: a meta-
+1. World Health Organization: WHO. (2019, May 30). Social determinants of health.
+analysis. Journal of Psychosomatic Obstetrics & Gynecology. 2021 Jun;42(2):152-161.
+https://www.who.int/health-topics/social-determinants-of-health
+doi: 10.1080/0167482X.2021.1885025. Epub 2021 Feb 25. PMID: 33632067.
+2. Health insurance coverage of children 0-18 | KFF. (2023, October 27). KFF.
+4. Vermont Department of Health. (2023). Vermont Pregnancy Risk Assessment
+https://www.kff.org/other/state-indicator/children-0-18/
+Monitoring System (PRAMS). Awaiting publication at https://www.healthvermont.gov/
+3. Child and Adolescent Health Measurement Initiative. National Survey of Children’s Health,
+stats/surveys/pregnancy-risk-assessment-monitoring-system-prams
+2016-2021. Data Resource Center for Child and Adolescent Health supported by the U.S.
+5. Vermont Department of Health. Provided by the Research and Statistics Chief.
+Department of Health and Human Services, Health Resources and Services Administration
+Data Note: Analyses were limited to discharges of live-born Vermont residents at
+(HRSA), Maternal and Child Health Bureau (MCHB). https://www.childhealthdata.org/
+Vermont hospitals, excluding transfers from other facilities. Newborns in this analysis
+4. Center for Medicare and Medicaid Services. Continuous Eligibility.
+were identified by any mention of ICD-10-CM diagnosis code P96.1. Unpublished data.
+https://www.medicaid.gov/chip/eligibility/continuous-eligibility/index.html
+6. Vermont Vital Statistics, 2012-2022. 2023 data are preliminary.
+5. Act 48 of 2021. Vt. Stat. Ann. tit. 33 V.S.A. § 2091-2092
+
+| 
+44 The State of Vermont's Children
+7. Stalberg, I. (2024). Report to The Vermont Legislature, Maternal Mortality Review Panel, 13. Vermont Department for Children and Families. (2023). Data provided by the Senior
+Process and Performance Analyst at the Child Development Division. Awaiting publication.
+2024 Report to the Legislature. https://legislature.vermont.gov/assets/Legislative-
+Reports/2024-MMRP-Report-Final.pdf
+14. Vermont Department of Health. (2021–2022). Child Care Vaccination Coverage Data.
+Awaiting publication.
+8. Vermont Department of Health. (2021).
+Vermont Vital Statistics Annual Report.
+https://www.healthvermont.gov/health-statistics-vital-records/vitalrecords-population-
+15. Vermont Department for Children and Families. (2023)
+Vermont Early Childhood Education
+data/vermont-population-estimates
+and Afterschool Workforce Report 2023. https://dcf.vermont.gov/cdd/reports
+9. Centers for Disease Control and Prevention. (2022).
+Breastfeeding Report Card.
+16. Vermont Head Start Collaboration Office. (2023). Vermont Program Information Report.
+https://www.cdc.gov/breastfeeding/data/reportcard.htm
+Available on public request from https://eclkc.ohs.acf.hhs.gov/
+10.
+Cost Savings from Expanding Vermont's Perinatal Psychiatric Consultation Service.
+17. Act 166 of 2014: Vt. Stat. Ann. tit. 16 V.S.A. § 829
+(2023). Platt, I., Pendl-Robinson, E., O’Neil, S., Vohra, D., Pentenrieder, L., & Zivin, K.
+18. Vermont Data Portal (2023). Vermont Child Care Provider Data. Retrieved on December 5, 2023,
+(Mathematica). https://mathematica.org/publications/cost-savings-from-expanding-
+from https://data.vermont.gov/Education/Vermont-Child-Care-Provider-Data/ctdw-tmfz/
+vermonts-perinatal-psychiatric-consultation-service
+about_data
+11. Vermont Department of Health. (2023). Family and Child Health and the Vermont Child
+19. Vermont Agency of Education. (2023). Vermont Education Dashboard: Enrollment 2023.
+Health Improvement Program. Unpublished data.
+https://education.vermont.gov/data-and-reporting/vermont-education-dashboard/
+12. Vermont Department of Health. (2023). Family and Child Health and the Vermont Child
+vermont-education-dashboard-enrollment
+Health Improvement Program.
+Vermont’s DULCE Financing: From Initial Pilot Site to State
+20. The Council of State Governments Justice Center. (2014).
+The School Discipline Consensus
+Investment and Federal Grant Funding presentation.
+Report: Strategies from the Field to Keep Students Engaged in School and Out of the Juvenile
+13. Strong Families Vermont. (2023). Unpublished data.
+Justice System. https://csgjusticecenter.org/wp-content/uploads/2020/01/The_School_
+14. Office of Head Start. (2023). Program Information Reports. Available on public request
+Discipline_Consensus_Report.pdf
+from https://eclkc.ohs.acf.hhs.gov/
+21. Act 166 of 2022. Vt. Stat. Ann., tit. 16 V.S.A. § 1162.
+15. Kaiser Family Foundation. (2021, December 17). Paid Leave in the U.S. KFF.
+22. Vermont Agency of Education. (2023). Student Support Services: Early Education Team.
+https://www.kff.org/womens-health-policy/fact-sheet/paid-leave-in-u-s/
+Unpublished data.
+16. U.S. Bureau of Labor Statistics. (2023). Employee Benefits in the United States, March 2023.
+23. U.S. Department of Education - Office for Civil Rights. (2023). Student Discipline and
+https://www.bls.gov/ebs/publications/employee-benefits-in-the-united-states-march-2023.htm
+School Climate in U.S. Public Schools 2020-2021 Civil Rights Data Collection. https://
+17. Vermont Department of Health. (2022).
+www2.ed.gov/about/offices/list/ocr/docs/crdc-discipline-school-climate-report.pdf
+2020 Pregnancy Risk Assessment Monitoring
+System (PRAMS) Highlights. 
+https://www.healthvermont.gov/sites/default/files/documents/
+24. Afterschool Alliance. (2020).
+Vermont After 3PM. http://www.afterschoolalliance.org/
+pdf/HSI-stats-PRAMS-2020-Highlights.pdf
+AA3PM/data/geo/Vermont/overview
+18. Prenatal-To-3 Policy Impact Center. (n.d.).
+Paid Family Leave. https://pn3policy.org/
+25. Act 78 of 2023: Vt. Stat. Ann. tit. 16 § 4018
+pn-3-state-policy-roadmap-2022/us/paid-family-leave#notes-and-sources
+26. Vermont Afterschool. (2023). Provided by the Executive Director and the Communications
+CHILD DEVELOPMENT AND EDUCATION
+& Development Coordinator. Unpublished data.
+1. Vermont Early Childhood Data and Policy Center. (2023).
+2022 Early Childhood Family
+27. Vermont Agency of Education. (2023). Vermont Education Dashboard: Assessment 2022.
+Needs Assessment. https://vermontkidsdata.org/2022-family-needs-assessment/
+https://education.vermont.gov/data-and-reporting/vermont-education-dashboard/
+vermont-education-dashboard-assessment
+2. Department for Children and Families. (2022). Provided by the Children’s Integrated
+Services Director.
+Children’s Integrated Services Encounter Report. Unpublished data.
+28. U.S. Department of Education. Every Student Succeeds Act (ESSA) Vermont State Plan
+Because of the different ways services are funded across the state, this count
+2017. https://www2.ed.gov/admins/lead/account/stateplan17/vtcsa2017.pdf
+includes clients receiving at least one of the four CIS services in 9 out of 11
+REGIONAL PROFILES
+regions, but only Early Intervention in the St. Albans and Middlebury regions.
+This count also excludes clients who are served but for whom claims are not
+1. Vermont Department of Health. (2023).
+Population of Vermont by AHS/VDH Districts, Age
+submitted, consultation for early childhood education and other programs, and
+and Sex, 2000-2022. https://www.healthvermont.gov/health-statistics-vital-records/
+undocumented individuals.
+vital-records-population-data/vermont-population-estimates
+3. Department for Children and Families. (2023). Provided by the Children’s Integrated
+2. U.S. Census Bureau. American Community Survey 5-Year Estimates, Table B17024,
+Services Director.
+Children’s Integrated Services Semi-Annual Performance Report.
+Vermont. (2017 and 2022). https://data.census.gov/
+Unpublished data.
+3. Glasmeier, Amy K. (2023). Living Wage Calculator. Massachusetts Institute of Technology.
+4. Vermont Parent Child Center Network. (2023). Provided by the Vermont Parent Child
+https://livingwage.mit.edu/
+Center Network Co-Chair. Unpublished data.
+4. Department for Children and Families. (2023).
+FSD Quarterly Management Reports, Q3
+5. State of Vermont Blueprint for Health. (2022). Community Health Profile Data.
+annually. Data provided by the Division Quality Assurance Supervisor.
+https://blueprintforhealth.vermont.gov/community-health-profiles
+5. Institute for Community Alliances. (2023).
+Cumulative Coordinated Entry Data by Age.
+6. Vermont Child Health Improvement Program (VCHIP). (2023). Unpublished data.
+Publicly accessible System Performance Measure data available at https://icalliances.
+org/vermont-system-performance-measures
+7. Help Me Grow Vermont. (2023). Ages and Stages (ASQ) Enterprise Online System.
+Unpublished data.
+6. State of Vermont Blueprint for Health. (2022). Community Health Profile Data.
+https://blueprintforhealth.vermont.gov/community-health-profiles
+8. Centers for Disease Control and Prevention. (n.d.).
+Autism Spectrum Disorder (ASD):
+Data & Statistics on Autism Spectrum Disorder. https://www.cdc.gov/ncbddd/autism/data.html
+7. Vermont Agency of Education. (2023). Vermont Education Dashboard: Assessment 2022.
+https://education.vermont.gov/data-and-reporting/vermont-education-dashboard/
+9. U.S Department of Education. (2018). Individuals with Disabilities Act. Chapter III—
+vermont-education-dashboard-assessment
+Office of Special Education and Rehabilitative Services, Department of Education.
+https://sites.ed.gov/idea/regs/
+10. Department for Children and Families. (2022). Provided by the Children’s Integrated
+Services Director. Awaiting publication in the
+Vermont IDEA Part C – Child Count and
+Settings at https://dcf.vermont.gov/cdd/reports/ei
+11. Vermont Agency of Education. (2022).
+Number of Children Receiving Student
+SupportServices under 9 by Age. Unpublished data.
+12. Act 76 of 2023: Vt. Stat. Ann tit. 16 V.S.A § 4010, tit. 21 V.S.A. §1321, tit. 33 V.S.A. § 3512-3519
+
+| 
+2023 Year in Review 45
+ACKNOWLEDGMENTS
+The State of Vermont’s Children: 2023 Year in Review is truly a collaborative effort.
+
+On behalf of the Vermont Early Childhood State Advisory Council Network, we would like to express our sincerest gratitude to the following
+partners across the early childhood system for their contributions to developing content, identifying and sharing key topics, and providing
+data:
+
+The Department of Vermont Health Access, Housing & Homelessness Alliance of Vermont, Hunger Free Vermont, Institute for
+Community Alliances, Massachusetts Institute of Technology - Living Wage Calculator, Public Assets Institute, United Ways of Vermont
+(Help Me Grow Vermont), Vermont Afterschool, the Vermont Agency of Education, the Vermont Association of Hospitals and Health Systems,
+the Vermont Blueprint for Health, Vermont Care Partners, The Vermont Child Health Improvement Program (VCHIP), the Vermont Department
+for Children and Families (Child Development Division, Economic Services Division, Family Services Division, Office of Economic Opportunity,
+and Vermont Head Start Collaboration Office), the Vermont Department of Health (Family and Child Health Division and Health Statistics
+and Informatics), the Vermont Department of Labor, the Vermont Department of Mental Health, the Vermont Head Start Association,
+the Vermont Network Against Domestic and Sexual Violence, and the Vermont Parent Child Center Network.
+
+We are incredibly grateful for the collaboration and continuous guidance of the Building Bright Futures State Advisory Council, the 12
+Regional Councils, and the 7 Vermont’s Early Childhood Action Plan Committees.
+
+Thank you to Dave Lapointe and Gary Bisaga for creating the new Early Childhood Data Portal at VermontKidsData.org, which highlights
+this report’s data alongside early childhood policy efforts and publications. Your collective expertise, vision, and commitment allow BBF to
+compile and disseminate critical data in an easily accessible, dynamic, and responsive way.
+
+We continue to be inspired by Vermont’s commitment to using the most up-to-date, high-quality data to inform policy and service provision
+for young children and their families.
+
+| 
+46 The State of Vermont's Children
+OUR TEAM
+STAFF
+Dr. Morgan Crossman, Executive Director
+Beth Truzansky, Deputy Director
+Kate Bailey, Network Manager
+Anna Brouillette, Policy and Program Director
+Ali Dieng, Regional Manager for Chittenden and Franklin/Grand Isle
+Kitty Foster, Data Coordinator
+Kelly Hayes, Regional Manager for Central Vermont and Lamoille Valley
+Courtney Hillhouse, Regional Manager for Southeast Vermont,
+Northern Windsor and Orange, and Springfield Area
+Michelle Kersey, Vermont Early Childhood Fund Grant Manager
+Tanya LaChapelle, Family Leadership Coordinator
+Dora Levinson, Research and Data Director
+Linda Michniewicz, Regional Manager for Caledonia/Southern Essex
+and Orleans/Northern Essex
+Nathaniel Millarhouse, Finance Manager
+Katie Mobbs, Office Manager
+Jenn Schollmeyer, Data Manager
+Darla Senecal, Regional Manager for Bennington, Rutland, and Addison
+Valerie F. Wood, Early Childhood Systems Evaluator
+
+STATE ADVISORY COUNCIL
+Ilisa Stalberg, SAC Public Co-Chair; Vermont Department of Health
+Flor Diaz Smith, SAC Private Co-Chair; Vermont School Boards Association
+Rep. Jessica Brumsted, Vermont House of Representatives
+Libby Daghlian, Parent Representative
+Xusana Davis, Vermont Office of Racial Equity
+Paul Dragon, Champlain Valley Office of Economic Opportunity
+Alexis Duquette, Parent Representative
+Eddie Gale, A. D. Henderson Foundation
+Dimitri Garder, Business Representative; Global-Z International
+Sen. Ruth Hardy, Vermont Senate
+Sharon Harrington, Vermont Association for the Education
+of Young Children
+Renee Kelly, SAC Secretary; Head Start Collaboration Office
+Carol Lang-Godin, Lamoille Family Center
+Shayla Livingston, Agency of Human Services
+Janet McLaughlin, DCF Child Development Division
+Mike McRaith, Vermont Principals’ Association
+Meg Porcella, Agency of Education
+Christy Swenson, Capstone Community Action/Head Start
+Jessica Vintinner, Agency of Commerce and Community Development
+Rebecca Webb, SAC Treasurer; Barre Unified Union School District
+Cheryle Wilcox, Vermont Department of Mental Health
+Miranda Gray, non-voting member; DCF Economic Services Division
+Aryka Radke, non-voting member; DCF Family Services Division
+Kendal Smith, non-voting member; Vermont Governor’s Office
+
+| 
+2023 Year in Review 47
+PUBLICATION INFORMATION
+2023 Managing Editors
+Beth Truzansky, Deputy Director
+Dora Levinson, MPH, Research and Data Director
+Valerie F. Wood, Ph.D., Early Childhood Systems Evaluator
+Jennifer Schollmeyer, BSW, M.Ed., Data Manager
+Morgan Crossman, Ph.D., M.A., Executive Director
+Kitty Foster, BS, Data Coordinator
+Anna Brouillette, M.Ed., Policy and Program Director
+
+Graphic Design & Layout
+Alice Jarabek with support from Anna Hudson
+
+Printing & Production
+Building Bright Futures would like to thank the National Life Group Foundation for their generous contribution to the production
+of this report.
+
+Suggested citation: Levinson, D., Schollmeyer, J., Foster, K., Brouillette, A., Truzansky, B., Wood, V., & Crossman,
+M. (Eds.). (2024). The State of Vermont’s Children: 2023 Year in Review. Building Bright Futures: Williston, VT.
+Retrieved from buildingbrightfutures.org/publications

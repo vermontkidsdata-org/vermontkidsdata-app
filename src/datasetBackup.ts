@@ -1,6 +1,6 @@
 if (!module.parent) {
   process.env.REGION = 'us-east-1';
-  process.env.NAMESPACE = 'qa';
+  process.env.VKD_ENVIRONMENT = 'qa';
 }
 
 import { injectLambdaContext } from '@aws-lambda-powertools/logger/middleware';
@@ -14,7 +14,7 @@ import { makePowerTools } from './lambda-utils';
 import { DatasetBackupMessage } from './uploadData';
 
 // Set your service name. This comes out in service lens etc.
-const pt = makePowerTools({ prefix: `download-${process.env.NAMESPACE}` });
+const pt = makePowerTools({ prefix: `download-${process.env.VKD_ENVIRONMENT}` });
 
 const { REGION, S3_BUCKET_NAME } = process.env;
 const s3 = new S3Client({ region: REGION });

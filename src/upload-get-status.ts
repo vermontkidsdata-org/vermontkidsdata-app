@@ -3,9 +3,9 @@ import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from "aws-l
 import { UploadStatus, getUploadStatusKey } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 
-const {NAMESPACE, } = process.env;
+const {VKD_ENVIRONMENT, } = process.env;
 
-const pt = makePowerTools({ prefix: `upload-get-status-${NAMESPACE}` });
+const pt = makePowerTools({ prefix: `upload-get-status-${VKD_ENVIRONMENT}` });
 
 export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> {
   const { uploadId } = event.pathParameters!;
