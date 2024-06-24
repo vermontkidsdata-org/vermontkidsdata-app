@@ -64,6 +64,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Install AWS CLI
+        uses: unfor19/install-aws-cli-action@v1
+        with:
+          arch: amd64                        # allowed values: amd64, arm64
       - name: Checkout ${{ github.ref }}
         uses: actions/checkout@v4
       - name: Cache Node Modules
@@ -123,6 +127,10 @@ jobs:
         with:
           path: node_modules
           key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Install AWS CLI
+        uses: unfor19/install-aws-cli-action@v1
+        with:
+          arch: amd64                        # allowed values: amd64, arm64
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
