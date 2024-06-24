@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+# Echo commands before executing them
+set -x
 
 echo do we have jq?
 jq --version
