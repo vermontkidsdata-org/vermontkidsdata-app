@@ -57,6 +57,8 @@ jobs:
     needs: [main-test]
     runs-on: ubuntu-latest
     environment: qa
+    env:
+      VKD_ENVIRONMENT: qa
     steps:
       - name: Use setup node action
         uses: actions/setup-node@v4
@@ -75,13 +77,14 @@ jobs:
         run: npm ci
       - name: Deploy to QA
         run: |
-          export VKD_ENVIRONMENT=qa
           . ./scripts/deploy.sh
       - name: Test QA
         run: . ./.github/scripts/test-qa.sh
   main-diff-prod:
     needs: [main-deploy-qa]
     runs-on: ubuntu-latest
+    env:
+      VKD_ENVIRONMENT: prod
     steps:
       - name: Use setup node action
         uses: actions/setup-node@v4
@@ -100,12 +103,13 @@ jobs:
         run: npm ci
       - name: Diff production infrastructure
         run: |
-          export VKD_ENVIRONMENT=prod
           npm run diff
   main-deploy-prod:
     needs: [main-diff-prod]
     runs-on: ubuntu-latest
     environment: prod
+    env:
+      VKD_ENVIRONMENT: prod
     steps:
       - name: Use setup node action
         uses: actions/setup-node@v4
@@ -124,7 +128,6 @@ jobs:
         run: npm ci
       - name: Deploy to Prod
         run: |
-          export VKD_ENVIRONMENT=prod
           . ./scripts/deploy.sh
       - name: Test Prod
         run: . ./.github/scripts/test-prod.sh
