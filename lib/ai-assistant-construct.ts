@@ -32,11 +32,11 @@ export class AIAssistantConstruct extends Construct {
     const aiAssistantRoot = api.root.addResource('ai');
 
     const aiSecret = Secret.fromSecretNameV2(this, 'AI Secret', `openai-config/${ns}`);
-    const assistantInfo = getAssistantInfo(ns);
+    const {assistantId} = getAssistantInfo(ns);
 
     const aiCommonEnv = {
       ...commonEnv,
-      ASSISTANT_ID: assistantInfo.assistantId,
+      ASSISTANT_ID: assistantId,
       VKD_STATE_MACHINE_ARN: '',
       SERVICE_TABLE: serviceTable.tableName,
       AI_SECRET_NAME: aiSecret.secretName,

@@ -3,17 +3,52 @@ import { FILE_MAP } from "./ai-utils";
 
 export type VKDAssistant = OpenAI.Beta.Assistants.Assistant;
 
+export type VKDFunction = OpenAI.FunctionDefinition & {
+  _vkd?: {
+    query?: string,
+    chartType?: string, // If something other than the default chart is wanted, e.g. 'stackedcolumnchart'
+    urlPath?: string,   // If you want to completely replace the URL path
+    defaultSeries?: string, // If you want to set a default series name, this is usually needed for charts that display a value for "Vermont"
+  }
+}
+
 export type VKDFunctionTool = {
   type: "function",
-  function: OpenAI.FunctionDefinition & {
-    _vkd?: {
-      query?: string,
-      chartType?: string, // If something other than the default chart is wanted, e.g. 'stackedcolumnchart'
-      urlPath?: string,   // If you want to completely replace the URL path
-      defaultSeries?: string, // If you want to set a default series name, this is usually needed for charts that display a value for "Vermont"
-    };
-  },
+  function: VKDFunction,
 };
+
+const SERIES_PARAMETER = "series";
+const CATEGORY_PARAMETER = "category";
+
+function YEAR_PARAMETER({ minYear, type }: { minYear?: number, type?: string }): OpenAI.FunctionParameters {
+  const min = minYear ?? 2018;
+  return {
+    type: "string",
+    description: `The year of interest. Should be greater than or equal to ${min}. If the request is for before ${min}, request data
+          for ${min} and tell the user that the data is only available from ${min} onwards.`,
+    ...(type ? {
+      _vkd: {
+        type
+      }
+    } : {})
+  };
+}
+
+function SCHOOL_YEAR_PARAMETER({ minYear, type }: { minYear?: number, type?: string }): OpenAI.FunctionParameters {
+  const min = minYear ?? 2017;
+  return {
+    type: "string",
+    description: `The school year, which should be a string of the form 'SSSS-EEEE' where SSSS is the starting school year (e.g. 2020) 
+      and EEEE is the ending school year (e.g. 2021). The ending year should always be one greater than the starting year.
+      Should be greater than or equal to ${min}. If the request is for before ${min}, request data
+      for ${min} and tell the user that the data is only available from ${min} onwards.`,
+    ...(type ? {
+      _vkd: {
+        type
+      }
+    } : {})
+  }
+}
 
 const functionDefs: VKDFunctionTool[] = [{
   type: "function",
@@ -21,6 +56,7 @@ const functionDefs: VKDFunctionTool[] = [{
     name: "children_in_poverty_under_12_all-chart",
     _vkd: {
       query: 'children_in_poverty_under_12_all:chart',
+      urlPath: 'linechart/children_in_poverty_under_12:chart',
     },
     description: `Determine percent of children in poverty within Vermont for a given year. It returns the percent 
     of children in poverty for a certain year. It can give the information either for a particular AHS region in Vermont, or across the
@@ -31,7 +67,7 @@ const functionDefs: VKDFunctionTool[] = [{
       properties: {
         location: {
           type: "string",
-          description: `The location, either a county within Vermont, or across the entire state. Should either be the region name 
+          description: `The location, either a Building Bright Futures region within Vermont, or across the entire state. Should either be the region name 
           (e.g. Chittendon) or the word 'Vermont' for poverty across the entire state. It returns a JSON object with four fields: 
           "value" which gives the requested value, "url" which gives a URL for a dataset you can reference for more information, 
           "geography" which is the geography the value is for, and "year" which is the year the data is returned for. The geography 
@@ -52,16 +88,10 @@ const functionDefs: VKDFunctionTool[] = [{
             "Vermont"
           ],
           _vkd: {
-            type: "series"
+            type: SERIES_PARAMETER,
           }
         },
-        year: {
-          type: "number",
-          description: "The year the user wants data for.",
-          _vkd: {
-            type: "category"
-          }
-        }
+        year: YEAR_PARAMETER({ minYear: 2017, type: CATEGORY_PARAMETER }),
       },
       required: [
         "location",
@@ -89,17 +119,10 @@ const functionDefs: VKDFunctionTool[] = [{
             "household"
           ],
           _vkd: {
-            type: "series"
+            type: SERIES_PARAMETER,
           }
         },
-        year: {
-          type: "string",
-          description: `Year being requested. This can either be a single year (e.g. 2020) or the word 'average' indicating the user 
-          wants an average of all the years we have access to.`,
-          _vkd: {
-            type: "category"
-          }
-        }
+        year: YEAR_PARAMETER({ minYear: 2017, type: CATEGORY_PARAMETER }),
       },
       required: [
         "group"
@@ -123,20 +146,13 @@ const functionDefs: VKDFunctionTool[] = [{
     parameters: {
       type: "object",
       properties: {
-        year: {
-          type: "string",
-          description: `The school year, which should be a string of the form 'SSSS-EEEE' where SSSS is the starting school year (e.g. 2020) 
-          and EEEE is the ending school year (e.g. 2021). The ending year should always be one greater than the starting year.`,
-          _vkd: {
-            type: "category"
-          }
-        },
+        year: SCHOOL_YEAR_PARAMETER({ minYear: 2017, type: CATEGORY_PARAMETER }),
         type: {
           type: "string",
           description: "The type of data being requested. This should always be the constant value 'IEP'.",
           enum: ["IEP"],
           _vkd: {
-            type: "series"
+            type: SERIES_PARAMETER,
           }
         }
       },
@@ -170,16 +186,10 @@ const functionDefs: VKDFunctionTool[] = [{
             "IDEA C"
           ],
           _vkd: {
-            type: "series"
+            type: SERIES_PARAMETER,
           }
         },
-        year: {
-          type: "string",
-          description: "The year of interest. Should be greater than or equal to 2018.",
-          _vkd: {
-            type: "category"
-          }
-        }
+        year: YEAR_PARAMETER({ minYear: 2018, type: CATEGORY_PARAMETER }),
       },
       required: [
         "part",
@@ -203,14 +213,7 @@ const functionDefs: VKDFunctionTool[] = [{
     parameters: {
       type: "object",
       properties: {
-        year: {
-          type: "string",
-          description: `The year of interest. Should be greater than or equal to 2017. If the request is for before 2017, request data
-          for 2017 and tell the user that the data is only available from 2017 onwards.`,
-          _vkd: {
-            type: "category"
-          }
-        }
+        year: YEAR_PARAMETER({ minYear: 2017, type: CATEGORY_PARAMETER }),
       },
       required: [
         "part",
@@ -247,9 +250,13 @@ export const assistantDef: LimitedAssistantDef = {
   positive trends or trends that show reason for concern. Assume that your target audience is Vermont legislators and policy makers.
   
   When you give references to uploaded files in the vector store, you should give them in your response as markdown links, using the following JSON object to 
-  map file names given in the "file" property to links given in the "url" property.
+  map file names given in the "file" property to links given in the "url" property. There is also a "name" property that you can use to give a more human-readable
+  name for the file. Here is the JSON object you should use:
   
   ` + JSON.stringify(FILE_MAP) + `
+
+  When you give links to the vector store files or an external URL returned from a function, put the markdown link at the end of the sentence. If the same URL comes 
+  more than once in a single sentence, only show one link at the end of the sentence.
 
   Use the previous How Are Vermont's Young Children reports as a guide to the style of writing in your summaries and narratives, except 
   your responses always need to cite their source using markdown-format links to the files you use from the vector store. Use Markdown 
@@ -277,6 +284,11 @@ export const assistantDef: LimitedAssistantDef = {
   response_format: "auto"
 };
 
+/**
+ * Need to remove the _vkd properties because the OpenAI API chokes on them.
+ * @param obj assistant definition
+ * @returns assistant definition with _vkd properties removed
+ */
 export function removeVkdProperties(obj: any): any {
   if (typeof obj === "object" && obj !== null) {
     if (Array.isArray(obj)) {
@@ -302,6 +314,9 @@ export interface AssistantInfo {
   vectorStore: string;
 }
 
+/**
+ * Keep track of assistant IDs and vector store IDs by VKD_ENVIRONMENT.
+ */
 export const ASSISTANTS_MAP: Record<string, AssistantInfo> = {
   qa: {
     assistantId: 'asst_oTyK60tswWI1TYECBvng1lfn',
@@ -317,6 +332,12 @@ export const ASSISTANTS_MAP: Record<string, AssistantInfo> = {
   }
 }
 
+/**
+ * Get information on the assistant.
+ * @param ns VKD_ENVIRONMENT to get info for
+ * @param clean if passed and true, remove _vkd properties from the assistant definition. Normally you don't pass this; this is for MLOps.
+ * @returns assistant ID, vector store ID, and assistant definition
+ */
 export function getAssistantInfo(ns: string, clean?: boolean): {
   assistantId: string,
   vectorStore: string,
@@ -324,11 +345,40 @@ export function getAssistantInfo(ns: string, clean?: boolean): {
 } {
   const assistantInfo = ASSISTANTS_MAP[ns];
 
+  // Verify the format if clean is passed
+  if (clean) {
+    // Make sure each function has a category parameter and either a series parameter or defaultSeries value
+    for (const tool of assistantDef.tools) {
+      if (tool.type !== "function") {
+        continue;
+      }
+
+      console.log(`Verifying function ${tool.function.name}`);
+
+      const has = {
+        category: false,
+        series: false,
+      };
+      for (const param of Object.values(tool.function.parameters?.properties ?? {})) {
+        if ((param as any)._vkd?.type === CATEGORY_PARAMETER) {
+          has.category = true;
+        }
+        if ((param as any)._vkd?.type === SERIES_PARAMETER) {
+          has.series = true;
+        }
+      }
+
+      if (!has.category || !has.series && !(tool.function as VKDFunction)._vkd?.defaultSeries) {
+        throw new Error(`Function ${tool.function.name} is missing a category parameter or a series parameter/defaultSeries.`);
+      }
+    }
+  }
+
   // Seek out and destroy the _vkd properties in the nested assistantDef object
   const def = (clean ? removeVkdProperties(assistantDef) : assistantDef) as LimitedAssistantDef;
   def.tool_resources?.file_search?.vector_store_ids?.push(assistantInfo.vectorStore);
   def.name += ` (${ns})`;
-  
+
   return {
     ...assistantInfo,
     assistant: def
