@@ -9,6 +9,7 @@ do_not_commit/
 *.log
 .env.json
 .env
+.DS_Store
 
 # CDK asset staging directory
 .cdk.staging

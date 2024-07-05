@@ -553,12 +553,12 @@ if (!module.parent) {
         // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
         // "What is the latest year of the reports?"
         // "What is the average household income for 2020 through 2023?"
-        "How many children lived in poverty in Chittenden in 2020?"
+        // "How many children lived in poverty in Chittenden in 2020?"
         // "How many children lived in poverty in Chittenden in 1942?"
         // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
         // "Did the number of IEPs go up or down in 2020 vs the previous year?"
         // "For 2021 how many school-age kids received IDEA services?"
-        // "Were there more babies born in 2020 and 2021 than other years?"
+        "Were there more babies born in 2020 and 2021 than other years?"
       ,
       assistantId: assistantInfo.assistantId,
       callback: async ({ finished, chunk }) => {

@@ -61,7 +61,7 @@ const functionDefs: VKDFunctionTool[] = [{
     description: `Determine percent of children in poverty within Vermont for a given year. It returns the percent 
     of children in poverty for a certain year. It can give the information either for a particular AHS region in Vermont, or across the
     entire state. Returns a JSON object with two properties: a 'value' which is the value requested, and a 'url' which is the URL of
-    a chart that allows to user to explore the data in more detail.`,
+    a chart that allows to user to explore the data in more detail. If the requested year is not available, use the earliest year available.`,
     parameters: {
       type: "object",
       properties: {
@@ -323,12 +323,20 @@ export const ASSISTANTS_MAP: Record<string, AssistantInfo> = {
     vectorStore: 'vs_iViHvHye2QTf3i1D2ivNuLkM',
   },
   prod: {
-    assistantId: 'asst_grARLJVpFhQS7H5decnIbuP0',
-    vectorStore: 'vs_lI4uWc5bPp1bWnErFaIZbQ0l'
+    assistantId: 'asst_EirXPumzBw459bNHgQqYjDIQ',
+    vectorStore: 'vs_GEO7mVc5EIUA2n5t0Sk0GGpz'
   },
   sandbox: {
     assistantId: 'asst_f0j3Q0YM8vmzBRMXHaCBLwp2',
     vectorStore: 'vs_LPTIjaUcvRbgIKztzD7MdwIJ',
+  },
+  "qa/dave": {
+    assistantId: 'asst_grARLJVpFhQS7H5decnIbuP0',
+    vectorStore: 'vs_b4VuD62YS0I257XvLQyUla6a'
+  },
+  "qa/gary": {
+    assistantId: 'asst_P9EBbNGaZoutTNoHsePvrFgA',
+    vectorStore: 'vs_ViMIvNC46x2q3tpIMGzxdQah'
   }
 }
 

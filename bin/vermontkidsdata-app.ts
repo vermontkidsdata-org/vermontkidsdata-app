@@ -7,7 +7,8 @@ const NS_PROD = 'prod';
 
 const app = new cdk.App();
 (async () => {
-  const ns = process.env.VKD_ENVIRONMENT;
+  // Allow environment to have a /-separated namespace+branch e.g. "qa/gary", but only use the first part
+  const ns = process.env.VKD_ENVIRONMENT?.split('/')[0];
   if (ns == null) {
     throw new Error("Need to define VKD_ENVIRONMENT");
   }
