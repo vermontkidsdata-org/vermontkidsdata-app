@@ -55,49 +55,7 @@ exports[`Lambda Snapshot Test 1`] = `
     },
   },
   "Resources": {
-    "AIAssistantCheckOpenAICompletionCADA406D": {
-      "DependsOn": [
-        "AIAssistantCheckOpenAICompletionServiceRoleDefaultPolicy11790894",
-        "AIAssistantCheckOpenAICompletionServiceRole6BE00432",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": "",
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantCheckOpenAICompletionServiceRole6BE00432",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantCheckOpenAICompletionServiceRole6BE00432": {
+    "AIAssistantAIAssistantLambdaRole0DA0B60E": {
       "Properties": {
         "AssumeRolePolicyDocument": {
           "Statement": [
@@ -128,7 +86,7 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::IAM::Role",
     },
-    "AIAssistantCheckOpenAICompletionServiceRoleDefaultPolicy11790894": {
+    "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597": {
       "Properties": {
         "PolicyDocument": {
           "Statement": [
@@ -212,19 +170,61 @@ exports[`Lambda Snapshot Test 1`] = `
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "AIAssistantCheckOpenAICompletionServiceRoleDefaultPolicy11790894",
+        "PolicyName": "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
         "Roles": [
           {
-            "Ref": "AIAssistantCheckOpenAICompletionServiceRole6BE00432",
+            "Ref": "AIAssistantAIAssistantLambdaRole0DA0B60E",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "AIAssistantGETcompletionidsortKey0C567D69": {
+    "AIAssistantCheckOpenAICompletionCADA406D": {
       "DependsOn": [
-        "AIAssistantGETcompletionidsortKeyServiceRoleDefaultPolicy20AB06B5",
-        "AIAssistantGETcompletionidsortKeyServiceRole8AED3BBD",
+        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
+        "AIAssistantAIAssistantLambdaRole0DA0B60E",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AI_SECRET_NAME": "openai-config/sandbox",
+            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
+            "IS_PRODUCTION": "false",
+            "LOG_LEVEL": "info",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
+            "VKD_ENVIRONMENT": "sandbox",
+            "VKD_STATE_MACHINE_ARN": "",
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "AIAssistantAIAssistantLambdaRole0DA0B60E",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+        "Timeout": 29,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AIAssistantGETassistant3A79C83D": {
+      "DependsOn": [
+        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
+        "AIAssistantAIAssistantLambdaRole0DA0B60E",
       ],
       "Properties": {
         "Code": {
@@ -256,7 +256,7 @@ exports[`Lambda Snapshot Test 1`] = `
         "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
-            "AIAssistantGETcompletionidsortKeyServiceRole8AED3BBD",
+            "AIAssistantAIAssistantLambdaRole0DA0B60E",
             "Arn",
           ],
         },
@@ -265,126 +265,181 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::Lambda::Function",
     },
-    "AIAssistantGETcompletionidsortKeyServiceRole8AED3BBD": {
+    "AIAssistantGETassistantidBB9AC239": {
+      "DependsOn": [
+        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
+        "AIAssistantAIAssistantLambdaRole0DA0B60E",
+      ],
       "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
         },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
+        "Environment": {
+          "Variables": {
+            "AI_SECRET_NAME": "openai-config/sandbox",
+            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
+            "IS_PRODUCTION": "false",
+            "LOG_LEVEL": "info",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
+            "VKD_ENVIRONMENT": "sandbox",
+            "VKD_STATE_MACHINE_ARN": {
+              "Ref": "AIAssistantsandboxAIAssistant03C35156",
+            },
           },
-        ],
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "AIAssistantAIAssistantLambdaRole0DA0B60E",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+        "Timeout": 29,
       },
-      "Type": "AWS::IAM::Role",
+      "Type": "AWS::Lambda::Function",
     },
-    "AIAssistantGETcompletionidsortKeyServiceRoleDefaultPolicy20AB06B5": {
+    "AIAssistantGETassistantidfunction5DC2A46C": {
+      "DependsOn": [
+        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
+        "AIAssistantAIAssistantLambdaRole0DA0B60E",
+      ],
       "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-          ],
-          "Version": "2012-10-17",
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
         },
-        "PolicyName": "AIAssistantGETcompletionidsortKeyServiceRoleDefaultPolicy20AB06B5",
-        "Roles": [
-          {
-            "Ref": "AIAssistantGETcompletionidsortKeyServiceRole8AED3BBD",
+        "Environment": {
+          "Variables": {
+            "AI_SECRET_NAME": "openai-config/sandbox",
+            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
+            "IS_PRODUCTION": "false",
+            "LOG_LEVEL": "info",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
+            "VKD_ENVIRONMENT": "sandbox",
+            "VKD_STATE_MACHINE_ARN": {
+              "Ref": "AIAssistantsandboxAIAssistant03C35156",
+            },
           },
-        ],
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "AIAssistantAIAssistantLambdaRole0DA0B60E",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+        "Timeout": 29,
       },
-      "Type": "AWS::IAM::Policy",
+      "Type": "AWS::Lambda::Function",
+    },
+    "AIAssistantGETassistantidfunctionfunctionId19374AF2": {
+      "DependsOn": [
+        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
+        "AIAssistantAIAssistantLambdaRole0DA0B60E",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AI_SECRET_NAME": "openai-config/sandbox",
+            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
+            "IS_PRODUCTION": "false",
+            "LOG_LEVEL": "info",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
+            "VKD_ENVIRONMENT": "sandbox",
+            "VKD_STATE_MACHINE_ARN": {
+              "Ref": "AIAssistantsandboxAIAssistant03C35156",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "AIAssistantAIAssistantLambdaRole0DA0B60E",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+        "Timeout": 29,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AIAssistantGETcompletionidsortKey0C567D69": {
+      "DependsOn": [
+        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
+        "AIAssistantAIAssistantLambdaRole0DA0B60E",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "[ASSET BUCKET]",
+          "S3Key": "[ASSET ZIP]",
+        },
+        "Environment": {
+          "Variables": {
+            "AI_SECRET_NAME": "openai-config/sandbox",
+            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
+            "DATASET_BACKUP_QUEUE_URL": {
+              "Ref": "BackupqueueE3E58E0E",
+            },
+            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
+            "IS_PRODUCTION": "false",
+            "LOG_LEVEL": "info",
+            "REGION": "aq-south-1",
+            "SERVICE_TABLE": {
+              "Ref": "SingleServiceTableABC698C2",
+            },
+            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
+            "VKD_ENVIRONMENT": "sandbox",
+            "VKD_STATE_MACHINE_ARN": {
+              "Ref": "AIAssistantsandboxAIAssistant03C35156",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "AIAssistantAIAssistantLambdaRole0DA0B60E",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+        "Timeout": 29,
+      },
+      "Type": "AWS::Lambda::Function",
     },
     "AIAssistantGETcompletions44E94203": {
       "DependsOn": [
@@ -474,10 +529,6 @@ exports[`Lambda Snapshot Test 1`] = `
                 "dynamodb:GetItem",
                 "dynamodb:Scan",
                 "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
                 "dynamodb:DescribeTable",
               ],
               "Effect": "Allow",
@@ -580,10 +631,6 @@ exports[`Lambda Snapshot Test 1`] = `
                 "dynamodb:GetItem",
                 "dynamodb:Scan",
                 "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
                 "dynamodb:DescribeTable",
               ],
               "Effect": "Allow",
@@ -615,25 +662,6 @@ exports[`Lambda Snapshot Test 1`] = `
               "Effect": "Allow",
               "Resource": {
                 "Ref": "AIAssistantsandboxAIAssistant03C35156",
-              },
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:openai-config/sandbox-??????",
-                  ],
-                ],
               },
             },
           ],
@@ -681,8 +709,8 @@ exports[`Lambda Snapshot Test 1`] = `
     },
     "AIAssistantPOSTcompletionidsortKeyDE51CA39": {
       "DependsOn": [
-        "AIAssistantPOSTcompletionidsortKeyServiceRoleDefaultPolicyC376CECF",
-        "AIAssistantPOSTcompletionidsortKeyServiceRoleC79D29D2",
+        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
+        "AIAssistantAIAssistantLambdaRole0DA0B60E",
       ],
       "Properties": {
         "Code": {
@@ -714,7 +742,7 @@ exports[`Lambda Snapshot Test 1`] = `
         "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
-            "AIAssistantPOSTcompletionidsortKeyServiceRoleC79D29D2",
+            "AIAssistantAIAssistantLambdaRole0DA0B60E",
             "Arn",
           ],
         },
@@ -723,131 +751,10 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::Lambda::Function",
     },
-    "AIAssistantPOSTcompletionidsortKeyServiceRoleC79D29D2": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "AIAssistantPOSTcompletionidsortKeyServiceRoleDefaultPolicyC376CECF": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "AIAssistantPOSTcompletionidsortKeyServiceRoleDefaultPolicyC376CECF",
-        "Roles": [
-          {
-            "Ref": "AIAssistantPOSTcompletionidsortKeyServiceRoleC79D29D2",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
     "AIAssistantStartOpenAICompletionEB80A99F": {
       "DependsOn": [
-        "AIAssistantStartOpenAICompletionServiceRoleDefaultPolicy0B75ED01",
-        "AIAssistantStartOpenAICompletionServiceRoleB7F214CA",
+        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
+        "AIAssistantAIAssistantLambdaRole0DA0B60E",
       ],
       "Properties": {
         "Code": {
@@ -877,7 +784,7 @@ exports[`Lambda Snapshot Test 1`] = `
         "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
-            "AIAssistantStartOpenAICompletionServiceRoleB7F214CA",
+            "AIAssistantAIAssistantLambdaRole0DA0B60E",
             "Arn",
           ],
         },
@@ -885,130 +792,6 @@ exports[`Lambda Snapshot Test 1`] = `
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantStartOpenAICompletionServiceRoleB7F214CA": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "AIAssistantStartOpenAICompletionServiceRoleDefaultPolicy0B75ED01": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:openai-config/sandbox-??????",
-                  ],
-                ],
-              },
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "AIAssistantStartOpenAICompletionServiceRoleDefaultPolicy0B75ED01",
-        "Roles": [
-          {
-            "Ref": "AIAssistantStartOpenAICompletionServiceRoleB7F214CA",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
     },
     "AIAssistantsandboxAIAssistant03C35156": {
       "DeletionPolicy": "Delete",
@@ -8563,11 +8346,23 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "sandboxVermontKidsDataDeployment13909A1B500bec56bc33c2f7bddb036b1ce84e9d": {
+    "sandboxVermontKidsDataDeployment13909A1B8164f1b8e550de36b5b3329aee25fe6a": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
         "gatewayresponseforDEFAULT5XX187AAE21",
+        "sandboxVermontKidsDataaiassistantidfunctionfunctionIdGETF855527C",
+        "sandboxVermontKidsDataaiassistantidfunctionfunctionIdOPTIONS7FAB07AE",
+        "sandboxVermontKidsDataaiassistantidfunctionfunctionId9D9463C0",
+        "sandboxVermontKidsDataaiassistantidfunctionGETE00B56D9",
+        "sandboxVermontKidsDataaiassistantidfunctionOPTIONS253D873B",
+        "sandboxVermontKidsDataaiassistantidfunctionC8503245",
+        "sandboxVermontKidsDataaiassistantidGETA091DB4F",
+        "sandboxVermontKidsDataaiassistantidOPTIONS1C61AC42",
+        "sandboxVermontKidsDataaiassistantid60F2682A",
+        "sandboxVermontKidsDataaiassistantGETDD3B1E67",
+        "sandboxVermontKidsDataaiassistantOPTIONSCAC7FBF7",
+        "sandboxVermontKidsDataaiassistant84B4237C",
         "sandboxVermontKidsDataaicompletionidsortKeyGETEC472CF1",
         "sandboxVermontKidsDataaicompletionidsortKeyOPTIONSFD50B247",
         "sandboxVermontKidsDataaicompletionidsortKeyPOST5270AFD4",
@@ -8752,7 +8547,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "sandboxVermontKidsDataDeployment13909A1B500bec56bc33c2f7bddb036b1ce84e9d",
+          "Ref": "sandboxVermontKidsDataDeployment13909A1B8164f1b8e550de36b5b3329aee25fe6a",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -8878,6 +8673,658 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         ],
         "ResourceId": {
           "Ref": "sandboxVermontKidsDataai63FFBF93",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistant84B4237C": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataai63FFBF93",
+        },
+        "PathPart": "assistant",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaiassistantB591EA2D": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETassistant3A79C83D",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/ai/assistant",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaiassistant4010E9AB": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETassistant3A79C83D",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/ai/assistant",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantGETDD3B1E67": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantGETassistant3A79C83D",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistant84B4237C",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantOPTIONSCAC7FBF7": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistant84B4237C",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantid60F2682A": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataaiassistant84B4237C",
+        },
+        "PathPart": "{id}",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantidGETA091DB4F": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantGETassistantidBB9AC239",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantid60F2682A",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaiassistantidE0ACAED8": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETassistantidBB9AC239",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/ai/assistant/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaiassistantid89D45F4B": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETassistantidBB9AC239",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/ai/assistant/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidOPTIONS1C61AC42": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantid60F2682A",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionC8503245": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataaiassistantid60F2682A",
+        },
+        "PathPart": "function",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaiassistantidfunction623A29C0": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETassistantidfunction5DC2A46C",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/ai/assistant/*/function",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaiassistantidfunction11C76F21": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETassistantidfunction5DC2A46C",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/ai/assistant/*/function",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionGETE00B56D9": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantGETassistantidfunction5DC2A46C",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidfunctionC8503245",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionOPTIONS253D873B": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidfunctionC8503245",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionfunctionId9D9463C0": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidfunctionC8503245",
+        },
+        "PathPart": "{functionId}",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionfunctionIdGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaiassistantidfunctionfunctionIdB738C173": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETassistantidfunctionfunctionId19374AF2",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/ai/assistant/*/function/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionfunctionIdGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaiassistantidfunctionfunctionId8FA8DB99": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantGETassistantidfunctionfunctionId19374AF2",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/ai/assistant/*/function/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionfunctionIdGETF855527C": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantGETassistantidfunctionfunctionId19374AF2",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidfunctionfunctionId9D9463C0",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionfunctionIdOPTIONS7FAB07AE": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidfunctionfunctionId9D9463C0",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
