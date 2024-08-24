@@ -10,6 +10,18 @@ const ALL_UPLOAD_STATUS = 'ALL_UPLOAD_STATUS';
 const ALL_SESSIONS = 'ALL_SESSIONS';
 const ALL_DATASET_VERSIONS = 'ALL_DATASET_VERSIONS';
 const ALL_NAME_MAPS = 'ALL_NAME_MAPS';
+const ALL_ASSISTANTS = 'ALL_ASSISTANTS';
+const ALL_ASSISTANT_FUNCTIONS = 'ALL_ASSISTANT_FUNCTIONS';
+
+const ENTITY_UPLOAD_STATUS = 'UploadStatus';
+const ENTITY_NAME_MAP = 'NameMap';
+const ENTITY_SESSION = 'Session';
+const ENTITY_DATASET_VERSION = 'DatasetVersion';
+const ENTITY_COMPLETION = 'Completion';
+const ENTITY_ASSISTANT = 'Assistant';
+const ENTITY_ASSISTANT_FUNCTION = 'AssistantFunction';
+const ENTITY_ASSISTANT_MAP = 'AssistantMap';
+
 export const ALL_WITH_COMMENTS = 'ALL_WITH_COMMENTS';
 
 const { VKD_ENVIRONMENT, LOG_LEVEL } = process.env;
@@ -211,7 +223,11 @@ export const serviceTable = new Table({
     },
   },
 
-  DocumentClient: DynamoDBDocumentClient.from(new DynamoDBClient({ region: getRegion() })),
+  DocumentClient: DynamoDBDocumentClient.from(new DynamoDBClient({ region: getRegion() }), {
+    marshallOptions: {
+      removeUndefinedValues: true
+    }
+  }),
 });
 
 export function getUploadStatusKeyAttribute(id: string): string {
@@ -247,7 +263,7 @@ export interface UploadStatusData {
 }
 
 export const UploadStatus = new Entity({
-  name: 'UploadStatus',
+  name: ENTITY_UPLOAD_STATUS,
   attributes: {
     PK: { partitionKey: true, hidden: true, default: (data: { id: string }) => getUploadStatusKeyAttribute(data.id) },
     SK: { sortKey: true, hidden: true, default: (data: { id: string }) => getUploadStatusKeyAttribute(data.id) },
@@ -275,7 +291,7 @@ export interface NameMapData {
 }
 
 export const NameMap = new Entity({
-  name: 'NameMap',
+  name: ENTITY_NAME_MAP,
   attributes: {
     PK: { partitionKey: true, hidden: true, default: (data: { key: string }) => getNameMapKeyAttribute(data.key) },
     SK: { sortKey: true, hidden: true, default: () => '$' },
@@ -299,7 +315,7 @@ export interface SessionData {
 }
 
 export const Session = new Entity({
-  name: 'Session',
+  name: ENTITY_SESSION,
   attributes: {
     PK: { partitionKey: true, hidden: true, default: (data: { session_id: string }) => getSessionKeyAttribute(data.session_id) },
     SK: { sortKey: true, hidden: true, default: (data: { session_id: string }) => getSessionKeyAttribute(data.session_id) },
@@ -345,7 +361,7 @@ export const STATUS_DATASET_VERSION_RUNNING = 'RUNNING';
 export const STATUS_DATASET_VERSION_SUCCESS = 'SUCCESS';
 
 export const DatasetVersion = new Entity({
-  name: 'DatasetVersion',
+  name: ENTITY_DATASET_VERSION,
   attributes: {
     PK: { partitionKey: true, hidden: true, default: (data: { dataset: string }) => getDatasetKeyAttribute(data.dataset) },
     SK: { sortKey: true, hidden: true, default: (data: { version: string }) => getVersionKeyAttribute(data.version) },
@@ -396,7 +412,7 @@ export function getReactionKeyAttribute(reaction: string): string {
 
 // Define a completion
 export const Completion = new Entity({
-  name: 'Completion',
+  name: ENTITY_COMPLETION,
   attributes: {
     PK: { partitionKey: true, hidden: true, default: (data: { id: string }) => getConversationKeyAttribute(data.id) },
     SK: { sortKey: true, hidden: true, default: (data: { sortKey: number }) => getSortKeyAttribute(data.sortKey) },
@@ -437,6 +453,132 @@ export function getCompletionPK(id: string, sortKey: number): { PK: string, SK: 
     SK: getSortKeyAttribute(sortKey),
   };
 }
+
+export function getAssistantKeyAttribute(assistant: string): string {
+  return `ASS#${assistant}`;
+}
+
+export function getNameKeyAttribute(name: string): string {
+  return `NAME#${name.toLowerCase()}`;
+}
+
+export function getAssistantKey(assistant: string): { PK: string, SK: string } {
+  return {
+    PK: getAssistantKeyAttribute(assistant),
+    SK: '$',
+  };
+}
+
+export const Assistant = new Entity({
+  name: ENTITY_ASSISTANT,
+  attributes: {
+    PK: { partitionKey: true, hidden: true, default: (data: { id: string }) => getAssistantKeyAttribute(data.id) },
+    SK: { sortKey: true, hidden: true, default: () => '$' },
+    GSI1PK: { hidden: true, default: () => ALL_ASSISTANTS },
+    GSI1SK: {
+      hidden: true, default: (data: { name: string }) => getNameKeyAttribute(data.name),
+    },
+
+    id: { type: 'string', required: true },
+    name: { type: 'string', required: true },
+    definition: { type: 'map', required: true },
+  },
+  table: serviceTable
+});
+
+export type AssistantData = EntityItem<typeof Assistant>;
+
+export function getFunctionKeyAttribute(func: string): string {
+  return `FUNC#${func}`;
+}
+
+export interface ParamDefinition {
+  name: string;
+  type: string;
+  description: string;
+  enum?: string[];
+  _vkd?: {
+    type: string
+  }
+}
+
+export function makeParamDef(name: string, type: string, description: string, enumValues: string[] | undefined, vkdType: string | undefined): ParamDefinition {
+  return {
+    name,
+    type,
+    description,
+    enum: enumValues,
+    ...(vkdType ? { _vkd: { type: vkdType } } : {}),
+  };
+}
+
+export function getParamDefName(param: ParamDefinition): string {
+  return param.name;
+}
+
+export function getParamDefValue(param: ParamDefinition): {
+  type: string;
+  description?: string;
+  enum?: string[];
+  _vkd?: {
+    type: string
+  }
+} {
+  return {
+    type: param.type,
+    description: param.description,
+    enum: param.enum,
+    _vkd: param._vkd,
+  };
+}
+
+export const AssistantFunction = new Entity({
+  name: ENTITY_ASSISTANT_FUNCTION,
+  attributes: {
+    PK: { partitionKey: true, hidden: true, default: (data: { assistantId: string }) => getAssistantKeyAttribute(data.assistantId) },
+    SK: { sortKey: true, hidden: true, default: (data: { name: string }) => getFunctionKeyAttribute(data.name) },
+    GSI1PK: { hidden: true, default: () => ALL_ASSISTANT_FUNCTIONS },
+    GSI1SK: {
+      hidden: true, default: (data: { func: string }) => getFunctionKeyAttribute(data.func),
+    },
+
+    assistantId: { type: 'string', required: true },
+    name: { type: 'string', required: true },
+
+    description: { type: 'string' },
+    seriesParameter: { type: 'map', required: false }, // ParamDefinition, not required because could be defaulted
+    categoryParameter: { type: 'map', required: true }, // ParamDefinition
+    otherParameters: { type: 'list', required: true }, // List of ParamDefinition
+  },
+  table: serviceTable
+});
+
+export type AssistantFunctionData = EntityItem<typeof AssistantFunction>;
+
+export function getNamespaceKeyAttribute(namespace: string): string {
+  return `NS#${namespace}`;
+}
+
+export function getVariantKeyAttribute(variation: string): string {
+  return `VAR#${variation}`;
+}
+
+export const AssistantMap = new Entity({
+  name: ENTITY_ASSISTANT_MAP,
+  attributes: {
+    PK: { partitionKey: true, hidden: true, default: (data: { namespace: string }) => getNamespaceKeyAttribute(data.namespace) },
+    SK: { sortKey: true, hidden: true, default: (data: { variant: string }) => getVariantKeyAttribute(data.variant) },
+
+    namespace: { type: 'string', required: true },
+    variant: { type: 'string', required: false },
+
+    assistantId: { type: 'string', required: true },
+    vectorStore: { type: 'string', required: true },
+  },
+  table: serviceTable
+});
+
+export type AssistantMapData = EntityItem<typeof AssistantMap>;
 
 export async function forEachThing<T extends Record<string, any>>(
   init: () => Promise<QueryCommandOutput>,
@@ -498,6 +640,37 @@ export async function getAllNameMaps(): Promise<NameMapData[]> {
   return nameMaps;
 }
 
+export async function getAllAssistants(): Promise<AssistantData[]> {
+  const assistants: AssistantData[] = [];
+
+  await forEachThing<AssistantData>(
+    () => Assistant.query(ALL_ASSISTANTS, {
+      index: 'GSI1',
+    }),
+    async (assistant) => {
+      assistants.push(assistant);
+    },
+  );
+
+  return assistants;
+}
+
+export async function getAllAssistantFunctions(assistantId: string): Promise<AssistantFunctionData[]> {
+  const assistantFunctions: AssistantFunctionData[] = [];
+
+  await forEachThing<AssistantFunctionData>(
+    () => AssistantFunction.query(ALL_ASSISTANT_FUNCTIONS, {
+      index: 'GSI1',
+    }),
+    async (assistantFunction) => {
+      if (assistantFunction.assistantId == assistantId) {
+        assistantFunctions.push(assistantFunction);
+      }
+    },
+  );
+
+  return assistantFunctions;
+}
 // Now read some test data
 // const [rows, fields] = await connection.execute(`select * from dbvermontkidsdata.acs_dataset`);
 // if (!module.parent) {

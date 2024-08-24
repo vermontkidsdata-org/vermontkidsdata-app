@@ -766,7 +766,7 @@ export class VermontkidsdataStack extends Stack {
       serviceTable,
       secret,
       onAdd: (fn) => {
-        serviceTable.grantReadWriteData(fn);
+        // Don't need to grant access anymore
       },
     });
 

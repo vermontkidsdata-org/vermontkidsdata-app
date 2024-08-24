@@ -7,6 +7,7 @@ import { Thread } from "openai/resources/beta/threads/threads";
 import { LimitedAssistantDef, VKDFunctionTool, getAssistantInfo } from "./assistant-def";
 import { BarChartResult, getChartData } from "./chartsApi";
 import { makePowerTools } from "./lambda-utils";
+import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
 
 export const IN_PROGRESS_ERROR = 'InProgressError';
 
@@ -566,4 +567,20 @@ if (!module.parent) {
       }
     });
   })();
+}
+
+const { VKD_API_KEY } = process.env;
+
+export function validateAPIAuthorization(event: APIGatewayProxyEventV2): APIGatewayProxyResultV2 | undefined {
+  const key = event.queryStringParameters?.key;
+  if (key !== VKD_API_KEY) {
+    return {
+      statusCode: 403,
+      body: JSON.stringify({
+        "message": "Invalid API key",
+      })
+    };
+  }
+  
+  return undefined;
 }

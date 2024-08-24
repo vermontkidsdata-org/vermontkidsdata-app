@@ -1,5 +1,7 @@
 import { Duration } from "aws-cdk-lib";
 import { AuthorizationType, IResource, LambdaIntegration, MethodOptions, MethodResponse, RequestAuthorizer, Resource } from "aws-cdk-lib/aws-apigateway";
+import { ITable } from "aws-cdk-lib/aws-dynamodb";
+import { Role } from "aws-cdk-lib/aws-iam";
 import { Runtime } from "aws-cdk-lib/aws-lambda";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
@@ -27,8 +29,18 @@ export function addResource(root: Resource, path: string): IResource {
 
 export type OnAddCallback = (fn: NodejsFunction) => void;
 
-export function makeLambda(props: { scope: Construct, name: string, entry: string, handler?: string, timeout?: Duration, commonEnv: Record<string, string>, onAdd?: OnAddCallback }): NodejsFunction {
-  const { scope, entry: _entry, handler: _handler, commonEnv, onAdd, name, timeout } = props;
+export function makeLambda(props: {
+  scope: Construct,
+  name: string,
+  entry: string,
+  handler?: string,
+  timeout?: Duration,
+  commonEnv: Record<string, string>,
+  onAdd?: OnAddCallback,
+  serviceTable?: ITable,
+  role?: Role,
+}): NodejsFunction {
+  const { scope, entry: _entry, handler: _handler, commonEnv, onAdd, name, timeout, serviceTable, role } = props;
   const entry = /[^0-9a-zA-Z]/.test(_entry) ? join(__dirname, '../src', _entry) : _entry;
   const handler = _handler || 'handler';
 
@@ -39,10 +51,15 @@ export function makeLambda(props: { scope: Construct, name: string, entry: strin
     runtime: Runtime.NODEJS_20_X,
     timeout: timeout ?? Duration.seconds(29),
     environment: commonEnv,
+    role,
   });
 
   if (onAdd) {
     onAdd(fn);
+  }
+
+  if (serviceTable) {
+    serviceTable.grantReadData(fn);
   }
 
   return fn;
@@ -57,10 +74,12 @@ export function addLambdaResource(props: {
   commonEnv: Record<string, string>,
   onAdd?: OnAddCallback,
   methodOptions: MethodOptions,
+  serviceTable?: ITable,
+  role?: Role,
 }): {
   fn: NodejsFunction,
 } {
-  const { scope, root, commonEnv, onAdd, methodOptions, method, path, entry } = props;
+  const { scope, root, commonEnv, onAdd, methodOptions, method, path, entry, serviceTable, role } = props;
 
   const fn = makeLambda({
     scope,
@@ -68,10 +87,12 @@ export function addLambdaResource(props: {
     entry,
     commonEnv,
     onAdd,
+    serviceTable,
+    role,
   });
 
   const postCompletion = addResource(root, path);
-  postCompletion.addMethod(method, new LambdaIntegration(fn), methodOptions); 
+  postCompletion.addMethod(method, new LambdaIntegration(fn), methodOptions);
 
   return { fn };
 }

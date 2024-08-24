@@ -17,8 +17,8 @@ export type VKDFunctionTool = {
   function: VKDFunction,
 };
 
-const SERIES_PARAMETER = "series";
-const CATEGORY_PARAMETER = "category";
+export const SERIES_PARAMETER = "series";
+export const CATEGORY_PARAMETER = "category";
 
 function YEAR_PARAMETER({ minYear, type }: { minYear?: number, type?: string }): OpenAI.FunctionParameters {
   const min = minYear ?? 2018;

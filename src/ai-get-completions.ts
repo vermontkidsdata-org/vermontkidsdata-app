@@ -1,22 +1,16 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
 import { ALL_WITH_COMMENTS, Completion, CompletionData, forEachThing, getReactionKeyAttribute } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
-
-const { VKD_API_KEY } = process.env;
+import { validateAPIAuthorization } from "./ai-utils";
 
 const pt = makePowerTools({ prefix: 'ai-get-completions' });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  const key = event.queryStringParameters?.key;
-  if (key !== VKD_API_KEY) {
-    return {
-      statusCode: 403,
-      body: JSON.stringify({
-        "message": "Invalid API key",
-      })
-    };
+  const ret = validateAPIAuthorization(event);
+  if (ret) {
+    return ret;
   }
 
   // Filtering. The only filters we allow at the moment is (1) by reaction or (2) completions with comments.

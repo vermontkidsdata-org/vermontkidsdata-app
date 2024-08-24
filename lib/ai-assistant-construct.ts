@@ -8,6 +8,7 @@ import { Construct } from "constructs";
 import { IN_PROGRESS_ERROR } from "../src/ai-utils";
 import { getAssistantInfo } from "../src/assistant-def";
 import { AuthInfo, OnAddCallback, addLambdaResource, makeLambda } from "./cdk-utils";
+import { ManagedPolicy, PolicyStatement, Role, ServicePrincipal } from "aws-cdk-lib/aws-iam";
 
 interface AIAssistantProps {
   api: RestApi;
@@ -19,7 +20,7 @@ interface AIAssistantProps {
   secret: ISecret;
   ns: string;
 }
-const VKD_API_KEY = '09848734-8745-afrt-8745-8745873487';
+export const VKD_API_KEY = '09848734-8745-afrt-8745-8745873487';
 
 export class AIAssistantConstruct extends Construct {
   _props: AIAssistantProps;
@@ -32,7 +33,7 @@ export class AIAssistantConstruct extends Construct {
     const aiAssistantRoot = api.root.addResource('ai');
 
     const aiSecret = Secret.fromSecretNameV2(this, 'AI Secret', `openai-config/${ns}`);
-    const {assistantId} = getAssistantInfo(ns);
+    const { assistantId } = getAssistantInfo(ns);
 
     const aiCommonEnv = {
       ...commonEnv,
@@ -43,6 +44,17 @@ export class AIAssistantConstruct extends Construct {
       VKD_API_KEY,
     };
 
+    // Get the role for all the lambdas
+    const role = new Role(this, 'AI Assistant Lambda Role', {
+      assumedBy: new ServicePrincipal('lambda.amazonaws.com'),
+      managedPolicies: [
+        ManagedPolicy.fromAwsManagedPolicyName('service-role/AWSLambdaBasicExecutionRole'),
+      ],
+    });
+    serviceTable.grantReadWriteData(role);
+    aiSecret.grantRead(role);
+    secret.grantRead(role);
+
     const startOpenAICompletion = makeLambda({
       scope: this,
       name: 'Start OpenAI Completion',
@@ -50,11 +62,9 @@ export class AIAssistantConstruct extends Construct {
       timeout: Duration.minutes(15),
       commonEnv: aiCommonEnv,
       onAdd,
+      role,
     });
     ((fn) => {
-      serviceTable.grantReadWriteData(fn);
-      aiSecret.grantRead(fn);
-      secret.grantRead(fn);
     })(startOpenAICompletion);
 
     const checkOpenAICompletion = makeLambda({
@@ -63,11 +73,9 @@ export class AIAssistantConstruct extends Construct {
       entry: 'ai-check-openai-completion.ts',
       commonEnv: aiCommonEnv,
       onAdd,
+      role,
     });
     ((fn) => {
-      serviceTable.grantReadWriteData(fn);
-      aiSecret.grantRead(fn);
-      secret.grantRead(fn);
     })(checkOpenAICompletion);
 
     const checkComplete = new LambdaInvoke(this, 'Invoke Check OpenAI Completion', {
@@ -104,7 +112,6 @@ export class AIAssistantConstruct extends Construct {
 
     (({ fn }) => {
       sf.grantStartExecution(fn);
-      aiSecret.grantRead(fn);
     })(addLambdaResource({
       scope: this,
       root: aiAssistantRoot,
@@ -114,10 +121,10 @@ export class AIAssistantConstruct extends Construct {
       commonEnv: aiCommonEnv,
       onAdd,
       methodOptions: methodOptionsWithAuth,
+      serviceTable,
     }));
 
     (({ fn }) => {
-      serviceTable.grantReadData(fn);
     })(addLambdaResource({
       scope: this,
       root: aiAssistantRoot,
@@ -127,10 +134,10 @@ export class AIAssistantConstruct extends Construct {
       commonEnv: aiCommonEnv,
       onAdd,
       methodOptions: methodOptionsWithAuth,
+      role
     }));
 
     (({ fn }) => {
-      serviceTable.grantReadData(fn);
     })(addLambdaResource({
       scope: this,
       root: aiAssistantRoot,
@@ -140,6 +147,7 @@ export class AIAssistantConstruct extends Construct {
       commonEnv: aiCommonEnv,
       onAdd,
       methodOptions: methodOptionsWithAuth,
+      role,
     }));
 
     (({ fn }) => {
@@ -153,7 +161,62 @@ export class AIAssistantConstruct extends Construct {
       commonEnv: aiCommonEnv,
       onAdd,
       methodOptions: methodOptionsWithAuth,
+      serviceTable,
     }));
+
+    // Assistant admin endpoints
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'assistant',
+      entry: 'ai-get-assistants.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'assistant/{id}',
+      entry: 'ai-get-assistant.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'assistant/{id}/function',
+      entry: 'ai-get-assistant-functions.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'assistant/{id}/function/{functionId}',
+      entry: 'ai-get-assistant-function.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
   }
 }
 
