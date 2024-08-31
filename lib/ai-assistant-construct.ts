@@ -1,4 +1,4 @@
-import { Duration } from "aws-cdk-lib";
+import { Duration, NestedStack, NestedStackProps } from "aws-cdk-lib";
 import { MethodOptions, RestApi } from "aws-cdk-lib/aws-apigateway";
 import { ITable } from "aws-cdk-lib/aws-dynamodb";
 import { ISecret, Secret } from "aws-cdk-lib/aws-secretsmanager";
@@ -10,7 +10,7 @@ import { getAssistantInfo } from "../src/assistant-def";
 import { AuthInfo, OnAddCallback, addLambdaResource, makeLambda } from "./cdk-utils";
 import { ManagedPolicy, PolicyStatement, Role, ServicePrincipal } from "aws-cdk-lib/aws-iam";
 
-interface AIAssistantProps {
+interface AIAssistantProps extends NestedStackProps {
   api: RestApi;
   methodOptions?: MethodOptions;
   auth?: AuthInfo;
@@ -22,7 +22,7 @@ interface AIAssistantProps {
 }
 export const VKD_API_KEY = '09848734-8745-afrt-8745-8745873487';
 
-export class AIAssistantConstruct extends Construct {
+export class AIAssistantConstruct extends NestedStack {
   _props: AIAssistantProps;
 
   constructor(scope: Construct, id: string, props: AIAssistantProps) {
@@ -182,7 +182,7 @@ export class AIAssistantConstruct extends Construct {
     })(addLambdaResource({
       scope: this,
       root: aiAssistantRoot,
-      method: 'GET',
+      method: 'ANY',
       path: 'assistant/{id}',
       entry: 'ai-get-assistant.ts',
       commonEnv: aiCommonEnv,
@@ -217,6 +217,31 @@ export class AIAssistantConstruct extends Construct {
       role,
     }));
 
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'PUT',
+      path: 'assistant/{id}/function/{functionId}',
+      entry: 'ai-put-assistant-function.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'POST',
+      path: 'assistant/{id}/publish',
+      entry: 'ai-post-assistant-publish.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
   }
 }
 

@@ -3,11 +3,12 @@ import { Assistant, getAllAssistants, getAssistantKey, getAssistantKeyAttribute 
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 import { validateAPIAuthorization } from "./ai-utils";
 
-const pt = makePowerTools({ prefix: 'ai-get-asssistants' });
+const pt = makePowerTools({ prefix: 'ai-get-asssistant' });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
+  pt.logger.info("ai-get-assistant", { event });
   const ret = validateAPIAuthorization(event);
   if (ret) {
     return ret;
@@ -24,11 +25,20 @@ export async function lambdaHandler(
   }
 
   const assistant = await Assistant.get(getAssistantKey(id));
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      assistant: assistant?.Item,
-    })
+  if (!assistant?.Item) {
+    return {
+      statusCode: 404,
+      body: JSON.stringify({
+        message: "Assistant not found",
+      })
+    }
+  } else {
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        assistant: assistant?.Item,
+      })
+    }
   }
 }
 

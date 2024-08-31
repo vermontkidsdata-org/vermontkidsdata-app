@@ -1,22 +1,23 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2 } from "aws-lambda";
-import { Assistant, AssistantFunction, getAllAssistantFunctions, getAllAssistants, getAssistantFunctionKey, getAssistantKey, getAssistantKeyAttribute } from "./db-utils";
+import { Assistant, AssistantFunction, AssistantFunctionData, getAllAssistantFunctions, getAllAssistants, getAssistantFunctionKey, getAssistantKey, getAssistantKeyAttribute } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 import { validateAPIAuthorization } from "./ai-utils";
 
-const pt = makePowerTools({ prefix: 'ai-get-asssistant-function' });
+const SERVICE = 'ai-post-assistant-publish';
+
+const pt = makePowerTools({ prefix: SERVICE });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2WithRequestContext<any>
 ): Promise<APIGatewayProxyResultV2> {
-  console.log({message: "ai-get-assistant-function", event });
+  pt.logger.info({message: SERVICE, event });
   const ret = validateAPIAuthorization(event);
   if (ret) {
     return ret;
   }
 
-  const id = event.pathParameters?.id;
-  const functionId = event.pathParameters?.functionId;
-  if (!id || !functionId) {
+  const assistantId = event.pathParameters?.id;
+  if (!assistantId) {
     return {
       statusCode: 400,
       body: JSON.stringify({
@@ -25,8 +26,8 @@ export async function lambdaHandler(
     }
   }
 
-  const assFunction = await AssistantFunction.get(getAssistantFunctionKey(id, functionId));
-  if (!assFunction?.Item) {
+  const assRow = await Assistant.get(getAssistantKey(assistantId));
+  if (!assRow?.Item) {
     return {
       statusCode: 404,
       body: JSON.stringify({
@@ -34,10 +35,19 @@ export async function lambdaHandler(
       })
     }
   } else {
+    const assFunctions = await getAllAssistantFunctions(assistantId);
+    const assistant = assRow.Item.definition;
+    pt.logger.info({message: 'assistant before tools added', assistant, assFunctions });
+    if (!assistant.tools) {
+      assistant.tools = [];
+    }
+    assFunctions.forEach((assFunction) => assistant.tools.push(assFunction));
+    pt.logger.info({message: 'assistant after tools added', assistant });
+
     return {
       statusCode: 200,
       body: JSON.stringify({
-        function: assFunction.Item
+        assistant,
       })
     }
   }

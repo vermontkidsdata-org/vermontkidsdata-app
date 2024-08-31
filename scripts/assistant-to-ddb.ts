@@ -1,5 +1,5 @@
 import { ASSISTANTS_MAP, CATEGORY_PARAMETER, getAssistantInfo, SERIES_PARAMETER, VKDFunction } from "../src/assistant-def";
-import { Assistant, AssistantFunction, AssistantMap, makeParamDef } from "../src/db-utils";
+import { Assistant, AssistantFunction, AssistantMap, getAllAssistantFunctions, getAllAssistants, getAssistantFunctionKey, getAssistantKey, makeParamDef } from "../src/db-utils";
 
 console.log("Assistant to DDB");
 
@@ -10,6 +10,19 @@ if (ns == null) {
 }
 
 (async () => {
+    // First clear out the existing records
+    const assistants = await getAllAssistants(ns);
+    for (const assistant of assistants) {
+        console.log(`Delete Assistant: ${assistant.id}`);
+        await Assistant.delete(getAssistantKey(assistant.id));
+
+        const assistantFunctions = await getAllAssistantFunctions(assistant.id);
+        for (const assistantFunction of assistantFunctions) {
+            console.log(`Delete Function: ${assistant.id}.${assistantFunction.functionId} (${assistantFunction.name})`);
+            await AssistantFunction.delete(getAssistantFunctionKey(assistant.id, assistantFunction.functionId));
+        }
+    }
+
     const assistant = getAssistantInfo(ns, false);
     if (assistant == null) {
         console.error("Assistant not found");
@@ -21,9 +34,14 @@ if (ns == null) {
         ...assistant.assistant,
         tools: assistant.assistant.tools.filter((tool) => tool.type !== 'function'),
     };
-    console.log(`Write Assistant: ${ns}`);
+
+    // Make id the current timestamp
+    const assistantId = Date.now().toString();
+
+    console.log(`Write Assistant: ${assistantId} (${ns})`);
     await Assistant.put({
-        id: ns,
+        id: assistantId,
+        ns,
         name: assistantWithoutFunctions.name || `VKD assistant for ${ns}`,
         definition: assistantWithoutFunctions,
     });
@@ -48,10 +66,13 @@ if (ns == null) {
                 }
             }
             
-            console.log(`Write Function: ${ns}.${vkdFunc.name}`);
+            const functionId = Date.now().toString();
+            console.log(`Write Function: ${assistantId}.${functionId} (${vkdFunc.name})`);
             await AssistantFunction.put({
-                assistantId: ns,
+                assistantId,
+                functionId,
                 name: vkdFunc.name,
+                _vkd: vkdFuncMetadata,
                 description: vkdFunc.description,
                 categoryParameter,
                 seriesParameter,

@@ -4,7 +4,7 @@ import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
 import { join } from "path";
 import { AuthInfo, addResource } from "./cdk-utils";
-import { Runtime } from "aws-cdk-lib/aws-lambda";
+import { Runtime, Tracing } from "aws-cdk-lib/aws-lambda";
 
 export type OnAddCallback = (fn: NodejsFunction) => void;
 
@@ -26,6 +26,7 @@ export function getPortalsLambda(props: { scope: Construct, handler: string, com
     runtime: Runtime.NODEJS_20_X,
     timeout: Duration.seconds(30),
     environment: commonEnv,
+    tracing: Tracing.ACTIVE,
   });
 
   if (onAdd) {

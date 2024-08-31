@@ -2,7 +2,7 @@ import { Duration } from "aws-cdk-lib";
 import { AuthorizationType, IResource, LambdaIntegration, MethodOptions, MethodResponse, RequestAuthorizer, Resource } from "aws-cdk-lib/aws-apigateway";
 import { ITable } from "aws-cdk-lib/aws-dynamodb";
 import { Role } from "aws-cdk-lib/aws-iam";
-import { Runtime } from "aws-cdk-lib/aws-lambda";
+import { Runtime, Tracing } from "aws-cdk-lib/aws-lambda";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
 import { join } from "path";
@@ -52,6 +52,7 @@ export function makeLambda(props: {
     timeout: timeout ?? Duration.seconds(29),
     environment: commonEnv,
     role,
+    tracing: Tracing.ACTIVE,
   });
 
   if (onAdd) {

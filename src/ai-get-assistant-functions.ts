@@ -3,7 +3,7 @@ import { Assistant, AssistantFunction, getAllAssistantFunctions, getAllAssistant
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 import { validateAPIAuthorization } from "./ai-utils";
 
-const pt = makePowerTools({ prefix: 'ai-get-asssistants' });
+const pt = makePowerTools({ prefix: 'ai-get-asssistant-functions' });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,

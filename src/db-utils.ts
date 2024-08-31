@@ -480,6 +480,7 @@ export const Assistant = new Entity({
     },
 
     id: { type: 'string', required: true },
+    ns: { type: 'string', required: true },
     name: { type: 'string', required: true },
     definition: { type: 'map', required: true },
   },
@@ -536,22 +537,31 @@ export const AssistantFunction = new Entity({
   name: ENTITY_ASSISTANT_FUNCTION,
   attributes: {
     PK: { partitionKey: true, hidden: true, default: (data: { assistantId: string }) => getAssistantKeyAttribute(data.assistantId) },
-    SK: { sortKey: true, hidden: true, default: (data: { name: string }) => getFunctionKeyAttribute(data.name) },
+    SK: { sortKey: true, hidden: true, default: (data: { functionId: string }) => getFunctionKeyAttribute(data.functionId) },
     GSI1PK: { hidden: true, default: () => ALL_ASSISTANT_FUNCTIONS },
     GSI1SK: {
       hidden: true, default: (data: { func: string }) => getFunctionKeyAttribute(data.func),
     },
 
     assistantId: { type: 'string', required: true },
-    name: { type: 'string', required: true },
+    functionId: { type: 'string', required: true },
 
+    name: { type: 'string', required: true },
     description: { type: 'string' },
+    _vkd: { type: 'map', required: false }, // VKDFunction
     seriesParameter: { type: 'map', required: false }, // ParamDefinition, not required because could be defaulted
     categoryParameter: { type: 'map', required: true }, // ParamDefinition
     otherParameters: { type: 'list', required: true }, // List of ParamDefinition
   },
   table: serviceTable
 });
+
+export function getAssistantFunctionKey(assistantId: string, functionId: string): { PK: string, SK: string } {
+  return {
+    PK: getAssistantKeyAttribute(assistantId),
+    SK: getFunctionKeyAttribute(functionId),
+  };
+}
 
 export type AssistantFunctionData = EntityItem<typeof AssistantFunction>;
 
@@ -640,7 +650,7 @@ export async function getAllNameMaps(): Promise<NameMapData[]> {
   return nameMaps;
 }
 
-export async function getAllAssistants(): Promise<AssistantData[]> {
+export async function getAllAssistants(ns?: string): Promise<AssistantData[]> {
   const assistants: AssistantData[] = [];
 
   await forEachThing<AssistantData>(
@@ -648,7 +658,10 @@ export async function getAllAssistants(): Promise<AssistantData[]> {
       index: 'GSI1',
     }),
     async (assistant) => {
-      assistants.push(assistant);
+      console.log('assistant', ns, assistant.ns);
+      if (ns && assistant.ns === ns) {
+        assistants.push(assistant);
+      }
     },
   );
 
@@ -663,7 +676,7 @@ export async function getAllAssistantFunctions(assistantId: string): Promise<Ass
       index: 'GSI1',
     }),
     async (assistantFunction) => {
-      if (assistantFunction.assistantId == assistantId) {
+      if (assistantFunction.assistantId === assistantId) {
         assistantFunctions.push(assistantFunction);
       }
     },
@@ -675,10 +688,7 @@ export async function getAllAssistantFunctions(assistantId: string): Promise<Ass
 // const [rows, fields] = await connection.execute(`select * from dbvermontkidsdata.acs_dataset`);
 // if (!module.parent) {
 //     (async () => {
-//         const rows = await queryDB(`select * from dbvkd.acs_variables where variable like 'B09001%' order by variable`);
-//         // rows.sort((a, b) => {
-//         //     return a.variable.localeCompare(b.variable);
-//         // })
-//         console.log(rows);
+//       const assistants = await getAllAssistants(VKD_ENVIRONMENT);
+//       console.log(assistants);
 //     })();
 // }
