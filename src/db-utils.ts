@@ -12,6 +12,7 @@ const ALL_DATASET_VERSIONS = 'ALL_DATASET_VERSIONS';
 const ALL_NAME_MAPS = 'ALL_NAME_MAPS';
 const ALL_ASSISTANTS = 'ALL_ASSISTANTS';
 const ALL_ASSISTANT_FUNCTIONS = 'ALL_ASSISTANT_FUNCTIONS';
+const ALL_PUBLISHED_ASSISTANTS = 'ALL_PUBLISHED_ASSISTANTS';
 
 const ENTITY_UPLOAD_STATUS = 'UploadStatus';
 const ENTITY_NAME_MAP = 'NameMap';
@@ -21,6 +22,7 @@ const ENTITY_COMPLETION = 'Completion';
 const ENTITY_ASSISTANT = 'Assistant';
 const ENTITY_ASSISTANT_FUNCTION = 'AssistantFunction';
 const ENTITY_ASSISTANT_MAP = 'AssistantMap';
+const ENTITY_PUBLISHED_ASSISTANT = 'PublishedAssistant';
 
 export const ALL_WITH_COMMENTS = 'ALL_WITH_COMMENTS';
 
@@ -37,7 +39,7 @@ function getRegion(): string {
   return process.env.REGION || 'us-east-1';
 }
 
-function getNamespace(): string {
+export function getNamespace(): string {
   if (process.env.VKD_ENVIRONMENT) return process.env.VKD_ENVIRONMENT;
   else throw new Error("process.env.VKD_ENVIRONMENT not passed");
 }
@@ -488,6 +490,28 @@ export const Assistant = new Entity({
 });
 
 export type AssistantData = EntityItem<typeof Assistant>;
+
+export function getPublishedAssistantKeyAttribute(id: string): string {
+  return `PUB${getAssistantKeyAttribute(id)}`;
+}
+
+export const PublishedAssistant = new Entity({
+  name: ENTITY_PUBLISHED_ASSISTANT,
+  attributes: {
+    PK: { partitionKey: true, hidden: true, default: (data: { name: string }) => getPublishedAssistantKeyAttribute(data.name) },
+    SK: { sortKey: true, hidden: true, default: () => '$' },
+    GSI1PK: { hidden: true, default: () => ALL_PUBLISHED_ASSISTANTS },
+    GSI1SK: {
+      hidden: true, default: (data: { name: string }) => getNameKeyAttribute(data.name),
+    },
+
+    name: { type: 'string', required: true },
+    definition: { type: 'map', required: true },
+  },
+  table: serviceTable,
+});
+
+export type PublishedAssistantData = EntityItem<typeof PublishedAssistant>;
 
 export function getFunctionKeyAttribute(func: string): string {
   return `FUNC#${func}`;

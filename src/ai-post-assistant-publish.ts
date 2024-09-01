@@ -1,7 +1,9 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2 } from "aws-lambda";
-import { Assistant, AssistantFunction, AssistantFunctionData, getAllAssistantFunctions, getAllAssistants, getAssistantFunctionKey, getAssistantKey, getAssistantKeyAttribute } from "./db-utils";
+import { Assistant, AssistantFunction, AssistantFunctionData, getAllAssistantFunctions, getAllAssistants, getAssistantFunctionKey, getAssistantKey, getAssistantKeyAttribute, getNamespace, PublishedAssistant } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
-import { validateAPIAuthorization } from "./ai-utils";
+import { connectOpenAI, getOpenAI, validateAPIAuthorization } from "./ai-utils";
+import { removeVkdProperties } from "./assistant-def";
+import OpenAI from "openai";
 
 const SERVICE = 'ai-post-assistant-publish';
 
@@ -10,11 +12,16 @@ const pt = makePowerTools({ prefix: SERVICE });
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2WithRequestContext<any>
 ): Promise<APIGatewayProxyResultV2> {
-  pt.logger.info({message: SERVICE, event });
+  pt.logger.info({ message: SERVICE, event });
   const ret = validateAPIAuthorization(event);
   if (ret) {
     return ret;
   }
+
+  const sandbox = JSON.parse(event.body ?? '{}').sandbox;
+  const ns = getNamespace();
+
+  const envName = (ns + (sandbox ? `/${sandbox}` : '')).toLowerCase();
 
   const assistantId = event.pathParameters?.id;
   if (!assistantId) {
@@ -36,13 +43,18 @@ export async function lambdaHandler(
     }
   } else {
     const assFunctions = await getAllAssistantFunctions(assistantId);
-    const assistant = assRow.Item.definition;
-    pt.logger.info({message: 'assistant before tools added', assistant, assFunctions });
-    if (!assistant.tools) {
-      assistant.tools = [];
+    const { entity, created, modified, ...assistantDef} = assRow.Item.definition;
+    pt.logger.info({ message: 'assistant before tools added', assistant: assistantDef, assFunctions });
+    if (!assistantDef.tools) {
+      assistantDef.tools = [];
     }
     assFunctions.forEach((assFunction) => {
-      const { seriesParameter, categoryParameter, otherParameters, ...functionDef } = assFunction;
+      const { 
+        seriesParameter, categoryParameter, otherParameters, 
+        entity, created, modified, functionId, assistantId,
+        ...functionDef
+      } = assFunction;
+
       const properties = {} as Record<string, {
         description: string,
         type: string,
@@ -59,26 +71,38 @@ export async function lambdaHandler(
           _vkd: seriesParameter._vkd,
         };
       }
+      const functionRoot = {
+        type: "function",
+        function: functionDef,
+      };
       (functionDef as any).parameters = {
         type: "object",
         properties,
       };
-      assistant.tools.push(functionDef);
+      assistantDef.tools.push(functionRoot);
     });
+
+    assistantDef.name = `Vermont Kids Data Assistant with Functions (${envName})`;
+    
+    pt.logger.info({ message: 'assistant to define in OpenAI', assistantDef });
+
+    await connectOpenAI();
+    const openai = getOpenAI();
 
     // Remove from function? Yes except for _vkd. We'll remove that right before
     // we actually publish it using the existing function.
-    //
-    // _vkd, entity, created, functionId, assistantId, 
-    // seriesParameter, categoryParameter, otherParameters
-    //    parameters: {
-    //     type: "object",
-    //     properties: { 
-    //    -> name: description, type, enum
+    const createDef = removeVkdProperties(assistantDef);
+    const resp = await openai.beta.assistants.create(createDef);
+
+    await PublishedAssistant.put({
+      name: envName,
+      definition: assistantDef,
+    });
+      
     return {
       statusCode: 200,
       body: JSON.stringify({
-        assistant,
+        assistant: resp
       })
     }
   }
