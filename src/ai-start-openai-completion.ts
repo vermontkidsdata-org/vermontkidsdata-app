@@ -2,7 +2,7 @@ import { ChunkHandler, Footnote, askWithStreaming, connectOpenAI, getOpenAI, sta
 import { Completion, getCompletionPK } from "./db-utils";
 import { StepFunctionInputOutput, makePowerTools, prepareStepFunction } from "./lambda-utils";
 
-const { ASSISTANT_ID, } = process.env;
+const { ASSISTANT_ID } = process.env;
 
 const pt = makePowerTools({ prefix: 'ai-start-openai-completion' });
 
@@ -65,12 +65,12 @@ export const lambdaHandler = async (event: StepFunctionInputOutput): Promise<Ste
           });
           return;
         }
-      }
+      },
     });
 
     return {
       ...event,
-      status: 'completed'
+      status: 'completed',
     };
   } else {
     const response = await startAskWithoutStreaming({
@@ -82,7 +82,7 @@ export const lambdaHandler = async (event: StepFunctionInputOutput): Promise<Ste
     return {
       ...event,
       runId: response.runId,
-      status: 'in_progress'
+      status: 'in_progress',
     };
   }
 }

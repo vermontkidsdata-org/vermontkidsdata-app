@@ -2,52 +2,69 @@ import { APIGatewayProxyEventV2, APIGatewayProxyEventV2WithRequestContext, APIGa
 import { Assistant, AssistantFunction, AssistantFunctionData, getAllAssistantFunctions, getAllAssistants, getAssistantFunctionKey, getAssistantKey, getAssistantKeyAttribute } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 import { validateAPIAuthorization } from "./ai-utils";
+import { FunctionBody } from "./models/api";
 
-const SERVICE = 'ai-put-assistant-function';
+const SERVICE = 'ai-post-assistant-function';
 
 const pt = makePowerTools({ prefix: SERVICE });
 
 export async function lambdaHandler(
-  event: APIGatewayProxyEventV2WithRequestContext<any>,
+  event: APIGatewayProxyEventV2WithRequestContext<any>
 ): Promise<APIGatewayProxyResultV2> {
-  console.log({message: SERVICE, event });
+  pt.logger.info({message: SERVICE, event });
   const ret = validateAPIAuthorization(event);
   if (ret) {
     return ret;
   }
 
   const assistantId = event.pathParameters?.id;
-  const functionId = event.pathParameters?.functionId;
-  if (!assistantId || !functionId) {
+  if (!assistantId) {
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: "Missing id or functionId",
-      }),
+        message: "Missing assistantId",
+      })
     }
   }
 
-  const assFunction = await AssistantFunction.get(getAssistantFunctionKey(assistantId, functionId));
-  if (!assFunction?.Item) {
+  const assRow = await Assistant.get(getAssistantKey(assistantId));
+  if (!assRow?.Item) {
     return {
       statusCode: 404,
       body: JSON.stringify({
-        message: "Function not found",
-      }),
+        message: "Assistant not found",
+      })
     }
-  } else {
-    const item = JSON.parse(event.body || '{}') as AssistantFunctionData;
-    await AssistantFunction.update({
-      ...item,
-      assistantId,
+  }
+  
+  const functionBody = JSON.parse(event.body || '{}') as FunctionBody;
+
+  // Don't let two functions have the same name
+  const assFunctions = await getAllAssistantFunctions(assistantId);
+  for (const assFunction of assFunctions) {
+    if (assFunction.name === functionBody.name) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          message: `Function name already exists`,
+          name: functionBody.name,
+        })
+      }
+    }
+  }
+
+  const functionId = Date.now().toString();
+  await AssistantFunction.put({
+    ...functionBody,
+    assistantId,
+    functionId,
+  });
+
+  return {
+    statusCode: 201,
+    body: JSON.stringify({
       functionId,
-    });
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: "Function updated",
-      }),
-    }
+    })
   }
 }
 

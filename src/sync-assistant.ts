@@ -76,7 +76,7 @@ async function syncAssistant(props: { ns: string }) {
       info.vectorStore,
       {
         file_ids: filesToAdd.map((f) => f.id),
-      }
+      },
     );
   }
 

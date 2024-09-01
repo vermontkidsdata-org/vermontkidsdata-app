@@ -41,9 +41,40 @@ export async function lambdaHandler(
     if (!assistant.tools) {
       assistant.tools = [];
     }
-    assFunctions.forEach((assFunction) => assistant.tools.push(assFunction));
-    pt.logger.info({message: 'assistant after tools added', assistant });
+    assFunctions.forEach((assFunction) => {
+      const { seriesParameter, categoryParameter, otherParameters, ...functionDef } = assFunction;
+      const properties = {} as Record<string, {
+        description: string,
+        type: string,
+        enum?: string[],
+        _vkd?: {
+          type: string,
+        }
+      }>;
+      if (seriesParameter) {
+        properties[seriesParameter.name] = {
+          type: seriesParameter.type,
+          description: seriesParameter.description,
+          enum: seriesParameter.enum,
+          _vkd: seriesParameter._vkd,
+        };
+      }
+      (functionDef as any).parameters = {
+        type: "object",
+        properties,
+      };
+      assistant.tools.push(functionDef);
+    });
 
+    // Remove from function? Yes except for _vkd. We'll remove that right before
+    // we actually publish it using the existing function.
+    //
+    // _vkd, entity, created, functionId, assistantId, 
+    // seriesParameter, categoryParameter, otherParameters
+    //    parameters: {
+    //     type: "object",
+    //     properties: { 
+    //    -> name: description, type, enum
     return {
       statusCode: 200,
       body: JSON.stringify({

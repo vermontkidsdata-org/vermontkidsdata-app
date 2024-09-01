@@ -28,9 +28,9 @@ function YEAR_PARAMETER({ minYear, type }: { minYear?: number, type?: string }):
           for ${min} and tell the user that the data is only available from ${min} onwards.`,
     ...(type ? {
       _vkd: {
-        type
-      }
-    } : {})
+        type,
+      },
+    } : {}),
   };
 }
 
@@ -44,9 +44,9 @@ function SCHOOL_YEAR_PARAMETER({ minYear, type }: { minYear?: number, type?: str
       for ${min} and tell the user that the data is only available from ${min} onwards.`,
     ...(type ? {
       _vkd: {
-        type
-      }
-    } : {})
+        type,
+      },
+    } : {}),
   }
 }
 
@@ -85,21 +85,21 @@ const functionDefs: VKDFunctionTool[] = [{
             "Rutland",
             "Southeast Vermont",
             "Springfield",
-            "Vermont"
+            "Vermont",
           ],
           _vkd: {
             type: SERIES_PARAMETER,
-          }
+          },
         },
         year: YEAR_PARAMETER({ minYear: 2017, type: CATEGORY_PARAMETER }),
       },
       required: [
         "location",
         "type",
-        "year"
-      ]
-    }
-  }
+        "year",
+      ],
+    },
+  },
 },
 {
   type: "function",
@@ -116,19 +116,19 @@ const functionDefs: VKDFunctionTool[] = [{
           description: "Whether the user is asking about an individual or an entire household (also referred to as a 'family').",
           enum: [
             "individual",
-            "household"
+            "household",
           ],
           _vkd: {
             type: SERIES_PARAMETER,
-          }
+          },
         },
         year: YEAR_PARAMETER({ minYear: 2017, type: CATEGORY_PARAMETER }),
       },
       required: [
-        "group"
-      ]
-    }
-  }
+        "group",
+      ],
+    },
+  },
 },
 {
   type: "function",
@@ -153,12 +153,12 @@ const functionDefs: VKDFunctionTool[] = [{
           enum: ["IEP"],
           _vkd: {
             type: SERIES_PARAMETER,
-          }
-        }
+          },
+        },
       },
-      required: ["year", "type"]
-    }
-  }
+      required: ["year", "type"],
+    },
+  },
 }, {
   type: "function",
   function: {
@@ -183,20 +183,20 @@ const functionDefs: VKDFunctionTool[] = [{
           description: "The part of the IDEA act of interest. This can be determined by the age of the children of interest.",
           enum: [
             "IDEA B",
-            "IDEA C"
+            "IDEA C",
           ],
           _vkd: {
             type: SERIES_PARAMETER,
-          }
+          },
         },
         year: YEAR_PARAMETER({ minYear: 2018, type: CATEGORY_PARAMETER }),
       },
       required: [
         "part",
-        "year"
-      ]
-    }
-  }
+        "year",
+      ],
+    },
+  },
 }, {
   type: "function",
   function: {
@@ -217,10 +217,10 @@ const functionDefs: VKDFunctionTool[] = [{
       },
       required: [
         "part",
-        "year"
-      ]
-    }
-  }
+        "year",
+      ],
+    },
+  },
 }];
 
 export type LimitedAssistantDef = Omit<VKDAssistant, "object" | "id" | "created_at">;
@@ -263,10 +263,10 @@ export const assistantDef: LimitedAssistantDef = {
   as the format of your responses. This includes citations, bullet lists, headings, links, and paragraph separation.`,
   tools: [
     {
-      type: "code_interpreter"
+      type: "code_interpreter",
     },
     {
-      type: "file_search"
+      type: "file_search",
     },
     ...(functionDefs),
   ],
@@ -277,11 +277,11 @@ export const assistantDef: LimitedAssistantDef = {
       vector_store_ids: [], // Need to add value for the environment
     },
     code_interpreter: {
-      file_ids: []
-    }
+      file_ids: [],
+    },
   },
   metadata: {},
-  response_format: "auto"
+  response_format: "auto",
 };
 
 /**
@@ -324,7 +324,7 @@ export const ASSISTANTS_MAP: Record<string, AssistantInfo> = {
   },
   prod: {
     assistantId: 'asst_EirXPumzBw459bNHgQqYjDIQ',
-    vectorStore: 'vs_GEO7mVc5EIUA2n5t0Sk0GGpz'
+    vectorStore: 'vs_GEO7mVc5EIUA2n5t0Sk0GGpz',
   },
   sandbox: {
     assistantId: 'asst_f0j3Q0YM8vmzBRMXHaCBLwp2',
@@ -332,12 +332,12 @@ export const ASSISTANTS_MAP: Record<string, AssistantInfo> = {
   },
   "qa/dave": {
     assistantId: 'asst_grARLJVpFhQS7H5decnIbuP0',
-    vectorStore: 'vs_b4VuD62YS0I257XvLQyUla6a'
+    vectorStore: 'vs_b4VuD62YS0I257XvLQyUla6a',
   },
   "qa/gary": {
     assistantId: 'asst_P9EBbNGaZoutTNoHsePvrFgA',
-    vectorStore: 'vs_ViMIvNC46x2q3tpIMGzxdQah'
-  }
+    vectorStore: 'vs_ViMIvNC46x2q3tpIMGzxdQah',
+  },
 }
 
 /**
@@ -389,6 +389,6 @@ export function getAssistantInfo(ns: string, clean?: boolean): {
 
   return {
     ...assistantInfo,
-    assistant: def
+    assistant: def,
   };
 }

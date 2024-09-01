@@ -20,7 +20,7 @@ export async function lambdaHandler(
       statusCode: 400,
       body: JSON.stringify({
         message: "Missing id",
-      })
+      }),
     }
   }
 
@@ -30,14 +30,14 @@ export async function lambdaHandler(
       statusCode: 404,
       body: JSON.stringify({
         message: "Assistant not found",
-      })
+      }),
     }
   } else {
     return {
       statusCode: 200,
       body: JSON.stringify({
         assistant: assistant?.Item,
-      })
+      }),
     }
   }
 }

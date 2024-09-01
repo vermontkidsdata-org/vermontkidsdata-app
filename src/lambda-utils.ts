@@ -1,5 +1,5 @@
 import { Logger } from '@aws-lambda-powertools/logger';
-import { injectLambdaContext, } from '@aws-lambda-powertools/logger/middleware';
+import { injectLambdaContext } from '@aws-lambda-powertools/logger/middleware';
 import { LogLevel } from '@aws-lambda-powertools/logger/types';
 import { Tracer } from '@aws-lambda-powertools/tracer';
 import { captureLambdaHandler } from '@aws-lambda-powertools/tracer/middleware';

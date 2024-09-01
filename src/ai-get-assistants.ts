@@ -22,7 +22,7 @@ export async function lambdaHandler(
     statusCode: 200,
     body: JSON.stringify({
       assistants,
-    })
+    }),
   }
 }
 

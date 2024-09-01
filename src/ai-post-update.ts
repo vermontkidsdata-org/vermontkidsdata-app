@@ -30,7 +30,7 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
       statusCode: 403,
       body: JSON.stringify({
         "message": "Invalid API key",
-      })
+      }),
     };
   }
 
@@ -68,6 +68,6 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
         reaction: item.reaction,
         comment: item.comment,
       },
-    })
+    }),
   }
 });

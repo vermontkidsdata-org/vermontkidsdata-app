@@ -29,7 +29,7 @@ export class AIAssistantConstruct extends NestedStack {
     super(scope, id);
     this._props = props;
 
-    const { api, commonEnv, onAdd, methodOptions, auth, serviceTable, secret, ns, } = props;
+    const { api, commonEnv, onAdd, methodOptions, auth, serviceTable, secret, ns } = props;
     const aiAssistantRoot = api.root.addResource('ai');
 
     const aiSecret = Secret.fromSecretNameV2(this, 'AI Secret', `openai-config/${ns}`);
@@ -134,7 +134,7 @@ export class AIAssistantConstruct extends NestedStack {
       commonEnv: aiCommonEnv,
       onAdd,
       methodOptions: methodOptionsWithAuth,
-      role
+      role,
     }));
 
     (({ fn }) => {
@@ -242,6 +242,20 @@ export class AIAssistantConstruct extends NestedStack {
       methodOptions: methodOptionsWithAuth,
       role,
     }));
+    
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'POST',
+      path: 'assistant/{id}/function',
+      entry: 'ai-post-assistant-function.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
   }
+
 }
 

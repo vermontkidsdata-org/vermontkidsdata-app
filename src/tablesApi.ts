@@ -5,7 +5,7 @@ import { doDBClose, doDBOpen, doDBQuery, queryDB } from './db-utils';
 import { makePowerTools } from './lambda-utils';
 import { ServerMetadata } from './server-metadata';
 
-const {VKD_ENVIRONMENT, } = process.env;
+const {VKD_ENVIRONMENT } = process.env;
 
 const pt = makePowerTools({ prefix: `tables-api-${VKD_ENVIRONMENT}` });
 

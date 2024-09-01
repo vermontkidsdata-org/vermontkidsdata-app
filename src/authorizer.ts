@@ -1,12 +1,12 @@
 
-import { injectLambdaContext, } from '@aws-lambda-powertools/logger/middleware';
+import { injectLambdaContext } from '@aws-lambda-powertools/logger/middleware';
 import { captureLambdaHandler } from '@aws-lambda-powertools/tracer/middleware';
 import middy from '@middy/core';
 import { APIGatewayAuthorizerResult, APIGatewayRequestAuthorizerEvent, Context, PolicyDocument, Statement } from 'aws-lambda';
 import { Session, SessionData, getSessionKey } from './db-utils';
 import { makePowerTools } from './lambda-utils';
 
-const { ENV_NAME, SERVICE_TABLE, } = process.env;
+const { ENV_NAME, SERVICE_TABLE } = process.env;
 
 const pt = makePowerTools({ prefix: `api-authorizer-${ENV_NAME}` });
 

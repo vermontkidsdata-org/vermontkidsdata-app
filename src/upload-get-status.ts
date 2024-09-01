@@ -3,7 +3,7 @@ import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from "aws-l
 import { UploadStatus, getUploadStatusKey } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 
-const {VKD_ENVIRONMENT, } = process.env;
+const {VKD_ENVIRONMENT } = process.env;
 
 const pt = makePowerTools({ prefix: `upload-get-status-${VKD_ENVIRONMENT}` });
 

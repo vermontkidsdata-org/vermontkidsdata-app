@@ -4,14 +4,14 @@ import { APIGatewayEventRequestContextV2, APIGatewayProxyEventV2, APIGatewayProx
 import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
 import { makePowerTools } from './lambda-utils';
 
-const {VKD_ENVIRONMENT, } = process.env;
+const {VKD_ENVIRONMENT } = process.env;
 
 const pt = makePowerTools({ prefix: `queries-api-getList-${VKD_ENVIRONMENT}` });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  pt.logger.info({ message: 'get-list', });
+  pt.logger.info({ message: 'get-list' });
 
   await doDBOpen();
   try {

@@ -6,7 +6,7 @@ import { validateAPIAuthorization } from "./ai-utils";
 const pt = makePowerTools({ prefix: 'ai-get-asssistant-function' });
 
 export async function lambdaHandler(
-  event: APIGatewayProxyEventV2WithRequestContext<any>
+  event: APIGatewayProxyEventV2WithRequestContext<any>,
 ): Promise<APIGatewayProxyResultV2> {
   console.log({message: "ai-get-assistant-function", event });
   const ret = validateAPIAuthorization(event);
@@ -21,7 +21,7 @@ export async function lambdaHandler(
       statusCode: 400,
       body: JSON.stringify({
         message: "Missing id or functionId",
-      })
+      }),
     }
   }
 
@@ -31,14 +31,14 @@ export async function lambdaHandler(
       statusCode: 404,
       body: JSON.stringify({
         message: "Function not found",
-      })
+      }),
     }
   } else {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        function: assFunction.Item
-      })
+        function: assFunction.Item,
+      }),
     }
   }
 }

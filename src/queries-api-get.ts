@@ -2,7 +2,7 @@ import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBOpen, doDBQuery } from './db-utils';
 import { makePowerTools } from './lambda-utils';
 
-const {VKD_ENVIRONMENT, } = process.env;
+const {VKD_ENVIRONMENT } = process.env;
 
 const pt = makePowerTools({ prefix: `queries-api-get-${VKD_ENVIRONMENT}` });
 

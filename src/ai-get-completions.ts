@@ -28,7 +28,7 @@ export async function lambdaHandler(
   // If there are specific list of fields in a query string parameter, only return those fields
   const fields = event.queryStringParameters?.fields?.split(',').map((field) => field.trim());
   const attributes = fields?.filter((field) =>
-    ['reaction', 'comment', 'query', 'status', 'message', 'stream', 'created', 'modified'].includes(field)
+    ['reaction', 'comment', 'query', 'status', 'message', 'stream', 'created', 'modified'].includes(field),
   ) as (keyof CompletionData)[];
   attributes?.push('id', 'sortKey');
   if (fields?.some((field) => !(attributes as string[]).includes(field))) {
@@ -47,7 +47,7 @@ export async function lambdaHandler(
       ALL_WITH_COMMENTS,
     index: reaction ?
       { index: 'GSI1' } :
-      { index: 'GSI2' }
+      { index: 'GSI2' },
   };
 
   const completions: Omit<CompletionData, 'thread' | 'entity'>[] = [];
@@ -69,7 +69,7 @@ export async function lambdaHandler(
     statusCode: 200,
     body: JSON.stringify({
       completions,
-    })
+    }),
   }
 }
 

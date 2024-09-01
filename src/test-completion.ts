@@ -5,7 +5,7 @@ import { lambdaHandler } from './ai-start-openai-completion';
     "id": "1249",
     "sortKey": 0,
     "query": "Please compare the mental health state of Vermont's children in 2022 vs 2019.",
-    "stream": true
+    "stream": true,
   };
   
   const result = await lambdaHandler(event);

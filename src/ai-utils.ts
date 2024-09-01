@@ -26,27 +26,27 @@ export function getOpenAI(): OpenAI {
 export const FILE_MAP = [{
   "filename": "how_are_vermonts_young_children_2023.txt",
   "url": "https://buildingbrightfutures.org/wp-content/uploads/the_state_of_vermonts_children_2023_year_in_review.pdf",
-  "name": "The State of Vermont's Children 2023 Year in Review"
+  "name": "The State of Vermont's Children 2023 Year in Review",
 }, {
   "filename": "how_are_vermonts_young_children_2022.txt",
   "url": "https://buildingbrightfutures.org/wp-content/uploads/State-of-Vermonts-Children-2022.pdf",
-  "name": "The State of Vermont's Children 2022"
+  "name": "The State of Vermont's Children 2022",
 }, {
   "filename": "how_are_vermonts_young_children_2021.txt",
   "url": "https://buildingbrightfutures.org/wp-content/uploads/2022/01/The-State-of-Vermonts-Children-2021-Year-in-Review.pdf",
-  "name": "The State of Vermont's Children 2021 Year in Review"
+  "name": "The State of Vermont's Children 2021 Year in Review",
 }, {
   "filename": "how_are_vermonts_young_children_2020.txt",
   "url": "https://buildingbrightfutures.org/wp-content/uploads/2021/01/2020-How-Are-Vermonts-Young-Children-and-Families.pdf",
-  "name": "How Are Vermont's Young Children and Families 2020"
+  "name": "How Are Vermont's Young Children and Families 2020",
 }, {
   "filename": "how_are_vermonts_young_children_2019.txt",
   "url": "https://buildingbrightfutures.org/wp-content/uploads/2020/01/BBF-2019-HAVYCF-REPORT-SinglePgs.pdf",
-  "name": "How Are Vermont's Young Children 2019"
+  "name": "How Are Vermont's Young Children 2019",
 }, {
   "filename": "how_are_vermonts_young_children_2018.txt",
   "url": "https://buildingbrightfutures.org/wp-content/uploads/2019/01/BBF-2018-HAVYCF-FINAL-SINGLES-1.pdf",
-  "name": "How Are Vermont's Young Children 2018"
+  "name": "How Are Vermont's Young Children 2018",
 }];
 
 interface IThread {
@@ -133,7 +133,7 @@ async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFu
     category: {
       name: undefined as string | undefined,
       parameter: undefined as FunctionParameter | undefined,
-    }
+    },
   }
 
   if (functionDef.function.parameters?.properties) {
@@ -184,7 +184,7 @@ async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFu
       output: JSON.stringify({
         value: `${value}`,
         url: `https://ui.vtkidsdata.org/${path}}`,
-      })
+      }),
     }
   }
 
@@ -194,7 +194,7 @@ async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFu
     output: JSON.stringify({
       value: "unknown value",
       url: `https://ui.vtkidsdata.org/columnchart/${queryName}`,
-    })
+    }),
   };
 }
 
@@ -307,7 +307,7 @@ async function handleEvent(props: {
       runId: event.data.id,
       threadId: event.data.thread_id,
       callback,
-      assistant
+      assistant,
     });
   }
 
@@ -385,7 +385,7 @@ export async function checkAskWithoutStreaming(props: { thread: Thread, runId: s
   console.log("Polling for completion...", thread.id, runId);
   const runStatus = await openai.beta.threads.runs.retrieve(
     thread.id,
-    runId
+    runId,
   );
   console.log({ message: "Current status...", runStatus });
   if (runStatus.status === "completed") {
@@ -396,7 +396,7 @@ export async function checkAskWithoutStreaming(props: { thread: Thread, runId: s
     const lastMessageForRun = messages.data
       .filter(
         (message: any) =>
-          message.run_id === runId && message.role === "assistant"
+          message.run_id === runId && message.role === "assistant",
       )
       .pop();
 
@@ -419,14 +419,14 @@ export async function askWithoutStreaming(props: { thread: Thread, userQuestion:
   message?: string,
 }> {
   const { runId } = await startAskWithoutStreaming(props);
-  const { thread, } = props;
+  const { thread } = props;
 
   // Polling mechanism to see if runStatus is completed
   let runStatus;
   do {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    runStatus = await checkAskWithoutStreaming({ thread, runId, });
+    runStatus = await checkAskWithoutStreaming({ thread, runId });
   } while (runStatus.status !== "completed" && runStatus.status !== "failed");
 
   return runStatus;
@@ -455,7 +455,7 @@ export class ChunkHandler {
     chunk?: string,
     annotations?: AnnotationDelta[],
   }): Promise<{ cleanChunk?: string, refnum: number }> {
-    const { finished, chunk, annotations, footnotes, openai: localOpenAI, } = props;
+    const { finished, chunk, annotations, footnotes, openai: localOpenAI } = props;
     let cleanChunk = chunk;
     let refnum = props.refnum;
 
@@ -473,7 +473,7 @@ export class ChunkHandler {
               name: file.filename,
               purpose: file.purpose,
               bytes: file.bytes,
-            }
+            },
           });
 
           // See if we already have a footnote to this file
@@ -564,7 +564,7 @@ if (!module.parent) {
       assistantId: assistantInfo.assistantId,
       callback: async ({ finished, chunk }) => {
         process.stdout.write((chunk ?? '') + (finished ? '\n' : ''));
-      }
+      },
     });
   })();
 }
@@ -578,7 +578,7 @@ export function validateAPIAuthorization(event: APIGatewayProxyEventV2): APIGate
       statusCode: 403,
       body: JSON.stringify({
         "message": "Invalid API key",
-      })
+      }),
     };
   }
   

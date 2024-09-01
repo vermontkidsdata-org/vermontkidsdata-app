@@ -225,8 +225,8 @@ export const serviceTable = new Table({
 
   DocumentClient: DynamoDBDocumentClient.from(new DynamoDBClient({ region: getRegion() }), {
     marshallOptions: {
-      removeUndefinedValues: true
-    }
+      removeUndefinedValues: true,
+    },
   }),
 });
 
@@ -484,7 +484,7 @@ export const Assistant = new Entity({
     name: { type: 'string', required: true },
     definition: { type: 'map', required: true },
   },
-  table: serviceTable
+  table: serviceTable,
 });
 
 export type AssistantData = EntityItem<typeof Assistant>;
@@ -551,9 +551,9 @@ export const AssistantFunction = new Entity({
     _vkd: { type: 'map', required: false }, // VKDFunction
     seriesParameter: { type: 'map', required: false }, // ParamDefinition, not required because could be defaulted
     categoryParameter: { type: 'map', required: true }, // ParamDefinition
-    otherParameters: { type: 'list', required: true }, // List of ParamDefinition
+    otherParameters: { type: 'list', required: false }, // List of ParamDefinition
   },
-  table: serviceTable
+  table: serviceTable,
 });
 
 export function getAssistantFunctionKey(assistantId: string, functionId: string): { PK: string, SK: string } {
@@ -585,7 +585,7 @@ export const AssistantMap = new Entity({
     assistantId: { type: 'string', required: true },
     vectorStore: { type: 'string', required: true },
   },
-  table: serviceTable
+  table: serviceTable,
 });
 
 export type AssistantMapData = EntityItem<typeof AssistantMap>;

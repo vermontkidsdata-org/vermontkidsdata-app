@@ -55,888 +55,38 @@ exports[`Lambda Snapshot Test 1`] = `
     },
   },
   "Resources": {
-    "AIAssistantAIAssistantLambdaRole0DA0B60E": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:openai-config/sandbox-??????",
-                  ],
-                ],
-              },
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
-        "Roles": [
-          {
-            "Ref": "AIAssistantAIAssistantLambdaRole0DA0B60E",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "AIAssistantCheckOpenAICompletionCADA406D": {
-      "DependsOn": [
-        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
-        "AIAssistantAIAssistantLambdaRole0DA0B60E",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": "",
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantAIAssistantLambdaRole0DA0B60E",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantGETassistant3A79C83D": {
-      "DependsOn": [
-        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
-        "AIAssistantAIAssistantLambdaRole0DA0B60E",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": {
-              "Ref": "AIAssistantsandboxAIAssistant03C35156",
-            },
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantAIAssistantLambdaRole0DA0B60E",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantGETassistantidBB9AC239": {
-      "DependsOn": [
-        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
-        "AIAssistantAIAssistantLambdaRole0DA0B60E",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": {
-              "Ref": "AIAssistantsandboxAIAssistant03C35156",
-            },
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantAIAssistantLambdaRole0DA0B60E",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantGETassistantidfunction5DC2A46C": {
-      "DependsOn": [
-        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
-        "AIAssistantAIAssistantLambdaRole0DA0B60E",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": {
-              "Ref": "AIAssistantsandboxAIAssistant03C35156",
-            },
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantAIAssistantLambdaRole0DA0B60E",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantGETassistantidfunctionfunctionId19374AF2": {
-      "DependsOn": [
-        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
-        "AIAssistantAIAssistantLambdaRole0DA0B60E",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": {
-              "Ref": "AIAssistantsandboxAIAssistant03C35156",
-            },
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantAIAssistantLambdaRole0DA0B60E",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantGETcompletionidsortKey0C567D69": {
-      "DependsOn": [
-        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
-        "AIAssistantAIAssistantLambdaRole0DA0B60E",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": {
-              "Ref": "AIAssistantsandboxAIAssistant03C35156",
-            },
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantAIAssistantLambdaRole0DA0B60E",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantGETcompletions44E94203": {
-      "DependsOn": [
-        "AIAssistantGETcompletionsServiceRoleDefaultPolicy7C8E5BA2",
-        "AIAssistantGETcompletionsServiceRoleB7ED8CD4",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": {
-              "Ref": "AIAssistantsandboxAIAssistant03C35156",
-            },
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantGETcompletionsServiceRoleB7ED8CD4",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantGETcompletionsServiceRoleB7ED8CD4": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "AIAssistantGETcompletionsServiceRoleDefaultPolicy7C8E5BA2": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": "states:StartExecution",
-              "Effect": "Allow",
-              "Resource": {
-                "Ref": "AIAssistantsandboxAIAssistant03C35156",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "AIAssistantGETcompletionsServiceRoleDefaultPolicy7C8E5BA2",
-        "Roles": [
-          {
-            "Ref": "AIAssistantGETcompletionsServiceRoleB7ED8CD4",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "AIAssistantPOSTcompletionB2A1489B": {
-      "DependsOn": [
-        "AIAssistantPOSTcompletionServiceRoleDefaultPolicy4E29DEF7",
-        "AIAssistantPOSTcompletionServiceRoleF22A71A0",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": {
-              "Ref": "AIAssistantsandboxAIAssistant03C35156",
-            },
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantPOSTcompletionServiceRoleF22A71A0",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantPOSTcompletionServiceRoleDefaultPolicy4E29DEF7": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": "states:StartExecution",
-              "Effect": "Allow",
-              "Resource": {
-                "Ref": "AIAssistantsandboxAIAssistant03C35156",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "AIAssistantPOSTcompletionServiceRoleDefaultPolicy4E29DEF7",
-        "Roles": [
-          {
-            "Ref": "AIAssistantPOSTcompletionServiceRoleF22A71A0",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "AIAssistantPOSTcompletionServiceRoleF22A71A0": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "AIAssistantPOSTcompletionidsortKeyDE51CA39": {
-      "DependsOn": [
-        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
-        "AIAssistantAIAssistantLambdaRole0DA0B60E",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": {
-              "Ref": "AIAssistantsandboxAIAssistant03C35156",
-            },
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantAIAssistantLambdaRole0DA0B60E",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 29,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantStartOpenAICompletionEB80A99F": {
-      "DependsOn": [
-        "AIAssistantAIAssistantLambdaRoleDefaultPolicy4DBD4597",
-        "AIAssistantAIAssistantLambdaRole0DA0B60E",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "AI_SECRET_NAME": "openai-config/sandbox",
-            "ASSISTANT_ID": "asst_f0j3Q0YM8vmzBRMXHaCBLwp2",
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_API_KEY": "09848734-8745-afrt-8745-8745873487",
-            "VKD_ENVIRONMENT": "sandbox",
-            "VKD_STATE_MACHINE_ARN": "",
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "AIAssistantAIAssistantLambdaRole0DA0B60E",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 900,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "AIAssistantsandboxAIAssistant03C35156": {
+    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6": {
       "DeletionPolicy": "Delete",
-      "DependsOn": [
-        "AIAssistantsandboxAIAssistantRoleDefaultPolicyA00800AB",
-        "AIAssistantsandboxAIAssistantRole82E164A1",
-      ],
       "Properties": {
-        "DefinitionString": {
+        "Parameters": {
+          "referencetotestTestStackBackupqueue9AD2C365Ref": {
+            "Ref": "BackupqueueE3E58E0E",
+          },
+          "referencetotestTestStackSingleServiceTable2C62739BArn": {
+            "Fn::GetAtt": [
+              "SingleServiceTableABC698C2",
+              "Arn",
+            ],
+          },
+          "referencetotestTestStackSingleServiceTable2C62739BRef": {
+            "Ref": "SingleServiceTableABC698C2",
+          },
+        },
+        "TemplateURL": {
           "Fn::Join": [
             "",
             [
-              "{"StartAt":"Invoke Start OpenAI Completion","States":{"Invoke Start OpenAI Completion":{"Next":"Invoke Check OpenAI Completion","Retry":[{"ErrorEquals":["Lambda.ClientExecutionTimeoutException","Lambda.ServiceException","Lambda.AWSLambdaException","Lambda.SdkClientException"],"IntervalSeconds":2,"MaxAttempts":6,"BackoffRate":2}],"Type":"Task","OutputPath":"$.Payload","Resource":"arn:",
+              "https://s3.aq-south-1.",
               {
-                "Ref": "AWS::Partition",
+                "Ref": "AWS::URLSuffix",
               },
-              ":states:::lambda:invoke","Parameters":{"FunctionName":"",
-              {
-                "Fn::GetAtt": [
-                  "AIAssistantStartOpenAICompletionEB80A99F",
-                  "Arn",
-                ],
-              },
-              "","Payload.$":"$"}},"Invoke Check OpenAI Completion":{"End":true,"Retry":[{"ErrorEquals":["Lambda.ClientExecutionTimeoutException","Lambda.ServiceException","Lambda.AWSLambdaException","Lambda.SdkClientException"],"IntervalSeconds":2,"MaxAttempts":6,"BackoffRate":2},{"ErrorEquals":["InProgressError"],"IntervalSeconds":5,"MaxAttempts":120,"BackoffRate":1}],"Type":"Task","OutputPath":"$.Payload","Resource":"arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":states:::lambda:invoke","Parameters":{"FunctionName":"",
-              {
-                "Fn::GetAtt": [
-                  "AIAssistantCheckOpenAICompletionCADA406D",
-                  "Arn",
-                ],
-              },
-              "","Payload.$":"$"}}}}",
+              "/[ASSET BUCKET]/4c07b1a4378cbf530eb7b7284e0cedc42aa1d1ddfa1e33bb48b911f33a6fc25e.json",
             ],
           ],
         },
-        "RoleArn": {
-          "Fn::GetAtt": [
-            "AIAssistantsandboxAIAssistantRole82E164A1",
-            "Arn",
-          ],
-        },
-        "TracingConfiguration": {
-          "Enabled": true,
-        },
       },
-      "Type": "AWS::StepFunctions::StateMachine",
+      "Type": "AWS::CloudFormation::Stack",
       "UpdateReplacePolicy": "Delete",
-    },
-    "AIAssistantsandboxAIAssistantRole82E164A1": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "states.aq-south-1.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "AIAssistantsandboxAIAssistantRoleDefaultPolicyA00800AB": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": "lambda:InvokeFunction",
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "AIAssistantStartOpenAICompletionEB80A99F",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "AIAssistantStartOpenAICompletionEB80A99F",
-                          "Arn",
-                        ],
-                      },
-                      ":*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": "lambda:InvokeFunction",
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "AIAssistantCheckOpenAICompletionCADA406D",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "AIAssistantCheckOpenAICompletionCADA406D",
-                          "Arn",
-                        ],
-                      },
-                      ":*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-                "xray:GetSamplingRules",
-                "xray:GetSamplingTargets",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "AIAssistantsandboxAIAssistantRoleDefaultPolicyA00800AB",
-        "Roles": [
-          {
-            "Ref": "AIAssistantsandboxAIAssistantRole82E164A1",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
     },
     "APIDocBucketRole36E5CFCE": {
       "Properties": {
@@ -6353,6 +5503,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -6360,6 +5513,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -6496,6 +5657,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -6503,6 +5667,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -6639,6 +5811,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -6677,6 +5852,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -6782,6 +5965,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -6820,6 +6006,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -6925,6 +6119,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -6963,6 +6160,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -7068,6 +6273,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -7106,6 +6314,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -7211,6 +6427,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -7218,6 +6437,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -7354,6 +6581,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -7392,6 +6622,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -7497,6 +6735,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -7535,6 +6776,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -7542,6 +6786,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -7647,6 +6899,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -7783,6 +7043,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -7821,6 +7084,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -7926,6 +7197,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -7964,6 +7238,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -8069,6 +7351,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
         "Runtime": "nodejs20.x",
         "Timeout": 30,
+        "TracingConfig": {
+          "Mode": "Active",
+        },
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -8107,6 +7392,14 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": [
                 "dynamodb:BatchGetItem",
@@ -8346,19 +7639,24 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "sandboxVermontKidsDataDeployment13909A1B8164f1b8e550de36b5b3329aee25fe6a": {
+    "sandboxVermontKidsDataDeployment13909A1B01b26314666ec67ac10e57ebe51bb821": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
         "gatewayresponseforDEFAULT5XX187AAE21",
+        "sandboxVermontKidsDataaiassistantidANY5CEDFF89",
         "sandboxVermontKidsDataaiassistantidfunctionfunctionIdGETF855527C",
         "sandboxVermontKidsDataaiassistantidfunctionfunctionIdOPTIONS7FAB07AE",
+        "sandboxVermontKidsDataaiassistantidfunctionfunctionIdPUT28A87416",
         "sandboxVermontKidsDataaiassistantidfunctionfunctionId9D9463C0",
         "sandboxVermontKidsDataaiassistantidfunctionGETE00B56D9",
         "sandboxVermontKidsDataaiassistantidfunctionOPTIONS253D873B",
+        "sandboxVermontKidsDataaiassistantidfunctionPOST69E24ECF",
         "sandboxVermontKidsDataaiassistantidfunctionC8503245",
-        "sandboxVermontKidsDataaiassistantidGETA091DB4F",
         "sandboxVermontKidsDataaiassistantidOPTIONS1C61AC42",
+        "sandboxVermontKidsDataaiassistantidpublishOPTIONSBED80770",
+        "sandboxVermontKidsDataaiassistantidpublishPOST43B968BF",
+        "sandboxVermontKidsDataaiassistantidpublish3A5B93BF",
         "sandboxVermontKidsDataaiassistantid60F2682A",
         "sandboxVermontKidsDataaiassistantGETDD3B1E67",
         "sandboxVermontKidsDataaiassistantOPTIONSCAC7FBF7",
@@ -8547,7 +7845,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "sandboxVermontKidsDataDeployment13909A1B8164f1b8e550de36b5b3329aee25fe6a",
+          "Ref": "sandboxVermontKidsDataDeployment13909A1B01b26314666ec67ac10e57ebe51bb821",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -8697,8 +7995,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETassistant3A79C83D",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistant64E5B93DArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -8726,8 +8024,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETassistant3A79C83D",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistant64E5B93DArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -8772,8 +8070,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "AIAssistantGETassistant3A79C83D",
-                    "Arn",
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantGETassistant64E5B93DArn",
                   ],
                 },
                 "/invocations",
@@ -8855,10 +8153,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "sandboxVermontKidsDataaiassistantidGETA091DB4F": {
+    "sandboxVermontKidsDataaiassistantidANY5CEDFF89": {
       "Properties": {
         "AuthorizationType": "NONE",
-        "HttpMethod": "GET",
+        "HttpMethod": "ANY",
         "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
@@ -8873,8 +8171,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "AIAssistantGETassistantidBB9AC239",
-                    "Arn",
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantANYassistantid00BE53BDArn",
                   ],
                 },
                 "/invocations",
@@ -8891,13 +8189,13 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "sandboxVermontKidsDataaiassistantidGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaiassistantidE0ACAED8": {
+    "sandboxVermontKidsDataaiassistantidANYApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BANYaiassistantid534282F8": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETassistantidBB9AC239",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantANYassistantid00BE53BDArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -8913,20 +8211,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               {
                 "Ref": "sandboxVermontKidsData3EAE2FF7",
               },
-              "/test-invoke-stage/GET/ai/assistant/*",
+              "/test-invoke-stage/*/ai/assistant/*",
             ],
           ],
         },
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "sandboxVermontKidsDataaiassistantidGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaiassistantid89D45F4B": {
+    "sandboxVermontKidsDataaiassistantidANYApiPermissiontestTestStacksandboxVermontKidsData42030C9BANYaiassistantid0D977A24": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETassistantidBB9AC239",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantANYassistantid00BE53BDArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -8946,7 +8244,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               {
                 "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
               },
-              "/GET/ai/assistant/*",
+              "/*/ai/assistant/*",
             ],
           ],
         },
@@ -9023,8 +8321,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETassistantidfunction5DC2A46C",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistantidfunctionD00D969AArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9052,8 +8350,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETassistantidfunction5DC2A46C",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistantidfunctionD00D969AArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9098,8 +8396,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "AIAssistantGETassistantidfunction5DC2A46C",
-                    "Arn",
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantGETassistantidfunctionD00D969AArn",
                   ],
                 },
                 "/invocations",
@@ -9169,6 +8467,104 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Method",
     },
+    "sandboxVermontKidsDataaiassistantidfunctionPOST69E24ECF": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPOSTassistantidfunction6B40237EArn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidfunctionC8503245",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionPOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantidfunction5A33A1EC": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantidfunction6B40237EArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/POST/ai/assistant/*/function",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionPOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantidfunction36176FD7": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantidfunction6B40237EArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/POST/ai/assistant/*/function",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
     "sandboxVermontKidsDataaiassistantidfunctionfunctionId9D9463C0": {
       "Properties": {
         "ParentId": {
@@ -9186,8 +8582,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETassistantidfunctionfunctionId19374AF2",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistantidfunctionfunctionIdFBD2E865Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9215,8 +8611,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETassistantidfunctionfunctionId19374AF2",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistantidfunctionfunctionIdFBD2E865Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9261,8 +8657,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "AIAssistantGETassistantidfunctionfunctionId19374AF2",
-                    "Arn",
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantGETassistantidfunctionfunctionIdFBD2E865Arn",
                   ],
                 },
                 "/invocations",
@@ -9331,6 +8727,267 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
       },
       "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionfunctionIdPUT28A87416": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "PUT",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPUTassistantidfunctionfunctionId7D284128Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidfunctionfunctionId9D9463C0",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionfunctionIdPUTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPUTaiassistantidfunctionfunctionIdF09D7008": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPUTassistantidfunctionfunctionId7D284128Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/PUT/ai/assistant/*/function/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidfunctionfunctionIdPUTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPUTaiassistantidfunctionfunctionId9180469D": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPUTassistantidfunctionfunctionId7D284128Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/PUT/ai/assistant/*/function/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidpublish3A5B93BF": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataaiassistantid60F2682A",
+        },
+        "PathPart": "publish",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantidpublishOPTIONSBED80770": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidpublish3A5B93BF",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidpublishPOST43B968BF": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPOSTassistantidpublish02B9385BArn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidpublish3A5B93BF",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidpublishPOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantidpublishFC78B98F": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantidpublish02B9385BArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/POST/ai/assistant/*/publish",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidpublishPOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantidpublishEA91CFA2": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantidpublish02B9385BArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/POST/ai/assistant/*/publish",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
     },
     "sandboxVermontKidsDataaicompletion73A9C93C": {
       "Properties": {
@@ -9415,8 +9072,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "AIAssistantPOSTcompletionB2A1489B",
-                    "Arn",
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPOSTcompletion856580C1Arn",
                   ],
                 },
                 "/invocations",
@@ -9438,8 +9095,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantPOSTcompletionB2A1489B",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTcompletion856580C1Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9467,8 +9124,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantPOSTcompletionB2A1489B",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTcompletion856580C1Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9577,8 +9234,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETcompletionidsortKey0C567D69",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETcompletionidsortKey97AD2D06Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9606,8 +9263,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETcompletionidsortKey0C567D69",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETcompletionidsortKey97AD2D06Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9652,8 +9309,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "AIAssistantGETcompletionidsortKey0C567D69",
-                    "Arn",
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantGETcompletionidsortKey97AD2D06Arn",
                   ],
                 },
                 "/invocations",
@@ -9741,8 +9398,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "AIAssistantPOSTcompletionidsortKeyDE51CA39",
-                    "Arn",
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPOSTcompletionidsortKey50FD424AArn",
                   ],
                 },
                 "/invocations",
@@ -9764,8 +9421,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantPOSTcompletionidsortKeyDE51CA39",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTcompletionidsortKey50FD424AArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9793,8 +9450,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantPOSTcompletionidsortKeyDE51CA39",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTcompletionidsortKey50FD424AArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9838,8 +9495,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETcompletions44E94203",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETcompletions9AC5119FArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9867,8 +9524,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "AIAssistantGETcompletions44E94203",
-            "Arn",
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETcompletions9AC5119FArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9913,8 +9570,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "AIAssistantGETcompletions44E94203",
-                    "Arn",
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantGETcompletions9AC5119FArn",
                   ],
                 },
                 "/invocations",

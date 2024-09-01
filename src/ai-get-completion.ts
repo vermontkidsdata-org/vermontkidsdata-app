@@ -52,6 +52,6 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
         reaction: record.Item.reaction,
         comment: record.Item.comment,
       },
-    })
+    }),
   }
 });

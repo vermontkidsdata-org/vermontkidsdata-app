@@ -19,7 +19,7 @@ export async function lambdaHandler(
       statusCode: 400,
       body: JSON.stringify({
         message: "Missing id",
-      })
+      }),
     }
   }
 
@@ -28,7 +28,7 @@ export async function lambdaHandler(
     statusCode: 200,
     body: JSON.stringify({
       functions,
-    })
+    }),
   }
 }
 
