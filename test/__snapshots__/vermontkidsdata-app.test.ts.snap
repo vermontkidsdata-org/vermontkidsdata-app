@@ -80,7 +80,7 @@ exports[`Lambda Snapshot Test 1`] = `
               {
                 "Ref": "AWS::URLSuffix",
               },
-              "/[ASSET BUCKET]/4c07b1a4378cbf530eb7b7284e0cedc42aa1d1ddfa1e33bb48b911f33a6fc25e.json",
+              "/[ASSET BUCKET]/479e7e812de3eb76080e8e31eec89e8d1e5fd02536b00297fb22b071ccb2ce14.json",
             ],
           ],
         },
@@ -7639,12 +7639,17 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "sandboxVermontKidsDataDeployment13909A1B01b26314666ec67ac10e57ebe51bb821": {
+    "sandboxVermontKidsDataDeployment13909A1Bb956fd9257388805915fd21773de5b81": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
         "gatewayresponseforDEFAULT5XX187AAE21",
-        "sandboxVermontKidsDataaiassistantidANY5CEDFF89",
+        "sandboxVermontKidsDataaiassistantidcloneOPTIONSF5B27EFB",
+        "sandboxVermontKidsDataaiassistantidclonePOST5A02CA25",
+        "sandboxVermontKidsDataaiassistantidclone2343A545",
+        "sandboxVermontKidsDataaiassistantidenableOPTIONS2C0C2C3A",
+        "sandboxVermontKidsDataaiassistantidenablePOST8E780569",
+        "sandboxVermontKidsDataaiassistantidenable1A94ABBA",
         "sandboxVermontKidsDataaiassistantidfunctionfunctionIdGETF855527C",
         "sandboxVermontKidsDataaiassistantidfunctionfunctionIdOPTIONS7FAB07AE",
         "sandboxVermontKidsDataaiassistantidfunctionfunctionIdPUT28A87416",
@@ -7653,6 +7658,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "sandboxVermontKidsDataaiassistantidfunctionOPTIONS253D873B",
         "sandboxVermontKidsDataaiassistantidfunctionPOST69E24ECF",
         "sandboxVermontKidsDataaiassistantidfunctionC8503245",
+        "sandboxVermontKidsDataaiassistantidGETA091DB4F",
         "sandboxVermontKidsDataaiassistantidOPTIONS1C61AC42",
         "sandboxVermontKidsDataaiassistantidpublishOPTIONSBED80770",
         "sandboxVermontKidsDataaiassistantidpublishPOST43B968BF",
@@ -7845,7 +7851,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "sandboxVermontKidsDataDeployment13909A1B01b26314666ec67ac10e57ebe51bb821",
+          "Ref": "sandboxVermontKidsDataDeployment13909A1Bb956fd9257388805915fd21773de5b81",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -8153,10 +8159,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "sandboxVermontKidsDataaiassistantidANY5CEDFF89": {
+    "sandboxVermontKidsDataaiassistantidGETA091DB4F": {
       "Properties": {
         "AuthorizationType": "NONE",
-        "HttpMethod": "ANY",
+        "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
@@ -8172,7 +8178,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 {
                   "Fn::GetAtt": [
                     "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
-                    "Outputs.testTestStackAIAssistantANYassistantid00BE53BDArn",
+                    "Outputs.testTestStackAIAssistantGETassistantidB9BBB823Arn",
                   ],
                 },
                 "/invocations",
@@ -8189,13 +8195,13 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "sandboxVermontKidsDataaiassistantidANYApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BANYaiassistantid534282F8": {
+    "sandboxVermontKidsDataaiassistantidGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaiassistantidE0ACAED8": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
             "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
-            "Outputs.testTestStackAIAssistantANYassistantid00BE53BDArn",
+            "Outputs.testTestStackAIAssistantGETassistantidB9BBB823Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -8211,20 +8217,20 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               {
                 "Ref": "sandboxVermontKidsData3EAE2FF7",
               },
-              "/test-invoke-stage/*/ai/assistant/*",
+              "/test-invoke-stage/GET/ai/assistant/*",
             ],
           ],
         },
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "sandboxVermontKidsDataaiassistantidANYApiPermissiontestTestStacksandboxVermontKidsData42030C9BANYaiassistantid0D977A24": {
+    "sandboxVermontKidsDataaiassistantidGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaiassistantid89D45F4B": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
             "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
-            "Outputs.testTestStackAIAssistantANYassistantid00BE53BDArn",
+            "Outputs.testTestStackAIAssistantGETassistantidB9BBB823Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -8244,7 +8250,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
               {
                 "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
               },
-              "/*/ai/assistant/*",
+              "/GET/ai/assistant/*",
             ],
           ],
         },
@@ -8303,6 +8309,332 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
       },
       "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidclone2343A545": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataaiassistantid60F2682A",
+        },
+        "PathPart": "clone",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantidcloneOPTIONSF5B27EFB": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidclone2343A545",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidclonePOST5A02CA25": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPOSTassistantidclone9B0FF5BFArn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidclone2343A545",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidclonePOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantidclone2423F401": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantidclone9B0FF5BFArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/POST/ai/assistant/*/clone",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidclonePOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantidclone0FC94427": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantidclone9B0FF5BFArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/POST/ai/assistant/*/clone",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidenable1A94ABBA": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataaiassistantid60F2682A",
+        },
+        "PathPart": "enable",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantidenableOPTIONS2C0C2C3A": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidenable1A94ABBA",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidenablePOST8E780569": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPOSTassistantidenable20DC43DBArn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidenable1A94ABBA",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidenablePOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantidenable64B44C59": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantidenable20DC43DBArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/POST/ai/assistant/*/enable",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidenablePOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantidenable951957BC": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantidenable20DC43DBArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/POST/ai/assistant/*/enable",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
     },
     "sandboxVermontKidsDataaiassistantidfunctionC8503245": {
       "Properties": {
