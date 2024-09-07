@@ -2,10 +2,10 @@ import { SFNClient, StartExecutionCommand } from "@aws-sdk/client-sfn";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { Thread } from "openai/resources/beta/threads/threads";
 import { connectOpenAI, createThread } from "./ai-utils";
-import { Completion, getCompletionPK } from "./db-utils";
+import { Completion, getCompletionPK, getNamespace } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 
-const { ASSISTANT_ID, VKD_API_KEY } = process.env;
+const { VKD_API_KEY } = process.env;
 
 const pt = makePowerTools({ prefix: 'ai-post-completion' });
 
@@ -17,14 +17,11 @@ interface PostCompletionRequest {
   sortKey: number,
   query: string,
   stream?: boolean,
+  sandbox?: string,
 }
 
 export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
-  if (ASSISTANT_ID == null) {
-    throw new Error('ASSISTANT_ID is not set');
-  }
-
-  const { key, ...data } = JSON.parse(event.body || '{}') as PostCompletionRequest;
+  const { key, sandbox, ...data } = JSON.parse(event.body || '{}') as PostCompletionRequest;
   if (key !== VKD_API_KEY) {
     return {
       statusCode: 403,
@@ -33,7 +30,11 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
       }),
     };
   }
+  const ns = getNamespace();
 
+  const envName = (ns + (sandbox ? `/${sandbox}` : '')).toLowerCase();
+
+  // Need this because we're creating a thread
   await connectOpenAI();
 
   // If it's not the first message, continue the thread
@@ -62,6 +63,7 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
     ...data,
     status: 'new',
     thread,
+    envName,
   });
 
   const sf = await sfn.send(new StartExecutionCommand({
@@ -71,6 +73,7 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
       sortKey: data.sortKey,
       query: data.query,
       stream: data.stream,
+      envName,
     }),
   }));
 

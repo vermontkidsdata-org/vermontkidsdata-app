@@ -1,5 +1,5 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
-import { Assistant, AssistantFunction, getAllAssistantFunctions, getAllAssistants, getAssistantKey, getAssistantKeyAttribute } from "./db-utils";
+import { getAllAssistantFunctions, } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 import { validateAPIAuthorization } from "./ai-utils";
 
@@ -23,7 +23,11 @@ export async function lambdaHandler(
     }
   }
 
-  const functions = await getAllAssistantFunctions(id);
+  const functions = (await getAllAssistantFunctions(id)).map(f => ({
+    ...f,
+    entity: undefined,
+  }));
+
   return {
     statusCode: 200,
     body: JSON.stringify({

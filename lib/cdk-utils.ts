@@ -60,7 +60,7 @@ export function makeLambda(props: {
   }
 
   if (serviceTable) {
-    serviceTable.grantReadData(fn);
+    serviceTable.grantReadWriteData(fn);
   }
 
   return fn;

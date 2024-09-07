@@ -14,10 +14,14 @@ export async function lambdaHandler(
     return ret;
   }
 
-  const VKD_ENVIRONMENT = process.env.VKD_ENVIRONMENT;
-  
-  // Get all the defined assistants
-  const assistants = await getAllAssistants(VKD_ENVIRONMENT);
+  // See if we should include inactive ones
+  const includeInactive = event.queryStringParameters?.includeInactive === 'true';
+
+  // Get all the defined and active (or all, if requested) assistants
+  const assistants = (await getAllAssistants({ includeInactive })).map(ass => ({
+    ...ass,
+    entity: undefined
+  }));
   return {
     statusCode: 200,
     body: JSON.stringify({

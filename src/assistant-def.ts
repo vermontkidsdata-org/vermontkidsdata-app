@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import { FILE_MAP } from "./ai-utils";
+import { getPublishedAssistantKey, PublishedAssistant, PublishedAssistantData } from "./db-utils";
 
 export type VKDAssistant = OpenAI.Beta.Assistants.Assistant;
 
@@ -340,18 +341,26 @@ export const ASSISTANTS_MAP: Record<string, AssistantInfo> = {
   },
 }
 
+export async function getPublishedAssistant(envName: string): Promise<PublishedAssistantData|undefined> {
+  // Look in the DB first... just return as-is
+  console.log(`Getting assistant info for ${envName}`);
+  const assistantDef = await PublishedAssistant.get(getPublishedAssistantKey(envName));
+  console.log(`Assistant def: ${JSON.stringify(assistantDef)}`);
+  return (assistantDef?.Item);
+}
+
 /**
  * Get information on the assistant.
- * @param ns VKD_ENVIRONMENT to get info for
+ * @param envName VKD_ENVIRONMENT to get info for, or sandboxed (e.g. qa/dave)
  * @param clean if passed and true, remove _vkd properties from the assistant definition. Normally you don't pass this; this is for MLOps.
  * @returns assistant ID, vector store ID, and assistant definition
  */
-export function getAssistantInfo(ns: string, clean?: boolean): {
+export async function getAssistantInfo(envName: string, clean?: boolean): Promise<{
   assistantId: string,
   vectorStore: string,
   assistant: LimitedAssistantDef
-} {
-  const assistantInfo = ASSISTANTS_MAP[ns];
+}> {
+  const assistantInfo = ASSISTANTS_MAP[envName];
 
   // Verify the format if clean is passed
   if (clean) {
@@ -385,7 +394,7 @@ export function getAssistantInfo(ns: string, clean?: boolean): {
   // Seek out and destroy the _vkd properties in the nested assistantDef object
   const def = (clean ? removeVkdProperties(assistantDef) : assistantDef) as LimitedAssistantDef;
   def.tool_resources?.file_search?.vector_store_ids?.push(assistantInfo.vectorStore);
-  def.name += ` (${ns})`;
+  def.name += ` (${envName})`;
 
   return {
     ...assistantInfo,

@@ -4,7 +4,7 @@ import { AssistantStreamEvent } from "openai/resources/beta/assistants";
 import { AnnotationDelta, TextContentBlock, TextDeltaBlock } from "openai/resources/beta/threads/messages";
 import { RequiredActionFunctionToolCall } from "openai/resources/beta/threads/runs/runs";
 import { Thread } from "openai/resources/beta/threads/threads";
-import { LimitedAssistantDef, VKDFunctionTool, getAssistantInfo } from "./assistant-def";
+import { LimitedAssistantDef, VKDFunctionTool } from "./assistant-def";
 import { BarChartResult, getChartData } from "./chartsApi";
 import { makePowerTools } from "./lambda-utils";
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
@@ -314,16 +314,14 @@ async function handleEvent(props: {
   return false;
 }
 
-export async function askWithStreaming(props: { thread: Thread, userQuestion: string, assistantId: string, callback: StreamingCallback, debugCallback?: StreamingDebugCallback }): Promise<void> {
-  const { thread, userQuestion, assistantId, callback, debugCallback } = props;
+export async function askWithStreaming(props: { thread: Thread, userQuestion: string, assistant: LimitedAssistantDef, assistantId: string, callback: StreamingCallback, debugCallback?: StreamingDebugCallback }): Promise<void> {
+  const { thread, userQuestion, assistantId, callback, debugCallback, assistant } = props;
 
   const ns = process.env.VKD_ENVIRONMENT;
   if (!ns) {
     throw new Error("VKD_ENVIRONMENT not set");
   }
 
-  const info = getAssistantInfo(ns);
-  pt.logger.info({ message: 'Assistant info', info });
   // const spech = await openai.audio.speech.create({
   //   model: 'text-to-speech',
   //   voice: 'shimmer',
@@ -346,7 +344,7 @@ export async function askWithStreaming(props: { thread: Thread, userQuestion: st
     if (debugCallback) {
       await debugCallback({ event });
     }
-    if (await handleEvent({ event, callback, assistant: info.assistant })) break;
+    if (await handleEvent({ event, callback, assistant })) break;
   }
 
   await callback({ finished: true, failed: false });
@@ -535,39 +533,39 @@ export class ChunkHandler {
   }
 }
 
-if (!module.parent) {
-  if (!process.env.SERVICE_TABLE || !process.env.DB_SECRET_NAME) {
-    console.error("Please set environment variables");
-    console.error("Run `set SERVICE_TABLE=vkd-qa-service-table` and `set DB_SECRET_NAME=vkd/qa/dbcreds`")
-    process.exit(1);
-  }
+// if (!module.parent) {
+//   if (!process.env.SERVICE_TABLE || !process.env.DB_SECRET_NAME) {
+//     console.error("Please set environment variables");
+//     console.error("Run `set SERVICE_TABLE=vkd-qa-service-table` and `set DB_SECRET_NAME=vkd/qa/dbcreds`")
+//     process.exit(1);
+//   }
 
-  (async () => {
-    await connectOpenAI();
-    const thread = await createThread();
-    console.log("Created thread", thread);
-    const assistantInfo = getAssistantInfo(process.env.VKD_ENVIRONMENT!);
+//   (async () => {
+//     await connectOpenAI();
+//     const thread = await createThread();
+//     console.log("Created thread", thread);
+//     const assistantInfo = await getAssistantInfo(process.env.VKD_ENVIRONMENT!);
 
-    await askWithStreaming({
-      thread,
-      userQuestion: // Pick one
-        // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
-        // "What is the latest year of the reports?"
-        // "What is the average household income for 2020 through 2023?"
-        // "How many children lived in poverty in Chittenden in 2020?"
-        // "How many children lived in poverty in Chittenden in 1942?"
-        // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
-        // "Did the number of IEPs go up or down in 2020 vs the previous year?"
-        // "For 2021 how many school-age kids received IDEA services?"
-        "Were there more babies born in 2020 and 2021 than other years?"
-      ,
-      assistantId: assistantInfo.assistantId,
-      callback: async ({ finished, chunk }) => {
-        process.stdout.write((chunk ?? '') + (finished ? '\n' : ''));
-      },
-    });
-  })();
-}
+//     await askWithStreaming({
+//       thread,
+//       userQuestion: // Pick one
+//         // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
+//         // "What is the latest year of the reports?"
+//         // "What is the average household income for 2020 through 2023?"
+//         // "How many children lived in poverty in Chittenden in 2020?"
+//         // "How many children lived in poverty in Chittenden in 1942?"
+//         // "In the last 3 years, was the average individual 3 squares benefit in Vermont flat or did it increase or decrease?"
+//         // "Did the number of IEPs go up or down in 2020 vs the previous year?"
+//         // "For 2021 how many school-age kids received IDEA services?"
+//         "Were there more babies born in 2020 and 2021 than other years?"
+//       ,
+//       assistantId: assistantInfo.assistantId,
+//       callback: async ({ finished, chunk }) => {
+//         process.stdout.write((chunk ?? '') + (finished ? '\n' : ''));
+//       },
+//     });
+//   })();
+// }
 
 const { VKD_API_KEY } = process.env;
 

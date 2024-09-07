@@ -6,9 +6,8 @@ import { StateMachine } from "aws-cdk-lib/aws-stepfunctions";
 import { LambdaInvoke } from "aws-cdk-lib/aws-stepfunctions-tasks";
 import { Construct } from "constructs";
 import { IN_PROGRESS_ERROR } from "../src/ai-utils";
-import { getAssistantInfo } from "../src/assistant-def";
 import { AuthInfo, OnAddCallback, addLambdaResource, makeLambda } from "./cdk-utils";
-import { ManagedPolicy, PolicyStatement, Role, ServicePrincipal } from "aws-cdk-lib/aws-iam";
+import { ManagedPolicy, Role, ServicePrincipal } from "aws-cdk-lib/aws-iam";
 
 interface AIAssistantProps extends NestedStackProps {
   api: RestApi;
@@ -33,11 +32,11 @@ export class AIAssistantConstruct extends NestedStack {
     const aiAssistantRoot = api.root.addResource('ai');
 
     const aiSecret = Secret.fromSecretNameV2(this, 'AI Secret', `openai-config/${ns}`);
-    const { assistantId } = getAssistantInfo(ns);
+    // const { assistantId } = getAssistantInfo(ns);
 
     const aiCommonEnv = {
       ...commonEnv,
-      ASSISTANT_ID: assistantId,
+      // ASSISTANT_ID: assistantId,
       VKD_STATE_MACHINE_ARN: '',
       SERVICE_TABLE: serviceTable.tableName,
       AI_SECRET_NAME: aiSecret.secretName,
@@ -112,6 +111,7 @@ export class AIAssistantConstruct extends NestedStack {
 
     (({ fn }) => {
       sf.grantStartExecution(fn);
+      aiSecret.grantRead(fn);
     })(addLambdaResource({
       scope: this,
       root: aiAssistantRoot,
@@ -182,7 +182,7 @@ export class AIAssistantConstruct extends NestedStack {
     })(addLambdaResource({
       scope: this,
       root: aiAssistantRoot,
-      method: 'ANY',
+      method: 'GET',
       path: 'assistant/{id}',
       entry: 'ai-get-assistant.ts',
       commonEnv: aiCommonEnv,
@@ -242,7 +242,7 @@ export class AIAssistantConstruct extends NestedStack {
       methodOptions: methodOptionsWithAuth,
       role,
     }));
-    
+
     (({ fn }) => {
     })(addLambdaResource({
       scope: this,
@@ -255,6 +255,34 @@ export class AIAssistantConstruct extends NestedStack {
       methodOptions: methodOptionsWithAuth,
       role,
     }));
+
+    // Clone an assistant, typically from the "main" assistant for the environment
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'POST',
+      path: 'assistant/{id}/clone',
+      entry: 'ai-post-assistant-clone.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'POST',
+      path: 'assistant/{id}/enable',
+      entry: 'ai-post-assistant-enable.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
   }
 
 }

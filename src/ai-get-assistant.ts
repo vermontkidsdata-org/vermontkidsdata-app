@@ -1,5 +1,5 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
-import { Assistant, getAllAssistants, getAssistantKey, getAssistantKeyAttribute } from "./db-utils";
+import { Assistant, getAssistantKey } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 import { validateAPIAuthorization } from "./ai-utils";
 
@@ -33,10 +33,14 @@ export async function lambdaHandler(
       }),
     }
   } else {
+    const assItem = {
+      ...assistant.Item,
+      entity: undefined,
+    };
     return {
       statusCode: 200,
       body: JSON.stringify({
-        assistant: assistant?.Item,
+        assistant: assItem,
       }),
     }
   }

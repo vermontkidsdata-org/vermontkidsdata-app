@@ -3,17 +3,11 @@ import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { Completion, getCompletionPK } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 
-const { ASSISTANT_ID, VKD_API_KEY } = process.env;
-
 const pt = makePowerTools({ prefix: 'ai-post-completion' });
 
 const sfn = new SFNClient({});
 
 export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
-  if (ASSISTANT_ID == null) {
-    throw new Error('ASSISTANT_ID is not set');
-  }
-
   const id = event.pathParameters?.id;
   const sortKey = event.pathParameters?.sortKey;
   if (id == null || sortKey == null) {

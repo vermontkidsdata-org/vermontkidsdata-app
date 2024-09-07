@@ -11,7 +11,7 @@ if (ns == null) {
 
 (async () => {
     // First clear out the existing records
-    const assistants = await getAllAssistants(ns);
+    const assistants = await getAllAssistants({});
     for (const assistant of assistants) {
         console.log(`Delete Assistant: ${assistant.id}`);
         await Assistant.delete(getAssistantKey(assistant.id));
@@ -23,7 +23,7 @@ if (ns == null) {
         }
     }
 
-    const assistant = getAssistantInfo(ns, false);
+    const assistant = await getAssistantInfo(ns, false);
     if (assistant == null) {
         console.error("Assistant not found");
         process.exit(1);
@@ -41,7 +41,6 @@ if (ns == null) {
     console.log(`Write Assistant: ${assistantId} (${ns})`);
     await Assistant.put({
         id: assistantId,
-        ns,
         name: assistantWithoutFunctions.name || `VKD assistant for ${ns}`,
         definition: assistantWithoutFunctions,
     });

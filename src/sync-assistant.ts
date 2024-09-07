@@ -13,7 +13,7 @@ const openai = new OpenAI();
 async function syncAssistant(props: { ns: string }) {
   const { ns } = props;
 
-  const info = getAssistantInfo(ns, true);
+  const info = await getAssistantInfo(ns, true);
 
   // const def = await openai.beta.assistants.retrieve(assistantId);
   // console.log(JSON.stringify(def, null, 2));

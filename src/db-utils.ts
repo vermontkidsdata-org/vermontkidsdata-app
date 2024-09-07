@@ -431,6 +431,7 @@ export const Completion = new Entity({
 
     id: { type: 'string', required: true },
     sortKey: { type: 'number', required: true },
+    envName: { type: 'string', required: false }, // If a sandbox assistant
 
     status: { type: 'string', required: true },
     message: { type: 'string' },
@@ -482,9 +483,11 @@ export const Assistant = new Entity({
     },
 
     id: { type: 'string', required: true },
-    ns: { type: 'string', required: true },
+    sandbox: { type: 'string', required: false }, // Missing for the "main" assistant
+
     name: { type: 'string', required: true },
     definition: { type: 'map', required: true },
+    active: { type: 'boolean', required: true, default: () => true },
   },
   table: serviceTable,
 });
@@ -495,18 +498,27 @@ export function getPublishedAssistantKeyAttribute(id: string): string {
   return `PUB${getAssistantKeyAttribute(id)}`;
 }
 
+export function getPublishedAssistantKey(id: string): { PK: string, SK: string } {
+  return {
+    PK: getPublishedAssistantKeyAttribute(id),
+    SK: '$',
+  };
+}
+
 export const PublishedAssistant = new Entity({
   name: ENTITY_PUBLISHED_ASSISTANT,
   attributes: {
-    PK: { partitionKey: true, hidden: true, default: (data: { name: string }) => getPublishedAssistantKeyAttribute(data.name) },
+    PK: { partitionKey: true, hidden: true, default: (data: { envName: string }) => getPublishedAssistantKeyAttribute(data.envName) },
     SK: { sortKey: true, hidden: true, default: () => '$' },
     GSI1PK: { hidden: true, default: () => ALL_PUBLISHED_ASSISTANTS },
     GSI1SK: {
-      hidden: true, default: (data: { name: string }) => getNameKeyAttribute(data.name),
+      hidden: true, default: (data: { envName: string }) => getNameKeyAttribute(data.envName),
     },
 
-    name: { type: 'string', required: true },
+    envName: { type: 'string', required: true },
     definition: { type: 'map', required: true },
+    assistantId: { type: 'string', required: true }, // Our assistant id it's published from
+    openAIAssistantId: { type: 'string', required: true }, // The OpenAI assistant ID
   },
   table: serviceTable,
 });
@@ -674,7 +686,9 @@ export async function getAllNameMaps(): Promise<NameMapData[]> {
   return nameMaps;
 }
 
-export async function getAllAssistants(ns?: string): Promise<AssistantData[]> {
+export async function getAllAssistants(props: {sandbox?: string, includeInactive?: boolean}): Promise<AssistantData[]> {
+  const { sandbox, includeInactive } = props;
+
   const assistants: AssistantData[] = [];
 
   await forEachThing<AssistantData>(
@@ -682,8 +696,7 @@ export async function getAllAssistants(ns?: string): Promise<AssistantData[]> {
       index: 'GSI1',
     }),
     async (assistant) => {
-      console.log('assistant', ns, assistant.ns);
-      if (ns && assistant.ns === ns) {
+      if ((!sandbox || assistant.sandbox === sandbox) && (includeInactive || assistant.active)) {
         assistants.push(assistant);
       }
     },
