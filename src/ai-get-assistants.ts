@@ -1,5 +1,5 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
-import { getAllAssistants } from "./db-utils";
+import { ASSISTANT_TYPE_VKD, getAllAssistants } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 import { validateAPIAuthorization } from "./ai-utils";
 import { VKD_API_KEY } from "../lib/ai-assistant-construct";
@@ -14,11 +14,12 @@ export async function lambdaHandler(
     return ret;
   }
 
-  // See if we should include inactive ones
+  // See if we should include inactive ones, or non-default types
   const includeInactive = event.queryStringParameters?.includeInactive === 'true';
+  const type = event.queryStringParameters?.type ?? ASSISTANT_TYPE_VKD;
 
   // Get all the defined and active (or all, if requested) assistants
-  const assistants = (await getAllAssistants({ includeInactive })).map(ass => ({
+  const assistants = (await getAllAssistants({ includeInactive, type })).map(ass => ({
     ...ass,
     entity: undefined
   }));

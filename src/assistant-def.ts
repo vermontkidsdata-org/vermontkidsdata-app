@@ -1,6 +1,5 @@
 import OpenAI from "openai";
 import { FILE_MAP } from "./ai-utils";
-import { getPublishedAssistantKey, PublishedAssistant, PublishedAssistantData } from "./db-utils";
 
 export type VKDAssistant = OpenAI.Beta.Assistants.Assistant;
 
@@ -339,14 +338,6 @@ export const ASSISTANTS_MAP: Record<string, AssistantInfo> = {
     assistantId: 'asst_P9EBbNGaZoutTNoHsePvrFgA',
     vectorStore: 'vs_ViMIvNC46x2q3tpIMGzxdQah',
   },
-}
-
-export async function getPublishedAssistant(envName: string): Promise<PublishedAssistantData|undefined> {
-  // Look in the DB first... just return as-is
-  console.log(`Getting assistant info for ${envName}`);
-  const assistantDef = await PublishedAssistant.get(getPublishedAssistantKey(envName));
-  console.log(`Assistant def: ${JSON.stringify(assistantDef)}`);
-  return (assistantDef?.Item);
 }
 
 /**

@@ -1,5 +1,5 @@
 import { ASSISTANTS_MAP, CATEGORY_PARAMETER, getAssistantInfo, SERIES_PARAMETER, VKDFunction } from "../src/assistant-def";
-import { Assistant, AssistantFunction, AssistantMap, getAllAssistantFunctions, getAllAssistants, getAssistantFunctionKey, getAssistantKey, makeParamDef } from "../src/db-utils";
+import { Assistant, ASSISTANT_TYPE_VKD, AssistantFunction, AssistantMap, getAllAssistantFunctions, getAllAssistants, getAssistantFunctionKey, getAssistantKey, makeParamDef } from "../src/db-utils";
 
 console.log("Assistant to DDB");
 
@@ -41,6 +41,7 @@ if (ns == null) {
     console.log(`Write Assistant: ${assistantId} (${ns})`);
     await Assistant.put({
         id: assistantId,
+        type: ASSISTANT_TYPE_VKD,
         name: assistantWithoutFunctions.name || `VKD assistant for ${ns}`,
         definition: assistantWithoutFunctions,
     });

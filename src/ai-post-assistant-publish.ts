@@ -48,6 +48,8 @@ export async function lambdaHandler(
     }
   }
 
+  const type = assItem.type;
+  
   const assFunctions = await getAllAssistantFunctions(assistantId);
   const { entity, created, modified, ...assistantDef } = assItem.definition;
   pt.logger.info({ message: 'assistant before tools added', assistant: assistantDef, assFunctions });
@@ -114,6 +116,7 @@ export async function lambdaHandler(
 
   await PublishedAssistant.put({
     envName,
+    type,
     definition: assistantDef,
     openAIAssistantId: resp.id,
     assistantId
@@ -122,7 +125,9 @@ export async function lambdaHandler(
   return {
     statusCode: 200,
     body: JSON.stringify({
-      assistant: resp
+      assistant: resp,
+      type,
+      envName,
     })
   }
 }

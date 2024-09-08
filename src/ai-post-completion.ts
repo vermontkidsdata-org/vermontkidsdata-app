@@ -2,8 +2,8 @@ import { SFNClient, StartExecutionCommand } from "@aws-sdk/client-sfn";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { Thread } from "openai/resources/beta/threads/threads";
 import { connectOpenAI, createThread } from "./ai-utils";
-import { Completion, getCompletionPK, getNamespace } from "./db-utils";
-import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
+import { ASSISTANT_TYPE_VKD, Completion, getCompletionPK, getNamespace, getPublishedAssistantKey, PublishedAssistant } from "./db-utils";
+import { makePowerTools, prepareAPIGateway, StepFunctionInputOutput } from "./lambda-utils";
 
 const { VKD_API_KEY } = process.env;
 
@@ -17,11 +17,12 @@ interface PostCompletionRequest {
   sortKey: number,
   query: string,
   stream?: boolean,
+  type?: string,
   sandbox?: string,
 }
 
 export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
-  const { key, sandbox, ...data } = JSON.parse(event.body || '{}') as PostCompletionRequest;
+  const { key, sandbox, type: _type, ...data } = JSON.parse(event.body || '{}') as PostCompletionRequest;
   if (key !== VKD_API_KEY) {
     return {
       statusCode: 403,
@@ -33,6 +34,19 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
   const ns = getNamespace();
 
   const envName = (ns + (sandbox ? `/${sandbox}` : '')).toLowerCase();
+  const type = _type ?? ASSISTANT_TYPE_VKD;
+
+  // Make sure the assistant is published
+  const pubAss = (await PublishedAssistant.get(getPublishedAssistantKey(type, envName)))?.Item;
+  if (!pubAss) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: "Assistant not published, did you use POST /ai/assistant/XXX/publish?",
+        envName,
+      }),
+    }
+  }
 
   // Need this because we're creating a thread
   await connectOpenAI();
@@ -59,10 +73,12 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
     thread = record.Item.thread;
   }
 
-  await Completion.update({
+  await Completion.put({
     ...data,
     status: 'new',
     thread,
+
+    type,
     envName,
   });
 
@@ -73,8 +89,10 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
       sortKey: data.sortKey,
       query: data.query,
       stream: data.stream,
+
+      type: pubAss.type,
       envName,
-    }),
+    } as StepFunctionInputOutput),
   }));
 
   pt.logger.info({ message: 'Started state machine', sf });

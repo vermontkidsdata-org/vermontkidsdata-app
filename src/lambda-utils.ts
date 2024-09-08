@@ -70,6 +70,7 @@ export interface StepFunctionInputOutput {
   runId?: string;
   status?: string;
   stream?: boolean;
+  type: string;
   envName?: string;
 }
 

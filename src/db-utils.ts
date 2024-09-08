@@ -24,6 +24,8 @@ const ENTITY_ASSISTANT_FUNCTION = 'AssistantFunction';
 const ENTITY_ASSISTANT_MAP = 'AssistantMap';
 const ENTITY_PUBLISHED_ASSISTANT = 'PublishedAssistant';
 
+export const ASSISTANT_TYPE_VKD = 'vkd';
+
 export const ALL_WITH_COMMENTS = 'ALL_WITH_COMMENTS';
 
 const { VKD_ENVIRONMENT, LOG_LEVEL } = process.env;
@@ -431,6 +433,7 @@ export const Completion = new Entity({
 
     id: { type: 'string', required: true },
     sortKey: { type: 'number', required: true },
+    type: { type: 'string', required: true },
     envName: { type: 'string', required: false }, // If a sandbox assistant
 
     status: { type: 'string', required: true },
@@ -483,6 +486,8 @@ export const Assistant = new Entity({
     },
 
     id: { type: 'string', required: true },
+    type: { type: 'string', required: true, default: () => ASSISTANT_TYPE_VKD },
+
     sandbox: { type: 'string', required: false }, // Missing for the "main" assistant
 
     name: { type: 'string', required: true },
@@ -494,13 +499,13 @@ export const Assistant = new Entity({
 
 export type AssistantData = EntityItem<typeof Assistant>;
 
-export function getPublishedAssistantKeyAttribute(id: string): string {
-  return `PUB${getAssistantKeyAttribute(id)}`;
+export function getPublishedAssistantKeyAttribute(type: string, envName: string): string {
+  return `PUBASS#${type}#ENV#${envName}`;
 }
 
-export function getPublishedAssistantKey(id: string): { PK: string, SK: string } {
+export function getPublishedAssistantKey(type: string, envName: string): { PK: string, SK: string } {
   return {
-    PK: getPublishedAssistantKeyAttribute(id),
+    PK: getPublishedAssistantKeyAttribute(type, envName),
     SK: '$',
   };
 }
@@ -508,14 +513,19 @@ export function getPublishedAssistantKey(id: string): { PK: string, SK: string }
 export const PublishedAssistant = new Entity({
   name: ENTITY_PUBLISHED_ASSISTANT,
   attributes: {
-    PK: { partitionKey: true, hidden: true, default: (data: { envName: string }) => getPublishedAssistantKeyAttribute(data.envName) },
+    PK: {
+      partitionKey: true, hidden: true,
+      default: (data: { type: string, envName: string }) => getPublishedAssistantKeyAttribute(data.type, data.envName)
+    },
     SK: { sortKey: true, hidden: true, default: () => '$' },
     GSI1PK: { hidden: true, default: () => ALL_PUBLISHED_ASSISTANTS },
     GSI1SK: {
       hidden: true, default: (data: { envName: string }) => getNameKeyAttribute(data.envName),
     },
 
+    type: { type: 'string', required: true },
     envName: { type: 'string', required: true },
+
     definition: { type: 'map', required: true },
     assistantId: { type: 'string', required: true }, // Our assistant id it's published from
     openAIAssistantId: { type: 'string', required: true }, // The OpenAI assistant ID
@@ -686,8 +696,8 @@ export async function getAllNameMaps(): Promise<NameMapData[]> {
   return nameMaps;
 }
 
-export async function getAllAssistants(props: {sandbox?: string, includeInactive?: boolean}): Promise<AssistantData[]> {
-  const { sandbox, includeInactive } = props;
+export async function getAllAssistants(props: { sandbox?: string, includeInactive?: boolean, type?: string }): Promise<AssistantData[]> {
+  const { sandbox, includeInactive, type } = props;
 
   const assistants: AssistantData[] = [];
 
@@ -696,7 +706,8 @@ export async function getAllAssistants(props: {sandbox?: string, includeInactive
       index: 'GSI1',
     }),
     async (assistant) => {
-      if ((!sandbox || assistant.sandbox === sandbox) && (includeInactive || assistant.active)) {
+      if ((!sandbox || assistant.sandbox === sandbox) && (includeInactive || assistant.active) &&
+        (!type || assistant.type === type)) {
         assistants.push(assistant);
       }
     },

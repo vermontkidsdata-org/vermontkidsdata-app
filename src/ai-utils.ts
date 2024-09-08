@@ -287,7 +287,7 @@ async function handleEvent(props: {
 
   if (event.event === 'thread.run.created') {
   } else if (event.event === 'thread.run.failed') {
-    console.error("Run failed");
+    console.error({ message: "Run failed", event });
     await callback({ finished: true, failed: true, event });
     return true;
   } else if (event.event === 'thread.run.completed') {
@@ -579,6 +579,6 @@ export function validateAPIAuthorization(event: APIGatewayProxyEventV2): APIGate
       }),
     };
   }
-  
+
   return undefined;
 }

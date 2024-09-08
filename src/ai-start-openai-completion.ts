@@ -1,6 +1,5 @@
 import { ChunkHandler, Footnote, askWithStreaming, connectOpenAI, getOpenAI, startAskWithoutStreaming } from "./ai-utils";
-import { getPublishedAssistant } from "./assistant-def";
-import { Completion, getCompletionPK } from "./db-utils";
+import { Completion, getCompletionPK, getPublishedAssistantKey, PublishedAssistant } from "./db-utils";
 import { StepFunctionInputOutput, makePowerTools, prepareStepFunction } from "./lambda-utils";
 
 // const { ASSISTANT_ID } = process.env;
@@ -9,10 +8,6 @@ const pt = makePowerTools({ prefix: 'ai-start-openai-completion' });
 
 export const lambdaHandler = async (event: StepFunctionInputOutput): Promise<StepFunctionInputOutput> => {
   pt.logger.info({ message: 'Starting OpenAI completion', event });
-
-  // if (ASSISTANT_ID == null) {
-  //   throw new Error('ASSISTANT_ID is not set');
-  // }
 
   await connectOpenAI();
 
@@ -23,7 +18,7 @@ export const lambdaHandler = async (event: StepFunctionInputOutput): Promise<Ste
     throw new Error(`Thread not found for ${event.id}:${event.sortKey}`);
   }
 
-  const envName = event.envName;
+  const {type, envName} = event;
   if (envName == null) {
     throw new Error('envName is not set in the event');
   }
@@ -34,7 +29,7 @@ export const lambdaHandler = async (event: StepFunctionInputOutput): Promise<Ste
   const footnotes: Footnote[] = [];
   let refnum = 0;
 
-  const assistantData = await getPublishedAssistant(envName);
+  const assistantData = (await PublishedAssistant.get(getPublishedAssistantKey(type, envName)))?.Item;
   if (!assistantData) {
     throw new Error('Assistant not found');
   }
