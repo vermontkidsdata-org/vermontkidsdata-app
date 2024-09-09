@@ -1,2 +1,2 @@
-aws dynamodb get-item --table-name qa-LocalDevBranch-SingleServiceTableABC698C2-1LAA1LXM8NBCU --key "{\"PK\":{\"S\":\"UPLOADSTATUS#%1\"},\"SK\":{\"S\":\"UPLOADSTATUS#%1\"}}"
+aws dynamodb get-item --table-name qa-LocalDevBranch-SingleServiceTableABC698C2-3Z52F7FCI8WH --key "{\"PK\":{\"S\":\"UPLOADSTATUS#%1\"},\"SK\":{\"S\":\"UPLOADSTATUS#%1\"}}"
 aws dynamodb get-item --table-name master-LocalDevBranch-SingleServiceTableABC698C2-FNHLW4FT8XVJ --key "{\"PK\":{\"S\":\"UPLOADSTATUS#%1\"},\"SK\":{\"S\":\"UPLOADSTATUS#%1\"}}"

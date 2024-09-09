@@ -219,6 +219,7 @@ export class VermontkidsdataStack extends Stack {
     });
     bucket.grantRead(uploadFunction);
     queue.grantSendMessages(uploadFunction);
+    serviceTable.grantReadWriteData(uploadFunction);
 
     const getSecretValueStatement = new PolicyStatement({
       actions: ["secretsmanager:GetSecretValue"],
@@ -301,6 +302,9 @@ export class VermontkidsdataStack extends Stack {
     bucket.addEventNotification(EventType.OBJECT_TAGGING_PUT, notify, {
       suffix: 'csv',
     });
+    bucket.addEventNotification(EventType.OBJECT_TAGGING_PUT, notify, {
+      suffix: 'txt',
+    });
     uploadQueue.grantSendMessages(S3_SERVICE_PRINCIPAL);
     uploadFunction.addEventSource(new SqsEventSource(uploadQueue, {
       batchSize: 1,
@@ -322,7 +326,6 @@ export class VermontkidsdataStack extends Stack {
       },
       tracing: Tracing.ACTIVE,
     });
-    serviceTable.grantReadWriteData(uploadFunction);
     serviceTable.grantReadWriteData(uploadStatusFunction);
 
     // The secret where the DB login info is. Grant read access.

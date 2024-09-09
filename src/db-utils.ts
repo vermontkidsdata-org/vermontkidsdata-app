@@ -13,6 +13,7 @@ const ALL_NAME_MAPS = 'ALL_NAME_MAPS';
 const ALL_ASSISTANTS = 'ALL_ASSISTANTS';
 const ALL_ASSISTANT_FUNCTIONS = 'ALL_ASSISTANT_FUNCTIONS';
 const ALL_PUBLISHED_ASSISTANTS = 'ALL_PUBLISHED_ASSISTANTS';
+const ALL_DOCUMENTS = 'ALL_DOCUMENTS';
 
 const ENTITY_UPLOAD_STATUS = 'UploadStatus';
 const ENTITY_NAME_MAP = 'NameMap';
@@ -23,6 +24,7 @@ const ENTITY_ASSISTANT = 'Assistant';
 const ENTITY_ASSISTANT_FUNCTION = 'AssistantFunction';
 const ENTITY_ASSISTANT_MAP = 'AssistantMap';
 const ENTITY_PUBLISHED_ASSISTANT = 'PublishedAssistant';
+const ENTITY_DOCUMENT = 'Document';
 
 export const ASSISTANT_TYPE_VKD = 'vkd';
 
@@ -535,6 +537,41 @@ export const PublishedAssistant = new Entity({
 
 export type PublishedAssistantData = EntityItem<typeof PublishedAssistant>;
 
+export function getDocumentKeyAttribute(identifier: string): string {
+  return `DOC#${identifier}`;
+}
+
+export function getDocumentKey(identifier: string): { PK: string, SK: string } {
+  return {
+    PK: getDocumentKeyAttribute(identifier),
+    SK: '$',
+  };
+}
+
+export const Document = new Entity({
+  name: ENTITY_DOCUMENT,
+  attributes: {
+    PK: {
+      partitionKey: true, hidden: true,
+      default: (data: { identifier: string }) => getDocumentKeyAttribute(data.identifier)
+    },
+    SK: { sortKey: true, hidden: true, default: () => '$' },
+    GSI1PK: { hidden: true, default: () => ALL_DOCUMENTS },
+    GSI1SK: {
+      hidden: true, default: (data: { id: string }) => getDocumentKeyAttribute(data.id),
+    },
+
+    identifier: { type: 'string', required: true },
+
+    bucket: { type: 'string', required: true },
+    key: { type: 'string', required: true },
+    active: { type: 'boolean', required: true, default: () => true },
+  },
+  table: serviceTable,
+});
+
+export type DocumentData = EntityItem<typeof Document>;
+
 export function getFunctionKeyAttribute(func: string): string {
   return `FUNC#${func}`;
 }
@@ -694,6 +731,24 @@ export async function getAllNameMaps(): Promise<NameMapData[]> {
   );
 
   return nameMaps;
+}
+
+export async function getAllDocuments(props: { includeInactive?: boolean}): Promise<DocumentData[]> {
+  const { includeInactive } = props;
+  const documents: DocumentData[] = [];
+
+  await forEachThing<DocumentData>(
+    () => Document.query(ALL_DOCUMENTS, {
+      index: 'GSI1',
+    }),
+    async (document) => {
+      if (includeInactive || document.active) {
+        documents.push(document);
+      }
+    },
+  );
+
+  return documents;
 }
 
 export async function getAllAssistants(props: { sandbox?: string, includeInactive?: boolean, type?: string }): Promise<AssistantData[]> {

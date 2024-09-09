@@ -283,6 +283,19 @@ export class AIAssistantConstruct extends NestedStack {
       role,
     }));
 
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'document',
+      entry: 'ai-get-documents.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
   }
 
 }

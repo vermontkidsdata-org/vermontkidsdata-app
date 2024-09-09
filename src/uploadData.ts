@@ -11,7 +11,7 @@ import { UpdateCommandOutput } from '@aws-sdk/lib-dynamodb';
 import { SQSEvent } from 'aws-lambda';
 import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
-import { DatasetVersion, DatasetVersionData, NameMapData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
+import { DatasetVersion, DatasetVersionData, Document, NameMapData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
 
 // {"dataset":"general:residentialcare","version":"2023-11-24T14:07:43.874Z","identifier":"20231124-1"}
 export interface DatasetBackupMessage {
@@ -78,25 +78,39 @@ type CsvProcessCallback = (uploadType: UploadType, record: string[], lnum: numbe
 type PreFunctionCallback = (props: { uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, doTruncateTable?: boolean, errors: Error[], clientData: any }) => Promise<boolean>;
 
 interface TypesConfigElement {
-  processRowFunction: CsvProcessCallback; // Called on each row
+  getContent: boolean;                  // True if we should get the content from S3
+  processUploadFunction: ProcessUploadFunction; // The function that processes the upload
+  processRowFunction?: CsvProcessCallback; // Called on each row (required if processUploadCSV)
   preFunction?: PreFunctionCallback; // Called before any rows
   postFunction?: CsvProcessCallback; // Called after all rows
 }
 
 const typesConfig: { [type: string]: TypesConfigElement } = {
   indicators: {
+    getContent: true,
+    processUploadFunction: processUploadCSV,
     processRowFunction: processIndicatorsRow,
   },
   assessments: {
+    getContent: true,
+    processUploadFunction: processUploadCSV,
     processRowFunction: processAssessmentRow,
   },
   general: {
+    getContent: true,
+    processUploadFunction: processUploadCSV,
     processRowFunction: processGeneralRow,
   },
   dashboard: {
+    getContent: true,
+    processUploadFunction: processUploadCSV,
     processRowFunction: processGeneralRow,
     preFunction: recreateDashboardTable,
   },
+  document: {
+    getContent: false,
+    processUploadFunction: processUploadDocument,
+  }
 }
 
 interface ProcessGeneralRowClientData {
@@ -497,13 +511,60 @@ async function updateStatus(id: string, status: string, percent: number, numReco
   }
 }
 
+type ProcessUploadFunction = (props: {
+  bodyContents: string | S3Ref | undefined,
+  identifier: string,
+  uploadType: string,
+  dryRun?: boolean,
+  doTruncateTable?: boolean,
+  updateUploadStatus?: boolean,
+}) => Promise<{
+  errors: Error[],
+  saveTotal: number,
+  statusUpdatePct: number,
+}>;
+
+// validate that bodycontents is an S3Ref
+function isS3Ref(bodyContents: string | S3Ref | undefined): bodyContents is S3Ref {
+  return (bodyContents as S3Ref).Bucket !== undefined && (bodyContents as S3Ref).Key !== undefined;
+}
+
+export async function processUploadDocument(props: {
+  bodyContents: string | S3Ref | undefined,
+  identifier: string,
+  uploadType: string,
+  dryRun?: boolean,
+  doTruncateTable?: boolean,
+  updateUploadStatus?: boolean,
+}): Promise<{
+  errors: Error[],
+  saveTotal: number,
+  statusUpdatePct: number,
+}> {
+  const { uploadType: uploadTypeStr, bodyContents, dryRun, identifier, updateUploadStatus } = props;
+  if (!isS3Ref(bodyContents)) {
+    await updateStatus(identifier, 'Error', 0, 0, [new Error('do not have S3Ref for document upload')]);
+    throw new Error('no body contents');
+  }
+
+  await Document.put({
+    identifier,
+    bucket: bodyContents.Bucket,
+    key: bodyContents.Key,
+  });
+
+  return {
+    errors: [], saveTotal: 1, statusUpdatePct: 100
+  };
+}
+
 /**
  * Really process an upload, from whatever source.
  * @param props 
  * @returns Errors, total number of records saved, and the last update percentage
  */
-export async function processUpload(props: {
-  bodyContents: string,
+export async function processUploadCSV(props: {
+  bodyContents: string | S3Ref | undefined,
   identifier: string,
   uploadType: string,
   dryRun?: boolean,
@@ -516,6 +577,12 @@ export async function processUpload(props: {
 }> {
   const { uploadType: uploadTypeStr, bodyContents, dryRun, identifier, updateUploadStatus, doTruncateTable } = props;
 
+  // This requires bodyContents to be passed
+  if (typeof bodyContents !== 'string') {
+    await updateStatus(identifier, 'Error', 0, 0, [new Error('body contents must be a string for CSV')]);
+    throw new Error('no body contents');
+  }
+
   console.log('opening connection');
   await doDBOpen();
   console.log('connection open');
@@ -526,10 +593,14 @@ export async function processUpload(props: {
   // Assume the type has two pieces separated by a colon
   // - the typesConfig value
   // - the rest of it, depends on the typesConfig value
-  const typePrefix = uploadTypeStr.includes(':') ? uploadTypeStr.substring(0, uploadTypeStr.indexOf(':')) : uploadTypeStr;
-  const typeConfig = typesConfig[typePrefix];
+  const { typePrefix, typeConfig } = await getTypeConfig(uploadTypeStr, identifier);
+  const { processRowFunction, preFunction, postFunction } = typeConfig;
 
-  console.log({ typePrefix, typeConfig });
+  // If we get here we need a processRowFunction defined
+  if (!processRowFunction) {
+    await updateStatus(identifier, 'Error', 0, 0, [new Error(`type prefix ${typePrefix} requires processRowFunction`)]);
+    throw new Error(`type prefix ${typePrefix} requires processRowFunction`);
+  }
 
   const errors: Error[] = []
   let saveTotal = 0;
@@ -542,27 +613,27 @@ export async function processUpload(props: {
     await processCSV(bodyContents, uploadType, async (record, lnum, total) => {
       console.log({ message: 'row', index: lnum, record });
 
-      if (lnum === 1 && typeConfig.preFunction) {
+      if (lnum === 1 && preFunction) {
         console.log({ message: 'executing pre-function' });
 
-        const quit = await typeConfig.preFunction({ uploadType, record, lnum, identifier, dryRun: dryRun ?? false, errors, clientData, doTruncateTable });
+        const quit = await preFunction({ uploadType, record, lnum, identifier, dryRun: dryRun ?? false, errors, clientData, doTruncateTable });
         if (quit) {
           return quit;
         }
 
         // The preFunction may have changed the upload type, we need to re-evaluate it
         uploadType = await getUploadType(uploadTypeStr);
-      
+
         // Start by truncating the table if requested. We only do this if the preFunction returns OK.
         if (doTruncateTable) {
           await truncateTable(uploadType, [], 0, identifier, dryRun ?? false, errors, clientData);
         }
       }
-      await typeConfig.processRowFunction(uploadType, record, lnum, identifier, dryRun ?? false, errors, clientData);
-      if (lnum === total && typeConfig.postFunction) {
+      await processRowFunction(uploadType, record, lnum, identifier, dryRun ?? false, errors, clientData);
+      if (lnum === total && postFunction) {
         console.log({ message: 'executing post-function' });
 
-        await typeConfig.postFunction(uploadType, record, lnum, identifier, dryRun ?? false, errors, clientData);
+        await postFunction(uploadType, record, lnum, identifier, dryRun ?? false, errors, clientData);
       }
 
       // Update status every 10%
@@ -603,10 +674,29 @@ export async function processUpload(props: {
 
 const UNKNOWN = 'unknown';
 
+interface S3Ref {
+  Bucket: string,
+  Key: string,
+}
+
 interface UploadInfo {
   tags: { [key: string]: string },
-  bodyContents: string | undefined,
+  bodyContents: string | S3Ref | undefined,
   contentType: string | undefined,
+}
+
+async function getTypeConfig(type: string, identifier: string): Promise<{
+  typePrefix: string,
+  typeConfig: TypesConfigElement
+}> {
+  const typePrefix = type.includes(':') ? type.substring(0, type.indexOf(':')) : type;
+  const typeConfig = typesConfig[typePrefix];
+  if (!typeConfig) {
+    await updateStatus(identifier, 'Error', 0, 0, [new Error(`unknown type prefix ${typePrefix}`)]);
+    throw new Error(`unknown type prefix ${typePrefix}`);
+  }
+
+  return { typePrefix, typeConfig };
 }
 
 async function getUploadFile(props: {
@@ -622,23 +712,29 @@ async function getUploadFile(props: {
   console.log('params', params);
 
   const tags: { [key: string]: string } = {};
-  let bodyContents: string | undefined = undefined;
+  let bodyContents: string | S3Ref | undefined = undefined;
   let contentType: string | undefined = undefined;
   for (let i = 0; i < 5; i++) {
     try {
-      await s3.send(new GetObjectCommand(params));
-      const { ContentType, Body } = await s3.send(new GetObjectCommand(params));
       const { TagSet } = await s3.send(new GetObjectTaggingCommand(params));
-      console.log('CONTENT TYPE:', ContentType);
-
-      contentType = ContentType;
-      bodyContents = await Body?.transformToString();
-
-      //[ { Key: 'type', Value: 'assessments' } ]
       console.log('TAGS:', TagSet);
       if (TagSet != null) {
         TagSet.forEach(tag => tags[tag.Key?.toLowerCase() ?? UNKNOWN] = tag.Value?.toLowerCase() ?? UNKNOWN);
       }
+
+      // Look up the type tag as an uploadType prefix; only get the content if we're supposed to
+      const { typeConfig } = await getTypeConfig(tags.type ?? UNKNOWN, tags.identifier ?? UNKNOWN);
+
+      if (typeConfig.getContent) {
+        await s3.send(new GetObjectCommand(params));
+        const { ContentType, Body } = await s3.send(new GetObjectCommand(params));
+        console.log('CONTENT TYPE:', ContentType);
+        contentType = ContentType;
+        bodyContents = await Body?.transformToString();
+      } else {
+        bodyContents = params;
+      }
+
       break;
     } catch (e) {
       console.error(e);
@@ -718,8 +814,8 @@ export async function main(
   // Get the identifier. Just create a UUID if one not provided like it should be.
   const identifier = tags.identifier || uuidv4();
 
-  if (tags.type == null || bodyContents == null) {
-    await updateStatus(tags.identifier ?? UNKNOWN, 'Error', 0, 0, [new Error(`missing type or bodyContents`)]);
+  if (tags.type == null) {
+    await updateStatus(tags.identifier ?? UNKNOWN, 'Error', 0, 0, [new Error(`missing type from upload`)]);
     return UNKNOWN;
   }
 
@@ -730,7 +826,8 @@ export async function main(
 
     // Get the upload type. We'll need it later for multiple purposes
     const uploadType = tags.type;
-    const { errors, saveTotal, statusUpdatePct } = await processUpload({
+    const { typeConfig } = await getTypeConfig(uploadType, identifier);
+    const { errors, saveTotal, statusUpdatePct } = await typeConfig.processUploadFunction({
       bodyContents,
       uploadType,
       identifier,

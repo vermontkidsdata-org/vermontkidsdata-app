@@ -7,7 +7,7 @@ import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { DatasetVersion, getDatasetVersionKey } from './db-utils';
 import { makePowerTools, prepareAPIGateway } from './lambda-utils';
-import { processUpload } from './uploadData';
+import { processUploadCSV } from './uploadData';
 
 const pt = makePowerTools({ prefix: `revert-dataset-backups-${process.env.VKD_ENVIRONMENT}` });
 
@@ -56,7 +56,7 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
   const body = await backup.Body.transformToString();
 
   // Now revert the dataset.
-  await processUpload({
+  await processUploadCSV({
     bodyContents: body,
     uploadType: dataset,
     identifier,

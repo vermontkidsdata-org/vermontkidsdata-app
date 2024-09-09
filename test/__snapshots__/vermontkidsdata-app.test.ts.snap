@@ -80,7 +80,7 @@ exports[`Lambda Snapshot Test 1`] = `
               {
                 "Ref": "AWS::URLSuffix",
               },
-              "/[ASSET BUCKET]/479e7e812de3eb76080e8e31eec89e8d1e5fd02536b00297fb22b071ccb2ce14.json",
+              "/[ASSET BUCKET]/be0e5c4268a29324fcf74081ca93f562113f7d39e609e2d3a37e423ec5881476.json",
             ],
           ],
         },
