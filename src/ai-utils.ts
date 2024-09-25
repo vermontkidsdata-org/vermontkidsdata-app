@@ -7,7 +7,7 @@ import { Thread } from "openai/resources/beta/threads/threads";
 import { LimitedAssistantDef, VKDFunctionTool } from "./assistant-def";
 import { BarChartResult, getChartData } from "./chartsApi";
 import { makePowerTools } from "./lambda-utils";
-import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
+import { APIGatewayProxyResultV2 } from "aws-lambda";
 
 export const IN_PROGRESS_ERROR = 'InProgressError';
 
@@ -569,7 +569,7 @@ export class ChunkHandler {
 
 const { VKD_API_KEY } = process.env;
 
-export function validateAPIAuthorization(event: APIGatewayProxyEventV2): APIGatewayProxyResultV2 | undefined {
+export function validateAPIAuthorization(event: any): APIGatewayProxyResultV2 | undefined {
   const key = event.queryStringParameters?.key;
   if (key !== VKD_API_KEY) {
     return {

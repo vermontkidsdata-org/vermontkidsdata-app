@@ -296,6 +296,61 @@ export class AIAssistantConstruct extends NestedStack {
       role,
     }));
 
+    // (({ fn }) => {
+    // })(addLambdaResource({
+    //   scope: this,
+    //   root: aiAssistantRoot,
+    //   method: 'GET',
+    //   path: 'document/{id}',
+    //   entry: 'ai-get-document.ts',
+    //   commonEnv: aiCommonEnv,
+    //   onAdd,
+    //   methodOptions: methodOptionsWithAuth,
+    //   role,
+    // }));
+
+    // PUT /ai/assisant/{id}
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'PUT',
+      path: 'assistant/{id}',
+      entry: 'ai-put-assistant.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
+    // GET /ai/assistant/{id}/documents
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'assistant/{id}/documents',
+      entry: 'ai-get-assistant-documents.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
+    // POST /ai/assisant/{id}/documents
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'POST',
+      path: 'assistant/{id}/documents',
+      entry: 'ai-post-assistant-documents.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
   }
 
 }

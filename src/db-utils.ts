@@ -22,6 +22,7 @@ const ENTITY_DATASET_VERSION = 'DatasetVersion';
 const ENTITY_COMPLETION = 'Completion';
 const ENTITY_ASSISTANT = 'Assistant';
 const ENTITY_ASSISTANT_FUNCTION = 'AssistantFunction';
+const ENTITY_ASSISTANT_DOCUMENT = 'AssistantDocument';
 const ENTITY_ASSISTANT_MAP = 'AssistantMap';
 const ENTITY_PUBLISHED_ASSISTANT = 'PublishedAssistant';
 const ENTITY_DOCUMENT = 'Document';
@@ -537,8 +538,12 @@ export const PublishedAssistant = new Entity({
 
 export type PublishedAssistantData = EntityItem<typeof PublishedAssistant>;
 
+export function getDocumentKeyAttributePrefix(): string {
+  return `DOC#`;
+}
+
 export function getDocumentKeyAttribute(identifier: string): string {
-  return `DOC#${identifier}`;
+  return `${getDocumentKeyAttributePrefix()}${identifier}`;
 }
 
 export function getDocumentKey(identifier: string): { PK: string, SK: string } {
@@ -572,8 +577,39 @@ export const Document = new Entity({
 
 export type DocumentData = EntityItem<typeof Document>;
 
+export const AssistantDocument = new Entity({
+  name: ENTITY_ASSISTANT_DOCUMENT,
+  attributes: {
+    PK: { partitionKey: true, hidden: true, default: (data: { assistantId: string }) => getAssistantKeyAttribute(data.assistantId) },
+    SK: { sortKey: true, hidden: true, default: (data: { identifier: string }) => getDocumentKeyAttribute(data.identifier) },
+    GSI2PK: { hidden: true, default: (data: { identifier: string }) => getDocumentKeyAttribute(data.identifier) },
+    GSI2SK: {
+      hidden: true, default: (data: { assistantId: string }) => getAssistantKeyAttribute(data.assistantId),
+    },
+
+    assistantId: { type: 'string', required: true },
+    identifier: { type: 'string', required: true },
+    bucket: { type: 'string', required: true },
+    key: { type: 'string', required: true },
+  },
+  table: serviceTable,
+});
+
+export function getAssistantDocumentKey(assistantId: string, identifier: string): { PK: string, SK: string } {
+  return {
+    PK: getAssistantKeyAttribute(assistantId),
+    SK: getDocumentKeyAttribute(identifier),
+  };
+}
+
+export type AssistantDocumentData = EntityItem<typeof AssistantDocument>;
+
+export function getFunctionKeyAttributePrefix(): string {
+  return `FUNC#`;
+}
+
 export function getFunctionKeyAttribute(func: string): string {
-  return `FUNC#${func}`;
+  return `${getFunctionKeyAttributePrefix()}${func}`;
 }
 
 export interface ParamDefinition {
@@ -777,6 +813,7 @@ export async function getAllAssistantFunctions(assistantId: string): Promise<Ass
   await forEachThing<AssistantFunctionData>(
     () => AssistantFunction.query(ALL_ASSISTANT_FUNCTIONS, {
       index: 'GSI1',
+      beginsWith: getFunctionKeyAttributePrefix(),
     }),
     async (assistantFunction) => {
       if (assistantFunction.assistantId === assistantId) {
@@ -787,6 +824,22 @@ export async function getAllAssistantFunctions(assistantId: string): Promise<Ass
 
   return assistantFunctions;
 }
+
+export async function getAllAssistantDocuments(assistantId: string): Promise<AssistantDocumentData[]> {
+  const assistantDocuments: AssistantDocumentData[] = [];
+
+  await forEachThing<AssistantDocumentData>(
+    () => AssistantDocument.query(getAssistantKeyAttribute(assistantId), {
+      beginsWith: getDocumentKeyAttributePrefix()
+    }),
+    async (assistantDocument) => {
+      assistantDocuments.push(assistantDocument);
+    },
+  );
+
+  return assistantDocuments;
+}
+
 // Now read some test data
 // const [rows, fields] = await connection.execute(`select * from dbvermontkidsdata.acs_dataset`);
 // if (!module.parent) {

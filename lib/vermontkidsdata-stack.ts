@@ -649,6 +649,9 @@ export class VermontkidsdataStack extends Stack {
       },
       // Add OPTIONS call to all resources
       defaultCorsPreflightOptions: corsOptions,
+      deployOptions: {
+        tracingEnabled: true,
+      }
     });
 
     const authorizer = new RequestAuthorizer(this, 'request authorizer', {

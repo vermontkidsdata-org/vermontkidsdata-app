@@ -1,4 +1,4 @@
-import { Duration } from "aws-cdk-lib";
+import { Duration, NestedStack, NestedStackProps } from "aws-cdk-lib";
 import { LambdaIntegration, MethodOptions, RestApi } from "aws-cdk-lib/aws-apigateway";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
@@ -8,7 +8,7 @@ import { Runtime, Tracing } from "aws-cdk-lib/aws-lambda";
 
 export type OnAddCallback = (fn: NodejsFunction) => void;
 
-export interface PortalsFunctionsProps {
+export interface PortalsFunctionsProps extends NestedStackProps {
   api: RestApi;
   methodOptions?: MethodOptions;
   auth?: AuthInfo;
@@ -36,7 +36,7 @@ export function getPortalsLambda(props: { scope: Construct, handler: string, com
   return fn;
 }
 
-export class PortalsFunctions extends Construct {
+export class PortalsFunctions extends NestedStack {
   constructor(scope: Construct, id: string, props: PortalsFunctionsProps) {
     super(scope, id);
 
