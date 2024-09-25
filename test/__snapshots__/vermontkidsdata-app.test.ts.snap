@@ -80,7 +80,7 @@ exports[`Lambda Snapshot Test 1`] = `
               {
                 "Ref": "AWS::URLSuffix",
               },
-              "/[ASSET BUCKET]/be0e5c4268a29324fcf74081ca93f562113f7d39e609e2d3a37e423ec5881476.json",
+              "/[ASSET BUCKET]/9dc2b9c5a36eb016f7e49078b6fba37755d12a75d8089131a9f47e3a5259fdcf.json",
             ],
           ],
         },
@@ -4733,22 +4733,6 @@ def submit_response(event: dict, context, response_status: str, error_message: s
             },
             {
               "Action": [
-                "sqs:ReceiveMessage",
-                "sqs:ChangeMessageVisibility",
-                "sqs:GetQueueUrl",
-                "sqs:DeleteMessage",
-                "sqs:GetQueueAttributes",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "UploadqueueE932C434",
-                  "Arn",
-                ],
-              },
-            },
-            {
-              "Action": [
                 "dynamodb:BatchGetItem",
                 "dynamodb:GetRecords",
                 "dynamodb:GetShardIterator",
@@ -4785,6 +4769,22 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                   ],
                 },
               ],
+            },
+            {
+              "Action": [
+                "sqs:ReceiveMessage",
+                "sqs:ChangeMessageVisibility",
+                "sqs:GetQueueUrl",
+                "sqs:DeleteMessage",
+                "sqs:GetQueueAttributes",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "UploadqueueE932C434",
+                  "Arn",
+                ],
+              },
             },
             {
               "Action": [
@@ -5158,6 +5158,27 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ],
               },
             },
+            {
+              "Events": [
+                "s3:ObjectTagging:Put",
+              ],
+              "Filter": {
+                "Key": {
+                  "FilterRules": [
+                    {
+                      "Name": "suffix",
+                      "Value": "txt",
+                    },
+                  ],
+                },
+              },
+              "QueueArn": {
+                "Fn::GetAtt": [
+                  "UploadqueueE932C434",
+                  "Arn",
+                ],
+              },
+            },
           ],
         },
         "ServiceToken": {
@@ -5468,2007 +5489,38 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::Cognito::IdentityPoolRoleAttachment",
     },
-    "portalsfunctionsPortalsLambdaportalsGetById55A9322D": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsGetByIdServiceRoleDefaultPolicy151CFAC9",
-        "portalsfunctionsPortalsLambdaportalsGetByIdServiceRoleEB655A61",
-      ],
+    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33": {
+      "DeletionPolicy": "Delete",
       "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
+        "Parameters": {
+          "referencetotestTestStackBackupqueue9AD2C365Ref": {
+            "Ref": "BackupqueueE3E58E0E",
           },
-        },
-        "Handler": "index.portalsGetById",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetByIdServiceRoleEB655A61",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetByIdServiceRoleDefaultPolicy151CFAC9": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsGetByIdServiceRoleDefaultPolicy151CFAC9",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsGetByIdServiceRoleEB655A61",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetByIdServiceRoleEB655A61": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
+          "referencetotestTestStackSingleServiceTable2C62739BArn": {
+            "Fn::GetAtt": [
+              "SingleServiceTableABC698C2",
+              "Arn",
             ],
           },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetCategoriesD6C1EBE1": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsGetCategoriesServiceRoleDefaultPolicy10AD1F1F",
-        "portalsfunctionsPortalsLambdaportalsGetCategoriesServiceRoleE5D57EA0",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
+          "referencetotestTestStackSingleServiceTable2C62739BRef": {
+            "Ref": "SingleServiceTableABC698C2",
           },
         },
-        "Handler": "index.portalsGetCategories",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetCategoriesServiceRoleE5D57EA0",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetCategoriesServiceRoleDefaultPolicy10AD1F1F": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
+        "TemplateURL": {
+          "Fn::Join": [
+            "",
+            [
+              "https://s3.aq-south-1.",
+              {
+                "Ref": "AWS::URLSuffix",
               },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsGetCategoriesServiceRoleDefaultPolicy10AD1F1F",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsGetCategoriesServiceRoleE5D57EA0",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetCategoriesServiceRoleE5D57EA0": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
+              "/[ASSET BUCKET]/906a7b9253443fbddf3f45141317960b023afd79c62b38fd552d4de9bfe08a11.json",
             ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetElementById1EFC80FF": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsGetElementByIdServiceRoleDefaultPolicyE45557A0",
-        "portalsfunctionsPortalsLambdaportalsGetElementByIdServiceRole84050D3F",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsGetElementById",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetElementByIdServiceRole84050D3F",
-            "Arn",
           ],
         },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
       },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetElementByIdServiceRole84050D3F": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetElementByIdServiceRoleDefaultPolicyE45557A0": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsGetElementByIdServiceRoleDefaultPolicyE45557A0",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsGetElementByIdServiceRole84050D3F",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetIndicators50E0E8E5": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsGetIndicatorsServiceRoleDefaultPolicyCE4ED251",
-        "portalsfunctionsPortalsLambdaportalsGetIndicatorsServiceRole83CD8DD1",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsGetIndicators",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetIndicatorsServiceRole83CD8DD1",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetIndicatorsServiceRole83CD8DD1": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetIndicatorsServiceRoleDefaultPolicyCE4ED251": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsGetIndicatorsServiceRoleDefaultPolicyCE4ED251",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsGetIndicatorsServiceRole83CD8DD1",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetList65739A7B": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsGetListServiceRoleDefaultPolicy8107B6DB",
-        "portalsfunctionsPortalsLambdaportalsGetListServiceRole163186D4",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsGetList",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetListServiceRole163186D4",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetListServiceRole163186D4": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetListServiceRoleDefaultPolicy8107B6DB": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsGetListServiceRoleDefaultPolicy8107B6DB",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsGetListServiceRole163186D4",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetSubCategories0D976137": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsGetSubCategoriesServiceRoleDefaultPolicyE001315C",
-        "portalsfunctionsPortalsLambdaportalsGetSubCategoriesServiceRoleD8538A08",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsGetSubCategories",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetSubCategoriesServiceRoleD8538A08",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetSubCategoriesServiceRoleD8538A08": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetSubCategoriesServiceRoleDefaultPolicyE001315C": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsGetSubCategoriesServiceRoleDefaultPolicyE001315C",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsGetSubCategoriesServiceRoleD8538A08",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetTopicsA72BC99F": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsGetTopicsServiceRoleDefaultPolicyB49237FF",
-        "portalsfunctionsPortalsLambdaportalsGetTopicsServiceRoleF6E9B19A",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsGetTopics",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetTopicsServiceRoleF6E9B19A",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetTopicsServiceRoleDefaultPolicyB49237FF": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsGetTopicsServiceRoleDefaultPolicyB49237FF",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsGetTopicsServiceRoleF6E9B19A",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsGetTopicsServiceRoleF6E9B19A": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddElement84E61D18": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsPostAddElementServiceRoleDefaultPolicyC7942817",
-        "portalsfunctionsPortalsLambdaportalsPostAddElementServiceRole74BAE5BD",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsPostAddElement",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddElementServiceRole74BAE5BD",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddElementServiceRole74BAE5BD": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddElementServiceRoleDefaultPolicyC7942817": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsPostAddElementServiceRoleDefaultPolicyC7942817",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsPostAddElementServiceRole74BAE5BD",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddIndicatorC6F02323": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsPostAddIndicatorServiceRoleDefaultPolicyB7264506",
-        "portalsfunctionsPortalsLambdaportalsPostAddIndicatorServiceRoleF898E3A7",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsPostAddIndicator",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddIndicatorServiceRoleF898E3A7",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMapping5D31924E": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMappingServiceRoleDefaultPolicyCC4CF561",
-        "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMappingServiceRoleF6EA76D7",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsPostAddIndicatorMapping",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMappingServiceRoleF6EA76D7",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMappingServiceRoleDefaultPolicyCC4CF561": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMappingServiceRoleDefaultPolicyCC4CF561",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMappingServiceRoleF6EA76D7",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMappingServiceRoleF6EA76D7": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddIndicatorServiceRoleDefaultPolicyB7264506": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsPostAddIndicatorServiceRoleDefaultPolicyB7264506",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsPostAddIndicatorServiceRoleF898E3A7",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddIndicatorServiceRoleF898E3A7": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddMapping484B134C": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsPostAddMappingServiceRoleDefaultPolicy7278C43B",
-        "portalsfunctionsPortalsLambdaportalsPostAddMappingServiceRoleBB46CCF0",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsPostAddMapping",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddMappingServiceRoleBB46CCF0",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddMappingServiceRoleBB46CCF0": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostAddMappingServiceRoleDefaultPolicy7278C43B": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsPostAddMappingServiceRoleDefaultPolicy7278C43B",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsPostAddMappingServiceRoleBB46CCF0",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostDeleteElementF38F5E0E": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsPostDeleteElementServiceRoleDefaultPolicy026333BF",
-        "portalsfunctionsPortalsLambdaportalsPostDeleteElementServiceRole9EED2248",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsPostDeleteElement",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostDeleteElementServiceRole9EED2248",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostDeleteElementServiceRole9EED2248": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostDeleteElementServiceRoleDefaultPolicy026333BF": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsPostDeleteElementServiceRoleDefaultPolicy026333BF",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsPostDeleteElementServiceRole9EED2248",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostEditElement421BC07F": {
-      "DependsOn": [
-        "portalsfunctionsPortalsLambdaportalsPostEditElementServiceRoleDefaultPolicyB0DF8ACC",
-        "portalsfunctionsPortalsLambdaportalsPostEditElementServiceRoleB80A5E04",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.portalsPostEditElement",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostEditElementServiceRoleB80A5E04",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostEditElementServiceRoleB80A5E04": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "portalsfunctionsPortalsLambdaportalsPostEditElementServiceRoleDefaultPolicyB0DF8ACC": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "portalsfunctionsPortalsLambdaportalsPostEditElementServiceRoleDefaultPolicyB0DF8ACC",
-        "Roles": [
-          {
-            "Ref": "portalsfunctionsPortalsLambdaportalsPostEditElementServiceRoleB80A5E04",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
+      "Type": "AWS::CloudFormation::Stack",
+      "UpdateReplacePolicy": "Delete",
     },
     "r53bearec354FD1A0": {
       "Properties": {
@@ -7639,7 +5691,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "sandboxVermontKidsDataDeployment13909A1Bb956fd9257388805915fd21773de5b81": {
+    "sandboxVermontKidsDataDeployment13909A1B220e61ad8ab43f2fca0e8a2b9a7f7d69": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -7647,6 +5699,10 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "sandboxVermontKidsDataaiassistantidcloneOPTIONSF5B27EFB",
         "sandboxVermontKidsDataaiassistantidclonePOST5A02CA25",
         "sandboxVermontKidsDataaiassistantidclone2343A545",
+        "sandboxVermontKidsDataaiassistantiddocumentsGETC425B49F",
+        "sandboxVermontKidsDataaiassistantiddocumentsOPTIONS273C199D",
+        "sandboxVermontKidsDataaiassistantiddocumentsPOSTE56A18CC",
+        "sandboxVermontKidsDataaiassistantiddocumentsB032DA32",
         "sandboxVermontKidsDataaiassistantidenableOPTIONS2C0C2C3A",
         "sandboxVermontKidsDataaiassistantidenablePOST8E780569",
         "sandboxVermontKidsDataaiassistantidenable1A94ABBA",
@@ -7663,6 +5719,7 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "sandboxVermontKidsDataaiassistantidpublishOPTIONSBED80770",
         "sandboxVermontKidsDataaiassistantidpublishPOST43B968BF",
         "sandboxVermontKidsDataaiassistantidpublish3A5B93BF",
+        "sandboxVermontKidsDataaiassistantidPUT81E27FC5",
         "sandboxVermontKidsDataaiassistantid60F2682A",
         "sandboxVermontKidsDataaiassistantGETDD3B1E67",
         "sandboxVermontKidsDataaiassistantOPTIONSCAC7FBF7",
@@ -7679,6 +5736,9 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "sandboxVermontKidsDataaicompletionsGETF832AF0F",
         "sandboxVermontKidsDataaicompletionsOPTIONS355D3C4B",
         "sandboxVermontKidsDataaicompletions8F469A21",
+        "sandboxVermontKidsDataaidocumentGET696152A1",
+        "sandboxVermontKidsDataaidocumentOPTIONS4D893654",
+        "sandboxVermontKidsDataaidocumentFFF4B925",
         "sandboxVermontKidsDataaiOPTIONS4B1DCAD6",
         "sandboxVermontKidsDataai63FFBF93",
         "sandboxVermontKidsDataapidocsyamlGET341650A4",
@@ -7851,12 +5911,13 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "sandboxVermontKidsDataDeployment13909A1Bb956fd9257388805915fd21773de5b81",
+          "Ref": "sandboxVermontKidsDataDeployment13909A1B220e61ad8ab43f2fca0e8a2b9a7f7d69",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
         },
         "StageName": "prod",
+        "TracingEnabled": true,
       },
       "Type": "AWS::ApiGateway::Stage",
     },
@@ -8310,6 +6371,104 @@ def submit_response(event: dict, context, response_status: str, error_message: s
       },
       "Type": "AWS::ApiGateway::Method",
     },
+    "sandboxVermontKidsDataaiassistantidPUT81E27FC5": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "PUT",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPUTassistantid7DC18F71Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantid60F2682A",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidPUTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPUTaiassistantidFB167DD4": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPUTassistantid7DC18F71Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/PUT/ai/assistant/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidPUTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPUTaiassistantid905FA2F0": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPUTassistantid7DC18F71Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/PUT/ai/assistant/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
     "sandboxVermontKidsDataaiassistantidclone2343A545": {
       "Properties": {
         "ParentId": {
@@ -8472,6 +6631,267 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         },
       },
       "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantiddocumentsB032DA32": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataaiassistantid60F2682A",
+        },
+        "PathPart": "documents",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantiddocumentsGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaiassistantiddocumentsF27439BA": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistantiddocuments139A79E8Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/ai/assistant/*/documents",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantiddocumentsGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaiassistantiddocumentsE2CC8034": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistantiddocuments139A79E8Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/ai/assistant/*/documents",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantiddocumentsGETC425B49F": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantGETassistantiddocuments139A79E8Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantiddocumentsB032DA32",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantiddocumentsOPTIONS273C199D": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantiddocumentsB032DA32",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantiddocumentsPOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantiddocumentsD547F043": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantiddocuments6C2358B3Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/POST/ai/assistant/*/documents",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantiddocumentsPOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantiddocumentsC4373118": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantiddocuments6C2358B3Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/POST/ai/assistant/*/documents",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantiddocumentsPOSTE56A18CC": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPOSTassistantiddocuments6C2358B3Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantiddocumentsB032DA32",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
     },
     "sandboxVermontKidsDataaiassistantidenable1A94ABBA": {
       "Properties": {
@@ -9966,6 +8386,169 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         ],
         "ResourceId": {
           "Ref": "sandboxVermontKidsDataaicompletions8F469A21",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaidocumentFFF4B925": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataai63FFBF93",
+        },
+        "PathPart": "document",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaidocumentGET696152A1": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantGETdocumentD86C4D77Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaidocumentFFF4B925",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaidocumentGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaidocument3275486D": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETdocumentD86C4D77Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/ai/document",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaidocumentGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaidocument10C54A48": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETdocumentD86C4D77Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/ai/document",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaidocumentOPTIONS4D893654": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaidocumentFFF4B925",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -13124,8 +11707,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsGetList65739A7B",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetListDC5D3BA0Arn",
                   ],
                 },
                 "/invocations",
@@ -13147,8 +11730,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetList65739A7B",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetListDC5D3BA0Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -13176,8 +11759,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetList65739A7B",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetListDC5D3BA0Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -13343,8 +11926,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsPostAddElement84E61D18",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddElement1EF5BC60Arn",
                   ],
                 },
                 "/invocations",
@@ -13380,8 +11963,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddElement84E61D18",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddElement1EF5BC60Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -13409,8 +11992,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddElement84E61D18",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddElement1EF5BC60Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -13523,8 +12106,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsPostAddIndicatorC6F02323",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddIndicator6F02407AArn",
                   ],
                 },
                 "/invocations",
@@ -13560,8 +12143,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddIndicatorC6F02323",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddIndicator6F02407AArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -13589,8 +12172,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddIndicatorC6F02323",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddIndicator6F02407AArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -13703,8 +12286,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMapping5D31924E",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddIndicatorMapping3E533D7FArn",
                   ],
                 },
                 "/invocations",
@@ -13740,8 +12323,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMapping5D31924E",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddIndicatorMapping3E533D7FArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -13769,8 +12352,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddIndicatorMapping5D31924E",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddIndicatorMapping3E533D7FArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -13883,8 +12466,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsPostAddMapping484B134C",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddMapping4BB9D5E1Arn",
                   ],
                 },
                 "/invocations",
@@ -13920,8 +12503,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddMapping484B134C",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddMapping4BB9D5E1Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -13949,8 +12532,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostAddMapping484B134C",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostAddMapping4BB9D5E1Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14072,8 +12655,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsGetCategoriesD6C1EBE1",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetCategories896FFB8DArn",
                   ],
                 },
                 "/invocations",
@@ -14095,8 +12678,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetCategoriesD6C1EBE1",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetCategories896FFB8DArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14124,8 +12707,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetCategoriesD6C1EBE1",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetCategories896FFB8DArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14291,8 +12874,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsPostDeleteElementF38F5E0E",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostDeleteElement97AE02B8Arn",
                   ],
                 },
                 "/invocations",
@@ -14328,8 +12911,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostDeleteElementF38F5E0E",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostDeleteElement97AE02B8Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14357,8 +12940,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostDeleteElementF38F5E0E",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostDeleteElement97AE02B8Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14455,8 +13038,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostEditElement421BC07F",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostEditElement2198C0C8Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14484,8 +13067,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsPostEditElement421BC07F",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostEditElement2198C0C8Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14533,8 +13116,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsPostEditElement421BC07F",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostEditElement2198C0C8Arn",
                   ],
                 },
                 "/invocations",
@@ -14725,8 +13308,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsGetElementById1EFC80FF",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetElementById749C3953Arn",
                   ],
                 },
                 "/invocations",
@@ -14748,8 +13331,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetElementById1EFC80FF",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetElementById749C3953Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14777,8 +13360,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetElementById1EFC80FF",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetElementById749C3953Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14888,8 +13471,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsGetById55A9322D",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetByIdB61D64ACArn",
                   ],
                 },
                 "/invocations",
@@ -14911,8 +13494,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetById55A9322D",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetByIdB61D64ACArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -14940,8 +13523,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetById55A9322D",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetByIdB61D64ACArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -15116,8 +13699,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsGetIndicators50E0E8E5",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetIndicators7F091001Arn",
                   ],
                 },
                 "/invocations",
@@ -15139,8 +13722,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetIndicators50E0E8E5",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetIndicators7F091001Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -15168,8 +13751,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetIndicators50E0E8E5",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetIndicators7F091001Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -15344,8 +13927,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsGetSubCategories0D976137",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetSubCategories838CBF61Arn",
                   ],
                 },
                 "/invocations",
@@ -15367,8 +13950,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetSubCategories0D976137",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetSubCategories838CBF61Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -15396,8 +13979,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetSubCategories0D976137",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetSubCategories838CBF61Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -15572,8 +14155,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "portalsfunctionsPortalsLambdaportalsGetTopicsA72BC99F",
-                    "Arn",
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetTopics0012E7EEArn",
                   ],
                 },
                 "/invocations",
@@ -15595,8 +14178,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetTopicsA72BC99F",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetTopics0012E7EEArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -15624,8 +14207,8 @@ def submit_response(event: dict, context, response_status: str, error_message: s
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "portalsfunctionsPortalsLambdaportalsGetTopicsA72BC99F",
-            "Arn",
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsGetTopics0012E7EEArn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
