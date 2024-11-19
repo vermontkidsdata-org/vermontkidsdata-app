@@ -205,6 +205,14 @@ export const portalsPostAddMapping = prepareAPIGateway(async (event: APIGatewayP
 // router.post('/addindicator', async function (req, res, next) {
 export const portalsPostAddIndicator = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   const body = JSON.parse(event.body || '{}');
+
+  // { 
+  //   "elttype": "indicator", 
+  //   "eltval": "STARS TEST",
+  //   "elturl": "/columnchart/stars_test:chart", 
+  //   "eltlink": "https://www.test.com",
+  //   "eltparent": "p2_t1_c1_s24"
+  // }
   const parent = body.eltparent;
   const elttype = body.elttype;
   const eltval = body.eltval;

@@ -570,6 +570,7 @@ export const Document = new Entity({
 
     bucket: { type: 'string', required: true },
     key: { type: 'string', required: true },
+    tags: { type: 'map', required: false },
     active: { type: 'boolean', required: true, default: () => true },
   },
   table: serviceTable,

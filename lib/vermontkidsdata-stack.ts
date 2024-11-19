@@ -346,6 +346,20 @@ export class VermontkidsdataStack extends Stack {
     });
     secret.grantRead(apiChartBarFunction);
 
+    const apiGetFiltersFunction = new NodejsFunction(this, 'Get Filters Function', {
+      memorySize: 1024,
+      timeout: Duration.seconds(30),
+      runtime,
+      entry: join(__dirname, "../src/charts-api.ts"),
+      handler: 'getFilter',
+      logRetention: RetentionDays.ONE_DAY,
+      environment: {
+        ...commonEnv,
+      },
+      tracing: Tracing.ACTIVE,
+    });
+    secret.grantRead(apiGetFiltersFunction);
+
     const apiTableFunction = new NodejsFunction(this, 'Basic table API Function', {
       memorySize: 1024,
       timeout: Duration.seconds(30),
@@ -818,6 +832,10 @@ export class VermontkidsdataStack extends Stack {
     const rChartBar = rChart.addResource("bar");
     const rChartBarById = rChartBar.addResource("{queryId}");
     rChartBarById.addMethod("GET", new LambdaIntegration(apiChartBarFunction));
+
+    const rChartFilter = rChart.addResource("filters");
+    const rChartFilterById = rChartFilter.addResource("{queryId}");
+    rChartFilterById.addMethod("GET", new LambdaIntegration(apiGetFiltersFunction));
 
     const rTable = api.root.addResource("table");
     const rTableTable = rTable.addResource("table");

@@ -518,6 +518,7 @@ type ProcessUploadFunction = (props: {
   dryRun?: boolean,
   doTruncateTable?: boolean,
   updateUploadStatus?: boolean,
+  tags: { [key: string]: string },
 }) => Promise<{
   errors: Error[],
   saveTotal: number,
@@ -536,12 +537,13 @@ export async function processUploadDocument(props: {
   dryRun?: boolean,
   doTruncateTable?: boolean,
   updateUploadStatus?: boolean,
+  tags: { [key: string]: string },
 }): Promise<{
   errors: Error[],
   saveTotal: number,
   statusUpdatePct: number,
 }> {
-  const { uploadType: uploadTypeStr, bodyContents, dryRun, identifier, updateUploadStatus } = props;
+  const { uploadType: uploadTypeStr, bodyContents, dryRun, identifier, updateUploadStatus, tags } = props;
   if (!isS3Ref(bodyContents)) {
     await updateStatus(identifier, 'Error', 0, 0, [new Error('do not have S3Ref for document upload')]);
     throw new Error('no body contents');
@@ -551,6 +553,7 @@ export async function processUploadDocument(props: {
     identifier,
     bucket: bodyContents.Bucket,
     key: bodyContents.Key,
+    tags,
   });
 
   return {
@@ -833,6 +836,7 @@ export async function main(
       identifier,
       dryRun: false,
       updateUploadStatus: true,
+      tags,
     });
 
     await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors, LockAction.Unlock);
