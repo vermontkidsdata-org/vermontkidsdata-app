@@ -6,6 +6,7 @@ if (!module.parent) {
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from './lambda-utils';
+import { getUploadType, UploadType } from './uploadData';
 
 const pt = makePowerTools({ prefix: `download-${process.env.VKD_ENVIRONMENT}` });
 
@@ -78,10 +79,11 @@ function toCSV(row: (string | number)[]): string {
   return row.map(el => `${el}`.includes(',') ? `"${el}"` : el).join(',');
 }
 
-export async function getCSVData(uploadType: string, limit: number): Promise<
+export async function getCSVData(uploadTypeData: UploadType, limit: number, columnFilters?: Record<string, string>): Promise<
   { body: string, numrows: number } |
   { errorMessage: string, errorStatus: number }
 > {
+  const uploadType = uploadTypeData.type;
   const lookupUploadType = uploadType.includes(":") ? uploadType.substring(0, uploadType.indexOf(':')) : uploadType;
   const entry = typesConfig[lookupUploadType];
 
@@ -91,48 +93,51 @@ export async function getCSVData(uploadType: string, limit: number): Promise<
 
   await doDBOpen();
 
-  const uploadTypeData: { type: string, table: string, index_columns: string, download_query?: string }[] = await doDBQuery('select * from `upload_types` where `type`=?', [uploadType]);
+  // Allow for a custom query
+  const params: string[] = [];
+  const sqlText = (() => {
+    if (uploadTypeData.download_query != null && uploadTypeData.download_query != '') {
+      return uploadTypeData.download_query;
+    } else {
+      const table_name = entry.getTableNameForFunction(uploadType);
 
-  if (uploadTypeData.length !== 1) {
-    return { errorMessage: `expected 1 row from upload_types for ${uploadType} got ${uploadTypeData.length}`, errorStatus: 400 };
-  } else {
-    // Allow for a custom query
-    const sqlText = (() => {
-      if (uploadTypeData[0].download_query != null && uploadTypeData[0].download_query != '') {
-        return uploadTypeData[0].download_query;
+      let tSql = `select * from ${table_name} where `;
+      if (columnFilters != null && Object.keys(columnFilters).length > 0) {
+        tSql += Object.entries(columnFilters).map(([key, val]) => `LOWER(TRIM(\`${key}\`)) = LOWER(TRIM(?))`).join(' and ');
+        params.push(...Object.values(columnFilters));
       } else {
-        const table_name = entry.getTableNameForFunction(uploadType);
-
-        return `select * from ${table_name} ` +
-          (uploadTypeData[0].index_columns.length > 0 ?
-            ` order by ${uploadTypeData[0].index_columns}` :
-            '') +
-          ` limit ${limit > 0 ? limit : 1}`;
+        tSql += '1=1';
       }
-    })();
 
-    console.log({ uploadType, uploadTypeData, sqlText });
-
-    const resp = await doDBQuery(sqlText);
-    let lnum = 1;
-    const errors: Error[] = [];
-
-    const rows: string[][] = [];
-
-    // Client data - handlers can put anything they want in there
-    const clientData: any = {};
-
-    for (const row of resp) {
-      entry.processRowFunction(uploadType, row, lnum, rows, errors, clientData);
-
-      lnum++;
+      return tSql +
+        (uploadTypeData.indexColumns.length > 0 ?
+          ` order by \`${uploadTypeData.indexColumns}\`` :
+          '') +
+        ` limit ${limit > 0 ? limit : 1}`;
     }
+  })();
 
-    // Now append all the rows into a long CSV string
-    return {
-      body: rows.map(row => toCSV(row)).join('\n'),
-      numrows: rows.length-1,
-    }
+  console.log({ uploadType, uploadTypeData, sqlText });
+
+  const resp = await doDBQuery(sqlText, params);
+  let lnum = 1;
+  const errors: Error[] = [];
+
+  const rows: string[][] = [];
+
+  // Client data - handlers can put anything they want in there
+  const clientData: any = {};
+
+  for (const row of resp) {
+    entry.processRowFunction(uploadType, row, lnum, rows, errors, clientData);
+
+    lnum++;
+  }
+
+  // Now append all the rows into a long CSV string
+  return {
+    body: rows.map(row => toCSV(row)).join('\n'),
+    numrows: rows.length-1,
   }
 }
 
@@ -163,8 +168,28 @@ export async function lambdaHandler(
         message: 'missing upload type',
       }, 400);
     } else {
+      await doDBOpen();
+
+      const uploadTypeData = await getUploadType(uploadType);
+      const columnFilters: Record<string, string> = {};
+      if (uploadTypeData.filters) {
+        const qs = event.queryStringParameters;
+  
+        for (const filterItem of Object.entries(uploadTypeData.filters.filters)) {
+          pt.logger.info('filterItem', {filterItem});
+          const qsKey = filterItem[0];
+          const colname = filterItem[1].column;
+          const paramval = qs?.[qsKey];
+          if (paramval != null) {
+            columnFilters[colname] = paramval;
+          }
+        }
+      }
+
+      pt.logger.info('columnFilters', {columnFilters});
+
       // We have a callback function to call. Query the table.
-      const resp = await getCSVData(uploadType, limit);
+      const resp = await getCSVData(uploadTypeData, limit, columnFilters);
       if (isErrorResponse(resp)) {
         updateResponse(response, {
           message: resp.errorMessage,

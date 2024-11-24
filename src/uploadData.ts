@@ -12,6 +12,7 @@ import { SQSEvent } from 'aws-lambda';
 import * as csv from 'csv-parse';
 import { v4 as uuidv4 } from 'uuid';
 import { DatasetVersion, DatasetVersionData, Document, NameMapData, STATUS_DATASET_VERSION_QUEUED, UploadStatus, doDBClose, doDBCommit, doDBOpen, doDBQuery, getDBSecret } from "./db-utils";
+import { UploadTypeFilters } from './chartsApi';
 
 // {"dataset":"general:residentialcare","version":"2023-11-24T14:07:43.874Z","identifier":"20231124-1"}
 export interface DatasetBackupMessage {
@@ -121,20 +122,22 @@ interface ProcessGeneralRowClientData {
   }
 }
 
-interface UploadType {
+export interface UploadType {
   id: number,
   type: string,
   table: string,
+  download_query?: string,
 
   // Calculated
   columns: Column[],
   indexColumns: string[],
+  filters: UploadTypeFilters,
   columnMap: Record<string, string>, // Mapping from real internal column name to external, first converted to internal
   preserve: string[] | undefined,
 }
 
 enum ColumnDataType {
-  INTEGER, STRING, FLOAT, DOUBLE, ENUM
+  INTEGER, STRING, FLOAT, DOUBLE, ENUM, DATETIME
 }
 
 interface Column {
@@ -153,6 +156,7 @@ function getDataType(data_type: string): ColumnDataType {
   else if (data_type === 'float') return ColumnDataType.FLOAT;
   else if (data_type === 'double') return ColumnDataType.DOUBLE;
   else if (data_type === 'enum') return ColumnDataType.ENUM;
+  else if (data_type === 'datetime') return ColumnDataType.DATETIME;
   else throw new Error(`unknown data type ${data_type}`);
 }
 
@@ -189,7 +193,7 @@ export async function getUploadType(type: string): Promise<UploadType> {
   if (types == null || types.length !== 1) {
     throw new Error(`no types found for type=${type}`);
   } else {
-    const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string } = types[0];
+    const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string, filters?: string } = types[0];
     // Get the columns list
     const columns = await getColumns(uploadTypeRaw.table);
     const { columnMap, preserve } = (() => {
@@ -224,6 +228,7 @@ export async function getUploadType(type: string): Promise<UploadType> {
       columnMap,
       preserve,
       indexColumns: uploadTypeRaw.index_columns.split(',').map(c => c.trim()),
+      filters: uploadTypeRaw.filters ? JSON.parse(uploadTypeRaw.filters) : {},
     } as UploadType;
 
     // uploadTypes[type] = uploadType;

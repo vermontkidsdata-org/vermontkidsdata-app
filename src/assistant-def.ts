@@ -319,7 +319,9 @@ export interface AssistantInfo {
  */
 export const ASSISTANTS_MAP: Record<string, AssistantInfo> = {
   qa: {
-    assistantId: 'asst_oTyK60tswWI1TYECBvng1lfn',
+    // assistantId: 'asst_oTyK60tswWI1TYECBvng1lfn',
+    // vectorStore: 'vs_iViHvHye2QTf3i1D2ivNuLkM',
+    assistantId: 'asst_6pwKwymR4wvX7euzh2PBzw6m',
     vectorStore: 'vs_iViHvHye2QTf3i1D2ivNuLkM',
   },
   prod: {

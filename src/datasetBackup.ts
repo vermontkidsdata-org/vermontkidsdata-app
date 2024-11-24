@@ -11,7 +11,7 @@ import { SQSEvent } from 'aws-lambda';
 import { DatasetVersion, STATUS_DATASET_VERSION_SUCCESS, getDatasetVersionKey } from './db-utils';
 import { getCSVData, isErrorResponse } from './download';
 import { makePowerTools } from './lambda-utils';
-import { DatasetBackupMessage } from './uploadData';
+import { DatasetBackupMessage, getUploadType } from './uploadData';
 
 // Set your service name. This comes out in service lens etc.
 const pt = makePowerTools({ prefix: `download-${process.env.VKD_ENVIRONMENT}` });
@@ -28,7 +28,8 @@ export async function lambdaHandler(event: SQSEvent): Promise<void> {
     // {"dataset":"general:residentialcare","version":"2023-11-24T14:07:43.874Z","identifier":"20231124-1"}
     console.log({ body: record.body, attributes: record.attributes, messageAttributes: record.messageAttributes });
     const body = JSON.parse(record.body) as DatasetBackupMessage;
-    const resp = await getCSVData(body.dataset, Number.MAX_SAFE_INTEGER);
+    const uploadTypeData = await getUploadType(body.dataset);
+    const resp = await getCSVData(uploadTypeData, Number.MAX_SAFE_INTEGER);
     if (isErrorResponse(resp)) {
       console.error("Error response from getCSVData", resp, body);
     } else {

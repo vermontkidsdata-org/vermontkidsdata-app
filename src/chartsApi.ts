@@ -32,20 +32,29 @@ async function getQueryRow(queryId: string): Promise<QueryRow | undefined> {
   }
 }
 
-export async function getDefaultDataset(queryRow: QueryRow, sqlText: string = queryRow.sqlText, params: string[] = []): Promise<any> {
+export async function getDefaultDataset(queryRow: QueryRow, variables?: Record<string, string>): Promise<any> {
   const metadata = queryRow?.metadata ? JSON.parse(queryRow.metadata || '{}') : undefined;
 
   await doDBOpen();
   try {
     const uploadType = queryRow.uploadType;
-    console.log({ message: 'getDefaultDataset: running query', params });
+    console.log({ message: 'getDefaultDataset: running query', variables });
+    const sqlText = queryRow.sqlText;
+
     console.log(sqlText);
+
+    // First set the variables. We'll set them to MySQL variables of the same name.
+    if (variables && Object.keys(variables).length > 0) {
+      for (const [key, value] of Object.entries(variables)) {
+        await doDBQuery(`SET @${key} = '${value}'`);
+      }
+    }
 
     // Now run the query. Should always return three columns, with the following names
     // - cat: The category(s)
     // - label: The label for the values
     // - value: The value for the values
-    const resultRows = await doDBQuery(sqlText, params);
+    const resultRows = await doDBQuery(sqlText);
     // console.log('result', resultRows);
 
     interface QueryResult {
@@ -140,6 +149,41 @@ function isAlphanumericWithSpaces(value: string) {
   return regex.test(value);
 }
 
+// Metadata example
+// {"yAxis": {"type": "number"}, "params": [{"key": "county_filter", "title": "County"}, {"key": "program_filter", "title": "Program"}, {"key": "stars_filter", "title": "Tier Level"}]}',
+//'{"table": "data_ccfap_stars", "extra_filter_values": {"county_filter": ["-- All --"], "program_filter": ["-- All --"], "stars_filter": ["-- All --", "4 or 5 Star"]}, "filters": {"county_filter": {"column": "County"}, "program_filter": {"column": "Provider Program Type"}, "stars_filter": {"column": "Current Tier Level"}}}
+
+interface FiltersDef {
+  [key: string]: {
+    column: string,
+  }
+}
+
+export interface UploadTypeFilters {
+  filters: FiltersDef,
+}
+
+interface QueryFilters {
+  table: string,
+  filters: FiltersDef,
+  extra_filter_values: {
+    [key: string]: string[]
+  }
+}
+
+export type MetadataFiltersDef = {
+  key: string,
+  title?: string,
+}[];
+
+export interface QueryMetadata {
+  yAxis: {
+    type: string,
+  },
+  filters?: MetadataFiltersDef,
+  custom?: string,
+}
+
 export async function lambdaHandlerBar(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
@@ -152,7 +196,7 @@ export async function lambdaHandlerBar(
     const queryId = event.pathParameters.queryId;
     // console.log('opening connection');
     const queryRow = await getQueryRow(queryId);
-    const metadata = queryRow?.metadata ? JSON.parse(queryRow.metadata || '{}') : undefined;
+    const metadata: QueryMetadata | undefined = queryRow?.metadata ? JSON.parse(queryRow.metadata || '{}') : undefined;
     if (queryRow == null) {
       return {
         statusCode: 400,
@@ -161,39 +205,29 @@ export async function lambdaHandlerBar(
     }
 
     // Take params if configured
-    const params: string[] = [];
-    let sqlText: string | undefined;
-
-    if (metadata.params) {
+    const variables: Record<string, string> = {};
+    if (metadata?.filters) {
       const qs = event.queryStringParameters;
-      sqlText = queryRow.sqlText;
 
-      for (const param of metadata.params) {
-        const paramval = qs?.[param];
+      for (const param of metadata.filters) {
+        const paramval = qs?.[param.key];
         if (paramval == null) {
           return {
             statusCode: 400,
-            body: JSON.stringify({ message: `missing parameter ${param}` }),
-          };
-        } else if (!isAlphanumericWithSpaces(paramval)) {
-          return {
-            statusCode: 400,
-            body: JSON.stringify({ message: `invalid parameter ${param}` }),
+            body: JSON.stringify({ message: `missing parameter ${param.key}` }),
           };
         } else {
-          const replacename = `\\{\\{${param}\\}\\}`;
-          const re = new RegExp(replacename, 'g');
-          sqlText = sqlText.replace(re, `'${paramval}'`);
+          variables[param.key] = paramval;
         }
       }
     }
 
     try {
       const data = await (async (queryRow, metadata) => {
-        if (metadata.custom === "dashboard:indicators:chart") {
+        if (metadata?.custom === "dashboard:indicators:chart") {
           return await getIndicatorsBySubcat(queryRow);
         } else {
-          return await getDefaultDataset(queryRow, sqlText);
+          return await getDefaultDataset(queryRow, variables);
         }
       })(queryRow, metadata);
 
@@ -253,19 +287,7 @@ export async function lambdaHandlerGetFilter(
     };
   }
 
-  interface Filters {
-    table: string,
-    filters: {
-      [key: string]: {
-        column: string,
-      }
-    },
-    extra_filter_values: {
-      [key: string]: string[]
-    }
-  }
-
-  const filters = JSON.parse(queryRow.filters) as Filters;
+  const filters = JSON.parse(queryRow.filters) as QueryFilters;
   const ret: Record<string, string[]> = {};
 
   await doDBOpen();

@@ -1,4 +1,4 @@
-import { createReadStream, readdirSync } from "fs";
+import { createReadStream, readdirSync, statSync } from "fs";
 import OpenAI from "openai";
 import { FileObject, FileObjectsPage } from "openai/resources";
 import { VectorStoreFile } from "openai/resources/beta/vector-stores/files";
@@ -42,23 +42,25 @@ async function syncAssistant(props: { ns: string }) {
 
   // Upload any new files
   for (const file of readdirSync(join(__dirname, "../files"))) {
-    let found = files.find((f) => f.filename === file);
-    if (!found) {
-      console.log("Uploading file: ", file);
+    if (statSync(join(__dirname, "../files", file)).isFile()) {
+      let found = files.find((f) => f.filename === file);
+      if (!found) {
+        console.log("Uploading file: ", file);
 
-      found = await openai.files.create({
-        file: createReadStream(join(__dirname, "../files", file)),
-        purpose: "assistants",
-      });
-    } else {
-      console.log("File already exists: ", file);
-    }
+        found = await openai.files.create({
+          file: createReadStream(join(__dirname, "../files", file)),
+          purpose: "assistants",
+        });
+      } else {
+        console.log("File already exists: ", file);
+      }
 
-    filesToReference.push(found);
+      filesToReference.push(found);
 
-    // Sync the file to the vector store
-    if (!vsFiles.find((f) => f.id === found.id)) {
-      filesToAdd.push(found);
+      // Sync the file to the vector store
+      if (!vsFiles.find((f) => f.id === found.id)) {
+        filesToAdd.push(found);
+      }
     }
   }
 
@@ -90,6 +92,8 @@ async function syncAssistant(props: { ns: string }) {
 
   // console.log(JSON.stringify(def, null, 2));
   await openai.beta.assistants.update(info.assistantId, info.assistant);
+
+  console.log(`Sync complete, assistant ${info.assistantId} updated`);
 }
 
 (async () => {
