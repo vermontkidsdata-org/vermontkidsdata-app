@@ -50,7 +50,7 @@ function SCHOOL_YEAR_PARAMETER({ minYear, type }: { minYear?: number, type?: str
   }
 }
 
-const functionDefs: VKDFunctionTool[] = [{
+const childrenInPovertyUnder12AllChartFunction: VKDFunctionTool = {
   type: "function",
   function: {
     name: "children_in_poverty_under_12_all-chart",
@@ -100,8 +100,9 @@ const functionDefs: VKDFunctionTool[] = [{
       ],
     },
   },
-},
-{
+};
+
+const averageBenefits3SquaresFunction: VKDFunctionTool = {
   type: "function",
   function: {
     name: "avgbenefit_3squares_vt-chart",
@@ -129,8 +130,9 @@ const functionDefs: VKDFunctionTool[] = [{
       ],
     },
   },
-},
-{
+};
+
+const iepChartFunction: VKDFunctionTool = {
   type: "function",
   function: {
     name: "iep-chart",
@@ -159,7 +161,9 @@ const functionDefs: VKDFunctionTool[] = [{
       required: ["year", "type"],
     },
   },
-}, {
+};
+
+const getIdeaByYearFunction: VKDFunctionTool = {
   type: "function",
   function: {
     name: "get_idea_by_year",
@@ -197,7 +201,9 @@ const functionDefs: VKDFunctionTool[] = [{
       ],
     },
   },
-}, {
+};
+
+const getBabiesCountFunction: VKDFunctionTool = {
   type: "function",
   function: {
     name: "get_babies_count",
@@ -221,7 +227,15 @@ const functionDefs: VKDFunctionTool[] = [{
       ],
     },
   },
-}];
+};
+
+const vkdFunctionDefs: VKDFunctionTool[] = [
+  childrenInPovertyUnder12AllChartFunction,
+  averageBenefits3SquaresFunction,
+  iepChartFunction, 
+  getIdeaByYearFunction,
+  getBabiesCountFunction,
+];
 
 export type LimitedAssistantDef = Omit<VKDAssistant, "object" | "id" | "created_at">;
 
@@ -268,7 +282,7 @@ export const assistantDef: LimitedAssistantDef = {
     {
       type: "file_search",
     },
-    ...(functionDefs),
+    ...(vkdFunctionDefs),
   ],
   top_p: 1,
   temperature: 1,

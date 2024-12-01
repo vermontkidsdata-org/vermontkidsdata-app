@@ -99,7 +99,9 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
   return {
     statusCode: 200,
     body: JSON.stringify({
-      "message": "Processing request",
+      message: "Processing request",
+      id: data.id,
+      sortKey: data.sortKey,
     }),
   }
 });

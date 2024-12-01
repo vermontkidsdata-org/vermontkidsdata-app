@@ -221,6 +221,19 @@ export class AIAssistantConstruct extends NestedStack {
     })(addLambdaResource({
       scope: this,
       root: aiAssistantRoot,
+      method: 'POST',
+      path: 'assistant/{id}/function/{functionId}/test',
+      entry: 'ai-post-assistant-function-test.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
       method: 'PUT',
       path: 'assistant/{id}/function/{functionId}',
       entry: 'ai-put-assistant-function.ts',

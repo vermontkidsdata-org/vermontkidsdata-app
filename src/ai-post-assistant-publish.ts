@@ -87,6 +87,16 @@ export async function lambdaHandler(
         _vkd: categoryParameter._vkd,
       };
     }
+    if (otherParameters) {
+      otherParameters.forEach((param) => {
+        properties[param.name] = {
+          type: param.type,
+          description: param.description,
+          enum: param.enum,
+          _vkd: param._vkd,
+        };
+      });
+    }
     const functionRoot = {
       type: "function",
       function: functionDef,

@@ -38,7 +38,7 @@ export async function getDefaultDataset(queryRow: QueryRow, variables?: Record<s
   await doDBOpen();
   try {
     const uploadType = queryRow.uploadType;
-    console.log({ message: 'getDefaultDataset: running query', variables });
+    pt.logger.info({ message: 'getDefaultDataset: running query', variables });
     const sqlText = queryRow.sqlText;
 
     console.log(sqlText);
@@ -128,7 +128,7 @@ class BadRequestError extends Error {
   }
 }
 
-export async function getChartData(queryId: string): Promise<BarChartResult> {
+export async function getChartData(queryId: string, functionArgs: Record<string, string>): Promise<BarChartResult> {
   const queryRow = await getQueryRow(queryId);
   const metadata = queryRow?.metadata ? JSON.parse(queryRow.metadata || '{}') : undefined;
   if (queryRow == null) {
@@ -139,7 +139,7 @@ export async function getChartData(queryId: string): Promise<BarChartResult> {
     if (metadata.custom === "dashboard:indicators:chart") {
       return await getIndicatorsBySubcat(queryRow);
     } else {
-      return await getDefaultDataset(queryRow);
+      return await getDefaultDataset(queryRow, functionArgs);
     }
   })(queryRow, metadata);
 }
@@ -156,6 +156,8 @@ function isAlphanumericWithSpaces(value: string) {
 interface FiltersDef {
   [key: string]: {
     column: string,
+    sort?: 'number',    // If 'number', then sort by number but non-numbers come first; default is alphanumeric
+    exclude?: string[], // Values to exclude from the response
   }
 }
 
@@ -295,14 +297,37 @@ export async function lambdaHandlerGetFilter(
     const table = filters.table;
     for (const [key, spec] of Object.entries(filters.filters)) {
       const resultRows = await doDBQuery(`select distinct \`${spec.column}\` as value from ${table} order by value`);
-      ret[key] = resultRows.map((row: { value: string }) => row.value);
+      ret[key] = resultRows.
+        map((row: { value: string }) => `${row.value}`).
+        filter((value: string) => {
+          if (spec.exclude && spec.exclude.includes(value)) {
+            return false;
+          }
+          return true;
+        });
 
       // Then add any extra values for this filter type
       if (filters.extra_filter_values?.[key]) {
         ret[key].push(...filters.extra_filter_values[key]);
 
+        pt.logger.info('sorting values', { values: ret[key], key, spec });
+
         // Sort them all
-        ret[key].sort();
+        ret[key].sort((a, b) => {
+          if (spec.sort === 'number') {
+            if (isNaN(parseFloat(a))) {
+              // Return the alphanumeric sort in this case
+              return a.localeCompare(b);
+            } else if (isNaN(parseFloat(b))) {
+              // Return the alphanumeric sort in this case
+              return a.localeCompare(b);
+            } else {
+              return parseFloat(a) - parseFloat(b);
+            }
+          } else {
+            return a.localeCompare(b);
+          }          
+        });
       }
     }
   } finally {

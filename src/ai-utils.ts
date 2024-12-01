@@ -92,12 +92,12 @@ class EventEmitter {
 
 const barChartCache = new Map<string, BarChartResult>();
 
-async function getChartDataWithCache(queryId: string): Promise<BarChartResult> {
-  if (barChartCache.has(queryId)) {
+async function getChartDataWithCache(queryId: string, functionArgs: Record<string, string>): Promise<BarChartResult> {
+  if (barChartCache.has(queryId) && Object.keys(functionArgs ?? {}).length === 0) {
     return barChartCache.get(queryId)!;
   }
 
-  const data = await getChartData(queryId);
+  const data = await getChartData(queryId, functionArgs);
   barChartCache.set(queryId, data);
   return data;
 }
@@ -122,15 +122,17 @@ function str(value: any): string {
   return `${value}`.toLowerCase();
 }
 
-async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFunctionToolCall, functionDef: VKDFunctionTool }) {
+async function getFunctionResponseFromSeries(props: {
+  toolCall: RequiredActionFunctionToolCall, 
+  functionDef: VKDFunctionTool }) {
   const { toolCall, functionDef } = props;
 
-  const functionArgs = JSON.parse(toolCall.function.arguments);
+  const functionArgs = JSON.parse(toolCall.function.arguments ?? '{}') as Record<string, string>;
   const queryName = functionDef.function._vkd?.query ??
     toolCall.function.name.replace(/-/g, ":");
 
-  const data = await getChartDataWithCache(queryName);
-  console.log({ message: "new output data", data });
+  const data = await getChartDataWithCache(queryName, functionArgs);
+  pt.logger.info({ message: "new output data", data });
 
   // Find the series and category parameters
   const params = {
@@ -149,6 +151,7 @@ async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFu
       const name = parameterEntry[0];
       const parameter: FunctionParameter = parameterEntry[1] as FunctionParameter;
 
+      pt.logger.info({ message: 'looking for series/cat parameter', name, parameter });
       if (parameter._vkd?.type === "series") {
         // We have a series parameter
         params.series = { name, parameter };
@@ -187,11 +190,13 @@ async function getFunctionResponseFromSeries(props: { toolCall: RequiredActionFu
       `${functionDef.function._vkd?.chartType ?? 'columnchart'
       }/${queryName}`
 
+    const ns = process.env.VKD_ENVIRONMENT;
+    const url = `https://${ ns === 'qa' ? 'ui.qa.vtkidsdata.org': 'ui.vtkidsdata.org'}/${path}`;
     return {
       tool_call_id: toolCall.id,
       output: JSON.stringify({
         value: `${value}`,
-        url: `https://ui.vtkidsdata.org/${path}}`,
+        url,
       }),
     }
   }
