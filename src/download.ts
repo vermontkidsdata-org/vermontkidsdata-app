@@ -13,10 +13,10 @@ const pt = makePowerTools({ prefix: `download-${process.env.VKD_ENVIRONMENT}` })
 const { REGION } = process.env;
 
 interface DBRow {
-  [key: string]: string | number
+  [key: string]: string | number | Date
 }
 
-type CsvProcessCallback = (type: string, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any) => Promise<void>;
+type CsvProcessCallback = (type: UploadType, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any) => Promise<void>;
 type GetTableNameForFunction = (type: string) => string;
 type GetQueryForFunction = (type: string) => string;
 
@@ -48,23 +48,35 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
   },
 }
 
-async function processAssessmentRow(type: string, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any): Promise<void> {
+async function processAssessmentRow(type: UploadType, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any): Promise<void> {
 }
 
 interface ProcessGeneralRowClientData {
   keys: string[];
 }
 
-async function processGeneralRow(type: string, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
+async function processGeneralRow(uploadTypeData: UploadType, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: ProcessGeneralRowClientData): Promise<void> {
   if (lnum === 1) {
-    clientData.keys = Object.keys(record).filter(key => key !== 'id');
+    // Don't include columns if it's a calculated column
+    clientData.keys = Object.keys(record).
+      filter(key => key !== 'id').
+      filter(key => !uploadTypeData.calc?.some(calc => calc.column === key));
+
+    pt.logger.info('first row, look for calc columns', {calc: uploadTypeData.calc, record, finalKeys: clientData.keys});
+
     rows.push(clientData.keys);
   }
-  // console.log({ type, record, lnum });
+  
+  pt.logger.info('data for CSV', { uploadTypeData, record: Object.entries(record).map(e => ({
+    e,
+    type: typeof e[1],
+  })), lnum });
   rows.push(clientData.keys.map(key => {
     const val = record[key];
+    const proto = Object.prototype.toString.call(val);
     if (typeof val === 'number') return val.toString();
-    else return val;
+    else if (proto === '[object Date]') return (val as Date).toISOString().substring(0, 10);
+    else return val as string;
   }));
 }
 
@@ -103,15 +115,21 @@ export async function getCSVData(uploadTypeData: UploadType, limit: number, colu
 
       let tSql = `select * from ${table_name} where `;
       if (columnFilters != null && Object.keys(columnFilters).length > 0) {
-        tSql += Object.entries(columnFilters).map(([key, val]) => `LOWER(TRIM(\`${key}\`)) = LOWER(TRIM(?))`).join(' and ');
-        params.push(...Object.values(columnFilters));
-      } else {
-        tSql += '1=1';
+        for (const [key, val] of Object.entries(columnFilters)) {
+          if (val == null || val.toLowerCase() === '-- all --') {
+            continue;
+          }
+
+          tSql += `\`${key}\` = ? and `;
+          params.push(val);
+        }
       }
+      
+      tSql += '1=1';
 
       return tSql +
         (uploadTypeData.indexColumns.length > 0 ?
-          ` order by \`${uploadTypeData.indexColumns}\`` :
+          ` order by ${uploadTypeData.indexColumns.map(col => `\`${col}\``).join(', ')}` :
           '') +
         ` limit ${limit > 0 ? limit : 1}`;
     }
@@ -129,7 +147,7 @@ export async function getCSVData(uploadTypeData: UploadType, limit: number, colu
   const clientData: any = {};
 
   for (const row of resp) {
-    entry.processRowFunction(uploadType, row, lnum, rows, errors, clientData);
+    entry.processRowFunction(uploadTypeData, row, lnum, rows, errors, clientData);
 
     lnum++;
   }

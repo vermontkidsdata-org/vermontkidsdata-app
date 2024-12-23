@@ -2,6 +2,7 @@ import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { getResponse as getIndicatorsBySubcat } from './custom/indicators-by-subcat';
 import { doDBClose, doDBOpen, doDBQuery } from "./db-utils";
 import { makePowerTools } from './lambda-utils';
+import { getUploadType, transformValueExtToInt, transformValueIntToExt } from './uploadData';
 const { VKD_ENVIRONMENT } = process.env;
 
 const pt = makePowerTools({ prefix: `charts-api-${VKD_ENVIRONMENT}` });
@@ -156,7 +157,8 @@ function isAlphanumericWithSpaces(value: string) {
 interface FiltersDef {
   [key: string]: {
     column: string,
-    sort?: 'number',    // If 'number', then sort by number but non-numbers come first; default is alphanumeric
+    sort?: 'number' | 'mmyyyy',    // If 'number', then sort by number but non-numbers come first; default is alphanumeric
+    xf?: string, // Transform the value from internal to external, e.g. datetime-to-mmyyyy
     exclude?: string[], // Values to exclude from the response
   }
 }
@@ -176,6 +178,7 @@ interface QueryFilters {
 export type MetadataFiltersDef = {
   key: string,
   title?: string,
+  xf?: string,
 }[];
 
 export interface QueryMetadata {
@@ -211,15 +214,15 @@ export async function lambdaHandlerBar(
     if (metadata?.filters) {
       const qs = event.queryStringParameters;
 
-      for (const param of metadata.filters) {
-        const paramval = qs?.[param.key];
+      for (const filter of metadata.filters) {
+        const paramval = qs?.[filter.key];
         if (paramval == null) {
           return {
             statusCode: 400,
-            body: JSON.stringify({ message: `missing parameter ${param.key}` }),
+            body: JSON.stringify({ message: `missing parameter ${filter.key}` }),
           };
         } else {
-          variables[param.key] = paramval;
+          variables[filter.key] = transformValueExtToInt({columnName: filter.key, value: paramval, xf: filter.xf});
         }
       }
     }
@@ -293,42 +296,77 @@ export async function lambdaHandlerGetFilter(
   const ret: Record<string, string[]> = {};
 
   await doDBOpen();
+  const uploadType = queryRow.uploadType ? await getUploadType(queryRow.uploadType) : undefined;
+
   try {
     const table = filters.table;
     for (const [key, spec] of Object.entries(filters.filters)) {
-      const resultRows = await doDBQuery(`select distinct \`${spec.column}\` as value from ${table} order by value`);
+      const columnName = spec.column;
+      const resultRows = await doDBQuery(`select distinct \`${columnName}\` as value from ${table} order by value`);
+
+      const seenItems: Record<string, boolean> = {};
+
       ret[key] = resultRows.
         map((row: { value: string }) => `${row.value}`).
         filter((value: string) => {
           if (spec.exclude && spec.exclude.includes(value)) {
             return false;
           }
+
           return true;
-        });
+        }).
+        // Two kinds of transformation: first, based on the column itself, second based on the xf field
+        // in the query definition.
+        map((value: string) => {
+          return transformValueIntToExt({columnName, value, uploadType, xf: spec.xf});
+        }).
+        filter((value: string) => {
+          if (seenItems[value] || value.includes("NaN")) {
+            return false;
+          }
+          seenItems[value] = true;
+          return true;
+        })
+      ;
 
       // Then add any extra values for this filter type
       if (filters.extra_filter_values?.[key]) {
         ret[key].push(...filters.extra_filter_values[key]);
-
-        pt.logger.info('sorting values', { values: ret[key], key, spec });
-
-        // Sort them all
-        ret[key].sort((a, b) => {
-          if (spec.sort === 'number') {
-            if (isNaN(parseFloat(a))) {
-              // Return the alphanumeric sort in this case
-              return a.localeCompare(b);
-            } else if (isNaN(parseFloat(b))) {
-              // Return the alphanumeric sort in this case
-              return a.localeCompare(b);
-            } else {
-              return parseFloat(a) - parseFloat(b);
-            }
-          } else {
-            return a.localeCompare(b);
-          }          
-        });
       }
+
+      pt.logger.info('sorting values', { values: ret[key], key, spec, seenItems });
+
+      // Sort them all
+      ret[key].sort((a, b) => {
+        if (spec.sort === 'number') {
+          if (isNaN(parseFloat(a))) {
+            // Return the alphanumeric sort in this case
+            return a.localeCompare(b);
+          } else if (isNaN(parseFloat(b))) {
+            // Return the alphanumeric sort in this case
+            return a.localeCompare(b);
+          } else {
+            return parseFloat(a) - parseFloat(b);
+          }
+        } else if (spec.sort === 'mmyyyy') {
+          // The date format is "mm/yyyy"
+          if (!/^\d{1,2}\/\d{4}$/.test(a)) {
+            return -1;
+          } else if (!/^\d{1,2}\/\d{4}$/.test(b)) {
+            return 1;
+          }
+          
+          const [am, ay] = a.split('/');
+          const [bm, by] = b.split('/');
+          if (ay !== by) {
+            return parseInt(ay) - parseInt(by);
+          } else {
+            return parseInt(am) - parseInt(bm);
+          }
+        } else {
+          return a.localeCompare(b);
+        }          
+      });
     }
   } finally {
     await doDBClose();

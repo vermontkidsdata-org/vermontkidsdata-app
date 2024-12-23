@@ -134,6 +134,8 @@ export interface UploadType {
   filters: UploadTypeFilters,
   columnMap: Record<string, string>, // Mapping from real internal column name to external, first converted to internal
   preserve: string[] | undefined,
+  valueMaps?: UploadTypeValueMap,
+  calc?: UploadTypeCalcSpec,
 }
 
 enum ColumnDataType {
@@ -185,6 +187,76 @@ async function getColumns(table: string): Promise<Column[]> {
   // }
 }
 
+export interface TransformFunctionSpec {
+  intToExt: (v: string) => string,
+  extToInt: (v: string) => string,
+};
+
+const transformFunctions: Record<string, TransformFunctionSpec> = {
+  // datetime-to-mmyyyy, where datetime looks like "Fri Apr 07 2023 00:00:00 GMT+0000 (Coordinated Universal Time)"
+  'datetime-to-mmyyyy': {
+    intToExt: (v: string) => {
+      const date = new Date(v);
+      return `${date.getMonth() + 1}/${date.getFullYear()}`;
+    },
+    extToInt: (v: string) => {
+      const [m, y] = v.split('/');
+      return `${y}-${`${m}`.padStart(2, '0')}`;
+    },
+  },
+  mmyyyyswap: {
+    intToExt: (v: string) => {
+      const [m, y] = v.split('/');
+      return `${y}/${m}`;
+    },
+    extToInt: (v: string) => {
+      const [y, m] = v.split('/');
+      return `${m}/${y}`;
+    },
+  }
+}
+
+export interface UploadTypeValueMap {
+  [columnName: string]: {
+    // General mapping function to run. This is run last on the int->ext conversion
+    // and first on the ext->int conversion.
+    xf?: string, // Transform function
+
+    // Specific values to map
+    values?: [{
+      int: string,
+      ext?: string,
+    }],
+  }
+}
+
+export type UploadTypeCalcSpec = {
+  column: string, // "month",
+  value: number | string // 0},
+}[];
+
+export interface UploadTypeColumnMap {
+  // I'm not sure what these are used for - seems to be about column headers. Example:
+  // {
+  //   value_w: "School Value"
+  //   value_w_st: "State Value"
+  //   value_w_susd: "Supervisory Union Value"
+  // },
+  map?: Record<string, string>,
+
+  // list of columns to preserve
+  preserve?: string[], // ["wp_id", "Chart_url", "link", "title"]
+
+  // Value mappings. These are column values to map between internal and external values.
+  // For example, "Registered" might be "Registered FCCH" internally.
+  valueMaps?: UploadTypeValueMap,
+
+  // Calculated values. These are values that are calculated from other columns. For example,
+  // "month" might be calculated from "date" as the month number. These are not expected to
+  // be in the uploaded CSV.
+  calc?: UploadTypeCalcSpec,
+}
+
 export async function getUploadType(type: string): Promise<UploadType> {
   // console.log({ message: 'getUploadType', type, lookup: uploadTypes[type] });
   // if (uploadTypes[type] == null) {
@@ -196,14 +268,16 @@ export async function getUploadType(type: string): Promise<UploadType> {
     const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string, filters?: string } = types[0];
     // Get the columns list
     const columns = await getColumns(uploadTypeRaw.table);
-    const { columnMap, preserve } = (() => {
+    const { columnMap, preserve, valueMaps, calc } = (() => {
       let cookedMap: Record<string, string> | undefined = undefined;
       let preserve: Array<string> | undefined = undefined;
+      let valueMaps: UploadTypeValueMap | undefined = undefined;
+      let calc: UploadTypeCalcSpec | undefined = undefined;
 
       if (uploadTypeRaw.column_map) {
-        const column_map = JSON.parse(uploadTypeRaw.column_map);
+        const column_map = JSON.parse(uploadTypeRaw.column_map) as UploadTypeColumnMap;
         if (column_map.map) {
-          const rawMap: Record<string, string> = column_map.map;
+          const rawMap = column_map.map;
           cookedMap = {};
 
           for (const key of Object.keys(rawMap)) {
@@ -214,9 +288,17 @@ export async function getUploadType(type: string): Promise<UploadType> {
         if (column_map.preserve) {
           preserve = column_map.preserve;
         }
+
+        if (column_map.valueMaps) {
+          valueMaps = column_map.valueMaps;
+        }
+
+        if (column_map.calc) {
+          calc = column_map.calc;
+        }
       }
 
-      return { columnMap: cookedMap, preserve };
+      return { columnMap: cookedMap, preserve, valueMaps, calc };
     })();
 
     // console.log({ type, uploadTypeRaw, columns })
@@ -229,6 +311,8 @@ export async function getUploadType(type: string): Promise<UploadType> {
       preserve,
       indexColumns: uploadTypeRaw.index_columns.split(',').map(c => c.trim()),
       filters: uploadTypeRaw.filters ? JSON.parse(uploadTypeRaw.filters) : {},
+      valueMaps,
+      calc,
     } as UploadType;
 
     // uploadTypes[type] = uploadType;
@@ -237,6 +321,68 @@ export async function getUploadType(type: string): Promise<UploadType> {
   // } else {
   //   return uploadTypes[type];
   // }
+}
+
+export function transformValueIntToExt(props: {columnName: string, value: string, uploadType?: UploadType, xf?: string}): string {
+  const { columnName, value, uploadType } = props;
+  const valueMaps = uploadType?.valueMaps;
+  const valueMap = valueMaps?.[columnName];
+  let realValue: string = value;
+
+  console.log({ message: 'transformValueIntToExt', columnName, value, valueMap, xf: props.xf });
+
+  if (valueMap) {
+    const found = valueMap.values?.find(e => e.int === realValue);
+    if (found) {
+      realValue = found.ext ?? realValue;
+    }
+
+    if (valueMap.xf) {
+      const xf = transformFunctions[valueMap.xf];
+      if (xf) {
+        realValue = xf.intToExt(realValue);
+      }
+    }
+  }
+
+  if (props.xf) {
+    const xf = transformFunctions[props.xf];
+    if (xf) {
+      realValue = xf.intToExt(realValue);
+    }
+  }
+
+  return realValue;
+}
+
+export function transformValueExtToInt(props: {columnName: string, value: string, uploadType?: UploadType, xf?: string}): string {
+  const { columnName, value, uploadType } = props;
+  const valueMaps = uploadType?.valueMaps;
+  const valueMap = valueMaps?.[columnName];
+  let realValue: string = value;
+
+  if (props.xf) {
+    const xf = transformFunctions[props.xf];
+    if (xf) {
+      realValue = xf.extToInt(realValue);
+    }
+  }
+
+  if (valueMap) {
+    if (valueMap.xf) {
+      const xf = transformFunctions[valueMap.xf];
+      if (xf) {
+        realValue = xf.extToInt(realValue);
+      }
+    }
+
+    const found = valueMap.values?.find(e => e.ext === realValue);
+    if (found) {
+      realValue = found.int;
+    }
+  }
+
+  return realValue;
 }
 
 function humanToInternalName(col: string): string {
@@ -366,10 +512,14 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
       record[0] = record[0].substring(1);
     }
 
+    const calcColumns = uploadType.calc ?? [];
+    const uploadColumns = uploadType.columns.filter(c => !calcColumns.some(cc => cc.column == c.columnName));
+
     // Check the columns. We might we more lenient at some point, but right now they have to
-    // match exactly. Note we should get one less, no id column.
-    if (record.length !== uploadType.columns.length - 1) {
-      throw new Error(`wrong number of columns for type ${uploadType.type}; expected ${JSON.stringify(Object.values(uploadType.columns).map(v => v.columnName))} got ${JSON.stringify(record)}`);
+    // match exactly. Note we should get one less, no id column. Also don't count calulated
+    // columns.
+    if (record.length !== uploadColumns.length - 1) {
+      throw new Error(`wrong number of columns for type ${uploadType.type}; expected ${JSON.stringify(Object.values(uploadType.columns).map(v => v.columnName))} got ${JSON.stringify(record)}; calc columns ${JSON.stringify(calcColumns)}`);
     }
 
     const tableColumns = uploadType.columns.map(c => c.columnName);

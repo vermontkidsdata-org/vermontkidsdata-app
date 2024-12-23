@@ -1,5 +1,10 @@
 # Vermont Kids' Data project
 
+# CloudWatch log groups
+
+Download function QA
+https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/%2Faws%2Flambda%2Fqa-LocalDevBranch-DownloadFunction40EABBE7-JcC66wrB9mfM
+
 Need to create some secrets first.
 
 aws secretsmanager create-secret --name VKDPipelineGitHubToken --description "The GitHub access token for the VKD pipeline." --secret-string "{\"access-token\":\"XXXXXXXXXXXX\"}"
