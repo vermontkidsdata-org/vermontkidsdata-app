@@ -492,9 +492,12 @@ async function processDashboardRow(uploadType: UploadType, record: string[], lnu
 }
 
 function fixGeneralValue(v: string): string {
-  // If it looks like a number, strip any commas
+  // If it looks like a number, strip any commas; if it looks like an mm/dd/yyyy date, convert to yyyy-mm-dd
   if (v.match(/^-?[\d,.]+$/)) {
     return v.replace(/,/g, '');
+  } else if (v.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/)) {
+    const [m, d, y] = v.split('/');
+    return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
   } else {
     return v;
   }
