@@ -80,7 +80,7 @@ exports[`Lambda Snapshot Test 1`] = `
               {
                 "Ref": "AWS::URLSuffix",
               },
-              "/[ASSET BUCKET]/e2f93564a9ad2df249d1bc451702d35f15470f8918c66d60affef32f89c691b2.json",
+              "/[ASSET BUCKET]/[ASSET ZIP]",
             ],
           ],
         },
@@ -5672,7 +5672,7 @@ def sort_filter_rules(json_obj):
               {
                 "Ref": "AWS::URLSuffix",
               },
-              "/[ASSET BUCKET]/221533d8ef4c15fa56dec1cb2764f3028670d2fc08026508660aaf8b59035ec7.json",
+              "/[ASSET BUCKET]/[ASSET ZIP]",
             ],
           ],
         },

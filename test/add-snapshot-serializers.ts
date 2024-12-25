@@ -1,6 +1,6 @@
 export function addAssetSnapshotSerializer(account: string, region: string): void {
   const bucketMatch = new RegExp(`cdk-[0-9a-z]{9}-assets-${account}-${region}`);
-  const assetMatch = /[0-9a-f]{64}\.zip/;
+  const assetMatch = /[0-9a-f]{64}\.(zip|json)/;
 
   expect.addSnapshotSerializer({
     test: (val) => typeof val === 'string'

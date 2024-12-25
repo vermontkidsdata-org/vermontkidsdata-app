@@ -24,38 +24,17 @@ export function getOpenAI(): OpenAI {
  * This is a list of files that are available for citation in the AI responses.
  */
 
-export const FILE_MAP = [
-{
+export const FILE_MAP = [{
   "filename": "havyc-summary-2023.txt",
   "url": "https://buildingbrightfutures.org/wp-content/uploads/the_state_of_vermonts_children_2023_year_in_review.pdf",
   "name": "The State of Vermont's Children 2023 Year in Review",
+}]
+
+export let fileMapInUse = FILE_MAP;
+
+export function setFileMap(map: {filename: string, url: string, name: string}[]) {
+  fileMapInUse = map;
 }
-// {
-//   "filename": "how_are_vermonts_young_children_2023.txt",
-//   "url": "https://buildingbrightfutures.org/wp-content/uploads/the_state_of_vermonts_children_2023_year_in_review.pdf",
-//   "name": "The State of Vermont's Children 2023 Year in Review",
-// }, {
-//   "filename": "how_are_vermonts_young_children_2022.txt",
-//   "url": "https://buildingbrightfutures.org/wp-content/uploads/State-of-Vermonts-Children-2022.pdf",
-//   "name": "The State of Vermont's Children 2022",
-// }, {
-//   "filename": "how_are_vermonts_young_children_2021.txt",
-//   "url": "https://buildingbrightfutures.org/wp-content/uploads/2022/01/The-State-of-Vermonts-Children-2021-Year-in-Review.pdf",
-//   "name": "The State of Vermont's Children 2021 Year in Review",
-// }, {
-//   "filename": "how_are_vermonts_young_children_2020.txt",
-//   "url": "https://buildingbrightfutures.org/wp-content/uploads/2021/01/2020-How-Are-Vermonts-Young-Children-and-Families.pdf",
-//   "name": "How Are Vermont's Young Children and Families 2020",
-// }, {
-//   "filename": "how_are_vermonts_young_children_2019.txt",
-//   "url": "https://buildingbrightfutures.org/wp-content/uploads/2020/01/BBF-2019-HAVYCF-REPORT-SinglePgs.pdf",
-//   "name": "How Are Vermont's Young Children 2019",
-// }, {
-//   "filename": "how_are_vermonts_young_children_2018.txt",
-//   "url": "https://buildingbrightfutures.org/wp-content/uploads/2019/01/BBF-2018-HAVYCF-FINAL-SINGLES-1.pdf",
-//   "name": "How Are Vermont's Young Children 2018",
-// }
-];
 
 interface IThread {
   id: string;
@@ -496,8 +475,8 @@ export class ChunkHandler {
             localFootnotes.push(existing);
           } else {
             // Not yet, need to look it up in the map
-            const mapped = FILE_MAP.find(f => f.filename === file.filename);
-            pt.logger.info({ message: 'Mapped file', FILE_MAP, file, mapped });
+            const mapped = fileMapInUse.find(f => f.filename === file.filename);
+            pt.logger.info({ message: 'Mapped file', fileMapInUse, file, mapped });
             if (mapped) {
               pt.logger.info({ message: 'Mapped file', mapped });
               const localFootnote = {
@@ -508,6 +487,7 @@ export class ChunkHandler {
               };
               footnotes.push(localFootnote);
               localFootnotes.push(localFootnote);
+              pt.logger.info({ message: 'Pushing local footnote', localFootnote, localFootnotes });
             }
           }
         }
@@ -529,7 +509,7 @@ export class ChunkHandler {
             cleanChunk = cleanChunk.replace(re, '');
           } else {
             const localFootnote = localFootnotes.find(f => f.file_id === annotation.file_citation?.file_id);
-            pt.logger.info({ message: 'Local footnote', localFootnotes, file_id: annotation.file_citation?.file_id, localFootnote, text: annotation.text });
+            pt.logger.info({ message: 'Looking up local footnote', localFootnotes, file_id: annotation.file_citation?.file_id, localFootnote, text: annotation.text });
             if (localFootnote) {
               cleanChunk = cleanChunk.replace(re, `[[${localFootnote.refnum}]](${localFootnote.url})`);
               this.lastFootnotes.push(localFootnote);
@@ -594,4 +574,9 @@ export function validateAPIAuthorization(event: any): APIGatewayProxyResultV2 | 
   }
 
   return undefined;
+}
+
+export function resetAIUtils() {
+  openai = undefined as any;
+  fileMapInUse = FILE_MAP;
 }
