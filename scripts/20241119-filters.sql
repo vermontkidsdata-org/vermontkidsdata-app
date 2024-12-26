@@ -96,8 +96,8 @@ SELECT
  FROM data_ccfap_stars_yyyymm
  where YEAR(`VISION Payment Date`) > 0
  and `County`=(case when @county_filter='Vermont' then `County` else @county_filter end)
- and `yyyymm` >= (case when @from_filter='-- All --' then `yyyymm` else @from_filter end)
- and `yyyymm` <= (case when @to_filter='-- All --' then `yyyymm` else @to_filter end)
+ and `yyyymm` >= (case when @from_filter='undefined--- All --' then `yyyymm` else @from_filter end)
+ and `yyyymm` <= (case when @to_filter='undefined--- All --' then `yyyymm` else @to_filter end)
  and (
    @stars_filter='-- All --' or
    @stars_filter='4 or 5 Star' and `Current Tier Level` in ('4 Star', '5 Star') or
