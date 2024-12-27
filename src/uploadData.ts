@@ -232,7 +232,7 @@ export interface UploadTypeValueMap {
 
 export type UploadTypeCalcSpec = {
   column: string, // "month",
-  value: number | string // 0},
+  value: (number | string)[],  // ["substr", 8, 2]
 }[];
 
 export interface UploadTypeColumnMap {
@@ -323,7 +323,7 @@ export async function getUploadType(type: string): Promise<UploadType> {
   // }
 }
 
-export function transformValueIntToExt(props: {columnName: string, value: string, uploadType?: UploadType, xf?: string}): string {
+export function transformValueIntToExt(props: { columnName: string, value: string, uploadType?: UploadType, xf?: string }): string {
   const { columnName, value, uploadType } = props;
   const valueMaps = uploadType?.valueMaps;
   const valueMap = valueMaps?.[columnName];
@@ -355,7 +355,7 @@ export function transformValueIntToExt(props: {columnName: string, value: string
   return realValue;
 }
 
-export function transformValueExtToInt(props: {columnName: string, value: string, uploadType?: UploadType, xf?: string}): string {
+export function transformValueExtToInt(props: { columnName: string, value: string, uploadType?: UploadType, xf?: string }): string {
   const { columnName, value, uploadType } = props;
   const valueMaps = uploadType?.valueMaps;
   const valueMap = valueMaps?.[columnName];
@@ -503,6 +503,46 @@ function fixGeneralValue(v: string): string {
   }
 }
 
+function getValue(keys: string[], values: string[], readColumn: string): string {
+  const index = keys.indexOf(readColumn);
+  if (index < 0) {
+    throw new Error(`unknown column ${readColumn}`);
+  } else {
+    return fixGeneralValue(values[index]);
+  }
+}
+
+function calcValue(col: string, keys: string[], values: string[], uploadType: UploadType): string {
+  const calcColumns = uploadType.calc ?? [];
+  const calcSpec = calcColumns.find(c => c.column === col);
+  console.log({ message: 'calcValue', col, keys, values, calcSpec });
+  if (calcSpec) {
+    const [fn, ...args] = calcSpec.value;
+    if (fn === 'substr') {
+      const [readColumnRaw, startRaw, lenRaw] = args;
+      const readColumn = `${readColumnRaw}`;
+      const len = parseInt(`${lenRaw}`);
+      const start = parseInt(`${startRaw}`);
+      return getValue(keys, values, readColumn).substring(start, start + len);
+    } else if (fn === 'yearof') {
+      const [readColumnRaw] = args;
+      const readColumn = `${readColumnRaw}`;
+      const date = new Date(getValue(keys, values, readColumn));
+      return `${date.getFullYear()}`;
+    } else if (fn === 'monthof') {
+      const [readColumnRaw] = args;
+      const readColumn = `${readColumnRaw}`;
+      const date = new Date(getValue(keys, values, readColumn));
+      return `${date.getMonth() + 1}`;
+    } else {
+      throw new Error(`unknown calc function ${fn}`);
+    }
+  } else {
+    // Just return the value
+    return values[keys.indexOf(col)];
+  }
+}
+
 async function processGeneralRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<boolean> {
   // console.log({ message: 'processGeneralRow start', type, record, lnum });
   if (lnum === 1) {
@@ -548,7 +588,19 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
       throw new Error(`wrong number of columns in row ${lnum}: expected ${clientData.uploadColumns.length} got ${record.length}`);
     }
 
+    // Add the calc columns
+    const uploadColumns = clientData.uploadColumns;
+    const calcColumns = uploadType.calc ?? [];
+    const calcValues = calcColumns.map(calcColumn => calcValue(calcColumn.column, uploadColumns, record, uploadType));
+
+    // Get the basic updates
     const updates = clientData.uploadColumns.filter(c => !clientData.uploadType.indexColumns.includes(c)).map(c => `\`${c}\`=?`);
+
+    // Add in the calc columns
+    for (let i = 0; i < calcColumns.length; i++) {
+      updates.push(`\`${calcColumns[i].column}\`=?`);
+    }
+
     if (updates.length === 0) {
       updates.push('`id`=`id`');
     }
@@ -557,11 +609,10 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
     // const insertCols = clientData.mangleMap ?
     //   await mapColumnNamesToInternal(clientData.uploadColumns, true, clientData.mangleMap.nameMaps) :
     //   clientData.uploadColumns;
-    const insertCols = clientData.uploadColumns;
     const sql = `insert into \`${clientData.uploadType.table}\` (` +
-      insertCols.map(c => `\`${c}\``).join(',') +
+      [...uploadColumns, ...(calcColumns.map(c => c.column))].map(c => `\`${c}\``).join(',') +
       `) values (` +
-      record.map(v => '?').join(',') +
+      [...record.map(v => '?'), ...(calcColumns.map(c => '?'))].join(',') +
       `) on duplicate key update ` +
       updates.join(',');
 
@@ -573,12 +624,18 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
 
       for (let i = 0; i < record.length; i++) {
         // First set the insert values, then the update ones
-        inserts.push(fixGeneralValue(record[i]));
+        const finalValue = fixGeneralValue(record[i]);
+        inserts.push(finalValue);
 
         if (!indexColumns.includes(uploadColumns[i])) {
-          updates.push(fixGeneralValue(record[i]));
+          updates.push(finalValue);
         }
       }
+
+      // Add extra inserts and updates for calculated columns
+      inserts.push(...calcValues);
+      updates.push(...calcValues);
+
       return [...inserts, ...updates];
     })(clientData.uploadColumns, clientData.uploadType.indexColumns);
 

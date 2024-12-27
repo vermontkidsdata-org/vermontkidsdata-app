@@ -116,7 +116,6 @@ describe('ai-utils', () => {
       expect(result.cleanChunk).toBe(chunkHandler.getMessage());
     });
 
-    // TODO Fix this test!
     it('should not duplicate annotations', async () => {
       setFileMap(TEST_FILE_MAP);
       await chunkHandler.handleChunk({
