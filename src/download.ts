@@ -190,7 +190,7 @@ export async function lambdaHandler(
 
       const uploadTypeData = await getUploadType(uploadType);
       const columnFilters: Record<string, string> = {};
-      if (uploadTypeData.filters) {
+      if (uploadTypeData.filters?.filters) {
         const qs = event.queryStringParameters;
   
         for (const filterItem of Object.entries(uploadTypeData.filters.filters)) {
