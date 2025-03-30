@@ -62,14 +62,21 @@ export async function getDefaultDataset(queryRow: QueryRow, variables?: Record<s
       cat: string,
       label: string,
       value: string
+      hover?: string,
     }
     const categories: string[] = [];
     const series: { [label: string]: { [key: string]: string } } = {};
-    const hover: { [label: string]: { [key: string]: string } } = {};
+    const hover: { [label: string]: { [key: string]: string | null } } = {};
+    let hasHovers = false;
     resultRows.forEach((row: QueryResult) => {
       const cat = row.cat;
       const label = row.label;
       const value = row.value;
+      const hovervalue = row.hover;
+      if (hovervalue) {
+        hasHovers = true;
+      }
+
       if (series[label] == null) {
         series[label] = {};   // Keyed by category
       }
@@ -80,7 +87,7 @@ export async function getDefaultDataset(queryRow: QueryRow, variables?: Record<s
         categories.push(cat);
       }
       series[label][cat] = value;
-      hover[label][cat] = 'dummy-hover';
+      hover[label][cat] = hovervalue ?? null;
     });
 
     // console.log('categories', categories);
@@ -88,7 +95,7 @@ export async function getDefaultDataset(queryRow: QueryRow, variables?: Record<s
     const retSeries: { 
       name: string, 
       data: (number | null)[],
-      hover: (number | null)[],
+      hover?: (string | null)[],
      }[] = Object.keys(series).map(label => {
       // console.log('label', label);
       return {
@@ -97,10 +104,11 @@ export async function getDefaultDataset(queryRow: QueryRow, variables?: Record<s
           const val = parseFloat(series[label][cat]);
           return (val < 0 ? null : val);
         }),
-        hover: categories.map(cat => {
-          const val = parseFloat(hover[label][cat]);
-          return (val < 0 ? null : val);
-        }),
+        ...(hasHovers ? {
+          hover: categories.map(cat => {
+            return hover[label]?.[cat] ?? null;
+          }),
+        } : {})
       };
     });
     // console.log('retSeries', retSeries);

@@ -255,7 +255,7 @@ VALUES
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'cacfp:chart',
-    'SELECT `year` as `cat`, geography as `label`, `percent`*100 as `value` FROM data_cacfp order by `year`',
+    'SELECT `year` as `cat`, geography as `label`, `percent`*100 as `value`, concat("Count: ",`count`) as `hover` FROM data_cacfp order by `year`',
     'general:cacfp',
     '{"yAxis": {"type": "percent"}}'
   );
