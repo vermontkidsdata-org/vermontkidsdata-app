@@ -65,6 +65,7 @@ export async function getDefaultDataset(queryRow: QueryRow, variables?: Record<s
     }
     const categories: string[] = [];
     const series: { [label: string]: { [key: string]: string } } = {};
+    const hover: { [label: string]: { [key: string]: string } } = {};
     resultRows.forEach((row: QueryResult) => {
       const cat = row.cat;
       const label = row.label;
@@ -76,16 +77,25 @@ export async function getDefaultDataset(queryRow: QueryRow, variables?: Record<s
         categories.push(cat);
       }
       series[label][cat] = value;
+      hover[label][cat] = 'dummy-hover';
     });
 
     // console.log('categories', categories);
     // console.log('series', series);
-    const retSeries: { name: string, data: (number | null)[] }[] = Object.keys(series).map(label => {
+    const retSeries: { 
+      name: string, 
+      data: (number | null)[],
+      hover: (number | null)[],
+     }[] = Object.keys(series).map(label => {
       // console.log('label', label);
       return {
         name: label,
         data: categories.map(cat => {
           const val = parseFloat(series[label][cat]);
+          return (val < 0 ? null : val);
+        }),
+        hover: categories.map(cat => {
+          const val = parseFloat(hover[label][cat]);
           return (val < 0 ? null : val);
         }),
       };

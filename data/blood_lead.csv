@@ -1,0 +1,7 @@
+geo_type,geography,year,category,value
+State,Vermont,2023,1 year olds screened,0.863
+State,Vermont,2023,1 year olds with undetectable levels,0.9
+State,Vermont,2023,1 year olds with elevated blood lead levels,0.1
+State,Vermont,2023,2 year olds screened,0.826
+State,Vermont,2023,2 year olds with undetectable levels,0.909
+State,Vermont,2023,2 year olds with elevated blood lead levels,0.091
