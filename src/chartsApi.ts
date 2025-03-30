@@ -73,6 +73,9 @@ export async function getDefaultDataset(queryRow: QueryRow, variables?: Record<s
       if (series[label] == null) {
         series[label] = {};   // Keyed by category
       }
+      if (hover[label] == null) {
+        hover[label] = {};   // Keyed by category
+      }
       if (!categories.includes(cat)) {
         categories.push(cat);
       }
