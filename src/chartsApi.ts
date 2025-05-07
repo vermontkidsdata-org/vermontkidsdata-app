@@ -17,7 +17,7 @@ export interface QueryRow {
   filters?: string,
 }
 
-async function getQueryRow(queryId: string): Promise<QueryRow | undefined> {
+export async function getQueryRow(queryId: string): Promise<QueryRow | undefined> { // Added export
   await doDBOpen();
   try {
     // Get the query to run from the parameters
@@ -142,7 +142,7 @@ export interface BarChartResult {
   categories: BarChartCategoryItem[],
 }
 
-class BadRequestError extends Error {
+export class BadRequestError extends Error { // Added export
   statusCode: number;
   constructor(statusCode: number, message: string) {
     super(message);
@@ -188,7 +188,7 @@ export interface UploadTypeFilters {
   filters: FiltersDef,
 }
 
-interface QueryFilters {
+export interface QueryFilters { // Added export
   table: string,
   filters: FiltersDef,
   extra_filter_values: {

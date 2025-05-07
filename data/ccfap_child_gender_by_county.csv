@@ -1,0 +1,2695 @@
+geo type,geography,year,category,value
+county,Addison,2023-06,Female,249
+county,Addison,2023-06,Male,251
+county,Addison,2023-06,Non-binary,*
+county,Addison,2023-06,Prefer not to answer,*
+county,Addison,2023-06,Prefer to self-describe,0
+county,Addison,2023-06,Unknown,0
+county,Bennington,2023-06,Female,330
+county,Bennington,2023-06,Male,330
+county,Bennington,2023-06,Non-binary,0
+county,Bennington,2023-06,Prefer not to answer,0
+county,Bennington,2023-06,Prefer to self-describe,0
+county,Bennington,2023-06,Unknown,0
+county,Caledonia,2023-06,Female,353
+county,Caledonia,2023-06,Male,*
+county,Caledonia,2023-06,Non-binary,0
+county,Caledonia,2023-06,Prefer not to answer,*
+county,Caledonia,2023-06,Prefer to self-describe,0
+county,Caledonia,2023-06,Unknown,0
+county,Chittenden,2023-06,Female,872
+county,Chittenden,2023-06,Male,*
+county,Chittenden,2023-06,Non-binary,0
+county,Chittenden,2023-06,Prefer not to answer,*
+county,Chittenden,2023-06,Prefer to self-describe,0
+county,Chittenden,2023-06,Unknown,0
+county,Essex,2023-06,Female,40
+county,Essex,2023-06,Male,48
+county,Essex,2023-06,Non-binary,0
+county,Essex,2023-06,Prefer not to answer,0
+county,Essex,2023-06,Prefer to self-describe,0
+county,Essex,2023-06,Unknown,0
+county,Franklin,2023-06,Female,*
+county,Franklin,2023-06,Male,307
+county,Franklin,2023-06,Non-binary,0
+county,Franklin,2023-06,Prefer not to answer,*
+county,Franklin,2023-06,Prefer to self-describe,0
+county,Franklin,2023-06,Unknown,0
+county,Grand Isle,2023-06,Female,40
+county,Grand Isle,2023-06,Male,38
+county,Grand Isle,2023-06,Non-binary,0
+county,Grand Isle,2023-06,Prefer not to answer,0
+county,Grand Isle,2023-06,Prefer to self-describe,0
+county,Grand Isle,2023-06,Unknown,0
+county,Lamoille,2023-06,Female,193
+county,Lamoille,2023-06,Male,187
+county,Lamoille,2023-06,Non-binary,0
+county,Lamoille,2023-06,Prefer not to answer,0
+county,Lamoille,2023-06,Prefer to self-describe,0
+county,Lamoille,2023-06,Unknown,0
+county,Orange,2023-06,Female,113
+county,Orange,2023-06,Male,121
+county,Orange,2023-06,Non-binary,0
+county,Orange,2023-06,Prefer not to answer,0
+county,Orange,2023-06,Prefer to self-describe,0
+county,Orange,2023-06,Unknown,0
+county,Orleans,2023-06,Female,189
+county,Orleans,2023-06,Male,222
+county,Orleans,2023-06,Non-binary,0
+county,Orleans,2023-06,Prefer not to answer,0
+county,Orleans,2023-06,Prefer to self-describe,0
+county,Orleans,2023-06,Unknown,0
+county,Rutland,2023-06,Female,457
+county,Rutland,2023-06,Male,*
+county,Rutland,2023-06,Non-binary,0
+county,Rutland,2023-06,Prefer not to answer,*
+county,Rutland,2023-06,Prefer to self-describe,0
+county,Rutland,2023-06,Unknown,0
+county,Washington,2023-06,Female,*
+county,Washington,2023-06,Male,251
+county,Washington,2023-06,Non-binary,0
+county,Washington,2023-06,Prefer not to answer,*
+county,Washington,2023-06,Prefer to self-describe,0
+county,Washington,2023-06,Unknown,0
+county,Windham,2023-06,Female,237
+county,Windham,2023-06,Male,262
+county,Windham,2023-06,Non-binary,0
+county,Windham,2023-06,Prefer not to answer,*
+county,Windham,2023-06,Prefer to self-describe,*
+county,Windham,2023-06,Unknown,0
+county,Windsor,2023-06,Female,294
+county,Windsor,2023-06,Male,*
+county,Windsor,2023-06,Non-binary,0
+county,Windsor,2023-06,Prefer not to answer,*
+county,Windsor,2023-06,Prefer to self-describe,0
+county,Windsor,2023-06,Unknown,0
+county,Addison,2023-05,Female,216
+county,Addison,2023-05,Male,207
+county,Addison,2023-05,Non-binary,*
+county,Addison,2023-05,Prefer not to answer,*
+county,Addison,2023-05,Prefer to self-describe,0
+county,Addison,2023-05,Unknown,0
+county,Bennington,2023-05,Female,302
+county,Bennington,2023-05,Male,305
+county,Bennington,2023-05,Non-binary,0
+county,Bennington,2023-05,Prefer not to answer,0
+county,Bennington,2023-05,Prefer to self-describe,0
+county,Bennington,2023-05,Unknown,0
+county,Caledonia,2023-05,Female,337
+county,Caledonia,2023-05,Male,*
+county,Caledonia,2023-05,Non-binary,0
+county,Caledonia,2023-05,Prefer not to answer,*
+county,Caledonia,2023-05,Prefer to self-describe,0
+county,Caledonia,2023-05,Unknown,0
+county,Chittenden,2023-05,Female,774
+county,Chittenden,2023-05,Male,*
+county,Chittenden,2023-05,Non-binary,0
+county,Chittenden,2023-05,Prefer not to answer,*
+county,Chittenden,2023-05,Prefer to self-describe,0
+county,Chittenden,2023-05,Unknown,0
+county,Essex,2023-05,Female,36
+county,Essex,2023-05,Male,47
+county,Essex,2023-05,Non-binary,0
+county,Essex,2023-05,Prefer not to answer,0
+county,Essex,2023-05,Prefer to self-describe,0
+county,Essex,2023-05,Unknown,0
+county,Franklin,2023-05,Female,*
+county,Franklin,2023-05,Male,286
+county,Franklin,2023-05,Non-binary,0
+county,Franklin,2023-05,Prefer not to answer,*
+county,Franklin,2023-05,Prefer to self-describe,0
+county,Franklin,2023-05,Unknown,0
+county,Grand Isle,2023-05,Female,34
+county,Grand Isle,2023-05,Male,34
+county,Grand Isle,2023-05,Non-binary,0
+county,Grand Isle,2023-05,Prefer not to answer,0
+county,Grand Isle,2023-05,Prefer to self-describe,0
+county,Grand Isle,2023-05,Unknown,0
+county,Lamoille,2023-05,Female,183
+county,Lamoille,2023-05,Male,178
+county,Lamoille,2023-05,Non-binary,0
+county,Lamoille,2023-05,Prefer not to answer,0
+county,Lamoille,2023-05,Prefer to self-describe,0
+county,Lamoille,2023-05,Unknown,0
+county,Orange,2023-05,Female,110
+county,Orange,2023-05,Male,111
+county,Orange,2023-05,Non-binary,0
+county,Orange,2023-05,Prefer not to answer,0
+county,Orange,2023-05,Prefer to self-describe,0
+county,Orange,2023-05,Unknown,0
+county,Orleans,2023-05,Female,195
+county,Orleans,2023-05,Male,217
+county,Orleans,2023-05,Non-binary,0
+county,Orleans,2023-05,Prefer not to answer,0
+county,Orleans,2023-05,Prefer to self-describe,0
+county,Orleans,2023-05,Unknown,0
+county,Rutland,2023-05,Female,*
+county,Rutland,2023-05,Male,413
+county,Rutland,2023-05,Non-binary,0
+county,Rutland,2023-05,Prefer not to answer,*
+county,Rutland,2023-05,Prefer to self-describe,0
+county,Rutland,2023-05,Unknown,0
+county,Washington,2023-05,Female,*
+county,Washington,2023-05,Male,229
+county,Washington,2023-05,Non-binary,0
+county,Washington,2023-05,Prefer not to answer,*
+county,Washington,2023-05,Prefer to self-describe,0
+county,Washington,2023-05,Unknown,0
+county,Windham,2023-05,Female,*
+county,Windham,2023-05,Male,235
+county,Windham,2023-05,Non-binary,0
+county,Windham,2023-05,Prefer not to answer,*
+county,Windham,2023-05,Prefer to self-describe,0
+county,Windham,2023-05,Unknown,0
+county,Windsor,2023-05,Female,270
+county,Windsor,2023-05,Male,*
+county,Windsor,2023-05,Non-binary,0
+county,Windsor,2023-05,Prefer not to answer,*
+county,Windsor,2023-05,Prefer to self-describe,0
+county,Windsor,2023-05,Unknown,0
+county,Addison,2023-04,Female,219
+county,Addison,2023-04,Male,212
+county,Addison,2023-04,Non-binary,*
+county,Addison,2023-04,Prefer not to answer,*
+county,Addison,2023-04,Prefer to self-describe,0
+county,Addison,2023-04,Unknown,0
+county,Bennington,2023-04,Female,301
+county,Bennington,2023-04,Male,311
+county,Bennington,2023-04,Non-binary,0
+county,Bennington,2023-04,Prefer not to answer,0
+county,Bennington,2023-04,Prefer to self-describe,0
+county,Bennington,2023-04,Unknown,0
+county,Caledonia,2023-04,Female,334
+county,Caledonia,2023-04,Male,*
+county,Caledonia,2023-04,Non-binary,0
+county,Caledonia,2023-04,Prefer not to answer,*
+county,Caledonia,2023-04,Prefer to self-describe,0
+county,Caledonia,2023-04,Unknown,0
+county,Chittenden,2023-04,Female,788
+county,Chittenden,2023-04,Male,*
+county,Chittenden,2023-04,Non-binary,0
+county,Chittenden,2023-04,Prefer not to answer,*
+county,Chittenden,2023-04,Prefer to self-describe,0
+county,Chittenden,2023-04,Unknown,0
+county,Essex,2023-04,Female,35
+county,Essex,2023-04,Male,48
+county,Essex,2023-04,Non-binary,0
+county,Essex,2023-04,Prefer not to answer,0
+county,Essex,2023-04,Prefer to self-describe,0
+county,Essex,2023-04,Unknown,0
+county,Franklin,2023-04,Female,*
+county,Franklin,2023-04,Male,286
+county,Franklin,2023-04,Non-binary,0
+county,Franklin,2023-04,Prefer not to answer,*
+county,Franklin,2023-04,Prefer to self-describe,0
+county,Franklin,2023-04,Unknown,0
+county,Grand Isle,2023-04,Female,32
+county,Grand Isle,2023-04,Male,30
+county,Grand Isle,2023-04,Non-binary,0
+county,Grand Isle,2023-04,Prefer not to answer,0
+county,Grand Isle,2023-04,Prefer to self-describe,0
+county,Grand Isle,2023-04,Unknown,0
+county,Lamoille,2023-04,Female,186
+county,Lamoille,2023-04,Male,178
+county,Lamoille,2023-04,Non-binary,0
+county,Lamoille,2023-04,Prefer not to answer,0
+county,Lamoille,2023-04,Prefer to self-describe,0
+county,Lamoille,2023-04,Unknown,0
+county,Orange,2023-04,Female,112
+county,Orange,2023-04,Male,115
+county,Orange,2023-04,Non-binary,0
+county,Orange,2023-04,Prefer not to answer,0
+county,Orange,2023-04,Prefer to self-describe,0
+county,Orange,2023-04,Unknown,0
+county,Orleans,2023-04,Female,203
+county,Orleans,2023-04,Male,221
+county,Orleans,2023-04,Non-binary,0
+county,Orleans,2023-04,Prefer not to answer,0
+county,Orleans,2023-04,Prefer to self-describe,0
+county,Orleans,2023-04,Unknown,0
+county,Rutland,2023-04,Female,*
+county,Rutland,2023-04,Male,418
+county,Rutland,2023-04,Non-binary,0
+county,Rutland,2023-04,Prefer not to answer,*
+county,Rutland,2023-04,Prefer to self-describe,0
+county,Rutland,2023-04,Unknown,0
+county,Washington,2023-04,Female,*
+county,Washington,2023-04,Male,223
+county,Washington,2023-04,Non-binary,0
+county,Washington,2023-04,Prefer not to answer,*
+county,Washington,2023-04,Prefer to self-describe,0
+county,Washington,2023-04,Unknown,0
+county,Windham,2023-04,Female,214
+county,Windham,2023-04,Male,249
+county,Windham,2023-04,Non-binary,0
+county,Windham,2023-04,Prefer not to answer,0
+county,Windham,2023-04,Prefer to self-describe,0
+county,Windham,2023-04,Unknown,0
+county,Windsor,2023-04,Female,277
+county,Windsor,2023-04,Male,*
+county,Windsor,2023-04,Non-binary,0
+county,Windsor,2023-04,Prefer not to answer,*
+county,Windsor,2023-04,Prefer to self-describe,0
+county,Windsor,2023-04,Unknown,0
+county,Addison,2023-03,Female,206
+county,Addison,2023-03,Male,213
+county,Addison,2023-03,Non-binary,*
+county,Addison,2023-03,Prefer not to answer,*
+county,Addison,2023-03,Prefer to self-describe,0
+county,Addison,2023-03,Unknown,0
+county,Bennington,2023-03,Female,293
+county,Bennington,2023-03,Male,296
+county,Bennington,2023-03,Non-binary,0
+county,Bennington,2023-03,Prefer not to answer,0
+county,Bennington,2023-03,Prefer to self-describe,0
+county,Bennington,2023-03,Unknown,0
+county,Caledonia,2023-03,Female,325
+county,Caledonia,2023-03,Male,*
+county,Caledonia,2023-03,Non-binary,0
+county,Caledonia,2023-03,Prefer not to answer,*
+county,Caledonia,2023-03,Prefer to self-describe,0
+county,Caledonia,2023-03,Unknown,0
+county,Chittenden,2023-03,Female,776
+county,Chittenden,2023-03,Male,*
+county,Chittenden,2023-03,Non-binary,0
+county,Chittenden,2023-03,Prefer not to answer,*
+county,Chittenden,2023-03,Prefer to self-describe,0
+county,Chittenden,2023-03,Unknown,0
+county,Essex,2023-03,Female,34
+county,Essex,2023-03,Male,48
+county,Essex,2023-03,Non-binary,0
+county,Essex,2023-03,Prefer not to answer,0
+county,Essex,2023-03,Prefer to self-describe,0
+county,Essex,2023-03,Unknown,0
+county,Franklin,2023-03,Female,*
+county,Franklin,2023-03,Male,276
+county,Franklin,2023-03,Non-binary,0
+county,Franklin,2023-03,Prefer not to answer,*
+county,Franklin,2023-03,Prefer to self-describe,0
+county,Franklin,2023-03,Unknown,0
+county,Grand Isle,2023-03,Female,32
+county,Grand Isle,2023-03,Male,32
+county,Grand Isle,2023-03,Non-binary,0
+county,Grand Isle,2023-03,Prefer not to answer,0
+county,Grand Isle,2023-03,Prefer to self-describe,0
+county,Grand Isle,2023-03,Unknown,0
+county,Lamoille,2023-03,Female,180
+county,Lamoille,2023-03,Male,178
+county,Lamoille,2023-03,Non-binary,0
+county,Lamoille,2023-03,Prefer not to answer,0
+county,Lamoille,2023-03,Prefer to self-describe,0
+county,Lamoille,2023-03,Unknown,0
+county,Orange,2023-03,Female,110
+county,Orange,2023-03,Male,117
+county,Orange,2023-03,Non-binary,0
+county,Orange,2023-03,Prefer not to answer,0
+county,Orange,2023-03,Prefer to self-describe,0
+county,Orange,2023-03,Unknown,0
+county,Orleans,2023-03,Female,199
+county,Orleans,2023-03,Male,218
+county,Orleans,2023-03,Non-binary,0
+county,Orleans,2023-03,Prefer not to answer,0
+county,Orleans,2023-03,Prefer to self-describe,0
+county,Orleans,2023-03,Unknown,0
+county,Rutland,2023-03,Female,419
+county,Rutland,2023-03,Male,408
+county,Rutland,2023-03,Non-binary,0
+county,Rutland,2023-03,Prefer not to answer,0
+county,Rutland,2023-03,Prefer to self-describe,0
+county,Rutland,2023-03,Unknown,0
+county,Washington,2023-03,Female,*
+county,Washington,2023-03,Male,213
+county,Washington,2023-03,Non-binary,0
+county,Washington,2023-03,Prefer not to answer,*
+county,Washington,2023-03,Prefer to self-describe,0
+county,Washington,2023-03,Unknown,0
+county,Windham,2023-03,Female,208
+county,Windham,2023-03,Male,244
+county,Windham,2023-03,Non-binary,0
+county,Windham,2023-03,Prefer not to answer,0
+county,Windham,2023-03,Prefer to self-describe,0
+county,Windham,2023-03,Unknown,0
+county,Windsor,2023-03,Female,270
+county,Windsor,2023-03,Male,*
+county,Windsor,2023-03,Non-binary,0
+county,Windsor,2023-03,Prefer not to answer,*
+county,Windsor,2023-03,Prefer to self-describe,0
+county,Windsor,2023-03,Unknown,0
+county,Addison,2023-02,Female,*
+county,Addison,2023-02,Male,211
+county,Addison,2023-02,Non-binary,0
+county,Addison,2023-02,Prefer not to answer,*
+county,Addison,2023-02,Prefer to self-describe,0
+county,Addison,2023-02,Unknown,0
+county,Bennington,2023-02,Female,295
+county,Bennington,2023-02,Male,298
+county,Bennington,2023-02,Non-binary,0
+county,Bennington,2023-02,Prefer not to answer,0
+county,Bennington,2023-02,Prefer to self-describe,0
+county,Bennington,2023-02,Unknown,0
+county,Caledonia,2023-02,Female,321
+county,Caledonia,2023-02,Male,*
+county,Caledonia,2023-02,Non-binary,0
+county,Caledonia,2023-02,Prefer not to answer,*
+county,Caledonia,2023-02,Prefer to self-describe,0
+county,Caledonia,2023-02,Unknown,0
+county,Chittenden,2023-02,Female,764
+county,Chittenden,2023-02,Male,*
+county,Chittenden,2023-02,Non-binary,0
+county,Chittenden,2023-02,Prefer not to answer,*
+county,Chittenden,2023-02,Prefer to self-describe,0
+county,Chittenden,2023-02,Unknown,0
+county,Essex,2023-02,Female,36
+county,Essex,2023-02,Male,47
+county,Essex,2023-02,Non-binary,0
+county,Essex,2023-02,Prefer not to answer,0
+county,Essex,2023-02,Prefer to self-describe,0
+county,Essex,2023-02,Unknown,0
+county,Franklin,2023-02,Female,272
+county,Franklin,2023-02,Male,*
+county,Franklin,2023-02,Non-binary,0
+county,Franklin,2023-02,Prefer not to answer,*
+county,Franklin,2023-02,Prefer to self-describe,0
+county,Franklin,2023-02,Unknown,0
+county,Grand Isle,2023-02,Female,32
+county,Grand Isle,2023-02,Male,35
+county,Grand Isle,2023-02,Non-binary,0
+county,Grand Isle,2023-02,Prefer not to answer,0
+county,Grand Isle,2023-02,Prefer to self-describe,0
+county,Grand Isle,2023-02,Unknown,0
+county,Lamoille,2023-02,Female,186
+county,Lamoille,2023-02,Male,174
+county,Lamoille,2023-02,Non-binary,0
+county,Lamoille,2023-02,Prefer not to answer,0
+county,Lamoille,2023-02,Prefer to self-describe,0
+county,Lamoille,2023-02,Unknown,0
+county,Orange,2023-02,Female,108
+county,Orange,2023-02,Male,116
+county,Orange,2023-02,Non-binary,0
+county,Orange,2023-02,Prefer not to answer,0
+county,Orange,2023-02,Prefer to self-describe,0
+county,Orange,2023-02,Unknown,0
+county,Orleans,2023-02,Female,195
+county,Orleans,2023-02,Male,214
+county,Orleans,2023-02,Non-binary,0
+county,Orleans,2023-02,Prefer not to answer,0
+county,Orleans,2023-02,Prefer to self-describe,0
+county,Orleans,2023-02,Unknown,0
+county,Rutland,2023-02,Female,436
+county,Rutland,2023-02,Male,415
+county,Rutland,2023-02,Non-binary,0
+county,Rutland,2023-02,Prefer not to answer,0
+county,Rutland,2023-02,Prefer to self-describe,0
+county,Rutland,2023-02,Unknown,0
+county,Washington,2023-02,Female,*
+county,Washington,2023-02,Male,212
+county,Washington,2023-02,Non-binary,0
+county,Washington,2023-02,Prefer not to answer,*
+county,Washington,2023-02,Prefer to self-describe,0
+county,Washington,2023-02,Unknown,0
+county,Windham,2023-02,Female,203
+county,Windham,2023-02,Male,236
+county,Windham,2023-02,Non-binary,0
+county,Windham,2023-02,Prefer not to answer,0
+county,Windham,2023-02,Prefer to self-describe,0
+county,Windham,2023-02,Unknown,0
+county,Windsor,2023-02,Female,273
+county,Windsor,2023-02,Male,*
+county,Windsor,2023-02,Non-binary,0
+county,Windsor,2023-02,Prefer not to answer,*
+county,Windsor,2023-02,Prefer to self-describe,0
+county,Windsor,2023-02,Unknown,0
+county,Addison,2023-01,Female,*
+county,Addison,2023-01,Male,198
+county,Addison,2023-01,Non-binary,0
+county,Addison,2023-01,Prefer not to answer,*
+county,Addison,2023-01,Prefer to self-describe,0
+county,Addison,2023-01,Unknown,0
+county,Bennington,2023-01,Female,288
+county,Bennington,2023-01,Male,280
+county,Bennington,2023-01,Non-binary,0
+county,Bennington,2023-01,Prefer not to answer,0
+county,Bennington,2023-01,Prefer to self-describe,0
+county,Bennington,2023-01,Unknown,0
+county,Caledonia,2023-01,Female,322
+county,Caledonia,2023-01,Male,*
+county,Caledonia,2023-01,Non-binary,0
+county,Caledonia,2023-01,Prefer not to answer,*
+county,Caledonia,2023-01,Prefer to self-describe,0
+county,Caledonia,2023-01,Unknown,0
+county,Chittenden,2023-01,Female,744
+county,Chittenden,2023-01,Male,*
+county,Chittenden,2023-01,Non-binary,0
+county,Chittenden,2023-01,Prefer not to answer,*
+county,Chittenden,2023-01,Prefer to self-describe,0
+county,Chittenden,2023-01,Unknown,0
+county,Essex,2023-01,Female,34
+county,Essex,2023-01,Male,46
+county,Essex,2023-01,Non-binary,0
+county,Essex,2023-01,Prefer not to answer,0
+county,Essex,2023-01,Prefer to self-describe,0
+county,Essex,2023-01,Unknown,0
+county,Franklin,2023-01,Female,*
+county,Franklin,2023-01,Male,271
+county,Franklin,2023-01,Non-binary,0
+county,Franklin,2023-01,Prefer not to answer,*
+county,Franklin,2023-01,Prefer to self-describe,0
+county,Franklin,2023-01,Unknown,0
+county,Grand Isle,2023-01,Female,33
+county,Grand Isle,2023-01,Male,34
+county,Grand Isle,2023-01,Non-binary,0
+county,Grand Isle,2023-01,Prefer not to answer,0
+county,Grand Isle,2023-01,Prefer to self-describe,0
+county,Grand Isle,2023-01,Unknown,0
+county,Lamoille,2023-01,Female,174
+county,Lamoille,2023-01,Male,172
+county,Lamoille,2023-01,Non-binary,0
+county,Lamoille,2023-01,Prefer not to answer,0
+county,Lamoille,2023-01,Prefer to self-describe,0
+county,Lamoille,2023-01,Unknown,0
+county,Orange,2023-01,Female,101
+county,Orange,2023-01,Male,108
+county,Orange,2023-01,Non-binary,0
+county,Orange,2023-01,Prefer not to answer,0
+county,Orange,2023-01,Prefer to self-describe,0
+county,Orange,2023-01,Unknown,0
+county,Orleans,2023-01,Female,198
+county,Orleans,2023-01,Male,211
+county,Orleans,2023-01,Non-binary,0
+county,Orleans,2023-01,Prefer not to answer,0
+county,Orleans,2023-01,Prefer to self-describe,0
+county,Orleans,2023-01,Unknown,0
+county,Rutland,2023-01,Female,439
+county,Rutland,2023-01,Male,416
+county,Rutland,2023-01,Non-binary,0
+county,Rutland,2023-01,Prefer not to answer,0
+county,Rutland,2023-01,Prefer to self-describe,0
+county,Rutland,2023-01,Unknown,0
+county,Washington,2023-01,Female,*
+county,Washington,2023-01,Male,206
+county,Washington,2023-01,Non-binary,0
+county,Washington,2023-01,Prefer not to answer,*
+county,Washington,2023-01,Prefer to self-describe,0
+county,Washington,2023-01,Unknown,0
+county,Windham,2023-01,Female,196
+county,Windham,2023-01,Male,234
+county,Windham,2023-01,Non-binary,0
+county,Windham,2023-01,Prefer not to answer,0
+county,Windham,2023-01,Prefer to self-describe,0
+county,Windham,2023-01,Unknown,0
+county,Windsor,2023-01,Female,269
+county,Windsor,2023-01,Male,*
+county,Windsor,2023-01,Non-binary,0
+county,Windsor,2023-01,Prefer not to answer,*
+county,Windsor,2023-01,Prefer to self-describe,0
+county,Windsor,2023-01,Unknown,0
+county,Addison,2022-12,Female,195
+county,Addison,2022-12,Male,*
+county,Addison,2022-12,Non-binary,0
+county,Addison,2022-12,Prefer not to answer,*
+county,Addison,2022-12,Prefer to self-describe,0
+county,Addison,2022-12,Unknown,0
+county,Bennington,2022-12,Female,287
+county,Bennington,2022-12,Male,280
+county,Bennington,2022-12,Non-binary,0
+county,Bennington,2022-12,Prefer not to answer,0
+county,Bennington,2022-12,Prefer to self-describe,0
+county,Bennington,2022-12,Unknown,0
+county,Caledonia,2022-12,Female,314
+county,Caledonia,2022-12,Male,295
+county,Caledonia,2022-12,Non-binary,0
+county,Caledonia,2022-12,Prefer not to answer,0
+county,Caledonia,2022-12,Prefer to self-describe,0
+county,Caledonia,2022-12,Unknown,0
+county,Chittenden,2022-12,Female,734
+county,Chittenden,2022-12,Male,*
+county,Chittenden,2022-12,Non-binary,0
+county,Chittenden,2022-12,Prefer not to answer,*
+county,Chittenden,2022-12,Prefer to self-describe,0
+county,Chittenden,2022-12,Unknown,0
+county,Essex,2022-12,Female,33
+county,Essex,2022-12,Male,38
+county,Essex,2022-12,Non-binary,0
+county,Essex,2022-12,Prefer not to answer,0
+county,Essex,2022-12,Prefer to self-describe,0
+county,Essex,2022-12,Unknown,0
+county,Franklin,2022-12,Female,284
+county,Franklin,2022-12,Male,*
+county,Franklin,2022-12,Non-binary,0
+county,Franklin,2022-12,Prefer not to answer,*
+county,Franklin,2022-12,Prefer to self-describe,0
+county,Franklin,2022-12,Unknown,0
+county,Grand Isle,2022-12,Female,*
+county,Grand Isle,2022-12,Male,34
+county,Grand Isle,2022-12,Non-binary,0
+county,Grand Isle,2022-12,Prefer not to answer,0
+county,Grand Isle,2022-12,Prefer to self-describe,0
+county,Grand Isle,2022-12,Unknown,0
+county,Lamoille,2022-12,Female,170
+county,Lamoille,2022-12,Male,172
+county,Lamoille,2022-12,Non-binary,0
+county,Lamoille,2022-12,Prefer not to answer,0
+county,Lamoille,2022-12,Prefer to self-describe,0
+county,Lamoille,2022-12,Unknown,0
+county,Orange,2022-12,Female,100
+county,Orange,2022-12,Male,103
+county,Orange,2022-12,Non-binary,0
+county,Orange,2022-12,Prefer not to answer,0
+county,Orange,2022-12,Prefer to self-describe,0
+county,Orange,2022-12,Unknown,0
+county,Orleans,2022-12,Female,193
+county,Orleans,2022-12,Male,207
+county,Orleans,2022-12,Non-binary,0
+county,Orleans,2022-12,Prefer not to answer,0
+county,Orleans,2022-12,Prefer to self-describe,0
+county,Orleans,2022-12,Unknown,0
+county,Rutland,2022-12,Female,441
+county,Rutland,2022-12,Male,410
+county,Rutland,2022-12,Non-binary,0
+county,Rutland,2022-12,Prefer not to answer,0
+county,Rutland,2022-12,Prefer to self-describe,0
+county,Rutland,2022-12,Unknown,0
+county,Washington,2022-12,Female,*
+county,Washington,2022-12,Male,199
+county,Washington,2022-12,Non-binary,0
+county,Washington,2022-12,Prefer not to answer,*
+county,Washington,2022-12,Prefer to self-describe,0
+county,Washington,2022-12,Unknown,0
+county,Windham,2022-12,Female,184
+county,Windham,2022-12,Male,234
+county,Windham,2022-12,Non-binary,0
+county,Windham,2022-12,Prefer not to answer,0
+county,Windham,2022-12,Prefer to self-describe,0
+county,Windham,2022-12,Unknown,0
+county,Windsor,2022-12,Female,265
+county,Windsor,2022-12,Male,237
+county,Windsor,2022-12,Non-binary,0
+county,Windsor,2022-12,Prefer not to answer,0
+county,Windsor,2022-12,Prefer to self-describe,0
+county,Windsor,2022-12,Unknown,0
+county,Addison,2022-11,Female,195
+county,Addison,2022-11,Male,198
+county,Addison,2022-11,Non-binary,0
+county,Addison,2022-11,Prefer not to answer,0
+county,Addison,2022-11,Prefer to self-describe,0
+county,Addison,2022-11,Unknown,0
+county,Bennington,2022-11,Female,289
+county,Bennington,2022-11,Male,278
+county,Bennington,2022-11,Non-binary,0
+county,Bennington,2022-11,Prefer not to answer,0
+county,Bennington,2022-11,Prefer to self-describe,0
+county,Bennington,2022-11,Unknown,0
+county,Caledonia,2022-11,Female,310
+county,Caledonia,2022-11,Male,282
+county,Caledonia,2022-11,Non-binary,0
+county,Caledonia,2022-11,Prefer not to answer,0
+county,Caledonia,2022-11,Prefer to self-describe,0
+county,Caledonia,2022-11,Unknown,0
+county,Chittenden,2022-11,Female,730
+county,Chittenden,2022-11,Male,*
+county,Chittenden,2022-11,Non-binary,0
+county,Chittenden,2022-11,Prefer not to answer,*
+county,Chittenden,2022-11,Prefer to self-describe,0
+county,Chittenden,2022-11,Unknown,0
+county,Essex,2022-11,Female,35
+county,Essex,2022-11,Male,38
+county,Essex,2022-11,Non-binary,0
+county,Essex,2022-11,Prefer not to answer,0
+county,Essex,2022-11,Prefer to self-describe,0
+county,Essex,2022-11,Unknown,0
+county,Franklin,2022-11,Female,*
+county,Franklin,2022-11,Male,289
+county,Franklin,2022-11,Non-binary,0
+county,Franklin,2022-11,Prefer not to answer,*
+county,Franklin,2022-11,Prefer to self-describe,0
+county,Franklin,2022-11,Unknown,0
+county,Grand Isle,2022-11,Female,32
+county,Grand Isle,2022-11,Male,34
+county,Grand Isle,2022-11,Non-binary,0
+county,Grand Isle,2022-11,Prefer not to answer,0
+county,Grand Isle,2022-11,Prefer to self-describe,0
+county,Grand Isle,2022-11,Unknown,0
+county,Lamoille,2022-11,Female,172
+county,Lamoille,2022-11,Male,170
+county,Lamoille,2022-11,Non-binary,0
+county,Lamoille,2022-11,Prefer not to answer,0
+county,Lamoille,2022-11,Prefer to self-describe,0
+county,Lamoille,2022-11,Unknown,0
+county,Orange,2022-11,Female,97
+county,Orange,2022-11,Male,104
+county,Orange,2022-11,Non-binary,0
+county,Orange,2022-11,Prefer not to answer,0
+county,Orange,2022-11,Prefer to self-describe,0
+county,Orange,2022-11,Unknown,0
+county,Orleans,2022-11,Female,189
+county,Orleans,2022-11,Male,204
+county,Orleans,2022-11,Non-binary,0
+county,Orleans,2022-11,Prefer not to answer,0
+county,Orleans,2022-11,Prefer to self-describe,0
+county,Orleans,2022-11,Unknown,0
+county,Rutland,2022-11,Female,440
+county,Rutland,2022-11,Male,418
+county,Rutland,2022-11,Non-binary,0
+county,Rutland,2022-11,Prefer not to answer,0
+county,Rutland,2022-11,Prefer to self-describe,0
+county,Rutland,2022-11,Unknown,0
+county,Washington,2022-11,Female,*
+county,Washington,2022-11,Male,199
+county,Washington,2022-11,Non-binary,0
+county,Washington,2022-11,Prefer not to answer,*
+county,Washington,2022-11,Prefer to self-describe,0
+county,Washington,2022-11,Unknown,0
+county,Windham,2022-11,Female,183
+county,Windham,2022-11,Male,232
+county,Windham,2022-11,Non-binary,0
+county,Windham,2022-11,Prefer not to answer,0
+county,Windham,2022-11,Prefer to self-describe,0
+county,Windham,2022-11,Unknown,0
+county,Windsor,2022-11,Female,268
+county,Windsor,2022-11,Male,242
+county,Windsor,2022-11,Non-binary,0
+county,Windsor,2022-11,Prefer not to answer,0
+county,Windsor,2022-11,Prefer to self-describe,0
+county,Windsor,2022-11,Unknown,0
+county,Addison,2022-10,Female,191
+county,Addison,2022-10,Male,193
+county,Addison,2022-10,Non-binary,0
+county,Addison,2022-10,Prefer not to answer,0
+county,Addison,2022-10,Prefer to self-describe,0
+county,Addison,2022-10,Unknown,0
+county,Bennington,2022-10,Female,284
+county,Bennington,2022-10,Male,274
+county,Bennington,2022-10,Non-binary,0
+county,Bennington,2022-10,Prefer not to answer,0
+county,Bennington,2022-10,Prefer to self-describe,0
+county,Bennington,2022-10,Unknown,0
+county,Caledonia,2022-10,Female,306
+county,Caledonia,2022-10,Male,280
+county,Caledonia,2022-10,Non-binary,0
+county,Caledonia,2022-10,Prefer not to answer,0
+county,Caledonia,2022-10,Prefer to self-describe,0
+county,Caledonia,2022-10,Unknown,0
+county,Chittenden,2022-10,Female,715
+county,Chittenden,2022-10,Male,*
+county,Chittenden,2022-10,Non-binary,0
+county,Chittenden,2022-10,Prefer not to answer,*
+county,Chittenden,2022-10,Prefer to self-describe,0
+county,Chittenden,2022-10,Unknown,0
+county,Essex,2022-10,Female,36
+county,Essex,2022-10,Male,36
+county,Essex,2022-10,Non-binary,0
+county,Essex,2022-10,Prefer not to answer,0
+county,Essex,2022-10,Prefer to self-describe,0
+county,Essex,2022-10,Unknown,0
+county,Franklin,2022-10,Female,293
+county,Franklin,2022-10,Male,*
+county,Franklin,2022-10,Non-binary,0
+county,Franklin,2022-10,Prefer not to answer,*
+county,Franklin,2022-10,Prefer to self-describe,0
+county,Franklin,2022-10,Unknown,0
+county,Grand Isle,2022-10,Female,*
+county,Grand Isle,2022-10,Male,35
+county,Grand Isle,2022-10,Non-binary,0
+county,Grand Isle,2022-10,Prefer not to answer,0
+county,Grand Isle,2022-10,Prefer to self-describe,0
+county,Grand Isle,2022-10,Unknown,0
+county,Lamoille,2022-10,Female,172
+county,Lamoille,2022-10,Male,171
+county,Lamoille,2022-10,Non-binary,0
+county,Lamoille,2022-10,Prefer not to answer,0
+county,Lamoille,2022-10,Prefer to self-describe,0
+county,Lamoille,2022-10,Unknown,0
+county,Orange,2022-10,Female,92
+county,Orange,2022-10,Male,97
+county,Orange,2022-10,Non-binary,0
+county,Orange,2022-10,Prefer not to answer,0
+county,Orange,2022-10,Prefer to self-describe,0
+county,Orange,2022-10,Unknown,0
+county,Orleans,2022-10,Female,189
+county,Orleans,2022-10,Male,208
+county,Orleans,2022-10,Non-binary,0
+county,Orleans,2022-10,Prefer not to answer,0
+county,Orleans,2022-10,Prefer to self-describe,0
+county,Orleans,2022-10,Unknown,0
+county,Rutland,2022-10,Female,422
+county,Rutland,2022-10,Male,411
+county,Rutland,2022-10,Non-binary,0
+county,Rutland,2022-10,Prefer not to answer,0
+county,Rutland,2022-10,Prefer to self-describe,0
+county,Rutland,2022-10,Unknown,0
+county,Washington,2022-10,Female,*
+county,Washington,2022-10,Male,197
+county,Washington,2022-10,Non-binary,0
+county,Washington,2022-10,Prefer not to answer,*
+county,Washington,2022-10,Prefer to self-describe,0
+county,Washington,2022-10,Unknown,0
+county,Windham,2022-10,Female,186
+county,Windham,2022-10,Male,232
+county,Windham,2022-10,Non-binary,0
+county,Windham,2022-10,Prefer not to answer,0
+county,Windham,2022-10,Prefer to self-describe,0
+county,Windham,2022-10,Unknown,0
+county,Windsor,2022-10,Female,272
+county,Windsor,2022-10,Male,235
+county,Windsor,2022-10,Non-binary,0
+county,Windsor,2022-10,Prefer not to answer,0
+county,Windsor,2022-10,Prefer to self-describe,0
+county,Windsor,2022-10,Unknown,0
+county,Addison,2022-09,Female,193
+county,Addison,2022-09,Male,189
+county,Addison,2022-09,Non-binary,0
+county,Addison,2022-09,Prefer not to answer,0
+county,Addison,2022-09,Prefer to self-describe,0
+county,Addison,2022-09,Unknown,0
+county,Bennington,2022-09,Female,290
+county,Bennington,2022-09,Male,288
+county,Bennington,2022-09,Non-binary,0
+county,Bennington,2022-09,Prefer not to answer,0
+county,Bennington,2022-09,Prefer to self-describe,0
+county,Bennington,2022-09,Unknown,0
+county,Caledonia,2022-09,Female,309
+county,Caledonia,2022-09,Male,289
+county,Caledonia,2022-09,Non-binary,0
+county,Caledonia,2022-09,Prefer not to answer,0
+county,Caledonia,2022-09,Prefer to self-describe,0
+county,Caledonia,2022-09,Unknown,0
+county,Chittenden,2022-09,Female,735
+county,Chittenden,2022-09,Male,659
+county,Chittenden,2022-09,Non-binary,0
+county,Chittenden,2022-09,Prefer not to answer,0
+county,Chittenden,2022-09,Prefer to self-describe,0
+county,Chittenden,2022-09,Unknown,0
+county,Essex,2022-09,Female,34
+county,Essex,2022-09,Male,36
+county,Essex,2022-09,Non-binary,0
+county,Essex,2022-09,Prefer not to answer,0
+county,Essex,2022-09,Prefer to self-describe,0
+county,Essex,2022-09,Unknown,0
+county,Franklin,2022-09,Female,299
+county,Franklin,2022-09,Male,*
+county,Franklin,2022-09,Non-binary,0
+county,Franklin,2022-09,Prefer not to answer,*
+county,Franklin,2022-09,Prefer to self-describe,0
+county,Franklin,2022-09,Unknown,0
+county,Grand Isle,2022-09,Female,*
+county,Grand Isle,2022-09,Male,36
+county,Grand Isle,2022-09,Non-binary,0
+county,Grand Isle,2022-09,Prefer not to answer,0
+county,Grand Isle,2022-09,Prefer to self-describe,0
+county,Grand Isle,2022-09,Unknown,0
+county,Lamoille,2022-09,Female,160
+county,Lamoille,2022-09,Male,162
+county,Lamoille,2022-09,Non-binary,0
+county,Lamoille,2022-09,Prefer not to answer,0
+county,Lamoille,2022-09,Prefer to self-describe,0
+county,Lamoille,2022-09,Unknown,0
+county,Orange,2022-09,Female,88
+county,Orange,2022-09,Male,103
+county,Orange,2022-09,Non-binary,0
+county,Orange,2022-09,Prefer not to answer,0
+county,Orange,2022-09,Prefer to self-describe,0
+county,Orange,2022-09,Unknown,0
+county,Orleans,2022-09,Female,192
+county,Orleans,2022-09,Male,207
+county,Orleans,2022-09,Non-binary,0
+county,Orleans,2022-09,Prefer not to answer,0
+county,Orleans,2022-09,Prefer to self-describe,0
+county,Orleans,2022-09,Unknown,0
+county,Rutland,2022-09,Female,430
+county,Rutland,2022-09,Male,413
+county,Rutland,2022-09,Non-binary,0
+county,Rutland,2022-09,Prefer not to answer,0
+county,Rutland,2022-09,Prefer to self-describe,0
+county,Rutland,2022-09,Unknown,0
+county,Washington,2022-09,Female,*
+county,Washington,2022-09,Male,191
+county,Washington,2022-09,Non-binary,0
+county,Washington,2022-09,Prefer not to answer,*
+county,Washington,2022-09,Prefer to self-describe,0
+county,Washington,2022-09,Unknown,0
+county,Windham,2022-09,Female,201
+county,Windham,2022-09,Male,240
+county,Windham,2022-09,Non-binary,0
+county,Windham,2022-09,Prefer not to answer,0
+county,Windham,2022-09,Prefer to self-describe,0
+county,Windham,2022-09,Unknown,0
+county,Windsor,2022-09,Female,274
+county,Windsor,2022-09,Male,258
+county,Windsor,2022-09,Non-binary,0
+county,Windsor,2022-09,Prefer not to answer,0
+county,Windsor,2022-09,Prefer to self-describe,0
+county,Windsor,2022-09,Unknown,0
+county,Addison,2022-08,Female,234
+county,Addison,2022-08,Male,242
+county,Addison,2022-08,Non-binary,0
+county,Addison,2022-08,Prefer not to answer,0
+county,Addison,2022-08,Prefer to self-describe,0
+county,Addison,2022-08,Unknown,0
+county,Bennington,2022-08,Female,312
+county,Bennington,2022-08,Male,324
+county,Bennington,2022-08,Non-binary,0
+county,Bennington,2022-08,Prefer not to answer,0
+county,Bennington,2022-08,Prefer to self-describe,0
+county,Bennington,2022-08,Unknown,0
+county,Caledonia,2022-08,Female,329
+county,Caledonia,2022-08,Male,299
+county,Caledonia,2022-08,Non-binary,0
+county,Caledonia,2022-08,Prefer not to answer,0
+county,Caledonia,2022-08,Prefer to self-describe,0
+county,Caledonia,2022-08,Unknown,0
+county,Chittenden,2022-08,Female,785
+county,Chittenden,2022-08,Male,*
+county,Chittenden,2022-08,Non-binary,0
+county,Chittenden,2022-08,Prefer not to answer,*
+county,Chittenden,2022-08,Prefer to self-describe,0
+county,Chittenden,2022-08,Unknown,0
+county,Essex,2022-08,Female,31
+county,Essex,2022-08,Male,*
+county,Essex,2022-08,Non-binary,0
+county,Essex,2022-08,Prefer not to answer,0
+county,Essex,2022-08,Prefer to self-describe,0
+county,Essex,2022-08,Unknown,0
+county,Franklin,2022-08,Female,300
+county,Franklin,2022-08,Male,296
+county,Franklin,2022-08,Non-binary,0
+county,Franklin,2022-08,Prefer not to answer,0
+county,Franklin,2022-08,Prefer to self-describe,0
+county,Franklin,2022-08,Unknown,0
+county,Grand Isle,2022-08,Female,39
+county,Grand Isle,2022-08,Male,35
+county,Grand Isle,2022-08,Non-binary,0
+county,Grand Isle,2022-08,Prefer not to answer,0
+county,Grand Isle,2022-08,Prefer to self-describe,0
+county,Grand Isle,2022-08,Unknown,0
+county,Lamoille,2022-08,Female,180
+county,Lamoille,2022-08,Male,173
+county,Lamoille,2022-08,Non-binary,0
+county,Lamoille,2022-08,Prefer not to answer,0
+county,Lamoille,2022-08,Prefer to self-describe,0
+county,Lamoille,2022-08,Unknown,0
+county,Orange,2022-08,Female,104
+county,Orange,2022-08,Male,127
+county,Orange,2022-08,Non-binary,0
+county,Orange,2022-08,Prefer not to answer,0
+county,Orange,2022-08,Prefer to self-describe,0
+county,Orange,2022-08,Unknown,0
+county,Orleans,2022-08,Female,209
+county,Orleans,2022-08,Male,207
+county,Orleans,2022-08,Non-binary,0
+county,Orleans,2022-08,Prefer not to answer,0
+county,Orleans,2022-08,Prefer to self-describe,0
+county,Orleans,2022-08,Unknown,0
+county,Rutland,2022-08,Female,466
+county,Rutland,2022-08,Male,463
+county,Rutland,2022-08,Non-binary,0
+county,Rutland,2022-08,Prefer not to answer,0
+county,Rutland,2022-08,Prefer to self-describe,0
+county,Rutland,2022-08,Unknown,0
+county,Washington,2022-08,Female,191
+county,Washington,2022-08,Male,228
+county,Washington,2022-08,Non-binary,*
+county,Washington,2022-08,Prefer not to answer,*
+county,Washington,2022-08,Prefer to self-describe,0
+county,Washington,2022-08,Unknown,0
+county,Windham,2022-08,Female,214
+county,Windham,2022-08,Male,252
+county,Windham,2022-08,Non-binary,0
+county,Windham,2022-08,Prefer not to answer,0
+county,Windham,2022-08,Prefer to self-describe,0
+county,Windham,2022-08,Unknown,0
+county,Windsor,2022-08,Female,291
+county,Windsor,2022-08,Male,288
+county,Windsor,2022-08,Non-binary,0
+county,Windsor,2022-08,Prefer not to answer,0
+county,Windsor,2022-08,Prefer to self-describe,0
+county,Windsor,2022-08,Unknown,0
+county,Addison,2022-07,Female,210
+county,Addison,2022-07,Male,222
+county,Addison,2022-07,Non-binary,0
+county,Addison,2022-07,Prefer not to answer,0
+county,Addison,2022-07,Prefer to self-describe,0
+county,Addison,2022-07,Unknown,0
+county,Bennington,2022-07,Female,314
+county,Bennington,2022-07,Male,324
+county,Bennington,2022-07,Non-binary,0
+county,Bennington,2022-07,Prefer not to answer,0
+county,Bennington,2022-07,Prefer to self-describe,0
+county,Bennington,2022-07,Unknown,0
+county,Caledonia,2022-07,Female,312
+county,Caledonia,2022-07,Male,273
+county,Caledonia,2022-07,Non-binary,0
+county,Caledonia,2022-07,Prefer not to answer,0
+county,Caledonia,2022-07,Prefer to self-describe,0
+county,Caledonia,2022-07,Unknown,0
+county,Chittenden,2022-07,Female,721
+county,Chittenden,2022-07,Male,657
+county,Chittenden,2022-07,Non-binary,0
+county,Chittenden,2022-07,Prefer not to answer,0
+county,Chittenden,2022-07,Prefer to self-describe,0
+county,Chittenden,2022-07,Unknown,0
+county,Essex,2022-07,Female,*
+county,Essex,2022-07,Male,32
+county,Essex,2022-07,Non-binary,0
+county,Essex,2022-07,Prefer not to answer,0
+county,Essex,2022-07,Prefer to self-describe,0
+county,Essex,2022-07,Unknown,0
+county,Franklin,2022-07,Female,291
+county,Franklin,2022-07,Male,289
+county,Franklin,2022-07,Non-binary,0
+county,Franklin,2022-07,Prefer not to answer,0
+county,Franklin,2022-07,Prefer to self-describe,0
+county,Franklin,2022-07,Unknown,0
+county,Grand Isle,2022-07,Female,37
+county,Grand Isle,2022-07,Male,35
+county,Grand Isle,2022-07,Non-binary,0
+county,Grand Isle,2022-07,Prefer not to answer,0
+county,Grand Isle,2022-07,Prefer to self-describe,0
+county,Grand Isle,2022-07,Unknown,0
+county,Lamoille,2022-07,Female,158
+county,Lamoille,2022-07,Male,149
+county,Lamoille,2022-07,Non-binary,0
+county,Lamoille,2022-07,Prefer not to answer,0
+county,Lamoille,2022-07,Prefer to self-describe,0
+county,Lamoille,2022-07,Unknown,0
+county,Orange,2022-07,Female,99
+county,Orange,2022-07,Male,115
+county,Orange,2022-07,Non-binary,0
+county,Orange,2022-07,Prefer not to answer,0
+county,Orange,2022-07,Prefer to self-describe,0
+county,Orange,2022-07,Unknown,0
+county,Orleans,2022-07,Female,191
+county,Orleans,2022-07,Male,195
+county,Orleans,2022-07,Non-binary,0
+county,Orleans,2022-07,Prefer not to answer,0
+county,Orleans,2022-07,Prefer to self-describe,0
+county,Orleans,2022-07,Unknown,0
+county,Rutland,2022-07,Female,435
+county,Rutland,2022-07,Male,438
+county,Rutland,2022-07,Non-binary,0
+county,Rutland,2022-07,Prefer not to answer,0
+county,Rutland,2022-07,Prefer to self-describe,0
+county,Rutland,2022-07,Unknown,0
+county,Washington,2022-07,Female,*
+county,Washington,2022-07,Male,206
+county,Washington,2022-07,Non-binary,*
+county,Washington,2022-07,Prefer not to answer,0
+county,Washington,2022-07,Prefer to self-describe,0
+county,Washington,2022-07,Unknown,0
+county,Windham,2022-07,Female,190
+county,Windham,2022-07,Male,213
+county,Windham,2022-07,Non-binary,0
+county,Windham,2022-07,Prefer not to answer,0
+county,Windham,2022-07,Prefer to self-describe,0
+county,Windham,2022-07,Unknown,0
+county,Windsor,2022-07,Female,269
+county,Windsor,2022-07,Male,274
+county,Windsor,2022-07,Non-binary,0
+county,Windsor,2022-07,Prefer not to answer,0
+county,Windsor,2022-07,Prefer to self-describe,0
+county,Windsor,2022-07,Unknown,0
+state,Vermont,2023-06,Female,3856
+state,Vermont,2023-06,Male,3857
+state,Vermont,2023-06,Non-binary,*
+state,Vermont,2023-06,Prefer not to answer,19
+state,Vermont,2023-06,Prefer to self-describe,*
+state,Vermont,2023-06,Unknown,0
+state,Vermont,2023-05,Female,3525
+state,Vermont,2023-05,Male,3518
+state,Vermont,2023-05,Non-binary,*
+state,Vermont,2023-05,Prefer not to answer,*
+state,Vermont,2023-05,Prefer to self-describe,0
+state,Vermont,2023-05,Unknown,0
+state,Vermont,2023-04,Female,3566
+state,Vermont,2023-04,Male,3568
+state,Vermont,2023-04,Non-binary,*
+state,Vermont,2023-04,Prefer not to answer,*
+state,Vermont,2023-04,Prefer to self-describe,0
+state,Vermont,2023-04,Unknown,0
+state,Vermont,2023-03,Female,3481
+state,Vermont,2023-03,Male,3477
+state,Vermont,2023-03,Non-binary,*
+state,Vermont,2023-03,Prefer not to answer,*
+state,Vermont,2023-03,Prefer to self-describe,0
+state,Vermont,2023-03,Unknown,0
+state,Vermont,2023-02,Female,3480
+state,Vermont,2023-02,Male,3443
+state,Vermont,2023-02,Non-binary,0
+state,Vermont,2023-02,Prefer not to answer,13
+state,Vermont,2023-02,Prefer to self-describe,0
+state,Vermont,2023-02,Unknown,0
+state,Vermont,2023-01,Female,3416
+state,Vermont,2023-01,Male,3377
+state,Vermont,2023-01,Non-binary,0
+state,Vermont,2023-01,Prefer not to answer,12
+state,Vermont,2023-01,Prefer to self-describe,0
+state,Vermont,2023-01,Unknown,0
+state,Vermont,2022-12,Female,3379
+state,Vermont,2022-12,Male,*
+state,Vermont,2022-12,Non-binary,0
+state,Vermont,2022-12,Prefer not to answer,*
+state,Vermont,2022-12,Prefer to self-describe,0
+state,Vermont,2022-12,Unknown,0
+state,Vermont,2022-11,Female,3377
+state,Vermont,2022-11,Male,*
+state,Vermont,2022-11,Non-binary,0
+state,Vermont,2022-11,Prefer not to answer,*
+state,Vermont,2022-11,Prefer to self-describe,0
+state,Vermont,2022-11,Unknown,0
+state,Vermont,2022-10,Female,3343
+state,Vermont,2022-10,Male,*
+state,Vermont,2022-10,Non-binary,0
+state,Vermont,2022-10,Prefer not to answer,*
+state,Vermont,2022-10,Prefer to self-describe,0
+state,Vermont,2022-10,Unknown,0
+state,Vermont,2022-09,Female,3388
+state,Vermont,2022-09,Male,*
+state,Vermont,2022-09,Non-binary,0
+state,Vermont,2022-09,Prefer not to answer,*
+state,Vermont,2022-09,Prefer to self-describe,0
+state,Vermont,2022-09,Unknown,0
+state,Vermont,2022-08,Female,3685
+state,Vermont,2022-08,Male,3680
+state,Vermont,2022-08,Non-binary,*
+state,Vermont,2022-08,Prefer not to answer,*
+state,Vermont,2022-08,Prefer to self-describe,0
+state,Vermont,2022-08,Unknown,0
+state,Vermont,2022-07,Female,3447
+state,Vermont,2022-07,Male,*
+state,Vermont,2022-07,Non-binary,*
+state,Vermont,2022-07,Prefer not to answer,0
+state,Vermont,2022-07,Prefer to self-describe,0
+state,Vermont,2022-07,Unknown,0
+county,Addison,2024-06,Female,322
+county,Addison,2024-06,Male,*
+county,Addison,2024-06,Non-binary,0
+county,Addison,2024-06,Prefer not to answer,*
+county,Addison,2024-06,Prefer to self-describe,0
+county,Addison,2024-06,Unknown,0
+county,Bennington,2024-06,Female,*
+county,Bennington,2024-06,Male,400
+county,Bennington,2024-06,Non-binary,0
+county,Bennington,2024-06,Prefer not to answer,*
+county,Bennington,2024-06,Prefer to self-describe,0
+county,Bennington,2024-06,Unknown,0
+county,Caledonia,2024-06,Female,407
+county,Caledonia,2024-06,Male,324
+county,Caledonia,2024-06,Non-binary,0
+county,Caledonia,2024-06,Prefer not to answer,*
+county,Caledonia,2024-06,Prefer to self-describe,0
+county,Caledonia,2024-06,Unknown,*
+county,Chittenden,2024-06,Female,1033
+county,Chittenden,2024-06,Male,953
+county,Chittenden,2024-06,Non-binary,*
+county,Chittenden,2024-06,Prefer not to answer,*
+county,Chittenden,2024-06,Prefer to self-describe,*
+county,Chittenden,2024-06,Unknown,0
+county,Essex,2024-06,Female,57
+county,Essex,2024-06,Male,48
+county,Essex,2024-06,Non-binary,0
+county,Essex,2024-06,Prefer not to answer,0
+county,Essex,2024-06,Prefer to self-describe,0
+county,Essex,2024-06,Unknown,0
+county,Franklin,2024-06,Female,347
+county,Franklin,2024-06,Male,338
+county,Franklin,2024-06,Non-binary,0
+county,Franklin,2024-06,Prefer not to answer,0
+county,Franklin,2024-06,Prefer to self-describe,0
+county,Franklin,2024-06,Unknown,0
+county,Grand Isle,2024-06,Female,42
+county,Grand Isle,2024-06,Male,43
+county,Grand Isle,2024-06,Non-binary,0
+county,Grand Isle,2024-06,Prefer not to answer,0
+county,Grand Isle,2024-06,Prefer to self-describe,0
+county,Grand Isle,2024-06,Unknown,0
+county,Lamoille,2024-06,Female,*
+county,Lamoille,2024-06,Male,217
+county,Lamoille,2024-06,Non-binary,0
+county,Lamoille,2024-06,Prefer not to answer,*
+county,Lamoille,2024-06,Prefer to self-describe,0
+county,Lamoille,2024-06,Unknown,0
+county,Orange,2024-06,Female,161
+county,Orange,2024-06,Male,166
+county,Orange,2024-06,Non-binary,0
+county,Orange,2024-06,Prefer not to answer,0
+county,Orange,2024-06,Prefer to self-describe,0
+county,Orange,2024-06,Unknown,0
+county,Orleans,2024-06,Female,*
+county,Orleans,2024-06,Male,258
+county,Orleans,2024-06,Non-binary,0
+county,Orleans,2024-06,Prefer not to answer,*
+county,Orleans,2024-06,Prefer to self-describe,0
+county,Orleans,2024-06,Unknown,0
+county,Rutland,2024-06,Female,559
+county,Rutland,2024-06,Male,*
+county,Rutland,2024-06,Non-binary,0
+county,Rutland,2024-06,Prefer not to answer,*
+county,Rutland,2024-06,Prefer to self-describe,0
+county,Rutland,2024-06,Unknown,0
+county,Washington,2024-06,Female,251
+county,Washington,2024-06,Male,302
+county,Washington,2024-06,Non-binary,0
+county,Washington,2024-06,Prefer not to answer,*
+county,Washington,2024-06,Prefer to self-describe,*
+county,Washington,2024-06,Unknown,0
+county,Windham,2024-06,Female,294
+county,Windham,2024-06,Male,324
+county,Windham,2024-06,Non-binary,*
+county,Windham,2024-06,Prefer not to answer,*
+county,Windham,2024-06,Prefer to self-describe,*
+county,Windham,2024-06,Unknown,0
+county,Windsor,2024-06,Female,392
+county,Windsor,2024-06,Male,382
+county,Windsor,2024-06,Non-binary,*
+county,Windsor,2024-06,Prefer not to answer,*
+county,Windsor,2024-06,Prefer to self-describe,0
+county,Windsor,2024-06,Unknown,0
+county,Addison,2024-05,Female,263
+county,Addison,2024-05,Male,*
+county,Addison,2024-05,Non-binary,0
+county,Addison,2024-05,Prefer not to answer,*
+county,Addison,2024-05,Prefer to self-describe,0
+county,Addison,2024-05,Unknown,0
+county,Bennington,2024-05,Female,*
+county,Bennington,2024-05,Male,362
+county,Bennington,2024-05,Non-binary,0
+county,Bennington,2024-05,Prefer not to answer,*
+county,Bennington,2024-05,Prefer to self-describe,0
+county,Bennington,2024-05,Unknown,0
+county,Caledonia,2024-05,Female,373
+county,Caledonia,2024-05,Male,311
+county,Caledonia,2024-05,Non-binary,0
+county,Caledonia,2024-05,Prefer not to answer,*
+county,Caledonia,2024-05,Prefer to self-describe,0
+county,Caledonia,2024-05,Unknown,*
+county,Chittenden,2024-05,Female,880
+county,Chittenden,2024-05,Male,829
+county,Chittenden,2024-05,Non-binary,*
+county,Chittenden,2024-05,Prefer not to answer,*
+county,Chittenden,2024-05,Prefer to self-describe,*
+county,Chittenden,2024-05,Unknown,0
+county,Essex,2024-05,Female,48
+county,Essex,2024-05,Male,49
+county,Essex,2024-05,Non-binary,0
+county,Essex,2024-05,Prefer not to answer,0
+county,Essex,2024-05,Prefer to self-describe,0
+county,Essex,2024-05,Unknown,0
+county,Franklin,2024-05,Female,313
+county,Franklin,2024-05,Male,315
+county,Franklin,2024-05,Non-binary,0
+county,Franklin,2024-05,Prefer not to answer,0
+county,Franklin,2024-05,Prefer to self-describe,0
+county,Franklin,2024-05,Unknown,0
+county,Grand Isle,2024-05,Female,33
+county,Grand Isle,2024-05,Male,37
+county,Grand Isle,2024-05,Non-binary,0
+county,Grand Isle,2024-05,Prefer not to answer,0
+county,Grand Isle,2024-05,Prefer to self-describe,0
+county,Grand Isle,2024-05,Unknown,0
+county,Lamoille,2024-05,Female,207
+county,Lamoille,2024-05,Male,*
+county,Lamoille,2024-05,Non-binary,0
+county,Lamoille,2024-05,Prefer not to answer,*
+county,Lamoille,2024-05,Prefer to self-describe,0
+county,Lamoille,2024-05,Unknown,0
+county,Orange,2024-05,Female,142
+county,Orange,2024-05,Male,145
+county,Orange,2024-05,Non-binary,0
+county,Orange,2024-05,Prefer not to answer,0
+county,Orange,2024-05,Prefer to self-describe,0
+county,Orange,2024-05,Unknown,0
+county,Orleans,2024-05,Female,*
+county,Orleans,2024-05,Male,246
+county,Orleans,2024-05,Non-binary,0
+county,Orleans,2024-05,Prefer not to answer,*
+county,Orleans,2024-05,Prefer to self-describe,0
+county,Orleans,2024-05,Unknown,0
+county,Rutland,2024-05,Female,482
+county,Rutland,2024-05,Male,*
+county,Rutland,2024-05,Non-binary,0
+county,Rutland,2024-05,Prefer not to answer,*
+county,Rutland,2024-05,Prefer to self-describe,0
+county,Rutland,2024-05,Unknown,0
+county,Washington,2024-05,Female,211
+county,Washington,2024-05,Male,250
+county,Washington,2024-05,Non-binary,0
+county,Washington,2024-05,Prefer not to answer,*
+county,Washington,2024-05,Prefer to self-describe,*
+county,Washington,2024-05,Unknown,*
+county,Windham,2024-05,Female,276
+county,Windham,2024-05,Male,280
+county,Windham,2024-05,Non-binary,*
+county,Windham,2024-05,Prefer not to answer,*
+county,Windham,2024-05,Prefer to self-describe,*
+county,Windham,2024-05,Unknown,0
+county,Windsor,2024-05,Female,330
+county,Windsor,2024-05,Male,*
+county,Windsor,2024-05,Non-binary,*
+county,Windsor,2024-05,Prefer not to answer,0
+county,Windsor,2024-05,Prefer to self-describe,0
+county,Windsor,2024-05,Unknown,0
+county,Addison,2024-04,Female,258
+county,Addison,2024-04,Male,252
+county,Addison,2024-04,Non-binary,*
+county,Addison,2024-04,Prefer not to answer,*
+county,Addison,2024-04,Prefer to self-describe,0
+county,Addison,2024-04,Unknown,0
+county,Bennington,2024-04,Female,*
+county,Bennington,2024-04,Male,358
+county,Bennington,2024-04,Non-binary,0
+county,Bennington,2024-04,Prefer not to answer,*
+county,Bennington,2024-04,Prefer to self-describe,0
+county,Bennington,2024-04,Unknown,0
+county,Caledonia,2024-04,Female,364
+county,Caledonia,2024-04,Male,301
+county,Caledonia,2024-04,Non-binary,0
+county,Caledonia,2024-04,Prefer not to answer,*
+county,Caledonia,2024-04,Prefer to self-describe,0
+county,Caledonia,2024-04,Unknown,*
+county,Chittenden,2024-04,Female,889
+county,Chittenden,2024-04,Male,840
+county,Chittenden,2024-04,Non-binary,*
+county,Chittenden,2024-04,Prefer not to answer,*
+county,Chittenden,2024-04,Prefer to self-describe,*
+county,Chittenden,2024-04,Unknown,0
+county,Essex,2024-04,Female,45
+county,Essex,2024-04,Male,44
+county,Essex,2024-04,Non-binary,0
+county,Essex,2024-04,Prefer not to answer,0
+county,Essex,2024-04,Prefer to self-describe,0
+county,Essex,2024-04,Unknown,0
+county,Franklin,2024-04,Female,310
+county,Franklin,2024-04,Male,314
+county,Franklin,2024-04,Non-binary,0
+county,Franklin,2024-04,Prefer not to answer,0
+county,Franklin,2024-04,Prefer to self-describe,0
+county,Franklin,2024-04,Unknown,0
+county,Grand Isle,2024-04,Female,33
+county,Grand Isle,2024-04,Male,40
+county,Grand Isle,2024-04,Non-binary,0
+county,Grand Isle,2024-04,Prefer not to answer,0
+county,Grand Isle,2024-04,Prefer to self-describe,0
+county,Grand Isle,2024-04,Unknown,0
+county,Lamoille,2024-04,Female,203
+county,Lamoille,2024-04,Male,*
+county,Lamoille,2024-04,Non-binary,0
+county,Lamoille,2024-04,Prefer not to answer,*
+county,Lamoille,2024-04,Prefer to self-describe,0
+county,Lamoille,2024-04,Unknown,0
+county,Orange,2024-04,Female,135
+county,Orange,2024-04,Male,139
+county,Orange,2024-04,Non-binary,0
+county,Orange,2024-04,Prefer not to answer,0
+county,Orange,2024-04,Prefer to self-describe,0
+county,Orange,2024-04,Unknown,0
+county,Orleans,2024-04,Female,*
+county,Orleans,2024-04,Male,242
+county,Orleans,2024-04,Non-binary,0
+county,Orleans,2024-04,Prefer not to answer,*
+county,Orleans,2024-04,Prefer to self-describe,0
+county,Orleans,2024-04,Unknown,0
+county,Rutland,2024-04,Female,464
+county,Rutland,2024-04,Male,*
+county,Rutland,2024-04,Non-binary,0
+county,Rutland,2024-04,Prefer not to answer,*
+county,Rutland,2024-04,Prefer to self-describe,0
+county,Rutland,2024-04,Unknown,0
+county,Washington,2024-04,Female,199
+county,Washington,2024-04,Male,252
+county,Washington,2024-04,Non-binary,0
+county,Washington,2024-04,Prefer not to answer,*
+county,Washington,2024-04,Prefer to self-describe,*
+county,Washington,2024-04,Unknown,*
+county,Windham,2024-04,Female,276
+county,Windham,2024-04,Male,282
+county,Windham,2024-04,Non-binary,*
+county,Windham,2024-04,Prefer not to answer,*
+county,Windham,2024-04,Prefer to self-describe,0
+county,Windham,2024-04,Unknown,0
+county,Windsor,2024-04,Female,329
+county,Windsor,2024-04,Male,*
+county,Windsor,2024-04,Non-binary,*
+county,Windsor,2024-04,Prefer not to answer,0
+county,Windsor,2024-04,Prefer to self-describe,0
+county,Windsor,2024-04,Unknown,0
+county,Addison,2024-03,Female,246
+county,Addison,2024-03,Male,243
+county,Addison,2024-03,Non-binary,*
+county,Addison,2024-03,Prefer not to answer,*
+county,Addison,2024-03,Prefer to self-describe,0
+county,Addison,2024-03,Unknown,0
+county,Bennington,2024-03,Female,*
+county,Bennington,2024-03,Male,340
+county,Bennington,2024-03,Non-binary,0
+county,Bennington,2024-03,Prefer not to answer,*
+county,Bennington,2024-03,Prefer to self-describe,0
+county,Bennington,2024-03,Unknown,0
+county,Caledonia,2024-03,Female,347
+county,Caledonia,2024-03,Male,290
+county,Caledonia,2024-03,Non-binary,0
+county,Caledonia,2024-03,Prefer not to answer,*
+county,Caledonia,2024-03,Prefer to self-describe,0
+county,Caledonia,2024-03,Unknown,*
+county,Chittenden,2024-03,Female,841
+county,Chittenden,2024-03,Male,816
+county,Chittenden,2024-03,Non-binary,*
+county,Chittenden,2024-03,Prefer not to answer,*
+county,Chittenden,2024-03,Prefer to self-describe,*
+county,Chittenden,2024-03,Unknown,0
+county,Essex,2024-03,Female,41
+county,Essex,2024-03,Male,41
+county,Essex,2024-03,Non-binary,0
+county,Essex,2024-03,Prefer not to answer,0
+county,Essex,2024-03,Prefer to self-describe,0
+county,Essex,2024-03,Unknown,0
+county,Franklin,2024-03,Female,296
+county,Franklin,2024-03,Male,298
+county,Franklin,2024-03,Non-binary,0
+county,Franklin,2024-03,Prefer not to answer,0
+county,Franklin,2024-03,Prefer to self-describe,0
+county,Franklin,2024-03,Unknown,0
+county,Grand Isle,2024-03,Female,30
+county,Grand Isle,2024-03,Male,39
+county,Grand Isle,2024-03,Non-binary,0
+county,Grand Isle,2024-03,Prefer not to answer,0
+county,Grand Isle,2024-03,Prefer to self-describe,0
+county,Grand Isle,2024-03,Unknown,0
+county,Lamoille,2024-03,Female,196
+county,Lamoille,2024-03,Male,*
+county,Lamoille,2024-03,Non-binary,0
+county,Lamoille,2024-03,Prefer not to answer,*
+county,Lamoille,2024-03,Prefer to self-describe,0
+county,Lamoille,2024-03,Unknown,0
+county,Orange,2024-03,Female,129
+county,Orange,2024-03,Male,136
+county,Orange,2024-03,Non-binary,0
+county,Orange,2024-03,Prefer not to answer,0
+county,Orange,2024-03,Prefer to self-describe,0
+county,Orange,2024-03,Unknown,0
+county,Orleans,2024-03,Female,*
+county,Orleans,2024-03,Male,240
+county,Orleans,2024-03,Non-binary,0
+county,Orleans,2024-03,Prefer not to answer,*
+county,Orleans,2024-03,Prefer to self-describe,0
+county,Orleans,2024-03,Unknown,0
+county,Rutland,2024-03,Female,447
+county,Rutland,2024-03,Male,*
+county,Rutland,2024-03,Non-binary,0
+county,Rutland,2024-03,Prefer not to answer,*
+county,Rutland,2024-03,Prefer to self-describe,0
+county,Rutland,2024-03,Unknown,0
+county,Washington,2024-03,Female,188
+county,Washington,2024-03,Male,242
+county,Washington,2024-03,Non-binary,0
+county,Washington,2024-03,Prefer not to answer,*
+county,Washington,2024-03,Prefer to self-describe,*
+county,Washington,2024-03,Unknown,*
+county,Windham,2024-03,Female,260
+county,Windham,2024-03,Male,269
+county,Windham,2024-03,Non-binary,*
+county,Windham,2024-03,Prefer not to answer,*
+county,Windham,2024-03,Prefer to self-describe,0
+county,Windham,2024-03,Unknown,0
+county,Windsor,2024-03,Female,315
+county,Windsor,2024-03,Male,305
+county,Windsor,2024-03,Non-binary,0
+county,Windsor,2024-03,Prefer not to answer,0
+county,Windsor,2024-03,Prefer to self-describe,0
+county,Windsor,2024-03,Unknown,0
+county,Addison,2024-02,Female,243
+county,Addison,2024-02,Male,238
+county,Addison,2024-02,Non-binary,*
+county,Addison,2024-02,Prefer not to answer,*
+county,Addison,2024-02,Prefer to self-describe,0
+county,Addison,2024-02,Unknown,0
+county,Bennington,2024-02,Female,*
+county,Bennington,2024-02,Male,333
+county,Bennington,2024-02,Non-binary,0
+county,Bennington,2024-02,Prefer not to answer,*
+county,Bennington,2024-02,Prefer to self-describe,0
+county,Bennington,2024-02,Unknown,0
+county,Caledonia,2024-02,Female,337
+county,Caledonia,2024-02,Male,277
+county,Caledonia,2024-02,Non-binary,0
+county,Caledonia,2024-02,Prefer not to answer,*
+county,Caledonia,2024-02,Prefer to self-describe,0
+county,Caledonia,2024-02,Unknown,*
+county,Chittenden,2024-02,Female,813
+county,Chittenden,2024-02,Male,797
+county,Chittenden,2024-02,Non-binary,*
+county,Chittenden,2024-02,Prefer not to answer,*
+county,Chittenden,2024-02,Prefer to self-describe,*
+county,Chittenden,2024-02,Unknown,0
+county,Essex,2024-02,Female,38
+county,Essex,2024-02,Male,39
+county,Essex,2024-02,Non-binary,0
+county,Essex,2024-02,Prefer not to answer,0
+county,Essex,2024-02,Prefer to self-describe,0
+county,Essex,2024-02,Unknown,0
+county,Franklin,2024-02,Female,293
+county,Franklin,2024-02,Male,301
+county,Franklin,2024-02,Non-binary,0
+county,Franklin,2024-02,Prefer not to answer,0
+county,Franklin,2024-02,Prefer to self-describe,0
+county,Franklin,2024-02,Unknown,0
+county,Grand Isle,2024-02,Female,30
+county,Grand Isle,2024-02,Male,40
+county,Grand Isle,2024-02,Non-binary,0
+county,Grand Isle,2024-02,Prefer not to answer,0
+county,Grand Isle,2024-02,Prefer to self-describe,0
+county,Grand Isle,2024-02,Unknown,0
+county,Lamoille,2024-02,Female,192
+county,Lamoille,2024-02,Male,*
+county,Lamoille,2024-02,Non-binary,0
+county,Lamoille,2024-02,Prefer not to answer,*
+county,Lamoille,2024-02,Prefer to self-describe,0
+county,Lamoille,2024-02,Unknown,0
+county,Orange,2024-02,Female,125
+county,Orange,2024-02,Male,127
+county,Orange,2024-02,Non-binary,0
+county,Orange,2024-02,Prefer not to answer,0
+county,Orange,2024-02,Prefer to self-describe,0
+county,Orange,2024-02,Unknown,0
+county,Orleans,2024-02,Female,*
+county,Orleans,2024-02,Male,240
+county,Orleans,2024-02,Non-binary,0
+county,Orleans,2024-02,Prefer not to answer,*
+county,Orleans,2024-02,Prefer to self-describe,0
+county,Orleans,2024-02,Unknown,0
+county,Rutland,2024-02,Female,449
+county,Rutland,2024-02,Male,*
+county,Rutland,2024-02,Non-binary,0
+county,Rutland,2024-02,Prefer not to answer,*
+county,Rutland,2024-02,Prefer to self-describe,0
+county,Rutland,2024-02,Unknown,0
+county,Washington,2024-02,Female,184
+county,Washington,2024-02,Male,233
+county,Washington,2024-02,Non-binary,0
+county,Washington,2024-02,Prefer not to answer,*
+county,Washington,2024-02,Prefer to self-describe,*
+county,Washington,2024-02,Unknown,*
+county,Windham,2024-02,Female,253
+county,Windham,2024-02,Male,262
+county,Windham,2024-02,Non-binary,*
+county,Windham,2024-02,Prefer not to answer,*
+county,Windham,2024-02,Prefer to self-describe,0
+county,Windham,2024-02,Unknown,0
+county,Windsor,2024-02,Female,309
+county,Windsor,2024-02,Male,299
+county,Windsor,2024-02,Non-binary,0
+county,Windsor,2024-02,Prefer not to answer,0
+county,Windsor,2024-02,Prefer to self-describe,0
+county,Windsor,2024-02,Unknown,0
+county,Addison,2024-01,Female,240
+county,Addison,2024-01,Male,234
+county,Addison,2024-01,Non-binary,*
+county,Addison,2024-01,Prefer not to answer,*
+county,Addison,2024-01,Prefer to self-describe,0
+county,Addison,2024-01,Unknown,0
+county,Bennington,2024-01,Female,309
+county,Bennington,2024-01,Male,331
+county,Bennington,2024-01,Non-binary,0
+county,Bennington,2024-01,Prefer not to answer,0
+county,Bennington,2024-01,Prefer to self-describe,0
+county,Bennington,2024-01,Unknown,0
+county,Caledonia,2024-01,Female,338
+county,Caledonia,2024-01,Male,276
+county,Caledonia,2024-01,Non-binary,0
+county,Caledonia,2024-01,Prefer not to answer,*
+county,Caledonia,2024-01,Prefer to self-describe,0
+county,Caledonia,2024-01,Unknown,*
+county,Chittenden,2024-01,Female,778
+county,Chittenden,2024-01,Male,772
+county,Chittenden,2024-01,Non-binary,0
+county,Chittenden,2024-01,Prefer not to answer,*
+county,Chittenden,2024-01,Prefer to self-describe,*
+county,Chittenden,2024-01,Unknown,0
+county,Essex,2024-01,Female,36
+county,Essex,2024-01,Male,40
+county,Essex,2024-01,Non-binary,0
+county,Essex,2024-01,Prefer not to answer,0
+county,Essex,2024-01,Prefer to self-describe,0
+county,Essex,2024-01,Unknown,0
+county,Franklin,2024-01,Female,302
+county,Franklin,2024-01,Male,303
+county,Franklin,2024-01,Non-binary,0
+county,Franklin,2024-01,Prefer not to answer,0
+county,Franklin,2024-01,Prefer to self-describe,0
+county,Franklin,2024-01,Unknown,0
+county,Grand Isle,2024-01,Female,25
+county,Grand Isle,2024-01,Male,*
+county,Grand Isle,2024-01,Non-binary,0
+county,Grand Isle,2024-01,Prefer not to answer,0
+county,Grand Isle,2024-01,Prefer to self-describe,0
+county,Grand Isle,2024-01,Unknown,0
+county,Lamoille,2024-01,Female,189
+county,Lamoille,2024-01,Male,181
+county,Lamoille,2024-01,Non-binary,0
+county,Lamoille,2024-01,Prefer not to answer,0
+county,Lamoille,2024-01,Prefer to self-describe,0
+county,Lamoille,2024-01,Unknown,0
+county,Orange,2024-01,Female,122
+county,Orange,2024-01,Male,126
+county,Orange,2024-01,Non-binary,0
+county,Orange,2024-01,Prefer not to answer,0
+county,Orange,2024-01,Prefer to self-describe,0
+county,Orange,2024-01,Unknown,0
+county,Orleans,2024-01,Female,*
+county,Orleans,2024-01,Male,229
+county,Orleans,2024-01,Non-binary,0
+county,Orleans,2024-01,Prefer not to answer,*
+county,Orleans,2024-01,Prefer to self-describe,0
+county,Orleans,2024-01,Unknown,0
+county,Rutland,2024-01,Female,441
+county,Rutland,2024-01,Male,*
+county,Rutland,2024-01,Non-binary,0
+county,Rutland,2024-01,Prefer not to answer,*
+county,Rutland,2024-01,Prefer to self-describe,0
+county,Rutland,2024-01,Unknown,0
+county,Washington,2024-01,Female,182
+county,Washington,2024-01,Male,234
+county,Washington,2024-01,Non-binary,0
+county,Washington,2024-01,Prefer not to answer,*
+county,Washington,2024-01,Prefer to self-describe,0
+county,Washington,2024-01,Unknown,*
+county,Windham,2024-01,Female,245
+county,Windham,2024-01,Male,250
+county,Windham,2024-01,Non-binary,*
+county,Windham,2024-01,Prefer not to answer,*
+county,Windham,2024-01,Prefer to self-describe,0
+county,Windham,2024-01,Unknown,0
+county,Windsor,2024-01,Female,*
+county,Windsor,2024-01,Male,311
+county,Windsor,2024-01,Non-binary,0
+county,Windsor,2024-01,Prefer not to answer,*
+county,Windsor,2024-01,Prefer to self-describe,0
+county,Windsor,2024-01,Unknown,0
+county,Addison,2023-12,Female,229
+county,Addison,2023-12,Male,227
+county,Addison,2023-12,Non-binary,*
+county,Addison,2023-12,Prefer not to answer,*
+county,Addison,2023-12,Prefer to self-describe,0
+county,Addison,2023-12,Unknown,0
+county,Bennington,2023-12,Female,311
+county,Bennington,2023-12,Male,333
+county,Bennington,2023-12,Non-binary,0
+county,Bennington,2023-12,Prefer not to answer,0
+county,Bennington,2023-12,Prefer to self-describe,0
+county,Bennington,2023-12,Unknown,0
+county,Caledonia,2023-12,Female,346
+county,Caledonia,2023-12,Male,*
+county,Caledonia,2023-12,Non-binary,0
+county,Caledonia,2023-12,Prefer not to answer,*
+county,Caledonia,2023-12,Prefer to self-describe,0
+county,Caledonia,2023-12,Unknown,0
+county,Chittenden,2023-12,Female,787
+county,Chittenden,2023-12,Male,791
+county,Chittenden,2023-12,Non-binary,0
+county,Chittenden,2023-12,Prefer not to answer,*
+county,Chittenden,2023-12,Prefer to self-describe,*
+county,Chittenden,2023-12,Unknown,0
+county,Essex,2023-12,Female,34
+county,Essex,2023-12,Male,41
+county,Essex,2023-12,Non-binary,0
+county,Essex,2023-12,Prefer not to answer,0
+county,Essex,2023-12,Prefer to self-describe,0
+county,Essex,2023-12,Unknown,0
+county,Franklin,2023-12,Female,298
+county,Franklin,2023-12,Male,303
+county,Franklin,2023-12,Non-binary,0
+county,Franklin,2023-12,Prefer not to answer,0
+county,Franklin,2023-12,Prefer to self-describe,0
+county,Franklin,2023-12,Unknown,0
+county,Grand Isle,2023-12,Female,27
+county,Grand Isle,2023-12,Male,38
+county,Grand Isle,2023-12,Non-binary,0
+county,Grand Isle,2023-12,Prefer not to answer,0
+county,Grand Isle,2023-12,Prefer to self-describe,0
+county,Grand Isle,2023-12,Unknown,0
+county,Lamoille,2023-12,Female,193
+county,Lamoille,2023-12,Male,180
+county,Lamoille,2023-12,Non-binary,0
+county,Lamoille,2023-12,Prefer not to answer,0
+county,Lamoille,2023-12,Prefer to self-describe,0
+county,Lamoille,2023-12,Unknown,0
+county,Orange,2023-12,Female,118
+county,Orange,2023-12,Male,124
+county,Orange,2023-12,Non-binary,0
+county,Orange,2023-12,Prefer not to answer,0
+county,Orange,2023-12,Prefer to self-describe,0
+county,Orange,2023-12,Unknown,0
+county,Orleans,2023-12,Female,*
+county,Orleans,2023-12,Male,242
+county,Orleans,2023-12,Non-binary,0
+county,Orleans,2023-12,Prefer not to answer,*
+county,Orleans,2023-12,Prefer to self-describe,0
+county,Orleans,2023-12,Unknown,0
+county,Rutland,2023-12,Female,427
+county,Rutland,2023-12,Male,*
+county,Rutland,2023-12,Non-binary,0
+county,Rutland,2023-12,Prefer not to answer,*
+county,Rutland,2023-12,Prefer to self-describe,0
+county,Rutland,2023-12,Unknown,0
+county,Washington,2023-12,Female,183
+county,Washington,2023-12,Male,229
+county,Washington,2023-12,Non-binary,0
+county,Washington,2023-12,Prefer not to answer,*
+county,Washington,2023-12,Prefer to self-describe,0
+county,Washington,2023-12,Unknown,*
+county,Windham,2023-12,Female,241
+county,Windham,2023-12,Male,252
+county,Windham,2023-12,Non-binary,*
+county,Windham,2023-12,Prefer not to answer,*
+county,Windham,2023-12,Prefer to self-describe,0
+county,Windham,2023-12,Unknown,0
+county,Windsor,2023-12,Female,*
+county,Windsor,2023-12,Male,306
+county,Windsor,2023-12,Non-binary,0
+county,Windsor,2023-12,Prefer not to answer,*
+county,Windsor,2023-12,Prefer to self-describe,0
+county,Windsor,2023-12,Unknown,0
+county,Addison,2023-11,Female,227
+county,Addison,2023-11,Male,228
+county,Addison,2023-11,Non-binary,*
+county,Addison,2023-11,Prefer not to answer,*
+county,Addison,2023-11,Prefer to self-describe,0
+county,Addison,2023-11,Unknown,0
+county,Bennington,2023-11,Female,300
+county,Bennington,2023-11,Male,331
+county,Bennington,2023-11,Non-binary,0
+county,Bennington,2023-11,Prefer not to answer,0
+county,Bennington,2023-11,Prefer to self-describe,0
+county,Bennington,2023-11,Unknown,0
+county,Caledonia,2023-11,Female,339
+county,Caledonia,2023-11,Male,*
+county,Caledonia,2023-11,Non-binary,0
+county,Caledonia,2023-11,Prefer not to answer,*
+county,Caledonia,2023-11,Prefer to self-describe,0
+county,Caledonia,2023-11,Unknown,0
+county,Chittenden,2023-11,Female,789
+county,Chittenden,2023-11,Male,777
+county,Chittenden,2023-11,Non-binary,0
+county,Chittenden,2023-11,Prefer not to answer,*
+county,Chittenden,2023-11,Prefer to self-describe,*
+county,Chittenden,2023-11,Unknown,0
+county,Essex,2023-11,Female,35
+county,Essex,2023-11,Male,40
+county,Essex,2023-11,Non-binary,0
+county,Essex,2023-11,Prefer not to answer,0
+county,Essex,2023-11,Prefer to self-describe,0
+county,Essex,2023-11,Unknown,0
+county,Franklin,2023-11,Female,292
+county,Franklin,2023-11,Male,285
+county,Franklin,2023-11,Non-binary,0
+county,Franklin,2023-11,Prefer not to answer,0
+county,Franklin,2023-11,Prefer to self-describe,0
+county,Franklin,2023-11,Unknown,0
+county,Grand Isle,2023-11,Female,28
+county,Grand Isle,2023-11,Male,36
+county,Grand Isle,2023-11,Non-binary,0
+county,Grand Isle,2023-11,Prefer not to answer,0
+county,Grand Isle,2023-11,Prefer to self-describe,0
+county,Grand Isle,2023-11,Unknown,0
+county,Lamoille,2023-11,Female,191
+county,Lamoille,2023-11,Male,184
+county,Lamoille,2023-11,Non-binary,0
+county,Lamoille,2023-11,Prefer not to answer,0
+county,Lamoille,2023-11,Prefer to self-describe,0
+county,Lamoille,2023-11,Unknown,0
+county,Orange,2023-11,Female,118
+county,Orange,2023-11,Male,125
+county,Orange,2023-11,Non-binary,0
+county,Orange,2023-11,Prefer not to answer,0
+county,Orange,2023-11,Prefer to self-describe,0
+county,Orange,2023-11,Unknown,0
+county,Orleans,2023-11,Female,*
+county,Orleans,2023-11,Male,240
+county,Orleans,2023-11,Non-binary,0
+county,Orleans,2023-11,Prefer not to answer,*
+county,Orleans,2023-11,Prefer to self-describe,0
+county,Orleans,2023-11,Unknown,0
+county,Rutland,2023-11,Female,415
+county,Rutland,2023-11,Male,*
+county,Rutland,2023-11,Non-binary,0
+county,Rutland,2023-11,Prefer not to answer,*
+county,Rutland,2023-11,Prefer to self-describe,0
+county,Rutland,2023-11,Unknown,0
+county,Washington,2023-11,Female,175
+county,Washington,2023-11,Male,225
+county,Washington,2023-11,Non-binary,0
+county,Washington,2023-11,Prefer not to answer,*
+county,Washington,2023-11,Prefer to self-describe,0
+county,Washington,2023-11,Unknown,*
+county,Windham,2023-11,Female,231
+county,Windham,2023-11,Male,246
+county,Windham,2023-11,Non-binary,*
+county,Windham,2023-11,Prefer not to answer,*
+county,Windham,2023-11,Prefer to self-describe,0
+county,Windham,2023-11,Unknown,0
+county,Windsor,2023-11,Female,*
+county,Windsor,2023-11,Male,295
+county,Windsor,2023-11,Non-binary,0
+county,Windsor,2023-11,Prefer not to answer,*
+county,Windsor,2023-11,Prefer to self-describe,0
+county,Windsor,2023-11,Unknown,0
+county,Addison,2023-10,Female,230
+county,Addison,2023-10,Male,228
+county,Addison,2023-10,Non-binary,*
+county,Addison,2023-10,Prefer not to answer,*
+county,Addison,2023-10,Prefer to self-describe,0
+county,Addison,2023-10,Unknown,0
+county,Bennington,2023-10,Female,310
+county,Bennington,2023-10,Male,336
+county,Bennington,2023-10,Non-binary,0
+county,Bennington,2023-10,Prefer not to answer,0
+county,Bennington,2023-10,Prefer to self-describe,0
+county,Bennington,2023-10,Unknown,0
+county,Caledonia,2023-10,Female,352
+county,Caledonia,2023-10,Male,*
+county,Caledonia,2023-10,Non-binary,0
+county,Caledonia,2023-10,Prefer not to answer,*
+county,Caledonia,2023-10,Prefer to self-describe,0
+county,Caledonia,2023-10,Unknown,0
+county,Chittenden,2023-10,Female,794
+county,Chittenden,2023-10,Male,*
+county,Chittenden,2023-10,Non-binary,0
+county,Chittenden,2023-10,Prefer not to answer,*
+county,Chittenden,2023-10,Prefer to self-describe,0
+county,Chittenden,2023-10,Unknown,0
+county,Essex,2023-10,Female,40
+county,Essex,2023-10,Male,43
+county,Essex,2023-10,Non-binary,0
+county,Essex,2023-10,Prefer not to answer,0
+county,Essex,2023-10,Prefer to self-describe,0
+county,Essex,2023-10,Unknown,0
+county,Franklin,2023-10,Female,*
+county,Franklin,2023-10,Male,299
+county,Franklin,2023-10,Non-binary,0
+county,Franklin,2023-10,Prefer not to answer,*
+county,Franklin,2023-10,Prefer to self-describe,0
+county,Franklin,2023-10,Unknown,0
+county,Grand Isle,2023-10,Female,29
+county,Grand Isle,2023-10,Male,33
+county,Grand Isle,2023-10,Non-binary,0
+county,Grand Isle,2023-10,Prefer not to answer,0
+county,Grand Isle,2023-10,Prefer to self-describe,0
+county,Grand Isle,2023-10,Unknown,0
+county,Lamoille,2023-10,Female,183
+county,Lamoille,2023-10,Male,183
+county,Lamoille,2023-10,Non-binary,0
+county,Lamoille,2023-10,Prefer not to answer,0
+county,Lamoille,2023-10,Prefer to self-describe,0
+county,Lamoille,2023-10,Unknown,0
+county,Orange,2023-10,Female,118
+county,Orange,2023-10,Male,123
+county,Orange,2023-10,Non-binary,0
+county,Orange,2023-10,Prefer not to answer,0
+county,Orange,2023-10,Prefer to self-describe,0
+county,Orange,2023-10,Unknown,0
+county,Orleans,2023-10,Female,*
+county,Orleans,2023-10,Male,238
+county,Orleans,2023-10,Non-binary,0
+county,Orleans,2023-10,Prefer not to answer,*
+county,Orleans,2023-10,Prefer to self-describe,0
+county,Orleans,2023-10,Unknown,0
+county,Rutland,2023-10,Female,429
+county,Rutland,2023-10,Male,*
+county,Rutland,2023-10,Non-binary,0
+county,Rutland,2023-10,Prefer not to answer,*
+county,Rutland,2023-10,Prefer to self-describe,0
+county,Rutland,2023-10,Unknown,0
+county,Washington,2023-10,Female,*
+county,Washington,2023-10,Male,226
+county,Washington,2023-10,Non-binary,0
+county,Washington,2023-10,Prefer not to answer,*
+county,Washington,2023-10,Prefer to self-describe,0
+county,Washington,2023-10,Unknown,0
+county,Windham,2023-10,Female,222
+county,Windham,2023-10,Male,243
+county,Windham,2023-10,Non-binary,*
+county,Windham,2023-10,Prefer not to answer,*
+county,Windham,2023-10,Prefer to self-describe,0
+county,Windham,2023-10,Unknown,0
+county,Windsor,2023-10,Female,*
+county,Windsor,2023-10,Male,293
+county,Windsor,2023-10,Non-binary,0
+county,Windsor,2023-10,Prefer not to answer,*
+county,Windsor,2023-10,Prefer to self-describe,0
+county,Windsor,2023-10,Unknown,0
+county,Addison,2023-09,Female,234
+county,Addison,2023-09,Male,232
+county,Addison,2023-09,Non-binary,*
+county,Addison,2023-09,Prefer not to answer,*
+county,Addison,2023-09,Prefer to self-describe,0
+county,Addison,2023-09,Unknown,0
+county,Bennington,2023-09,Female,313
+county,Bennington,2023-09,Male,341
+county,Bennington,2023-09,Non-binary,0
+county,Bennington,2023-09,Prefer not to answer,0
+county,Bennington,2023-09,Prefer to self-describe,0
+county,Bennington,2023-09,Unknown,0
+county,Caledonia,2023-09,Female,359
+county,Caledonia,2023-09,Male,*
+county,Caledonia,2023-09,Non-binary,0
+county,Caledonia,2023-09,Prefer not to answer,*
+county,Caledonia,2023-09,Prefer to self-describe,0
+county,Caledonia,2023-09,Unknown,0
+county,Chittenden,2023-09,Female,799
+county,Chittenden,2023-09,Male,*
+county,Chittenden,2023-09,Non-binary,0
+county,Chittenden,2023-09,Prefer not to answer,*
+county,Chittenden,2023-09,Prefer to self-describe,0
+county,Chittenden,2023-09,Unknown,0
+county,Essex,2023-09,Female,40
+county,Essex,2023-09,Male,41
+county,Essex,2023-09,Non-binary,0
+county,Essex,2023-09,Prefer not to answer,0
+county,Essex,2023-09,Prefer to self-describe,0
+county,Essex,2023-09,Unknown,0
+county,Franklin,2023-09,Female,*
+county,Franklin,2023-09,Male,314
+county,Franklin,2023-09,Non-binary,0
+county,Franklin,2023-09,Prefer not to answer,*
+county,Franklin,2023-09,Prefer to self-describe,0
+county,Franklin,2023-09,Unknown,0
+county,Grand Isle,2023-09,Female,31
+county,Grand Isle,2023-09,Male,35
+county,Grand Isle,2023-09,Non-binary,0
+county,Grand Isle,2023-09,Prefer not to answer,0
+county,Grand Isle,2023-09,Prefer to self-describe,0
+county,Grand Isle,2023-09,Unknown,0
+county,Lamoille,2023-09,Female,181
+county,Lamoille,2023-09,Male,175
+county,Lamoille,2023-09,Non-binary,0
+county,Lamoille,2023-09,Prefer not to answer,0
+county,Lamoille,2023-09,Prefer to self-describe,0
+county,Lamoille,2023-09,Unknown,0
+county,Orange,2023-09,Female,110
+county,Orange,2023-09,Male,124
+county,Orange,2023-09,Non-binary,0
+county,Orange,2023-09,Prefer not to answer,0
+county,Orange,2023-09,Prefer to self-describe,0
+county,Orange,2023-09,Unknown,0
+county,Orleans,2023-09,Female,*
+county,Orleans,2023-09,Male,240
+county,Orleans,2023-09,Non-binary,0
+county,Orleans,2023-09,Prefer not to answer,*
+county,Orleans,2023-09,Prefer to self-describe,0
+county,Orleans,2023-09,Unknown,0
+county,Rutland,2023-09,Female,430
+county,Rutland,2023-09,Male,*
+county,Rutland,2023-09,Non-binary,0
+county,Rutland,2023-09,Prefer not to answer,*
+county,Rutland,2023-09,Prefer to self-describe,0
+county,Rutland,2023-09,Unknown,0
+county,Washington,2023-09,Female,*
+county,Washington,2023-09,Male,226
+county,Washington,2023-09,Non-binary,0
+county,Washington,2023-09,Prefer not to answer,*
+county,Washington,2023-09,Prefer to self-describe,0
+county,Washington,2023-09,Unknown,0
+county,Windham,2023-09,Female,233
+county,Windham,2023-09,Male,254
+county,Windham,2023-09,Non-binary,*
+county,Windham,2023-09,Prefer not to answer,*
+county,Windham,2023-09,Prefer to self-describe,0
+county,Windham,2023-09,Unknown,0
+county,Windsor,2023-09,Female,*
+county,Windsor,2023-09,Male,304
+county,Windsor,2023-09,Non-binary,0
+county,Windsor,2023-09,Prefer not to answer,*
+county,Windsor,2023-09,Prefer to self-describe,0
+county,Windsor,2023-09,Unknown,0
+county,Addison,2023-08,Female,264
+county,Addison,2023-08,Male,262
+county,Addison,2023-08,Non-binary,*
+county,Addison,2023-08,Prefer not to answer,*
+county,Addison,2023-08,Prefer to self-describe,0
+county,Addison,2023-08,Unknown,0
+county,Bennington,2023-08,Female,338
+county,Bennington,2023-08,Male,346
+county,Bennington,2023-08,Non-binary,0
+county,Bennington,2023-08,Prefer not to answer,0
+county,Bennington,2023-08,Prefer to self-describe,0
+county,Bennington,2023-08,Unknown,0
+county,Caledonia,2023-08,Female,358
+county,Caledonia,2023-08,Male,*
+county,Caledonia,2023-08,Non-binary,0
+county,Caledonia,2023-08,Prefer not to answer,*
+county,Caledonia,2023-08,Prefer to self-describe,0
+county,Caledonia,2023-08,Unknown,0
+county,Chittenden,2023-08,Female,891
+county,Chittenden,2023-08,Male,*
+county,Chittenden,2023-08,Non-binary,0
+county,Chittenden,2023-08,Prefer not to answer,*
+county,Chittenden,2023-08,Prefer to self-describe,0
+county,Chittenden,2023-08,Unknown,0
+county,Essex,2023-08,Female,40
+county,Essex,2023-08,Male,43
+county,Essex,2023-08,Non-binary,0
+county,Essex,2023-08,Prefer not to answer,0
+county,Essex,2023-08,Prefer to self-describe,0
+county,Essex,2023-08,Unknown,0
+county,Franklin,2023-08,Female,*
+county,Franklin,2023-08,Male,310
+county,Franklin,2023-08,Non-binary,0
+county,Franklin,2023-08,Prefer not to answer,*
+county,Franklin,2023-08,Prefer to self-describe,0
+county,Franklin,2023-08,Unknown,0
+county,Grand Isle,2023-08,Female,34
+county,Grand Isle,2023-08,Male,38
+county,Grand Isle,2023-08,Non-binary,0
+county,Grand Isle,2023-08,Prefer not to answer,0
+county,Grand Isle,2023-08,Prefer to self-describe,0
+county,Grand Isle,2023-08,Unknown,0
+county,Lamoille,2023-08,Female,195
+county,Lamoille,2023-08,Male,192
+county,Lamoille,2023-08,Non-binary,0
+county,Lamoille,2023-08,Prefer not to answer,0
+county,Lamoille,2023-08,Prefer to self-describe,0
+county,Lamoille,2023-08,Unknown,0
+county,Orange,2023-08,Female,113
+county,Orange,2023-08,Male,125
+county,Orange,2023-08,Non-binary,0
+county,Orange,2023-08,Prefer not to answer,0
+county,Orange,2023-08,Prefer to self-describe,0
+county,Orange,2023-08,Unknown,0
+county,Orleans,2023-08,Female,205
+county,Orleans,2023-08,Male,238
+county,Orleans,2023-08,Non-binary,0
+county,Orleans,2023-08,Prefer not to answer,0
+county,Orleans,2023-08,Prefer to self-describe,0
+county,Orleans,2023-08,Unknown,0
+county,Rutland,2023-08,Female,*
+county,Rutland,2023-08,Male,454
+county,Rutland,2023-08,Non-binary,0
+county,Rutland,2023-08,Prefer not to answer,*
+county,Rutland,2023-08,Prefer to self-describe,0
+county,Rutland,2023-08,Unknown,0
+county,Washington,2023-08,Female,184
+county,Washington,2023-08,Male,237
+county,Washington,2023-08,Non-binary,0
+county,Washington,2023-08,Prefer not to answer,10
+county,Washington,2023-08,Prefer to self-describe,0
+county,Washington,2023-08,Unknown,0
+county,Windham,2023-08,Female,242
+county,Windham,2023-08,Male,256
+county,Windham,2023-08,Non-binary,*
+county,Windham,2023-08,Prefer not to answer,*
+county,Windham,2023-08,Prefer to self-describe,*
+county,Windham,2023-08,Unknown,0
+county,Windsor,2023-08,Female,305
+county,Windsor,2023-08,Male,*
+county,Windsor,2023-08,Non-binary,0
+county,Windsor,2023-08,Prefer not to answer,*
+county,Windsor,2023-08,Prefer to self-describe,0
+county,Windsor,2023-08,Unknown,0
+county,Addison,2023-07,Female,238
+county,Addison,2023-07,Male,237
+county,Addison,2023-07,Non-binary,*
+county,Addison,2023-07,Prefer not to answer,*
+county,Addison,2023-07,Prefer to self-describe,0
+county,Addison,2023-07,Unknown,0
+county,Bennington,2023-07,Female,338
+county,Bennington,2023-07,Male,345
+county,Bennington,2023-07,Non-binary,0
+county,Bennington,2023-07,Prefer not to answer,0
+county,Bennington,2023-07,Prefer to self-describe,0
+county,Bennington,2023-07,Unknown,0
+county,Caledonia,2023-07,Female,362
+county,Caledonia,2023-07,Male,*
+county,Caledonia,2023-07,Non-binary,0
+county,Caledonia,2023-07,Prefer not to answer,*
+county,Caledonia,2023-07,Prefer to self-describe,0
+county,Caledonia,2023-07,Unknown,0
+county,Chittenden,2023-07,Female,822
+county,Chittenden,2023-07,Male,*
+county,Chittenden,2023-07,Non-binary,0
+county,Chittenden,2023-07,Prefer not to answer,*
+county,Chittenden,2023-07,Prefer to self-describe,0
+county,Chittenden,2023-07,Unknown,0
+county,Essex,2023-07,Female,40
+county,Essex,2023-07,Male,42
+county,Essex,2023-07,Non-binary,0
+county,Essex,2023-07,Prefer not to answer,0
+county,Essex,2023-07,Prefer to self-describe,0
+county,Essex,2023-07,Unknown,0
+county,Franklin,2023-07,Female,*
+county,Franklin,2023-07,Male,318
+county,Franklin,2023-07,Non-binary,0
+county,Franklin,2023-07,Prefer not to answer,*
+county,Franklin,2023-07,Prefer to self-describe,0
+county,Franklin,2023-07,Unknown,0
+county,Grand Isle,2023-07,Female,39
+county,Grand Isle,2023-07,Male,39
+county,Grand Isle,2023-07,Non-binary,0
+county,Grand Isle,2023-07,Prefer not to answer,0
+county,Grand Isle,2023-07,Prefer to self-describe,0
+county,Grand Isle,2023-07,Unknown,0
+county,Lamoille,2023-07,Female,164
+county,Lamoille,2023-07,Male,159
+county,Lamoille,2023-07,Non-binary,0
+county,Lamoille,2023-07,Prefer not to answer,0
+county,Lamoille,2023-07,Prefer to self-describe,0
+county,Lamoille,2023-07,Unknown,0
+county,Orange,2023-07,Female,104
+county,Orange,2023-07,Male,125
+county,Orange,2023-07,Non-binary,0
+county,Orange,2023-07,Prefer not to answer,0
+county,Orange,2023-07,Prefer to self-describe,0
+county,Orange,2023-07,Unknown,0
+county,Orleans,2023-07,Female,199
+county,Orleans,2023-07,Male,236
+county,Orleans,2023-07,Non-binary,0
+county,Orleans,2023-07,Prefer not to answer,0
+county,Orleans,2023-07,Prefer to self-describe,0
+county,Orleans,2023-07,Unknown,0
+county,Rutland,2023-07,Female,457
+county,Rutland,2023-07,Male,*
+county,Rutland,2023-07,Non-binary,0
+county,Rutland,2023-07,Prefer not to answer,*
+county,Rutland,2023-07,Prefer to self-describe,0
+county,Rutland,2023-07,Unknown,0
+county,Washington,2023-07,Female,*
+county,Washington,2023-07,Male,230
+county,Washington,2023-07,Non-binary,0
+county,Washington,2023-07,Prefer not to answer,*
+county,Washington,2023-07,Prefer to self-describe,0
+county,Washington,2023-07,Unknown,0
+county,Windham,2023-07,Female,226
+county,Windham,2023-07,Male,248
+county,Windham,2023-07,Non-binary,0
+county,Windham,2023-07,Prefer not to answer,*
+county,Windham,2023-07,Prefer to self-describe,*
+county,Windham,2023-07,Unknown,0
+county,Windsor,2023-07,Female,304
+county,Windsor,2023-07,Male,*
+county,Windsor,2023-07,Non-binary,0
+county,Windsor,2023-07,Prefer not to answer,*
+county,Windsor,2023-07,Prefer to self-describe,0
+county,Windsor,2023-07,Unknown,0
+state,Vermont,2024-06,Female,4659
+state,Vermont,2024-06,Male,4614
+state,Vermont,2024-06,Non-binary,*
+state,Vermont,2024-06,Prefer not to answer,22
+state,Vermont,2024-06,Prefer to self-describe,*
+state,Vermont,2024-06,Unknown,*
+state,Vermont,2024-05,Female,4087
+state,Vermont,2024-05,Male,4046
+state,Vermont,2024-05,Non-binary,*
+state,Vermont,2024-05,Prefer not to answer,18
+state,Vermont,2024-05,Prefer to self-describe,*
+state,Vermont,2024-05,Unknown,*
+state,Vermont,2024-04,Female,4030
+state,Vermont,2024-04,Male,4034
+state,Vermont,2024-04,Non-binary,*
+state,Vermont,2024-04,Prefer not to answer,18
+state,Vermont,2024-04,Prefer to self-describe,*
+state,Vermont,2024-04,Unknown,*
+state,Vermont,2024-03,Female,3847
+state,Vermont,2024-03,Male,3889
+state,Vermont,2024-03,Non-binary,*
+state,Vermont,2024-03,Prefer not to answer,16
+state,Vermont,2024-03,Prefer to self-describe,*
+state,Vermont,2024-03,Unknown,*
+state,Vermont,2024-02,Female,3769
+state,Vermont,2024-02,Male,3796
+state,Vermont,2024-02,Non-binary,*
+state,Vermont,2024-02,Prefer not to answer,16
+state,Vermont,2024-02,Prefer to self-describe,*
+state,Vermont,2024-02,Unknown,*
+state,Vermont,2024-01,Female,3704
+state,Vermont,2024-01,Male,3751
+state,Vermont,2024-01,Non-binary,*
+state,Vermont,2024-01,Prefer not to answer,14
+state,Vermont,2024-01,Prefer to self-describe,*
+state,Vermont,2024-01,Unknown,*
+state,Vermont,2023-12,Female,3689
+state,Vermont,2023-12,Male,3767
+state,Vermont,2023-12,Non-binary,*
+state,Vermont,2023-12,Prefer not to answer,16
+state,Vermont,2023-12,Prefer to self-describe,*
+state,Vermont,2023-12,Unknown,*
+state,Vermont,2023-11,Female,3624
+state,Vermont,2023-11,Male,3700
+state,Vermont,2023-11,Non-binary,*
+state,Vermont,2023-11,Prefer not to answer,15
+state,Vermont,2023-11,Prefer to self-describe,*
+state,Vermont,2023-11,Unknown,*
+state,Vermont,2023-10,Female,3647
+state,Vermont,2023-10,Male,3715
+state,Vermont,2023-10,Non-binary,*
+state,Vermont,2023-10,Prefer not to answer,*
+state,Vermont,2023-10,Prefer to self-describe,0
+state,Vermont,2023-10,Unknown,0
+state,Vermont,2023-09,Female,3687
+state,Vermont,2023-09,Male,3808
+state,Vermont,2023-09,Non-binary,*
+state,Vermont,2023-09,Prefer not to answer,*
+state,Vermont,2023-09,Prefer to self-describe,0
+state,Vermont,2023-09,Unknown,0
+state,Vermont,2023-08,Female,3924
+state,Vermont,2023-08,Male,3931
+state,Vermont,2023-08,Non-binary,*
+state,Vermont,2023-08,Prefer not to answer,23
+state,Vermont,2023-08,Prefer to self-describe,*
+state,Vermont,2023-08,Unknown,0
+state,Vermont,2023-07,Female,3776
+state,Vermont,2023-07,Male,3777
+state,Vermont,2023-07,Non-binary,*
+state,Vermont,2023-07,Prefer not to answer,19
+state,Vermont,2023-07,Prefer to self-describe,*
+state,Vermont,2023-07,Unknown,0
+county,Addison,2024-09,Female,293
+county,Addison,2024-09,Male,303
+county,Addison,2024-09,Non-binary,0
+county,Addison,2024-09,Prefer not to answer,*
+county,Addison,2024-09,Prefer to self-describe,0
+county,Addison,2024-09,Unknown,0
+county,Bennington,2024-09,Female,332
+county,Bennington,2024-09,Male,391
+county,Bennington,2024-09,Non-binary,0
+county,Bennington,2024-09,Prefer not to answer,*
+county,Bennington,2024-09,Prefer to self-describe,0
+county,Bennington,2024-09,Unknown,0
+county,Caledonia,2024-09,Female,415
+county,Caledonia,2024-09,Male,346
+county,Caledonia,2024-09,Non-binary,0
+county,Caledonia,2024-09,Prefer not to answer,0
+county,Caledonia,2024-09,Prefer to self-describe,0
+county,Caledonia,2024-09,Unknown,*
+county,Chittenden,2024-09,Female,940
+county,Chittenden,2024-09,Male,922
+county,Chittenden,2024-09,Non-binary,*
+county,Chittenden,2024-09,Prefer not to answer,*
+county,Chittenden,2024-09,Prefer to self-describe,*
+county,Chittenden,2024-09,Unknown,0
+county,Essex,2024-09,Female,52
+county,Essex,2024-09,Male,51
+county,Essex,2024-09,Non-binary,0
+county,Essex,2024-09,Prefer not to answer,0
+county,Essex,2024-09,Prefer to self-describe,0
+county,Essex,2024-09,Unknown,0
+county,Franklin,2024-09,Female,355
+county,Franklin,2024-09,Male,351
+county,Franklin,2024-09,Non-binary,0
+county,Franklin,2024-09,Prefer not to answer,0
+county,Franklin,2024-09,Prefer to self-describe,0
+county,Franklin,2024-09,Unknown,0
+county,Grand Isle,2024-09,Female,38
+county,Grand Isle,2024-09,Male,40
+county,Grand Isle,2024-09,Non-binary,0
+county,Grand Isle,2024-09,Prefer not to answer,0
+county,Grand Isle,2024-09,Prefer to self-describe,0
+county,Grand Isle,2024-09,Unknown,0
+county,Lamoille,2024-09,Female,210
+county,Lamoille,2024-09,Male,223
+county,Lamoille,2024-09,Non-binary,*
+county,Lamoille,2024-09,Prefer not to answer,*
+county,Lamoille,2024-09,Prefer to self-describe,0
+county,Lamoille,2024-09,Unknown,0
+county,Orange,2024-09,Female,163
+county,Orange,2024-09,Male,165
+county,Orange,2024-09,Non-binary,0
+county,Orange,2024-09,Prefer not to answer,*
+county,Orange,2024-09,Prefer to self-describe,0
+county,Orange,2024-09,Unknown,0
+county,Orleans,2024-09,Female,206
+county,Orleans,2024-09,Male,266
+county,Orleans,2024-09,Non-binary,0
+county,Orleans,2024-09,Prefer not to answer,*
+county,Orleans,2024-09,Prefer to self-describe,0
+county,Orleans,2024-09,Unknown,0
+county,Rutland,2024-09,Female,513
+county,Rutland,2024-09,Male,500
+county,Rutland,2024-09,Non-binary,0
+county,Rutland,2024-09,Prefer not to answer,*
+county,Rutland,2024-09,Prefer to self-describe,0
+county,Rutland,2024-09,Unknown,0
+county,Washington,2024-09,Female,216
+county,Washington,2024-09,Male,269
+county,Washington,2024-09,Non-binary,0
+county,Washington,2024-09,Prefer not to answer,*
+county,Washington,2024-09,Prefer to self-describe,*
+county,Washington,2024-09,Unknown,0
+county,Windham,2024-09,Female,304
+county,Windham,2024-09,Male,328
+county,Windham,2024-09,Non-binary,0
+county,Windham,2024-09,Prefer not to answer,*
+county,Windham,2024-09,Prefer to self-describe,*
+county,Windham,2024-09,Unknown,0
+county,Windsor,2024-09,Female,397
+county,Windsor,2024-09,Male,365
+county,Windsor,2024-09,Non-binary,*
+county,Windsor,2024-09,Prefer not to answer,0
+county,Windsor,2024-09,Prefer to self-describe,0
+county,Windsor,2024-09,Unknown,0
+county,Addison,2024-08,Female,*
+county,Addison,2024-08,Male,349
+county,Addison,2024-08,Non-binary,0
+county,Addison,2024-08,Prefer not to answer,*
+county,Addison,2024-08,Prefer to self-describe,0
+county,Addison,2024-08,Unknown,0
+county,Bennington,2024-08,Female,*
+county,Bennington,2024-08,Male,399
+county,Bennington,2024-08,Non-binary,0
+county,Bennington,2024-08,Prefer not to answer,*
+county,Bennington,2024-08,Prefer to self-describe,0
+county,Bennington,2024-08,Unknown,0
+county,Caledonia,2024-08,Female,420
+county,Caledonia,2024-08,Male,340
+county,Caledonia,2024-08,Non-binary,0
+county,Caledonia,2024-08,Prefer not to answer,*
+county,Caledonia,2024-08,Prefer to self-describe,0
+county,Caledonia,2024-08,Unknown,*
+county,Chittenden,2024-08,Female,1063
+county,Chittenden,2024-08,Male,1000
+county,Chittenden,2024-08,Non-binary,*
+county,Chittenden,2024-08,Prefer not to answer,*
+county,Chittenden,2024-08,Prefer to self-describe,*
+county,Chittenden,2024-08,Unknown,0
+county,Essex,2024-08,Female,52
+county,Essex,2024-08,Male,48
+county,Essex,2024-08,Non-binary,0
+county,Essex,2024-08,Prefer not to answer,0
+county,Essex,2024-08,Prefer to self-describe,0
+county,Essex,2024-08,Unknown,0
+county,Franklin,2024-08,Female,351
+county,Franklin,2024-08,Male,351
+county,Franklin,2024-08,Non-binary,0
+county,Franklin,2024-08,Prefer not to answer,0
+county,Franklin,2024-08,Prefer to self-describe,0
+county,Franklin,2024-08,Unknown,0
+county,Grand Isle,2024-08,Female,39
+county,Grand Isle,2024-08,Male,46
+county,Grand Isle,2024-08,Non-binary,0
+county,Grand Isle,2024-08,Prefer not to answer,0
+county,Grand Isle,2024-08,Prefer to self-describe,0
+county,Grand Isle,2024-08,Unknown,0
+county,Lamoille,2024-08,Female,220
+county,Lamoille,2024-08,Male,236
+county,Lamoille,2024-08,Non-binary,*
+county,Lamoille,2024-08,Prefer not to answer,*
+county,Lamoille,2024-08,Prefer to self-describe,0
+county,Lamoille,2024-08,Unknown,0
+county,Orange,2024-08,Female,*
+county,Orange,2024-08,Male,164
+county,Orange,2024-08,Non-binary,0
+county,Orange,2024-08,Prefer not to answer,*
+county,Orange,2024-08,Prefer to self-describe,0
+county,Orange,2024-08,Unknown,0
+county,Orleans,2024-08,Female,*
+county,Orleans,2024-08,Male,263
+county,Orleans,2024-08,Non-binary,0
+county,Orleans,2024-08,Prefer not to answer,*
+county,Orleans,2024-08,Prefer to self-describe,0
+county,Orleans,2024-08,Unknown,0
+county,Rutland,2024-08,Female,*
+county,Rutland,2024-08,Male,563
+county,Rutland,2024-08,Non-binary,0
+county,Rutland,2024-08,Prefer not to answer,*
+county,Rutland,2024-08,Prefer to self-describe,0
+county,Rutland,2024-08,Unknown,0
+county,Washington,2024-08,Female,*
+county,Washington,2024-08,Male,292
+county,Washington,2024-08,Non-binary,0
+county,Washington,2024-08,Prefer not to answer,*
+county,Washington,2024-08,Prefer to self-describe,0
+county,Washington,2024-08,Unknown,0
+county,Windham,2024-08,Female,318
+county,Windham,2024-08,Male,334
+county,Windham,2024-08,Non-binary,*
+county,Windham,2024-08,Prefer not to answer,*
+county,Windham,2024-08,Prefer to self-describe,*
+county,Windham,2024-08,Unknown,0
+county,Windsor,2024-08,Female,408
+county,Windsor,2024-08,Male,384
+county,Windsor,2024-08,Non-binary,*
+county,Windsor,2024-08,Prefer not to answer,*
+county,Windsor,2024-08,Prefer to self-describe,0
+county,Windsor,2024-08,Unknown,0
+county,Addison,2024-09,Female,293
+county,Addison,2024-09,Male,303
+county,Addison,2024-09,Non-binary,0
+county,Addison,2024-09,Prefer not to answer,*
+county,Addison,2024-09,Prefer to self-describe,0
+county,Addison,2024-09,Unknown,0
+county,Bennington,2024-09,Female,332
+county,Bennington,2024-09,Male,391
+county,Bennington,2024-09,Non-binary,0
+county,Bennington,2024-09,Prefer not to answer,*
+county,Bennington,2024-09,Prefer to self-describe,0
+county,Bennington,2024-09,Unknown,0
+county,Caledonia,2024-09,Female,415
+county,Caledonia,2024-09,Male,346
+county,Caledonia,2024-09,Non-binary,0
+county,Caledonia,2024-09,Prefer not to answer,0
+county,Caledonia,2024-09,Prefer to self-describe,0
+county,Caledonia,2024-09,Unknown,*
+county,Chittenden,2024-09,Female,940
+county,Chittenden,2024-09,Male,922
+county,Chittenden,2024-09,Non-binary,*
+county,Chittenden,2024-09,Prefer not to answer,*
+county,Chittenden,2024-09,Prefer to self-describe,*
+county,Chittenden,2024-09,Unknown,0
+county,Essex,2024-09,Female,52
+county,Essex,2024-09,Male,51
+county,Essex,2024-09,Non-binary,0
+county,Essex,2024-09,Prefer not to answer,0
+county,Essex,2024-09,Prefer to self-describe,0
+county,Essex,2024-09,Unknown,0
+county,Franklin,2024-09,Female,355
+county,Franklin,2024-09,Male,351
+county,Franklin,2024-09,Non-binary,0
+county,Franklin,2024-09,Prefer not to answer,0
+county,Franklin,2024-09,Prefer to self-describe,0
+county,Franklin,2024-09,Unknown,0
+county,Grand Isle,2024-09,Female,38
+county,Grand Isle,2024-09,Male,40
+county,Grand Isle,2024-09,Non-binary,0
+county,Grand Isle,2024-09,Prefer not to answer,0
+county,Grand Isle,2024-09,Prefer to self-describe,0
+county,Grand Isle,2024-09,Unknown,0
+county,Lamoille,2024-09,Female,210
+county,Lamoille,2024-09,Male,223
+county,Lamoille,2024-09,Non-binary,*
+county,Lamoille,2024-09,Prefer not to answer,*
+county,Lamoille,2024-09,Prefer to self-describe,0
+county,Lamoille,2024-09,Unknown,0
+county,Orange,2024-09,Female,163
+county,Orange,2024-09,Male,165
+county,Orange,2024-09,Non-binary,0
+county,Orange,2024-09,Prefer not to answer,*
+county,Orange,2024-09,Prefer to self-describe,0
+county,Orange,2024-09,Unknown,0
+county,Orleans,2024-09,Female,206
+county,Orleans,2024-09,Male,266
+county,Orleans,2024-09,Non-binary,0
+county,Orleans,2024-09,Prefer not to answer,*
+county,Orleans,2024-09,Prefer to self-describe,0
+county,Orleans,2024-09,Unknown,0
+county,Rutland,2024-09,Female,513
+county,Rutland,2024-09,Male,500
+county,Rutland,2024-09,Non-binary,0
+county,Rutland,2024-09,Prefer not to answer,*
+county,Rutland,2024-09,Prefer to self-describe,0
+county,Rutland,2024-09,Unknown,0
+county,Washington,2024-09,Female,216
+county,Washington,2024-09,Male,269
+county,Washington,2024-09,Non-binary,0
+county,Washington,2024-09,Prefer not to answer,*
+county,Washington,2024-09,Prefer to self-describe,*
+county,Washington,2024-09,Unknown,0
+county,Windham,2024-09,Female,304
+county,Windham,2024-09,Male,328
+county,Windham,2024-09,Non-binary,0
+county,Windham,2024-09,Prefer not to answer,*
+county,Windham,2024-09,Prefer to self-describe,*
+county,Windham,2024-09,Unknown,0
+county,Windsor,2024-09,Female,397
+county,Windsor,2024-09,Male,365
+county,Windsor,2024-09,Non-binary,*
+county,Windsor,2024-09,Prefer not to answer,0
+county,Windsor,2024-09,Prefer to self-describe,0
+county,Windsor,2024-09,Unknown,0
+state,Vermont,2024-09,Female,8868
+state,Vermont,2024-09,Male,9040
+state,Vermont,2024-09,Non-binary,*
+state,Vermont,2024-09,Prefer not to answer,42
+state,Vermont,2024-09,Prefer to self-describe,*
+state,Vermont,2024-09,Unknown,*
+state,Vermont,2024-08,Female,4729
+state,Vermont,2024-08,Male,4769
+state,Vermont,2024-08,Non-binary,*
+state,Vermont,2024-08,Prefer not to answer,26
+state,Vermont,2024-08,Prefer to self-describe,*
+state,Vermont,2024-08,Unknown,*
+county,Addison,2024-12,Female,333
+county,Addison,2024-12,Male,*
+county,Addison,2024-12,Non-binary,0
+county,Addison,2024-12,Prefer not to answer,*
+county,Addison,2024-12,Prefer to self-describe,0
+county,Addison,2024-12,Unknown,0
+county,Bennington,2024-12,Female,*
+county,Bennington,2024-12,Male,411
+county,Bennington,2024-12,Non-binary,0
+county,Bennington,2024-12,Prefer not to answer,*
+county,Bennington,2024-12,Prefer to self-describe,0
+county,Bennington,2024-12,Unknown,0
+county,Caledonia,2024-12,Female,415
+county,Caledonia,2024-12,Male,350
+county,Caledonia,2024-12,Non-binary,0
+county,Caledonia,2024-12,Prefer not to answer,*
+county,Caledonia,2024-12,Prefer to self-describe,0
+county,Caledonia,2024-12,Unknown,*
+county,Chittenden,2024-12,Female,1171
+county,Chittenden,2024-12,Male,1179
+county,Chittenden,2024-12,Non-binary,*
+county,Chittenden,2024-12,Prefer not to answer,16
+county,Chittenden,2024-12,Prefer to self-describe,*
+county,Chittenden,2024-12,Unknown,0
+county,Essex,2024-12,Female,56
+county,Essex,2024-12,Male,52
+county,Essex,2024-12,Non-binary,0
+county,Essex,2024-12,Prefer not to answer,0
+county,Essex,2024-12,Prefer to self-describe,0
+county,Essex,2024-12,Unknown,0
+county,Franklin,2024-12,Female,422
+county,Franklin,2024-12,Male,404
+county,Franklin,2024-12,Non-binary,0
+county,Franklin,2024-12,Prefer not to answer,0
+county,Franklin,2024-12,Prefer to self-describe,0
+county,Franklin,2024-12,Unknown,0
+county,Grand Isle,2024-12,Female,*
+county,Grand Isle,2024-12,Male,52
+county,Grand Isle,2024-12,Non-binary,0
+county,Grand Isle,2024-12,Prefer not to answer,0
+county,Grand Isle,2024-12,Prefer to self-describe,0
+county,Grand Isle,2024-12,Unknown,0
+county,Lamoille,2024-12,Female,226
+county,Lamoille,2024-12,Male,251
+county,Lamoille,2024-12,Non-binary,*
+county,Lamoille,2024-12,Prefer not to answer,*
+county,Lamoille,2024-12,Prefer to self-describe,0
+county,Lamoille,2024-12,Unknown,0
+county,Orange,2024-12,Female,195
+county,Orange,2024-12,Male,*
+county,Orange,2024-12,Non-binary,0
+county,Orange,2024-12,Prefer not to answer,*
+county,Orange,2024-12,Prefer to self-describe,0
+county,Orange,2024-12,Unknown,0
+county,Orleans,2024-12,Female,219
+county,Orleans,2024-12,Male,273
+county,Orleans,2024-12,Non-binary,0
+county,Orleans,2024-12,Prefer not to answer,0
+county,Orleans,2024-12,Prefer to self-describe,0
+county,Orleans,2024-12,Unknown,0
+county,Rutland,2024-12,Female,571
+county,Rutland,2024-12,Male,*
+county,Rutland,2024-12,Non-binary,0
+county,Rutland,2024-12,Prefer not to answer,*
+county,Rutland,2024-12,Prefer to self-describe,0
+county,Rutland,2024-12,Unknown,0
+county,Washington,2024-12,Female,267
+county,Washington,2024-12,Male,335
+county,Washington,2024-12,Non-binary,0
+county,Washington,2024-12,Prefer not to answer,*
+county,Washington,2024-12,Prefer to self-describe,*
+county,Washington,2024-12,Unknown,0
+county,Windham,2024-12,Female,319
+county,Windham,2024-12,Male,353
+county,Windham,2024-12,Non-binary,0
+county,Windham,2024-12,Prefer not to answer,*
+county,Windham,2024-12,Prefer to self-describe,*
+county,Windham,2024-12,Unknown,0
+county,Windsor,2024-12,Female,398
+county,Windsor,2024-12,Male,380
+county,Windsor,2024-12,Non-binary,0
+county,Windsor,2024-12,Prefer not to answer,0
+county,Windsor,2024-12,Prefer to self-describe,0
+county,Windsor,2024-12,Unknown,0
+county,Addison,2024-11,Female,*
+county,Addison,2024-11,Male,340
+county,Addison,2024-11,Non-binary,0
+county,Addison,2024-11,Prefer not to answer,*
+county,Addison,2024-11,Prefer to self-describe,0
+county,Addison,2024-11,Unknown,0
+county,Bennington,2024-11,Female,*
+county,Bennington,2024-11,Male,406
+county,Bennington,2024-11,Non-binary,0
+county,Bennington,2024-11,Prefer not to answer,*
+county,Bennington,2024-11,Prefer to self-describe,0
+county,Bennington,2024-11,Unknown,0
+county,Caledonia,2024-11,Female,419
+county,Caledonia,2024-11,Male,349
+county,Caledonia,2024-11,Non-binary,0
+county,Caledonia,2024-11,Prefer not to answer,*
+county,Caledonia,2024-11,Prefer to self-describe,0
+county,Caledonia,2024-11,Unknown,*
+county,Chittenden,2024-11,Female,1159
+county,Chittenden,2024-11,Male,1154
+county,Chittenden,2024-11,Non-binary,*
+county,Chittenden,2024-11,Prefer not to answer,13
+county,Chittenden,2024-11,Prefer to self-describe,*
+county,Chittenden,2024-11,Unknown,0
+county,Essex,2024-11,Female,57
+county,Essex,2024-11,Male,53
+county,Essex,2024-11,Non-binary,0
+county,Essex,2024-11,Prefer not to answer,0
+county,Essex,2024-11,Prefer to self-describe,0
+county,Essex,2024-11,Unknown,0
+county,Franklin,2024-11,Female,414
+county,Franklin,2024-11,Male,395
+county,Franklin,2024-11,Non-binary,0
+county,Franklin,2024-11,Prefer not to answer,0
+county,Franklin,2024-11,Prefer to self-describe,0
+county,Franklin,2024-11,Unknown,0
+county,Grand Isle,2024-11,Female,44
+county,Grand Isle,2024-11,Male,50
+county,Grand Isle,2024-11,Non-binary,0
+county,Grand Isle,2024-11,Prefer not to answer,0
+county,Grand Isle,2024-11,Prefer to self-describe,0
+county,Grand Isle,2024-11,Unknown,0
+county,Lamoille,2024-11,Female,231
+county,Lamoille,2024-11,Male,253
+county,Lamoille,2024-11,Non-binary,*
+county,Lamoille,2024-11,Prefer not to answer,*
+county,Lamoille,2024-11,Prefer to self-describe,0
+county,Lamoille,2024-11,Unknown,0
+county,Orange,2024-11,Female,*
+county,Orange,2024-11,Male,193
+county,Orange,2024-11,Non-binary,0
+county,Orange,2024-11,Prefer not to answer,*
+county,Orange,2024-11,Prefer to self-describe,0
+county,Orange,2024-11,Unknown,0
+county,Orleans,2024-11,Female,220
+county,Orleans,2024-11,Male,271
+county,Orleans,2024-11,Non-binary,0
+county,Orleans,2024-11,Prefer not to answer,0
+county,Orleans,2024-11,Prefer to self-describe,0
+county,Orleans,2024-11,Unknown,0
+county,Rutland,2024-11,Female,580
+county,Rutland,2024-11,Male,*
+county,Rutland,2024-11,Non-binary,0
+county,Rutland,2024-11,Prefer not to answer,*
+county,Rutland,2024-11,Prefer to self-describe,0
+county,Rutland,2024-11,Unknown,0
+county,Washington,2024-11,Female,266
+county,Washington,2024-11,Male,331
+county,Washington,2024-11,Non-binary,0
+county,Washington,2024-11,Prefer not to answer,*
+county,Washington,2024-11,Prefer to self-describe,*
+county,Washington,2024-11,Unknown,0
+county,Windham,2024-11,Female,320
+county,Windham,2024-11,Male,347
+county,Windham,2024-11,Non-binary,0
+county,Windham,2024-11,Prefer not to answer,*
+county,Windham,2024-11,Prefer to self-describe,*
+county,Windham,2024-11,Unknown,0
+county,Windsor,2024-11,Female,407
+county,Windsor,2024-11,Male,*
+county,Windsor,2024-11,Non-binary,*
+county,Windsor,2024-11,Prefer not to answer,0
+county,Windsor,2024-11,Prefer to self-describe,0
+county,Windsor,2024-11,Unknown,0
+county,Addison,2024-10,Female,*
+county,Addison,2024-10,Male,356
+county,Addison,2024-10,Non-binary,0
+county,Addison,2024-10,Prefer not to answer,*
+county,Addison,2024-10,Prefer to self-describe,0
+county,Addison,2024-10,Unknown,0
+county,Bennington,2024-10,Female,386
+county,Bennington,2024-10,Male,*
+county,Bennington,2024-10,Non-binary,0
+county,Bennington,2024-10,Prefer not to answer,*
+county,Bennington,2024-10,Prefer to self-describe,0
+county,Bennington,2024-10,Unknown,0
+county,Caledonia,2024-10,Female,*
+county,Caledonia,2024-10,Male,433
+county,Caledonia,2024-10,Non-binary,0
+county,Caledonia,2024-10,Prefer not to answer,*
+county,Caledonia,2024-10,Prefer to self-describe,0
+county,Caledonia,2024-10,Unknown,0
+county,Chittenden,2024-10,Female,1136
+county,Chittenden,2024-10,Male,1106
+county,Chittenden,2024-10,Non-binary,*
+county,Chittenden,2024-10,Prefer not to answer,*
+county,Chittenden,2024-10,Prefer to self-describe,*
+county,Chittenden,2024-10,Unknown,*
+county,Essex,2024-10,Female,71
+county,Essex,2024-10,Male,71
+county,Essex,2024-10,Non-binary,0
+county,Essex,2024-10,Prefer not to answer,0
+county,Essex,2024-10,Prefer to self-describe,0
+county,Essex,2024-10,Unknown,0
+county,Franklin,2024-10,Female,*
+county,Franklin,2024-10,Male,432
+county,Franklin,2024-10,Non-binary,0
+county,Franklin,2024-10,Prefer not to answer,*
+county,Franklin,2024-10,Prefer to self-describe,0
+county,Franklin,2024-10,Unknown,0
+county,Grand Isle,2024-10,Female,43
+county,Grand Isle,2024-10,Male,41
+county,Grand Isle,2024-10,Non-binary,0
+county,Grand Isle,2024-10,Prefer not to answer,0
+county,Grand Isle,2024-10,Prefer to self-describe,0
+county,Grand Isle,2024-10,Unknown,0
+county,Lamoille,2024-10,Female,278
+county,Lamoille,2024-10,Male,291
+county,Lamoille,2024-10,Non-binary,0
+county,Lamoille,2024-10,Prefer not to answer,*
+county,Lamoille,2024-10,Prefer to self-describe,*
+county,Lamoille,2024-10,Unknown,0
+county,Orange,2024-10,Female,*
+county,Orange,2024-10,Male,181
+county,Orange,2024-10,Non-binary,0
+county,Orange,2024-10,Prefer not to answer,*
+county,Orange,2024-10,Prefer to self-describe,0
+county,Orange,2024-10,Unknown,0
+county,Orleans,2024-10,Female,216
+county,Orleans,2024-10,Male,*
+county,Orleans,2024-10,Non-binary,0
+county,Orleans,2024-10,Prefer not to answer,*
+county,Orleans,2024-10,Prefer to self-describe,0
+county,Orleans,2024-10,Unknown,0
+county,Rutland,2024-10,Female,516
+county,Rutland,2024-10,Male,543
+county,Rutland,2024-10,Non-binary,*
+county,Rutland,2024-10,Prefer not to answer,*
+county,Rutland,2024-10,Prefer to self-describe,0
+county,Rutland,2024-10,Unknown,0
+county,Washington,2024-10,Female,*
+county,Washington,2024-10,Male,248
+county,Washington,2024-10,Non-binary,0
+county,Washington,2024-10,Prefer not to answer,*
+county,Washington,2024-10,Prefer to self-describe,0
+county,Washington,2024-10,Unknown,0
+county,Windham,2024-10,Female,276
+county,Windham,2024-10,Male,313
+county,Windham,2024-10,Non-binary,0
+county,Windham,2024-10,Prefer not to answer,0
+county,Windham,2024-10,Prefer to self-describe,0
+county,Windham,2024-10,Unknown,0
+county,Windsor,2024-10,Female,356
+county,Windsor,2024-10,Male,356
+county,Windsor,2024-10,Non-binary,0
+county,Windsor,2024-10,Prefer not to answer,*
+county,Windsor,2024-10,Prefer to self-describe,*
+county,Windsor,2024-10,Unknown,0
+state,Vermont,2024-12,Female,5003
+state,Vermont,2024-12,Male,5105
+state,Vermont,2024-12,Non-binary,*
+state,Vermont,2024-12,Prefer not to answer,39
+state,Vermont,2024-12,Prefer to self-describe,*
+state,Vermont,2024-12,Unknown,*
+state,Vermont,2024-11,Female,4997
+state,Vermont,2024-11,Male,5072
+state,Vermont,2024-11,Non-binary,*
+state,Vermont,2024-11,Prefer not to answer,35
+state,Vermont,2024-11,Prefer to self-describe,*
+state,Vermont,2024-11,Unknown,*
+state,Vermont,2024-10,Female,4839
+state,Vermont,2024-10,Male,4961
+state,Vermont,2024-10,Non-binary,*
+state,Vermont,2024-10,Prefer not to answer,28
+state,Vermont,2024-10,Prefer to self-describe,*
+state,Vermont,2024-10,Unknown,*

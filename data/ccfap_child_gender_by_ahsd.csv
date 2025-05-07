@@ -1,0 +1,2341 @@
+geo type,geography,year,category,value
+AHSD,Barre District,2023-06,Female,*
+AHSD,Barre District,2023-06,Male,273
+AHSD,Barre District,2023-06,Non-binary,0
+AHSD,Barre District,2023-06,Prefer not to answer,*
+AHSD,Barre District,2023-06,Prefer to self-describe,0
+AHSD,Barre District,2023-06,Unknown,0
+AHSD,Bennington District,2023-06,Female,330
+AHSD,Bennington District,2023-06,Male,330
+AHSD,Bennington District,2023-06,Non-binary,0
+AHSD,Bennington District,2023-06,Prefer not to answer,0
+AHSD,Bennington District,2023-06,Prefer to self-describe,0
+AHSD,Bennington District,2023-06,Unknown,0
+AHSD,Brattleboro District,2023-06,Female,193
+AHSD,Brattleboro District,2023-06,Male,202
+AHSD,Brattleboro District,2023-06,Non-binary,0
+AHSD,Brattleboro District,2023-06,Prefer not to answer,*
+AHSD,Brattleboro District,2023-06,Prefer to self-describe,*
+AHSD,Brattleboro District,2023-06,Unknown,0
+AHSD,Burlington District,2023-06,Female,872
+AHSD,Burlington District,2023-06,Male,*
+AHSD,Burlington District,2023-06,Non-binary,0
+AHSD,Burlington District,2023-06,Prefer not to answer,*
+AHSD,Burlington District,2023-06,Prefer to self-describe,0
+AHSD,Burlington District,2023-06,Unknown,0
+AHSD,Hartford District,2023-06,Female,*
+AHSD,Hartford District,2023-06,Male,168
+AHSD,Hartford District,2023-06,Non-binary,0
+AHSD,Hartford District,2023-06,Prefer not to answer,*
+AHSD,Hartford District,2023-06,Prefer to self-describe,0
+AHSD,Hartford District,2023-06,Unknown,0
+AHSD,Middlebury District,2023-06,Female,249
+AHSD,Middlebury District,2023-06,Male,251
+AHSD,Middlebury District,2023-06,Non-binary,*
+AHSD,Middlebury District,2023-06,Prefer not to answer,*
+AHSD,Middlebury District,2023-06,Prefer to self-describe,0
+AHSD,Middlebury District,2023-06,Unknown,0
+AHSD,Morrisville District,2023-06,Female,223
+AHSD,Morrisville District,2023-06,Male,211
+AHSD,Morrisville District,2023-06,Non-binary,0
+AHSD,Morrisville District,2023-06,Prefer not to answer,0
+AHSD,Morrisville District,2023-06,Prefer to self-describe,0
+AHSD,Morrisville District,2023-06,Unknown,0
+AHSD,Newport District,2023-06,Female,180
+AHSD,Newport District,2023-06,Male,224
+AHSD,Newport District,2023-06,Non-binary,0
+AHSD,Newport District,2023-06,Prefer not to answer,0
+AHSD,Newport District,2023-06,Prefer to self-describe,0
+AHSD,Newport District,2023-06,Unknown,0
+AHSD,Rutland District,2023-06,Female,457
+AHSD,Rutland District,2023-06,Male,*
+AHSD,Rutland District,2023-06,Non-binary,0
+AHSD,Rutland District,2023-06,Prefer not to answer,*
+AHSD,Rutland District,2023-06,Prefer to self-describe,0
+AHSD,Rutland District,2023-06,Unknown,0
+AHSD,Springfield District,2023-06,Female,250
+AHSD,Springfield District,2023-06,Male,243
+AHSD,Springfield District,2023-06,Non-binary,0
+AHSD,Springfield District,2023-06,Prefer not to answer,0
+AHSD,Springfield District,2023-06,Prefer to self-describe,0
+AHSD,Springfield District,2023-06,Unknown,0
+AHSD,St. Albans District,2023-06,Female,*
+AHSD,St. Albans District,2023-06,Male,345
+AHSD,St. Albans District,2023-06,Non-binary,0
+AHSD,St. Albans District,2023-06,Prefer not to answer,*
+AHSD,St. Albans District,2023-06,Prefer to self-describe,0
+AHSD,St. Albans District,2023-06,Unknown,0
+AHSD,St. Johnsbury District,2023-06,Female,387
+AHSD,St. Johnsbury District,2023-06,Male,*
+AHSD,St. Johnsbury District,2023-06,Non-binary,0
+AHSD,St. Johnsbury District,2023-06,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-06,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-06,Unknown,0
+AHSD,Barre District,2023-05,Female,*
+AHSD,Barre District,2023-05,Male,248
+AHSD,Barre District,2023-05,Non-binary,0
+AHSD,Barre District,2023-05,Prefer not to answer,*
+AHSD,Barre District,2023-05,Prefer to self-describe,0
+AHSD,Barre District,2023-05,Unknown,0
+AHSD,Bennington District,2023-05,Female,302
+AHSD,Bennington District,2023-05,Male,305
+AHSD,Bennington District,2023-05,Non-binary,0
+AHSD,Bennington District,2023-05,Prefer not to answer,0
+AHSD,Bennington District,2023-05,Prefer to self-describe,0
+AHSD,Bennington District,2023-05,Unknown,0
+AHSD,Brattleboro District,2023-05,Female,*
+AHSD,Brattleboro District,2023-05,Male,180
+AHSD,Brattleboro District,2023-05,Non-binary,0
+AHSD,Brattleboro District,2023-05,Prefer not to answer,*
+AHSD,Brattleboro District,2023-05,Prefer to self-describe,0
+AHSD,Brattleboro District,2023-05,Unknown,0
+AHSD,Burlington District,2023-05,Female,774
+AHSD,Burlington District,2023-05,Male,*
+AHSD,Burlington District,2023-05,Non-binary,0
+AHSD,Burlington District,2023-05,Prefer not to answer,*
+AHSD,Burlington District,2023-05,Prefer to self-describe,0
+AHSD,Burlington District,2023-05,Unknown,0
+AHSD,Hartford District,2023-05,Female,*
+AHSD,Hartford District,2023-05,Male,157
+AHSD,Hartford District,2023-05,Non-binary,0
+AHSD,Hartford District,2023-05,Prefer not to answer,*
+AHSD,Hartford District,2023-05,Prefer to self-describe,0
+AHSD,Hartford District,2023-05,Unknown,0
+AHSD,Middlebury District,2023-05,Female,216
+AHSD,Middlebury District,2023-05,Male,207
+AHSD,Middlebury District,2023-05,Non-binary,*
+AHSD,Middlebury District,2023-05,Prefer not to answer,*
+AHSD,Middlebury District,2023-05,Prefer to self-describe,0
+AHSD,Middlebury District,2023-05,Unknown,0
+AHSD,Morrisville District,2023-05,Female,210
+AHSD,Morrisville District,2023-05,Male,200
+AHSD,Morrisville District,2023-05,Non-binary,0
+AHSD,Morrisville District,2023-05,Prefer not to answer,0
+AHSD,Morrisville District,2023-05,Prefer to self-describe,0
+AHSD,Morrisville District,2023-05,Unknown,0
+AHSD,Newport District,2023-05,Female,187
+AHSD,Newport District,2023-05,Male,219
+AHSD,Newport District,2023-05,Non-binary,0
+AHSD,Newport District,2023-05,Prefer not to answer,0
+AHSD,Newport District,2023-05,Prefer to self-describe,0
+AHSD,Newport District,2023-05,Unknown,0
+AHSD,Rutland District,2023-05,Female,*
+AHSD,Rutland District,2023-05,Male,413
+AHSD,Rutland District,2023-05,Non-binary,0
+AHSD,Rutland District,2023-05,Prefer not to answer,*
+AHSD,Rutland District,2023-05,Prefer to self-describe,0
+AHSD,Rutland District,2023-05,Unknown,0
+AHSD,Springfield District,2023-05,Female,230
+AHSD,Springfield District,2023-05,Male,225
+AHSD,Springfield District,2023-05,Non-binary,0
+AHSD,Springfield District,2023-05,Prefer not to answer,0
+AHSD,Springfield District,2023-05,Prefer to self-describe,0
+AHSD,Springfield District,2023-05,Unknown,0
+AHSD,St. Albans District,2023-05,Female,*
+AHSD,St. Albans District,2023-05,Male,320
+AHSD,St. Albans District,2023-05,Non-binary,0
+AHSD,St. Albans District,2023-05,Prefer not to answer,*
+AHSD,St. Albans District,2023-05,Prefer to self-describe,0
+AHSD,St. Albans District,2023-05,Unknown,0
+AHSD,St. Johnsbury District,2023-05,Female,367
+AHSD,St. Johnsbury District,2023-05,Male,*
+AHSD,St. Johnsbury District,2023-05,Non-binary,0
+AHSD,St. Johnsbury District,2023-05,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-05,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-05,Unknown,0
+AHSD,Barre District,2023-04,Female,*
+AHSD,Barre District,2023-04,Male,242
+AHSD,Barre District,2023-04,Non-binary,0
+AHSD,Barre District,2023-04,Prefer not to answer,*
+AHSD,Barre District,2023-04,Prefer to self-describe,0
+AHSD,Barre District,2023-04,Unknown,0
+AHSD,Bennington District,2023-04,Female,301
+AHSD,Bennington District,2023-04,Male,311
+AHSD,Bennington District,2023-04,Non-binary,0
+AHSD,Bennington District,2023-04,Prefer not to answer,0
+AHSD,Bennington District,2023-04,Prefer to self-describe,0
+AHSD,Bennington District,2023-04,Unknown,0
+AHSD,Brattleboro District,2023-04,Female,175
+AHSD,Brattleboro District,2023-04,Male,191
+AHSD,Brattleboro District,2023-04,Non-binary,0
+AHSD,Brattleboro District,2023-04,Prefer not to answer,0
+AHSD,Brattleboro District,2023-04,Prefer to self-describe,0
+AHSD,Brattleboro District,2023-04,Unknown,0
+AHSD,Burlington District,2023-04,Female,788
+AHSD,Burlington District,2023-04,Male,*
+AHSD,Burlington District,2023-04,Non-binary,0
+AHSD,Burlington District,2023-04,Prefer not to answer,*
+AHSD,Burlington District,2023-04,Prefer to self-describe,0
+AHSD,Burlington District,2023-04,Unknown,0
+AHSD,Hartford District,2023-04,Female,*
+AHSD,Hartford District,2023-04,Male,163
+AHSD,Hartford District,2023-04,Non-binary,0
+AHSD,Hartford District,2023-04,Prefer not to answer,*
+AHSD,Hartford District,2023-04,Prefer to self-describe,0
+AHSD,Hartford District,2023-04,Unknown,0
+AHSD,Middlebury District,2023-04,Female,219
+AHSD,Middlebury District,2023-04,Male,212
+AHSD,Middlebury District,2023-04,Non-binary,*
+AHSD,Middlebury District,2023-04,Prefer not to answer,*
+AHSD,Middlebury District,2023-04,Prefer to self-describe,0
+AHSD,Middlebury District,2023-04,Unknown,0
+AHSD,Morrisville District,2023-04,Female,212
+AHSD,Morrisville District,2023-04,Male,199
+AHSD,Morrisville District,2023-04,Non-binary,0
+AHSD,Morrisville District,2023-04,Prefer not to answer,0
+AHSD,Morrisville District,2023-04,Prefer to self-describe,0
+AHSD,Morrisville District,2023-04,Unknown,0
+AHSD,Newport District,2023-04,Female,196
+AHSD,Newport District,2023-04,Male,224
+AHSD,Newport District,2023-04,Non-binary,0
+AHSD,Newport District,2023-04,Prefer not to answer,0
+AHSD,Newport District,2023-04,Prefer to self-describe,0
+AHSD,Newport District,2023-04,Unknown,0
+AHSD,Rutland District,2023-04,Female,*
+AHSD,Rutland District,2023-04,Male,418
+AHSD,Rutland District,2023-04,Non-binary,0
+AHSD,Rutland District,2023-04,Prefer not to answer,*
+AHSD,Rutland District,2023-04,Prefer to self-describe,0
+AHSD,Rutland District,2023-04,Unknown,0
+AHSD,Springfield District,2023-04,Female,236
+AHSD,Springfield District,2023-04,Male,229
+AHSD,Springfield District,2023-04,Non-binary,0
+AHSD,Springfield District,2023-04,Prefer not to answer,0
+AHSD,Springfield District,2023-04,Prefer to self-describe,0
+AHSD,Springfield District,2023-04,Unknown,0
+AHSD,St. Albans District,2023-04,Female,*
+AHSD,St. Albans District,2023-04,Male,316
+AHSD,St. Albans District,2023-04,Non-binary,0
+AHSD,St. Albans District,2023-04,Prefer not to answer,*
+AHSD,St. Albans District,2023-04,Prefer to self-describe,0
+AHSD,St. Albans District,2023-04,Unknown,0
+AHSD,St. Johnsbury District,2023-04,Female,363
+AHSD,St. Johnsbury District,2023-04,Male,*
+AHSD,St. Johnsbury District,2023-04,Non-binary,0
+AHSD,St. Johnsbury District,2023-04,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-04,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-04,Unknown,0
+AHSD,Barre District,2023-03,Female,*
+AHSD,Barre District,2023-03,Male,233
+AHSD,Barre District,2023-03,Non-binary,0
+AHSD,Barre District,2023-03,Prefer not to answer,*
+AHSD,Barre District,2023-03,Prefer to self-describe,0
+AHSD,Barre District,2023-03,Unknown,0
+AHSD,Bennington District,2023-03,Female,293
+AHSD,Bennington District,2023-03,Male,296
+AHSD,Bennington District,2023-03,Non-binary,0
+AHSD,Bennington District,2023-03,Prefer not to answer,0
+AHSD,Bennington District,2023-03,Prefer to self-describe,0
+AHSD,Bennington District,2023-03,Unknown,0
+AHSD,Brattleboro District,2023-03,Female,170
+AHSD,Brattleboro District,2023-03,Male,185
+AHSD,Brattleboro District,2023-03,Non-binary,0
+AHSD,Brattleboro District,2023-03,Prefer not to answer,0
+AHSD,Brattleboro District,2023-03,Prefer to self-describe,0
+AHSD,Brattleboro District,2023-03,Unknown,0
+AHSD,Burlington District,2023-03,Female,776
+AHSD,Burlington District,2023-03,Male,*
+AHSD,Burlington District,2023-03,Non-binary,0
+AHSD,Burlington District,2023-03,Prefer not to answer,*
+AHSD,Burlington District,2023-03,Prefer to self-describe,0
+AHSD,Burlington District,2023-03,Unknown,0
+AHSD,Hartford District,2023-03,Female,*
+AHSD,Hartford District,2023-03,Male,160
+AHSD,Hartford District,2023-03,Non-binary,0
+AHSD,Hartford District,2023-03,Prefer not to answer,*
+AHSD,Hartford District,2023-03,Prefer to self-describe,0
+AHSD,Hartford District,2023-03,Unknown,0
+AHSD,Middlebury District,2023-03,Female,206
+AHSD,Middlebury District,2023-03,Male,213
+AHSD,Middlebury District,2023-03,Non-binary,*
+AHSD,Middlebury District,2023-03,Prefer not to answer,*
+AHSD,Middlebury District,2023-03,Prefer to self-describe,0
+AHSD,Middlebury District,2023-03,Unknown,0
+AHSD,Morrisville District,2023-03,Female,202
+AHSD,Morrisville District,2023-03,Male,199
+AHSD,Morrisville District,2023-03,Non-binary,0
+AHSD,Morrisville District,2023-03,Prefer not to answer,0
+AHSD,Morrisville District,2023-03,Prefer to self-describe,0
+AHSD,Morrisville District,2023-03,Unknown,0
+AHSD,Newport District,2023-03,Female,195
+AHSD,Newport District,2023-03,Male,222
+AHSD,Newport District,2023-03,Non-binary,0
+AHSD,Newport District,2023-03,Prefer not to answer,0
+AHSD,Newport District,2023-03,Prefer to self-describe,0
+AHSD,Newport District,2023-03,Unknown,0
+AHSD,Rutland District,2023-03,Female,419
+AHSD,Rutland District,2023-03,Male,408
+AHSD,Rutland District,2023-03,Non-binary,0
+AHSD,Rutland District,2023-03,Prefer not to answer,0
+AHSD,Rutland District,2023-03,Prefer to self-describe,0
+AHSD,Rutland District,2023-03,Unknown,0
+AHSD,Springfield District,2023-03,Female,229
+AHSD,Springfield District,2023-03,Male,225
+AHSD,Springfield District,2023-03,Non-binary,0
+AHSD,Springfield District,2023-03,Prefer not to answer,0
+AHSD,Springfield District,2023-03,Prefer to self-describe,0
+AHSD,Springfield District,2023-03,Unknown,0
+AHSD,St. Albans District,2023-03,Female,*
+AHSD,St. Albans District,2023-03,Male,308
+AHSD,St. Albans District,2023-03,Non-binary,0
+AHSD,St. Albans District,2023-03,Prefer not to answer,*
+AHSD,St. Albans District,2023-03,Prefer to self-describe,0
+AHSD,St. Albans District,2023-03,Unknown,0
+AHSD,St. Johnsbury District,2023-03,Female,354
+AHSD,St. Johnsbury District,2023-03,Male,*
+AHSD,St. Johnsbury District,2023-03,Non-binary,0
+AHSD,St. Johnsbury District,2023-03,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-03,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-03,Unknown,0
+AHSD,Barre District,2023-02,Female,*
+AHSD,Barre District,2023-02,Male,229
+AHSD,Barre District,2023-02,Non-binary,0
+AHSD,Barre District,2023-02,Prefer not to answer,*
+AHSD,Barre District,2023-02,Prefer to self-describe,0
+AHSD,Barre District,2023-02,Unknown,0
+AHSD,Bennington District,2023-02,Female,295
+AHSD,Bennington District,2023-02,Male,298
+AHSD,Bennington District,2023-02,Non-binary,0
+AHSD,Bennington District,2023-02,Prefer not to answer,0
+AHSD,Bennington District,2023-02,Prefer to self-describe,0
+AHSD,Bennington District,2023-02,Unknown,0
+AHSD,Brattleboro District,2023-02,Female,166
+AHSD,Brattleboro District,2023-02,Male,178
+AHSD,Brattleboro District,2023-02,Non-binary,0
+AHSD,Brattleboro District,2023-02,Prefer not to answer,0
+AHSD,Brattleboro District,2023-02,Prefer to self-describe,0
+AHSD,Brattleboro District,2023-02,Unknown,0
+AHSD,Burlington District,2023-02,Female,764
+AHSD,Burlington District,2023-02,Male,*
+AHSD,Burlington District,2023-02,Non-binary,0
+AHSD,Burlington District,2023-02,Prefer not to answer,*
+AHSD,Burlington District,2023-02,Prefer to self-describe,0
+AHSD,Burlington District,2023-02,Unknown,0
+AHSD,Hartford District,2023-02,Female,*
+AHSD,Hartford District,2023-02,Male,158
+AHSD,Hartford District,2023-02,Non-binary,0
+AHSD,Hartford District,2023-02,Prefer not to answer,*
+AHSD,Hartford District,2023-02,Prefer to self-describe,0
+AHSD,Hartford District,2023-02,Unknown,0
+AHSD,Middlebury District,2023-02,Female,*
+AHSD,Middlebury District,2023-02,Male,211
+AHSD,Middlebury District,2023-02,Non-binary,0
+AHSD,Middlebury District,2023-02,Prefer not to answer,*
+AHSD,Middlebury District,2023-02,Prefer to self-describe,0
+AHSD,Middlebury District,2023-02,Unknown,0
+AHSD,Morrisville District,2023-02,Female,208
+AHSD,Morrisville District,2023-02,Male,196
+AHSD,Morrisville District,2023-02,Non-binary,0
+AHSD,Morrisville District,2023-02,Prefer not to answer,0
+AHSD,Morrisville District,2023-02,Prefer to self-describe,0
+AHSD,Morrisville District,2023-02,Unknown,0
+AHSD,Newport District,2023-02,Female,193
+AHSD,Newport District,2023-02,Male,218
+AHSD,Newport District,2023-02,Non-binary,0
+AHSD,Newport District,2023-02,Prefer not to answer,0
+AHSD,Newport District,2023-02,Prefer to self-describe,0
+AHSD,Newport District,2023-02,Unknown,0
+AHSD,Rutland District,2023-02,Female,436
+AHSD,Rutland District,2023-02,Male,415
+AHSD,Rutland District,2023-02,Non-binary,0
+AHSD,Rutland District,2023-02,Prefer not to answer,0
+AHSD,Rutland District,2023-02,Prefer to self-describe,0
+AHSD,Rutland District,2023-02,Unknown,0
+AHSD,Springfield District,2023-02,Female,230
+AHSD,Springfield District,2023-02,Male,225
+AHSD,Springfield District,2023-02,Non-binary,0
+AHSD,Springfield District,2023-02,Prefer not to answer,0
+AHSD,Springfield District,2023-02,Prefer to self-describe,0
+AHSD,Springfield District,2023-02,Unknown,0
+AHSD,St. Albans District,2023-02,Female,*
+AHSD,St. Albans District,2023-02,Male,306
+AHSD,St. Albans District,2023-02,Non-binary,0
+AHSD,St. Albans District,2023-02,Prefer not to answer,*
+AHSD,St. Albans District,2023-02,Prefer to self-describe,0
+AHSD,St. Albans District,2023-02,Unknown,0
+AHSD,St. Johnsbury District,2023-02,Female,350
+AHSD,St. Johnsbury District,2023-02,Male,*
+AHSD,St. Johnsbury District,2023-02,Non-binary,0
+AHSD,St. Johnsbury District,2023-02,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-02,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-02,Unknown,0
+AHSD,Barre District,2023-01,Female,*
+AHSD,Barre District,2023-01,Male,222
+AHSD,Barre District,2023-01,Non-binary,0
+AHSD,Barre District,2023-01,Prefer not to answer,*
+AHSD,Barre District,2023-01,Prefer to self-describe,0
+AHSD,Barre District,2023-01,Unknown,0
+AHSD,Bennington District,2023-01,Female,288
+AHSD,Bennington District,2023-01,Male,280
+AHSD,Bennington District,2023-01,Non-binary,0
+AHSD,Bennington District,2023-01,Prefer not to answer,0
+AHSD,Bennington District,2023-01,Prefer to self-describe,0
+AHSD,Bennington District,2023-01,Unknown,0
+AHSD,Brattleboro District,2023-01,Female,159
+AHSD,Brattleboro District,2023-01,Male,180
+AHSD,Brattleboro District,2023-01,Non-binary,0
+AHSD,Brattleboro District,2023-01,Prefer not to answer,0
+AHSD,Brattleboro District,2023-01,Prefer to self-describe,0
+AHSD,Brattleboro District,2023-01,Unknown,0
+AHSD,Burlington District,2023-01,Female,744
+AHSD,Burlington District,2023-01,Male,*
+AHSD,Burlington District,2023-01,Non-binary,0
+AHSD,Burlington District,2023-01,Prefer not to answer,*
+AHSD,Burlington District,2023-01,Prefer to self-describe,0
+AHSD,Burlington District,2023-01,Unknown,0
+AHSD,Hartford District,2023-01,Female,*
+AHSD,Hartford District,2023-01,Male,147
+AHSD,Hartford District,2023-01,Non-binary,0
+AHSD,Hartford District,2023-01,Prefer not to answer,*
+AHSD,Hartford District,2023-01,Prefer to self-describe,0
+AHSD,Hartford District,2023-01,Unknown,0
+AHSD,Middlebury District,2023-01,Female,*
+AHSD,Middlebury District,2023-01,Male,198
+AHSD,Middlebury District,2023-01,Non-binary,0
+AHSD,Middlebury District,2023-01,Prefer not to answer,*
+AHSD,Middlebury District,2023-01,Prefer to self-describe,0
+AHSD,Middlebury District,2023-01,Unknown,0
+AHSD,Morrisville District,2023-01,Female,195
+AHSD,Morrisville District,2023-01,Male,192
+AHSD,Morrisville District,2023-01,Non-binary,0
+AHSD,Morrisville District,2023-01,Prefer not to answer,0
+AHSD,Morrisville District,2023-01,Prefer to self-describe,0
+AHSD,Morrisville District,2023-01,Unknown,0
+AHSD,Newport District,2023-01,Female,197
+AHSD,Newport District,2023-01,Male,216
+AHSD,Newport District,2023-01,Non-binary,0
+AHSD,Newport District,2023-01,Prefer not to answer,0
+AHSD,Newport District,2023-01,Prefer to self-describe,0
+AHSD,Newport District,2023-01,Unknown,0
+AHSD,Rutland District,2023-01,Female,439
+AHSD,Rutland District,2023-01,Male,416
+AHSD,Rutland District,2023-01,Non-binary,0
+AHSD,Rutland District,2023-01,Prefer not to answer,0
+AHSD,Rutland District,2023-01,Prefer to self-describe,0
+AHSD,Rutland District,2023-01,Unknown,0
+AHSD,Springfield District,2023-01,Female,227
+AHSD,Springfield District,2023-01,Male,215
+AHSD,Springfield District,2023-01,Non-binary,0
+AHSD,Springfield District,2023-01,Prefer not to answer,0
+AHSD,Springfield District,2023-01,Prefer to self-describe,0
+AHSD,Springfield District,2023-01,Unknown,0
+AHSD,St. Albans District,2023-01,Female,*
+AHSD,St. Albans District,2023-01,Male,305
+AHSD,St. Albans District,2023-01,Non-binary,0
+AHSD,St. Albans District,2023-01,Prefer not to answer,*
+AHSD,St. Albans District,2023-01,Prefer to self-describe,0
+AHSD,St. Albans District,2023-01,Unknown,0
+AHSD,St. Johnsbury District,2023-01,Female,350
+AHSD,St. Johnsbury District,2023-01,Male,*
+AHSD,St. Johnsbury District,2023-01,Non-binary,0
+AHSD,St. Johnsbury District,2023-01,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-01,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-01,Unknown,0
+AHSD,Barre District,2022-12,Female,*
+AHSD,Barre District,2022-12,Male,214
+AHSD,Barre District,2022-12,Non-binary,0
+AHSD,Barre District,2022-12,Prefer not to answer,*
+AHSD,Barre District,2022-12,Prefer to self-describe,0
+AHSD,Barre District,2022-12,Unknown,0
+AHSD,Bennington District,2022-12,Female,287
+AHSD,Bennington District,2022-12,Male,280
+AHSD,Bennington District,2022-12,Non-binary,0
+AHSD,Bennington District,2022-12,Prefer not to answer,0
+AHSD,Bennington District,2022-12,Prefer to self-describe,0
+AHSD,Bennington District,2022-12,Unknown,0
+AHSD,Brattleboro District,2022-12,Female,151
+AHSD,Brattleboro District,2022-12,Male,182
+AHSD,Brattleboro District,2022-12,Non-binary,0
+AHSD,Brattleboro District,2022-12,Prefer not to answer,0
+AHSD,Brattleboro District,2022-12,Prefer to self-describe,0
+AHSD,Brattleboro District,2022-12,Unknown,0
+AHSD,Burlington District,2022-12,Female,734
+AHSD,Burlington District,2022-12,Male,*
+AHSD,Burlington District,2022-12,Non-binary,0
+AHSD,Burlington District,2022-12,Prefer not to answer,*
+AHSD,Burlington District,2022-12,Prefer to self-describe,0
+AHSD,Burlington District,2022-12,Unknown,0
+AHSD,Hartford District,2022-12,Female,*
+AHSD,Hartford District,2022-12,Male,145
+AHSD,Hartford District,2022-12,Non-binary,0
+AHSD,Hartford District,2022-12,Prefer not to answer,0
+AHSD,Hartford District,2022-12,Prefer to self-describe,0
+AHSD,Hartford District,2022-12,Unknown,0
+AHSD,Middlebury District,2022-12,Female,195
+AHSD,Middlebury District,2022-12,Male,*
+AHSD,Middlebury District,2022-12,Non-binary,0
+AHSD,Middlebury District,2022-12,Prefer not to answer,*
+AHSD,Middlebury District,2022-12,Prefer to self-describe,0
+AHSD,Middlebury District,2022-12,Unknown,0
+AHSD,Morrisville District,2022-12,Female,192
+AHSD,Morrisville District,2022-12,Male,193
+AHSD,Morrisville District,2022-12,Non-binary,0
+AHSD,Morrisville District,2022-12,Prefer not to answer,0
+AHSD,Morrisville District,2022-12,Prefer to self-describe,0
+AHSD,Morrisville District,2022-12,Unknown,0
+AHSD,Newport District,2022-12,Female,191
+AHSD,Newport District,2022-12,Male,209
+AHSD,Newport District,2022-12,Non-binary,0
+AHSD,Newport District,2022-12,Prefer not to answer,0
+AHSD,Newport District,2022-12,Prefer to self-describe,0
+AHSD,Newport District,2022-12,Unknown,0
+AHSD,Rutland District,2022-12,Female,441
+AHSD,Rutland District,2022-12,Male,410
+AHSD,Rutland District,2022-12,Non-binary,0
+AHSD,Rutland District,2022-12,Prefer not to answer,0
+AHSD,Rutland District,2022-12,Prefer to self-describe,0
+AHSD,Rutland District,2022-12,Unknown,0
+AHSD,Springfield District,2022-12,Female,216
+AHSD,Springfield District,2022-12,Male,216
+AHSD,Springfield District,2022-12,Non-binary,0
+AHSD,Springfield District,2022-12,Prefer not to answer,0
+AHSD,Springfield District,2022-12,Prefer to self-describe,0
+AHSD,Springfield District,2022-12,Unknown,0
+AHSD,St. Albans District,2022-12,Female,314
+AHSD,St. Albans District,2022-12,Male,*
+AHSD,St. Albans District,2022-12,Non-binary,0
+AHSD,St. Albans District,2022-12,Prefer not to answer,*
+AHSD,St. Albans District,2022-12,Prefer to self-describe,0
+AHSD,St. Albans District,2022-12,Unknown,0
+AHSD,St. Johnsbury District,2022-12,Female,341
+AHSD,St. Johnsbury District,2022-12,Male,326
+AHSD,St. Johnsbury District,2022-12,Non-binary,0
+AHSD,St. Johnsbury District,2022-12,Prefer not to answer,0
+AHSD,St. Johnsbury District,2022-12,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2022-12,Unknown,0
+AHSD,Barre District,2022-11,Female,*
+AHSD,Barre District,2022-11,Male,215
+AHSD,Barre District,2022-11,Non-binary,0
+AHSD,Barre District,2022-11,Prefer not to answer,*
+AHSD,Barre District,2022-11,Prefer to self-describe,0
+AHSD,Barre District,2022-11,Unknown,0
+AHSD,Bennington District,2022-11,Female,289
+AHSD,Bennington District,2022-11,Male,278
+AHSD,Bennington District,2022-11,Non-binary,0
+AHSD,Bennington District,2022-11,Prefer not to answer,0
+AHSD,Bennington District,2022-11,Prefer to self-describe,0
+AHSD,Bennington District,2022-11,Unknown,0
+AHSD,Brattleboro District,2022-11,Female,148
+AHSD,Brattleboro District,2022-11,Male,181
+AHSD,Brattleboro District,2022-11,Non-binary,0
+AHSD,Brattleboro District,2022-11,Prefer not to answer,0
+AHSD,Brattleboro District,2022-11,Prefer to self-describe,0
+AHSD,Brattleboro District,2022-11,Unknown,0
+AHSD,Burlington District,2022-11,Female,730
+AHSD,Burlington District,2022-11,Male,*
+AHSD,Burlington District,2022-11,Non-binary,0
+AHSD,Burlington District,2022-11,Prefer not to answer,*
+AHSD,Burlington District,2022-11,Prefer to self-describe,0
+AHSD,Burlington District,2022-11,Unknown,0
+AHSD,Hartford District,2022-11,Female,135
+AHSD,Hartford District,2022-11,Male,150
+AHSD,Hartford District,2022-11,Non-binary,0
+AHSD,Hartford District,2022-11,Prefer not to answer,0
+AHSD,Hartford District,2022-11,Prefer to self-describe,0
+AHSD,Hartford District,2022-11,Unknown,0
+AHSD,Middlebury District,2022-11,Female,195
+AHSD,Middlebury District,2022-11,Male,198
+AHSD,Middlebury District,2022-11,Non-binary,0
+AHSD,Middlebury District,2022-11,Prefer not to answer,0
+AHSD,Middlebury District,2022-11,Prefer to self-describe,0
+AHSD,Middlebury District,2022-11,Unknown,0
+AHSD,Morrisville District,2022-11,Female,196
+AHSD,Morrisville District,2022-11,Male,191
+AHSD,Morrisville District,2022-11,Non-binary,0
+AHSD,Morrisville District,2022-11,Prefer not to answer,0
+AHSD,Morrisville District,2022-11,Prefer to self-describe,0
+AHSD,Morrisville District,2022-11,Unknown,0
+AHSD,Newport District,2022-11,Female,187
+AHSD,Newport District,2022-11,Male,206
+AHSD,Newport District,2022-11,Non-binary,0
+AHSD,Newport District,2022-11,Prefer not to answer,0
+AHSD,Newport District,2022-11,Prefer to self-describe,0
+AHSD,Newport District,2022-11,Unknown,0
+AHSD,Rutland District,2022-11,Female,440
+AHSD,Rutland District,2022-11,Male,418
+AHSD,Rutland District,2022-11,Non-binary,0
+AHSD,Rutland District,2022-11,Prefer not to answer,0
+AHSD,Rutland District,2022-11,Prefer to self-describe,0
+AHSD,Rutland District,2022-11,Unknown,0
+AHSD,Springfield District,2022-11,Female,224
+AHSD,Springfield District,2022-11,Male,215
+AHSD,Springfield District,2022-11,Non-binary,0
+AHSD,Springfield District,2022-11,Prefer not to answer,0
+AHSD,Springfield District,2022-11,Prefer to self-describe,0
+AHSD,Springfield District,2022-11,Unknown,0
+AHSD,St. Albans District,2022-11,Female,*
+AHSD,St. Albans District,2022-11,Male,323
+AHSD,St. Albans District,2022-11,Non-binary,0
+AHSD,St. Albans District,2022-11,Prefer not to answer,*
+AHSD,St. Albans District,2022-11,Prefer to self-describe,0
+AHSD,St. Albans District,2022-11,Unknown,0
+AHSD,St. Johnsbury District,2022-11,Female,337
+AHSD,St. Johnsbury District,2022-11,Male,313
+AHSD,St. Johnsbury District,2022-11,Non-binary,0
+AHSD,St. Johnsbury District,2022-11,Prefer not to answer,0
+AHSD,St. Johnsbury District,2022-11,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2022-11,Unknown,0
+AHSD,Barre District,2022-10,Female,*
+AHSD,Barre District,2022-10,Male,210
+AHSD,Barre District,2022-10,Non-binary,0
+AHSD,Barre District,2022-10,Prefer not to answer,*
+AHSD,Barre District,2022-10,Prefer to self-describe,0
+AHSD,Barre District,2022-10,Unknown,0
+AHSD,Bennington District,2022-10,Female,284
+AHSD,Bennington District,2022-10,Male,274
+AHSD,Bennington District,2022-10,Non-binary,0
+AHSD,Bennington District,2022-10,Prefer not to answer,0
+AHSD,Bennington District,2022-10,Prefer to self-describe,0
+AHSD,Bennington District,2022-10,Unknown,0
+AHSD,Brattleboro District,2022-10,Female,153
+AHSD,Brattleboro District,2022-10,Male,183
+AHSD,Brattleboro District,2022-10,Non-binary,0
+AHSD,Brattleboro District,2022-10,Prefer not to answer,0
+AHSD,Brattleboro District,2022-10,Prefer to self-describe,0
+AHSD,Brattleboro District,2022-10,Unknown,0
+AHSD,Burlington District,2022-10,Female,715
+AHSD,Burlington District,2022-10,Male,*
+AHSD,Burlington District,2022-10,Non-binary,0
+AHSD,Burlington District,2022-10,Prefer not to answer,*
+AHSD,Burlington District,2022-10,Prefer to self-describe,0
+AHSD,Burlington District,2022-10,Unknown,0
+AHSD,Hartford District,2022-10,Female,*
+AHSD,Hartford District,2022-10,Male,144
+AHSD,Hartford District,2022-10,Non-binary,0
+AHSD,Hartford District,2022-10,Prefer not to answer,0
+AHSD,Hartford District,2022-10,Prefer to self-describe,0
+AHSD,Hartford District,2022-10,Unknown,0
+AHSD,Middlebury District,2022-10,Female,191
+AHSD,Middlebury District,2022-10,Male,193
+AHSD,Middlebury District,2022-10,Non-binary,0
+AHSD,Middlebury District,2022-10,Prefer not to answer,0
+AHSD,Middlebury District,2022-10,Prefer to self-describe,0
+AHSD,Middlebury District,2022-10,Unknown,0
+AHSD,Morrisville District,2022-10,Female,196
+AHSD,Morrisville District,2022-10,Male,192
+AHSD,Morrisville District,2022-10,Non-binary,0
+AHSD,Morrisville District,2022-10,Prefer not to answer,0
+AHSD,Morrisville District,2022-10,Prefer to self-describe,0
+AHSD,Morrisville District,2022-10,Unknown,0
+AHSD,Newport District,2022-10,Female,187
+AHSD,Newport District,2022-10,Male,209
+AHSD,Newport District,2022-10,Non-binary,0
+AHSD,Newport District,2022-10,Prefer not to answer,0
+AHSD,Newport District,2022-10,Prefer to self-describe,0
+AHSD,Newport District,2022-10,Unknown,0
+AHSD,Rutland District,2022-10,Female,422
+AHSD,Rutland District,2022-10,Male,411
+AHSD,Rutland District,2022-10,Non-binary,0
+AHSD,Rutland District,2022-10,Prefer not to answer,0
+AHSD,Rutland District,2022-10,Prefer to self-describe,0
+AHSD,Rutland District,2022-10,Unknown,0
+AHSD,Springfield District,2022-10,Female,226
+AHSD,Springfield District,2022-10,Male,210
+AHSD,Springfield District,2022-10,Non-binary,0
+AHSD,Springfield District,2022-10,Prefer not to answer,0
+AHSD,Springfield District,2022-10,Prefer to self-describe,0
+AHSD,Springfield District,2022-10,Unknown,0
+AHSD,St. Albans District,2022-10,Female,324
+AHSD,St. Albans District,2022-10,Male,*
+AHSD,St. Albans District,2022-10,Non-binary,0
+AHSD,St. Albans District,2022-10,Prefer not to answer,*
+AHSD,St. Albans District,2022-10,Prefer to self-describe,0
+AHSD,St. Albans District,2022-10,Unknown,0
+AHSD,St. Johnsbury District,2022-10,Female,332
+AHSD,St. Johnsbury District,2022-10,Male,308
+AHSD,St. Johnsbury District,2022-10,Non-binary,0
+AHSD,St. Johnsbury District,2022-10,Prefer not to answer,0
+AHSD,St. Johnsbury District,2022-10,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2022-10,Unknown,0
+AHSD,Barre District,2022-09,Female,*
+AHSD,Barre District,2022-09,Male,205
+AHSD,Barre District,2022-09,Non-binary,0
+AHSD,Barre District,2022-09,Prefer not to answer,*
+AHSD,Barre District,2022-09,Prefer to self-describe,0
+AHSD,Barre District,2022-09,Unknown,0
+AHSD,Bennington District,2022-09,Female,290
+AHSD,Bennington District,2022-09,Male,288
+AHSD,Bennington District,2022-09,Non-binary,0
+AHSD,Bennington District,2022-09,Prefer not to answer,0
+AHSD,Bennington District,2022-09,Prefer to self-describe,0
+AHSD,Bennington District,2022-09,Unknown,0
+AHSD,Brattleboro District,2022-09,Female,164
+AHSD,Brattleboro District,2022-09,Male,191
+AHSD,Brattleboro District,2022-09,Non-binary,0
+AHSD,Brattleboro District,2022-09,Prefer not to answer,0
+AHSD,Brattleboro District,2022-09,Prefer to self-describe,0
+AHSD,Brattleboro District,2022-09,Unknown,0
+AHSD,Burlington District,2022-09,Female,735
+AHSD,Burlington District,2022-09,Male,659
+AHSD,Burlington District,2022-09,Non-binary,0
+AHSD,Burlington District,2022-09,Prefer not to answer,0
+AHSD,Burlington District,2022-09,Prefer to self-describe,0
+AHSD,Burlington District,2022-09,Unknown,0
+AHSD,Hartford District,2022-09,Female,*
+AHSD,Hartford District,2022-09,Male,149
+AHSD,Hartford District,2022-09,Non-binary,0
+AHSD,Hartford District,2022-09,Prefer not to answer,0
+AHSD,Hartford District,2022-09,Prefer to self-describe,0
+AHSD,Hartford District,2022-09,Unknown,0
+AHSD,Middlebury District,2022-09,Female,193
+AHSD,Middlebury District,2022-09,Male,189
+AHSD,Middlebury District,2022-09,Non-binary,0
+AHSD,Middlebury District,2022-09,Prefer not to answer,0
+AHSD,Middlebury District,2022-09,Prefer to self-describe,0
+AHSD,Middlebury District,2022-09,Unknown,0
+AHSD,Morrisville District,2022-09,Female,183
+AHSD,Morrisville District,2022-09,Male,181
+AHSD,Morrisville District,2022-09,Non-binary,0
+AHSD,Morrisville District,2022-09,Prefer not to answer,0
+AHSD,Morrisville District,2022-09,Prefer to self-describe,0
+AHSD,Morrisville District,2022-09,Unknown,0
+AHSD,Newport District,2022-09,Female,189
+AHSD,Newport District,2022-09,Male,208
+AHSD,Newport District,2022-09,Non-binary,0
+AHSD,Newport District,2022-09,Prefer not to answer,0
+AHSD,Newport District,2022-09,Prefer to self-describe,0
+AHSD,Newport District,2022-09,Unknown,0
+AHSD,Rutland District,2022-09,Female,430
+AHSD,Rutland District,2022-09,Male,413
+AHSD,Rutland District,2022-09,Non-binary,0
+AHSD,Rutland District,2022-09,Prefer not to answer,0
+AHSD,Rutland District,2022-09,Prefer to self-describe,0
+AHSD,Rutland District,2022-09,Unknown,0
+AHSD,Springfield District,2022-09,Female,229
+AHSD,Springfield District,2022-09,Male,232
+AHSD,Springfield District,2022-09,Non-binary,0
+AHSD,Springfield District,2022-09,Prefer not to answer,0
+AHSD,Springfield District,2022-09,Prefer to self-describe,0
+AHSD,Springfield District,2022-09,Unknown,0
+AHSD,St. Albans District,2022-09,Female,332
+AHSD,St. Albans District,2022-09,Male,*
+AHSD,St. Albans District,2022-09,Non-binary,0
+AHSD,St. Albans District,2022-09,Prefer not to answer,*
+AHSD,St. Albans District,2022-09,Prefer to self-describe,0
+AHSD,St. Albans District,2022-09,Unknown,0
+AHSD,St. Johnsbury District,2022-09,Female,335
+AHSD,St. Johnsbury District,2022-09,Male,320
+AHSD,St. Johnsbury District,2022-09,Non-binary,0
+AHSD,St. Johnsbury District,2022-09,Prefer not to answer,0
+AHSD,St. Johnsbury District,2022-09,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2022-09,Unknown,0
+AHSD,Barre District,2022-08,Female,216
+AHSD,Barre District,2022-08,Male,244
+AHSD,Barre District,2022-08,Non-binary,*
+AHSD,Barre District,2022-08,Prefer not to answer,*
+AHSD,Barre District,2022-08,Prefer to self-describe,0
+AHSD,Barre District,2022-08,Unknown,0
+AHSD,Bennington District,2022-08,Female,312
+AHSD,Bennington District,2022-08,Male,324
+AHSD,Bennington District,2022-08,Non-binary,0
+AHSD,Bennington District,2022-08,Prefer not to answer,0
+AHSD,Bennington District,2022-08,Prefer to self-describe,0
+AHSD,Bennington District,2022-08,Unknown,0
+AHSD,Brattleboro District,2022-08,Female,170
+AHSD,Brattleboro District,2022-08,Male,202
+AHSD,Brattleboro District,2022-08,Non-binary,0
+AHSD,Brattleboro District,2022-08,Prefer not to answer,0
+AHSD,Brattleboro District,2022-08,Prefer to self-describe,0
+AHSD,Brattleboro District,2022-08,Unknown,0
+AHSD,Burlington District,2022-08,Female,785
+AHSD,Burlington District,2022-08,Male,*
+AHSD,Burlington District,2022-08,Non-binary,0
+AHSD,Burlington District,2022-08,Prefer not to answer,*
+AHSD,Burlington District,2022-08,Prefer to self-describe,0
+AHSD,Burlington District,2022-08,Unknown,0
+AHSD,Hartford District,2022-08,Female,155
+AHSD,Hartford District,2022-08,Male,*
+AHSD,Hartford District,2022-08,Non-binary,0
+AHSD,Hartford District,2022-08,Prefer not to answer,0
+AHSD,Hartford District,2022-08,Prefer to self-describe,0
+AHSD,Hartford District,2022-08,Unknown,0
+AHSD,Middlebury District,2022-08,Female,234
+AHSD,Middlebury District,2022-08,Male,242
+AHSD,Middlebury District,2022-08,Non-binary,0
+AHSD,Middlebury District,2022-08,Prefer not to answer,0
+AHSD,Middlebury District,2022-08,Prefer to self-describe,0
+AHSD,Middlebury District,2022-08,Unknown,0
+AHSD,Morrisville District,2022-08,Female,204
+AHSD,Morrisville District,2022-08,Male,192
+AHSD,Morrisville District,2022-08,Non-binary,0
+AHSD,Morrisville District,2022-08,Prefer not to answer,0
+AHSD,Morrisville District,2022-08,Prefer to self-describe,0
+AHSD,Morrisville District,2022-08,Unknown,0
+AHSD,Newport District,2022-08,Female,206
+AHSD,Newport District,2022-08,Male,210
+AHSD,Newport District,2022-08,Non-binary,0
+AHSD,Newport District,2022-08,Prefer not to answer,0
+AHSD,Newport District,2022-08,Prefer to self-describe,0
+AHSD,Newport District,2022-08,Unknown,0
+AHSD,Rutland District,2022-08,Female,466
+AHSD,Rutland District,2022-08,Male,463
+AHSD,Rutland District,2022-08,Non-binary,0
+AHSD,Rutland District,2022-08,Prefer not to answer,0
+AHSD,Rutland District,2022-08,Prefer to self-describe,0
+AHSD,Rutland District,2022-08,Unknown,0
+AHSD,Springfield District,2022-08,Female,243
+AHSD,Springfield District,2022-08,Male,241
+AHSD,Springfield District,2022-08,Non-binary,0
+AHSD,Springfield District,2022-08,Prefer not to answer,0
+AHSD,Springfield District,2022-08,Prefer to self-describe,0
+AHSD,Springfield District,2022-08,Unknown,0
+AHSD,St. Albans District,2022-08,Female,339
+AHSD,St. Albans District,2022-08,Male,331
+AHSD,St. Albans District,2022-08,Non-binary,0
+AHSD,St. Albans District,2022-08,Prefer not to answer,0
+AHSD,St. Albans District,2022-08,Prefer to self-describe,0
+AHSD,St. Albans District,2022-08,Unknown,0
+AHSD,St. Johnsbury District,2022-08,Female,355
+AHSD,St. Johnsbury District,2022-08,Male,327
+AHSD,St. Johnsbury District,2022-08,Non-binary,0
+AHSD,St. Johnsbury District,2022-08,Prefer not to answer,0
+AHSD,St. Johnsbury District,2022-08,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2022-08,Unknown,0
+AHSD,Barre District,2022-07,Female,*
+AHSD,Barre District,2022-07,Male,219
+AHSD,Barre District,2022-07,Non-binary,*
+AHSD,Barre District,2022-07,Prefer not to answer,0
+AHSD,Barre District,2022-07,Prefer to self-describe,0
+AHSD,Barre District,2022-07,Unknown,0
+AHSD,Bennington District,2022-07,Female,314
+AHSD,Bennington District,2022-07,Male,324
+AHSD,Bennington District,2022-07,Non-binary,0
+AHSD,Bennington District,2022-07,Prefer not to answer,0
+AHSD,Bennington District,2022-07,Prefer to self-describe,0
+AHSD,Bennington District,2022-07,Unknown,0
+AHSD,Brattleboro District,2022-07,Female,153
+AHSD,Brattleboro District,2022-07,Male,170
+AHSD,Brattleboro District,2022-07,Non-binary,0
+AHSD,Brattleboro District,2022-07,Prefer not to answer,0
+AHSD,Brattleboro District,2022-07,Prefer to self-describe,0
+AHSD,Brattleboro District,2022-07,Unknown,0
+AHSD,Burlington District,2022-07,Female,721
+AHSD,Burlington District,2022-07,Male,657
+AHSD,Burlington District,2022-07,Non-binary,0
+AHSD,Burlington District,2022-07,Prefer not to answer,0
+AHSD,Burlington District,2022-07,Prefer to self-describe,0
+AHSD,Burlington District,2022-07,Unknown,0
+AHSD,Hartford District,2022-07,Female,*
+AHSD,Hartford District,2022-07,Male,184
+AHSD,Hartford District,2022-07,Non-binary,0
+AHSD,Hartford District,2022-07,Prefer not to answer,0
+AHSD,Hartford District,2022-07,Prefer to self-describe,0
+AHSD,Hartford District,2022-07,Unknown,0
+AHSD,Middlebury District,2022-07,Female,210
+AHSD,Middlebury District,2022-07,Male,222
+AHSD,Middlebury District,2022-07,Non-binary,0
+AHSD,Middlebury District,2022-07,Prefer not to answer,0
+AHSD,Middlebury District,2022-07,Prefer to self-describe,0
+AHSD,Middlebury District,2022-07,Unknown,0
+AHSD,Morrisville District,2022-07,Female,178
+AHSD,Morrisville District,2022-07,Male,166
+AHSD,Morrisville District,2022-07,Non-binary,0
+AHSD,Morrisville District,2022-07,Prefer not to answer,0
+AHSD,Morrisville District,2022-07,Prefer to self-describe,0
+AHSD,Morrisville District,2022-07,Unknown,0
+AHSD,Newport District,2022-07,Female,192
+AHSD,Newport District,2022-07,Male,198
+AHSD,Newport District,2022-07,Non-binary,0
+AHSD,Newport District,2022-07,Prefer not to answer,0
+AHSD,Newport District,2022-07,Prefer to self-describe,0
+AHSD,Newport District,2022-07,Unknown,0
+AHSD,Rutland District,2022-07,Female,435
+AHSD,Rutland District,2022-07,Male,438
+AHSD,Rutland District,2022-07,Non-binary,0
+AHSD,Rutland District,2022-07,Prefer not to answer,0
+AHSD,Rutland District,2022-07,Prefer to self-describe,0
+AHSD,Rutland District,2022-07,Unknown,0
+AHSD,Springfield District,2022-07,Female,222
+AHSD,Springfield District,2022-07,Male,221
+AHSD,Springfield District,2022-07,Non-binary,0
+AHSD,Springfield District,2022-07,Prefer not to answer,0
+AHSD,Springfield District,2022-07,Prefer to self-describe,0
+AHSD,Springfield District,2022-07,Unknown,0
+AHSD,St. Albans District,2022-07,Female,328
+AHSD,St. Albans District,2022-07,Male,324
+AHSD,St. Albans District,2022-07,Non-binary,0
+AHSD,St. Albans District,2022-07,Prefer not to answer,0
+AHSD,St. Albans District,2022-07,Prefer to self-describe,0
+AHSD,St. Albans District,2022-07,Unknown,0
+AHSD,St. Johnsbury District,2022-07,Female,336
+AHSD,St. Johnsbury District,2022-07,Male,299
+AHSD,St. Johnsbury District,2022-07,Non-binary,0
+AHSD,St. Johnsbury District,2022-07,Prefer not to answer,0
+AHSD,St. Johnsbury District,2022-07,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2022-07,Unknown,0
+state,Vermont,2023-06,Female,3856
+state,Vermont,2023-06,Male,3857
+state,Vermont,2023-06,Non-binary,*
+state,Vermont,2023-06,Prefer not to answer,19
+state,Vermont,2023-06,Prefer to self-describe,*
+state,Vermont,2023-06,Unknown,0
+state,Vermont,2023-05,Female,3525
+state,Vermont,2023-05,Male,3518
+state,Vermont,2023-05,Non-binary,*
+state,Vermont,2023-05,Prefer not to answer,*
+state,Vermont,2023-05,Prefer to self-describe,0
+state,Vermont,2023-05,Unknown,0
+state,Vermont,2023-04,Female,3566
+state,Vermont,2023-04,Male,3568
+state,Vermont,2023-04,Non-binary,*
+state,Vermont,2023-04,Prefer not to answer,*
+state,Vermont,2023-04,Prefer to self-describe,0
+state,Vermont,2023-04,Unknown,0
+state,Vermont,2023-03,Female,3481
+state,Vermont,2023-03,Male,3477
+state,Vermont,2023-03,Non-binary,*
+state,Vermont,2023-03,Prefer not to answer,*
+state,Vermont,2023-03,Prefer to self-describe,0
+state,Vermont,2023-03,Unknown,0
+state,Vermont,2023-02,Female,3480
+state,Vermont,2023-02,Male,3443
+state,Vermont,2023-02,Non-binary,0
+state,Vermont,2023-02,Prefer not to answer,13
+state,Vermont,2023-02,Prefer to self-describe,0
+state,Vermont,2023-02,Unknown,0
+state,Vermont,2023-01,Female,3416
+state,Vermont,2023-01,Male,3377
+state,Vermont,2023-01,Non-binary,0
+state,Vermont,2023-01,Prefer not to answer,12
+state,Vermont,2023-01,Prefer to self-describe,0
+state,Vermont,2023-01,Unknown,0
+state,Vermont,2022-12,Female,3379
+state,Vermont,2022-12,Male,*
+state,Vermont,2022-12,Non-binary,0
+state,Vermont,2022-12,Prefer not to answer,*
+state,Vermont,2022-12,Prefer to self-describe,0
+state,Vermont,2022-12,Unknown,0
+state,Vermont,2022-11,Female,3377
+state,Vermont,2022-11,Male,*
+state,Vermont,2022-11,Non-binary,0
+state,Vermont,2022-11,Prefer not to answer,*
+state,Vermont,2022-11,Prefer to self-describe,0
+state,Vermont,2022-11,Unknown,0
+state,Vermont,2022-10,Female,3343
+state,Vermont,2022-10,Male,*
+state,Vermont,2022-10,Non-binary,0
+state,Vermont,2022-10,Prefer not to answer,*
+state,Vermont,2022-10,Prefer to self-describe,0
+state,Vermont,2022-10,Unknown,0
+state,Vermont,2022-09,Female,3388
+state,Vermont,2022-09,Male,*
+state,Vermont,2022-09,Non-binary,0
+state,Vermont,2022-09,Prefer not to answer,*
+state,Vermont,2022-09,Prefer to self-describe,0
+state,Vermont,2022-09,Unknown,0
+state,Vermont,2022-08,Female,3685
+state,Vermont,2022-08,Male,3680
+state,Vermont,2022-08,Non-binary,*
+state,Vermont,2022-08,Prefer not to answer,*
+state,Vermont,2022-08,Prefer to self-describe,0
+state,Vermont,2022-08,Unknown,0
+state,Vermont,2022-07,Female,3447
+state,Vermont,2022-07,Male,*
+state,Vermont,2022-07,Non-binary,*
+state,Vermont,2022-07,Prefer not to answer,0
+state,Vermont,2022-07,Prefer to self-describe,0
+state,Vermont,2022-07,Unknown,0
+AHSD,Barre District,2024-06,Female,285
+AHSD,Barre District,2024-06,Male,333
+AHSD,Barre District,2024-06,Non-binary,0
+AHSD,Barre District,2024-06,Prefer not to answer,*
+AHSD,Barre District,2024-06,Prefer to self-describe,*
+AHSD,Barre District,2024-06,Unknown,0
+AHSD,Bennington District,2024-06,Female,*
+AHSD,Bennington District,2024-06,Male,400
+AHSD,Bennington District,2024-06,Non-binary,0
+AHSD,Bennington District,2024-06,Prefer not to answer,*
+AHSD,Bennington District,2024-06,Prefer to self-describe,0
+AHSD,Bennington District,2024-06,Unknown,0
+AHSD,Brattleboro District,2024-06,Female,248
+AHSD,Brattleboro District,2024-06,Male,266
+AHSD,Brattleboro District,2024-06,Non-binary,*
+AHSD,Brattleboro District,2024-06,Prefer not to answer,*
+AHSD,Brattleboro District,2024-06,Prefer to self-describe,*
+AHSD,Brattleboro District,2024-06,Unknown,0
+AHSD,Burlington District,2024-06,Female,1033
+AHSD,Burlington District,2024-06,Male,953
+AHSD,Burlington District,2024-06,Non-binary,*
+AHSD,Burlington District,2024-06,Prefer not to answer,*
+AHSD,Burlington District,2024-06,Prefer to self-describe,*
+AHSD,Burlington District,2024-06,Unknown,0
+AHSD,Hartford District,2024-06,Female,233
+AHSD,Hartford District,2024-06,Male,222
+AHSD,Hartford District,2024-06,Non-binary,*
+AHSD,Hartford District,2024-06,Prefer not to answer,*
+AHSD,Hartford District,2024-06,Prefer to self-describe,0
+AHSD,Hartford District,2024-06,Unknown,0
+AHSD,Middlebury District,2024-06,Female,322
+AHSD,Middlebury District,2024-06,Male,*
+AHSD,Middlebury District,2024-06,Non-binary,0
+AHSD,Middlebury District,2024-06,Prefer not to answer,*
+AHSD,Middlebury District,2024-06,Prefer to self-describe,0
+AHSD,Middlebury District,2024-06,Unknown,0
+AHSD,Morrisville District,2024-06,Female,*
+AHSD,Morrisville District,2024-06,Male,253
+AHSD,Morrisville District,2024-06,Non-binary,0
+AHSD,Morrisville District,2024-06,Prefer not to answer,*
+AHSD,Morrisville District,2024-06,Prefer to self-describe,0
+AHSD,Morrisville District,2024-06,Unknown,0
+AHSD,Newport District,2024-06,Female,*
+AHSD,Newport District,2024-06,Male,255
+AHSD,Newport District,2024-06,Non-binary,0
+AHSD,Newport District,2024-06,Prefer not to answer,*
+AHSD,Newport District,2024-06,Prefer to self-describe,0
+AHSD,Newport District,2024-06,Unknown,0
+AHSD,Rutland District,2024-06,Female,559
+AHSD,Rutland District,2024-06,Male,*
+AHSD,Rutland District,2024-06,Non-binary,0
+AHSD,Rutland District,2024-06,Prefer not to answer,*
+AHSD,Rutland District,2024-06,Prefer to self-describe,0
+AHSD,Rutland District,2024-06,Unknown,0
+AHSD,Springfield District,2024-06,Female,314
+AHSD,Springfield District,2024-06,Male,332
+AHSD,Springfield District,2024-06,Non-binary,0
+AHSD,Springfield District,2024-06,Prefer not to answer,0
+AHSD,Springfield District,2024-06,Prefer to self-describe,0
+AHSD,Springfield District,2024-06,Unknown,0
+AHSD,St. Albans District,2024-06,Female,389
+AHSD,St. Albans District,2024-06,Male,381
+AHSD,St. Albans District,2024-06,Non-binary,0
+AHSD,St. Albans District,2024-06,Prefer not to answer,0
+AHSD,St. Albans District,2024-06,Prefer to self-describe,0
+AHSD,St. Albans District,2024-06,Unknown,0
+AHSD,St. Johnsbury District,2024-06,Female,447
+AHSD,St. Johnsbury District,2024-06,Male,*
+AHSD,St. Johnsbury District,2024-06,Non-binary,0
+AHSD,St. Johnsbury District,2024-06,Prefer not to answer,0
+AHSD,St. Johnsbury District,2024-06,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-06,Unknown,*
+AHSD,Barre District,2024-05,Female,237
+AHSD,Barre District,2024-05,Male,278
+AHSD,Barre District,2024-05,Non-binary,0
+AHSD,Barre District,2024-05,Prefer not to answer,*
+AHSD,Barre District,2024-05,Prefer to self-describe,*
+AHSD,Barre District,2024-05,Unknown,*
+AHSD,Bennington District,2024-05,Female,*
+AHSD,Bennington District,2024-05,Male,362
+AHSD,Bennington District,2024-05,Non-binary,0
+AHSD,Bennington District,2024-05,Prefer not to answer,*
+AHSD,Bennington District,2024-05,Prefer to self-describe,0
+AHSD,Bennington District,2024-05,Unknown,0
+AHSD,Brattleboro District,2024-05,Female,234
+AHSD,Brattleboro District,2024-05,Male,226
+AHSD,Brattleboro District,2024-05,Non-binary,*
+AHSD,Brattleboro District,2024-05,Prefer not to answer,*
+AHSD,Brattleboro District,2024-05,Prefer to self-describe,*
+AHSD,Brattleboro District,2024-05,Unknown,0
+AHSD,Burlington District,2024-05,Female,880
+AHSD,Burlington District,2024-05,Male,829
+AHSD,Burlington District,2024-05,Non-binary,*
+AHSD,Burlington District,2024-05,Prefer not to answer,*
+AHSD,Burlington District,2024-05,Prefer to self-describe,*
+AHSD,Burlington District,2024-05,Unknown,0
+AHSD,Hartford District,2024-05,Female,201
+AHSD,Hartford District,2024-05,Male,*
+AHSD,Hartford District,2024-05,Non-binary,*
+AHSD,Hartford District,2024-05,Prefer not to answer,0
+AHSD,Hartford District,2024-05,Prefer to self-describe,0
+AHSD,Hartford District,2024-05,Unknown,0
+AHSD,Middlebury District,2024-05,Female,263
+AHSD,Middlebury District,2024-05,Male,*
+AHSD,Middlebury District,2024-05,Non-binary,0
+AHSD,Middlebury District,2024-05,Prefer not to answer,*
+AHSD,Middlebury District,2024-05,Prefer to self-describe,0
+AHSD,Middlebury District,2024-05,Unknown,0
+AHSD,Morrisville District,2024-05,Female,238
+AHSD,Morrisville District,2024-05,Male,*
+AHSD,Morrisville District,2024-05,Non-binary,0
+AHSD,Morrisville District,2024-05,Prefer not to answer,*
+AHSD,Morrisville District,2024-05,Prefer to self-describe,0
+AHSD,Morrisville District,2024-05,Unknown,0
+AHSD,Newport District,2024-05,Female,*
+AHSD,Newport District,2024-05,Male,244
+AHSD,Newport District,2024-05,Non-binary,0
+AHSD,Newport District,2024-05,Prefer not to answer,*
+AHSD,Newport District,2024-05,Prefer to self-describe,0
+AHSD,Newport District,2024-05,Unknown,0
+AHSD,Rutland District,2024-05,Female,482
+AHSD,Rutland District,2024-05,Male,*
+AHSD,Rutland District,2024-05,Non-binary,0
+AHSD,Rutland District,2024-05,Prefer not to answer,*
+AHSD,Rutland District,2024-05,Prefer to self-describe,0
+AHSD,Rutland District,2024-05,Unknown,0
+AHSD,Springfield District,2024-05,Female,272
+AHSD,Springfield District,2024-05,Male,275
+AHSD,Springfield District,2024-05,Non-binary,0
+AHSD,Springfield District,2024-05,Prefer not to answer,0
+AHSD,Springfield District,2024-05,Prefer to self-describe,0
+AHSD,Springfield District,2024-05,Unknown,0
+AHSD,St. Albans District,2024-05,Female,346
+AHSD,St. Albans District,2024-05,Male,352
+AHSD,St. Albans District,2024-05,Non-binary,0
+AHSD,St. Albans District,2024-05,Prefer not to answer,0
+AHSD,St. Albans District,2024-05,Prefer to self-describe,0
+AHSD,St. Albans District,2024-05,Unknown,0
+AHSD,St. Johnsbury District,2024-05,Female,406
+AHSD,St. Johnsbury District,2024-05,Male,*
+AHSD,St. Johnsbury District,2024-05,Non-binary,0
+AHSD,St. Johnsbury District,2024-05,Prefer not to answer,0
+AHSD,St. Johnsbury District,2024-05,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-05,Unknown,*
+AHSD,Barre District,2024-04,Female,225
+AHSD,Barre District,2024-04,Male,279
+AHSD,Barre District,2024-04,Non-binary,0
+AHSD,Barre District,2024-04,Prefer not to answer,*
+AHSD,Barre District,2024-04,Prefer to self-describe,*
+AHSD,Barre District,2024-04,Unknown,*
+AHSD,Bennington District,2024-04,Female,*
+AHSD,Bennington District,2024-04,Male,358
+AHSD,Bennington District,2024-04,Non-binary,0
+AHSD,Bennington District,2024-04,Prefer not to answer,*
+AHSD,Bennington District,2024-04,Prefer to self-describe,0
+AHSD,Bennington District,2024-04,Unknown,0
+AHSD,Brattleboro District,2024-04,Female,236
+AHSD,Brattleboro District,2024-04,Male,227
+AHSD,Brattleboro District,2024-04,Non-binary,*
+AHSD,Brattleboro District,2024-04,Prefer not to answer,*
+AHSD,Brattleboro District,2024-04,Prefer to self-describe,0
+AHSD,Brattleboro District,2024-04,Unknown,0
+AHSD,Burlington District,2024-04,Female,889
+AHSD,Burlington District,2024-04,Male,840
+AHSD,Burlington District,2024-04,Non-binary,*
+AHSD,Burlington District,2024-04,Prefer not to answer,*
+AHSD,Burlington District,2024-04,Prefer to self-describe,*
+AHSD,Burlington District,2024-04,Unknown,0
+AHSD,Hartford District,2024-04,Female,192
+AHSD,Hartford District,2024-04,Male,*
+AHSD,Hartford District,2024-04,Non-binary,*
+AHSD,Hartford District,2024-04,Prefer not to answer,0
+AHSD,Hartford District,2024-04,Prefer to self-describe,0
+AHSD,Hartford District,2024-04,Unknown,0
+AHSD,Middlebury District,2024-04,Female,258
+AHSD,Middlebury District,2024-04,Male,252
+AHSD,Middlebury District,2024-04,Non-binary,*
+AHSD,Middlebury District,2024-04,Prefer not to answer,*
+AHSD,Middlebury District,2024-04,Prefer to self-describe,0
+AHSD,Middlebury District,2024-04,Unknown,0
+AHSD,Morrisville District,2024-04,Female,232
+AHSD,Morrisville District,2024-04,Male,*
+AHSD,Morrisville District,2024-04,Non-binary,0
+AHSD,Morrisville District,2024-04,Prefer not to answer,*
+AHSD,Morrisville District,2024-04,Prefer to self-describe,0
+AHSD,Morrisville District,2024-04,Unknown,0
+AHSD,Newport District,2024-04,Female,*
+AHSD,Newport District,2024-04,Male,237
+AHSD,Newport District,2024-04,Non-binary,0
+AHSD,Newport District,2024-04,Prefer not to answer,*
+AHSD,Newport District,2024-04,Prefer to self-describe,0
+AHSD,Newport District,2024-04,Unknown,0
+AHSD,Rutland District,2024-04,Female,464
+AHSD,Rutland District,2024-04,Male,*
+AHSD,Rutland District,2024-04,Non-binary,0
+AHSD,Rutland District,2024-04,Prefer not to answer,*
+AHSD,Rutland District,2024-04,Prefer to self-describe,0
+AHSD,Rutland District,2024-04,Unknown,0
+AHSD,Springfield District,2024-04,Female,271
+AHSD,Springfield District,2024-04,Male,279
+AHSD,Springfield District,2024-04,Non-binary,0
+AHSD,Springfield District,2024-04,Prefer not to answer,0
+AHSD,Springfield District,2024-04,Prefer to self-describe,0
+AHSD,Springfield District,2024-04,Unknown,0
+AHSD,St. Albans District,2024-04,Female,343
+AHSD,St. Albans District,2024-04,Male,354
+AHSD,St. Albans District,2024-04,Non-binary,0
+AHSD,St. Albans District,2024-04,Prefer not to answer,0
+AHSD,St. Albans District,2024-04,Prefer to self-describe,0
+AHSD,St. Albans District,2024-04,Unknown,0
+AHSD,St. Johnsbury District,2024-04,Female,396
+AHSD,St. Johnsbury District,2024-04,Male,*
+AHSD,St. Johnsbury District,2024-04,Non-binary,0
+AHSD,St. Johnsbury District,2024-04,Prefer not to answer,0
+AHSD,St. Johnsbury District,2024-04,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-04,Unknown,*
+AHSD,Barre District,2024-03,Female,213
+AHSD,Barre District,2024-03,Male,268
+AHSD,Barre District,2024-03,Non-binary,0
+AHSD,Barre District,2024-03,Prefer not to answer,*
+AHSD,Barre District,2024-03,Prefer to self-describe,*
+AHSD,Barre District,2024-03,Unknown,*
+AHSD,Bennington District,2024-03,Female,*
+AHSD,Bennington District,2024-03,Male,340
+AHSD,Bennington District,2024-03,Non-binary,0
+AHSD,Bennington District,2024-03,Prefer not to answer,*
+AHSD,Bennington District,2024-03,Prefer to self-describe,0
+AHSD,Bennington District,2024-03,Unknown,0
+AHSD,Brattleboro District,2024-03,Female,223
+AHSD,Brattleboro District,2024-03,Male,213
+AHSD,Brattleboro District,2024-03,Non-binary,*
+AHSD,Brattleboro District,2024-03,Prefer not to answer,*
+AHSD,Brattleboro District,2024-03,Prefer to self-describe,0
+AHSD,Brattleboro District,2024-03,Unknown,0
+AHSD,Burlington District,2024-03,Female,841
+AHSD,Burlington District,2024-03,Male,816
+AHSD,Burlington District,2024-03,Non-binary,*
+AHSD,Burlington District,2024-03,Prefer not to answer,*
+AHSD,Burlington District,2024-03,Prefer to self-describe,*
+AHSD,Burlington District,2024-03,Unknown,0
+AHSD,Hartford District,2024-03,Female,183
+AHSD,Hartford District,2024-03,Male,178
+AHSD,Hartford District,2024-03,Non-binary,0
+AHSD,Hartford District,2024-03,Prefer not to answer,0
+AHSD,Hartford District,2024-03,Prefer to self-describe,0
+AHSD,Hartford District,2024-03,Unknown,0
+AHSD,Middlebury District,2024-03,Female,246
+AHSD,Middlebury District,2024-03,Male,243
+AHSD,Middlebury District,2024-03,Non-binary,*
+AHSD,Middlebury District,2024-03,Prefer not to answer,*
+AHSD,Middlebury District,2024-03,Prefer to self-describe,0
+AHSD,Middlebury District,2024-03,Unknown,0
+AHSD,Morrisville District,2024-03,Female,*
+AHSD,Morrisville District,2024-03,Male,221
+AHSD,Morrisville District,2024-03,Non-binary,0
+AHSD,Morrisville District,2024-03,Prefer not to answer,*
+AHSD,Morrisville District,2024-03,Prefer to self-describe,0
+AHSD,Morrisville District,2024-03,Unknown,0
+AHSD,Newport District,2024-03,Female,*
+AHSD,Newport District,2024-03,Male,233
+AHSD,Newport District,2024-03,Non-binary,0
+AHSD,Newport District,2024-03,Prefer not to answer,*
+AHSD,Newport District,2024-03,Prefer to self-describe,0
+AHSD,Newport District,2024-03,Unknown,0
+AHSD,Rutland District,2024-03,Female,447
+AHSD,Rutland District,2024-03,Male,*
+AHSD,Rutland District,2024-03,Non-binary,0
+AHSD,Rutland District,2024-03,Prefer not to answer,*
+AHSD,Rutland District,2024-03,Prefer to self-describe,0
+AHSD,Rutland District,2024-03,Unknown,0
+AHSD,Springfield District,2024-03,Female,258
+AHSD,Springfield District,2024-03,Male,274
+AHSD,Springfield District,2024-03,Non-binary,0
+AHSD,Springfield District,2024-03,Prefer not to answer,0
+AHSD,Springfield District,2024-03,Prefer to self-describe,0
+AHSD,Springfield District,2024-03,Unknown,0
+AHSD,St. Albans District,2024-03,Female,326
+AHSD,St. Albans District,2024-03,Male,337
+AHSD,St. Albans District,2024-03,Non-binary,0
+AHSD,St. Albans District,2024-03,Prefer not to answer,0
+AHSD,St. Albans District,2024-03,Prefer to self-describe,0
+AHSD,St. Albans District,2024-03,Unknown,0
+AHSD,St. Johnsbury District,2024-03,Female,380
+AHSD,St. Johnsbury District,2024-03,Male,*
+AHSD,St. Johnsbury District,2024-03,Non-binary,0
+AHSD,St. Johnsbury District,2024-03,Prefer not to answer,0
+AHSD,St. Johnsbury District,2024-03,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-03,Unknown,*
+AHSD,Barre District,2024-02,Female,207
+AHSD,Barre District,2024-02,Male,257
+AHSD,Barre District,2024-02,Non-binary,0
+AHSD,Barre District,2024-02,Prefer not to answer,*
+AHSD,Barre District,2024-02,Prefer to self-describe,*
+AHSD,Barre District,2024-02,Unknown,*
+AHSD,Bennington District,2024-02,Female,*
+AHSD,Bennington District,2024-02,Male,333
+AHSD,Bennington District,2024-02,Non-binary,0
+AHSD,Bennington District,2024-02,Prefer not to answer,*
+AHSD,Bennington District,2024-02,Prefer to self-describe,0
+AHSD,Bennington District,2024-02,Unknown,0
+AHSD,Brattleboro District,2024-02,Female,215
+AHSD,Brattleboro District,2024-02,Male,210
+AHSD,Brattleboro District,2024-02,Non-binary,*
+AHSD,Brattleboro District,2024-02,Prefer not to answer,*
+AHSD,Brattleboro District,2024-02,Prefer to self-describe,0
+AHSD,Brattleboro District,2024-02,Unknown,0
+AHSD,Burlington District,2024-02,Female,813
+AHSD,Burlington District,2024-02,Male,797
+AHSD,Burlington District,2024-02,Non-binary,*
+AHSD,Burlington District,2024-02,Prefer not to answer,*
+AHSD,Burlington District,2024-02,Prefer to self-describe,*
+AHSD,Burlington District,2024-02,Unknown,0
+AHSD,Hartford District,2024-02,Female,180
+AHSD,Hartford District,2024-02,Male,171
+AHSD,Hartford District,2024-02,Non-binary,0
+AHSD,Hartford District,2024-02,Prefer not to answer,0
+AHSD,Hartford District,2024-02,Prefer to self-describe,0
+AHSD,Hartford District,2024-02,Unknown,0
+AHSD,Middlebury District,2024-02,Female,243
+AHSD,Middlebury District,2024-02,Male,238
+AHSD,Middlebury District,2024-02,Non-binary,*
+AHSD,Middlebury District,2024-02,Prefer not to answer,*
+AHSD,Middlebury District,2024-02,Prefer to self-describe,0
+AHSD,Middlebury District,2024-02,Unknown,0
+AHSD,Morrisville District,2024-02,Female,215
+AHSD,Morrisville District,2024-02,Male,*
+AHSD,Morrisville District,2024-02,Non-binary,0
+AHSD,Morrisville District,2024-02,Prefer not to answer,*
+AHSD,Morrisville District,2024-02,Prefer to self-describe,0
+AHSD,Morrisville District,2024-02,Unknown,0
+AHSD,Newport District,2024-02,Female,*
+AHSD,Newport District,2024-02,Male,232
+AHSD,Newport District,2024-02,Non-binary,0
+AHSD,Newport District,2024-02,Prefer not to answer,*
+AHSD,Newport District,2024-02,Prefer to self-describe,0
+AHSD,Newport District,2024-02,Unknown,0
+AHSD,Rutland District,2024-02,Female,449
+AHSD,Rutland District,2024-02,Male,*
+AHSD,Rutland District,2024-02,Non-binary,0
+AHSD,Rutland District,2024-02,Prefer not to answer,*
+AHSD,Rutland District,2024-02,Prefer to self-describe,0
+AHSD,Rutland District,2024-02,Unknown,0
+AHSD,Springfield District,2024-02,Female,254
+AHSD,Springfield District,2024-02,Male,265
+AHSD,Springfield District,2024-02,Non-binary,0
+AHSD,Springfield District,2024-02,Prefer not to answer,0
+AHSD,Springfield District,2024-02,Prefer to self-describe,0
+AHSD,Springfield District,2024-02,Unknown,0
+AHSD,St. Albans District,2024-02,Female,323
+AHSD,St. Albans District,2024-02,Male,341
+AHSD,St. Albans District,2024-02,Non-binary,0
+AHSD,St. Albans District,2024-02,Prefer not to answer,0
+AHSD,St. Albans District,2024-02,Prefer to self-describe,0
+AHSD,St. Albans District,2024-02,Unknown,0
+AHSD,St. Johnsbury District,2024-02,Female,368
+AHSD,St. Johnsbury District,2024-02,Male,*
+AHSD,St. Johnsbury District,2024-02,Non-binary,0
+AHSD,St. Johnsbury District,2024-02,Prefer not to answer,0
+AHSD,St. Johnsbury District,2024-02,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-02,Unknown,*
+AHSD,Barre District,2024-01,Female,207
+AHSD,Barre District,2024-01,Male,258
+AHSD,Barre District,2024-01,Non-binary,0
+AHSD,Barre District,2024-01,Prefer not to answer,*
+AHSD,Barre District,2024-01,Prefer to self-describe,0
+AHSD,Barre District,2024-01,Unknown,*
+AHSD,Bennington District,2024-01,Female,309
+AHSD,Bennington District,2024-01,Male,331
+AHSD,Bennington District,2024-01,Non-binary,0
+AHSD,Bennington District,2024-01,Prefer not to answer,0
+AHSD,Bennington District,2024-01,Prefer to self-describe,0
+AHSD,Bennington District,2024-01,Unknown,0
+AHSD,Brattleboro District,2024-01,Female,207
+AHSD,Brattleboro District,2024-01,Male,202
+AHSD,Brattleboro District,2024-01,Non-binary,*
+AHSD,Brattleboro District,2024-01,Prefer not to answer,*
+AHSD,Brattleboro District,2024-01,Prefer to self-describe,0
+AHSD,Brattleboro District,2024-01,Unknown,0
+AHSD,Burlington District,2024-01,Female,778
+AHSD,Burlington District,2024-01,Male,772
+AHSD,Burlington District,2024-01,Non-binary,0
+AHSD,Burlington District,2024-01,Prefer not to answer,*
+AHSD,Burlington District,2024-01,Prefer to self-describe,*
+AHSD,Burlington District,2024-01,Unknown,0
+AHSD,Hartford District,2024-01,Female,*
+AHSD,Hartford District,2024-01,Male,180
+AHSD,Hartford District,2024-01,Non-binary,0
+AHSD,Hartford District,2024-01,Prefer not to answer,*
+AHSD,Hartford District,2024-01,Prefer to self-describe,0
+AHSD,Hartford District,2024-01,Unknown,0
+AHSD,Middlebury District,2024-01,Female,240
+AHSD,Middlebury District,2024-01,Male,234
+AHSD,Middlebury District,2024-01,Non-binary,*
+AHSD,Middlebury District,2024-01,Prefer not to answer,*
+AHSD,Middlebury District,2024-01,Prefer to self-describe,0
+AHSD,Middlebury District,2024-01,Unknown,0
+AHSD,Morrisville District,2024-01,Female,214
+AHSD,Morrisville District,2024-01,Male,*
+AHSD,Morrisville District,2024-01,Non-binary,0
+AHSD,Morrisville District,2024-01,Prefer not to answer,*
+AHSD,Morrisville District,2024-01,Prefer to self-describe,0
+AHSD,Morrisville District,2024-01,Unknown,0
+AHSD,Newport District,2024-01,Female,*
+AHSD,Newport District,2024-01,Male,221
+AHSD,Newport District,2024-01,Non-binary,0
+AHSD,Newport District,2024-01,Prefer not to answer,*
+AHSD,Newport District,2024-01,Prefer to self-describe,0
+AHSD,Newport District,2024-01,Unknown,0
+AHSD,Rutland District,2024-01,Female,441
+AHSD,Rutland District,2024-01,Male,*
+AHSD,Rutland District,2024-01,Non-binary,0
+AHSD,Rutland District,2024-01,Prefer not to answer,*
+AHSD,Rutland District,2024-01,Prefer to self-describe,0
+AHSD,Rutland District,2024-01,Unknown,0
+AHSD,Springfield District,2024-01,Female,254
+AHSD,Springfield District,2024-01,Male,264
+AHSD,Springfield District,2024-01,Non-binary,0
+AHSD,Springfield District,2024-01,Prefer not to answer,0
+AHSD,Springfield District,2024-01,Prefer to self-describe,0
+AHSD,Springfield District,2024-01,Unknown,0
+AHSD,St. Albans District,2024-01,Female,327
+AHSD,St. Albans District,2024-01,Male,341
+AHSD,St. Albans District,2024-01,Non-binary,0
+AHSD,St. Albans District,2024-01,Prefer not to answer,0
+AHSD,St. Albans District,2024-01,Prefer to self-describe,0
+AHSD,St. Albans District,2024-01,Unknown,0
+AHSD,St. Johnsbury District,2024-01,Female,368
+AHSD,St. Johnsbury District,2024-01,Male,*
+AHSD,St. Johnsbury District,2024-01,Non-binary,0
+AHSD,St. Johnsbury District,2024-01,Prefer not to answer,0
+AHSD,St. Johnsbury District,2024-01,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-01,Unknown,*
+AHSD,Barre District,2023-12,Female,206
+AHSD,Barre District,2023-12,Male,253
+AHSD,Barre District,2023-12,Non-binary,0
+AHSD,Barre District,2023-12,Prefer not to answer,*
+AHSD,Barre District,2023-12,Prefer to self-describe,0
+AHSD,Barre District,2023-12,Unknown,*
+AHSD,Bennington District,2023-12,Female,311
+AHSD,Bennington District,2023-12,Male,333
+AHSD,Bennington District,2023-12,Non-binary,0
+AHSD,Bennington District,2023-12,Prefer not to answer,0
+AHSD,Bennington District,2023-12,Prefer to self-describe,0
+AHSD,Bennington District,2023-12,Unknown,0
+AHSD,Brattleboro District,2023-12,Female,201
+AHSD,Brattleboro District,2023-12,Male,203
+AHSD,Brattleboro District,2023-12,Non-binary,*
+AHSD,Brattleboro District,2023-12,Prefer not to answer,*
+AHSD,Brattleboro District,2023-12,Prefer to self-describe,0
+AHSD,Brattleboro District,2023-12,Unknown,0
+AHSD,Burlington District,2023-12,Female,787
+AHSD,Burlington District,2023-12,Male,791
+AHSD,Burlington District,2023-12,Non-binary,0
+AHSD,Burlington District,2023-12,Prefer not to answer,*
+AHSD,Burlington District,2023-12,Prefer to self-describe,*
+AHSD,Burlington District,2023-12,Unknown,0
+AHSD,Hartford District,2023-12,Female,*
+AHSD,Hartford District,2023-12,Male,173
+AHSD,Hartford District,2023-12,Non-binary,0
+AHSD,Hartford District,2023-12,Prefer not to answer,*
+AHSD,Hartford District,2023-12,Prefer to self-describe,0
+AHSD,Hartford District,2023-12,Unknown,0
+AHSD,Middlebury District,2023-12,Female,229
+AHSD,Middlebury District,2023-12,Male,227
+AHSD,Middlebury District,2023-12,Non-binary,*
+AHSD,Middlebury District,2023-12,Prefer not to answer,*
+AHSD,Middlebury District,2023-12,Prefer to self-describe,0
+AHSD,Middlebury District,2023-12,Unknown,0
+AHSD,Morrisville District,2023-12,Female,219
+AHSD,Morrisville District,2023-12,Male,*
+AHSD,Morrisville District,2023-12,Non-binary,0
+AHSD,Morrisville District,2023-12,Prefer not to answer,*
+AHSD,Morrisville District,2023-12,Prefer to self-describe,0
+AHSD,Morrisville District,2023-12,Unknown,0
+AHSD,Newport District,2023-12,Female,*
+AHSD,Newport District,2023-12,Male,236
+AHSD,Newport District,2023-12,Non-binary,0
+AHSD,Newport District,2023-12,Prefer not to answer,*
+AHSD,Newport District,2023-12,Prefer to self-describe,0
+AHSD,Newport District,2023-12,Unknown,0
+AHSD,Rutland District,2023-12,Female,427
+AHSD,Rutland District,2023-12,Male,*
+AHSD,Rutland District,2023-12,Non-binary,0
+AHSD,Rutland District,2023-12,Prefer not to answer,*
+AHSD,Rutland District,2023-12,Prefer to self-describe,0
+AHSD,Rutland District,2023-12,Unknown,0
+AHSD,Springfield District,2023-12,Female,247
+AHSD,Springfield District,2023-12,Male,264
+AHSD,Springfield District,2023-12,Non-binary,0
+AHSD,Springfield District,2023-12,Prefer not to answer,0
+AHSD,Springfield District,2023-12,Prefer to self-describe,0
+AHSD,Springfield District,2023-12,Unknown,0
+AHSD,St. Albans District,2023-12,Female,325
+AHSD,St. Albans District,2023-12,Male,341
+AHSD,St. Albans District,2023-12,Non-binary,0
+AHSD,St. Albans District,2023-12,Prefer not to answer,0
+AHSD,St. Albans District,2023-12,Prefer to self-describe,0
+AHSD,St. Albans District,2023-12,Unknown,0
+AHSD,St. Johnsbury District,2023-12,Female,374
+AHSD,St. Johnsbury District,2023-12,Male,*
+AHSD,St. Johnsbury District,2023-12,Non-binary,0
+AHSD,St. Johnsbury District,2023-12,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-12,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-12,Unknown,0
+AHSD,Barre District,2023-11,Female,201
+AHSD,Barre District,2023-11,Male,252
+AHSD,Barre District,2023-11,Non-binary,0
+AHSD,Barre District,2023-11,Prefer not to answer,*
+AHSD,Barre District,2023-11,Prefer to self-describe,0
+AHSD,Barre District,2023-11,Unknown,*
+AHSD,Bennington District,2023-11,Female,300
+AHSD,Bennington District,2023-11,Male,331
+AHSD,Bennington District,2023-11,Non-binary,0
+AHSD,Bennington District,2023-11,Prefer not to answer,0
+AHSD,Bennington District,2023-11,Prefer to self-describe,0
+AHSD,Bennington District,2023-11,Unknown,0
+AHSD,Brattleboro District,2023-11,Female,191
+AHSD,Brattleboro District,2023-11,Male,197
+AHSD,Brattleboro District,2023-11,Non-binary,*
+AHSD,Brattleboro District,2023-11,Prefer not to answer,*
+AHSD,Brattleboro District,2023-11,Prefer to self-describe,0
+AHSD,Brattleboro District,2023-11,Unknown,0
+AHSD,Burlington District,2023-11,Female,789
+AHSD,Burlington District,2023-11,Male,777
+AHSD,Burlington District,2023-11,Non-binary,0
+AHSD,Burlington District,2023-11,Prefer not to answer,*
+AHSD,Burlington District,2023-11,Prefer to self-describe,*
+AHSD,Burlington District,2023-11,Unknown,0
+AHSD,Hartford District,2023-11,Female,*
+AHSD,Hartford District,2023-11,Male,164
+AHSD,Hartford District,2023-11,Non-binary,0
+AHSD,Hartford District,2023-11,Prefer not to answer,*
+AHSD,Hartford District,2023-11,Prefer to self-describe,0
+AHSD,Hartford District,2023-11,Unknown,0
+AHSD,Middlebury District,2023-11,Female,227
+AHSD,Middlebury District,2023-11,Male,228
+AHSD,Middlebury District,2023-11,Non-binary,*
+AHSD,Middlebury District,2023-11,Prefer not to answer,*
+AHSD,Middlebury District,2023-11,Prefer to self-describe,0
+AHSD,Middlebury District,2023-11,Unknown,0
+AHSD,Morrisville District,2023-11,Female,217
+AHSD,Morrisville District,2023-11,Male,*
+AHSD,Morrisville District,2023-11,Non-binary,0
+AHSD,Morrisville District,2023-11,Prefer not to answer,*
+AHSD,Morrisville District,2023-11,Prefer to self-describe,0
+AHSD,Morrisville District,2023-11,Unknown,0
+AHSD,Newport District,2023-11,Female,*
+AHSD,Newport District,2023-11,Male,235
+AHSD,Newport District,2023-11,Non-binary,0
+AHSD,Newport District,2023-11,Prefer not to answer,*
+AHSD,Newport District,2023-11,Prefer to self-describe,0
+AHSD,Newport District,2023-11,Unknown,0
+AHSD,Rutland District,2023-11,Female,415
+AHSD,Rutland District,2023-11,Male,*
+AHSD,Rutland District,2023-11,Non-binary,0
+AHSD,Rutland District,2023-11,Prefer not to answer,*
+AHSD,Rutland District,2023-11,Prefer to self-describe,0
+AHSD,Rutland District,2023-11,Unknown,0
+AHSD,Springfield District,2023-11,Female,247
+AHSD,Springfield District,2023-11,Male,259
+AHSD,Springfield District,2023-11,Non-binary,0
+AHSD,Springfield District,2023-11,Prefer not to answer,0
+AHSD,Springfield District,2023-11,Prefer to self-describe,0
+AHSD,Springfield District,2023-11,Unknown,0
+AHSD,St. Albans District,2023-11,Female,320
+AHSD,St. Albans District,2023-11,Male,321
+AHSD,St. Albans District,2023-11,Non-binary,0
+AHSD,St. Albans District,2023-11,Prefer not to answer,0
+AHSD,St. Albans District,2023-11,Prefer to self-describe,0
+AHSD,St. Albans District,2023-11,Unknown,0
+AHSD,St. Johnsbury District,2023-11,Female,368
+AHSD,St. Johnsbury District,2023-11,Male,*
+AHSD,St. Johnsbury District,2023-11,Non-binary,0
+AHSD,St. Johnsbury District,2023-11,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-11,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-11,Unknown,0
+AHSD,Barre District,2023-10,Female,*
+AHSD,Barre District,2023-10,Male,252
+AHSD,Barre District,2023-10,Non-binary,0
+AHSD,Barre District,2023-10,Prefer not to answer,*
+AHSD,Barre District,2023-10,Prefer to self-describe,0
+AHSD,Barre District,2023-10,Unknown,0
+AHSD,Bennington District,2023-10,Female,310
+AHSD,Bennington District,2023-10,Male,336
+AHSD,Bennington District,2023-10,Non-binary,0
+AHSD,Bennington District,2023-10,Prefer not to answer,0
+AHSD,Bennington District,2023-10,Prefer to self-describe,0
+AHSD,Bennington District,2023-10,Unknown,0
+AHSD,Brattleboro District,2023-10,Female,182
+AHSD,Brattleboro District,2023-10,Male,193
+AHSD,Brattleboro District,2023-10,Non-binary,*
+AHSD,Brattleboro District,2023-10,Prefer not to answer,*
+AHSD,Brattleboro District,2023-10,Prefer to self-describe,0
+AHSD,Brattleboro District,2023-10,Unknown,0
+AHSD,Burlington District,2023-10,Female,794
+AHSD,Burlington District,2023-10,Male,*
+AHSD,Burlington District,2023-10,Non-binary,0
+AHSD,Burlington District,2023-10,Prefer not to answer,*
+AHSD,Burlington District,2023-10,Prefer to self-describe,0
+AHSD,Burlington District,2023-10,Unknown,0
+AHSD,Hartford District,2023-10,Female,*
+AHSD,Hartford District,2023-10,Male,167
+AHSD,Hartford District,2023-10,Non-binary,0
+AHSD,Hartford District,2023-10,Prefer not to answer,*
+AHSD,Hartford District,2023-10,Prefer to self-describe,0
+AHSD,Hartford District,2023-10,Unknown,0
+AHSD,Middlebury District,2023-10,Female,230
+AHSD,Middlebury District,2023-10,Male,228
+AHSD,Middlebury District,2023-10,Non-binary,*
+AHSD,Middlebury District,2023-10,Prefer not to answer,*
+AHSD,Middlebury District,2023-10,Prefer to self-describe,0
+AHSD,Middlebury District,2023-10,Unknown,0
+AHSD,Morrisville District,2023-10,Female,207
+AHSD,Morrisville District,2023-10,Male,211
+AHSD,Morrisville District,2023-10,Non-binary,0
+AHSD,Morrisville District,2023-10,Prefer not to answer,0
+AHSD,Morrisville District,2023-10,Prefer to self-describe,0
+AHSD,Morrisville District,2023-10,Unknown,0
+AHSD,Newport District,2023-10,Female,*
+AHSD,Newport District,2023-10,Male,235
+AHSD,Newport District,2023-10,Non-binary,0
+AHSD,Newport District,2023-10,Prefer not to answer,*
+AHSD,Newport District,2023-10,Prefer to self-describe,0
+AHSD,Newport District,2023-10,Unknown,0
+AHSD,Rutland District,2023-10,Female,429
+AHSD,Rutland District,2023-10,Male,*
+AHSD,Rutland District,2023-10,Non-binary,0
+AHSD,Rutland District,2023-10,Prefer not to answer,*
+AHSD,Rutland District,2023-10,Prefer to self-describe,0
+AHSD,Rutland District,2023-10,Unknown,0
+AHSD,Springfield District,2023-10,Female,242
+AHSD,Springfield District,2023-10,Male,254
+AHSD,Springfield District,2023-10,Non-binary,0
+AHSD,Springfield District,2023-10,Prefer not to answer,0
+AHSD,Springfield District,2023-10,Prefer to self-describe,0
+AHSD,Springfield District,2023-10,Unknown,0
+AHSD,St. Albans District,2023-10,Female,*
+AHSD,St. Albans District,2023-10,Male,332
+AHSD,St. Albans District,2023-10,Non-binary,0
+AHSD,St. Albans District,2023-10,Prefer not to answer,*
+AHSD,St. Albans District,2023-10,Prefer to self-describe,0
+AHSD,St. Albans District,2023-10,Unknown,0
+AHSD,St. Johnsbury District,2023-10,Female,387
+AHSD,St. Johnsbury District,2023-10,Male,*
+AHSD,St. Johnsbury District,2023-10,Non-binary,0
+AHSD,St. Johnsbury District,2023-10,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-10,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-10,Unknown,0
+AHSD,Barre District,2023-09,Female,*
+AHSD,Barre District,2023-09,Male,250
+AHSD,Barre District,2023-09,Non-binary,0
+AHSD,Barre District,2023-09,Prefer not to answer,*
+AHSD,Barre District,2023-09,Prefer to self-describe,0
+AHSD,Barre District,2023-09,Unknown,0
+AHSD,Bennington District,2023-09,Female,313
+AHSD,Bennington District,2023-09,Male,341
+AHSD,Bennington District,2023-09,Non-binary,0
+AHSD,Bennington District,2023-09,Prefer not to answer,0
+AHSD,Bennington District,2023-09,Prefer to self-describe,0
+AHSD,Bennington District,2023-09,Unknown,0
+AHSD,Brattleboro District,2023-09,Female,186
+AHSD,Brattleboro District,2023-09,Male,196
+AHSD,Brattleboro District,2023-09,Non-binary,*
+AHSD,Brattleboro District,2023-09,Prefer not to answer,*
+AHSD,Brattleboro District,2023-09,Prefer to self-describe,0
+AHSD,Brattleboro District,2023-09,Unknown,0
+AHSD,Burlington District,2023-09,Female,799
+AHSD,Burlington District,2023-09,Male,*
+AHSD,Burlington District,2023-09,Non-binary,0
+AHSD,Burlington District,2023-09,Prefer not to answer,*
+AHSD,Burlington District,2023-09,Prefer to self-describe,0
+AHSD,Burlington District,2023-09,Unknown,0
+AHSD,Hartford District,2023-09,Female,*
+AHSD,Hartford District,2023-09,Male,173
+AHSD,Hartford District,2023-09,Non-binary,0
+AHSD,Hartford District,2023-09,Prefer not to answer,*
+AHSD,Hartford District,2023-09,Prefer to self-describe,0
+AHSD,Hartford District,2023-09,Unknown,0
+AHSD,Middlebury District,2023-09,Female,234
+AHSD,Middlebury District,2023-09,Male,232
+AHSD,Middlebury District,2023-09,Non-binary,*
+AHSD,Middlebury District,2023-09,Prefer not to answer,*
+AHSD,Middlebury District,2023-09,Prefer to self-describe,0
+AHSD,Middlebury District,2023-09,Unknown,0
+AHSD,Morrisville District,2023-09,Female,207
+AHSD,Morrisville District,2023-09,Male,202
+AHSD,Morrisville District,2023-09,Non-binary,0
+AHSD,Morrisville District,2023-09,Prefer not to answer,0
+AHSD,Morrisville District,2023-09,Prefer to self-describe,0
+AHSD,Morrisville District,2023-09,Unknown,0
+AHSD,Newport District,2023-09,Female,*
+AHSD,Newport District,2023-09,Male,237
+AHSD,Newport District,2023-09,Non-binary,0
+AHSD,Newport District,2023-09,Prefer not to answer,*
+AHSD,Newport District,2023-09,Prefer to self-describe,0
+AHSD,Newport District,2023-09,Unknown,0
+AHSD,Rutland District,2023-09,Female,430
+AHSD,Rutland District,2023-09,Male,*
+AHSD,Rutland District,2023-09,Non-binary,0
+AHSD,Rutland District,2023-09,Prefer not to answer,*
+AHSD,Rutland District,2023-09,Prefer to self-describe,0
+AHSD,Rutland District,2023-09,Unknown,0
+AHSD,Springfield District,2023-09,Female,254
+AHSD,Springfield District,2023-09,Male,268
+AHSD,Springfield District,2023-09,Non-binary,0
+AHSD,Springfield District,2023-09,Prefer not to answer,0
+AHSD,Springfield District,2023-09,Prefer to self-describe,0
+AHSD,Springfield District,2023-09,Unknown,0
+AHSD,St. Albans District,2023-09,Female,*
+AHSD,St. Albans District,2023-09,Male,349
+AHSD,St. Albans District,2023-09,Non-binary,0
+AHSD,St. Albans District,2023-09,Prefer not to answer,*
+AHSD,St. Albans District,2023-09,Prefer to self-describe,0
+AHSD,St. Albans District,2023-09,Unknown,0
+AHSD,St. Johnsbury District,2023-09,Female,394
+AHSD,St. Johnsbury District,2023-09,Male,*
+AHSD,St. Johnsbury District,2023-09,Non-binary,0
+AHSD,St. Johnsbury District,2023-09,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-09,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-09,Unknown,0
+AHSD,Barre District,2023-08,Female,211
+AHSD,Barre District,2023-08,Male,259
+AHSD,Barre District,2023-08,Non-binary,0
+AHSD,Barre District,2023-08,Prefer not to answer,10
+AHSD,Barre District,2023-08,Prefer to self-describe,0
+AHSD,Barre District,2023-08,Unknown,0
+AHSD,Bennington District,2023-08,Female,338
+AHSD,Bennington District,2023-08,Male,346
+AHSD,Bennington District,2023-08,Non-binary,0
+AHSD,Bennington District,2023-08,Prefer not to answer,0
+AHSD,Bennington District,2023-08,Prefer to self-describe,0
+AHSD,Bennington District,2023-08,Unknown,0
+AHSD,Brattleboro District,2023-08,Female,191
+AHSD,Brattleboro District,2023-08,Male,192
+AHSD,Brattleboro District,2023-08,Non-binary,*
+AHSD,Brattleboro District,2023-08,Prefer not to answer,*
+AHSD,Brattleboro District,2023-08,Prefer to self-describe,*
+AHSD,Brattleboro District,2023-08,Unknown,0
+AHSD,Burlington District,2023-08,Female,891
+AHSD,Burlington District,2023-08,Male,*
+AHSD,Burlington District,2023-08,Non-binary,0
+AHSD,Burlington District,2023-08,Prefer not to answer,*
+AHSD,Burlington District,2023-08,Prefer to self-describe,0
+AHSD,Burlington District,2023-08,Unknown,0
+AHSD,Hartford District,2023-08,Female,*
+AHSD,Hartford District,2023-08,Male,175
+AHSD,Hartford District,2023-08,Non-binary,0
+AHSD,Hartford District,2023-08,Prefer not to answer,*
+AHSD,Hartford District,2023-08,Prefer to self-describe,0
+AHSD,Hartford District,2023-08,Unknown,0
+AHSD,Middlebury District,2023-08,Female,264
+AHSD,Middlebury District,2023-08,Male,262
+AHSD,Middlebury District,2023-08,Non-binary,*
+AHSD,Middlebury District,2023-08,Prefer not to answer,*
+AHSD,Middlebury District,2023-08,Prefer to self-describe,0
+AHSD,Middlebury District,2023-08,Unknown,0
+AHSD,Morrisville District,2023-08,Female,225
+AHSD,Morrisville District,2023-08,Male,222
+AHSD,Morrisville District,2023-08,Non-binary,0
+AHSD,Morrisville District,2023-08,Prefer not to answer,0
+AHSD,Morrisville District,2023-08,Prefer to self-describe,0
+AHSD,Morrisville District,2023-08,Unknown,0
+AHSD,Newport District,2023-08,Female,197
+AHSD,Newport District,2023-08,Male,235
+AHSD,Newport District,2023-08,Non-binary,0
+AHSD,Newport District,2023-08,Prefer not to answer,0
+AHSD,Newport District,2023-08,Prefer to self-describe,0
+AHSD,Newport District,2023-08,Unknown,0
+AHSD,Rutland District,2023-08,Female,*
+AHSD,Rutland District,2023-08,Male,454
+AHSD,Rutland District,2023-08,Non-binary,0
+AHSD,Rutland District,2023-08,Prefer not to answer,*
+AHSD,Rutland District,2023-08,Prefer to self-describe,0
+AHSD,Rutland District,2023-08,Unknown,0
+AHSD,Springfield District,2023-08,Female,268
+AHSD,Springfield District,2023-08,Male,276
+AHSD,Springfield District,2023-08,Non-binary,0
+AHSD,Springfield District,2023-08,Prefer not to answer,0
+AHSD,Springfield District,2023-08,Prefer to self-describe,0
+AHSD,Springfield District,2023-08,Unknown,0
+AHSD,St. Albans District,2023-08,Female,*
+AHSD,St. Albans District,2023-08,Male,348
+AHSD,St. Albans District,2023-08,Non-binary,0
+AHSD,St. Albans District,2023-08,Prefer not to answer,*
+AHSD,St. Albans District,2023-08,Prefer to self-describe,0
+AHSD,St. Albans District,2023-08,Unknown,0
+AHSD,St. Johnsbury District,2023-08,Female,391
+AHSD,St. Johnsbury District,2023-08,Male,*
+AHSD,St. Johnsbury District,2023-08,Non-binary,0
+AHSD,St. Johnsbury District,2023-08,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-08,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-08,Unknown,0
+AHSD,Barre District,2023-07,Female,*
+AHSD,Barre District,2023-07,Male,253
+AHSD,Barre District,2023-07,Non-binary,0
+AHSD,Barre District,2023-07,Prefer not to answer,*
+AHSD,Barre District,2023-07,Prefer to self-describe,0
+AHSD,Barre District,2023-07,Unknown,0
+AHSD,Bennington District,2023-07,Female,338
+AHSD,Bennington District,2023-07,Male,345
+AHSD,Bennington District,2023-07,Non-binary,0
+AHSD,Bennington District,2023-07,Prefer not to answer,0
+AHSD,Bennington District,2023-07,Prefer to self-describe,0
+AHSD,Bennington District,2023-07,Unknown,0
+AHSD,Brattleboro District,2023-07,Female,181
+AHSD,Brattleboro District,2023-07,Male,190
+AHSD,Brattleboro District,2023-07,Non-binary,0
+AHSD,Brattleboro District,2023-07,Prefer not to answer,*
+AHSD,Brattleboro District,2023-07,Prefer to self-describe,*
+AHSD,Brattleboro District,2023-07,Unknown,0
+AHSD,Burlington District,2023-07,Female,822
+AHSD,Burlington District,2023-07,Male,*
+AHSD,Burlington District,2023-07,Non-binary,0
+AHSD,Burlington District,2023-07,Prefer not to answer,*
+AHSD,Burlington District,2023-07,Prefer to self-describe,0
+AHSD,Burlington District,2023-07,Unknown,0
+AHSD,Hartford District,2023-07,Female,*
+AHSD,Hartford District,2023-07,Male,174
+AHSD,Hartford District,2023-07,Non-binary,0
+AHSD,Hartford District,2023-07,Prefer not to answer,*
+AHSD,Hartford District,2023-07,Prefer to self-describe,0
+AHSD,Hartford District,2023-07,Unknown,0
+AHSD,Middlebury District,2023-07,Female,238
+AHSD,Middlebury District,2023-07,Male,237
+AHSD,Middlebury District,2023-07,Non-binary,*
+AHSD,Middlebury District,2023-07,Prefer not to answer,*
+AHSD,Middlebury District,2023-07,Prefer to self-describe,0
+AHSD,Middlebury District,2023-07,Unknown,0
+AHSD,Morrisville District,2023-07,Female,194
+AHSD,Morrisville District,2023-07,Male,186
+AHSD,Morrisville District,2023-07,Non-binary,0
+AHSD,Morrisville District,2023-07,Prefer not to answer,0
+AHSD,Morrisville District,2023-07,Prefer to self-describe,0
+AHSD,Morrisville District,2023-07,Unknown,0
+AHSD,Newport District,2023-07,Female,191
+AHSD,Newport District,2023-07,Male,236
+AHSD,Newport District,2023-07,Non-binary,0
+AHSD,Newport District,2023-07,Prefer not to answer,0
+AHSD,Newport District,2023-07,Prefer to self-describe,0
+AHSD,Newport District,2023-07,Unknown,0
+AHSD,Rutland District,2023-07,Female,457
+AHSD,Rutland District,2023-07,Male,*
+AHSD,Rutland District,2023-07,Non-binary,0
+AHSD,Rutland District,2023-07,Prefer not to answer,*
+AHSD,Rutland District,2023-07,Prefer to self-describe,0
+AHSD,Rutland District,2023-07,Unknown,0
+AHSD,Springfield District,2023-07,Female,261
+AHSD,Springfield District,2023-07,Male,246
+AHSD,Springfield District,2023-07,Non-binary,0
+AHSD,Springfield District,2023-07,Prefer not to answer,0
+AHSD,Springfield District,2023-07,Prefer to self-describe,0
+AHSD,Springfield District,2023-07,Unknown,0
+AHSD,St. Albans District,2023-07,Female,*
+AHSD,St. Albans District,2023-07,Male,357
+AHSD,St. Albans District,2023-07,Non-binary,0
+AHSD,St. Albans District,2023-07,Prefer not to answer,*
+AHSD,St. Albans District,2023-07,Prefer to self-describe,0
+AHSD,St. Albans District,2023-07,Unknown,0
+AHSD,St. Johnsbury District,2023-07,Female,395
+AHSD,St. Johnsbury District,2023-07,Male,*
+AHSD,St. Johnsbury District,2023-07,Non-binary,0
+AHSD,St. Johnsbury District,2023-07,Prefer not to answer,*
+AHSD,St. Johnsbury District,2023-07,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2023-07,Unknown,0
+state,Vermont,2024-06,Female,4659
+state,Vermont,2024-06,Male,4614
+state,Vermont,2024-06,Non-binary,*
+state,Vermont,2024-06,Prefer not to answer,22
+state,Vermont,2024-06,Prefer to self-describe,*
+state,Vermont,2024-06,Unknown,*
+state,Vermont,2024-05,Female,4087
+state,Vermont,2024-05,Male,4046
+state,Vermont,2024-05,Non-binary,*
+state,Vermont,2024-05,Prefer not to answer,18
+state,Vermont,2024-05,Prefer to self-describe,*
+state,Vermont,2024-05,Unknown,*
+state,Vermont,2024-04,Female,4030
+state,Vermont,2024-04,Male,4034
+state,Vermont,2024-04,Non-binary,*
+state,Vermont,2024-04,Prefer not to answer,18
+state,Vermont,2024-04,Prefer to self-describe,*
+state,Vermont,2024-04,Unknown,*
+state,Vermont,2024-03,Female,3847
+state,Vermont,2024-03,Male,3889
+state,Vermont,2024-03,Non-binary,*
+state,Vermont,2024-03,Prefer not to answer,16
+state,Vermont,2024-03,Prefer to self-describe,*
+state,Vermont,2024-03,Unknown,*
+state,Vermont,2024-02,Female,3769
+state,Vermont,2024-02,Male,3796
+state,Vermont,2024-02,Non-binary,*
+state,Vermont,2024-02,Prefer not to answer,16
+state,Vermont,2024-02,Prefer to self-describe,*
+state,Vermont,2024-02,Unknown,*
+state,Vermont,2024-01,Female,3704
+state,Vermont,2024-01,Male,3751
+state,Vermont,2024-01,Non-binary,*
+state,Vermont,2024-01,Prefer not to answer,14
+state,Vermont,2024-01,Prefer to self-describe,*
+state,Vermont,2024-01,Unknown,*
+state,Vermont,2023-12,Female,3689
+state,Vermont,2023-12,Male,3767
+state,Vermont,2023-12,Non-binary,*
+state,Vermont,2023-12,Prefer not to answer,16
+state,Vermont,2023-12,Prefer to self-describe,*
+state,Vermont,2023-12,Unknown,*
+state,Vermont,2023-11,Female,3624
+state,Vermont,2023-11,Male,3700
+state,Vermont,2023-11,Non-binary,*
+state,Vermont,2023-11,Prefer not to answer,15
+state,Vermont,2023-11,Prefer to self-describe,*
+state,Vermont,2023-11,Unknown,*
+state,Vermont,2023-10,Female,3647
+state,Vermont,2023-10,Male,3715
+state,Vermont,2023-10,Non-binary,*
+state,Vermont,2023-10,Prefer not to answer,*
+state,Vermont,2023-10,Prefer to self-describe,0
+state,Vermont,2023-10,Unknown,0
+state,Vermont,2023-09,Female,3687
+state,Vermont,2023-09,Male,3808
+state,Vermont,2023-09,Non-binary,*
+state,Vermont,2023-09,Prefer not to answer,*
+state,Vermont,2023-09,Prefer to self-describe,0
+state,Vermont,2023-09,Unknown,0
+state,Vermont,2023-08,Female,3924
+state,Vermont,2023-08,Male,3931
+state,Vermont,2023-08,Non-binary,*
+state,Vermont,2023-08,Prefer not to answer,23
+state,Vermont,2023-08,Prefer to self-describe,*
+state,Vermont,2023-08,Unknown,0
+state,Vermont,2023-07,Female,3776
+state,Vermont,2023-07,Male,3777
+state,Vermont,2023-07,Non-binary,*
+state,Vermont,2023-07,Prefer not to answer,19
+state,Vermont,2023-07,Prefer to self-describe,*
+state,Vermont,2023-07,Unknown,0
+AHSD,Barre District,2024-09,Female,240
+AHSD,Barre District,2024-09,Male,288
+AHSD,Barre District,2024-09,Non-binary,0
+AHSD,Barre District,2024-09,Prefer not to answer,*
+AHSD,Barre District,2024-09,Prefer to self-describe,*
+AHSD,Barre District,2024-09,Unknown,0
+AHSD,Bennington District,2024-09,Female,*
+AHSD,Bennington District,2024-09,Male,391
+AHSD,Bennington District,2024-09,Non-binary,0
+AHSD,Bennington District,2024-09,Prefer not to answer,*
+AHSD,Bennington District,2024-09,Prefer to self-describe,0
+AHSD,Bennington District,2024-09,Unknown,0
+AHSD,Brattleboro District,2024-09,Female,255
+AHSD,Brattleboro District,2024-09,Male,259
+AHSD,Brattleboro District,2024-09,Non-binary,0
+AHSD,Brattleboro District,2024-09,Prefer not to answer,*
+AHSD,Brattleboro District,2024-09,Prefer to self-describe,*
+AHSD,Brattleboro District,2024-09,Unknown,0
+AHSD,Burlington District,2024-09,Female,940
+AHSD,Burlington District,2024-09,Male,922
+AHSD,Burlington District,2024-09,Non-binary,*
+AHSD,Burlington District,2024-09,Prefer not to answer,*
+AHSD,Burlington District,2024-09,Prefer to self-describe,*
+AHSD,Burlington District,2024-09,Unknown,0
+AHSD,Hartford District,2024-09,Female,244
+AHSD,Hartford District,2024-09,Male,232
+AHSD,Hartford District,2024-09,Non-binary,*
+AHSD,Hartford District,2024-09,Prefer not to answer,*
+AHSD,Hartford District,2024-09,Prefer to self-describe,0
+AHSD,Hartford District,2024-09,Unknown,0
+AHSD,Middlebury District,2024-09,Female,*
+AHSD,Middlebury District,2024-09,Male,303
+AHSD,Middlebury District,2024-09,Non-binary,0
+AHSD,Middlebury District,2024-09,Prefer not to answer,*
+AHSD,Middlebury District,2024-09,Prefer to self-describe,0
+AHSD,Middlebury District,2024-09,Unknown,0
+AHSD,Morrisville District,2024-09,Female,249
+AHSD,Morrisville District,2024-09,Male,264
+AHSD,Morrisville District,2024-09,Non-binary,*
+AHSD,Morrisville District,2024-09,Prefer not to answer,*
+AHSD,Morrisville District,2024-09,Prefer to self-describe,0
+AHSD,Morrisville District,2024-09,Unknown,0
+AHSD,Newport District,2024-09,Female,*
+AHSD,Newport District,2024-09,Male,265
+AHSD,Newport District,2024-09,Non-binary,0
+AHSD,Newport District,2024-09,Prefer not to answer,*
+AHSD,Newport District,2024-09,Prefer to self-describe,0
+AHSD,Newport District,2024-09,Unknown,0
+AHSD,Rutland District,2024-09,Female,513
+AHSD,Rutland District,2024-09,Male,*
+AHSD,Rutland District,2024-09,Non-binary,0
+AHSD,Rutland District,2024-09,Prefer not to answer,*
+AHSD,Rutland District,2024-09,Prefer to self-describe,0
+AHSD,Rutland District,2024-09,Unknown,0
+AHSD,Springfield District,2024-09,Female,318
+AHSD,Springfield District,2024-09,Male,328
+AHSD,Springfield District,2024-09,Non-binary,0
+AHSD,Springfield District,2024-09,Prefer not to answer,0
+AHSD,Springfield District,2024-09,Prefer to self-describe,0
+AHSD,Springfield District,2024-09,Unknown,0
+AHSD,St. Albans District,2024-09,Female,393
+AHSD,St. Albans District,2024-09,Male,391
+AHSD,St. Albans District,2024-09,Non-binary,0
+AHSD,St. Albans District,2024-09,Prefer not to answer,0
+AHSD,St. Albans District,2024-09,Prefer to self-describe,0
+AHSD,St. Albans District,2024-09,Unknown,0
+AHSD,St. Johnsbury District,2024-09,Female,452
+AHSD,St. Johnsbury District,2024-09,Male,*
+AHSD,St. Johnsbury District,2024-09,Non-binary,0
+AHSD,St. Johnsbury District,2024-09,Prefer not to answer,0
+AHSD,St. Johnsbury District,2024-09,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-09,Unknown,*
+AHSD,Barre District,2024-08,Female,*
+AHSD,Barre District,2024-08,Male,317
+AHSD,Barre District,2024-08,Non-binary,0
+AHSD,Barre District,2024-08,Prefer not to answer,*
+AHSD,Barre District,2024-08,Prefer to self-describe,0
+AHSD,Barre District,2024-08,Unknown,0
+AHSD,Bennington District,2024-08,Female,*
+AHSD,Bennington District,2024-08,Male,399
+AHSD,Bennington District,2024-08,Non-binary,0
+AHSD,Bennington District,2024-08,Prefer not to answer,*
+AHSD,Bennington District,2024-08,Prefer to self-describe,0
+AHSD,Bennington District,2024-08,Unknown,0
+AHSD,Brattleboro District,2024-08,Female,264
+AHSD,Brattleboro District,2024-08,Male,271
+AHSD,Brattleboro District,2024-08,Non-binary,*
+AHSD,Brattleboro District,2024-08,Prefer not to answer,*
+AHSD,Brattleboro District,2024-08,Prefer to self-describe,*
+AHSD,Brattleboro District,2024-08,Unknown,0
+AHSD,Burlington District,2024-08,Female,1063
+AHSD,Burlington District,2024-08,Male,1000
+AHSD,Burlington District,2024-08,Non-binary,*
+AHSD,Burlington District,2024-08,Prefer not to answer,*
+AHSD,Burlington District,2024-08,Prefer to self-describe,*
+AHSD,Burlington District,2024-08,Unknown,0
+AHSD,Hartford District,2024-08,Female,241
+AHSD,Hartford District,2024-08,Male,*
+AHSD,Hartford District,2024-08,Non-binary,*
+AHSD,Hartford District,2024-08,Prefer not to answer,*
+AHSD,Hartford District,2024-08,Prefer to self-describe,0
+AHSD,Hartford District,2024-08,Unknown,0
+AHSD,Middlebury District,2024-08,Female,*
+AHSD,Middlebury District,2024-08,Male,349
+AHSD,Middlebury District,2024-08,Non-binary,0
+AHSD,Middlebury District,2024-08,Prefer not to answer,*
+AHSD,Middlebury District,2024-08,Prefer to self-describe,0
+AHSD,Middlebury District,2024-08,Unknown,0
+AHSD,Morrisville District,2024-08,Female,260
+AHSD,Morrisville District,2024-08,Male,279
+AHSD,Morrisville District,2024-08,Non-binary,*
+AHSD,Morrisville District,2024-08,Prefer not to answer,*
+AHSD,Morrisville District,2024-08,Prefer to self-describe,0
+AHSD,Morrisville District,2024-08,Unknown,0
+AHSD,Newport District,2024-08,Female,*
+AHSD,Newport District,2024-08,Male,258
+AHSD,Newport District,2024-08,Non-binary,0
+AHSD,Newport District,2024-08,Prefer not to answer,*
+AHSD,Newport District,2024-08,Prefer to self-describe,0
+AHSD,Newport District,2024-08,Unknown,0
+AHSD,Rutland District,2024-08,Female,*
+AHSD,Rutland District,2024-08,Male,563
+AHSD,Rutland District,2024-08,Non-binary,0
+AHSD,Rutland District,2024-08,Prefer not to answer,*
+AHSD,Rutland District,2024-08,Prefer to self-describe,0
+AHSD,Rutland District,2024-08,Unknown,0
+AHSD,Springfield District,2024-08,Female,328
+AHSD,Springfield District,2024-08,Male,340
+AHSD,Springfield District,2024-08,Non-binary,0
+AHSD,Springfield District,2024-08,Prefer not to answer,0
+AHSD,Springfield District,2024-08,Prefer to self-describe,0
+AHSD,Springfield District,2024-08,Unknown,0
+AHSD,St. Albans District,2024-08,Female,390
+AHSD,St. Albans District,2024-08,Male,397
+AHSD,St. Albans District,2024-08,Non-binary,0
+AHSD,St. Albans District,2024-08,Prefer not to answer,0
+AHSD,St. Albans District,2024-08,Prefer to self-describe,0
+AHSD,St. Albans District,2024-08,Unknown,0
+AHSD,St. Johnsbury District,2024-08,Female,455
+AHSD,St. Johnsbury District,2024-08,Male,*
+AHSD,St. Johnsbury District,2024-08,Non-binary,0
+AHSD,St. Johnsbury District,2024-08,Prefer not to answer,0
+AHSD,St. Johnsbury District,2024-08,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-08,Unknown,*
+AHSD,Barre District,2024-07,Female,*
+AHSD,Barre District,2024-07,Male,290
+AHSD,Barre District,2024-07,Non-binary,0
+AHSD,Barre District,2024-07,Prefer not to answer,*
+AHSD,Barre District,2024-07,Prefer to self-describe,0
+AHSD,Barre District,2024-07,Unknown,0
+AHSD,Bennington District,2024-07,Female,*
+AHSD,Bennington District,2024-07,Male,391
+AHSD,Bennington District,2024-07,Non-binary,0
+AHSD,Bennington District,2024-07,Prefer not to answer,*
+AHSD,Bennington District,2024-07,Prefer to self-describe,0
+AHSD,Bennington District,2024-07,Unknown,0
+AHSD,Brattleboro District,2024-07,Female,224
+AHSD,Brattleboro District,2024-07,Male,239
+AHSD,Brattleboro District,2024-07,Non-binary,*
+AHSD,Brattleboro District,2024-07,Prefer not to answer,*
+AHSD,Brattleboro District,2024-07,Prefer to self-describe,*
+AHSD,Brattleboro District,2024-07,Unknown,0
+AHSD,Burlington District,2024-07,Female,993
+AHSD,Burlington District,2024-07,Male,903
+AHSD,Burlington District,2024-07,Non-binary,*
+AHSD,Burlington District,2024-07,Prefer not to answer,*
+AHSD,Burlington District,2024-07,Prefer to self-describe,*
+AHSD,Burlington District,2024-07,Unknown,0
+AHSD,Hartford District,2024-07,Female,212
+AHSD,Hartford District,2024-07,Male,214
+AHSD,Hartford District,2024-07,Non-binary,*
+AHSD,Hartford District,2024-07,Prefer not to answer,*
+AHSD,Hartford District,2024-07,Prefer to self-describe,0
+AHSD,Hartford District,2024-07,Unknown,0
+AHSD,Middlebury District,2024-07,Female,294
+AHSD,Middlebury District,2024-07,Male,*
+AHSD,Middlebury District,2024-07,Non-binary,0
+AHSD,Middlebury District,2024-07,Prefer not to answer,*
+AHSD,Middlebury District,2024-07,Prefer to self-describe,0
+AHSD,Middlebury District,2024-07,Unknown,0
+AHSD,Morrisville District,2024-07,Female,*
+AHSD,Morrisville District,2024-07,Male,240
+AHSD,Morrisville District,2024-07,Non-binary,0
+AHSD,Morrisville District,2024-07,Prefer not to answer,*
+AHSD,Morrisville District,2024-07,Prefer to self-describe,0
+AHSD,Morrisville District,2024-07,Unknown,0
+AHSD,Newport District,2024-07,Female,*
+AHSD,Newport District,2024-07,Male,247
+AHSD,Newport District,2024-07,Non-binary,0
+AHSD,Newport District,2024-07,Prefer not to answer,*
+AHSD,Newport District,2024-07,Prefer to self-describe,0
+AHSD,Newport District,2024-07,Unknown,0
+AHSD,Rutland District,2024-07,Female,*
+AHSD,Rutland District,2024-07,Male,545
+AHSD,Rutland District,2024-07,Non-binary,0
+AHSD,Rutland District,2024-07,Prefer not to answer,*
+AHSD,Rutland District,2024-07,Prefer to self-describe,0
+AHSD,Rutland District,2024-07,Unknown,0
+AHSD,Springfield District,2024-07,Female,305
+AHSD,Springfield District,2024-07,Male,328
+AHSD,Springfield District,2024-07,Non-binary,0
+AHSD,Springfield District,2024-07,Prefer not to answer,0
+AHSD,Springfield District,2024-07,Prefer to self-describe,0
+AHSD,Springfield District,2024-07,Unknown,0
+AHSD,St. Albans District,2024-07,Female,385
+AHSD,St. Albans District,2024-07,Male,379
+AHSD,St. Albans District,2024-07,Non-binary,0
+AHSD,St. Albans District,2024-07,Prefer not to answer,0
+AHSD,St. Albans District,2024-07,Prefer to self-describe,0
+AHSD,St. Albans District,2024-07,Unknown,0
+AHSD,St. Johnsbury District,2024-07,Female,438
+AHSD,St. Johnsbury District,2024-07,Male,*
+AHSD,St. Johnsbury District,2024-07,Non-binary,0
+AHSD,St. Johnsbury District,2024-07,Prefer not to answer,0
+AHSD,St. Johnsbury District,2024-07,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-07,Unknown,*
+state,Vermont,2024-09,Female,4434
+state,Vermont,2024-09,Male,4520
+state,Vermont,2024-09,Non-binary,*
+state,Vermont,2024-09,Prefer not to answer,21
+state,Vermont,2024-09,Prefer to self-describe,*
+state,Vermont,2024-09,Unknown,*
+state,Vermont,2024-08,Female,4728
+state,Vermont,2024-08,Male,4769
+state,Vermont,2024-08,Non-binary,*
+state,Vermont,2024-08,Prefer not to answer,26
+state,Vermont,2024-08,Prefer to self-describe,*
+state,Vermont,2024-08,Unknown,*
+state,Vermont,2024-07,Female,4418
+state,Vermont,2024-07,Male,4422
+state,Vermont,2024-07,Non-binary,*
+state,Vermont,2024-07,Prefer not to answer,23
+state,Vermont,2024-07,Prefer to self-describe,*
+state,Vermont,2024-07,Unknown,*
+AHSD,Barre District,2024-12,Female,296
+AHSD,Barre District,2024-12,Male,356
+AHSD,Barre District,2024-12,Non-binary,0
+AHSD,Barre District,2024-12,Prefer not to answer,*
+AHSD,Barre District,2024-12,Prefer to self-describe,*
+AHSD,Barre District,2024-12,Unknown,0
+AHSD,Bennington District,2024-12,Female,*
+AHSD,Bennington District,2024-12,Male,411
+AHSD,Bennington District,2024-12,Non-binary,0
+AHSD,Bennington District,2024-12,Prefer not to answer,*
+AHSD,Bennington District,2024-12,Prefer to self-describe,0
+AHSD,Bennington District,2024-12,Unknown,0
+AHSD,Brattleboro District,2024-12,Female,269
+AHSD,Brattleboro District,2024-12,Male,284
+AHSD,Brattleboro District,2024-12,Non-binary,0
+AHSD,Brattleboro District,2024-12,Prefer not to answer,*
+AHSD,Brattleboro District,2024-12,Prefer to self-describe,*
+AHSD,Brattleboro District,2024-12,Unknown,0
+AHSD,Burlington District,2024-12,Female,1171
+AHSD,Burlington District,2024-12,Male,1179
+AHSD,Burlington District,2024-12,Non-binary,*
+AHSD,Burlington District,2024-12,Prefer not to answer,16
+AHSD,Burlington District,2024-12,Prefer to self-describe,*
+AHSD,Burlington District,2024-12,Unknown,0
+AHSD,Hartford District,2024-12,Female,287
+AHSD,Hartford District,2024-12,Male,*
+AHSD,Hartford District,2024-12,Non-binary,0
+AHSD,Hartford District,2024-12,Prefer not to answer,*
+AHSD,Hartford District,2024-12,Prefer to self-describe,0
+AHSD,Hartford District,2024-12,Unknown,0
+AHSD,Middlebury District,2024-12,Female,333
+AHSD,Middlebury District,2024-12,Male,*
+AHSD,Middlebury District,2024-12,Non-binary,0
+AHSD,Middlebury District,2024-12,Prefer not to answer,*
+AHSD,Middlebury District,2024-12,Prefer to self-describe,0
+AHSD,Middlebury District,2024-12,Unknown,0
+AHSD,Morrisville District,2024-12,Female,272
+AHSD,Morrisville District,2024-12,Male,293
+AHSD,Morrisville District,2024-12,Non-binary,*
+AHSD,Morrisville District,2024-12,Prefer not to answer,*
+AHSD,Morrisville District,2024-12,Prefer to self-describe,0
+AHSD,Morrisville District,2024-12,Unknown,0
+AHSD,Newport District,2024-12,Female,*
+AHSD,Newport District,2024-12,Male,270
+AHSD,Newport District,2024-12,Non-binary,0
+AHSD,Newport District,2024-12,Prefer not to answer,0
+AHSD,Newport District,2024-12,Prefer to self-describe,0
+AHSD,Newport District,2024-12,Unknown,0
+AHSD,Rutland District,2024-12,Female,571
+AHSD,Rutland District,2024-12,Male,*
+AHSD,Rutland District,2024-12,Non-binary,0
+AHSD,Rutland District,2024-12,Prefer not to answer,*
+AHSD,Rutland District,2024-12,Prefer to self-describe,0
+AHSD,Rutland District,2024-12,Unknown,0
+AHSD,Springfield District,2024-12,Female,303
+AHSD,Springfield District,2024-12,Male,315
+AHSD,Springfield District,2024-12,Non-binary,0
+AHSD,Springfield District,2024-12,Prefer not to answer,0
+AHSD,Springfield District,2024-12,Prefer to self-describe,0
+AHSD,Springfield District,2024-12,Unknown,0
+AHSD,St. Albans District,2024-12,Female,472
+AHSD,St. Albans District,2024-12,Male,456
+AHSD,St. Albans District,2024-12,Non-binary,0
+AHSD,St. Albans District,2024-12,Prefer not to answer,0
+AHSD,St. Albans District,2024-12,Prefer to self-describe,0
+AHSD,St. Albans District,2024-12,Unknown,0
+AHSD,St. Johnsbury District,2024-12,Female,452
+AHSD,St. Johnsbury District,2024-12,Male,388
+AHSD,St. Johnsbury District,2024-12,Non-binary,0
+AHSD,St. Johnsbury District,2024-12,Prefer not to answer,*
+AHSD,St. Johnsbury District,2024-12,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-12,Unknown,*
+AHSD,Barre District,2024-11,Female,296
+AHSD,Barre District,2024-11,Male,356
+AHSD,Barre District,2024-11,Non-binary,0
+AHSD,Barre District,2024-11,Prefer not to answer,*
+AHSD,Barre District,2024-11,Prefer to self-describe,*
+AHSD,Barre District,2024-11,Unknown,0
+AHSD,Bennington District,2024-11,Female,*
+AHSD,Bennington District,2024-11,Male,411
+AHSD,Bennington District,2024-11,Non-binary,0
+AHSD,Bennington District,2024-11,Prefer not to answer,*
+AHSD,Bennington District,2024-11,Prefer to self-describe,0
+AHSD,Bennington District,2024-11,Unknown,0
+AHSD,Brattleboro District,2024-11,Female,269
+AHSD,Brattleboro District,2024-11,Male,284
+AHSD,Brattleboro District,2024-11,Non-binary,0
+AHSD,Brattleboro District,2024-11,Prefer not to answer,*
+AHSD,Brattleboro District,2024-11,Prefer to self-describe,*
+AHSD,Brattleboro District,2024-11,Unknown,0
+AHSD,Burlington District,2024-11,Female,1171
+AHSD,Burlington District,2024-11,Male,1179
+AHSD,Burlington District,2024-11,Non-binary,*
+AHSD,Burlington District,2024-11,Prefer not to answer,16
+AHSD,Burlington District,2024-11,Prefer to self-describe,*
+AHSD,Burlington District,2024-11,Unknown,0
+AHSD,Hartford District,2024-11,Female,287
+AHSD,Hartford District,2024-11,Male,*
+AHSD,Hartford District,2024-11,Non-binary,0
+AHSD,Hartford District,2024-11,Prefer not to answer,*
+AHSD,Hartford District,2024-11,Prefer to self-describe,0
+AHSD,Hartford District,2024-11,Unknown,0
+AHSD,Middlebury District,2024-11,Female,333
+AHSD,Middlebury District,2024-11,Male,*
+AHSD,Middlebury District,2024-11,Non-binary,0
+AHSD,Middlebury District,2024-11,Prefer not to answer,*
+AHSD,Middlebury District,2024-11,Prefer to self-describe,0
+AHSD,Middlebury District,2024-11,Unknown,0
+AHSD,Morrisville District,2024-11,Female,272
+AHSD,Morrisville District,2024-11,Male,293
+AHSD,Morrisville District,2024-11,Non-binary,*
+AHSD,Morrisville District,2024-11,Prefer not to answer,*
+AHSD,Morrisville District,2024-11,Prefer to self-describe,0
+AHSD,Morrisville District,2024-11,Unknown,0
+AHSD,Newport District,2024-11,Female,*
+AHSD,Newport District,2024-11,Male,270
+AHSD,Newport District,2024-11,Non-binary,0
+AHSD,Newport District,2024-11,Prefer not to answer,0
+AHSD,Newport District,2024-11,Prefer to self-describe,0
+AHSD,Newport District,2024-11,Unknown,0
+AHSD,Rutland District,2024-11,Female,571
+AHSD,Rutland District,2024-11,Male,*
+AHSD,Rutland District,2024-11,Non-binary,0
+AHSD,Rutland District,2024-11,Prefer not to answer,*
+AHSD,Rutland District,2024-11,Prefer to self-describe,0
+AHSD,Rutland District,2024-11,Unknown,0
+AHSD,Springfield District,2024-11,Female,303
+AHSD,Springfield District,2024-11,Male,315
+AHSD,Springfield District,2024-11,Non-binary,0
+AHSD,Springfield District,2024-11,Prefer not to answer,0
+AHSD,Springfield District,2024-11,Prefer to self-describe,0
+AHSD,Springfield District,2024-11,Unknown,0
+AHSD,St. Albans District,2024-11,Female,472
+AHSD,St. Albans District,2024-11,Male,456
+AHSD,St. Albans District,2024-11,Non-binary,0
+AHSD,St. Albans District,2024-11,Prefer not to answer,0
+AHSD,St. Albans District,2024-11,Prefer to self-describe,0
+AHSD,St. Albans District,2024-11,Unknown,0
+AHSD,St. Johnsbury District,2024-11,Female,452
+AHSD,St. Johnsbury District,2024-11,Male,388
+AHSD,St. Johnsbury District,2024-11,Non-binary,0
+AHSD,St. Johnsbury District,2024-11,Prefer not to answer,*
+AHSD,St. Johnsbury District,2024-11,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-11,Unknown,*
+AHSD,Barre District,2024-10,Female,*
+AHSD,Barre District,2024-10,Male,267
+AHSD,Barre District,2024-10,Non-binary,0
+AHSD,Barre District,2024-10,Prefer not to answer,*
+AHSD,Barre District,2024-10,Prefer to self-describe,0
+AHSD,Barre District,2024-10,Unknown,0
+AHSD,Bennington District,2024-10,Female,386
+AHSD,Bennington District,2024-10,Male,*
+AHSD,Bennington District,2024-10,Non-binary,0
+AHSD,Bennington District,2024-10,Prefer not to answer,*
+AHSD,Bennington District,2024-10,Prefer to self-describe,0
+AHSD,Bennington District,2024-10,Unknown,0
+AHSD,Brattleboro District,2024-10,Female,211
+AHSD,Brattleboro District,2024-10,Male,246
+AHSD,Brattleboro District,2024-10,Non-binary,0
+AHSD,Brattleboro District,2024-10,Prefer not to answer,0
+AHSD,Brattleboro District,2024-10,Prefer to self-describe,0
+AHSD,Brattleboro District,2024-10,Unknown,0
+AHSD,Burlington District,2024-10,Female,1136
+AHSD,Burlington District,2024-10,Male,1106
+AHSD,Burlington District,2024-10,Non-binary,*
+AHSD,Burlington District,2024-10,Prefer not to answer,*
+AHSD,Burlington District,2024-10,Prefer to self-describe,*
+AHSD,Burlington District,2024-10,Unknown,*
+AHSD,Hartford District,2024-10,Female,291
+AHSD,Hartford District,2024-10,Male,*
+AHSD,Hartford District,2024-10,Non-binary,0
+AHSD,Hartford District,2024-10,Prefer not to answer,*
+AHSD,Hartford District,2024-10,Prefer to self-describe,0
+AHSD,Hartford District,2024-10,Unknown,0
+AHSD,Middlebury District,2024-10,Female,*
+AHSD,Middlebury District,2024-10,Male,356
+AHSD,Middlebury District,2024-10,Non-binary,0
+AHSD,Middlebury District,2024-10,Prefer not to answer,*
+AHSD,Middlebury District,2024-10,Prefer to self-describe,0
+AHSD,Middlebury District,2024-10,Unknown,0
+AHSD,Morrisville District,2024-10,Female,300
+AHSD,Morrisville District,2024-10,Male,327
+AHSD,Morrisville District,2024-10,Non-binary,0
+AHSD,Morrisville District,2024-10,Prefer not to answer,*
+AHSD,Morrisville District,2024-10,Prefer to self-describe,*
+AHSD,Morrisville District,2024-10,Unknown,0
+AHSD,Newport District,2024-10,Female,219
+AHSD,Newport District,2024-10,Male,*
+AHSD,Newport District,2024-10,Non-binary,0
+AHSD,Newport District,2024-10,Prefer not to answer,*
+AHSD,Newport District,2024-10,Prefer to self-describe,0
+AHSD,Newport District,2024-10,Unknown,0
+AHSD,Rutland District,2024-10,Female,516
+AHSD,Rutland District,2024-10,Male,543
+AHSD,Rutland District,2024-10,Non-binary,*
+AHSD,Rutland District,2024-10,Prefer not to answer,*
+AHSD,Rutland District,2024-10,Prefer to self-describe,0
+AHSD,Rutland District,2024-10,Unknown,0
+AHSD,Springfield District,2024-10,Female,272
+AHSD,Springfield District,2024-10,Male,295
+AHSD,Springfield District,2024-10,Non-binary,0
+AHSD,Springfield District,2024-10,Prefer not to answer,*
+AHSD,Springfield District,2024-10,Prefer to self-describe,*
+AHSD,Springfield District,2024-10,Unknown,0
+AHSD,St. Albans District,2024-10,Female,*
+AHSD,St. Albans District,2024-10,Male,473
+AHSD,St. Albans District,2024-10,Non-binary,0
+AHSD,St. Albans District,2024-10,Prefer not to answer,*
+AHSD,St. Albans District,2024-10,Prefer to self-describe,0
+AHSD,St. Albans District,2024-10,Unknown,0
+AHSD,St. Johnsbury District,2024-10,Female,*
+AHSD,St. Johnsbury District,2024-10,Male,495
+AHSD,St. Johnsbury District,2024-10,Non-binary,0
+AHSD,St. Johnsbury District,2024-10,Prefer not to answer,*
+AHSD,St. Johnsbury District,2024-10,Prefer to self-describe,0
+AHSD,St. Johnsbury District,2024-10,Unknown,0
+state,Vermont,2024-12,Female,5003
+state,Vermont,2024-12,Male,5105
+state,Vermont,2024-12,Non-binary,*
+state,Vermont,2024-12,Prefer not to answer,39
+state,Vermont,2024-12,Prefer to self-describe,*
+state,Vermont,2024-12,Unknown,*
+state,Vermont,2024-11,Female,5003
+state,Vermont,2024-11,Male,5105
+state,Vermont,2024-11,Non-binary,*
+state,Vermont,2024-11,Prefer not to answer,39
+state,Vermont,2024-11,Prefer to self-describe,*
+state,Vermont,2024-11,Unknown,*
+state,Vermont,2024-10,Female,4839
+state,Vermont,2024-10,Male,4961
+state,Vermont,2024-10,Non-binary,*
+state,Vermont,2024-10,Prefer not to answer,28
+state,Vermont,2024-10,Prefer to self-describe,*
+state,Vermont,2024-10,Unknown,*

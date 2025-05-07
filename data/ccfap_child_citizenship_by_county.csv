@@ -1,0 +1,1801 @@
+geo type,geography,year,category,value
+county,Addison,2023-06,None of the above,0
+county,Addison,2023-06,Qualified Immigrant,*
+county,Addison,2023-06,US Citizen,446
+county,Addison,2023-06,Unreported,*
+county,Bennington,2023-06,None of the above,0
+county,Bennington,2023-06,Qualified Immigrant,*
+county,Bennington,2023-06,US Citizen,550
+county,Bennington,2023-06,Unreported,*
+county,Caledonia,2023-06,None of the above,0
+county,Caledonia,2023-06,Qualified Immigrant,*
+county,Caledonia,2023-06,US Citizen,596
+county,Caledonia,2023-06,Unreported,*
+county,Chittenden,2023-06,None of the above,*
+county,Chittenden,2023-06,Qualified Immigrant,*
+county,Chittenden,2023-06,US Citizen,1436
+county,Chittenden,2023-06,Unreported,216
+county,Essex,2023-06,None of the above,0
+county,Essex,2023-06,Qualified Immigrant,0
+county,Essex,2023-06,US Citizen,*
+county,Essex,2023-06,Unreported,*
+county,Franklin,2023-06,None of the above,*
+county,Franklin,2023-06,Qualified Immigrant,0
+county,Franklin,2023-06,US Citizen,548
+county,Franklin,2023-06,Unreported,*
+county,Grand Isle,2023-06,None of the above,0
+county,Grand Isle,2023-06,Qualified Immigrant,0
+county,Grand Isle,2023-06,US Citizen,*
+county,Grand Isle,2023-06,Unreported,11
+county,Lamoille,2023-06,None of the above,0
+county,Lamoille,2023-06,Qualified Immigrant,*
+county,Lamoille,2023-06,US Citizen,323
+county,Lamoille,2023-06,Unreported,*
+county,Orange,2023-06,None of the above,0
+county,Orange,2023-06,Qualified Immigrant,0
+county,Orange,2023-06,US Citizen,215
+county,Orange,2023-06,Unreported,19
+county,Orleans,2023-06,None of the above,0
+county,Orleans,2023-06,Qualified Immigrant,0
+county,Orleans,2023-06,US Citizen,359
+county,Orleans,2023-06,Unreported,52
+county,Rutland,2023-06,None of the above,0
+county,Rutland,2023-06,Qualified Immigrant,*
+county,Rutland,2023-06,US Citizen,820
+county,Rutland,2023-06,Unreported,*
+county,Washington,2023-06,None of the above,0
+county,Washington,2023-06,Qualified Immigrant,*
+county,Washington,2023-06,US Citizen,392
+county,Washington,2023-06,Unreported,*
+county,Windham,2023-06,None of the above,*
+county,Windham,2023-06,Qualified Immigrant,*
+county,Windham,2023-06,US Citizen,460
+county,Windham,2023-06,Unreported,38
+county,Windsor,2023-06,None of the above,0
+county,Windsor,2023-06,Qualified Immigrant,0
+county,Windsor,2023-06,US Citizen,512
+county,Windsor,2023-06,Unreported,53
+county,Addison,2023-05,None of the above,0
+county,Addison,2023-05,Qualified Immigrant,*
+county,Addison,2023-05,US Citizen,369
+county,Addison,2023-05,Unreported,*
+county,Bennington,2023-05,None of the above,0
+county,Bennington,2023-05,Qualified Immigrant,*
+county,Bennington,2023-05,US Citizen,503
+county,Bennington,2023-05,Unreported,*
+county,Caledonia,2023-05,None of the above,0
+county,Caledonia,2023-05,Qualified Immigrant,0
+county,Caledonia,2023-05,US Citizen,569
+county,Caledonia,2023-05,Unreported,67
+county,Chittenden,2023-05,None of the above,*
+county,Chittenden,2023-05,Qualified Immigrant,*
+county,Chittenden,2023-05,US Citizen,1259
+county,Chittenden,2023-05,Unreported,203
+county,Essex,2023-05,None of the above,0
+county,Essex,2023-05,Qualified Immigrant,0
+county,Essex,2023-05,US Citizen,*
+county,Essex,2023-05,Unreported,*
+county,Franklin,2023-05,None of the above,*
+county,Franklin,2023-05,Qualified Immigrant,0
+county,Franklin,2023-05,US Citizen,514
+county,Franklin,2023-05,Unreported,*
+county,Grand Isle,2023-05,None of the above,0
+county,Grand Isle,2023-05,Qualified Immigrant,0
+county,Grand Isle,2023-05,US Citizen,*
+county,Grand Isle,2023-05,Unreported,12
+county,Lamoille,2023-05,None of the above,0
+county,Lamoille,2023-05,Qualified Immigrant,*
+county,Lamoille,2023-05,US Citizen,302
+county,Lamoille,2023-05,Unreported,*
+county,Orange,2023-05,None of the above,0
+county,Orange,2023-05,Qualified Immigrant,0
+county,Orange,2023-05,US Citizen,201
+county,Orange,2023-05,Unreported,20
+county,Orleans,2023-05,None of the above,0
+county,Orleans,2023-05,Qualified Immigrant,0
+county,Orleans,2023-05,US Citizen,355
+county,Orleans,2023-05,Unreported,57
+county,Rutland,2023-05,None of the above,0
+county,Rutland,2023-05,Qualified Immigrant,*
+county,Rutland,2023-05,US Citizen,733
+county,Rutland,2023-05,Unreported,*
+county,Washington,2023-05,None of the above,0
+county,Washington,2023-05,Qualified Immigrant,*
+county,Washington,2023-05,US Citizen,347
+county,Washington,2023-05,Unreported,*
+county,Windham,2023-05,None of the above,*
+county,Windham,2023-05,Qualified Immigrant,*
+county,Windham,2023-05,US Citizen,406
+county,Windham,2023-05,Unreported,39
+county,Windsor,2023-05,None of the above,0
+county,Windsor,2023-05,Qualified Immigrant,0
+county,Windsor,2023-05,US Citizen,465
+county,Windsor,2023-05,Unreported,58
+county,Addison,2023-04,None of the above,0
+county,Addison,2023-04,Qualified Immigrant,*
+county,Addison,2023-04,US Citizen,371
+county,Addison,2023-04,Unreported,*
+county,Bennington,2023-04,None of the above,0
+county,Bennington,2023-04,Qualified Immigrant,*
+county,Bennington,2023-04,US Citizen,496
+county,Bennington,2023-04,Unreported,*
+county,Caledonia,2023-04,None of the above,0
+county,Caledonia,2023-04,Qualified Immigrant,0
+county,Caledonia,2023-04,US Citizen,559
+county,Caledonia,2023-04,Unreported,71
+county,Chittenden,2023-04,None of the above,*
+county,Chittenden,2023-04,Qualified Immigrant,*
+county,Chittenden,2023-04,US Citizen,1256
+county,Chittenden,2023-04,Unreported,240
+county,Essex,2023-04,None of the above,0
+county,Essex,2023-04,Qualified Immigrant,0
+county,Essex,2023-04,US Citizen,*
+county,Essex,2023-04,Unreported,*
+county,Franklin,2023-04,None of the above,*
+county,Franklin,2023-04,Qualified Immigrant,0
+county,Franklin,2023-04,US Citizen,516
+county,Franklin,2023-04,Unreported,*
+county,Grand Isle,2023-04,None of the above,0
+county,Grand Isle,2023-04,Qualified Immigrant,0
+county,Grand Isle,2023-04,US Citizen,*
+county,Grand Isle,2023-04,Unreported,13
+county,Lamoille,2023-04,None of the above,0
+county,Lamoille,2023-04,Qualified Immigrant,*
+county,Lamoille,2023-04,US Citizen,294
+county,Lamoille,2023-04,Unreported,*
+county,Orange,2023-04,None of the above,0
+county,Orange,2023-04,Qualified Immigrant,*
+county,Orange,2023-04,US Citizen,199
+county,Orange,2023-04,Unreported,*
+county,Orleans,2023-04,None of the above,0
+county,Orleans,2023-04,Qualified Immigrant,0
+county,Orleans,2023-04,US Citizen,366
+county,Orleans,2023-04,Unreported,58
+county,Rutland,2023-04,None of the above,0
+county,Rutland,2023-04,Qualified Immigrant,*
+county,Rutland,2023-04,US Citizen,729
+county,Rutland,2023-04,Unreported,*
+county,Washington,2023-04,None of the above,0
+county,Washington,2023-04,Qualified Immigrant,*
+county,Washington,2023-04,US Citizen,339
+county,Washington,2023-04,Unreported,*
+county,Windham,2023-04,None of the above,*
+county,Windham,2023-04,Qualified Immigrant,*
+county,Windham,2023-04,US Citizen,412
+county,Windham,2023-04,Unreported,47
+county,Windsor,2023-04,None of the above,0
+county,Windsor,2023-04,Qualified Immigrant,0
+county,Windsor,2023-04,US Citizen,463
+county,Windsor,2023-04,Unreported,71
+county,Addison,2023-03,None of the above,0
+county,Addison,2023-03,Qualified Immigrant,*
+county,Addison,2023-03,US Citizen,358
+county,Addison,2023-03,Unreported,*
+county,Bennington,2023-03,None of the above,0
+county,Bennington,2023-03,Qualified Immigrant,*
+county,Bennington,2023-03,US Citizen,471
+county,Bennington,2023-03,Unreported,*
+county,Caledonia,2023-03,None of the above,0
+county,Caledonia,2023-03,Qualified Immigrant,0
+county,Caledonia,2023-03,US Citizen,540
+county,Caledonia,2023-03,Unreported,76
+county,Chittenden,2023-03,None of the above,*
+county,Chittenden,2023-03,Qualified Immigrant,*
+county,Chittenden,2023-03,US Citizen,1200
+county,Chittenden,2023-03,Unreported,257
+county,Essex,2023-03,None of the above,0
+county,Essex,2023-03,Qualified Immigrant,0
+county,Essex,2023-03,US Citizen,*
+county,Essex,2023-03,Unreported,*
+county,Franklin,2023-03,None of the above,*
+county,Franklin,2023-03,Qualified Immigrant,0
+county,Franklin,2023-03,US Citizen,478
+county,Franklin,2023-03,Unreported,*
+county,Grand Isle,2023-03,None of the above,0
+county,Grand Isle,2023-03,Qualified Immigrant,0
+county,Grand Isle,2023-03,US Citizen,*
+county,Grand Isle,2023-03,Unreported,16
+county,Lamoille,2023-03,None of the above,0
+county,Lamoille,2023-03,Qualified Immigrant,*
+county,Lamoille,2023-03,US Citizen,289
+county,Lamoille,2023-03,Unreported,*
+county,Orange,2023-03,None of the above,0
+county,Orange,2023-03,Qualified Immigrant,*
+county,Orange,2023-03,US Citizen,192
+county,Orange,2023-03,Unreported,*
+county,Orleans,2023-03,None of the above,0
+county,Orleans,2023-03,Qualified Immigrant,0
+county,Orleans,2023-03,US Citizen,348
+county,Orleans,2023-03,Unreported,69
+county,Rutland,2023-03,None of the above,0
+county,Rutland,2023-03,Qualified Immigrant,0
+county,Rutland,2023-03,US Citizen,717
+county,Rutland,2023-03,Unreported,110
+county,Washington,2023-03,None of the above,0
+county,Washington,2023-03,Qualified Immigrant,*
+county,Washington,2023-03,US Citizen,321
+county,Washington,2023-03,Unreported,*
+county,Windham,2023-03,None of the above,*
+county,Windham,2023-03,Qualified Immigrant,*
+county,Windham,2023-03,US Citizen,391
+county,Windham,2023-03,Unreported,57
+county,Windsor,2023-03,None of the above,0
+county,Windsor,2023-03,Qualified Immigrant,0
+county,Windsor,2023-03,US Citizen,431
+county,Windsor,2023-03,Unreported,85
+county,Addison,2023-02,None of the above,0
+county,Addison,2023-02,Qualified Immigrant,*
+county,Addison,2023-02,US Citizen,334
+county,Addison,2023-02,Unreported,*
+county,Bennington,2023-02,None of the above,0
+county,Bennington,2023-02,Qualified Immigrant,*
+county,Bennington,2023-02,US Citizen,460
+county,Bennington,2023-02,Unreported,*
+county,Caledonia,2023-02,None of the above,0
+county,Caledonia,2023-02,Qualified Immigrant,0
+county,Caledonia,2023-02,US Citizen,532
+county,Caledonia,2023-02,Unreported,83
+county,Chittenden,2023-02,None of the above,*
+county,Chittenden,2023-02,Qualified Immigrant,*
+county,Chittenden,2023-02,US Citizen,1109
+county,Chittenden,2023-02,Unreported,314
+county,Essex,2023-02,None of the above,0
+county,Essex,2023-02,Qualified Immigrant,0
+county,Essex,2023-02,US Citizen,70
+county,Essex,2023-02,Unreported,13
+county,Franklin,2023-02,None of the above,*
+county,Franklin,2023-02,Qualified Immigrant,0
+county,Franklin,2023-02,US Citizen,459
+county,Franklin,2023-02,Unreported,*
+county,Grand Isle,2023-02,None of the above,0
+county,Grand Isle,2023-02,Qualified Immigrant,0
+county,Grand Isle,2023-02,US Citizen,48
+county,Grand Isle,2023-02,Unreported,19
+county,Lamoille,2023-02,None of the above,0
+county,Lamoille,2023-02,Qualified Immigrant,*
+county,Lamoille,2023-02,US Citizen,284
+county,Lamoille,2023-02,Unreported,*
+county,Orange,2023-02,None of the above,0
+county,Orange,2023-02,Qualified Immigrant,*
+county,Orange,2023-02,US Citizen,184
+county,Orange,2023-02,Unreported,*
+county,Orleans,2023-02,None of the above,0
+county,Orleans,2023-02,Qualified Immigrant,0
+county,Orleans,2023-02,US Citizen,325
+county,Orleans,2023-02,Unreported,84
+county,Rutland,2023-02,None of the above,0
+county,Rutland,2023-02,Qualified Immigrant,0
+county,Rutland,2023-02,US Citizen,729
+county,Rutland,2023-02,Unreported,122
+county,Washington,2023-02,None of the above,0
+county,Washington,2023-02,Qualified Immigrant,*
+county,Washington,2023-02,US Citizen,305
+county,Washington,2023-02,Unreported,*
+county,Windham,2023-02,None of the above,*
+county,Windham,2023-02,Qualified Immigrant,*
+county,Windham,2023-02,US Citizen,373
+county,Windham,2023-02,Unreported,62
+county,Windsor,2023-02,None of the above,0
+county,Windsor,2023-02,Qualified Immigrant,0
+county,Windsor,2023-02,US Citizen,419
+county,Windsor,2023-02,Unreported,99
+county,Addison,2023-01,None of the above,0
+county,Addison,2023-01,Qualified Immigrant,*
+county,Addison,2023-01,US Citizen,334
+county,Addison,2023-01,Unreported,*
+county,Bennington,2023-01,None of the above,0
+county,Bennington,2023-01,Qualified Immigrant,*
+county,Bennington,2023-01,US Citizen,460
+county,Bennington,2023-01,Unreported,*
+county,Caledonia,2023-01,None of the above,0
+county,Caledonia,2023-01,Qualified Immigrant,0
+county,Caledonia,2023-01,US Citizen,532
+county,Caledonia,2023-01,Unreported,111
+county,Chittenden,2023-01,None of the above,*
+county,Chittenden,2023-01,Qualified Immigrant,*
+county,Chittenden,2023-01,US Citizen,1109
+county,Chittenden,2023-01,Unreported,387
+county,Essex,2023-01,None of the above,0
+county,Essex,2023-01,Qualified Immigrant,0
+county,Essex,2023-01,US Citizen,70
+county,Essex,2023-01,Unreported,15
+county,Franklin,2023-01,None of the above,*
+county,Franklin,2023-01,Qualified Immigrant,0
+county,Franklin,2023-01,US Citizen,459
+county,Franklin,2023-01,Unreported,*
+county,Grand Isle,2023-01,None of the above,0
+county,Grand Isle,2023-01,Qualified Immigrant,0
+county,Grand Isle,2023-01,US Citizen,48
+county,Grand Isle,2023-01,Unreported,18
+county,Lamoille,2023-01,None of the above,0
+county,Lamoille,2023-01,Qualified Immigrant,*
+county,Lamoille,2023-01,US Citizen,284
+county,Lamoille,2023-01,Unreported,*
+county,Orange,2023-01,None of the above,0
+county,Orange,2023-01,Qualified Immigrant,*
+county,Orange,2023-01,US Citizen,184
+county,Orange,2023-01,Unreported,*
+county,Orleans,2023-01,None of the above,0
+county,Orleans,2023-01,Qualified Immigrant,0
+county,Orleans,2023-01,US Citizen,325
+county,Orleans,2023-01,Unreported,100
+county,Rutland,2023-01,None of the above,0
+county,Rutland,2023-01,Qualified Immigrant,0
+county,Rutland,2023-01,US Citizen,729
+county,Rutland,2023-01,Unreported,133
+county,Washington,2023-01,None of the above,0
+county,Washington,2023-01,Qualified Immigrant,*
+county,Washington,2023-01,US Citizen,305
+county,Washington,2023-01,Unreported,*
+county,Windham,2023-01,None of the above,*
+county,Windham,2023-01,Qualified Immigrant,*
+county,Windham,2023-01,US Citizen,373
+county,Windham,2023-01,Unreported,76
+county,Windsor,2023-01,None of the above,0
+county,Windsor,2023-01,Qualified Immigrant,0
+county,Windsor,2023-01,US Citizen,419
+county,Windsor,2023-01,Unreported,118
+county,Addison,2022-12,None of the above,0
+county,Addison,2022-12,Qualified Immigrant,*
+county,Addison,2022-12,US Citizen,302
+county,Addison,2022-12,Unreported,*
+county,Bennington,2022-12,None of the above,0
+county,Bennington,2022-12,Qualified Immigrant,*
+county,Bennington,2022-12,US Citizen,411
+county,Bennington,2022-12,Unreported,*
+county,Caledonia,2022-12,None of the above,0
+county,Caledonia,2022-12,Qualified Immigrant,0
+county,Caledonia,2022-12,US Citizen,462
+county,Caledonia,2022-12,Unreported,147
+county,Chittenden,2022-12,None of the above,0
+county,Chittenden,2022-12,Qualified Immigrant,18
+county,Chittenden,2022-12,US Citizen,923
+county,Chittenden,2022-12,Unreported,456
+county,Essex,2022-12,None of the above,0
+county,Essex,2022-12,Qualified Immigrant,0
+county,Essex,2022-12,US Citizen,51
+county,Essex,2022-12,Unreported,20
+county,Franklin,2022-12,None of the above,*
+county,Franklin,2022-12,Qualified Immigrant,0
+county,Franklin,2022-12,US Citizen,424
+county,Franklin,2022-12,Unreported,*
+county,Grand Isle,2022-12,None of the above,0
+county,Grand Isle,2022-12,Qualified Immigrant,0
+county,Grand Isle,2022-12,US Citizen,45
+county,Grand Isle,2022-12,Unreported,19
+county,Lamoille,2022-12,None of the above,0
+county,Lamoille,2022-12,Qualified Immigrant,*
+county,Lamoille,2022-12,US Citizen,233
+county,Lamoille,2022-12,Unreported,*
+county,Orange,2022-12,None of the above,0
+county,Orange,2022-12,Qualified Immigrant,*
+county,Orange,2022-12,US Citizen,155
+county,Orange,2022-12,Unreported,*
+county,Orleans,2022-12,None of the above,0
+county,Orleans,2022-12,Qualified Immigrant,0
+county,Orleans,2022-12,US Citizen,281
+county,Orleans,2022-12,Unreported,119
+county,Rutland,2022-12,None of the above,0
+county,Rutland,2022-12,Qualified Immigrant,0
+county,Rutland,2022-12,US Citizen,690
+county,Rutland,2022-12,Unreported,161
+county,Washington,2022-12,None of the above,0
+county,Washington,2022-12,Qualified Immigrant,*
+county,Washington,2022-12,US Citizen,243
+county,Washington,2022-12,Unreported,*
+county,Windham,2022-12,None of the above,*
+county,Windham,2022-12,Qualified Immigrant,*
+county,Windham,2022-12,US Citizen,327
+county,Windham,2022-12,Unreported,87
+county,Windsor,2022-12,None of the above,0
+county,Windsor,2022-12,Qualified Immigrant,0
+county,Windsor,2022-12,US Citizen,366
+county,Windsor,2022-12,Unreported,136
+county,Addison,2022-11,None of the above,0
+county,Addison,2022-11,Qualified Immigrant,*
+county,Addison,2022-11,US Citizen,301
+county,Addison,2022-11,Unreported,*
+county,Bennington,2022-11,None of the above,0
+county,Bennington,2022-11,Qualified Immigrant,*
+county,Bennington,2022-11,US Citizen,399
+county,Bennington,2022-11,Unreported,*
+county,Caledonia,2022-11,None of the above,0
+county,Caledonia,2022-11,Qualified Immigrant,0
+county,Caledonia,2022-11,US Citizen,414
+county,Caledonia,2022-11,Unreported,178
+county,Chittenden,2022-11,None of the above,0
+county,Chittenden,2022-11,Qualified Immigrant,20
+county,Chittenden,2022-11,US Citizen,889
+county,Chittenden,2022-11,Unreported,487
+county,Essex,2022-11,None of the above,0
+county,Essex,2022-11,Qualified Immigrant,0
+county,Essex,2022-11,US Citizen,50
+county,Essex,2022-11,Unreported,23
+county,Franklin,2022-11,None of the above,*
+county,Franklin,2022-11,Qualified Immigrant,0
+county,Franklin,2022-11,US Citizen,421
+county,Franklin,2022-11,Unreported,*
+county,Grand Isle,2022-11,None of the above,0
+county,Grand Isle,2022-11,Qualified Immigrant,0
+county,Grand Isle,2022-11,US Citizen,44
+county,Grand Isle,2022-11,Unreported,22
+county,Lamoille,2022-11,None of the above,0
+county,Lamoille,2022-11,Qualified Immigrant,*
+county,Lamoille,2022-11,US Citizen,225
+county,Lamoille,2022-11,Unreported,*
+county,Orange,2022-11,None of the above,0
+county,Orange,2022-11,Qualified Immigrant,*
+county,Orange,2022-11,US Citizen,154
+county,Orange,2022-11,Unreported,*
+county,Orleans,2022-11,None of the above,0
+county,Orleans,2022-11,Qualified Immigrant,0
+county,Orleans,2022-11,US Citizen,267
+county,Orleans,2022-11,Unreported,126
+county,Rutland,2022-11,None of the above,0
+county,Rutland,2022-11,Qualified Immigrant,0
+county,Rutland,2022-11,US Citizen,682
+county,Rutland,2022-11,Unreported,176
+county,Washington,2022-11,None of the above,0
+county,Washington,2022-11,Qualified Immigrant,*
+county,Washington,2022-11,US Citizen,238
+county,Washington,2022-11,Unreported,*
+county,Windham,2022-11,None of the above,*
+county,Windham,2022-11,Qualified Immigrant,*
+county,Windham,2022-11,US Citizen,317
+county,Windham,2022-11,Unreported,94
+county,Windsor,2022-11,None of the above,0
+county,Windsor,2022-11,Qualified Immigrant,0
+county,Windsor,2022-11,US Citizen,364
+county,Windsor,2022-11,Unreported,146
+county,Addison,2022-10,None of the above,0
+county,Addison,2022-10,Qualified Immigrant,*
+county,Addison,2022-10,US Citizen,289
+county,Addison,2022-10,Unreported,*
+county,Bennington,2022-10,None of the above,0
+county,Bennington,2022-10,Qualified Immigrant,*
+county,Bennington,2022-10,US Citizen,377
+county,Bennington,2022-10,Unreported,*
+county,Caledonia,2022-10,None of the above,0
+county,Caledonia,2022-10,Qualified Immigrant,0
+county,Caledonia,2022-10,US Citizen,383
+county,Caledonia,2022-10,Unreported,203
+county,Chittenden,2022-10,None of the above,0
+county,Chittenden,2022-10,Qualified Immigrant,18
+county,Chittenden,2022-10,US Citizen,830
+county,Chittenden,2022-10,Unreported,521
+county,Essex,2022-10,None of the above,0
+county,Essex,2022-10,Qualified Immigrant,0
+county,Essex,2022-10,US Citizen,47
+county,Essex,2022-10,Unreported,25
+county,Franklin,2022-10,None of the above,*
+county,Franklin,2022-10,Qualified Immigrant,0
+county,Franklin,2022-10,US Citizen,399
+county,Franklin,2022-10,Unreported,*
+county,Grand Isle,2022-10,None of the above,0
+county,Grand Isle,2022-10,Qualified Immigrant,0
+county,Grand Isle,2022-10,US Citizen,42
+county,Grand Isle,2022-10,Unreported,24
+county,Lamoille,2022-10,None of the above,0
+county,Lamoille,2022-10,Qualified Immigrant,*
+county,Lamoille,2022-10,US Citizen,204
+county,Lamoille,2022-10,Unreported,*
+county,Orange,2022-10,None of the above,0
+county,Orange,2022-10,Qualified Immigrant,*
+county,Orange,2022-10,US Citizen,138
+county,Orange,2022-10,Unreported,*
+county,Orleans,2022-10,None of the above,0
+county,Orleans,2022-10,Qualified Immigrant,0
+county,Orleans,2022-10,US Citizen,253
+county,Orleans,2022-10,Unreported,144
+county,Rutland,2022-10,None of the above,0
+county,Rutland,2022-10,Qualified Immigrant,0
+county,Rutland,2022-10,US Citizen,640
+county,Rutland,2022-10,Unreported,193
+county,Washington,2022-10,None of the above,0
+county,Washington,2022-10,Qualified Immigrant,*
+county,Washington,2022-10,US Citizen,228
+county,Washington,2022-10,Unreported,*
+county,Windham,2022-10,None of the above,*
+county,Windham,2022-10,Qualified Immigrant,*
+county,Windham,2022-10,US Citizen,294
+county,Windham,2022-10,Unreported,120
+county,Windsor,2022-10,None of the above,0
+county,Windsor,2022-10,Qualified Immigrant,0
+county,Windsor,2022-10,US Citizen,347
+county,Windsor,2022-10,Unreported,160
+county,Addison,2022-09,None of the above,0
+county,Addison,2022-09,Qualified Immigrant,*
+county,Addison,2022-09,US Citizen,281
+county,Addison,2022-09,Unreported,*
+county,Bennington,2022-09,None of the above,0
+county,Bennington,2022-09,Qualified Immigrant,*
+county,Bennington,2022-09,US Citizen,371
+county,Bennington,2022-09,Unreported,*
+county,Caledonia,2022-09,None of the above,0
+county,Caledonia,2022-09,Qualified Immigrant,0
+county,Caledonia,2022-09,US Citizen,345
+county,Caledonia,2022-09,Unreported,253
+county,Chittenden,2022-09,None of the above,0
+county,Chittenden,2022-09,Qualified Immigrant,18
+county,Chittenden,2022-09,US Citizen,733
+county,Chittenden,2022-09,Unreported,643
+county,Essex,2022-09,None of the above,0
+county,Essex,2022-09,Qualified Immigrant,0
+county,Essex,2022-09,US Citizen,40
+county,Essex,2022-09,Unreported,30
+county,Franklin,2022-09,None of the above,*
+county,Franklin,2022-09,Qualified Immigrant,*
+county,Franklin,2022-09,US Citizen,364
+county,Franklin,2022-09,Unreported,216
+county,Grand Isle,2022-09,None of the above,0
+county,Grand Isle,2022-09,Qualified Immigrant,0
+county,Grand Isle,2022-09,US Citizen,40
+county,Grand Isle,2022-09,Unreported,29
+county,Lamoille,2022-09,None of the above,0
+county,Lamoille,2022-09,Qualified Immigrant,*
+county,Lamoille,2022-09,US Citizen,163
+county,Lamoille,2022-09,Unreported,*
+county,Orange,2022-09,None of the above,0
+county,Orange,2022-09,Qualified Immigrant,*
+county,Orange,2022-09,US Citizen,134
+county,Orange,2022-09,Unreported,*
+county,Orleans,2022-09,None of the above,0
+county,Orleans,2022-09,Qualified Immigrant,0
+county,Orleans,2022-09,US Citizen,238
+county,Orleans,2022-09,Unreported,161
+county,Rutland,2022-09,None of the above,0
+county,Rutland,2022-09,Qualified Immigrant,0
+county,Rutland,2022-09,US Citizen,619
+county,Rutland,2022-09,Unreported,224
+county,Washington,2022-09,None of the above,0
+county,Washington,2022-09,Qualified Immigrant,*
+county,Washington,2022-09,US Citizen,208
+county,Washington,2022-09,Unreported,*
+county,Windham,2022-09,None of the above,*
+county,Windham,2022-09,Qualified Immigrant,*
+county,Windham,2022-09,US Citizen,285
+county,Windham,2022-09,Unreported,151
+county,Windsor,2022-09,None of the above,0
+county,Windsor,2022-09,Qualified Immigrant,0
+county,Windsor,2022-09,US Citizen,329
+county,Windsor,2022-09,Unreported,203
+county,Addison,2022-08,None of the above,0
+county,Addison,2022-08,Qualified Immigrant,*
+county,Addison,2022-08,US Citizen,330
+county,Addison,2022-08,Unreported,*
+county,Bennington,2022-08,None of the above,0
+county,Bennington,2022-08,Qualified Immigrant,*
+county,Bennington,2022-08,US Citizen,366
+county,Bennington,2022-08,Unreported,*
+county,Caledonia,2022-08,None of the above,0
+county,Caledonia,2022-08,Qualified Immigrant,*
+county,Caledonia,2022-08,US Citizen,*
+county,Caledonia,2022-08,Unreported,325
+county,Chittenden,2022-08,None of the above,*
+county,Chittenden,2022-08,Qualified Immigrant,*
+county,Chittenden,2022-08,US Citizen,612
+county,Chittenden,2022-08,Unreported,871
+county,Essex,2022-08,None of the above,0
+county,Essex,2022-08,Qualified Immigrant,0
+county,Essex,2022-08,US Citizen,31
+county,Essex,2022-08,Unreported,33
+county,Franklin,2022-08,None of the above,0
+county,Franklin,2022-08,Qualified Immigrant,*
+county,Franklin,2022-08,US Citizen,330
+county,Franklin,2022-08,Unreported,*
+county,Grand Isle,2022-08,None of the above,0
+county,Grand Isle,2022-08,Qualified Immigrant,0
+county,Grand Isle,2022-08,US Citizen,36
+county,Grand Isle,2022-08,Unreported,38
+county,Lamoille,2022-08,None of the above,0
+county,Lamoille,2022-08,Qualified Immigrant,*
+county,Lamoille,2022-08,US Citizen,*
+county,Lamoille,2022-08,Unreported,216
+county,Orange,2022-08,None of the above,0
+county,Orange,2022-08,Qualified Immigrant,*
+county,Orange,2022-08,US Citizen,141
+county,Orange,2022-08,Unreported,*
+county,Orleans,2022-08,None of the above,0
+county,Orleans,2022-08,Qualified Immigrant,0
+county,Orleans,2022-08,US Citizen,234
+county,Orleans,2022-08,Unreported,182
+county,Rutland,2022-08,None of the above,0
+county,Rutland,2022-08,Qualified Immigrant,*
+county,Rutland,2022-08,US Citizen,643
+county,Rutland,2022-08,Unreported,*
+county,Washington,2022-08,None of the above,0
+county,Washington,2022-08,Qualified Immigrant,*
+county,Washington,2022-08,US Citizen,233
+county,Washington,2022-08,Unreported,*
+county,Windham,2022-08,None of the above,*
+county,Windham,2022-08,Qualified Immigrant,*
+county,Windham,2022-08,US Citizen,253
+county,Windham,2022-08,Unreported,206
+county,Windsor,2022-08,None of the above,0
+county,Windsor,2022-08,Qualified Immigrant,*
+county,Windsor,2022-08,US Citizen,300
+county,Windsor,2022-08,Unreported,*
+county,Addison,2022-07,None of the above,0
+county,Addison,2022-07,Qualified Immigrant,*
+county,Addison,2022-07,US Citizen,266
+county,Addison,2022-07,Unreported,*
+county,Bennington,2022-07,None of the above,0
+county,Bennington,2022-07,Qualified Immigrant,*
+county,Bennington,2022-07,US Citizen,327
+county,Bennington,2022-07,Unreported,*
+county,Caledonia,2022-07,None of the above,0
+county,Caledonia,2022-07,Qualified Immigrant,*
+county,Caledonia,2022-07,US Citizen,*
+county,Caledonia,2022-07,Unreported,364
+county,Chittenden,2022-07,None of the above,*
+county,Chittenden,2022-07,Qualified Immigrant,*
+county,Chittenden,2022-07,US Citizen,401
+county,Chittenden,2022-07,Unreported,967
+county,Essex,2022-07,None of the above,0
+county,Essex,2022-07,Qualified Immigrant,0
+county,Essex,2022-07,US Citizen,26
+county,Essex,2022-07,Unreported,39
+county,Franklin,2022-07,None of the above,0
+county,Franklin,2022-07,Qualified Immigrant,*
+county,Franklin,2022-07,US Citizen,*
+county,Franklin,2022-07,Unreported,303
+county,Grand Isle,2022-07,None of the above,0
+county,Grand Isle,2022-07,Qualified Immigrant,0
+county,Grand Isle,2022-07,US Citizen,35
+county,Grand Isle,2022-07,Unreported,37
+county,Lamoille,2022-07,None of the above,0
+county,Lamoille,2022-07,Qualified Immigrant,*
+county,Lamoille,2022-07,US Citizen,*
+county,Lamoille,2022-07,Unreported,230
+county,Orange,2022-07,None of the above,0
+county,Orange,2022-07,Qualified Immigrant,*
+county,Orange,2022-07,US Citizen,112
+county,Orange,2022-07,Unreported,*
+county,Orleans,2022-07,None of the above,0
+county,Orleans,2022-07,Qualified Immigrant,0
+county,Orleans,2022-07,US Citizen,182
+county,Orleans,2022-07,Unreported,204
+county,Rutland,2022-07,None of the above,0
+county,Rutland,2022-07,Qualified Immigrant,*
+county,Rutland,2022-07,US Citizen,567
+county,Rutland,2022-07,Unreported,*
+county,Washington,2022-07,None of the above,0
+county,Washington,2022-07,Qualified Immigrant,*
+county,Washington,2022-07,US Citizen,*
+county,Washington,2022-07,Unreported,215
+county,Windham,2022-07,None of the above,0
+county,Windham,2022-07,Qualified Immigrant,*
+county,Windham,2022-07,US Citizen,*
+county,Windham,2022-07,Unreported,250
+county,Windsor,2022-07,None of the above,0
+county,Windsor,2022-07,Qualified Immigrant,*
+county,Windsor,2022-07,US Citizen,*
+county,Windsor,2022-07,Unreported,316
+state,Vermont,2023-06,None of the above,*
+state,Vermont,2023-06,Qualified Immigrant,*
+state,Vermont,2023-06,US Citizen,6805
+state,Vermont,2023-06,Unreported,884
+state,Vermont,2023-05,None of the above,*
+state,Vermont,2023-05,Qualified Immigrant,*
+state,Vermont,2023-05,US Citizen,6154
+state,Vermont,2023-05,Unreported,871
+state,Vermont,2023-04,None of the above,*
+state,Vermont,2023-04,Qualified Immigrant,*
+state,Vermont,2023-04,US Citizen,6124
+state,Vermont,2023-04,Unreported,989
+state,Vermont,2023-03,None of the above,*
+state,Vermont,2023-03,Qualified Immigrant,*
+state,Vermont,2023-03,US Citizen,5857
+state,Vermont,2023-03,Unreported,1077
+state,Vermont,2023-02,None of the above,*
+state,Vermont,2023-02,Qualified Immigrant,*
+state,Vermont,2023-02,US Citizen,5631
+state,Vermont,2023-02,Unreported,1266
+state,Vermont,2023-01,None of the above,*
+state,Vermont,2023-01,Qualified Immigrant,*
+state,Vermont,2023-01,US Citizen,5631
+state,Vermont,2023-01,Unreported,1474
+state,Vermont,2022-12,None of the above,*
+state,Vermont,2022-12,Qualified Immigrant,*
+state,Vermont,2022-12,US Citizen,4913
+state,Vermont,2022-12,Unreported,1781
+state,Vermont,2022-11,None of the above,*
+state,Vermont,2022-11,Qualified Immigrant,*
+state,Vermont,2022-11,US Citizen,4765
+state,Vermont,2022-11,Unreported,1934
+state,Vermont,2022-10,None of the above,*
+state,Vermont,2022-10,Qualified Immigrant,*
+state,Vermont,2022-10,US Citizen,4471
+state,Vermont,2022-10,Unreported,2150
+state,Vermont,2022-09,None of the above,*
+state,Vermont,2022-09,Qualified Immigrant,*
+state,Vermont,2022-09,US Citizen,4150
+state,Vermont,2022-09,Unreported,2559
+state,Vermont,2022-08,None of the above,*
+state,Vermont,2022-08,Qualified Immigrant,*
+state,Vermont,2022-08,US Citizen,3947
+state,Vermont,2022-08,Unreported,3385
+state,Vermont,2022-07,None of the above,*
+state,Vermont,2022-07,Qualified Immigrant,*
+state,Vermont,2022-07,US Citizen,3038
+state,Vermont,2022-07,Unreported,3803
+county,Addison,2024-06,None of the above,0
+county,Addison,2024-06,Qualified Immigrant,0
+county,Addison,2024-06,US Citizen,594
+county,Addison,2024-06,Unreported,36
+county,Bennington,2024-06,None of the above,0
+county,Bennington,2024-06,Qualified Immigrant,*
+county,Bennington,2024-06,US Citizen,685
+county,Bennington,2024-06,Unreported,*
+county,Caledonia,2024-06,None of the above,0
+county,Caledonia,2024-06,Qualified Immigrant,*
+county,Caledonia,2024-06,US Citizen,690
+county,Caledonia,2024-06,Unreported,*
+county,Chittenden,2024-06,None of the above,0
+county,Chittenden,2024-06,Qualified Immigrant,36
+county,Chittenden,2024-06,US Citizen,1819
+county,Chittenden,2024-06,Unreported,134
+county,Essex,2024-06,None of the above,0
+county,Essex,2024-06,Qualified Immigrant,0
+county,Essex,2024-06,US Citizen,*
+county,Essex,2024-06,Unreported,*
+county,Franklin,2024-06,None of the above,0
+county,Franklin,2024-06,Qualified Immigrant,0
+county,Franklin,2024-06,US Citizen,618
+county,Franklin,2024-06,Unreported,67
+county,Grand Isle,2024-06,None of the above,0
+county,Grand Isle,2024-06,Qualified Immigrant,0
+county,Grand Isle,2024-06,US Citizen,*
+county,Grand Isle,2024-06,Unreported,*
+county,Lamoille,2024-06,None of the above,0
+county,Lamoille,2024-06,Qualified Immigrant,0
+county,Lamoille,2024-06,US Citizen,405
+county,Lamoille,2024-06,Unreported,28
+county,Orange,2024-06,None of the above,0
+county,Orange,2024-06,Qualified Immigrant,0
+county,Orange,2024-06,US Citizen,308
+county,Orange,2024-06,Unreported,19
+county,Orleans,2024-06,None of the above,0
+county,Orleans,2024-06,Qualified Immigrant,*
+county,Orleans,2024-06,US Citizen,429
+county,Orleans,2024-06,Unreported,*
+county,Rutland,2024-06,None of the above,*
+county,Rutland,2024-06,Qualified Immigrant,*
+county,Rutland,2024-06,US Citizen,1018
+county,Rutland,2024-06,Unreported,75
+county,Washington,2024-06,None of the above,0
+county,Washington,2024-06,Qualified Immigrant,*
+county,Washington,2024-06,US Citizen,496
+county,Washington,2024-06,Unreported,*
+county,Windham,2024-06,None of the above,*
+county,Windham,2024-06,Qualified Immigrant,*
+county,Windham,2024-06,US Citizen,583
+county,Windham,2024-06,Unreported,36
+county,Windsor,2024-06,None of the above,0
+county,Windsor,2024-06,Qualified Immigrant,*
+county,Windsor,2024-06,US Citizen,735
+county,Windsor,2024-06,Unreported,*
+county,Addison,2024-05,None of the above,0
+county,Addison,2024-05,Qualified Immigrant,0
+county,Addison,2024-05,US Citizen,480
+county,Addison,2024-05,Unreported,35
+county,Bennington,2024-05,None of the above,0
+county,Bennington,2024-05,Qualified Immigrant,*
+county,Bennington,2024-05,US Citizen,606
+county,Bennington,2024-05,Unreported,*
+county,Caledonia,2024-05,None of the above,0
+county,Caledonia,2024-05,Qualified Immigrant,*
+county,Caledonia,2024-05,US Citizen,648
+county,Caledonia,2024-05,Unreported,*
+county,Chittenden,2024-05,None of the above,0
+county,Chittenden,2024-05,Qualified Immigrant,31
+county,Chittenden,2024-05,US Citizen,1555
+county,Chittenden,2024-05,Unreported,126
+county,Essex,2024-05,None of the above,0
+county,Essex,2024-05,Qualified Immigrant,0
+county,Essex,2024-05,US Citizen,*
+county,Essex,2024-05,Unreported,*
+county,Franklin,2024-05,None of the above,0
+county,Franklin,2024-05,Qualified Immigrant,0
+county,Franklin,2024-05,US Citizen,568
+county,Franklin,2024-05,Unreported,60
+county,Grand Isle,2024-05,None of the above,0
+county,Grand Isle,2024-05,Qualified Immigrant,0
+county,Grand Isle,2024-05,US Citizen,*
+county,Grand Isle,2024-05,Unreported,*
+county,Lamoille,2024-05,None of the above,0
+county,Lamoille,2024-05,Qualified Immigrant,0
+county,Lamoille,2024-05,US Citizen,379
+county,Lamoille,2024-05,Unreported,27
+county,Orange,2024-05,None of the above,0
+county,Orange,2024-05,Qualified Immigrant,0
+county,Orange,2024-05,US Citizen,270
+county,Orange,2024-05,Unreported,17
+county,Orleans,2024-05,None of the above,0
+county,Orleans,2024-05,Qualified Immigrant,0
+county,Orleans,2024-05,US Citizen,416
+county,Orleans,2024-05,Unreported,38
+county,Rutland,2024-05,None of the above,0
+county,Rutland,2024-05,Qualified Immigrant,19
+county,Rutland,2024-05,US Citizen,854
+county,Rutland,2024-05,Unreported,70
+county,Washington,2024-05,None of the above,0
+county,Washington,2024-05,Qualified Immigrant,*
+county,Washington,2024-05,US Citizen,417
+county,Washington,2024-05,Unreported,*
+county,Windham,2024-05,None of the above,*
+county,Windham,2024-05,Qualified Immigrant,*
+county,Windham,2024-05,US Citizen,525
+county,Windham,2024-05,Unreported,35
+county,Windsor,2024-05,None of the above,0
+county,Windsor,2024-05,Qualified Immigrant,*
+county,Windsor,2024-05,US Citizen,606
+county,Windsor,2024-05,Unreported,*
+county,Addison,2024-04,None of the above,0
+county,Addison,2024-04,Qualified Immigrant,0
+county,Addison,2024-04,US Citizen,474
+county,Addison,2024-04,Unreported,38
+county,Bennington,2024-04,None of the above,0
+county,Bennington,2024-04,Qualified Immigrant,*
+county,Bennington,2024-04,US Citizen,604
+county,Bennington,2024-04,Unreported,*
+county,Caledonia,2024-04,None of the above,0
+county,Caledonia,2024-04,Qualified Immigrant,*
+county,Caledonia,2024-04,US Citizen,628
+county,Caledonia,2024-04,Unreported,*
+county,Chittenden,2024-04,None of the above,0
+county,Chittenden,2024-04,Qualified Immigrant,30
+county,Chittenden,2024-04,US Citizen,1568
+county,Chittenden,2024-04,Unreported,134
+county,Essex,2024-04,None of the above,0
+county,Essex,2024-04,Qualified Immigrant,0
+county,Essex,2024-04,US Citizen,*
+county,Essex,2024-04,Unreported,*
+county,Franklin,2024-04,None of the above,0
+county,Franklin,2024-04,Qualified Immigrant,0
+county,Franklin,2024-04,US Citizen,567
+county,Franklin,2024-04,Unreported,57
+county,Grand Isle,2024-04,None of the above,0
+county,Grand Isle,2024-04,Qualified Immigrant,0
+county,Grand Isle,2024-04,US Citizen,*
+county,Grand Isle,2024-04,Unreported,*
+county,Lamoille,2024-04,None of the above,0
+county,Lamoille,2024-04,Qualified Immigrant,0
+county,Lamoille,2024-04,US Citizen,370
+county,Lamoille,2024-04,Unreported,31
+county,Orange,2024-04,None of the above,0
+county,Orange,2024-04,Qualified Immigrant,0
+county,Orange,2024-04,US Citizen,259
+county,Orange,2024-04,Unreported,15
+county,Orleans,2024-04,None of the above,0
+county,Orleans,2024-04,Qualified Immigrant,0
+county,Orleans,2024-04,US Citizen,402
+county,Orleans,2024-04,Unreported,38
+county,Rutland,2024-04,None of the above,0
+county,Rutland,2024-04,Qualified Immigrant,*
+county,Rutland,2024-04,US Citizen,847
+county,Rutland,2024-04,Unreported,*
+county,Washington,2024-04,None of the above,0
+county,Washington,2024-04,Qualified Immigrant,*
+county,Washington,2024-04,US Citizen,410
+county,Washington,2024-04,Unreported,*
+county,Windham,2024-04,None of the above,*
+county,Windham,2024-04,Qualified Immigrant,*
+county,Windham,2024-04,US Citizen,525
+county,Windham,2024-04,Unreported,36
+county,Windsor,2024-04,None of the above,0
+county,Windsor,2024-04,Qualified Immigrant,*
+county,Windsor,2024-04,US Citizen,606
+county,Windsor,2024-04,Unreported,*
+county,Addison,2024-03,None of the above,0
+county,Addison,2024-03,Qualified Immigrant,0
+county,Addison,2024-03,US Citizen,454
+county,Addison,2024-03,Unreported,37
+county,Bennington,2024-03,None of the above,0
+county,Bennington,2024-03,Qualified Immigrant,*
+county,Bennington,2024-03,US Citizen,576
+county,Bennington,2024-03,Unreported,*
+county,Caledonia,2024-03,None of the above,0
+county,Caledonia,2024-03,Qualified Immigrant,*
+county,Caledonia,2024-03,US Citizen,599
+county,Caledonia,2024-03,Unreported,*
+county,Chittenden,2024-03,None of the above,0
+county,Chittenden,2024-03,Qualified Immigrant,31
+county,Chittenden,2024-03,US Citizen,1496
+county,Chittenden,2024-03,Unreported,133
+county,Essex,2024-03,None of the above,0
+county,Essex,2024-03,Qualified Immigrant,0
+county,Essex,2024-03,US Citizen,*
+county,Essex,2024-03,Unreported,*
+county,Franklin,2024-03,None of the above,0
+county,Franklin,2024-03,Qualified Immigrant,0
+county,Franklin,2024-03,US Citizen,530
+county,Franklin,2024-03,Unreported,64
+county,Grand Isle,2024-03,None of the above,0
+county,Grand Isle,2024-03,Qualified Immigrant,0
+county,Grand Isle,2024-03,US Citizen,*
+county,Grand Isle,2024-03,Unreported,*
+county,Lamoille,2024-03,None of the above,0
+county,Lamoille,2024-03,Qualified Immigrant,0
+county,Lamoille,2024-03,US Citizen,354
+county,Lamoille,2024-03,Unreported,31
+county,Orange,2024-03,None of the above,0
+county,Orange,2024-03,Qualified Immigrant,0
+county,Orange,2024-03,US Citizen,248
+county,Orange,2024-03,Unreported,17
+county,Orleans,2024-03,None of the above,0
+county,Orleans,2024-03,Qualified Immigrant,0
+county,Orleans,2024-03,US Citizen,389
+county,Orleans,2024-03,Unreported,42
+county,Rutland,2024-03,None of the above,0
+county,Rutland,2024-03,Qualified Immigrant,*
+county,Rutland,2024-03,US Citizen,817
+county,Rutland,2024-03,Unreported,*
+county,Washington,2024-03,None of the above,0
+county,Washington,2024-03,Qualified Immigrant,*
+county,Washington,2024-03,US Citizen,385
+county,Washington,2024-03,Unreported,*
+county,Windham,2024-03,None of the above,*
+county,Windham,2024-03,Qualified Immigrant,*
+county,Windham,2024-03,US Citizen,497
+county,Windham,2024-03,Unreported,36
+county,Windsor,2024-03,None of the above,0
+county,Windsor,2024-03,Qualified Immigrant,*
+county,Windsor,2024-03,US Citizen,578
+county,Windsor,2024-03,Unreported,*
+county,Addison,2024-02,None of the above,0
+county,Addison,2024-02,Qualified Immigrant,0
+county,Addison,2024-02,US Citizen,442
+county,Addison,2024-02,Unreported,41
+county,Bennington,2024-02,None of the above,0
+county,Bennington,2024-02,Qualified Immigrant,*
+county,Bennington,2024-02,US Citizen,554
+county,Bennington,2024-02,Unreported,*
+county,Caledonia,2024-02,None of the above,0
+county,Caledonia,2024-02,Qualified Immigrant,*
+county,Caledonia,2024-02,US Citizen,574
+county,Caledonia,2024-02,Unreported,*
+county,Chittenden,2024-02,None of the above,0
+county,Chittenden,2024-02,Qualified Immigrant,27
+county,Chittenden,2024-02,US Citizen,1446
+county,Chittenden,2024-02,Unreported,140
+county,Essex,2024-02,None of the above,0
+county,Essex,2024-02,Qualified Immigrant,0
+county,Essex,2024-02,US Citizen,*
+county,Essex,2024-02,Unreported,*
+county,Franklin,2024-02,None of the above,0
+county,Franklin,2024-02,Qualified Immigrant,0
+county,Franklin,2024-02,US Citizen,530
+county,Franklin,2024-02,Unreported,64
+county,Grand Isle,2024-02,None of the above,0
+county,Grand Isle,2024-02,Qualified Immigrant,0
+county,Grand Isle,2024-02,US Citizen,*
+county,Grand Isle,2024-02,Unreported,*
+county,Lamoille,2024-02,None of the above,0
+county,Lamoille,2024-02,Qualified Immigrant,0
+county,Lamoille,2024-02,US Citizen,341
+county,Lamoille,2024-02,Unreported,31
+county,Orange,2024-02,None of the above,0
+county,Orange,2024-02,Qualified Immigrant,0
+county,Orange,2024-02,US Citizen,235
+county,Orange,2024-02,Unreported,17
+county,Orleans,2024-02,None of the above,0
+county,Orleans,2024-02,Qualified Immigrant,0
+county,Orleans,2024-02,US Citizen,391
+county,Orleans,2024-02,Unreported,44
+county,Rutland,2024-02,None of the above,0
+county,Rutland,2024-02,Qualified Immigrant,*
+county,Rutland,2024-02,US Citizen,807
+county,Rutland,2024-02,Unreported,*
+county,Washington,2024-02,None of the above,0
+county,Washington,2024-02,Qualified Immigrant,*
+county,Washington,2024-02,US Citizen,373
+county,Washington,2024-02,Unreported,*
+county,Windham,2024-02,None of the above,*
+county,Windham,2024-02,Qualified Immigrant,*
+county,Windham,2024-02,US Citizen,483
+county,Windham,2024-02,Unreported,36
+county,Windsor,2024-02,None of the above,0
+county,Windsor,2024-02,Qualified Immigrant,*
+county,Windsor,2024-02,US Citizen,566
+county,Windsor,2024-02,Unreported,*
+county,Addison,2024-01,None of the above,0
+county,Addison,2024-01,Qualified Immigrant,0
+county,Addison,2024-01,US Citizen,433
+county,Addison,2024-01,Unreported,43
+county,Bennington,2024-01,None of the above,0
+county,Bennington,2024-01,Qualified Immigrant,*
+county,Bennington,2024-01,US Citizen,546
+county,Bennington,2024-01,Unreported,*
+county,Caledonia,2024-01,None of the above,0
+county,Caledonia,2024-01,Qualified Immigrant,*
+county,Caledonia,2024-01,US Citizen,571
+county,Caledonia,2024-01,Unreported,*
+county,Chittenden,2024-01,None of the above,*
+county,Chittenden,2024-01,Qualified Immigrant,*
+county,Chittenden,2024-01,US Citizen,1394
+county,Chittenden,2024-01,Unreported,134
+county,Essex,2024-01,None of the above,0
+county,Essex,2024-01,Qualified Immigrant,0
+county,Essex,2024-01,US Citizen,*
+county,Essex,2024-01,Unreported,*
+county,Franklin,2024-01,None of the above,0
+county,Franklin,2024-01,Qualified Immigrant,0
+county,Franklin,2024-01,US Citizen,543
+county,Franklin,2024-01,Unreported,62
+county,Grand Isle,2024-01,None of the above,0
+county,Grand Isle,2024-01,Qualified Immigrant,0
+county,Grand Isle,2024-01,US Citizen,*
+county,Grand Isle,2024-01,Unreported,*
+county,Lamoille,2024-01,None of the above,0
+county,Lamoille,2024-01,Qualified Immigrant,0
+county,Lamoille,2024-01,US Citizen,341
+county,Lamoille,2024-01,Unreported,29
+county,Orange,2024-01,None of the above,0
+county,Orange,2024-01,Qualified Immigrant,0
+county,Orange,2024-01,US Citizen,231
+county,Orange,2024-01,Unreported,17
+county,Orleans,2024-01,None of the above,0
+county,Orleans,2024-01,Qualified Immigrant,0
+county,Orleans,2024-01,US Citizen,375
+county,Orleans,2024-01,Unreported,48
+county,Rutland,2024-01,None of the above,0
+county,Rutland,2024-01,Qualified Immigrant,*
+county,Rutland,2024-01,US Citizen,792
+county,Rutland,2024-01,Unreported,*
+county,Washington,2024-01,None of the above,0
+county,Washington,2024-01,Qualified Immigrant,*
+county,Washington,2024-01,US Citizen,372
+county,Washington,2024-01,Unreported,*
+county,Windham,2024-01,None of the above,*
+county,Windham,2024-01,Qualified Immigrant,*
+county,Windham,2024-01,US Citizen,467
+county,Windham,2024-01,Unreported,32
+county,Windsor,2024-01,None of the above,0
+county,Windsor,2024-01,Qualified Immigrant,*
+county,Windsor,2024-01,US Citizen,574
+county,Windsor,2024-01,Unreported,*
+county,Addison,2023-12,None of the above,0
+county,Addison,2023-12,Qualified Immigrant,0
+county,Addison,2023-12,US Citizen,414
+county,Addison,2023-12,Unreported,44
+county,Bennington,2023-12,None of the above,0
+county,Bennington,2023-12,Qualified Immigrant,*
+county,Bennington,2023-12,US Citizen,549
+county,Bennington,2023-12,Unreported,*
+county,Caledonia,2023-12,None of the above,0
+county,Caledonia,2023-12,Qualified Immigrant,*
+county,Caledonia,2023-12,US Citizen,586
+county,Caledonia,2023-12,Unreported,*
+county,Chittenden,2023-12,None of the above,*
+county,Chittenden,2023-12,Qualified Immigrant,*
+county,Chittenden,2023-12,US Citizen,1410
+county,Chittenden,2023-12,Unreported,144
+county,Essex,2023-12,None of the above,0
+county,Essex,2023-12,Qualified Immigrant,0
+county,Essex,2023-12,US Citizen,*
+county,Essex,2023-12,Unreported,*
+county,Franklin,2023-12,None of the above,0
+county,Franklin,2023-12,Qualified Immigrant,0
+county,Franklin,2023-12,US Citizen,541
+county,Franklin,2023-12,Unreported,60
+county,Grand Isle,2023-12,None of the above,0
+county,Grand Isle,2023-12,Qualified Immigrant,0
+county,Grand Isle,2023-12,US Citizen,*
+county,Grand Isle,2023-12,Unreported,*
+county,Lamoille,2023-12,None of the above,0
+county,Lamoille,2023-12,Qualified Immigrant,0
+county,Lamoille,2023-12,US Citizen,343
+county,Lamoille,2023-12,Unreported,30
+county,Orange,2023-12,None of the above,0
+county,Orange,2023-12,Qualified Immigrant,0
+county,Orange,2023-12,US Citizen,224
+county,Orange,2023-12,Unreported,18
+county,Orleans,2023-12,None of the above,0
+county,Orleans,2023-12,Qualified Immigrant,0
+county,Orleans,2023-12,US Citizen,392
+county,Orleans,2023-12,Unreported,50
+county,Rutland,2023-12,None of the above,0
+county,Rutland,2023-12,Qualified Immigrant,*
+county,Rutland,2023-12,US Citizen,771
+county,Rutland,2023-12,Unreported,*
+county,Washington,2023-12,None of the above,0
+county,Washington,2023-12,Qualified Immigrant,*
+county,Washington,2023-12,US Citizen,371
+county,Washington,2023-12,Unreported,*
+county,Windham,2023-12,None of the above,*
+county,Windham,2023-12,Qualified Immigrant,*
+county,Windham,2023-12,US Citizen,465
+county,Windham,2023-12,Unreported,32
+county,Windsor,2023-12,None of the above,0
+county,Windsor,2023-12,Qualified Immigrant,*
+county,Windsor,2023-12,US Citizen,562
+county,Windsor,2023-12,Unreported,*
+county,Addison,2023-11,None of the above,0
+county,Addison,2023-11,Qualified Immigrant,0
+county,Addison,2023-11,US Citizen,415
+county,Addison,2023-11,Unreported,42
+county,Bennington,2023-11,None of the above,0
+county,Bennington,2023-11,Qualified Immigrant,*
+county,Bennington,2023-11,US Citizen,536
+county,Bennington,2023-11,Unreported,*
+county,Caledonia,2023-11,None of the above,0
+county,Caledonia,2023-11,Qualified Immigrant,*
+county,Caledonia,2023-11,US Citizen,572
+county,Caledonia,2023-11,Unreported,*
+county,Chittenden,2023-11,None of the above,*
+county,Chittenden,2023-11,Qualified Immigrant,*
+county,Chittenden,2023-11,US Citizen,1385
+county,Chittenden,2023-11,Unreported,157
+county,Essex,2023-11,None of the above,0
+county,Essex,2023-11,Qualified Immigrant,0
+county,Essex,2023-11,US Citizen,*
+county,Essex,2023-11,Unreported,*
+county,Franklin,2023-11,None of the above,0
+county,Franklin,2023-11,Qualified Immigrant,0
+county,Franklin,2023-11,US Citizen,523
+county,Franklin,2023-11,Unreported,54
+county,Grand Isle,2023-11,None of the above,0
+county,Grand Isle,2023-11,Qualified Immigrant,0
+county,Grand Isle,2023-11,US Citizen,*
+county,Grand Isle,2023-11,Unreported,*
+county,Lamoille,2023-11,None of the above,0
+county,Lamoille,2023-11,Qualified Immigrant,0
+county,Lamoille,2023-11,US Citizen,344
+county,Lamoille,2023-11,Unreported,31
+county,Orange,2023-11,None of the above,0
+county,Orange,2023-11,Qualified Immigrant,0
+county,Orange,2023-11,US Citizen,225
+county,Orange,2023-11,Unreported,18
+county,Orleans,2023-11,None of the above,0
+county,Orleans,2023-11,Qualified Immigrant,0
+county,Orleans,2023-11,US Citizen,389
+county,Orleans,2023-11,Unreported,47
+county,Rutland,2023-11,None of the above,0
+county,Rutland,2023-11,Qualified Immigrant,*
+county,Rutland,2023-11,US Citizen,750
+county,Rutland,2023-11,Unreported,*
+county,Washington,2023-11,None of the above,0
+county,Washington,2023-11,Qualified Immigrant,*
+county,Washington,2023-11,US Citizen,356
+county,Washington,2023-11,Unreported,*
+county,Windham,2023-11,None of the above,0
+county,Windham,2023-11,Qualified Immigrant,*
+county,Windham,2023-11,US Citizen,456
+county,Windham,2023-11,Unreported,*
+county,Windsor,2023-11,None of the above,0
+county,Windsor,2023-11,Qualified Immigrant,*
+county,Windsor,2023-11,US Citizen,544
+county,Windsor,2023-11,Unreported,*
+county,Addison,2023-10,None of the above,0
+county,Addison,2023-10,Qualified Immigrant,0
+county,Addison,2023-10,US Citizen,418
+county,Addison,2023-10,Unreported,42
+county,Bennington,2023-10,None of the above,0
+county,Bennington,2023-10,Qualified Immigrant,*
+county,Bennington,2023-10,US Citizen,550
+county,Bennington,2023-10,Unreported,*
+county,Caledonia,2023-10,None of the above,0
+county,Caledonia,2023-10,Qualified Immigrant,*
+county,Caledonia,2023-10,US Citizen,594
+county,Caledonia,2023-10,Unreported,*
+county,Chittenden,2023-10,None of the above,*
+county,Chittenden,2023-10,Qualified Immigrant,*
+county,Chittenden,2023-10,US Citizen,1383
+county,Chittenden,2023-10,Unreported,153
+county,Essex,2023-10,None of the above,0
+county,Essex,2023-10,Qualified Immigrant,0
+county,Essex,2023-10,US Citizen,*
+county,Essex,2023-10,Unreported,*
+county,Franklin,2023-10,None of the above,*
+county,Franklin,2023-10,Qualified Immigrant,0
+county,Franklin,2023-10,US Citizen,534
+county,Franklin,2023-10,Unreported,*
+county,Grand Isle,2023-10,None of the above,0
+county,Grand Isle,2023-10,Qualified Immigrant,0
+county,Grand Isle,2023-10,US Citizen,*
+county,Grand Isle,2023-10,Unreported,10
+county,Lamoille,2023-10,None of the above,0
+county,Lamoille,2023-10,Qualified Immigrant,0
+county,Lamoille,2023-10,US Citizen,331
+county,Lamoille,2023-10,Unreported,35
+county,Orange,2023-10,None of the above,0
+county,Orange,2023-10,Qualified Immigrant,0
+county,Orange,2023-10,US Citizen,221
+county,Orange,2023-10,Unreported,20
+county,Orleans,2023-10,None of the above,0
+county,Orleans,2023-10,Qualified Immigrant,0
+county,Orleans,2023-10,US Citizen,389
+county,Orleans,2023-10,Unreported,49
+county,Rutland,2023-10,None of the above,0
+county,Rutland,2023-10,Qualified Immigrant,*
+county,Rutland,2023-10,US Citizen,768
+county,Rutland,2023-10,Unreported,*
+county,Washington,2023-10,None of the above,0
+county,Washington,2023-10,Qualified Immigrant,*
+county,Washington,2023-10,US Citizen,355
+county,Washington,2023-10,Unreported,*
+county,Windham,2023-10,None of the above,0
+county,Windham,2023-10,Qualified Immigrant,*
+county,Windham,2023-10,US Citizen,442
+county,Windham,2023-10,Unreported,*
+county,Windsor,2023-10,None of the above,0
+county,Windsor,2023-10,Qualified Immigrant,*
+county,Windsor,2023-10,US Citizen,534
+county,Windsor,2023-10,Unreported,*
+county,Addison,2023-09,None of the above,0
+county,Addison,2023-09,Qualified Immigrant,0
+county,Addison,2023-09,US Citizen,422
+county,Addison,2023-09,Unreported,46
+county,Bennington,2023-09,None of the above,0
+county,Bennington,2023-09,Qualified Immigrant,*
+county,Bennington,2023-09,US Citizen,558
+county,Bennington,2023-09,Unreported,*
+county,Caledonia,2023-09,None of the above,0
+county,Caledonia,2023-09,Qualified Immigrant,*
+county,Caledonia,2023-09,US Citizen,610
+county,Caledonia,2023-09,Unreported,*
+county,Chittenden,2023-09,None of the above,*
+county,Chittenden,2023-09,Qualified Immigrant,*
+county,Chittenden,2023-09,US Citizen,1406
+county,Chittenden,2023-09,Unreported,159
+county,Essex,2023-09,None of the above,0
+county,Essex,2023-09,Qualified Immigrant,0
+county,Essex,2023-09,US Citizen,*
+county,Essex,2023-09,Unreported,*
+county,Franklin,2023-09,None of the above,*
+county,Franklin,2023-09,Qualified Immigrant,0
+county,Franklin,2023-09,US Citizen,558
+county,Franklin,2023-09,Unreported,*
+county,Grand Isle,2023-09,None of the above,0
+county,Grand Isle,2023-09,Qualified Immigrant,0
+county,Grand Isle,2023-09,US Citizen,*
+county,Grand Isle,2023-09,Unreported,10
+county,Lamoille,2023-09,None of the above,0
+county,Lamoille,2023-09,Qualified Immigrant,0
+county,Lamoille,2023-09,US Citizen,315
+county,Lamoille,2023-09,Unreported,41
+county,Orange,2023-09,None of the above,0
+county,Orange,2023-09,Qualified Immigrant,0
+county,Orange,2023-09,US Citizen,217
+county,Orange,2023-09,Unreported,17
+county,Orleans,2023-09,None of the above,0
+county,Orleans,2023-09,Qualified Immigrant,0
+county,Orleans,2023-09,US Citizen,401
+county,Orleans,2023-09,Unreported,52
+county,Rutland,2023-09,None of the above,0
+county,Rutland,2023-09,Qualified Immigrant,*
+county,Rutland,2023-09,US Citizen,783
+county,Rutland,2023-09,Unreported,*
+county,Washington,2023-09,None of the above,0
+county,Washington,2023-09,Qualified Immigrant,*
+county,Washington,2023-09,US Citizen,343
+county,Washington,2023-09,Unreported,*
+county,Windham,2023-09,None of the above,*
+county,Windham,2023-09,Qualified Immigrant,*
+county,Windham,2023-09,US Citizen,457
+county,Windham,2023-09,Unreported,33
+county,Windsor,2023-09,None of the above,0
+county,Windsor,2023-09,Qualified Immigrant,0
+county,Windsor,2023-09,US Citizen,552
+county,Windsor,2023-09,Unreported,41
+county,Addison,2023-08,None of the above,0
+county,Addison,2023-08,Qualified Immigrant,0
+county,Addison,2023-08,US Citizen,475
+county,Addison,2023-08,Unreported,53
+county,Bennington,2023-08,None of the above,0
+county,Bennington,2023-08,Qualified Immigrant,*
+county,Bennington,2023-08,US Citizen,580
+county,Bennington,2023-08,Unreported,*
+county,Caledonia,2023-08,None of the above,0
+county,Caledonia,2023-08,Qualified Immigrant,*
+county,Caledonia,2023-08,US Citizen,597
+county,Caledonia,2023-08,Unreported,*
+county,Chittenden,2023-08,None of the above,*
+county,Chittenden,2023-08,Qualified Immigrant,*
+county,Chittenden,2023-08,US Citizen,1502
+county,Chittenden,2023-08,Unreported,189
+county,Essex,2023-08,None of the above,0
+county,Essex,2023-08,Qualified Immigrant,0
+county,Essex,2023-08,US Citizen,*
+county,Essex,2023-08,Unreported,*
+county,Franklin,2023-08,None of the above,*
+county,Franklin,2023-08,Qualified Immigrant,0
+county,Franklin,2023-08,US Citizen,554
+county,Franklin,2023-08,Unreported,*
+county,Grand Isle,2023-08,None of the above,0
+county,Grand Isle,2023-08,Qualified Immigrant,0
+county,Grand Isle,2023-08,US Citizen,*
+county,Grand Isle,2023-08,Unreported,10
+county,Lamoille,2023-08,None of the above,0
+county,Lamoille,2023-08,Qualified Immigrant,*
+county,Lamoille,2023-08,US Citizen,336
+county,Lamoille,2023-08,Unreported,*
+county,Orange,2023-08,None of the above,0
+county,Orange,2023-08,Qualified Immigrant,0
+county,Orange,2023-08,US Citizen,222
+county,Orange,2023-08,Unreported,16
+county,Orleans,2023-08,None of the above,0
+county,Orleans,2023-08,Qualified Immigrant,0
+county,Orleans,2023-08,US Citizen,390
+county,Orleans,2023-08,Unreported,53
+county,Rutland,2023-08,None of the above,0
+county,Rutland,2023-08,Qualified Immigrant,*
+county,Rutland,2023-08,US Citizen,833
+county,Rutland,2023-08,Unreported,*
+county,Washington,2023-08,None of the above,0
+county,Washington,2023-08,Qualified Immigrant,*
+county,Washington,2023-08,US Citizen,372
+county,Washington,2023-08,Unreported,*
+county,Windham,2023-08,None of the above,*
+county,Windham,2023-08,Qualified Immigrant,*
+county,Windham,2023-08,US Citizen,467
+county,Windham,2023-08,Unreported,31
+county,Windsor,2023-08,None of the above,0
+county,Windsor,2023-08,Qualified Immigrant,0
+county,Windsor,2023-08,US Citizen,566
+county,Windsor,2023-08,Unreported,44
+county,Addison,2023-07,None of the above,0
+county,Addison,2023-07,Qualified Immigrant,*
+county,Addison,2023-07,US Citizen,425
+county,Addison,2023-07,Unreported,*
+county,Bennington,2023-07,None of the above,0
+county,Bennington,2023-07,Qualified Immigrant,*
+county,Bennington,2023-07,US Citizen,570
+county,Bennington,2023-07,Unreported,*
+county,Caledonia,2023-07,None of the above,0
+county,Caledonia,2023-07,Qualified Immigrant,*
+county,Caledonia,2023-07,US Citizen,594
+county,Caledonia,2023-07,Unreported,*
+county,Chittenden,2023-07,None of the above,*
+county,Chittenden,2023-07,Qualified Immigrant,*
+county,Chittenden,2023-07,US Citizen,1374
+county,Chittenden,2023-07,Unreported,193
+county,Essex,2023-07,None of the above,0
+county,Essex,2023-07,Qualified Immigrant,0
+county,Essex,2023-07,US Citizen,*
+county,Essex,2023-07,Unreported,*
+county,Franklin,2023-07,None of the above,*
+county,Franklin,2023-07,Qualified Immigrant,0
+county,Franklin,2023-07,US Citizen,559
+county,Franklin,2023-07,Unreported,*
+county,Grand Isle,2023-07,None of the above,0
+county,Grand Isle,2023-07,Qualified Immigrant,0
+county,Grand Isle,2023-07,US Citizen,*
+county,Grand Isle,2023-07,Unreported,12
+county,Lamoille,2023-07,None of the above,0
+county,Lamoille,2023-07,Qualified Immigrant,*
+county,Lamoille,2023-07,US Citizen,271
+county,Lamoille,2023-07,Unreported,*
+county,Orange,2023-07,None of the above,0
+county,Orange,2023-07,Qualified Immigrant,0
+county,Orange,2023-07,US Citizen,211
+county,Orange,2023-07,Unreported,18
+county,Orleans,2023-07,None of the above,0
+county,Orleans,2023-07,Qualified Immigrant,0
+county,Orleans,2023-07,US Citizen,379
+county,Orleans,2023-07,Unreported,56
+county,Rutland,2023-07,None of the above,0
+county,Rutland,2023-07,Qualified Immigrant,*
+county,Rutland,2023-07,US Citizen,839
+county,Rutland,2023-07,Unreported,*
+county,Washington,2023-07,None of the above,0
+county,Washington,2023-07,Qualified Immigrant,*
+county,Washington,2023-07,US Citizen,362
+county,Washington,2023-07,Unreported,*
+county,Windham,2023-07,None of the above,*
+county,Windham,2023-07,Qualified Immigrant,*
+county,Windham,2023-07,US Citizen,437
+county,Windham,2023-07,Unreported,35
+county,Windsor,2023-07,None of the above,0
+county,Windsor,2023-07,Qualified Immigrant,0
+county,Windsor,2023-07,US Citizen,531
+county,Windsor,2023-07,Unreported,51
+state,Vermont,2024-06,None of the above,*
+state,Vermont,2024-06,Qualified Immigrant,*
+state,Vermont,2024-06,US Citizen,8556
+state,Vermont,2024-06,Unreported,665
+state,Vermont,2024-05,None of the above,*
+state,Vermont,2024-05,Qualified Immigrant,*
+state,Vermont,2024-05,US Citizen,7477
+state,Vermont,2024-05,Unreported,626
+state,Vermont,2024-04,None of the above,*
+state,Vermont,2024-04,Qualified Immigrant,*
+state,Vermont,2024-04,US Citizen,7408
+state,Vermont,2024-04,Unreported,644
+state,Vermont,2024-03,None of the above,*
+state,Vermont,2024-03,Qualified Immigrant,*
+state,Vermont,2024-03,US Citizen,7060
+state,Vermont,2024-03,Unreported,661
+state,Vermont,2024-02,None of the above,*
+state,Vermont,2024-02,Qualified Immigrant,*
+state,Vermont,2024-02,US Citizen,6875
+state,Vermont,2024-02,Unreported,679
+state,Vermont,2024-01,None of the above,*
+state,Vermont,2024-01,Qualified Immigrant,*
+state,Vermont,2024-01,US Citizen,6764
+state,Vermont,2024-01,Unreported,677
+state,Vermont,2023-12,None of the above,*
+state,Vermont,2023-12,Qualified Immigrant,*
+state,Vermont,2023-12,US Citizen,6756
+state,Vermont,2023-12,Unreported,684
+state,Vermont,2023-11,None of the above,*
+state,Vermont,2023-11,Qualified Immigrant,*
+state,Vermont,2023-11,US Citizen,6621
+state,Vermont,2023-11,Unreported,686
+state,Vermont,2023-10,None of the above,*
+state,Vermont,2023-10,Qualified Immigrant,*
+state,Vermont,2023-10,US Citizen,6650
+state,Vermont,2023-10,Unreported,688
+state,Vermont,2023-09,None of the above,*
+state,Vermont,2023-09,Qualified Immigrant,*
+state,Vermont,2023-09,US Citizen,6755
+state,Vermont,2023-09,Unreported,717
+state,Vermont,2023-08,None of the above,*
+state,Vermont,2023-08,Qualified Immigrant,*
+state,Vermont,2023-08,US Citizen,7035
+state,Vermont,2023-08,Unreported,795
+state,Vermont,2023-07,None of the above,*
+state,Vermont,2023-07,Qualified Immigrant,*
+state,Vermont,2023-07,US Citizen,6694
+state,Vermont,2023-07,Unreported,835
+county,Addison,2024-09,None of the above,0
+county,Addison,2024-09,Qualified Immigrant,0
+county,Addison,2024-09,US Citizen,559
+county,Addison,2024-09,Unreported,38
+county,Bennington,2024-09,None of the above,*
+county,Bennington,2024-09,Qualified Immigrant,*
+county,Bennington,2024-09,US Citizen,638
+county,Bennington,2024-09,Unreported,80
+county,Caledonia,2024-09,None of the above,0
+county,Caledonia,2024-09,Qualified Immigrant,*
+county,Caledonia,2024-09,US Citizen,726
+county,Caledonia,2024-09,Unreported,*
+county,Chittenden,2024-09,None of the above,*
+county,Chittenden,2024-09,Qualified Immigrant,*
+county,Chittenden,2024-09,US Citizen,1700
+county,Chittenden,2024-09,Unreported,118
+county,Essex,2024-09,None of the above,0
+county,Essex,2024-09,Qualified Immigrant,0
+county,Essex,2024-09,US Citizen,*
+county,Essex,2024-09,Unreported,*
+county,Franklin,2024-09,None of the above,0
+county,Franklin,2024-09,Qualified Immigrant,0
+county,Franklin,2024-09,US Citizen,639
+county,Franklin,2024-09,Unreported,67
+county,Grand Isle,2024-09,None of the above,0
+county,Grand Isle,2024-09,Qualified Immigrant,0
+county,Grand Isle,2024-09,US Citizen,*
+county,Grand Isle,2024-09,Unreported,*
+county,Lamoille,2024-09,None of the above,*
+county,Lamoille,2024-09,Qualified Immigrant,*
+county,Lamoille,2024-09,US Citizen,410
+county,Lamoille,2024-09,Unreported,23
+county,Orange,2024-09,None of the above,0
+county,Orange,2024-09,Qualified Immigrant,0
+county,Orange,2024-09,US Citizen,312
+county,Orange,2024-09,Unreported,17
+county,Orleans,2024-09,None of the above,0
+county,Orleans,2024-09,Qualified Immigrant,*
+county,Orleans,2024-09,US Citizen,445
+county,Orleans,2024-09,Unreported,*
+county,Rutland,2024-09,None of the above,*
+county,Rutland,2024-09,Qualified Immigrant,*
+county,Rutland,2024-09,US Citizen,917
+county,Rutland,2024-09,Unreported,73
+county,Washington,2024-09,None of the above,*
+county,Washington,2024-09,Qualified Immigrant,*
+county,Washington,2024-09,US Citizen,447
+county,Washington,2024-09,Unreported,40
+county,Windham,2024-09,None of the above,*
+county,Windham,2024-09,Qualified Immigrant,*
+county,Windham,2024-09,US Citizen,597
+county,Windham,2024-09,Unreported,35
+county,Windsor,2024-09,None of the above,0
+county,Windsor,2024-09,Qualified Immigrant,*
+county,Windsor,2024-09,US Citizen,726
+county,Windsor,2024-09,Unreported,*
+county,Addison,2024-08,None of the above,0
+county,Addison,2024-08,Qualified Immigrant,*
+county,Addison,2024-08,US Citizen,642
+county,Addison,2024-08,Unreported,*
+county,Bennington,2024-08,None of the above,0
+county,Bennington,2024-08,Qualified Immigrant,*
+county,Bennington,2024-08,US Citizen,679
+county,Bennington,2024-08,Unreported,*
+county,Caledonia,2024-08,None of the above,0
+county,Caledonia,2024-08,Qualified Immigrant,*
+county,Caledonia,2024-08,US Citizen,721
+county,Caledonia,2024-08,Unreported,*
+county,Chittenden,2024-08,None of the above,*
+county,Chittenden,2024-08,Qualified Immigrant,*
+county,Chittenden,2024-08,US Citizen,1891
+county,Chittenden,2024-08,Unreported,131
+county,Essex,2024-08,None of the above,0
+county,Essex,2024-08,Qualified Immigrant,0
+county,Essex,2024-08,US Citizen,*
+county,Essex,2024-08,Unreported,*
+county,Franklin,2024-08,None of the above,0
+county,Franklin,2024-08,Qualified Immigrant,0
+county,Franklin,2024-08,US Citizen,639
+county,Franklin,2024-08,Unreported,63
+county,Grand Isle,2024-08,None of the above,0
+county,Grand Isle,2024-08,Qualified Immigrant,0
+county,Grand Isle,2024-08,US Citizen,*
+county,Grand Isle,2024-08,Unreported,*
+county,Lamoille,2024-08,None of the above,*
+county,Lamoille,2024-08,Qualified Immigrant,0
+county,Lamoille,2024-08,US Citizen,428
+county,Lamoille,2024-08,Unreported,*
+county,Orange,2024-08,None of the above,0
+county,Orange,2024-08,Qualified Immigrant,0
+county,Orange,2024-08,US Citizen,306
+county,Orange,2024-08,Unreported,17
+county,Orleans,2024-08,None of the above,0
+county,Orleans,2024-08,Qualified Immigrant,*
+county,Orleans,2024-08,US Citizen,441
+county,Orleans,2024-08,Unreported,*
+county,Rutland,2024-08,None of the above,*
+county,Rutland,2024-08,Qualified Immigrant,*
+county,Rutland,2024-08,US Citizen,1011
+county,Rutland,2024-08,Unreported,79
+county,Washington,2024-08,None of the above,0
+county,Washington,2024-08,Qualified Immigrant,12
+county,Washington,2024-08,US Citizen,487
+county,Washington,2024-08,Unreported,44
+county,Windham,2024-08,None of the above,*
+county,Windham,2024-08,Qualified Immigrant,*
+county,Windham,2024-08,US Citizen,612
+county,Windham,2024-08,Unreported,38
+county,Windsor,2024-08,None of the above,*
+county,Windsor,2024-08,Qualified Immigrant,*
+county,Windsor,2024-08,US Citizen,755
+county,Windsor,2024-08,Unreported,37
+county,Addison,2024-07,None of the above,0
+county,Addison,2024-07,Qualified Immigrant,*
+county,Addison,2024-07,US Citizen,555
+county,Addison,2024-07,Unreported,*
+county,Bennington,2024-07,None of the above,0
+county,Bennington,2024-07,Qualified Immigrant,*
+county,Bennington,2024-07,US Citizen,662
+county,Bennington,2024-07,Unreported,*
+county,Caledonia,2024-07,None of the above,0
+county,Caledonia,2024-07,Qualified Immigrant,*
+county,Caledonia,2024-07,US Citizen,681
+county,Caledonia,2024-07,Unreported,*
+county,Chittenden,2024-07,None of the above,*
+county,Chittenden,2024-07,Qualified Immigrant,*
+county,Chittenden,2024-07,US Citizen,1741
+county,Chittenden,2024-07,Unreported,127
+county,Essex,2024-07,None of the above,0
+county,Essex,2024-07,Qualified Immigrant,0
+county,Essex,2024-07,US Citizen,*
+county,Essex,2024-07,Unreported,*
+county,Franklin,2024-07,None of the above,0
+county,Franklin,2024-07,Qualified Immigrant,0
+county,Franklin,2024-07,US Citizen,626
+county,Franklin,2024-07,Unreported,66
+county,Grand Isle,2024-07,None of the above,0
+county,Grand Isle,2024-07,Qualified Immigrant,0
+county,Grand Isle,2024-07,US Citizen,*
+county,Grand Isle,2024-07,Unreported,*
+county,Lamoille,2024-07,None of the above,*
+county,Lamoille,2024-07,Qualified Immigrant,0
+county,Lamoille,2024-07,US Citizen,369
+county,Lamoille,2024-07,Unreported,*
+county,Orange,2024-07,None of the above,0
+county,Orange,2024-07,Qualified Immigrant,0
+county,Orange,2024-07,US Citizen,281
+county,Orange,2024-07,Unreported,17
+county,Orleans,2024-07,None of the above,0
+county,Orleans,2024-07,Qualified Immigrant,*
+county,Orleans,2024-07,US Citizen,410
+county,Orleans,2024-07,Unreported,*
+county,Rutland,2024-07,None of the above,*
+county,Rutland,2024-07,Qualified Immigrant,*
+county,Rutland,2024-07,US Citizen,988
+county,Rutland,2024-07,Unreported,69
+county,Washington,2024-07,None of the above,0
+county,Washington,2024-07,Qualified Immigrant,12
+county,Washington,2024-07,US Citizen,442
+county,Washington,2024-07,Unreported,42
+county,Windham,2024-07,None of the above,0
+county,Windham,2024-07,Qualified Immigrant,*
+county,Windham,2024-07,US Citizen,535
+county,Windham,2024-07,Unreported,*
+county,Windsor,2024-07,None of the above,*
+county,Windsor,2024-07,Qualified Immigrant,*
+county,Windsor,2024-07,US Citizen,708
+county,Windsor,2024-07,Unreported,37
+state,Vermont,2024-09,None of the above,15
+state,Vermont,2024-09,Qualified Immigrant,83
+state,Vermont,2024-09,US Citizen,8283
+state,Vermont,2024-09,Unreported,602
+state,Vermont,2024-08,None of the above,12
+state,Vermont,2024-08,Qualified Immigrant,98
+state,Vermont,2024-08,US Citizen,8782
+state,Vermont,2024-08,Unreported,639
+state,Vermont,2024-07,None of the above,*
+state,Vermont,2024-07,Qualified Immigrant,*
+state,Vermont,2024-07,US Citizen,8154
+state,Vermont,2024-07,Unreported,627
+county,Addison,2024-12,None of the above,*
+county,Addison,2024-12,Qualified Immigrant,0
+county,Addison,2024-12,US Citizen,630
+county,Addison,2024-12,Unreported,*
+county,Bennington,2024-12,None of the above,*
+county,Bennington,2024-12,Qualified Immigrant,*
+county,Bennington,2024-12,US Citizen,684
+county,Bennington,2024-12,Unreported,82
+county,Caledonia,2024-12,None of the above,0
+county,Caledonia,2024-12,Qualified Immigrant,*
+county,Caledonia,2024-12,US Citizen,732
+county,Caledonia,2024-12,Unreported,*
+county,Chittenden,2024-12,None of the above,11
+county,Chittenden,2024-12,Qualified Immigrant,51
+county,Chittenden,2024-12,US Citizen,2192
+county,Chittenden,2024-12,Unreported,114
+county,Essex,2024-12,None of the above,0
+county,Essex,2024-12,Qualified Immigrant,0
+county,Essex,2024-12,US Citizen,*
+county,Essex,2024-12,Unreported,*
+county,Franklin,2024-12,None of the above,0
+county,Franklin,2024-12,Qualified Immigrant,0
+county,Franklin,2024-12,US Citizen,764
+county,Franklin,2024-12,Unreported,62
+county,Grand Isle,2024-12,None of the above,0
+county,Grand Isle,2024-12,Qualified Immigrant,0
+county,Grand Isle,2024-12,US Citizen,*
+county,Grand Isle,2024-12,Unreported,*
+county,Lamoille,2024-12,None of the above,*
+county,Lamoille,2024-12,Qualified Immigrant,*
+county,Lamoille,2024-12,US Citizen,458
+county,Lamoille,2024-12,Unreported,19
+county,Orange,2024-12,None of the above,0
+county,Orange,2024-12,Qualified Immigrant,*
+county,Orange,2024-12,US Citizen,368
+county,Orange,2024-12,Unreported,*
+county,Orleans,2024-12,None of the above,*
+county,Orleans,2024-12,Qualified Immigrant,*
+county,Orleans,2024-12,US Citizen,467
+county,Orleans,2024-12,Unreported,23
+county,Rutland,2024-12,None of the above,*
+county,Rutland,2024-12,Qualified Immigrant,*
+county,Rutland,2024-12,US Citizen,1019
+county,Rutland,2024-12,Unreported,78
+county,Washington,2024-12,None of the above,*
+county,Washington,2024-12,Qualified Immigrant,*
+county,Washington,2024-12,US Citizen,567
+county,Washington,2024-12,Unreported,36
+county,Windham,2024-12,None of the above,0
+county,Windham,2024-12,Qualified Immigrant,*
+county,Windham,2024-12,US Citizen,636
+county,Windham,2024-12,Unreported,*
+county,Windsor,2024-12,None of the above,0
+county,Windsor,2024-12,Qualified Immigrant,*
+county,Windsor,2024-12,US Citizen,746
+county,Windsor,2024-12,Unreported,*
+county,Addison,2024-11,None of the above,*
+county,Addison,2024-11,Qualified Immigrant,0
+county,Addison,2024-11,US Citizen,643
+county,Addison,2024-11,Unreported,*
+county,Bennington,2024-11,None of the above,*
+county,Bennington,2024-11,Qualified Immigrant,*
+county,Bennington,2024-11,US Citizen,675
+county,Bennington,2024-11,Unreported,78
+county,Caledonia,2024-11,None of the above,0
+county,Caledonia,2024-11,Qualified Immigrant,*
+county,Caledonia,2024-11,US Citizen,735
+county,Caledonia,2024-11,Unreported,*
+county,Chittenden,2024-11,None of the above,10
+county,Chittenden,2024-11,Qualified Immigrant,51
+county,Chittenden,2024-11,US Citizen,2154
+county,Chittenden,2024-11,Unreported,114
+county,Essex,2024-11,None of the above,0
+county,Essex,2024-11,Qualified Immigrant,0
+county,Essex,2024-11,US Citizen,*
+county,Essex,2024-11,Unreported,*
+county,Franklin,2024-11,None of the above,0
+county,Franklin,2024-11,Qualified Immigrant,0
+county,Franklin,2024-11,US Citizen,745
+county,Franklin,2024-11,Unreported,64
+county,Grand Isle,2024-11,None of the above,0
+county,Grand Isle,2024-11,Qualified Immigrant,0
+county,Grand Isle,2024-11,US Citizen,*
+county,Grand Isle,2024-11,Unreported,*
+county,Lamoille,2024-11,None of the above,*
+county,Lamoille,2024-11,Qualified Immigrant,*
+county,Lamoille,2024-11,US Citizen,463
+county,Lamoille,2024-11,Unreported,21
+county,Orange,2024-11,None of the above,0
+county,Orange,2024-11,Qualified Immigrant,*
+county,Orange,2024-11,US Citizen,364
+county,Orange,2024-11,Unreported,*
+county,Orleans,2024-11,None of the above,*
+county,Orleans,2024-11,Qualified Immigrant,*
+county,Orleans,2024-11,US Citizen,466
+county,Orleans,2024-11,Unreported,23
+county,Rutland,2024-11,None of the above,*
+county,Rutland,2024-11,Qualified Immigrant,*
+county,Rutland,2024-11,US Citizen,1024
+county,Rutland,2024-11,Unreported,79
+county,Washington,2024-11,None of the above,*
+county,Washington,2024-11,Qualified Immigrant,*
+county,Washington,2024-11,US Citizen,562
+county,Washington,2024-11,Unreported,36
+county,Windham,2024-11,None of the above,0
+county,Windham,2024-11,Qualified Immigrant,*
+county,Windham,2024-11,US Citizen,632
+county,Windham,2024-11,Unreported,*
+county,Windsor,2024-11,None of the above,0
+county,Windsor,2024-11,Qualified Immigrant,*
+county,Windsor,2024-11,US Citizen,756
+county,Windsor,2024-11,Unreported,*
+county,Addison,2024-10,None of the above,0
+county,Addison,2024-10,Qualified Immigrant,*
+county,Addison,2024-10,US Citizen,660
+county,Addison,2024-10,Unreported,*
+county,Bennington,2024-10,None of the above,*
+county,Bennington,2024-10,Qualified Immigrant,*
+county,Bennington,2024-10,US Citizen,708
+county,Bennington,2024-10,Unreported,53
+county,Caledonia,2024-10,None of the above,*
+county,Caledonia,2024-10,Qualified Immigrant,*
+county,Caledonia,2024-10,US Citizen,799
+county,Caledonia,2024-10,Unreported,51
+county,Chittenden,2024-10,None of the above,*
+county,Chittenden,2024-10,Qualified Immigrant,*
+county,Chittenden,2024-10,US Citizen,2086
+county,Chittenden,2024-10,Unreported,138
+county,Essex,2024-10,None of the above,0
+county,Essex,2024-10,Qualified Immigrant,*
+county,Essex,2024-10,US Citizen,*
+county,Essex,2024-10,Unreported,*
+county,Franklin,2024-10,None of the above,*
+county,Franklin,2024-10,Qualified Immigrant,*
+county,Franklin,2024-10,US Citizen,753
+county,Franklin,2024-10,Unreported,52
+county,Grand Isle,2024-10,None of the above,0
+county,Grand Isle,2024-10,Qualified Immigrant,0
+county,Grand Isle,2024-10,US Citizen,*
+county,Grand Isle,2024-10,Unreported,*
+county,Lamoille,2024-10,None of the above,0
+county,Lamoille,2024-10,Qualified Immigrant,*
+county,Lamoille,2024-10,US Citizen,538
+county,Lamoille,2024-10,Unreported,*
+county,Orange,2024-10,None of the above,0
+county,Orange,2024-10,Qualified Immigrant,*
+county,Orange,2024-10,US Citizen,332
+county,Orange,2024-10,Unreported,*
+county,Orleans,2024-10,None of the above,0
+county,Orleans,2024-10,Qualified Immigrant,*
+county,Orleans,2024-10,US Citizen,398
+county,Orleans,2024-10,Unreported,*
+county,Rutland,2024-10,None of the above,*
+county,Rutland,2024-10,Qualified Immigrant,*
+county,Rutland,2024-10,US Citizen,980
+county,Rutland,2024-10,Unreported,65
+county,Washington,2024-10,None of the above,*
+county,Washington,2024-10,Qualified Immigrant,*
+county,Washington,2024-10,US Citizen,437
+county,Washington,2024-10,Unreported,28
+county,Windham,2024-10,None of the above,0
+county,Windham,2024-10,Qualified Immigrant,*
+county,Windham,2024-10,US Citizen,548
+county,Windham,2024-10,Unreported,*
+county,Windsor,2024-10,None of the above,*
+county,Windsor,2024-10,Qualified Immigrant,*
+county,Windsor,2024-10,US Citizen,666
+county,Windsor,2024-10,Unreported,44
+state,Vermont,2024-12,None of the above,20
+state,Vermont,2024-12,Qualified Immigrant,92
+state,Vermont,2024-12,US Citizen,9458
+state,Vermont,2024-12,Unreported,584
+state,Vermont,2024-11,None of the above,19
+state,Vermont,2024-11,Qualified Immigrant,101
+state,Vermont,2024-11,US Citizen,9408
+state,Vermont,2024-11,Unreported,585
+state,Vermont,2024-10,None of the above,18
+state,Vermont,2024-10,Qualified Immigrant,94
+state,Vermont,2024-10,US Citizen,9119
+state,Vermont,2024-10,Unreported,605

@@ -1,0 +1,2251 @@
+geo type,geography,year,category,value
+county,Addison,2023-06,Hispanic,*
+county,Addison,2023-06,Native American,0
+county,Addison,2023-06,Non Hispanic,380
+county,Addison,2023-06,Unknown,*
+county,Addison,2023-06,Unreported,102
+county,Bennington,2023-06,Hispanic,*
+county,Bennington,2023-06,Native American,0
+county,Bennington,2023-06,Non Hispanic,543
+county,Bennington,2023-06,Unknown,*
+county,Bennington,2023-06,Unreported,94
+county,Caledonia,2023-06,Hispanic,*
+county,Caledonia,2023-06,Native American,0
+county,Caledonia,2023-06,Non Hispanic,576
+county,Caledonia,2023-06,Unknown,*
+county,Caledonia,2023-06,Unreported,64
+county,Chittenden,2023-06,Hispanic,43
+county,Chittenden,2023-06,Native American,*
+county,Chittenden,2023-06,Non Hispanic,1394
+county,Chittenden,2023-06,Unknown,*
+county,Chittenden,2023-06,Unreported,231
+county,Essex,2023-06,Hispanic,0
+county,Essex,2023-06,Native American,0
+county,Essex,2023-06,Non Hispanic,81
+county,Essex,2023-06,Unknown,*
+county,Essex,2023-06,Unreported,*
+county,Franklin,2023-06,Hispanic,*
+county,Franklin,2023-06,Native American,0
+county,Franklin,2023-06,Non Hispanic,514
+county,Franklin,2023-06,Unknown,*
+county,Franklin,2023-06,Unreported,70
+county,Grand Isle,2023-06,Hispanic,*
+county,Grand Isle,2023-06,Native American,0
+county,Grand Isle,2023-06,Non Hispanic,66
+county,Grand Isle,2023-06,Unknown,0
+county,Grand Isle,2023-06,Unreported,*
+county,Lamoille,2023-06,Hispanic,*
+county,Lamoille,2023-06,Native American,0
+county,Lamoille,2023-06,Non Hispanic,356
+county,Lamoille,2023-06,Unknown,*
+county,Lamoille,2023-06,Unreported,16
+county,Orange,2023-06,Hispanic,*
+county,Orange,2023-06,Native American,0
+county,Orange,2023-06,Non Hispanic,212
+county,Orange,2023-06,Unknown,*
+county,Orange,2023-06,Unreported,15
+county,Orleans,2023-06,Hispanic,*
+county,Orleans,2023-06,Native American,*
+county,Orleans,2023-06,Non Hispanic,371
+county,Orleans,2023-06,Unknown,*
+county,Orleans,2023-06,Unreported,32
+county,Rutland,2023-06,Hispanic,*
+county,Rutland,2023-06,Native American,0
+county,Rutland,2023-06,Non Hispanic,827
+county,Rutland,2023-06,Unknown,*
+county,Rutland,2023-06,Unreported,55
+county,Washington,2023-06,Hispanic,*
+county,Washington,2023-06,Native American,0
+county,Washington,2023-06,Non Hispanic,396
+county,Washington,2023-06,Unknown,*
+county,Washington,2023-06,Unreported,31
+county,Windham,2023-06,Hispanic,37
+county,Windham,2023-06,Native American,*
+county,Windham,2023-06,Non Hispanic,360
+county,Windham,2023-06,Unknown,*
+county,Windham,2023-06,Unreported,94
+county,Windsor,2023-06,Hispanic,*
+county,Windsor,2023-06,Native American,0
+county,Windsor,2023-06,Non Hispanic,479
+county,Windsor,2023-06,Unknown,*
+county,Windsor,2023-06,Unreported,47
+county,Addison,2023-05,Hispanic,*
+county,Addison,2023-05,Native American,0
+county,Addison,2023-05,Non Hispanic,326
+county,Addison,2023-05,Unknown,*
+county,Addison,2023-05,Unreported,83
+county,Bennington,2023-05,Hispanic,*
+county,Bennington,2023-05,Native American,0
+county,Bennington,2023-05,Non Hispanic,501
+county,Bennington,2023-05,Unknown,*
+county,Bennington,2023-05,Unreported,87
+county,Caledonia,2023-05,Hispanic,*
+county,Caledonia,2023-05,Native American,0
+county,Caledonia,2023-05,Non Hispanic,549
+county,Caledonia,2023-05,Unknown,*
+county,Caledonia,2023-05,Unreported,61
+county,Chittenden,2023-05,Hispanic,39
+county,Chittenden,2023-05,Native American,*
+county,Chittenden,2023-05,Non Hispanic,1244
+county,Chittenden,2023-05,Unknown,*
+county,Chittenden,2023-05,Unreported,188
+county,Essex,2023-05,Hispanic,0
+county,Essex,2023-05,Native American,0
+county,Essex,2023-05,Non Hispanic,78
+county,Essex,2023-05,Unknown,*
+county,Essex,2023-05,Unreported,*
+county,Franklin,2023-05,Hispanic,*
+county,Franklin,2023-05,Native American,0
+county,Franklin,2023-05,Non Hispanic,481
+county,Franklin,2023-05,Unknown,*
+county,Franklin,2023-05,Unreported,65
+county,Grand Isle,2023-05,Hispanic,*
+county,Grand Isle,2023-05,Native American,0
+county,Grand Isle,2023-05,Non Hispanic,57
+county,Grand Isle,2023-05,Unknown,0
+county,Grand Isle,2023-05,Unreported,*
+county,Lamoille,2023-05,Hispanic,*
+county,Lamoille,2023-05,Native American,0
+county,Lamoille,2023-05,Non Hispanic,338
+county,Lamoille,2023-05,Unknown,*
+county,Lamoille,2023-05,Unreported,15
+county,Orange,2023-05,Hispanic,*
+county,Orange,2023-05,Native American,0
+county,Orange,2023-05,Non Hispanic,201
+county,Orange,2023-05,Unknown,*
+county,Orange,2023-05,Unreported,14
+county,Orleans,2023-05,Hispanic,*
+county,Orleans,2023-05,Native American,*
+county,Orleans,2023-05,Non Hispanic,372
+county,Orleans,2023-05,Unknown,*
+county,Orleans,2023-05,Unreported,34
+county,Rutland,2023-05,Hispanic,*
+county,Rutland,2023-05,Native American,0
+county,Rutland,2023-05,Non Hispanic,745
+county,Rutland,2023-05,Unknown,*
+county,Rutland,2023-05,Unreported,51
+county,Washington,2023-05,Hispanic,*
+county,Washington,2023-05,Native American,0
+county,Washington,2023-05,Non Hispanic,348
+county,Washington,2023-05,Unknown,*
+county,Washington,2023-05,Unreported,30
+county,Windham,2023-05,Hispanic,32
+county,Windham,2023-05,Native American,*
+county,Windham,2023-05,Non Hispanic,320
+county,Windham,2023-05,Unknown,*
+county,Windham,2023-05,Unreported,86
+county,Windsor,2023-05,Hispanic,*
+county,Windsor,2023-05,Native American,0
+county,Windsor,2023-05,Non Hispanic,446
+county,Windsor,2023-05,Unknown,*
+county,Windsor,2023-05,Unreported,46
+county,Addison,2023-04,Hispanic,*
+county,Addison,2023-04,Native American,0
+county,Addison,2023-04,Non Hispanic,341
+county,Addison,2023-04,Unknown,*
+county,Addison,2023-04,Unreported,80
+county,Bennington,2023-04,Hispanic,*
+county,Bennington,2023-04,Native American,0
+county,Bennington,2023-04,Non Hispanic,515
+county,Bennington,2023-04,Unknown,*
+county,Bennington,2023-04,Unreported,76
+county,Caledonia,2023-04,Hispanic,*
+county,Caledonia,2023-04,Native American,0
+county,Caledonia,2023-04,Non Hispanic,541
+county,Caledonia,2023-04,Unknown,*
+county,Caledonia,2023-04,Unreported,65
+county,Chittenden,2023-04,Hispanic,40
+county,Chittenden,2023-04,Native American,*
+county,Chittenden,2023-04,Non Hispanic,1291
+county,Chittenden,2023-04,Unknown,*
+county,Chittenden,2023-04,Unreported,175
+county,Essex,2023-04,Hispanic,0
+county,Essex,2023-04,Native American,0
+county,Essex,2023-04,Non Hispanic,78
+county,Essex,2023-04,Unknown,*
+county,Essex,2023-04,Unreported,*
+county,Franklin,2023-04,Hispanic,*
+county,Franklin,2023-04,Native American,0
+county,Franklin,2023-04,Non Hispanic,485
+county,Franklin,2023-04,Unknown,*
+county,Franklin,2023-04,Unreported,64
+county,Grand Isle,2023-04,Hispanic,*
+county,Grand Isle,2023-04,Native American,0
+county,Grand Isle,2023-04,Non Hispanic,51
+county,Grand Isle,2023-04,Unknown,0
+county,Grand Isle,2023-04,Unreported,*
+county,Lamoille,2023-04,Hispanic,*
+county,Lamoille,2023-04,Native American,0
+county,Lamoille,2023-04,Non Hispanic,341
+county,Lamoille,2023-04,Unknown,*
+county,Lamoille,2023-04,Unreported,16
+county,Orange,2023-04,Hispanic,*
+county,Orange,2023-04,Native American,0
+county,Orange,2023-04,Non Hispanic,207
+county,Orange,2023-04,Unknown,*
+county,Orange,2023-04,Unreported,14
+county,Orleans,2023-04,Hispanic,*
+county,Orleans,2023-04,Native American,*
+county,Orleans,2023-04,Non Hispanic,381
+county,Orleans,2023-04,Unknown,*
+county,Orleans,2023-04,Unreported,36
+county,Rutland,2023-04,Hispanic,*
+county,Rutland,2023-04,Native American,0
+county,Rutland,2023-04,Non Hispanic,769
+county,Rutland,2023-04,Unknown,*
+county,Rutland,2023-04,Unreported,40
+county,Washington,2023-04,Hispanic,*
+county,Washington,2023-04,Native American,0
+county,Washington,2023-04,Non Hispanic,343
+county,Washington,2023-04,Unknown,*
+county,Washington,2023-04,Unreported,28
+county,Windham,2023-04,Hispanic,33
+county,Windham,2023-04,Native American,*
+county,Windham,2023-04,Non Hispanic,329
+county,Windham,2023-04,Unknown,*
+county,Windham,2023-04,Unreported,90
+county,Windsor,2023-04,Hispanic,*
+county,Windsor,2023-04,Native American,0
+county,Windsor,2023-04,Non Hispanic,456
+county,Windsor,2023-04,Unknown,*
+county,Windsor,2023-04,Unreported,46
+county,Addison,2023-03,Hispanic,*
+county,Addison,2023-03,Native American,0
+county,Addison,2023-03,Non Hispanic,336
+county,Addison,2023-03,Unknown,*
+county,Addison,2023-03,Unreported,73
+county,Bennington,2023-03,Hispanic,*
+county,Bennington,2023-03,Native American,0
+county,Bennington,2023-03,Non Hispanic,496
+county,Bennington,2023-03,Unknown,*
+county,Bennington,2023-03,Unreported,72
+county,Caledonia,2023-03,Hispanic,*
+county,Caledonia,2023-03,Native American,0
+county,Caledonia,2023-03,Non Hispanic,532
+county,Caledonia,2023-03,Unknown,*
+county,Caledonia,2023-03,Unreported,61
+county,Chittenden,2023-03,Hispanic,41
+county,Chittenden,2023-03,Native American,*
+county,Chittenden,2023-03,Non Hispanic,1264
+county,Chittenden,2023-03,Unknown,*
+county,Chittenden,2023-03,Unreported,162
+county,Essex,2023-03,Hispanic,0
+county,Essex,2023-03,Native American,0
+county,Essex,2023-03,Non Hispanic,79
+county,Essex,2023-03,Unknown,*
+county,Essex,2023-03,Unreported,*
+county,Franklin,2023-03,Hispanic,*
+county,Franklin,2023-03,Native American,0
+county,Franklin,2023-03,Non Hispanic,469
+county,Franklin,2023-03,Unknown,*
+county,Franklin,2023-03,Unreported,59
+county,Grand Isle,2023-03,Hispanic,*
+county,Grand Isle,2023-03,Native American,0
+county,Grand Isle,2023-03,Non Hispanic,56
+county,Grand Isle,2023-03,Unknown,0
+county,Grand Isle,2023-03,Unreported,*
+county,Lamoille,2023-03,Hispanic,*
+county,Lamoille,2023-03,Native American,0
+county,Lamoille,2023-03,Non Hispanic,335
+county,Lamoille,2023-03,Unknown,*
+county,Lamoille,2023-03,Unreported,16
+county,Orange,2023-03,Hispanic,*
+county,Orange,2023-03,Native American,0
+county,Orange,2023-03,Non Hispanic,207
+county,Orange,2023-03,Unknown,*
+county,Orange,2023-03,Unreported,14
+county,Orleans,2023-03,Hispanic,*
+county,Orleans,2023-03,Native American,0
+county,Orleans,2023-03,Non Hispanic,379
+county,Orleans,2023-03,Unknown,*
+county,Orleans,2023-03,Unreported,32
+county,Rutland,2023-03,Hispanic,*
+county,Rutland,2023-03,Native American,0
+county,Rutland,2023-03,Non Hispanic,755
+county,Rutland,2023-03,Unknown,*
+county,Rutland,2023-03,Unreported,41
+county,Washington,2023-03,Hispanic,*
+county,Washington,2023-03,Native American,0
+county,Washington,2023-03,Non Hispanic,330
+county,Washington,2023-03,Unknown,*
+county,Washington,2023-03,Unreported,26
+county,Windham,2023-03,Hispanic,33
+county,Windham,2023-03,Native American,*
+county,Windham,2023-03,Non Hispanic,321
+county,Windham,2023-03,Unknown,*
+county,Windham,2023-03,Unreported,87
+county,Windsor,2023-03,Hispanic,*
+county,Windsor,2023-03,Native American,0
+county,Windsor,2023-03,Non Hispanic,446
+county,Windsor,2023-03,Unknown,*
+county,Windsor,2023-03,Unreported,40
+county,Addison,2023-02,Hispanic,*
+county,Addison,2023-02,Native American,0
+county,Addison,2023-02,Non Hispanic,338
+county,Addison,2023-02,Unknown,*
+county,Addison,2023-02,Unreported,66
+county,Bennington,2023-02,Hispanic,*
+county,Bennington,2023-02,Native American,0
+county,Bennington,2023-02,Non Hispanic,507
+county,Bennington,2023-02,Unknown,*
+county,Bennington,2023-02,Unreported,66
+county,Caledonia,2023-02,Hispanic,*
+county,Caledonia,2023-02,Native American,0
+county,Caledonia,2023-02,Non Hispanic,530
+county,Caledonia,2023-02,Unknown,*
+county,Caledonia,2023-02,Unreported,64
+county,Chittenden,2023-02,Hispanic,38
+county,Chittenden,2023-02,Native American,*
+county,Chittenden,2023-02,Non Hispanic,1250
+county,Chittenden,2023-02,Unknown,*
+county,Chittenden,2023-02,Unreported,145
+county,Essex,2023-02,Hispanic,0
+county,Essex,2023-02,Native American,0
+county,Essex,2023-02,Non Hispanic,81
+county,Essex,2023-02,Unknown,*
+county,Essex,2023-02,Unreported,*
+county,Franklin,2023-02,Hispanic,*
+county,Franklin,2023-02,Native American,0
+county,Franklin,2023-02,Non Hispanic,469
+county,Franklin,2023-02,Unknown,*
+county,Franklin,2023-02,Unreported,56
+county,Grand Isle,2023-02,Hispanic,*
+county,Grand Isle,2023-02,Native American,0
+county,Grand Isle,2023-02,Non Hispanic,59
+county,Grand Isle,2023-02,Unknown,0
+county,Grand Isle,2023-02,Unreported,*
+county,Lamoille,2023-02,Hispanic,*
+county,Lamoille,2023-02,Native American,0
+county,Lamoille,2023-02,Non Hispanic,338
+county,Lamoille,2023-02,Unknown,*
+county,Lamoille,2023-02,Unreported,15
+county,Orange,2023-02,Hispanic,*
+county,Orange,2023-02,Native American,0
+county,Orange,2023-02,Non Hispanic,206
+county,Orange,2023-02,Unknown,*
+county,Orange,2023-02,Unreported,12
+county,Orleans,2023-02,Hispanic,*
+county,Orleans,2023-02,Native American,0
+county,Orleans,2023-02,Non Hispanic,371
+county,Orleans,2023-02,Unknown,*
+county,Orleans,2023-02,Unreported,32
+county,Rutland,2023-02,Hispanic,*
+county,Rutland,2023-02,Native American,0
+county,Rutland,2023-02,Non Hispanic,778
+county,Rutland,2023-02,Unknown,*
+county,Rutland,2023-02,Unreported,41
+county,Washington,2023-02,Hispanic,*
+county,Washington,2023-02,Native American,0
+county,Washington,2023-02,Non Hispanic,334
+county,Washington,2023-02,Unknown,*
+county,Washington,2023-02,Unreported,18
+county,Windham,2023-02,Hispanic,*
+county,Windham,2023-02,Native American,0
+county,Windham,2023-02,Non Hispanic,319
+county,Windham,2023-02,Unknown,*
+county,Windham,2023-02,Unreported,78
+county,Windsor,2023-02,Hispanic,*
+county,Windsor,2023-02,Native American,0
+county,Windsor,2023-02,Non Hispanic,454
+county,Windsor,2023-02,Unknown,*
+county,Windsor,2023-02,Unreported,35
+county,Addison,2023-01,Hispanic,*
+county,Addison,2023-01,Native American,0
+county,Addison,2023-01,Non Hispanic,338
+county,Addison,2023-01,Unknown,*
+county,Addison,2023-01,Unreported,55
+county,Bennington,2023-01,Hispanic,*
+county,Bennington,2023-01,Native American,0
+county,Bennington,2023-01,Non Hispanic,507
+county,Bennington,2023-01,Unknown,*
+county,Bennington,2023-01,Unreported,57
+county,Caledonia,2023-01,Hispanic,*
+county,Caledonia,2023-01,Native American,0
+county,Caledonia,2023-01,Non Hispanic,530
+county,Caledonia,2023-01,Unknown,*
+county,Caledonia,2023-01,Unreported,55
+county,Chittenden,2023-01,Hispanic,38
+county,Chittenden,2023-01,Native American,*
+county,Chittenden,2023-01,Non Hispanic,1250
+county,Chittenden,2023-01,Unknown,*
+county,Chittenden,2023-01,Unreported,135
+county,Essex,2023-01,Hispanic,0
+county,Essex,2023-01,Native American,0
+county,Essex,2023-01,Non Hispanic,81
+county,Essex,2023-01,Unknown,*
+county,Essex,2023-01,Unreported,*
+county,Franklin,2023-01,Hispanic,*
+county,Franklin,2023-01,Native American,0
+county,Franklin,2023-01,Non Hispanic,469
+county,Franklin,2023-01,Unknown,*
+county,Franklin,2023-01,Unreported,51
+county,Grand Isle,2023-01,Hispanic,*
+county,Grand Isle,2023-01,Native American,0
+county,Grand Isle,2023-01,Non Hispanic,59
+county,Grand Isle,2023-01,Unknown,0
+county,Grand Isle,2023-01,Unreported,*
+county,Lamoille,2023-01,Hispanic,*
+county,Lamoille,2023-01,Native American,0
+county,Lamoille,2023-01,Non Hispanic,338
+county,Lamoille,2023-01,Unknown,*
+county,Lamoille,2023-01,Unreported,12
+county,Orange,2023-01,Hispanic,*
+county,Orange,2023-01,Native American,0
+county,Orange,2023-01,Non Hispanic,206
+county,Orange,2023-01,Unknown,*
+county,Orange,2023-01,Unreported,11
+county,Orleans,2023-01,Hispanic,*
+county,Orleans,2023-01,Native American,0
+county,Orleans,2023-01,Non Hispanic,371
+county,Orleans,2023-01,Unknown,*
+county,Orleans,2023-01,Unreported,31
+county,Rutland,2023-01,Hispanic,*
+county,Rutland,2023-01,Native American,0
+county,Rutland,2023-01,Non Hispanic,778
+county,Rutland,2023-01,Unknown,*
+county,Rutland,2023-01,Unreported,35
+county,Washington,2023-01,Hispanic,*
+county,Washington,2023-01,Native American,0
+county,Washington,2023-01,Non Hispanic,334
+county,Washington,2023-01,Unknown,*
+county,Washington,2023-01,Unreported,16
+county,Windham,2023-01,Hispanic,*
+county,Windham,2023-01,Native American,0
+county,Windham,2023-01,Non Hispanic,319
+county,Windham,2023-01,Unknown,*
+county,Windham,2023-01,Unreported,76
+county,Windsor,2023-01,Hispanic,*
+county,Windsor,2023-01,Native American,0
+county,Windsor,2023-01,Non Hispanic,454
+county,Windsor,2023-01,Unknown,*
+county,Windsor,2023-01,Unreported,34
+county,Addison,2022-12,Hispanic,10
+county,Addison,2022-12,Native American,0
+county,Addison,2022-12,Non Hispanic,328
+county,Addison,2022-12,Unknown,0
+county,Addison,2022-12,Unreported,52
+county,Bennington,2022-12,Hispanic,*
+county,Bennington,2022-12,Native American,0
+county,Bennington,2022-12,Non Hispanic,497
+county,Bennington,2022-12,Unknown,*
+county,Bennington,2022-12,Unreported,54
+county,Caledonia,2022-12,Hispanic,*
+county,Caledonia,2022-12,Native American,0
+county,Caledonia,2022-12,Non Hispanic,535
+county,Caledonia,2022-12,Unknown,*
+county,Caledonia,2022-12,Unreported,54
+county,Chittenden,2022-12,Hispanic,*
+county,Chittenden,2022-12,Native American,0
+county,Chittenden,2022-12,Non Hispanic,1236
+county,Chittenden,2022-12,Unknown,*
+county,Chittenden,2022-12,Unreported,119
+county,Essex,2022-12,Hispanic,0
+county,Essex,2022-12,Native American,0
+county,Essex,2022-12,Non Hispanic,71
+county,Essex,2022-12,Unknown,0
+county,Essex,2022-12,Unreported,0
+county,Franklin,2022-12,Hispanic,*
+county,Franklin,2022-12,Native American,0
+county,Franklin,2022-12,Non Hispanic,492
+county,Franklin,2022-12,Unknown,*
+county,Franklin,2022-12,Unreported,51
+county,Grand Isle,2022-12,Hispanic,*
+county,Grand Isle,2022-12,Native American,0
+county,Grand Isle,2022-12,Non Hispanic,56
+county,Grand Isle,2022-12,Unknown,0
+county,Grand Isle,2022-12,Unreported,*
+county,Lamoille,2022-12,Hispanic,*
+county,Lamoille,2022-12,Native American,0
+county,Lamoille,2022-12,Non Hispanic,325
+county,Lamoille,2022-12,Unknown,*
+county,Lamoille,2022-12,Unreported,10
+county,Orange,2022-12,Hispanic,*
+county,Orange,2022-12,Native American,0
+county,Orange,2022-12,Non Hispanic,189
+county,Orange,2022-12,Unknown,0
+county,Orange,2022-12,Unreported,*
+county,Orleans,2022-12,Hispanic,*
+county,Orleans,2022-12,Native American,0
+county,Orleans,2022-12,Non Hispanic,370
+county,Orleans,2022-12,Unknown,*
+county,Orleans,2022-12,Unreported,24
+county,Rutland,2022-12,Hispanic,*
+county,Rutland,2022-12,Native American,0
+county,Rutland,2022-12,Non Hispanic,791
+county,Rutland,2022-12,Unknown,*
+county,Rutland,2022-12,Unreported,27
+county,Washington,2022-12,Hispanic,*
+county,Washington,2022-12,Native American,0
+county,Washington,2022-12,Non Hispanic,324
+county,Washington,2022-12,Unknown,*
+county,Washington,2022-12,Unreported,12
+county,Windham,2022-12,Hispanic,*
+county,Windham,2022-12,Native American,0
+county,Windham,2022-12,Non Hispanic,309
+county,Windham,2022-12,Unknown,*
+county,Windham,2022-12,Unreported,71
+county,Windsor,2022-12,Hispanic,*
+county,Windsor,2022-12,Native American,0
+county,Windsor,2022-12,Non Hispanic,454
+county,Windsor,2022-12,Unknown,*
+county,Windsor,2022-12,Unreported,24
+county,Addison,2022-11,Hispanic,10
+county,Addison,2022-11,Native American,0
+county,Addison,2022-11,Non Hispanic,335
+county,Addison,2022-11,Unknown,0
+county,Addison,2022-11,Unreported,48
+county,Bennington,2022-11,Hispanic,*
+county,Bennington,2022-11,Native American,0
+county,Bennington,2022-11,Non Hispanic,498
+county,Bennington,2022-11,Unknown,*
+county,Bennington,2022-11,Unreported,51
+county,Caledonia,2022-11,Hispanic,*
+county,Caledonia,2022-11,Native American,0
+county,Caledonia,2022-11,Non Hispanic,528
+county,Caledonia,2022-11,Unknown,*
+county,Caledonia,2022-11,Unreported,45
+county,Chittenden,2022-11,Hispanic,*
+county,Chittenden,2022-11,Native American,0
+county,Chittenden,2022-11,Non Hispanic,1238
+county,Chittenden,2022-11,Unknown,*
+county,Chittenden,2022-11,Unreported,115
+county,Essex,2022-11,Hispanic,0
+county,Essex,2022-11,Native American,0
+county,Essex,2022-11,Non Hispanic,73
+county,Essex,2022-11,Unknown,0
+county,Essex,2022-11,Unreported,0
+county,Franklin,2022-11,Hispanic,*
+county,Franklin,2022-11,Native American,0
+county,Franklin,2022-11,Non Hispanic,512
+county,Franklin,2022-11,Unknown,*
+county,Franklin,2022-11,Unreported,47
+county,Grand Isle,2022-11,Hispanic,*
+county,Grand Isle,2022-11,Native American,0
+county,Grand Isle,2022-11,Non Hispanic,58
+county,Grand Isle,2022-11,Unknown,0
+county,Grand Isle,2022-11,Unreported,*
+county,Lamoille,2022-11,Hispanic,*
+county,Lamoille,2022-11,Native American,0
+county,Lamoille,2022-11,Non Hispanic,325
+county,Lamoille,2022-11,Unknown,*
+county,Lamoille,2022-11,Unreported,10
+county,Orange,2022-11,Hispanic,*
+county,Orange,2022-11,Native American,0
+county,Orange,2022-11,Non Hispanic,187
+county,Orange,2022-11,Unknown,0
+county,Orange,2022-11,Unreported,*
+county,Orleans,2022-11,Hispanic,*
+county,Orleans,2022-11,Native American,0
+county,Orleans,2022-11,Non Hispanic,367
+county,Orleans,2022-11,Unknown,*
+county,Orleans,2022-11,Unreported,20
+county,Rutland,2022-11,Hispanic,*
+county,Rutland,2022-11,Native American,0
+county,Rutland,2022-11,Non Hispanic,800
+county,Rutland,2022-11,Unknown,*
+county,Rutland,2022-11,Unreported,26
+county,Washington,2022-11,Hispanic,*
+county,Washington,2022-11,Native American,0
+county,Washington,2022-11,Non Hispanic,323
+county,Washington,2022-11,Unknown,*
+county,Washington,2022-11,Unreported,13
+county,Windham,2022-11,Hispanic,*
+county,Windham,2022-11,Native American,0
+county,Windham,2022-11,Non Hispanic,311
+county,Windham,2022-11,Unknown,*
+county,Windham,2022-11,Unreported,65
+county,Windsor,2022-11,Hispanic,*
+county,Windsor,2022-11,Native American,0
+county,Windsor,2022-11,Non Hispanic,466
+county,Windsor,2022-11,Unknown,*
+county,Windsor,2022-11,Unreported,22
+county,Addison,2022-10,Hispanic,10
+county,Addison,2022-10,Native American,0
+county,Addison,2022-10,Non Hispanic,328
+county,Addison,2022-10,Unknown,0
+county,Addison,2022-10,Unreported,46
+county,Bennington,2022-10,Hispanic,*
+county,Bennington,2022-10,Native American,0
+county,Bennington,2022-10,Non Hispanic,497
+county,Bennington,2022-10,Unknown,*
+county,Bennington,2022-10,Unreported,46
+county,Caledonia,2022-10,Hispanic,*
+county,Caledonia,2022-10,Native American,0
+county,Caledonia,2022-10,Non Hispanic,526
+county,Caledonia,2022-10,Unknown,*
+county,Caledonia,2022-10,Unreported,38
+county,Chittenden,2022-10,Hispanic,*
+county,Chittenden,2022-10,Native American,0
+county,Chittenden,2022-10,Non Hispanic,1215
+county,Chittenden,2022-10,Unknown,*
+county,Chittenden,2022-10,Unreported,113
+county,Essex,2022-10,Hispanic,0
+county,Essex,2022-10,Native American,0
+county,Essex,2022-10,Non Hispanic,*
+county,Essex,2022-10,Unknown,0
+county,Essex,2022-10,Unreported,0
+county,Franklin,2022-10,Hispanic,*
+county,Franklin,2022-10,Native American,0
+county,Franklin,2022-10,Non Hispanic,515
+county,Franklin,2022-10,Unknown,*
+county,Franklin,2022-10,Unreported,49
+county,Grand Isle,2022-10,Hispanic,0
+county,Grand Isle,2022-10,Native American,0
+county,Grand Isle,2022-10,Non Hispanic,*
+county,Grand Isle,2022-10,Unknown,0
+county,Grand Isle,2022-10,Unreported,*
+county,Lamoille,2022-10,Hispanic,*
+county,Lamoille,2022-10,Native American,0
+county,Lamoille,2022-10,Non Hispanic,326
+county,Lamoille,2022-10,Unknown,*
+county,Lamoille,2022-10,Unreported,10
+county,Orange,2022-10,Hispanic,*
+county,Orange,2022-10,Native American,0
+county,Orange,2022-10,Non Hispanic,177
+county,Orange,2022-10,Unknown,0
+county,Orange,2022-10,Unreported,*
+county,Orleans,2022-10,Hispanic,*
+county,Orleans,2022-10,Native American,0
+county,Orleans,2022-10,Non Hispanic,372
+county,Orleans,2022-10,Unknown,*
+county,Orleans,2022-10,Unreported,20
+county,Rutland,2022-10,Hispanic,*
+county,Rutland,2022-10,Native American,0
+county,Rutland,2022-10,Non Hispanic,786
+county,Rutland,2022-10,Unknown,*
+county,Rutland,2022-10,Unreported,22
+county,Washington,2022-10,Hispanic,*
+county,Washington,2022-10,Native American,0
+county,Washington,2022-10,Non Hispanic,329
+county,Washington,2022-10,Unknown,*
+county,Washington,2022-10,Unreported,11
+county,Windham,2022-10,Hispanic,*
+county,Windham,2022-10,Native American,0
+county,Windham,2022-10,Non Hispanic,315
+county,Windham,2022-10,Unknown,*
+county,Windham,2022-10,Unreported,63
+county,Windsor,2022-10,Hispanic,19
+county,Windsor,2022-10,Native American,0
+county,Windsor,2022-10,Non Hispanic,469
+county,Windsor,2022-10,Unknown,*
+county,Windsor,2022-10,Unreported,*
+county,Addison,2022-09,Hispanic,*
+county,Addison,2022-09,Native American,0
+county,Addison,2022-09,Non Hispanic,326
+county,Addison,2022-09,Unknown,*
+county,Addison,2022-09,Unreported,44
+county,Bennington,2022-09,Hispanic,*
+county,Bennington,2022-09,Native American,0
+county,Bennington,2022-09,Non Hispanic,524
+county,Bennington,2022-09,Unknown,*
+county,Bennington,2022-09,Unreported,36
+county,Caledonia,2022-09,Hispanic,*
+county,Caledonia,2022-09,Native American,0
+county,Caledonia,2022-09,Non Hispanic,551
+county,Caledonia,2022-09,Unknown,*
+county,Caledonia,2022-09,Unreported,30
+county,Chittenden,2022-09,Hispanic,*
+county,Chittenden,2022-09,Native American,0
+county,Chittenden,2022-09,Non Hispanic,1261
+county,Chittenden,2022-09,Unknown,*
+county,Chittenden,2022-09,Unreported,90
+county,Essex,2022-09,Hispanic,0
+county,Essex,2022-09,Native American,0
+county,Essex,2022-09,Non Hispanic,*
+county,Essex,2022-09,Unknown,0
+county,Essex,2022-09,Unreported,0
+county,Franklin,2022-09,Hispanic,*
+county,Franklin,2022-09,Native American,0
+county,Franklin,2022-09,Non Hispanic,530
+county,Franklin,2022-09,Unknown,*
+county,Franklin,2022-09,Unreported,36
+county,Grand Isle,2022-09,Hispanic,0
+county,Grand Isle,2022-09,Native American,0
+county,Grand Isle,2022-09,Non Hispanic,*
+county,Grand Isle,2022-09,Unknown,0
+county,Grand Isle,2022-09,Unreported,*
+county,Lamoille,2022-09,Hispanic,*
+county,Lamoille,2022-09,Native American,0
+county,Lamoille,2022-09,Non Hispanic,312
+county,Lamoille,2022-09,Unknown,0
+county,Lamoille,2022-09,Unreported,*
+county,Orange,2022-09,Hispanic,*
+county,Orange,2022-09,Native American,0
+county,Orange,2022-09,Non Hispanic,178
+county,Orange,2022-09,Unknown,0
+county,Orange,2022-09,Unreported,*
+county,Orleans,2022-09,Hispanic,*
+county,Orleans,2022-09,Native American,0
+county,Orleans,2022-09,Non Hispanic,376
+county,Orleans,2022-09,Unknown,*
+county,Orleans,2022-09,Unreported,18
+county,Rutland,2022-09,Hispanic,22
+county,Rutland,2022-09,Native American,0
+county,Rutland,2022-09,Non Hispanic,798
+county,Rutland,2022-09,Unknown,*
+county,Rutland,2022-09,Unreported,*
+county,Washington,2022-09,Hispanic,*
+county,Washington,2022-09,Native American,0
+county,Washington,2022-09,Non Hispanic,325
+county,Washington,2022-09,Unknown,0
+county,Washington,2022-09,Unreported,*
+county,Windham,2022-09,Hispanic,*
+county,Windham,2022-09,Native American,0
+county,Windham,2022-09,Non Hispanic,340
+county,Windham,2022-09,Unknown,*
+county,Windham,2022-09,Unreported,62
+county,Windsor,2022-09,Hispanic,22
+county,Windsor,2022-09,Native American,0
+county,Windsor,2022-09,Non Hispanic,495
+county,Windsor,2022-09,Unknown,*
+county,Windsor,2022-09,Unreported,*
+county,Addison,2022-08,Hispanic,*
+county,Addison,2022-08,Native American,0
+county,Addison,2022-08,Non Hispanic,422
+county,Addison,2022-08,Unknown,*
+county,Addison,2022-08,Unreported,39
+county,Bennington,2022-08,Hispanic,*
+county,Bennington,2022-08,Native American,0
+county,Bennington,2022-08,Non Hispanic,591
+county,Bennington,2022-08,Unknown,*
+county,Bennington,2022-08,Unreported,25
+county,Caledonia,2022-08,Hispanic,*
+county,Caledonia,2022-08,Native American,0
+county,Caledonia,2022-08,Non Hispanic,582
+county,Caledonia,2022-08,Unknown,*
+county,Caledonia,2022-08,Unreported,28
+county,Chittenden,2022-08,Hispanic,*
+county,Chittenden,2022-08,Native American,0
+county,Chittenden,2022-08,Non Hispanic,1389
+county,Chittenden,2022-08,Unknown,*
+county,Chittenden,2022-08,Unreported,67
+county,Essex,2022-08,Hispanic,0
+county,Essex,2022-08,Native American,0
+county,Essex,2022-08,Non Hispanic,*
+county,Essex,2022-08,Unknown,0
+county,Essex,2022-08,Unreported,0
+county,Franklin,2022-08,Hispanic,15
+county,Franklin,2022-08,Native American,0
+county,Franklin,2022-08,Non Hispanic,555
+county,Franklin,2022-08,Unknown,0
+county,Franklin,2022-08,Unreported,26
+county,Grand Isle,2022-08,Hispanic,0
+county,Grand Isle,2022-08,Native American,0
+county,Grand Isle,2022-08,Non Hispanic,*
+county,Grand Isle,2022-08,Unknown,0
+county,Grand Isle,2022-08,Unreported,*
+county,Lamoille,2022-08,Hispanic,*
+county,Lamoille,2022-08,Native American,0
+county,Lamoille,2022-08,Non Hispanic,343
+county,Lamoille,2022-08,Unknown,0
+county,Lamoille,2022-08,Unreported,*
+county,Orange,2022-08,Hispanic,*
+county,Orange,2022-08,Native American,0
+county,Orange,2022-08,Non Hispanic,218
+county,Orange,2022-08,Unknown,0
+county,Orange,2022-08,Unreported,*
+county,Orleans,2022-08,Hispanic,*
+county,Orleans,2022-08,Native American,0
+county,Orleans,2022-08,Non Hispanic,395
+county,Orleans,2022-08,Unknown,*
+county,Orleans,2022-08,Unreported,15
+county,Rutland,2022-08,Hispanic,25
+county,Rutland,2022-08,Native American,0
+county,Rutland,2022-08,Non Hispanic,885
+county,Rutland,2022-08,Unknown,*
+county,Rutland,2022-08,Unreported,*
+county,Washington,2022-08,Hispanic,12
+county,Washington,2022-08,Native American,0
+county,Washington,2022-08,Non Hispanic,403
+county,Washington,2022-08,Unknown,*
+county,Washington,2022-08,Unreported,*
+county,Windham,2022-08,Hispanic,*
+county,Windham,2022-08,Native American,0
+county,Windham,2022-08,Non Hispanic,384
+county,Windham,2022-08,Unknown,*
+county,Windham,2022-08,Unreported,51
+county,Windsor,2022-08,Hispanic,23
+county,Windsor,2022-08,Native American,0
+county,Windsor,2022-08,Non Hispanic,544
+county,Windsor,2022-08,Unknown,*
+county,Windsor,2022-08,Unreported,*
+county,Addison,2022-07,Hispanic,14
+county,Addison,2022-07,Native American,0
+county,Addison,2022-07,Non Hispanic,401
+county,Addison,2022-07,Unknown,0
+county,Addison,2022-07,Unreported,17
+county,Bennington,2022-07,Hispanic,21
+county,Bennington,2022-07,Native American,0
+county,Bennington,2022-07,Non Hispanic,603
+county,Bennington,2022-07,Unknown,*
+county,Bennington,2022-07,Unreported,*
+county,Caledonia,2022-07,Hispanic,*
+county,Caledonia,2022-07,Native American,0
+county,Caledonia,2022-07,Non Hispanic,559
+county,Caledonia,2022-07,Unknown,*
+county,Caledonia,2022-07,Unreported,14
+county,Chittenden,2022-07,Hispanic,39
+county,Chittenden,2022-07,Native American,0
+county,Chittenden,2022-07,Non Hispanic,1304
+county,Chittenden,2022-07,Unknown,*
+county,Chittenden,2022-07,Unreported,*
+county,Essex,2022-07,Hispanic,0
+county,Essex,2022-07,Native American,0
+county,Essex,2022-07,Non Hispanic,*
+county,Essex,2022-07,Unknown,0
+county,Essex,2022-07,Unreported,0
+county,Franklin,2022-07,Hispanic,12
+county,Franklin,2022-07,Native American,0
+county,Franklin,2022-07,Non Hispanic,552
+county,Franklin,2022-07,Unknown,0
+county,Franklin,2022-07,Unreported,16
+county,Grand Isle,2022-07,Hispanic,0
+county,Grand Isle,2022-07,Native American,0
+county,Grand Isle,2022-07,Non Hispanic,*
+county,Grand Isle,2022-07,Unknown,0
+county,Grand Isle,2022-07,Unreported,*
+county,Lamoille,2022-07,Hispanic,*
+county,Lamoille,2022-07,Native American,0
+county,Lamoille,2022-07,Non Hispanic,301
+county,Lamoille,2022-07,Unknown,0
+county,Lamoille,2022-07,Unreported,*
+county,Orange,2022-07,Hispanic,*
+county,Orange,2022-07,Native American,0
+county,Orange,2022-07,Non Hispanic,207
+county,Orange,2022-07,Unknown,0
+county,Orange,2022-07,Unreported,*
+county,Orleans,2022-07,Hispanic,*
+county,Orleans,2022-07,Native American,0
+county,Orleans,2022-07,Non Hispanic,369
+county,Orleans,2022-07,Unknown,*
+county,Orleans,2022-07,Unreported,11
+county,Rutland,2022-07,Hispanic,23
+county,Rutland,2022-07,Native American,0
+county,Rutland,2022-07,Non Hispanic,841
+county,Rutland,2022-07,Unknown,*
+county,Rutland,2022-07,Unreported,*
+county,Washington,2022-07,Hispanic,*
+county,Washington,2022-07,Native American,0
+county,Washington,2022-07,Non Hispanic,378
+county,Washington,2022-07,Unknown,0
+county,Washington,2022-07,Unreported,*
+county,Windham,2022-07,Hispanic,24
+county,Windham,2022-07,Native American,0
+county,Windham,2022-07,Non Hispanic,363
+county,Windham,2022-07,Unknown,*
+county,Windham,2022-07,Unreported,*
+county,Windsor,2022-07,Hispanic,*
+county,Windsor,2022-07,Native American,0
+county,Windsor,2022-07,Non Hispanic,514
+county,Windsor,2022-07,Unknown,0
+county,Windsor,2022-07,Unreported,*
+state,Vermont,2023-06,Hispanic,255
+state,Vermont,2023-06,Native American,*
+state,Vermont,2023-06,Non Hispanic,6555
+state,Vermont,2023-06,Unknown,*
+state,Vermont,2023-06,Unreported,868
+state,Vermont,2023-05,Hispanic,226
+state,Vermont,2023-05,Native American,*
+state,Vermont,2023-05,Non Hispanic,6006
+state,Vermont,2023-05,Unknown,*
+state,Vermont,2023-05,Unreported,774
+state,Vermont,2023-04,Hispanic,227
+state,Vermont,2023-04,Native American,*
+state,Vermont,2023-04,Non Hispanic,6128
+state,Vermont,2023-04,Unknown,*
+state,Vermont,2023-04,Unreported,744
+state,Vermont,2023-03,Hispanic,225
+state,Vermont,2023-03,Native American,*
+state,Vermont,2023-03,Non Hispanic,6005
+state,Vermont,2023-03,Unknown,*
+state,Vermont,2023-03,Unreported,692
+state,Vermont,2023-02,Hispanic,221
+state,Vermont,2023-02,Native American,*
+state,Vermont,2023-02,Non Hispanic,6034
+state,Vermont,2023-02,Unknown,*
+state,Vermont,2023-02,Unreported,636
+state,Vermont,2023-01,Hispanic,221
+state,Vermont,2023-01,Native American,*
+state,Vermont,2023-01,Non Hispanic,6034
+state,Vermont,2023-01,Unknown,*
+state,Vermont,2023-01,Unreported,576
+state,Vermont,2022-12,Hispanic,204
+state,Vermont,2022-12,Native American,0
+state,Vermont,2022-12,Non Hispanic,5977
+state,Vermont,2022-12,Unknown,33
+state,Vermont,2022-12,Unreported,514
+state,Vermont,2022-11,Hispanic,203
+state,Vermont,2022-11,Native American,0
+state,Vermont,2022-11,Non Hispanic,6021
+state,Vermont,2022-11,Unknown,33
+state,Vermont,2022-11,Unreported,478
+state,Vermont,2022-10,Hispanic,192
+state,Vermont,2022-10,Native American,0
+state,Vermont,2022-10,Non Hispanic,5987
+state,Vermont,2022-10,Unknown,26
+state,Vermont,2022-10,Unreported,450
+state,Vermont,2022-09,Hispanic,194
+state,Vermont,2022-09,Native American,0
+state,Vermont,2022-09,Non Hispanic,6150
+state,Vermont,2022-09,Unknown,22
+state,Vermont,2022-09,Unreported,377
+state,Vermont,2022-08,Hispanic,205
+state,Vermont,2022-08,Native American,0
+state,Vermont,2022-08,Non Hispanic,6847
+state,Vermont,2022-08,Unknown,19
+state,Vermont,2022-08,Unreported,297
+state,Vermont,2022-07,Hispanic,193
+state,Vermont,2022-07,Native American,0
+state,Vermont,2022-07,Non Hispanic,6527
+state,Vermont,2022-07,Unknown,11
+state,Vermont,2022-07,Unreported,139
+county,Addison,2024-06,Hispanic,*
+county,Addison,2024-06,Native American,0
+county,Addison,2024-06,Non Hispanic,335
+county,Addison,2024-06,Unknown,*
+county,Addison,2024-06,Unreported,279
+county,Bennington,2024-06,Hispanic,*
+county,Bennington,2024-06,Native American,0
+county,Bennington,2024-06,Non Hispanic,624
+county,Bennington,2024-06,Unknown,*
+county,Bennington,2024-06,Unreported,117
+county,Caledonia,2024-06,Hispanic,*
+county,Caledonia,2024-06,Native American,0
+county,Caledonia,2024-06,Non Hispanic,593
+county,Caledonia,2024-06,Unknown,*
+county,Caledonia,2024-06,Unreported,122
+county,Chittenden,2024-06,Hispanic,49
+county,Chittenden,2024-06,Native American,0
+county,Chittenden,2024-06,Non Hispanic,1664
+county,Chittenden,2024-06,Unknown,16
+county,Chittenden,2024-06,Unreported,260
+county,Essex,2024-06,Hispanic,0
+county,Essex,2024-06,Native American,0
+county,Essex,2024-06,Non Hispanic,82
+county,Essex,2024-06,Unknown,*
+county,Essex,2024-06,Unreported,*
+county,Franklin,2024-06,Hispanic,*
+county,Franklin,2024-06,Native American,0
+county,Franklin,2024-06,Non Hispanic,576
+county,Franklin,2024-06,Unknown,*
+county,Franklin,2024-06,Unreported,83
+county,Grand Isle,2024-06,Hispanic,*
+county,Grand Isle,2024-06,Native American,0
+county,Grand Isle,2024-06,Non Hispanic,75
+county,Grand Isle,2024-06,Unknown,0
+county,Grand Isle,2024-06,Unreported,*
+county,Lamoille,2024-06,Hispanic,*
+county,Lamoille,2024-06,Native American,0
+county,Lamoille,2024-06,Non Hispanic,411
+county,Lamoille,2024-06,Unknown,*
+county,Lamoille,2024-06,Unreported,13
+county,Orange,2024-06,Hispanic,*
+county,Orange,2024-06,Native American,0
+county,Orange,2024-06,Non Hispanic,288
+county,Orange,2024-06,Unknown,*
+county,Orange,2024-06,Unreported,29
+county,Orleans,2024-06,Hispanic,*
+county,Orleans,2024-06,Native American,0
+county,Orleans,2024-06,Non Hispanic,414
+county,Orleans,2024-06,Unknown,0
+county,Orleans,2024-06,Unreported,*
+county,Rutland,2024-06,Hispanic,45
+county,Rutland,2024-06,Native American,0
+county,Rutland,2024-06,Non Hispanic,968
+county,Rutland,2024-06,Unknown,14
+county,Rutland,2024-06,Unreported,88
+county,Washington,2024-06,Hispanic,*
+county,Washington,2024-06,Native American,0
+county,Washington,2024-06,Non Hispanic,478
+county,Washington,2024-06,Unknown,*
+county,Washington,2024-06,Unreported,53
+county,Windham,2024-06,Hispanic,*
+county,Windham,2024-06,Native American,0
+county,Windham,2024-06,Non Hispanic,487
+county,Windham,2024-06,Unknown,*
+county,Windham,2024-06,Unreported,85
+county,Windsor,2024-06,Hispanic,47
+county,Windsor,2024-06,Native American,0
+county,Windsor,2024-06,Non Hispanic,639
+county,Windsor,2024-06,Unknown,14
+county,Windsor,2024-06,Unreported,76
+county,Addison,2024-05,Hispanic,*
+county,Addison,2024-05,Native American,0
+county,Addison,2024-05,Non Hispanic,270
+county,Addison,2024-05,Unknown,*
+county,Addison,2024-05,Unreported,232
+county,Bennington,2024-05,Hispanic,*
+county,Bennington,2024-05,Native American,0
+county,Bennington,2024-05,Non Hispanic,534
+county,Bennington,2024-05,Unknown,*
+county,Bennington,2024-05,Unreported,125
+county,Caledonia,2024-05,Hispanic,*
+county,Caledonia,2024-05,Native American,0
+county,Caledonia,2024-05,Non Hispanic,562
+county,Caledonia,2024-05,Unknown,*
+county,Caledonia,2024-05,Unreported,110
+county,Chittenden,2024-05,Hispanic,41
+county,Chittenden,2024-05,Native American,0
+county,Chittenden,2024-05,Non Hispanic,1425
+county,Chittenden,2024-05,Unknown,12
+county,Chittenden,2024-05,Unreported,234
+county,Essex,2024-05,Hispanic,0
+county,Essex,2024-05,Native American,0
+county,Essex,2024-05,Non Hispanic,78
+county,Essex,2024-05,Unknown,*
+county,Essex,2024-05,Unreported,*
+county,Franklin,2024-05,Hispanic,*
+county,Franklin,2024-05,Native American,0
+county,Franklin,2024-05,Non Hispanic,525
+county,Franklin,2024-05,Unknown,*
+county,Franklin,2024-05,Unreported,80
+county,Grand Isle,2024-05,Hispanic,*
+county,Grand Isle,2024-05,Native American,0
+county,Grand Isle,2024-05,Non Hispanic,62
+county,Grand Isle,2024-05,Unknown,0
+county,Grand Isle,2024-05,Unreported,*
+county,Lamoille,2024-05,Hispanic,*
+county,Lamoille,2024-05,Native American,0
+county,Lamoille,2024-05,Non Hispanic,387
+county,Lamoille,2024-05,Unknown,*
+county,Lamoille,2024-05,Unreported,12
+county,Orange,2024-05,Hispanic,*
+county,Orange,2024-05,Native American,0
+county,Orange,2024-05,Non Hispanic,252
+county,Orange,2024-05,Unknown,*
+county,Orange,2024-05,Unreported,26
+county,Orleans,2024-05,Hispanic,*
+county,Orleans,2024-05,Native American,0
+county,Orleans,2024-05,Non Hispanic,399
+county,Orleans,2024-05,Unknown,0
+county,Orleans,2024-05,Unreported,*
+county,Rutland,2024-05,Hispanic,*
+county,Rutland,2024-05,Native American,0
+county,Rutland,2024-05,Non Hispanic,819
+county,Rutland,2024-05,Unknown,*
+county,Rutland,2024-05,Unreported,79
+county,Washington,2024-05,Hispanic,*
+county,Washington,2024-05,Native American,0
+county,Washington,2024-05,Non Hispanic,396
+county,Washington,2024-05,Unknown,*
+county,Washington,2024-05,Unreported,48
+county,Windham,2024-05,Hispanic,*
+county,Windham,2024-05,Native American,0
+county,Windham,2024-05,Non Hispanic,433
+county,Windham,2024-05,Unknown,*
+county,Windham,2024-05,Unreported,83
+county,Windsor,2024-05,Hispanic,35
+county,Windsor,2024-05,Native American,0
+county,Windsor,2024-05,Non Hispanic,530
+county,Windsor,2024-05,Unknown,13
+county,Windsor,2024-05,Unreported,67
+county,Addison,2024-04,Hispanic,*
+county,Addison,2024-04,Native American,0
+county,Addison,2024-04,Non Hispanic,281
+county,Addison,2024-04,Unknown,*
+county,Addison,2024-04,Unreported,216
+county,Bennington,2024-04,Hispanic,*
+county,Bennington,2024-04,Native American,0
+county,Bennington,2024-04,Non Hispanic,530
+county,Bennington,2024-04,Unknown,*
+county,Bennington,2024-04,Unreported,129
+county,Caledonia,2024-04,Hispanic,*
+county,Caledonia,2024-04,Native American,0
+county,Caledonia,2024-04,Non Hispanic,547
+county,Caledonia,2024-04,Unknown,*
+county,Caledonia,2024-04,Unreported,108
+county,Chittenden,2024-04,Hispanic,41
+county,Chittenden,2024-04,Native American,0
+county,Chittenden,2024-04,Non Hispanic,1447
+county,Chittenden,2024-04,Unknown,10
+county,Chittenden,2024-04,Unreported,234
+county,Essex,2024-04,Hispanic,0
+county,Essex,2024-04,Native American,0
+county,Essex,2024-04,Non Hispanic,71
+county,Essex,2024-04,Unknown,*
+county,Essex,2024-04,Unreported,*
+county,Franklin,2024-04,Hispanic,*
+county,Franklin,2024-04,Native American,0
+county,Franklin,2024-04,Non Hispanic,519
+county,Franklin,2024-04,Unknown,*
+county,Franklin,2024-04,Unreported,85
+county,Grand Isle,2024-04,Hispanic,*
+county,Grand Isle,2024-04,Native American,0
+county,Grand Isle,2024-04,Non Hispanic,64
+county,Grand Isle,2024-04,Unknown,0
+county,Grand Isle,2024-04,Unreported,*
+county,Lamoille,2024-04,Hispanic,*
+county,Lamoille,2024-04,Native American,0
+county,Lamoille,2024-04,Non Hispanic,383
+county,Lamoille,2024-04,Unknown,*
+county,Lamoille,2024-04,Unreported,11
+county,Orange,2024-04,Hispanic,*
+county,Orange,2024-04,Native American,0
+county,Orange,2024-04,Non Hispanic,240
+county,Orange,2024-04,Unknown,*
+county,Orange,2024-04,Unreported,25
+county,Orleans,2024-04,Hispanic,*
+county,Orleans,2024-04,Native American,0
+county,Orleans,2024-04,Non Hispanic,390
+county,Orleans,2024-04,Unknown,0
+county,Orleans,2024-04,Unreported,*
+county,Rutland,2024-04,Hispanic,*
+county,Rutland,2024-04,Native American,0
+county,Rutland,2024-04,Non Hispanic,794
+county,Rutland,2024-04,Unknown,*
+county,Rutland,2024-04,Unreported,85
+county,Washington,2024-04,Hispanic,*
+county,Washington,2024-04,Native American,0
+county,Washington,2024-04,Non Hispanic,384
+county,Washington,2024-04,Unknown,*
+county,Washington,2024-04,Unreported,50
+county,Windham,2024-04,Hispanic,*
+county,Windham,2024-04,Native American,0
+county,Windham,2024-04,Non Hispanic,432
+county,Windham,2024-04,Unknown,*
+county,Windham,2024-04,Unreported,83
+county,Windsor,2024-04,Hispanic,34
+county,Windsor,2024-04,Native American,0
+county,Windsor,2024-04,Non Hispanic,530
+county,Windsor,2024-04,Unknown,15
+county,Windsor,2024-04,Unreported,68
+county,Addison,2024-03,Hispanic,*
+county,Addison,2024-03,Native American,0
+county,Addison,2024-03,Non Hispanic,283
+county,Addison,2024-03,Unknown,*
+county,Addison,2024-03,Unreported,194
+county,Bennington,2024-03,Hispanic,*
+county,Bennington,2024-03,Native American,0
+county,Bennington,2024-03,Non Hispanic,504
+county,Bennington,2024-03,Unknown,*
+county,Bennington,2024-03,Unreported,132
+county,Caledonia,2024-03,Hispanic,*
+county,Caledonia,2024-03,Native American,0
+county,Caledonia,2024-03,Non Hispanic,533
+county,Caledonia,2024-03,Unknown,*
+county,Caledonia,2024-03,Unreported,94
+county,Chittenden,2024-03,Hispanic,36
+county,Chittenden,2024-03,Native American,0
+county,Chittenden,2024-03,Non Hispanic,1376
+county,Chittenden,2024-03,Unknown,10
+county,Chittenden,2024-03,Unreported,238
+county,Essex,2024-03,Hispanic,0
+county,Essex,2024-03,Native American,0
+county,Essex,2024-03,Non Hispanic,70
+county,Essex,2024-03,Unknown,*
+county,Essex,2024-03,Unreported,*
+county,Franklin,2024-03,Hispanic,*
+county,Franklin,2024-03,Native American,0
+county,Franklin,2024-03,Non Hispanic,489
+county,Franklin,2024-03,Unknown,*
+county,Franklin,2024-03,Unreported,85
+county,Grand Isle,2024-03,Hispanic,*
+county,Grand Isle,2024-03,Native American,0
+county,Grand Isle,2024-03,Non Hispanic,60
+county,Grand Isle,2024-03,Unknown,0
+county,Grand Isle,2024-03,Unreported,*
+county,Lamoille,2024-03,Hispanic,*
+county,Lamoille,2024-03,Native American,0
+county,Lamoille,2024-03,Non Hispanic,365
+county,Lamoille,2024-03,Unknown,*
+county,Lamoille,2024-03,Unreported,13
+county,Orange,2024-03,Hispanic,*
+county,Orange,2024-03,Native American,0
+county,Orange,2024-03,Non Hispanic,230
+county,Orange,2024-03,Unknown,*
+county,Orange,2024-03,Unreported,28
+county,Orleans,2024-03,Hispanic,*
+county,Orleans,2024-03,Native American,0
+county,Orleans,2024-03,Non Hispanic,386
+county,Orleans,2024-03,Unknown,0
+county,Orleans,2024-03,Unreported,*
+county,Rutland,2024-03,Hispanic,*
+county,Rutland,2024-03,Native American,0
+county,Rutland,2024-03,Non Hispanic,767
+county,Rutland,2024-03,Unknown,*
+county,Rutland,2024-03,Unreported,80
+county,Washington,2024-03,Hispanic,*
+county,Washington,2024-03,Native American,0
+county,Washington,2024-03,Non Hispanic,363
+county,Washington,2024-03,Unknown,*
+county,Washington,2024-03,Unreported,51
+county,Windham,2024-03,Hispanic,34
+county,Windham,2024-03,Native American,*
+county,Windham,2024-03,Non Hispanic,409
+county,Windham,2024-03,Unknown,*
+county,Windham,2024-03,Unreported,82
+county,Windsor,2024-03,Hispanic,34
+county,Windsor,2024-03,Native American,0
+county,Windsor,2024-03,Non Hispanic,509
+county,Windsor,2024-03,Unknown,13
+county,Windsor,2024-03,Unreported,64
+county,Addison,2024-02,Hispanic,*
+county,Addison,2024-02,Native American,0
+county,Addison,2024-02,Non Hispanic,286
+county,Addison,2024-02,Unknown,*
+county,Addison,2024-02,Unreported,180
+county,Bennington,2024-02,Hispanic,*
+county,Bennington,2024-02,Native American,0
+county,Bennington,2024-02,Non Hispanic,484
+county,Bennington,2024-02,Unknown,*
+county,Bennington,2024-02,Unreported,133
+county,Caledonia,2024-02,Hispanic,*
+county,Caledonia,2024-02,Native American,0
+county,Caledonia,2024-02,Non Hispanic,522
+county,Caledonia,2024-02,Unknown,*
+county,Caledonia,2024-02,Unreported,83
+county,Chittenden,2024-02,Hispanic,35
+county,Chittenden,2024-02,Native American,0
+county,Chittenden,2024-02,Non Hispanic,1332
+county,Chittenden,2024-02,Unknown,10
+county,Chittenden,2024-02,Unreported,236
+county,Essex,2024-02,Hispanic,0
+county,Essex,2024-02,Native American,0
+county,Essex,2024-02,Non Hispanic,65
+county,Essex,2024-02,Unknown,*
+county,Essex,2024-02,Unreported,*
+county,Franklin,2024-02,Hispanic,*
+county,Franklin,2024-02,Native American,0
+county,Franklin,2024-02,Non Hispanic,493
+county,Franklin,2024-02,Unknown,*
+county,Franklin,2024-02,Unreported,81
+county,Grand Isle,2024-02,Hispanic,*
+county,Grand Isle,2024-02,Native American,0
+county,Grand Isle,2024-02,Non Hispanic,61
+county,Grand Isle,2024-02,Unknown,0
+county,Grand Isle,2024-02,Unreported,*
+county,Lamoille,2024-02,Hispanic,*
+county,Lamoille,2024-02,Native American,0
+county,Lamoille,2024-02,Non Hispanic,354
+county,Lamoille,2024-02,Unknown,*
+county,Lamoille,2024-02,Unreported,11
+county,Orange,2024-02,Hispanic,*
+county,Orange,2024-02,Native American,0
+county,Orange,2024-02,Non Hispanic,223
+county,Orange,2024-02,Unknown,*
+county,Orange,2024-02,Unreported,23
+county,Orleans,2024-02,Hispanic,*
+county,Orleans,2024-02,Native American,0
+county,Orleans,2024-02,Non Hispanic,392
+county,Orleans,2024-02,Unknown,0
+county,Orleans,2024-02,Unreported,*
+county,Rutland,2024-02,Hispanic,*
+county,Rutland,2024-02,Native American,0
+county,Rutland,2024-02,Non Hispanic,760
+county,Rutland,2024-02,Unknown,*
+county,Rutland,2024-02,Unreported,80
+county,Washington,2024-02,Hispanic,*
+county,Washington,2024-02,Native American,0
+county,Washington,2024-02,Non Hispanic,353
+county,Washington,2024-02,Unknown,*
+county,Washington,2024-02,Unreported,48
+county,Windham,2024-02,Hispanic,33
+county,Windham,2024-02,Native American,*
+county,Windham,2024-02,Non Hispanic,399
+county,Windham,2024-02,Unknown,*
+county,Windham,2024-02,Unreported,79
+county,Windsor,2024-02,Hispanic,*
+county,Windsor,2024-02,Native American,0
+county,Windsor,2024-02,Non Hispanic,497
+county,Windsor,2024-02,Unknown,*
+county,Windsor,2024-02,Unreported,67
+county,Addison,2024-01,Hispanic,*
+county,Addison,2024-01,Native American,0
+county,Addison,2024-01,Non Hispanic,286
+county,Addison,2024-01,Unknown,*
+county,Addison,2024-01,Unreported,173
+county,Bennington,2024-01,Hispanic,*
+county,Bennington,2024-01,Native American,0
+county,Bennington,2024-01,Non Hispanic,484
+county,Bennington,2024-01,Unknown,*
+county,Bennington,2024-01,Unreported,135
+county,Caledonia,2024-01,Hispanic,*
+county,Caledonia,2024-01,Native American,0
+county,Caledonia,2024-01,Non Hispanic,522
+county,Caledonia,2024-01,Unknown,*
+county,Caledonia,2024-01,Unreported,81
+county,Chittenden,2024-01,Hispanic,35
+county,Chittenden,2024-01,Native American,0
+county,Chittenden,2024-01,Non Hispanic,1332
+county,Chittenden,2024-01,Unknown,10
+county,Chittenden,2024-01,Unreported,231
+county,Essex,2024-01,Hispanic,0
+county,Essex,2024-01,Native American,0
+county,Essex,2024-01,Non Hispanic,65
+county,Essex,2024-01,Unknown,*
+county,Essex,2024-01,Unreported,*
+county,Franklin,2024-01,Hispanic,*
+county,Franklin,2024-01,Native American,0
+county,Franklin,2024-01,Non Hispanic,493
+county,Franklin,2024-01,Unknown,*
+county,Franklin,2024-01,Unreported,82
+county,Grand Isle,2024-01,Hispanic,*
+county,Grand Isle,2024-01,Native American,0
+county,Grand Isle,2024-01,Non Hispanic,61
+county,Grand Isle,2024-01,Unknown,0
+county,Grand Isle,2024-01,Unreported,*
+county,Lamoille,2024-01,Hispanic,*
+county,Lamoille,2024-01,Native American,0
+county,Lamoille,2024-01,Non Hispanic,354
+county,Lamoille,2024-01,Unknown,*
+county,Lamoille,2024-01,Unreported,11
+county,Orange,2024-01,Hispanic,*
+county,Orange,2024-01,Native American,0
+county,Orange,2024-01,Non Hispanic,223
+county,Orange,2024-01,Unknown,*
+county,Orange,2024-01,Unreported,21
+county,Orleans,2024-01,Hispanic,*
+county,Orleans,2024-01,Native American,0
+county,Orleans,2024-01,Non Hispanic,392
+county,Orleans,2024-01,Unknown,0
+county,Orleans,2024-01,Unreported,*
+county,Rutland,2024-01,Hispanic,*
+county,Rutland,2024-01,Native American,0
+county,Rutland,2024-01,Non Hispanic,760
+county,Rutland,2024-01,Unknown,*
+county,Rutland,2024-01,Unreported,78
+county,Washington,2024-01,Hispanic,*
+county,Washington,2024-01,Native American,0
+county,Washington,2024-01,Non Hispanic,353
+county,Washington,2024-01,Unknown,*
+county,Washington,2024-01,Unreported,47
+county,Windham,2024-01,Hispanic,33
+county,Windham,2024-01,Native American,*
+county,Windham,2024-01,Non Hispanic,399
+county,Windham,2024-01,Unknown,*
+county,Windham,2024-01,Unreported,79
+county,Windsor,2024-01,Hispanic,*
+county,Windsor,2024-01,Native American,0
+county,Windsor,2024-01,Non Hispanic,497
+county,Windsor,2024-01,Unknown,*
+county,Windsor,2024-01,Unreported,66
+county,Addison,2023-12,Hispanic,*
+county,Addison,2023-12,Native American,0
+county,Addison,2023-12,Non Hispanic,282
+county,Addison,2023-12,Unknown,*
+county,Addison,2023-12,Unreported,161
+county,Bennington,2023-12,Hispanic,*
+county,Bennington,2023-12,Native American,0
+county,Bennington,2023-12,Non Hispanic,478
+county,Bennington,2023-12,Unknown,*
+county,Bennington,2023-12,Unreported,140
+county,Caledonia,2023-12,Hispanic,*
+county,Caledonia,2023-12,Native American,0
+county,Caledonia,2023-12,Non Hispanic,538
+county,Caledonia,2023-12,Unknown,*
+county,Caledonia,2023-12,Unreported,81
+county,Chittenden,2023-12,Hispanic,34
+county,Chittenden,2023-12,Native American,*
+county,Chittenden,2023-12,Non Hispanic,1298
+county,Chittenden,2023-12,Unknown,*
+county,Chittenden,2023-12,Unreported,238
+county,Essex,2023-12,Hispanic,0
+county,Essex,2023-12,Native American,0
+county,Essex,2023-12,Non Hispanic,64
+county,Essex,2023-12,Unknown,*
+county,Essex,2023-12,Unreported,*
+county,Franklin,2023-12,Hispanic,*
+county,Franklin,2023-12,Native American,0
+county,Franklin,2023-12,Non Hispanic,504
+county,Franklin,2023-12,Unknown,*
+county,Franklin,2023-12,Unreported,78
+county,Grand Isle,2023-12,Hispanic,*
+county,Grand Isle,2023-12,Native American,0
+county,Grand Isle,2023-12,Non Hispanic,54
+county,Grand Isle,2023-12,Unknown,0
+county,Grand Isle,2023-12,Unreported,*
+county,Lamoille,2023-12,Hispanic,*
+county,Lamoille,2023-12,Native American,0
+county,Lamoille,2023-12,Non Hispanic,353
+county,Lamoille,2023-12,Unknown,*
+county,Lamoille,2023-12,Unreported,12
+county,Orange,2023-12,Hispanic,*
+county,Orange,2023-12,Native American,0
+county,Orange,2023-12,Non Hispanic,214
+county,Orange,2023-12,Unknown,*
+county,Orange,2023-12,Unreported,22
+county,Orleans,2023-12,Hispanic,*
+county,Orleans,2023-12,Native American,0
+county,Orleans,2023-12,Non Hispanic,401
+county,Orleans,2023-12,Unknown,0
+county,Orleans,2023-12,Unreported,*
+county,Rutland,2023-12,Hispanic,*
+county,Rutland,2023-12,Native American,0
+county,Rutland,2023-12,Non Hispanic,726
+county,Rutland,2023-12,Unknown,*
+county,Rutland,2023-12,Unreported,80
+county,Washington,2023-12,Hispanic,*
+county,Washington,2023-12,Native American,0
+county,Washington,2023-12,Non Hispanic,348
+county,Washington,2023-12,Unknown,*
+county,Washington,2023-12,Unreported,47
+county,Windham,2023-12,Hispanic,38
+county,Windham,2023-12,Native American,*
+county,Windham,2023-12,Non Hispanic,375
+county,Windham,2023-12,Unknown,*
+county,Windham,2023-12,Unreported,79
+county,Windsor,2023-12,Hispanic,*
+county,Windsor,2023-12,Native American,0
+county,Windsor,2023-12,Non Hispanic,501
+county,Windsor,2023-12,Unknown,*
+county,Windsor,2023-12,Unreported,63
+county,Addison,2023-11,Hispanic,*
+county,Addison,2023-11,Native American,0
+county,Addison,2023-11,Non Hispanic,289
+county,Addison,2023-11,Unknown,*
+county,Addison,2023-11,Unreported,153
+county,Bennington,2023-11,Hispanic,*
+county,Bennington,2023-11,Native American,0
+county,Bennington,2023-11,Non Hispanic,465
+county,Bennington,2023-11,Unknown,*
+county,Bennington,2023-11,Unreported,138
+county,Caledonia,2023-11,Hispanic,*
+county,Caledonia,2023-11,Native American,0
+county,Caledonia,2023-11,Non Hispanic,533
+county,Caledonia,2023-11,Unknown,*
+county,Caledonia,2023-11,Unreported,76
+county,Chittenden,2023-11,Hispanic,36
+county,Chittenden,2023-11,Native American,*
+county,Chittenden,2023-11,Non Hispanic,1284
+county,Chittenden,2023-11,Unknown,*
+county,Chittenden,2023-11,Unreported,241
+county,Essex,2023-11,Hispanic,0
+county,Essex,2023-11,Native American,0
+county,Essex,2023-11,Non Hispanic,64
+county,Essex,2023-11,Unknown,*
+county,Essex,2023-11,Unreported,*
+county,Franklin,2023-11,Hispanic,*
+county,Franklin,2023-11,Native American,0
+county,Franklin,2023-11,Non Hispanic,488
+county,Franklin,2023-11,Unknown,*
+county,Franklin,2023-11,Unreported,66
+county,Grand Isle,2023-11,Hispanic,*
+county,Grand Isle,2023-11,Native American,0
+county,Grand Isle,2023-11,Non Hispanic,53
+county,Grand Isle,2023-11,Unknown,0
+county,Grand Isle,2023-11,Unreported,*
+county,Lamoille,2023-11,Hispanic,*
+county,Lamoille,2023-11,Native American,0
+county,Lamoille,2023-11,Non Hispanic,354
+county,Lamoille,2023-11,Unknown,*
+county,Lamoille,2023-11,Unreported,13
+county,Orange,2023-11,Hispanic,*
+county,Orange,2023-11,Native American,0
+county,Orange,2023-11,Non Hispanic,216
+county,Orange,2023-11,Unknown,*
+county,Orange,2023-11,Unreported,20
+county,Orleans,2023-11,Hispanic,*
+county,Orleans,2023-11,Native American,0
+county,Orleans,2023-11,Non Hispanic,397
+county,Orleans,2023-11,Unknown,0
+county,Orleans,2023-11,Unreported,*
+county,Rutland,2023-11,Hispanic,*
+county,Rutland,2023-11,Native American,0
+county,Rutland,2023-11,Non Hispanic,700
+county,Rutland,2023-11,Unknown,*
+county,Rutland,2023-11,Unreported,84
+county,Washington,2023-11,Hispanic,*
+county,Washington,2023-11,Native American,0
+county,Washington,2023-11,Non Hispanic,338
+county,Washington,2023-11,Unknown,*
+county,Washington,2023-11,Unreported,45
+county,Windham,2023-11,Hispanic,36
+county,Windham,2023-11,Native American,*
+county,Windham,2023-11,Non Hispanic,356
+county,Windham,2023-11,Unknown,*
+county,Windham,2023-11,Unreported,84
+county,Windsor,2023-11,Hispanic,*
+county,Windsor,2023-11,Native American,0
+county,Windsor,2023-11,Non Hispanic,494
+county,Windsor,2023-11,Unknown,*
+county,Windsor,2023-11,Unreported,58
+county,Addison,2023-10,Hispanic,*
+county,Addison,2023-10,Native American,0
+county,Addison,2023-10,Non Hispanic,292
+county,Addison,2023-10,Unknown,*
+county,Addison,2023-10,Unreported,154
+county,Bennington,2023-10,Hispanic,*
+county,Bennington,2023-10,Native American,0
+county,Bennington,2023-10,Non Hispanic,477
+county,Bennington,2023-10,Unknown,*
+county,Bennington,2023-10,Unreported,138
+county,Caledonia,2023-10,Hispanic,*
+county,Caledonia,2023-10,Native American,0
+county,Caledonia,2023-10,Non Hispanic,554
+county,Caledonia,2023-10,Unknown,*
+county,Caledonia,2023-10,Unreported,71
+county,Chittenden,2023-10,Hispanic,35
+county,Chittenden,2023-10,Native American,*
+county,Chittenden,2023-10,Non Hispanic,1275
+county,Chittenden,2023-10,Unknown,*
+county,Chittenden,2023-10,Unreported,246
+county,Essex,2023-10,Hispanic,0
+county,Essex,2023-10,Native American,0
+county,Essex,2023-10,Non Hispanic,73
+county,Essex,2023-10,Unknown,*
+county,Essex,2023-10,Unreported,*
+county,Franklin,2023-10,Hispanic,*
+county,Franklin,2023-10,Native American,0
+county,Franklin,2023-10,Non Hispanic,497
+county,Franklin,2023-10,Unknown,*
+county,Franklin,2023-10,Unreported,66
+county,Grand Isle,2023-10,Hispanic,*
+county,Grand Isle,2023-10,Native American,0
+county,Grand Isle,2023-10,Non Hispanic,51
+county,Grand Isle,2023-10,Unknown,0
+county,Grand Isle,2023-10,Unreported,*
+county,Lamoille,2023-10,Hispanic,*
+county,Lamoille,2023-10,Native American,0
+county,Lamoille,2023-10,Non Hispanic,344
+county,Lamoille,2023-10,Unknown,*
+county,Lamoille,2023-10,Unreported,15
+county,Orange,2023-10,Hispanic,*
+county,Orange,2023-10,Native American,0
+county,Orange,2023-10,Non Hispanic,214
+county,Orange,2023-10,Unknown,*
+county,Orange,2023-10,Unreported,20
+county,Orleans,2023-10,Hispanic,*
+county,Orleans,2023-10,Native American,0
+county,Orleans,2023-10,Non Hispanic,396
+county,Orleans,2023-10,Unknown,*
+county,Orleans,2023-10,Unreported,35
+county,Rutland,2023-10,Hispanic,*
+county,Rutland,2023-10,Native American,0
+county,Rutland,2023-10,Non Hispanic,724
+county,Rutland,2023-10,Unknown,*
+county,Rutland,2023-10,Unreported,79
+county,Washington,2023-10,Hispanic,*
+county,Washington,2023-10,Native American,0
+county,Washington,2023-10,Non Hispanic,338
+county,Washington,2023-10,Unknown,*
+county,Washington,2023-10,Unreported,43
+county,Windham,2023-10,Hispanic,38
+county,Windham,2023-10,Native American,*
+county,Windham,2023-10,Non Hispanic,341
+county,Windham,2023-10,Unknown,*
+county,Windham,2023-10,Unreported,83
+county,Windsor,2023-10,Hispanic,*
+county,Windsor,2023-10,Native American,0
+county,Windsor,2023-10,Non Hispanic,485
+county,Windsor,2023-10,Unknown,*
+county,Windsor,2023-10,Unreported,56
+county,Addison,2023-09,Hispanic,*
+county,Addison,2023-09,Native American,0
+county,Addison,2023-09,Non Hispanic,305
+county,Addison,2023-09,Unknown,*
+county,Addison,2023-09,Unreported,147
+county,Bennington,2023-09,Hispanic,*
+county,Bennington,2023-09,Native American,0
+county,Bennington,2023-09,Non Hispanic,492
+county,Bennington,2023-09,Unknown,*
+county,Bennington,2023-09,Unreported,132
+county,Caledonia,2023-09,Hispanic,*
+county,Caledonia,2023-09,Native American,0
+county,Caledonia,2023-09,Non Hispanic,570
+county,Caledonia,2023-09,Unknown,*
+county,Caledonia,2023-09,Unreported,74
+county,Chittenden,2023-09,Hispanic,37
+county,Chittenden,2023-09,Native American,*
+county,Chittenden,2023-09,Non Hispanic,1290
+county,Chittenden,2023-09,Unknown,*
+county,Chittenden,2023-09,Unreported,258
+county,Essex,2023-09,Hispanic,0
+county,Essex,2023-09,Native American,0
+county,Essex,2023-09,Non Hispanic,72
+county,Essex,2023-09,Unknown,*
+county,Essex,2023-09,Unreported,*
+county,Franklin,2023-09,Hispanic,*
+county,Franklin,2023-09,Native American,0
+county,Franklin,2023-09,Non Hispanic,524
+county,Franklin,2023-09,Unknown,*
+county,Franklin,2023-09,Unreported,66
+county,Grand Isle,2023-09,Hispanic,*
+county,Grand Isle,2023-09,Native American,0
+county,Grand Isle,2023-09,Non Hispanic,55
+county,Grand Isle,2023-09,Unknown,0
+county,Grand Isle,2023-09,Unreported,*
+county,Lamoille,2023-09,Hispanic,*
+county,Lamoille,2023-09,Native American,0
+county,Lamoille,2023-09,Non Hispanic,333
+county,Lamoille,2023-09,Unknown,*
+county,Lamoille,2023-09,Unreported,17
+county,Orange,2023-09,Hispanic,*
+county,Orange,2023-09,Native American,0
+county,Orange,2023-09,Non Hispanic,207
+county,Orange,2023-09,Unknown,*
+county,Orange,2023-09,Unreported,21
+county,Orleans,2023-09,Hispanic,*
+county,Orleans,2023-09,Native American,0
+county,Orleans,2023-09,Non Hispanic,411
+county,Orleans,2023-09,Unknown,*
+county,Orleans,2023-09,Unreported,35
+county,Rutland,2023-09,Hispanic,*
+county,Rutland,2023-09,Native American,0
+county,Rutland,2023-09,Non Hispanic,741
+county,Rutland,2023-09,Unknown,*
+county,Rutland,2023-09,Unreported,75
+county,Washington,2023-09,Hispanic,*
+county,Washington,2023-09,Native American,0
+county,Washington,2023-09,Non Hispanic,329
+county,Washington,2023-09,Unknown,*
+county,Washington,2023-09,Unreported,40
+county,Windham,2023-09,Hispanic,40
+county,Windham,2023-09,Native American,*
+county,Windham,2023-09,Non Hispanic,348
+county,Windham,2023-09,Unknown,*
+county,Windham,2023-09,Unreported,95
+county,Windsor,2023-09,Hispanic,*
+county,Windsor,2023-09,Native American,0
+county,Windsor,2023-09,Non Hispanic,497
+county,Windsor,2023-09,Unknown,*
+county,Windsor,2023-09,Unreported,58
+county,Addison,2023-08,Hispanic,*
+county,Addison,2023-08,Native American,0
+county,Addison,2023-08,Non Hispanic,377
+county,Addison,2023-08,Unknown,*
+county,Addison,2023-08,Unreported,131
+county,Bennington,2023-08,Hispanic,*
+county,Bennington,2023-08,Native American,0
+county,Bennington,2023-08,Non Hispanic,550
+county,Bennington,2023-08,Unknown,*
+county,Bennington,2023-08,Unreported,111
+county,Caledonia,2023-08,Hispanic,*
+county,Caledonia,2023-08,Native American,0
+county,Caledonia,2023-08,Non Hispanic,572
+county,Caledonia,2023-08,Unknown,*
+county,Caledonia,2023-08,Unreported,67
+county,Chittenden,2023-08,Hispanic,40
+county,Chittenden,2023-08,Native American,*
+county,Chittenden,2023-08,Non Hispanic,1401
+county,Chittenden,2023-08,Unknown,*
+county,Chittenden,2023-08,Unreported,269
+county,Essex,2023-08,Hispanic,0
+county,Essex,2023-08,Native American,0
+county,Essex,2023-08,Non Hispanic,75
+county,Essex,2023-08,Unknown,*
+county,Essex,2023-08,Unreported,*
+county,Franklin,2023-08,Hispanic,*
+county,Franklin,2023-08,Native American,0
+county,Franklin,2023-08,Non Hispanic,521
+county,Franklin,2023-08,Unknown,*
+county,Franklin,2023-08,Unreported,71
+county,Grand Isle,2023-08,Hispanic,*
+county,Grand Isle,2023-08,Native American,0
+county,Grand Isle,2023-08,Non Hispanic,61
+county,Grand Isle,2023-08,Unknown,0
+county,Grand Isle,2023-08,Unreported,*
+county,Lamoille,2023-08,Hispanic,*
+county,Lamoille,2023-08,Native American,0
+county,Lamoille,2023-08,Non Hispanic,360
+county,Lamoille,2023-08,Unknown,*
+county,Lamoille,2023-08,Unreported,19
+county,Orange,2023-08,Hispanic,*
+county,Orange,2023-08,Native American,0
+county,Orange,2023-08,Non Hispanic,215
+county,Orange,2023-08,Unknown,*
+county,Orange,2023-08,Unreported,17
+county,Orleans,2023-08,Hispanic,*
+county,Orleans,2023-08,Native American,0
+county,Orleans,2023-08,Non Hispanic,398
+county,Orleans,2023-08,Unknown,*
+county,Orleans,2023-08,Unreported,38
+county,Rutland,2023-08,Hispanic,*
+county,Rutland,2023-08,Native American,0
+county,Rutland,2023-08,Non Hispanic,799
+county,Rutland,2023-08,Unknown,*
+county,Rutland,2023-08,Unreported,69
+county,Washington,2023-08,Hispanic,*
+county,Washington,2023-08,Native American,0
+county,Washington,2023-08,Non Hispanic,370
+county,Washington,2023-08,Unknown,*
+county,Washington,2023-08,Unreported,43
+county,Windham,2023-08,Hispanic,40
+county,Windham,2023-08,Native American,*
+county,Windham,2023-08,Non Hispanic,362
+county,Windham,2023-08,Unknown,*
+county,Windham,2023-08,Unreported,89
+county,Windsor,2023-08,Hispanic,*
+county,Windsor,2023-08,Native American,0
+county,Windsor,2023-08,Non Hispanic,515
+county,Windsor,2023-08,Unknown,*
+county,Windsor,2023-08,Unreported,56
+county,Addison,2023-07,Hispanic,*
+county,Addison,2023-07,Native American,0
+county,Addison,2023-07,Non Hispanic,361
+county,Addison,2023-07,Unknown,*
+county,Addison,2023-07,Unreported,98
+county,Bennington,2023-07,Hispanic,*
+county,Bennington,2023-07,Native American,0
+county,Bennington,2023-07,Non Hispanic,556
+county,Bennington,2023-07,Unknown,*
+county,Bennington,2023-07,Unreported,103
+county,Caledonia,2023-07,Hispanic,*
+county,Caledonia,2023-07,Native American,0
+county,Caledonia,2023-07,Non Hispanic,579
+county,Caledonia,2023-07,Unknown,*
+county,Caledonia,2023-07,Unreported,63
+county,Chittenden,2023-07,Hispanic,42
+county,Chittenden,2023-07,Native American,*
+county,Chittenden,2023-07,Non Hispanic,1295
+county,Chittenden,2023-07,Unknown,*
+county,Chittenden,2023-07,Unreported,242
+county,Essex,2023-07,Hispanic,0
+county,Essex,2023-07,Native American,0
+county,Essex,2023-07,Non Hispanic,75
+county,Essex,2023-07,Unknown,*
+county,Essex,2023-07,Unreported,*
+county,Franklin,2023-07,Hispanic,*
+county,Franklin,2023-07,Native American,0
+county,Franklin,2023-07,Non Hispanic,526
+county,Franklin,2023-07,Unknown,*
+county,Franklin,2023-07,Unreported,75
+county,Grand Isle,2023-07,Hispanic,*
+county,Grand Isle,2023-07,Native American,0
+county,Grand Isle,2023-07,Non Hispanic,66
+county,Grand Isle,2023-07,Unknown,0
+county,Grand Isle,2023-07,Unreported,*
+county,Lamoille,2023-07,Hispanic,*
+county,Lamoille,2023-07,Native American,0
+county,Lamoille,2023-07,Non Hispanic,303
+county,Lamoille,2023-07,Unknown,0
+county,Lamoille,2023-07,Unreported,*
+county,Orange,2023-07,Hispanic,*
+county,Orange,2023-07,Native American,0
+county,Orange,2023-07,Non Hispanic,211
+county,Orange,2023-07,Unknown,*
+county,Orange,2023-07,Unreported,12
+county,Orleans,2023-07,Hispanic,*
+county,Orleans,2023-07,Native American,*
+county,Orleans,2023-07,Non Hispanic,389
+county,Orleans,2023-07,Unknown,*
+county,Orleans,2023-07,Unreported,37
+county,Rutland,2023-07,Hispanic,*
+county,Rutland,2023-07,Native American,0
+county,Rutland,2023-07,Non Hispanic,810
+county,Rutland,2023-07,Unknown,*
+county,Rutland,2023-07,Unreported,63
+county,Washington,2023-07,Hispanic,*
+county,Washington,2023-07,Native American,0
+county,Washington,2023-07,Non Hispanic,365
+county,Washington,2023-07,Unknown,*
+county,Washington,2023-07,Unreported,34
+county,Windham,2023-07,Hispanic,34
+county,Windham,2023-07,Native American,*
+county,Windham,2023-07,Non Hispanic,345
+county,Windham,2023-07,Unknown,*
+county,Windham,2023-07,Unreported,87
+county,Windsor,2023-07,Hispanic,*
+county,Windsor,2023-07,Native American,0
+county,Windsor,2023-07,Non Hispanic,492
+county,Windsor,2023-07,Unknown,*
+county,Windsor,2023-07,Unreported,50
+state,Vermont,2024-06,Hispanic,307
+state,Vermont,2024-06,Native American,0
+state,Vermont,2024-06,Non Hispanic,7634
+state,Vermont,2024-06,Unknown,81
+state,Vermont,2024-06,Unreported,1283
+state,Vermont,2024-05,Hispanic,259
+state,Vermont,2024-05,Native American,0
+state,Vermont,2024-05,Non Hispanic,6672
+state,Vermont,2024-05,Unknown,62
+state,Vermont,2024-05,Unreported,1170
+state,Vermont,2024-04,Hispanic,256
+state,Vermont,2024-04,Native American,0
+state,Vermont,2024-04,Non Hispanic,6612
+state,Vermont,2024-04,Unknown,63
+state,Vermont,2024-04,Unreported,1163
+state,Vermont,2024-03,Hispanic,236
+state,Vermont,2024-03,Native American,*
+state,Vermont,2024-03,Non Hispanic,6344
+state,Vermont,2024-03,Unknown,*
+state,Vermont,2024-03,Unreported,1120
+state,Vermont,2024-02,Hispanic,233
+state,Vermont,2024-02,Native American,*
+state,Vermont,2024-02,Non Hispanic,6221
+state,Vermont,2024-02,Unknown,*
+state,Vermont,2024-02,Unreported,1078
+state,Vermont,2024-01,Hispanic,233
+state,Vermont,2024-01,Native American,*
+state,Vermont,2024-01,Non Hispanic,6221
+state,Vermont,2024-01,Unknown,*
+state,Vermont,2024-01,Unreported,1057
+state,Vermont,2023-12,Hispanic,229
+state,Vermont,2023-12,Native American,*
+state,Vermont,2023-12,Non Hispanic,6136
+state,Vermont,2023-12,Unknown,*
+state,Vermont,2023-12,Unreported,1056
+state,Vermont,2023-11,Hispanic,232
+state,Vermont,2023-11,Native American,*
+state,Vermont,2023-11,Non Hispanic,6031
+state,Vermont,2023-11,Unknown,*
+state,Vermont,2023-11,Unreported,1031
+state,Vermont,2023-10,Hispanic,241
+state,Vermont,2023-10,Native American,*
+state,Vermont,2023-10,Non Hispanic,6061
+state,Vermont,2023-10,Unknown,*
+state,Vermont,2023-10,Unreported,1025
+state,Vermont,2023-09,Hispanic,251
+state,Vermont,2023-09,Native American,*
+state,Vermont,2023-09,Non Hispanic,6174
+state,Vermont,2023-09,Unknown,*
+state,Vermont,2023-09,Unreported,1036
+state,Vermont,2023-08,Hispanic,255
+state,Vermont,2023-08,Native American,*
+state,Vermont,2023-08,Non Hispanic,6576
+state,Vermont,2023-08,Unknown,*
+state,Vermont,2023-08,Unreported,997
+state,Vermont,2023-07,Hispanic,253
+state,Vermont,2023-07,Native American,*
+state,Vermont,2023-07,Non Hispanic,6373
+state,Vermont,2023-07,Unknown,*
+state,Vermont,2023-07,Unreported,896
+county,Addison,2024-09,Hispanic,*
+county,Addison,2024-09,Native American,0
+county,Addison,2024-09,Non Hispanic,270
+county,Addison,2024-09,Unknown,*
+county,Addison,2024-09,Unreported,313
+county,Bennington,2024-09,Hispanic,*
+county,Bennington,2024-09,Native American,0
+county,Bennington,2024-09,Non Hispanic,613
+county,Bennington,2024-09,Unknown,*
+county,Bennington,2024-09,Unreported,76
+county,Caledonia,2024-09,Hispanic,*
+county,Caledonia,2024-09,Native American,0
+county,Caledonia,2024-09,Non Hispanic,615
+county,Caledonia,2024-09,Unknown,*
+county,Caledonia,2024-09,Unreported,127
+county,Chittenden,2024-09,Hispanic,54
+county,Chittenden,2024-09,Native American,0
+county,Chittenden,2024-09,Non Hispanic,1564
+county,Chittenden,2024-09,Unknown,18
+county,Chittenden,2024-09,Unreported,229
+county,Essex,2024-09,Hispanic,0
+county,Essex,2024-09,Native American,0
+county,Essex,2024-09,Non Hispanic,80
+county,Essex,2024-09,Unknown,*
+county,Essex,2024-09,Unreported,*
+county,Franklin,2024-09,Hispanic,*
+county,Franklin,2024-09,Native American,0
+county,Franklin,2024-09,Non Hispanic,601
+county,Franklin,2024-09,Unknown,*
+county,Franklin,2024-09,Unreported,81
+county,Grand Isle,2024-09,Hispanic,*
+county,Grand Isle,2024-09,Native American,0
+county,Grand Isle,2024-09,Non Hispanic,71
+county,Grand Isle,2024-09,Unknown,0
+county,Grand Isle,2024-09,Unreported,*
+county,Lamoille,2024-09,Hispanic,*
+county,Lamoille,2024-09,Native American,0
+county,Lamoille,2024-09,Non Hispanic,407
+county,Lamoille,2024-09,Unknown,*
+county,Lamoille,2024-09,Unreported,15
+county,Orange,2024-09,Hispanic,*
+county,Orange,2024-09,Native American,0
+county,Orange,2024-09,Non Hispanic,285
+county,Orange,2024-09,Unknown,*
+county,Orange,2024-09,Unreported,30
+county,Orleans,2024-09,Hispanic,*
+county,Orleans,2024-09,Native American,0
+county,Orleans,2024-09,Non Hispanic,409
+county,Orleans,2024-09,Unknown,*
+county,Orleans,2024-09,Unreported,55
+county,Rutland,2024-09,Hispanic,39
+county,Rutland,2024-09,Native American,0
+county,Rutland,2024-09,Non Hispanic,858
+county,Rutland,2024-09,Unknown,20
+county,Rutland,2024-09,Unreported,100
+county,Washington,2024-09,Hispanic,*
+county,Washington,2024-09,Native American,0
+county,Washington,2024-09,Non Hispanic,427
+county,Washington,2024-09,Unknown,*
+county,Washington,2024-09,Unreported,37
+county,Windham,2024-09,Hispanic,50
+county,Windham,2024-09,Native American,0
+county,Windham,2024-09,Non Hispanic,489
+county,Windham,2024-09,Unknown,10
+county,Windham,2024-09,Unreported,89
+county,Windsor,2024-09,Hispanic,47
+county,Windsor,2024-09,Native American,0
+county,Windsor,2024-09,Non Hispanic,626
+county,Windsor,2024-09,Unknown,15
+county,Windsor,2024-09,Unreported,75
+county,Addison,2024-08,Hispanic,*
+county,Addison,2024-08,Native American,0
+county,Addison,2024-08,Non Hispanic,337
+county,Addison,2024-08,Unknown,*
+county,Addison,2024-08,Unreported,326
+county,Bennington,2024-08,Hispanic,*
+county,Bennington,2024-08,Native American,0
+county,Bennington,2024-08,Non Hispanic,641
+county,Bennington,2024-08,Unknown,*
+county,Bennington,2024-08,Unreported,94
+county,Caledonia,2024-08,Hispanic,*
+county,Caledonia,2024-08,Native American,0
+county,Caledonia,2024-08,Non Hispanic,619
+county,Caledonia,2024-08,Unknown,*
+county,Caledonia,2024-08,Unreported,122
+county,Chittenden,2024-08,Hispanic,54
+county,Chittenden,2024-08,Native American,0
+county,Chittenden,2024-08,Non Hispanic,1721
+county,Chittenden,2024-08,Unknown,17
+county,Chittenden,2024-08,Unreported,274
+county,Essex,2024-08,Hispanic,0
+county,Essex,2024-08,Native American,0
+county,Essex,2024-08,Non Hispanic,77
+county,Essex,2024-08,Unknown,*
+county,Essex,2024-08,Unreported,*
+county,Franklin,2024-08,Hispanic,*
+county,Franklin,2024-08,Native American,0
+county,Franklin,2024-08,Non Hispanic,602
+county,Franklin,2024-08,Unknown,*
+county,Franklin,2024-08,Unreported,76
+county,Grand Isle,2024-08,Hispanic,*
+county,Grand Isle,2024-08,Native American,0
+county,Grand Isle,2024-08,Non Hispanic,75
+county,Grand Isle,2024-08,Unknown,0
+county,Grand Isle,2024-08,Unreported,*
+county,Lamoille,2024-08,Hispanic,*
+county,Lamoille,2024-08,Native American,0
+county,Lamoille,2024-08,Non Hispanic,430
+county,Lamoille,2024-08,Unknown,*
+county,Lamoille,2024-08,Unreported,13
+county,Orange,2024-08,Hispanic,*
+county,Orange,2024-08,Native American,0
+county,Orange,2024-08,Non Hispanic,283
+county,Orange,2024-08,Unknown,*
+county,Orange,2024-08,Unreported,32
+county,Orleans,2024-08,Hispanic,*
+county,Orleans,2024-08,Native American,0
+county,Orleans,2024-08,Non Hispanic,413
+county,Orleans,2024-08,Unknown,*
+county,Orleans,2024-08,Unreported,51
+county,Rutland,2024-08,Hispanic,43
+county,Rutland,2024-08,Native American,0
+county,Rutland,2024-08,Non Hispanic,963
+county,Rutland,2024-08,Unknown,14
+county,Rutland,2024-08,Unreported,100
+county,Washington,2024-08,Hispanic,*
+county,Washington,2024-08,Native American,0
+county,Washington,2024-08,Non Hispanic,465
+county,Washington,2024-08,Unknown,*
+county,Washington,2024-08,Unreported,52
+county,Windham,2024-08,Hispanic,*
+county,Windham,2024-08,Native American,0
+county,Windham,2024-08,Non Hispanic,510
+county,Windham,2024-08,Unknown,*
+county,Windham,2024-08,Unreported,92
+county,Windsor,2024-08,Hispanic,51
+county,Windsor,2024-08,Native American,0
+county,Windsor,2024-08,Non Hispanic,651
+county,Windsor,2024-08,Unknown,15
+county,Windsor,2024-08,Unreported,77
+county,Addison,2024-07,Hispanic,*
+county,Addison,2024-07,Native American,0
+county,Addison,2024-07,Non Hispanic,303
+county,Addison,2024-07,Unknown,*
+county,Addison,2024-07,Unreported,270
+county,Bennington,2024-07,Hispanic,*
+county,Bennington,2024-07,Native American,0
+county,Bennington,2024-07,Non Hispanic,610
+county,Bennington,2024-07,Unknown,*
+county,Bennington,2024-07,Unreported,106
+county,Caledonia,2024-07,Hispanic,*
+county,Caledonia,2024-07,Native American,0
+county,Caledonia,2024-07,Non Hispanic,591
+county,Caledonia,2024-07,Unknown,*
+county,Caledonia,2024-07,Unreported,115
+county,Chittenden,2024-07,Hispanic,46
+county,Chittenden,2024-07,Native American,0
+county,Chittenden,2024-07,Non Hispanic,1588
+county,Chittenden,2024-07,Unknown,18
+county,Chittenden,2024-07,Unreported,247
+county,Essex,2024-07,Hispanic,0
+county,Essex,2024-07,Native American,0
+county,Essex,2024-07,Non Hispanic,76
+county,Essex,2024-07,Unknown,*
+county,Essex,2024-07,Unreported,*
+county,Franklin,2024-07,Hispanic,*
+county,Franklin,2024-07,Native American,0
+county,Franklin,2024-07,Non Hispanic,584
+county,Franklin,2024-07,Unknown,*
+county,Franklin,2024-07,Unreported,82
+county,Grand Isle,2024-07,Hispanic,*
+county,Grand Isle,2024-07,Native American,0
+county,Grand Isle,2024-07,Non Hispanic,63
+county,Grand Isle,2024-07,Unknown,0
+county,Grand Isle,2024-07,Unreported,*
+county,Lamoille,2024-07,Hispanic,*
+county,Lamoille,2024-07,Native American,0
+county,Lamoille,2024-07,Non Hispanic,373
+county,Lamoille,2024-07,Unknown,*
+county,Lamoille,2024-07,Unreported,13
+county,Orange,2024-07,Hispanic,*
+county,Orange,2024-07,Native American,0
+county,Orange,2024-07,Non Hispanic,264
+county,Orange,2024-07,Unknown,*
+county,Orange,2024-07,Unreported,26
+county,Orleans,2024-07,Hispanic,*
+county,Orleans,2024-07,Native American,0
+county,Orleans,2024-07,Non Hispanic,394
+county,Orleans,2024-07,Unknown,0
+county,Orleans,2024-07,Unreported,*
+county,Rutland,2024-07,Hispanic,39
+county,Rutland,2024-07,Native American,0
+county,Rutland,2024-07,Non Hispanic,938
+county,Rutland,2024-07,Unknown,13
+county,Rutland,2024-07,Unreported,91
+county,Washington,2024-07,Hispanic,*
+county,Washington,2024-07,Native American,0
+county,Washington,2024-07,Non Hispanic,426
+county,Washington,2024-07,Unknown,*
+county,Washington,2024-07,Unreported,48
+county,Windham,2024-07,Hispanic,*
+county,Windham,2024-07,Native American,0
+county,Windham,2024-07,Non Hispanic,450
+county,Windham,2024-07,Unknown,*
+county,Windham,2024-07,Unreported,81
+county,Windsor,2024-07,Hispanic,48
+county,Windsor,2024-07,Native American,0
+county,Windsor,2024-07,Non Hispanic,610
+county,Windsor,2024-07,Unknown,15
+county,Windsor,2024-07,Unreported,74
+state,Vermont,2024-09,Hispanic,317
+state,Vermont,2024-09,Native American,0
+state,Vermont,2024-09,Non Hispanic,7315
+state,Vermont,2024-09,Unknown,97
+state,Vermont,2024-09,Unreported,1254
+state,Vermont,2024-08,Hispanic,320
+state,Vermont,2024-08,Native American,0
+state,Vermont,2024-08,Non Hispanic,7787
+state,Vermont,2024-08,Unknown,86
+state,Vermont,2024-08,Unreported,1338
+state,Vermont,2024-07,Hispanic,289
+state,Vermont,2024-07,Native American,0
+state,Vermont,2024-07,Non Hispanic,7270
+state,Vermont,2024-07,Unknown,82
+state,Vermont,2024-07,Unreported,1229
+county,Addison,2024-12,Hispanic,*
+county,Addison,2024-12,Native American,0
+county,Addison,2024-12,Non Hispanic,291
+county,Addison,2024-12,Unknown,*
+county,Addison,2024-12,Unreported,361
+county,Bennington,2024-12,Hispanic,*
+county,Bennington,2024-12,Native American,0
+county,Bennington,2024-12,Non Hispanic,672
+county,Bennington,2024-12,Unknown,*
+county,Bennington,2024-12,Unreported,67
+county,Caledonia,2024-12,Hispanic,*
+county,Caledonia,2024-12,Native American,0
+county,Caledonia,2024-12,Non Hispanic,616
+county,Caledonia,2024-12,Unknown,*
+county,Caledonia,2024-12,Unreported,130
+county,Chittenden,2024-12,Hispanic,64
+county,Chittenden,2024-12,Native American,0
+county,Chittenden,2024-12,Non Hispanic,1971
+county,Chittenden,2024-12,Unknown,26
+county,Chittenden,2024-12,Unreported,307
+county,Essex,2024-12,Hispanic,0
+county,Essex,2024-12,Native American,0
+county,Essex,2024-12,Non Hispanic,85
+county,Essex,2024-12,Unknown,*
+county,Essex,2024-12,Unreported,*
+county,Franklin,2024-12,Hispanic,*
+county,Franklin,2024-12,Native American,0
+county,Franklin,2024-12,Non Hispanic,697
+county,Franklin,2024-12,Unknown,*
+county,Franklin,2024-12,Unreported,97
+county,Grand Isle,2024-12,Hispanic,*
+county,Grand Isle,2024-12,Native American,0
+county,Grand Isle,2024-12,Non Hispanic,87
+county,Grand Isle,2024-12,Unknown,0
+county,Grand Isle,2024-12,Unreported,*
+county,Lamoille,2024-12,Hispanic,*
+county,Lamoille,2024-12,Native American,0
+county,Lamoille,2024-12,Non Hispanic,435
+county,Lamoille,2024-12,Unknown,*
+county,Lamoille,2024-12,Unreported,28
+county,Orange,2024-12,Hispanic,*
+county,Orange,2024-12,Native American,0
+county,Orange,2024-12,Non Hispanic,336
+county,Orange,2024-12,Unknown,*
+county,Orange,2024-12,Unreported,34
+county,Orleans,2024-12,Hispanic,*
+county,Orleans,2024-12,Native American,0
+county,Orleans,2024-12,Non Hispanic,426
+county,Orleans,2024-12,Unknown,*
+county,Orleans,2024-12,Unreported,56
+county,Rutland,2024-12,Hispanic,38
+county,Rutland,2024-12,Native American,0
+county,Rutland,2024-12,Non Hispanic,948
+county,Rutland,2024-12,Unknown,18
+county,Rutland,2024-12,Unreported,112
+county,Washington,2024-12,Hispanic,*
+county,Washington,2024-12,Native American,0
+county,Washington,2024-12,Non Hispanic,513
+county,Washington,2024-12,Unknown,*
+county,Washington,2024-12,Unreported,67
+county,Windham,2024-12,Hispanic,*
+county,Windham,2024-12,Native American,0
+county,Windham,2024-12,Non Hispanic,526
+county,Windham,2024-12,Unknown,*
+county,Windham,2024-12,Unreported,94
+county,Windsor,2024-12,Hispanic,46
+county,Windsor,2024-12,Native American,0
+county,Windsor,2024-12,Non Hispanic,645
+county,Windsor,2024-12,Unknown,13
+county,Windsor,2024-12,Unreported,74
+county,Addison,2024-11,Hispanic,*
+county,Addison,2024-11,Native American,0
+county,Addison,2024-11,Non Hispanic,297
+county,Addison,2024-11,Unknown,*
+county,Addison,2024-11,Unreported,368
+county,Bennington,2024-11,Hispanic,*
+county,Bennington,2024-11,Native American,0
+county,Bennington,2024-11,Non Hispanic,661
+county,Bennington,2024-11,Unknown,*
+county,Bennington,2024-11,Unreported,61
+county,Caledonia,2024-11,Hispanic,*
+county,Caledonia,2024-11,Native American,0
+county,Caledonia,2024-11,Non Hispanic,622
+county,Caledonia,2024-11,Unknown,*
+county,Caledonia,2024-11,Unreported,128
+county,Chittenden,2024-11,Hispanic,63
+county,Chittenden,2024-11,Native American,0
+county,Chittenden,2024-11,Non Hispanic,1946
+county,Chittenden,2024-11,Unknown,26
+county,Chittenden,2024-11,Unreported,294
+county,Essex,2024-11,Hispanic,0
+county,Essex,2024-11,Native American,0
+county,Essex,2024-11,Non Hispanic,87
+county,Essex,2024-11,Unknown,*
+county,Essex,2024-11,Unreported,*
+county,Franklin,2024-11,Hispanic,*
+county,Franklin,2024-11,Native American,0
+county,Franklin,2024-11,Non Hispanic,680
+county,Franklin,2024-11,Unknown,*
+county,Franklin,2024-11,Unreported,98
+county,Grand Isle,2024-11,Hispanic,*
+county,Grand Isle,2024-11,Native American,0
+county,Grand Isle,2024-11,Non Hispanic,81
+county,Grand Isle,2024-11,Unknown,0
+county,Grand Isle,2024-11,Unreported,*
+county,Lamoille,2024-11,Hispanic,*
+county,Lamoille,2024-11,Native American,0
+county,Lamoille,2024-11,Non Hispanic,445
+county,Lamoille,2024-11,Unknown,*
+county,Lamoille,2024-11,Unreported,27
+county,Orange,2024-11,Hispanic,*
+county,Orange,2024-11,Native American,0
+county,Orange,2024-11,Non Hispanic,334
+county,Orange,2024-11,Unknown,*
+county,Orange,2024-11,Unreported,33
+county,Orleans,2024-11,Hispanic,*
+county,Orleans,2024-11,Native American,0
+county,Orleans,2024-11,Non Hispanic,425
+county,Orleans,2024-11,Unknown,*
+county,Orleans,2024-11,Unreported,57
+county,Rutland,2024-11,Hispanic,40
+county,Rutland,2024-11,Native American,0
+county,Rutland,2024-11,Non Hispanic,962
+county,Rutland,2024-11,Unknown,21
+county,Rutland,2024-11,Unreported,108
+county,Washington,2024-11,Hispanic,*
+county,Washington,2024-11,Native American,0
+county,Washington,2024-11,Non Hispanic,516
+county,Washington,2024-11,Unknown,*
+county,Washington,2024-11,Unreported,63
+county,Windham,2024-11,Hispanic,*
+county,Windham,2024-11,Native American,0
+county,Windham,2024-11,Non Hispanic,525
+county,Windham,2024-11,Unknown,*
+county,Windham,2024-11,Unreported,92
+county,Windsor,2024-11,Hispanic,46
+county,Windsor,2024-11,Native American,0
+county,Windsor,2024-11,Non Hispanic,655
+county,Windsor,2024-11,Unknown,14
+county,Windsor,2024-11,Unreported,74
+county,Addison,2024-10,Hispanic,*
+county,Addison,2024-10,Native American,0
+county,Addison,2024-10,Non Hispanic,584
+county,Addison,2024-10,Unknown,*
+county,Addison,2024-10,Unreported,93
+county,Bennington,2024-10,Hispanic,*
+county,Bennington,2024-10,Native American,0
+county,Bennington,2024-10,Non Hispanic,642
+county,Bennington,2024-10,Unknown,*
+county,Bennington,2024-10,Unreported,99
+county,Caledonia,2024-10,Hispanic,*
+county,Caledonia,2024-10,Native American,0
+county,Caledonia,2024-10,Non Hispanic,706
+county,Caledonia,2024-10,Unknown,*
+county,Caledonia,2024-10,Unreported,123
+county,Chittenden,2024-10,Hispanic,75
+county,Chittenden,2024-10,Native American,0
+county,Chittenden,2024-10,Non Hispanic,1821
+county,Chittenden,2024-10,Unknown,28
+county,Chittenden,2024-10,Unreported,327
+county,Essex,2024-10,Hispanic,*
+county,Essex,2024-10,Native American,0
+county,Essex,2024-10,Non Hispanic,116
+county,Essex,2024-10,Unknown,*
+county,Essex,2024-10,Unreported,22
+county,Franklin,2024-10,Hispanic,35
+county,Franklin,2024-10,Native American,0
+county,Franklin,2024-10,Non Hispanic,647
+county,Franklin,2024-10,Unknown,14
+county,Franklin,2024-10,Unreported,120
+county,Grand Isle,2024-10,Hispanic,*
+county,Grand Isle,2024-10,Native American,0
+county,Grand Isle,2024-10,Non Hispanic,69
+county,Grand Isle,2024-10,Unknown,*
+county,Grand Isle,2024-10,Unreported,11
+county,Lamoille,2024-10,Hispanic,*
+county,Lamoille,2024-10,Native American,0
+county,Lamoille,2024-10,Non Hispanic,460
+county,Lamoille,2024-10,Unknown,*
+county,Lamoille,2024-10,Unreported,81
+county,Orange,2024-10,Hispanic,*
+county,Orange,2024-10,Native American,0
+county,Orange,2024-10,Non Hispanic,300
+county,Orange,2024-10,Unknown,*
+county,Orange,2024-10,Unreported,50
+county,Orleans,2024-10,Hispanic,*
+county,Orleans,2024-10,Native American,0
+county,Orleans,2024-10,Non Hispanic,344
+county,Orleans,2024-10,Unknown,*
+county,Orleans,2024-10,Unreported,62
+county,Rutland,2024-10,Hispanic,39
+county,Rutland,2024-10,Native American,0
+county,Rutland,2024-10,Non Hispanic,867
+county,Rutland,2024-10,Unknown,10
+county,Rutland,2024-10,Unreported,146
+county,Washington,2024-10,Hispanic,*
+county,Washington,2024-10,Native American,0
+county,Washington,2024-10,Non Hispanic,382
+county,Washington,2024-10,Unknown,*
+county,Washington,2024-10,Unreported,66
+county,Windham,2024-10,Hispanic,*
+county,Windham,2024-10,Native American,0
+county,Windham,2024-10,Non Hispanic,479
+county,Windham,2024-10,Unknown,*
+county,Windham,2024-10,Unreported,86
+county,Windsor,2024-10,Hispanic,*
+county,Windsor,2024-10,Native American,0
+county,Windsor,2024-10,Non Hispanic,587
+county,Windsor,2024-10,Unknown,*
+county,Windsor,2024-10,Unreported,104
+state,Vermont,2024-12,Hispanic,340
+state,Vermont,2024-12,Native American,0
+state,Vermont,2024-12,Non Hispanic,8248
+state,Vermont,2024-12,Unknown,104
+state,Vermont,2024-12,Unreported,1462
+state,Vermont,2024-11,Hispanic,335
+state,Vermont,2024-11,Native American,0
+state,Vermont,2024-11,Non Hispanic,8236
+state,Vermont,2024-11,Unknown,106
+state,Vermont,2024-11,Unreported,1436
+state,Vermont,2024-10,Hispanic,334
+state,Vermont,2024-10,Native American,0
+state,Vermont,2024-10,Non Hispanic,8004
+state,Vermont,2024-10,Unknown,108
+state,Vermont,2024-10,Unreported,1390

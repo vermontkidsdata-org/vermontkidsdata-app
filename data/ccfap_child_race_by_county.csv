@@ -1,0 +1,4051 @@
+geo type,geography,year,category,value
+county,Addison,2023-06,American Indian or Alaskan Native,0
+county,Addison,2023-06,Asian,0
+county,Addison,2023-06,Black or African American,*
+county,Addison,2023-06,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-06,Prefer not to answer,0
+county,Addison,2023-06,Prefer to self-describe,*
+county,Addison,2023-06,White,85
+county,Addison,2023-06,Two or More Races,0
+county,Addison,2023-06,Unreported,414
+county,Bennington,2023-06,American Indian or Alaskan Native,*
+county,Bennington,2023-06,Asian,*
+county,Bennington,2023-06,Black or African American,*
+county,Bennington,2023-06,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-06,Prefer not to answer,*
+county,Bennington,2023-06,Prefer to self-describe,*
+county,Bennington,2023-06,White,540
+county,Bennington,2023-06,Two or More Races,32
+county,Bennington,2023-06,Unreported,75
+county,Caledonia,2023-06,American Indian or Alaskan Native,*
+county,Caledonia,2023-06,Asian,*
+county,Caledonia,2023-06,Black or African American,*
+county,Caledonia,2023-06,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-06,Prefer not to answer,*
+county,Caledonia,2023-06,Prefer to self-describe,*
+county,Caledonia,2023-06,White,230
+county,Caledonia,2023-06,Two or More Races,12
+county,Caledonia,2023-06,Unreported,409
+county,Chittenden,2023-06,American Indian or Alaskan Native,*
+county,Chittenden,2023-06,Asian,43
+county,Chittenden,2023-06,Black or African American,181
+county,Chittenden,2023-06,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-06,Prefer not to answer,*
+county,Chittenden,2023-06,Prefer to self-describe,14
+county,Chittenden,2023-06,White,718
+county,Chittenden,2023-06,Two or More Races,67
+county,Chittenden,2023-06,Unreported,645
+county,Essex,2023-06,American Indian or Alaskan Native,0
+county,Essex,2023-06,Asian,0
+county,Essex,2023-06,Black or African American,*
+county,Essex,2023-06,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-06,Prefer not to answer,0
+county,Essex,2023-06,Prefer to self-describe,*
+county,Essex,2023-06,White,34
+county,Essex,2023-06,Two or More Races,0
+county,Essex,2023-06,Unreported,51
+county,Franklin,2023-06,American Indian or Alaskan Native,0
+county,Franklin,2023-06,Asian,0
+county,Franklin,2023-06,Black or African American,*
+county,Franklin,2023-06,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-06,Prefer not to answer,*
+county,Franklin,2023-06,Prefer to self-describe,*
+county,Franklin,2023-06,White,493
+county,Franklin,2023-06,Two or More Races,19
+county,Franklin,2023-06,Unreported,81
+county,Grand Isle,2023-06,American Indian or Alaskan Native,*
+county,Grand Isle,2023-06,Asian,*
+county,Grand Isle,2023-06,Black or African American,*
+county,Grand Isle,2023-06,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-06,Prefer not to answer,0
+county,Grand Isle,2023-06,Prefer to self-describe,*
+county,Grand Isle,2023-06,White,53
+county,Grand Isle,2023-06,Two or More Races,*
+county,Grand Isle,2023-06,Unreported,14
+county,Lamoille,2023-06,American Indian or Alaskan Native,0
+county,Lamoille,2023-06,Asian,0
+county,Lamoille,2023-06,Black or African American,*
+county,Lamoille,2023-06,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-06,Prefer not to answer,*
+county,Lamoille,2023-06,Prefer to self-describe,0
+county,Lamoille,2023-06,White,259
+county,Lamoille,2023-06,Two or More Races,12
+county,Lamoille,2023-06,Unreported,97
+county,Orange,2023-06,American Indian or Alaskan Native,0
+county,Orange,2023-06,Asian,*
+county,Orange,2023-06,Black or African American,*
+county,Orange,2023-06,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-06,Prefer not to answer,0
+county,Orange,2023-06,Prefer to self-describe,0
+county,Orange,2023-06,White,172
+county,Orange,2023-06,Two or More Races,*
+county,Orange,2023-06,Unreported,51
+county,Orleans,2023-06,American Indian or Alaskan Native,0
+county,Orleans,2023-06,Asian,0
+county,Orleans,2023-06,Black or African American,*
+county,Orleans,2023-06,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-06,Prefer not to answer,*
+county,Orleans,2023-06,Prefer to self-describe,*
+county,Orleans,2023-06,White,224
+county,Orleans,2023-06,Two or More Races,0
+county,Orleans,2023-06,Unreported,175
+county,Rutland,2023-06,American Indian or Alaskan Native,0
+county,Rutland,2023-06,Asian,*
+county,Rutland,2023-06,Black or African American,26
+county,Rutland,2023-06,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-06,Prefer not to answer,*
+county,Rutland,2023-06,Prefer to self-describe,*
+county,Rutland,2023-06,White,759
+county,Rutland,2023-06,Two or More Races,34
+county,Rutland,2023-06,Unreported,85
+county,Washington,2023-06,American Indian or Alaskan Native,*
+county,Washington,2023-06,Asian,*
+county,Washington,2023-06,Black or African American,10
+county,Washington,2023-06,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-06,Prefer not to answer,10
+county,Washington,2023-06,Prefer to self-describe,*
+county,Washington,2023-06,White,365
+county,Washington,2023-06,Two or More Races,18
+county,Washington,2023-06,Unreported,42
+county,Windham,2023-06,American Indian or Alaskan Native,*
+county,Windham,2023-06,Asian,*
+county,Windham,2023-06,Black or African American,*
+county,Windham,2023-06,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-06,Prefer not to answer,*
+county,Windham,2023-06,Prefer to self-describe,*
+county,Windham,2023-06,White,289
+county,Windham,2023-06,Two or More Races,16
+county,Windham,2023-06,Unreported,177
+county,Windsor,2023-06,American Indian or Alaskan Native,*
+county,Windsor,2023-06,Asian,*
+county,Windsor,2023-06,Black or African American,*
+county,Windsor,2023-06,Native Hawaiian or Pacific Islander,*
+county,Windsor,2023-06,Prefer not to answer,0
+county,Windsor,2023-06,Prefer to self-describe,*
+county,Windsor,2023-06,White,447
+county,Windsor,2023-06,Two or More Races,16
+county,Windsor,2023-06,Unreported,81
+county,Addison,2023-05,American Indian or Alaskan Native,0
+county,Addison,2023-05,Asian,0
+county,Addison,2023-05,Black or African American,*
+county,Addison,2023-05,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-05,Prefer not to answer,0
+county,Addison,2023-05,Prefer to self-describe,*
+county,Addison,2023-05,White,73
+county,Addison,2023-05,Two or More Races,0
+county,Addison,2023-05,Unreported,349
+county,Bennington,2023-05,American Indian or Alaskan Native,*
+county,Bennington,2023-05,Asian,*
+county,Bennington,2023-05,Black or African American,*
+county,Bennington,2023-05,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-05,Prefer not to answer,0
+county,Bennington,2023-05,Prefer to self-describe,*
+county,Bennington,2023-05,White,489
+county,Bennington,2023-05,Two or More Races,26
+county,Bennington,2023-05,Unreported,80
+county,Caledonia,2023-05,American Indian or Alaskan Native,*
+county,Caledonia,2023-05,Asian,*
+county,Caledonia,2023-05,Black or African American,*
+county,Caledonia,2023-05,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-05,Prefer not to answer,*
+county,Caledonia,2023-05,Prefer to self-describe,*
+county,Caledonia,2023-05,White,208
+county,Caledonia,2023-05,Two or More Races,10
+county,Caledonia,2023-05,Unreported,404
+county,Chittenden,2023-05,American Indian or Alaskan Native,*
+county,Chittenden,2023-05,Asian,35
+county,Chittenden,2023-05,Black or African American,161
+county,Chittenden,2023-05,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-05,Prefer not to answer,*
+county,Chittenden,2023-05,Prefer to self-describe,13
+county,Chittenden,2023-05,White,647
+county,Chittenden,2023-05,Two or More Races,59
+county,Chittenden,2023-05,Unreported,559
+county,Essex,2023-05,American Indian or Alaskan Native,0
+county,Essex,2023-05,Asian,0
+county,Essex,2023-05,Black or African American,*
+county,Essex,2023-05,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-05,Prefer not to answer,0
+county,Essex,2023-05,Prefer to self-describe,*
+county,Essex,2023-05,White,30
+county,Essex,2023-05,Two or More Races,0
+county,Essex,2023-05,Unreported,50
+county,Franklin,2023-05,American Indian or Alaskan Native,0
+county,Franklin,2023-05,Asian,0
+county,Franklin,2023-05,Black or African American,*
+county,Franklin,2023-05,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-05,Prefer not to answer,*
+county,Franklin,2023-05,Prefer to self-describe,*
+county,Franklin,2023-05,White,465
+county,Franklin,2023-05,Two or More Races,18
+county,Franklin,2023-05,Unreported,73
+county,Grand Isle,2023-05,American Indian or Alaskan Native,*
+county,Grand Isle,2023-05,Asian,*
+county,Grand Isle,2023-05,Black or African American,*
+county,Grand Isle,2023-05,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-05,Prefer not to answer,0
+county,Grand Isle,2023-05,Prefer to self-describe,0
+county,Grand Isle,2023-05,White,44
+county,Grand Isle,2023-05,Two or More Races,*
+county,Grand Isle,2023-05,Unreported,14
+county,Lamoille,2023-05,American Indian or Alaskan Native,0
+county,Lamoille,2023-05,Asian,0
+county,Lamoille,2023-05,Black or African American,*
+county,Lamoille,2023-05,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-05,Prefer not to answer,*
+county,Lamoille,2023-05,Prefer to self-describe,0
+county,Lamoille,2023-05,White,236
+county,Lamoille,2023-05,Two or More Races,13
+county,Lamoille,2023-05,Unreported,100
+county,Orange,2023-05,American Indian or Alaskan Native,0
+county,Orange,2023-05,Asian,*
+county,Orange,2023-05,Black or African American,*
+county,Orange,2023-05,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-05,Prefer not to answer,0
+county,Orange,2023-05,Prefer to self-describe,0
+county,Orange,2023-05,White,161
+county,Orange,2023-05,Two or More Races,*
+county,Orange,2023-05,Unreported,49
+county,Orleans,2023-05,American Indian or Alaskan Native,*
+county,Orleans,2023-05,Asian,0
+county,Orleans,2023-05,Black or African American,*
+county,Orleans,2023-05,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-05,Prefer not to answer,*
+county,Orleans,2023-05,Prefer to self-describe,*
+county,Orleans,2023-05,White,218
+county,Orleans,2023-05,Two or More Races,0
+county,Orleans,2023-05,Unreported,182
+county,Rutland,2023-05,American Indian or Alaskan Native,0
+county,Rutland,2023-05,Asian,*
+county,Rutland,2023-05,Black or African American,23
+county,Rutland,2023-05,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-05,Prefer not to answer,*
+county,Rutland,2023-05,Prefer to self-describe,*
+county,Rutland,2023-05,White,676
+county,Rutland,2023-05,Two or More Races,34
+county,Rutland,2023-05,Unreported,83
+county,Washington,2023-05,American Indian or Alaskan Native,0
+county,Washington,2023-05,Asian,*
+county,Washington,2023-05,Black or African American,*
+county,Washington,2023-05,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-05,Prefer not to answer,10
+county,Washington,2023-05,Prefer to self-describe,*
+county,Washington,2023-05,White,323
+county,Washington,2023-05,Two or More Races,18
+county,Washington,2023-05,Unreported,39
+county,Windham,2023-05,American Indian or Alaskan Native,*
+county,Windham,2023-05,Asian,*
+county,Windham,2023-05,Black or African American,*
+county,Windham,2023-05,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-05,Prefer not to answer,*
+county,Windham,2023-05,Prefer to self-describe,*
+county,Windham,2023-05,White,252
+county,Windham,2023-05,Two or More Races,14
+county,Windham,2023-05,Unreported,164
+county,Windsor,2023-05,American Indian or Alaskan Native,*
+county,Windsor,2023-05,Asian,*
+county,Windsor,2023-05,Black or African American,*
+county,Windsor,2023-05,Native Hawaiian or Pacific Islander,0
+county,Windsor,2023-05,Prefer not to answer,0
+county,Windsor,2023-05,Prefer to self-describe,*
+county,Windsor,2023-05,White,409
+county,Windsor,2023-05,Two or More Races,15
+county,Windsor,2023-05,Unreported,85
+county,Addison,2023-04,American Indian or Alaskan Native,0
+county,Addison,2023-04,Asian,0
+county,Addison,2023-04,Black or African American,*
+county,Addison,2023-04,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-04,Prefer not to answer,*
+county,Addison,2023-04,Prefer to self-describe,0
+county,Addison,2023-04,White,77
+county,Addison,2023-04,Two or More Races,0
+county,Addison,2023-04,Unreported,353
+county,Bennington,2023-04,American Indian or Alaskan Native,*
+county,Bennington,2023-04,Asian,*
+county,Bennington,2023-04,Black or African American,*
+county,Bennington,2023-04,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-04,Prefer not to answer,0
+county,Bennington,2023-04,Prefer to self-describe,*
+county,Bennington,2023-04,White,484
+county,Bennington,2023-04,Two or More Races,23
+county,Bennington,2023-04,Unreported,95
+county,Caledonia,2023-04,American Indian or Alaskan Native,0
+county,Caledonia,2023-04,Asian,*
+county,Caledonia,2023-04,Black or African American,*
+county,Caledonia,2023-04,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-04,Prefer not to answer,*
+county,Caledonia,2023-04,Prefer to self-describe,*
+county,Caledonia,2023-04,White,195
+county,Caledonia,2023-04,Two or More Races,10
+county,Caledonia,2023-04,Unreported,413
+county,Chittenden,2023-04,American Indian or Alaskan Native,*
+county,Chittenden,2023-04,Asian,34
+county,Chittenden,2023-04,Black or African American,162
+county,Chittenden,2023-04,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-04,Prefer not to answer,*
+county,Chittenden,2023-04,Prefer to self-describe,12
+county,Chittenden,2023-04,White,645
+county,Chittenden,2023-04,Two or More Races,60
+county,Chittenden,2023-04,Unreported,598
+county,Essex,2023-04,American Indian or Alaskan Native,0
+county,Essex,2023-04,Asian,0
+county,Essex,2023-04,Black or African American,*
+county,Essex,2023-04,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-04,Prefer not to answer,0
+county,Essex,2023-04,Prefer to self-describe,*
+county,Essex,2023-04,White,29
+county,Essex,2023-04,Two or More Races,0
+county,Essex,2023-04,Unreported,51
+county,Franklin,2023-04,American Indian or Alaskan Native,*
+county,Franklin,2023-04,Asian,0
+county,Franklin,2023-04,Black or African American,*
+county,Franklin,2023-04,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-04,Prefer not to answer,*
+county,Franklin,2023-04,Prefer to self-describe,*
+county,Franklin,2023-04,White,462
+county,Franklin,2023-04,Two or More Races,20
+county,Franklin,2023-04,Unreported,72
+county,Grand Isle,2023-04,American Indian or Alaskan Native,*
+county,Grand Isle,2023-04,Asian,*
+county,Grand Isle,2023-04,Black or African American,*
+county,Grand Isle,2023-04,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-04,Prefer not to answer,0
+county,Grand Isle,2023-04,Prefer to self-describe,0
+county,Grand Isle,2023-04,White,38
+county,Grand Isle,2023-04,Two or More Races,*
+county,Grand Isle,2023-04,Unreported,14
+county,Lamoille,2023-04,American Indian or Alaskan Native,0
+county,Lamoille,2023-04,Asian,0
+county,Lamoille,2023-04,Black or African American,*
+county,Lamoille,2023-04,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-04,Prefer not to answer,*
+county,Lamoille,2023-04,Prefer to self-describe,0
+county,Lamoille,2023-04,White,226
+county,Lamoille,2023-04,Two or More Races,13
+county,Lamoille,2023-04,Unreported,115
+county,Orange,2023-04,American Indian or Alaskan Native,0
+county,Orange,2023-04,Asian,*
+county,Orange,2023-04,Black or African American,*
+county,Orange,2023-04,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-04,Prefer not to answer,0
+county,Orange,2023-04,Prefer to self-describe,0
+county,Orange,2023-04,White,160
+county,Orange,2023-04,Two or More Races,*
+county,Orange,2023-04,Unreported,56
+county,Orleans,2023-04,American Indian or Alaskan Native,*
+county,Orleans,2023-04,Asian,0
+county,Orleans,2023-04,Black or African American,10
+county,Orleans,2023-04,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-04,Prefer not to answer,*
+county,Orleans,2023-04,Prefer to self-describe,*
+county,Orleans,2023-04,White,210
+county,Orleans,2023-04,Two or More Races,0
+county,Orleans,2023-04,Unreported,201
+county,Rutland,2023-04,American Indian or Alaskan Native,0
+county,Rutland,2023-04,Asian,*
+county,Rutland,2023-04,Black or African American,23
+county,Rutland,2023-04,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-04,Prefer not to answer,*
+county,Rutland,2023-04,Prefer to self-describe,*
+county,Rutland,2023-04,White,677
+county,Rutland,2023-04,Two or More Races,33
+county,Rutland,2023-04,Unreported,97
+county,Washington,2023-04,American Indian or Alaskan Native,0
+county,Washington,2023-04,Asian,*
+county,Washington,2023-04,Black or African American,*
+county,Washington,2023-04,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-04,Prefer not to answer,*
+county,Washington,2023-04,Prefer to self-describe,*
+county,Washington,2023-04,White,312
+county,Washington,2023-04,Two or More Races,16
+county,Washington,2023-04,Unreported,45
+county,Windham,2023-04,American Indian or Alaskan Native,*
+county,Windham,2023-04,Asian,*
+county,Windham,2023-04,Black or African American,*
+county,Windham,2023-04,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-04,Prefer not to answer,0
+county,Windham,2023-04,Prefer to self-describe,*
+county,Windham,2023-04,White,243
+county,Windham,2023-04,Two or More Races,13
+county,Windham,2023-04,Unreported,189
+county,Windsor,2023-04,American Indian or Alaskan Native,*
+county,Windsor,2023-04,Asian,*
+county,Windsor,2023-04,Black or African American,*
+county,Windsor,2023-04,Native Hawaiian or Pacific Islander,0
+county,Windsor,2023-04,Prefer not to answer,0
+county,Windsor,2023-04,Prefer to self-describe,0
+county,Windsor,2023-04,White,412
+county,Windsor,2023-04,Two or More Races,15
+county,Windsor,2023-04,Unreported,97
+county,Addison,2023-03,American Indian or Alaskan Native,0
+county,Addison,2023-03,Asian,0
+county,Addison,2023-03,Black or African American,*
+county,Addison,2023-03,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-03,Prefer not to answer,*
+county,Addison,2023-03,Prefer to self-describe,0
+county,Addison,2023-03,White,71
+county,Addison,2023-03,Two or More Races,0
+county,Addison,2023-03,Unreported,347
+county,Bennington,2023-03,American Indian or Alaskan Native,*
+county,Bennington,2023-03,Asian,*
+county,Bennington,2023-03,Black or African American,*
+county,Bennington,2023-03,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-03,Prefer not to answer,0
+county,Bennington,2023-03,Prefer to self-describe,*
+county,Bennington,2023-03,White,447
+county,Bennington,2023-03,Two or More Races,20
+county,Bennington,2023-03,Unreported,113
+county,Caledonia,2023-03,American Indian or Alaskan Native,0
+county,Caledonia,2023-03,Asian,*
+county,Caledonia,2023-03,Black or African American,*
+county,Caledonia,2023-03,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-03,Prefer not to answer,*
+county,Caledonia,2023-03,Prefer to self-describe,*
+county,Caledonia,2023-03,White,179
+county,Caledonia,2023-03,Two or More Races,*
+county,Caledonia,2023-03,Unreported,416
+county,Chittenden,2023-03,American Indian or Alaskan Native,*
+county,Chittenden,2023-03,Asian,34
+county,Chittenden,2023-03,Black or African American,164
+county,Chittenden,2023-03,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-03,Prefer not to answer,*
+county,Chittenden,2023-03,Prefer to self-describe,*
+county,Chittenden,2023-03,White,608
+county,Chittenden,2023-03,Two or More Races,58
+county,Chittenden,2023-03,Unreported,601
+county,Essex,2023-03,American Indian or Alaskan Native,0
+county,Essex,2023-03,Asian,0
+county,Essex,2023-03,Black or African American,*
+county,Essex,2023-03,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-03,Prefer not to answer,0
+county,Essex,2023-03,Prefer to self-describe,*
+county,Essex,2023-03,White,29
+county,Essex,2023-03,Two or More Races,0
+county,Essex,2023-03,Unreported,50
+county,Franklin,2023-03,American Indian or Alaskan Native,*
+county,Franklin,2023-03,Asian,0
+county,Franklin,2023-03,Black or African American,*
+county,Franklin,2023-03,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-03,Prefer not to answer,*
+county,Franklin,2023-03,Prefer to self-describe,*
+county,Franklin,2023-03,White,430
+county,Franklin,2023-03,Two or More Races,18
+county,Franklin,2023-03,Unreported,85
+county,Grand Isle,2023-03,American Indian or Alaskan Native,*
+county,Grand Isle,2023-03,Asian,*
+county,Grand Isle,2023-03,Black or African American,*
+county,Grand Isle,2023-03,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-03,Prefer not to answer,0
+county,Grand Isle,2023-03,Prefer to self-describe,0
+county,Grand Isle,2023-03,White,41
+county,Grand Isle,2023-03,Two or More Races,*
+county,Grand Isle,2023-03,Unreported,13
+county,Lamoille,2023-03,American Indian or Alaskan Native,0
+county,Lamoille,2023-03,Asian,0
+county,Lamoille,2023-03,Black or African American,*
+county,Lamoille,2023-03,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-03,Prefer not to answer,*
+county,Lamoille,2023-03,Prefer to self-describe,0
+county,Lamoille,2023-03,White,216
+county,Lamoille,2023-03,Two or More Races,13
+county,Lamoille,2023-03,Unreported,120
+county,Orange,2023-03,American Indian or Alaskan Native,0
+county,Orange,2023-03,Asian,*
+county,Orange,2023-03,Black or African American,0
+county,Orange,2023-03,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-03,Prefer not to answer,0
+county,Orange,2023-03,Prefer to self-describe,0
+county,Orange,2023-03,White,152
+county,Orange,2023-03,Two or More Races,*
+county,Orange,2023-03,Unreported,66
+county,Orleans,2023-03,American Indian or Alaskan Native,*
+county,Orleans,2023-03,Asian,0
+county,Orleans,2023-03,Black or African American,*
+county,Orleans,2023-03,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-03,Prefer not to answer,*
+county,Orleans,2023-03,Prefer to self-describe,*
+county,Orleans,2023-03,White,197
+county,Orleans,2023-03,Two or More Races,0
+county,Orleans,2023-03,Unreported,208
+county,Rutland,2023-03,American Indian or Alaskan Native,0
+county,Rutland,2023-03,Asian,*
+county,Rutland,2023-03,Black or African American,22
+county,Rutland,2023-03,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-03,Prefer not to answer,*
+county,Rutland,2023-03,Prefer to self-describe,*
+county,Rutland,2023-03,White,648
+county,Rutland,2023-03,Two or More Races,31
+county,Rutland,2023-03,Unreported,120
+county,Washington,2023-03,American Indian or Alaskan Native,0
+county,Washington,2023-03,Asian,*
+county,Washington,2023-03,Black or African American,*
+county,Washington,2023-03,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-03,Prefer not to answer,10
+county,Washington,2023-03,Prefer to self-describe,*
+county,Washington,2023-03,White,292
+county,Washington,2023-03,Two or More Races,16
+county,Washington,2023-03,Unreported,49
+county,Windham,2023-03,American Indian or Alaskan Native,*
+county,Windham,2023-03,Asian,*
+county,Windham,2023-03,Black or African American,*
+county,Windham,2023-03,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-03,Prefer not to answer,0
+county,Windham,2023-03,Prefer to self-describe,*
+county,Windham,2023-03,White,226
+county,Windham,2023-03,Two or More Races,11
+county,Windham,2023-03,Unreported,199
+county,Windsor,2023-03,American Indian or Alaskan Native,*
+county,Windsor,2023-03,Asian,*
+county,Windsor,2023-03,Black or African American,*
+county,Windsor,2023-03,Native Hawaiian or Pacific Islander,0
+county,Windsor,2023-03,Prefer not to answer,0
+county,Windsor,2023-03,Prefer to self-describe,0
+county,Windsor,2023-03,White,385
+county,Windsor,2023-03,Two or More Races,13
+county,Windsor,2023-03,Unreported,109
+county,Addison,2023-02,American Indian or Alaskan Native,0
+county,Addison,2023-02,Asian,0
+county,Addison,2023-02,Black or African American,*
+county,Addison,2023-02,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-02,Prefer not to answer,*
+county,Addison,2023-02,Prefer to self-describe,0
+county,Addison,2023-02,White,72
+county,Addison,2023-02,Two or More Races,0
+county,Addison,2023-02,Unreported,341
+county,Bennington,2023-02,American Indian or Alaskan Native,0
+county,Bennington,2023-02,Asian,*
+county,Bennington,2023-02,Black or African American,*
+county,Bennington,2023-02,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-02,Prefer not to answer,0
+county,Bennington,2023-02,Prefer to self-describe,*
+county,Bennington,2023-02,White,421
+county,Bennington,2023-02,Two or More Races,20
+county,Bennington,2023-02,Unreported,144
+county,Caledonia,2023-02,American Indian or Alaskan Native,0
+county,Caledonia,2023-02,Asian,*
+county,Caledonia,2023-02,Black or African American,*
+county,Caledonia,2023-02,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-02,Prefer not to answer,*
+county,Caledonia,2023-02,Prefer to self-describe,*
+county,Caledonia,2023-02,White,172
+county,Caledonia,2023-02,Two or More Races,*
+county,Caledonia,2023-02,Unreported,424
+county,Chittenden,2023-02,American Indian or Alaskan Native,*
+county,Chittenden,2023-02,Asian,34
+county,Chittenden,2023-02,Black or African American,149
+county,Chittenden,2023-02,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-02,Prefer not to answer,*
+county,Chittenden,2023-02,Prefer to self-describe,*
+county,Chittenden,2023-02,White,573
+county,Chittenden,2023-02,Two or More Races,51
+county,Chittenden,2023-02,Unreported,627
+county,Essex,2023-02,American Indian or Alaskan Native,0
+county,Essex,2023-02,Asian,0
+county,Essex,2023-02,Black or African American,*
+county,Essex,2023-02,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-02,Prefer not to answer,0
+county,Essex,2023-02,Prefer to self-describe,*
+county,Essex,2023-02,White,29
+county,Essex,2023-02,Two or More Races,0
+county,Essex,2023-02,Unreported,51
+county,Franklin,2023-02,American Indian or Alaskan Native,*
+county,Franklin,2023-02,Asian,0
+county,Franklin,2023-02,Black or African American,*
+county,Franklin,2023-02,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-02,Prefer not to answer,*
+county,Franklin,2023-02,Prefer to self-describe,*
+county,Franklin,2023-02,White,404
+county,Franklin,2023-02,Two or More Races,18
+county,Franklin,2023-02,Unreported,110
+county,Grand Isle,2023-02,American Indian or Alaskan Native,*
+county,Grand Isle,2023-02,Asian,*
+county,Grand Isle,2023-02,Black or African American,*
+county,Grand Isle,2023-02,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-02,Prefer not to answer,0
+county,Grand Isle,2023-02,Prefer to self-describe,0
+county,Grand Isle,2023-02,White,42
+county,Grand Isle,2023-02,Two or More Races,*
+county,Grand Isle,2023-02,Unreported,15
+county,Lamoille,2023-02,American Indian or Alaskan Native,0
+county,Lamoille,2023-02,Asian,0
+county,Lamoille,2023-02,Black or African American,*
+county,Lamoille,2023-02,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-02,Prefer not to answer,*
+county,Lamoille,2023-02,Prefer to self-describe,0
+county,Lamoille,2023-02,White,207
+county,Lamoille,2023-02,Two or More Races,13
+county,Lamoille,2023-02,Unreported,132
+county,Orange,2023-02,American Indian or Alaskan Native,0
+county,Orange,2023-02,Asian,*
+county,Orange,2023-02,Black or African American,0
+county,Orange,2023-02,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-02,Prefer not to answer,0
+county,Orange,2023-02,Prefer to self-describe,0
+county,Orange,2023-02,White,144
+county,Orange,2023-02,Two or More Races,*
+county,Orange,2023-02,Unreported,71
+county,Orleans,2023-02,American Indian or Alaskan Native,*
+county,Orleans,2023-02,Asian,0
+county,Orleans,2023-02,Black or African American,*
+county,Orleans,2023-02,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-02,Prefer not to answer,*
+county,Orleans,2023-02,Prefer to self-describe,*
+county,Orleans,2023-02,White,177
+county,Orleans,2023-02,Two or More Races,0
+county,Orleans,2023-02,Unreported,221
+county,Rutland,2023-02,American Indian or Alaskan Native,0
+county,Rutland,2023-02,Asian,*
+county,Rutland,2023-02,Black or African American,24
+county,Rutland,2023-02,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-02,Prefer not to answer,*
+county,Rutland,2023-02,Prefer to self-describe,*
+county,Rutland,2023-02,White,635
+county,Rutland,2023-02,Two or More Races,31
+county,Rutland,2023-02,Unreported,156
+county,Washington,2023-02,American Indian or Alaskan Native,0
+county,Washington,2023-02,Asian,*
+county,Washington,2023-02,Black or African American,*
+county,Washington,2023-02,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-02,Prefer not to answer,*
+county,Washington,2023-02,Prefer to self-describe,0
+county,Washington,2023-02,White,279
+county,Washington,2023-02,Two or More Races,15
+county,Washington,2023-02,Unreported,60
+county,Windham,2023-02,American Indian or Alaskan Native,*
+county,Windham,2023-02,Asian,*
+county,Windham,2023-02,Black or African American,*
+county,Windham,2023-02,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-02,Prefer not to answer,0
+county,Windham,2023-02,Prefer to self-describe,*
+county,Windham,2023-02,White,215
+county,Windham,2023-02,Two or More Races,*
+county,Windham,2023-02,Unreported,200
+county,Windsor,2023-02,American Indian or Alaskan Native,*
+county,Windsor,2023-02,Asian,*
+county,Windsor,2023-02,Black or African American,*
+county,Windsor,2023-02,Native Hawaiian or Pacific Islander,0
+county,Windsor,2023-02,Prefer not to answer,0
+county,Windsor,2023-02,Prefer to self-describe,0
+county,Windsor,2023-02,White,366
+county,Windsor,2023-02,Two or More Races,12
+county,Windsor,2023-02,Unreported,130
+county,Addison,2023-01,American Indian or Alaskan Native,0
+county,Addison,2023-01,Asian,0
+county,Addison,2023-01,Black or African American,*
+county,Addison,2023-01,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-01,Prefer not to answer,*
+county,Addison,2023-01,Prefer to self-describe,0
+county,Addison,2023-01,White,72
+county,Addison,2023-01,Two or More Races,0
+county,Addison,2023-01,Unreported,333
+county,Bennington,2023-01,American Indian or Alaskan Native,0
+county,Bennington,2023-01,Asian,*
+county,Bennington,2023-01,Black or African American,*
+county,Bennington,2023-01,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-01,Prefer not to answer,0
+county,Bennington,2023-01,Prefer to self-describe,*
+county,Bennington,2023-01,White,421
+county,Bennington,2023-01,Two or More Races,16
+county,Bennington,2023-01,Unreported,169
+county,Caledonia,2023-01,American Indian or Alaskan Native,0
+county,Caledonia,2023-01,Asian,*
+county,Caledonia,2023-01,Black or African American,*
+county,Caledonia,2023-01,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-01,Prefer not to answer,*
+county,Caledonia,2023-01,Prefer to self-describe,*
+county,Caledonia,2023-01,White,172
+county,Caledonia,2023-01,Two or More Races,*
+county,Caledonia,2023-01,Unreported,438
+county,Chittenden,2023-01,American Indian or Alaskan Native,*
+county,Chittenden,2023-01,Asian,34
+county,Chittenden,2023-01,Black or African American,149
+county,Chittenden,2023-01,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-01,Prefer not to answer,*
+county,Chittenden,2023-01,Prefer to self-describe,*
+county,Chittenden,2023-01,White,573
+county,Chittenden,2023-01,Two or More Races,47
+county,Chittenden,2023-01,Unreported,661
+county,Essex,2023-01,American Indian or Alaskan Native,0
+county,Essex,2023-01,Asian,0
+county,Essex,2023-01,Black or African American,*
+county,Essex,2023-01,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-01,Prefer not to answer,0
+county,Essex,2023-01,Prefer to self-describe,*
+county,Essex,2023-01,White,29
+county,Essex,2023-01,Two or More Races,0
+county,Essex,2023-01,Unreported,53
+county,Franklin,2023-01,American Indian or Alaskan Native,*
+county,Franklin,2023-01,Asian,0
+county,Franklin,2023-01,Black or African American,*
+county,Franklin,2023-01,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-01,Prefer not to answer,*
+county,Franklin,2023-01,Prefer to self-describe,*
+county,Franklin,2023-01,White,404
+county,Franklin,2023-01,Two or More Races,17
+county,Franklin,2023-01,Unreported,131
+county,Grand Isle,2023-01,American Indian or Alaskan Native,*
+county,Grand Isle,2023-01,Asian,*
+county,Grand Isle,2023-01,Black or African American,*
+county,Grand Isle,2023-01,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-01,Prefer not to answer,0
+county,Grand Isle,2023-01,Prefer to self-describe,0
+county,Grand Isle,2023-01,White,42
+county,Grand Isle,2023-01,Two or More Races,*
+county,Grand Isle,2023-01,Unreported,16
+county,Lamoille,2023-01,American Indian or Alaskan Native,0
+county,Lamoille,2023-01,Asian,0
+county,Lamoille,2023-01,Black or African American,*
+county,Lamoille,2023-01,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-01,Prefer not to answer,*
+county,Lamoille,2023-01,Prefer to self-describe,0
+county,Lamoille,2023-01,White,207
+county,Lamoille,2023-01,Two or More Races,14
+county,Lamoille,2023-01,Unreported,147
+county,Orange,2023-01,American Indian or Alaskan Native,0
+county,Orange,2023-01,Asian,*
+county,Orange,2023-01,Black or African American,0
+county,Orange,2023-01,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-01,Prefer not to answer,0
+county,Orange,2023-01,Prefer to self-describe,0
+county,Orange,2023-01,White,144
+county,Orange,2023-01,Two or More Races,*
+county,Orange,2023-01,Unreported,78
+county,Orleans,2023-01,American Indian or Alaskan Native,*
+county,Orleans,2023-01,Asian,0
+county,Orleans,2023-01,Black or African American,*
+county,Orleans,2023-01,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-01,Prefer not to answer,*
+county,Orleans,2023-01,Prefer to self-describe,*
+county,Orleans,2023-01,White,177
+county,Orleans,2023-01,Two or More Races,0
+county,Orleans,2023-01,Unreported,229
+county,Rutland,2023-01,American Indian or Alaskan Native,0
+county,Rutland,2023-01,Asian,*
+county,Rutland,2023-01,Black or African American,24
+county,Rutland,2023-01,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-01,Prefer not to answer,*
+county,Rutland,2023-01,Prefer to self-describe,*
+county,Rutland,2023-01,White,635
+county,Rutland,2023-01,Two or More Races,29
+county,Rutland,2023-01,Unreported,206
+county,Washington,2023-01,American Indian or Alaskan Native,0
+county,Washington,2023-01,Asian,*
+county,Washington,2023-01,Black or African American,*
+county,Washington,2023-01,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-01,Prefer not to answer,*
+county,Washington,2023-01,Prefer to self-describe,0
+county,Washington,2023-01,White,279
+county,Washington,2023-01,Two or More Races,13
+county,Washington,2023-01,Unreported,69
+county,Windham,2023-01,American Indian or Alaskan Native,*
+county,Windham,2023-01,Asian,*
+county,Windham,2023-01,Black or African American,*
+county,Windham,2023-01,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-01,Prefer not to answer,0
+county,Windham,2023-01,Prefer to self-describe,*
+county,Windham,2023-01,White,215
+county,Windham,2023-01,Two or More Races,*
+county,Windham,2023-01,Unreported,210
+county,Windsor,2023-01,American Indian or Alaskan Native,*
+county,Windsor,2023-01,Asian,*
+county,Windsor,2023-01,Black or African American,*
+county,Windsor,2023-01,Native Hawaiian or Pacific Islander,0
+county,Windsor,2023-01,Prefer not to answer,0
+county,Windsor,2023-01,Prefer to self-describe,0
+county,Windsor,2023-01,White,366
+county,Windsor,2023-01,Two or More Races,11
+county,Windsor,2023-01,Unreported,149
+county,Addison,2022-12,American Indian or Alaskan Native,0
+county,Addison,2022-12,Asian,0
+county,Addison,2022-12,Black or African American,0
+county,Addison,2022-12,Native Hawaiian or Pacific Islander,0
+county,Addison,2022-12,Prefer not to answer,0
+county,Addison,2022-12,Prefer to self-describe,0
+county,Addison,2022-12,White,55
+county,Addison,2022-12,Two or More Races,0
+county,Addison,2022-12,Unreported,335
+county,Bennington,2022-12,American Indian or Alaskan Native,0
+county,Bennington,2022-12,Asian,*
+county,Bennington,2022-12,Black or African American,*
+county,Bennington,2022-12,Native Hawaiian or Pacific Islander,0
+county,Bennington,2022-12,Prefer not to answer,0
+county,Bennington,2022-12,Prefer to self-describe,*
+county,Bennington,2022-12,White,352
+county,Bennington,2022-12,Two or More Races,15
+county,Bennington,2022-12,Unreported,193
+county,Caledonia,2022-12,American Indian or Alaskan Native,0
+county,Caledonia,2022-12,Asian,*
+county,Caledonia,2022-12,Black or African American,*
+county,Caledonia,2022-12,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2022-12,Prefer not to answer,0
+county,Caledonia,2022-12,Prefer to self-describe,*
+county,Caledonia,2022-12,White,147
+county,Caledonia,2022-12,Two or More Races,*
+county,Caledonia,2022-12,Unreported,446
+county,Chittenden,2022-12,American Indian or Alaskan Native,*
+county,Chittenden,2022-12,Asian,24
+county,Chittenden,2022-12,Black or African American,132
+county,Chittenden,2022-12,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2022-12,Prefer not to answer,*
+county,Chittenden,2022-12,Prefer to self-describe,*
+county,Chittenden,2022-12,White,497
+county,Chittenden,2022-12,Two or More Races,43
+county,Chittenden,2022-12,Unreported,695
+county,Essex,2022-12,American Indian or Alaskan Native,0
+county,Essex,2022-12,Asian,0
+county,Essex,2022-12,Black or African American,*
+county,Essex,2022-12,Native Hawaiian or Pacific Islander,0
+county,Essex,2022-12,Prefer not to answer,0
+county,Essex,2022-12,Prefer to self-describe,0
+county,Essex,2022-12,White,*
+county,Essex,2022-12,Two or More Races,0
+county,Essex,2022-12,Unreported,46
+county,Franklin,2022-12,American Indian or Alaskan Native,*
+county,Franklin,2022-12,Asian,0
+county,Franklin,2022-12,Black or African American,*
+county,Franklin,2022-12,Native Hawaiian or Pacific Islander,0
+county,Franklin,2022-12,Prefer not to answer,*
+county,Franklin,2022-12,Prefer to self-describe,*
+county,Franklin,2022-12,White,368
+county,Franklin,2022-12,Two or More Races,14
+county,Franklin,2022-12,Unreported,166
+county,Grand Isle,2022-12,American Indian or Alaskan Native,*
+county,Grand Isle,2022-12,Asian,*
+county,Grand Isle,2022-12,Black or African American,*
+county,Grand Isle,2022-12,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2022-12,Prefer not to answer,0
+county,Grand Isle,2022-12,Prefer to self-describe,0
+county,Grand Isle,2022-12,White,*
+county,Grand Isle,2022-12,Two or More Races,*
+county,Grand Isle,2022-12,Unreported,16
+county,Lamoille,2022-12,American Indian or Alaskan Native,0
+county,Lamoille,2022-12,Asian,0
+county,Lamoille,2022-12,Black or African American,*
+county,Lamoille,2022-12,Native Hawaiian or Pacific Islander,0
+county,Lamoille,2022-12,Prefer not to answer,*
+county,Lamoille,2022-12,Prefer to self-describe,0
+county,Lamoille,2022-12,White,164
+county,Lamoille,2022-12,Two or More Races,13
+county,Lamoille,2022-12,Unreported,161
+county,Orange,2022-12,American Indian or Alaskan Native,0
+county,Orange,2022-12,Asian,*
+county,Orange,2022-12,Black or African American,0
+county,Orange,2022-12,Native Hawaiian or Pacific Islander,0
+county,Orange,2022-12,Prefer not to answer,0
+county,Orange,2022-12,Prefer to self-describe,0
+county,Orange,2022-12,White,116
+county,Orange,2022-12,Two or More Races,*
+county,Orange,2022-12,Unreported,79
+county,Orleans,2022-12,American Indian or Alaskan Native,*
+county,Orleans,2022-12,Asian,0
+county,Orleans,2022-12,Black or African American,*
+county,Orleans,2022-12,Native Hawaiian or Pacific Islander,0
+county,Orleans,2022-12,Prefer not to answer,*
+county,Orleans,2022-12,Prefer to self-describe,*
+county,Orleans,2022-12,White,148
+county,Orleans,2022-12,Two or More Races,0
+county,Orleans,2022-12,Unreported,247
+county,Rutland,2022-12,American Indian or Alaskan Native,0
+county,Rutland,2022-12,Asian,*
+county,Rutland,2022-12,Black or African American,*
+county,Rutland,2022-12,Native Hawaiian or Pacific Islander,0
+county,Rutland,2022-12,Prefer not to answer,0
+county,Rutland,2022-12,Prefer to self-describe,0
+county,Rutland,2022-12,White,558
+county,Rutland,2022-12,Two or More Races,29
+county,Rutland,2022-12,Unreported,240
+county,Washington,2022-12,American Indian or Alaskan Native,0
+county,Washington,2022-12,Asian,*
+county,Washington,2022-12,Black or African American,*
+county,Washington,2022-12,Native Hawaiian or Pacific Islander,0
+county,Washington,2022-12,Prefer not to answer,*
+county,Washington,2022-12,Prefer to self-describe,0
+county,Washington,2022-12,White,227
+county,Washington,2022-12,Two or More Races,12
+county,Washington,2022-12,Unreported,96
+county,Windham,2022-12,American Indian or Alaskan Native,*
+county,Windham,2022-12,Asian,*
+county,Windham,2022-12,Black or African American,*
+county,Windham,2022-12,Native Hawaiian or Pacific Islander,0
+county,Windham,2022-12,Prefer not to answer,0
+county,Windham,2022-12,Prefer to self-describe,*
+county,Windham,2022-12,White,179
+county,Windham,2022-12,Two or More Races,*
+county,Windham,2022-12,Unreported,220
+county,Windsor,2022-12,American Indian or Alaskan Native,*
+county,Windsor,2022-12,Asian,*
+county,Windsor,2022-12,Black or African American,*
+county,Windsor,2022-12,Native Hawaiian or Pacific Islander,0
+county,Windsor,2022-12,Prefer not to answer,0
+county,Windsor,2022-12,Prefer to self-describe,0
+county,Windsor,2022-12,White,321
+county,Windsor,2022-12,Two or More Races,10
+county,Windsor,2022-12,Unreported,162
+county,Addison,2022-11,American Indian or Alaskan Native,0
+county,Addison,2022-11,Asian,0
+county,Addison,2022-11,Black or African American,0
+county,Addison,2022-11,Native Hawaiian or Pacific Islander,0
+county,Addison,2022-11,Prefer not to answer,0
+county,Addison,2022-11,Prefer to self-describe,0
+county,Addison,2022-11,White,56
+county,Addison,2022-11,Two or More Races,0
+county,Addison,2022-11,Unreported,337
+county,Bennington,2022-11,American Indian or Alaskan Native,0
+county,Bennington,2022-11,Asian,*
+county,Bennington,2022-11,Black or African American,*
+county,Bennington,2022-11,Native Hawaiian or Pacific Islander,0
+county,Bennington,2022-11,Prefer not to answer,0
+county,Bennington,2022-11,Prefer to self-describe,*
+county,Bennington,2022-11,White,347
+county,Bennington,2022-11,Two or More Races,16
+county,Bennington,2022-11,Unreported,197
+county,Caledonia,2022-11,American Indian or Alaskan Native,0
+county,Caledonia,2022-11,Asian,*
+county,Caledonia,2022-11,Black or African American,*
+county,Caledonia,2022-11,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2022-11,Prefer not to answer,0
+county,Caledonia,2022-11,Prefer to self-describe,*
+county,Caledonia,2022-11,White,133
+county,Caledonia,2022-11,Two or More Races,*
+county,Caledonia,2022-11,Unreported,446
+county,Chittenden,2022-11,American Indian or Alaskan Native,*
+county,Chittenden,2022-11,Asian,22
+county,Chittenden,2022-11,Black or African American,129
+county,Chittenden,2022-11,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2022-11,Prefer not to answer,*
+county,Chittenden,2022-11,Prefer to self-describe,*
+county,Chittenden,2022-11,White,493
+county,Chittenden,2022-11,Two or More Races,42
+county,Chittenden,2022-11,Unreported,705
+county,Essex,2022-11,American Indian or Alaskan Native,0
+county,Essex,2022-11,Asian,0
+county,Essex,2022-11,Black or African American,*
+county,Essex,2022-11,Native Hawaiian or Pacific Islander,0
+county,Essex,2022-11,Prefer not to answer,0
+county,Essex,2022-11,Prefer to self-describe,0
+county,Essex,2022-11,White,*
+county,Essex,2022-11,Two or More Races,0
+county,Essex,2022-11,Unreported,48
+county,Franklin,2022-11,American Indian or Alaskan Native,*
+county,Franklin,2022-11,Asian,0
+county,Franklin,2022-11,Black or African American,*
+county,Franklin,2022-11,Native Hawaiian or Pacific Islander,0
+county,Franklin,2022-11,Prefer not to answer,*
+county,Franklin,2022-11,Prefer to self-describe,*
+county,Franklin,2022-11,White,374
+county,Franklin,2022-11,Two or More Races,14
+county,Franklin,2022-11,Unreported,180
+county,Grand Isle,2022-11,American Indian or Alaskan Native,*
+county,Grand Isle,2022-11,Asian,*
+county,Grand Isle,2022-11,Black or African American,*
+county,Grand Isle,2022-11,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2022-11,Prefer not to answer,0
+county,Grand Isle,2022-11,Prefer to self-describe,0
+county,Grand Isle,2022-11,White,*
+county,Grand Isle,2022-11,Two or More Races,*
+county,Grand Isle,2022-11,Unreported,18
+county,Lamoille,2022-11,American Indian or Alaskan Native,0
+county,Lamoille,2022-11,Asian,0
+county,Lamoille,2022-11,Black or African American,*
+county,Lamoille,2022-11,Native Hawaiian or Pacific Islander,0
+county,Lamoille,2022-11,Prefer not to answer,*
+county,Lamoille,2022-11,Prefer to self-describe,0
+county,Lamoille,2022-11,White,159
+county,Lamoille,2022-11,Two or More Races,13
+county,Lamoille,2022-11,Unreported,166
+county,Orange,2022-11,American Indian or Alaskan Native,0
+county,Orange,2022-11,Asian,*
+county,Orange,2022-11,Black or African American,0
+county,Orange,2022-11,Native Hawaiian or Pacific Islander,0
+county,Orange,2022-11,Prefer not to answer,0
+county,Orange,2022-11,Prefer to self-describe,0
+county,Orange,2022-11,White,114
+county,Orange,2022-11,Two or More Races,*
+county,Orange,2022-11,Unreported,79
+county,Orleans,2022-11,American Indian or Alaskan Native,*
+county,Orleans,2022-11,Asian,0
+county,Orleans,2022-11,Black or African American,*
+county,Orleans,2022-11,Native Hawaiian or Pacific Islander,0
+county,Orleans,2022-11,Prefer not to answer,*
+county,Orleans,2022-11,Prefer to self-describe,*
+county,Orleans,2022-11,White,143
+county,Orleans,2022-11,Two or More Races,0
+county,Orleans,2022-11,Unreported,245
+county,Rutland,2022-11,American Indian or Alaskan Native,0
+county,Rutland,2022-11,Asian,*
+county,Rutland,2022-11,Black or African American,*
+county,Rutland,2022-11,Native Hawaiian or Pacific Islander,0
+county,Rutland,2022-11,Prefer not to answer,0
+county,Rutland,2022-11,Prefer to self-describe,0
+county,Rutland,2022-11,White,532
+county,Rutland,2022-11,Two or More Races,25
+county,Rutland,2022-11,Unreported,273
+county,Washington,2022-11,American Indian or Alaskan Native,0
+county,Washington,2022-11,Asian,*
+county,Washington,2022-11,Black or African American,*
+county,Washington,2022-11,Native Hawaiian or Pacific Islander,0
+county,Washington,2022-11,Prefer not to answer,*
+county,Washington,2022-11,Prefer to self-describe,0
+county,Washington,2022-11,White,222
+county,Washington,2022-11,Two or More Races,12
+county,Washington,2022-11,Unreported,99
+county,Windham,2022-11,American Indian or Alaskan Native,*
+county,Windham,2022-11,Asian,*
+county,Windham,2022-11,Black or African American,*
+county,Windham,2022-11,Native Hawaiian or Pacific Islander,0
+county,Windham,2022-11,Prefer not to answer,0
+county,Windham,2022-11,Prefer to self-describe,*
+county,Windham,2022-11,White,174
+county,Windham,2022-11,Two or More Races,*
+county,Windham,2022-11,Unreported,221
+county,Windsor,2022-11,American Indian or Alaskan Native,*
+county,Windsor,2022-11,Asian,*
+county,Windsor,2022-11,Black or African American,*
+county,Windsor,2022-11,Native Hawaiian or Pacific Islander,0
+county,Windsor,2022-11,Prefer not to answer,0
+county,Windsor,2022-11,Prefer to self-describe,0
+county,Windsor,2022-11,White,318
+county,Windsor,2022-11,Two or More Races,*
+county,Windsor,2022-11,Unreported,174
+county,Addison,2022-10,American Indian or Alaskan Native,0
+county,Addison,2022-10,Asian,0
+county,Addison,2022-10,Black or African American,0
+county,Addison,2022-10,Native Hawaiian or Pacific Islander,0
+county,Addison,2022-10,Prefer not to answer,0
+county,Addison,2022-10,Prefer to self-describe,0
+county,Addison,2022-10,White,53
+county,Addison,2022-10,Two or More Races,0
+county,Addison,2022-10,Unreported,331
+county,Bennington,2022-10,American Indian or Alaskan Native,0
+county,Bennington,2022-10,Asian,*
+county,Bennington,2022-10,Black or African American,*
+county,Bennington,2022-10,Native Hawaiian or Pacific Islander,0
+county,Bennington,2022-10,Prefer not to answer,0
+county,Bennington,2022-10,Prefer to self-describe,*
+county,Bennington,2022-10,White,332
+county,Bennington,2022-10,Two or More Races,15
+county,Bennington,2022-10,Unreported,204
+county,Caledonia,2022-10,American Indian or Alaskan Native,0
+county,Caledonia,2022-10,Asian,*
+county,Caledonia,2022-10,Black or African American,*
+county,Caledonia,2022-10,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2022-10,Prefer not to answer,0
+county,Caledonia,2022-10,Prefer to self-describe,*
+county,Caledonia,2022-10,White,123
+county,Caledonia,2022-10,Two or More Races,*
+county,Caledonia,2022-10,Unreported,452
+county,Chittenden,2022-10,American Indian or Alaskan Native,*
+county,Chittenden,2022-10,Asian,23
+county,Chittenden,2022-10,Black or African American,122
+county,Chittenden,2022-10,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2022-10,Prefer not to answer,*
+county,Chittenden,2022-10,Prefer to self-describe,*
+county,Chittenden,2022-10,White,465
+county,Chittenden,2022-10,Two or More Races,40
+county,Chittenden,2022-10,Unreported,715
+county,Essex,2022-10,American Indian or Alaskan Native,0
+county,Essex,2022-10,Asian,0
+county,Essex,2022-10,Black or African American,*
+county,Essex,2022-10,Native Hawaiian or Pacific Islander,0
+county,Essex,2022-10,Prefer not to answer,0
+county,Essex,2022-10,Prefer to self-describe,0
+county,Essex,2022-10,White,*
+county,Essex,2022-10,Two or More Races,0
+county,Essex,2022-10,Unreported,49
+county,Franklin,2022-10,American Indian or Alaskan Native,*
+county,Franklin,2022-10,Asian,0
+county,Franklin,2022-10,Black or African American,*
+county,Franklin,2022-10,Native Hawaiian or Pacific Islander,0
+county,Franklin,2022-10,Prefer not to answer,*
+county,Franklin,2022-10,Prefer to self-describe,*
+county,Franklin,2022-10,White,364
+county,Franklin,2022-10,Two or More Races,14
+county,Franklin,2022-10,Unreported,187
+county,Grand Isle,2022-10,American Indian or Alaskan Native,0
+county,Grand Isle,2022-10,Asian,*
+county,Grand Isle,2022-10,Black or African American,*
+county,Grand Isle,2022-10,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2022-10,Prefer not to answer,0
+county,Grand Isle,2022-10,Prefer to self-describe,0
+county,Grand Isle,2022-10,White,*
+county,Grand Isle,2022-10,Two or More Races,*
+county,Grand Isle,2022-10,Unreported,20
+county,Lamoille,2022-10,American Indian or Alaskan Native,0
+county,Lamoille,2022-10,Asian,0
+county,Lamoille,2022-10,Black or African American,*
+county,Lamoille,2022-10,Native Hawaiian or Pacific Islander,0
+county,Lamoille,2022-10,Prefer not to answer,*
+county,Lamoille,2022-10,Prefer to self-describe,0
+county,Lamoille,2022-10,White,148
+county,Lamoille,2022-10,Two or More Races,11
+county,Lamoille,2022-10,Unreported,181
+county,Orange,2022-10,American Indian or Alaskan Native,0
+county,Orange,2022-10,Asian,*
+county,Orange,2022-10,Black or African American,0
+county,Orange,2022-10,Native Hawaiian or Pacific Islander,0
+county,Orange,2022-10,Prefer not to answer,0
+county,Orange,2022-10,Prefer to self-describe,0
+county,Orange,2022-10,White,98
+county,Orange,2022-10,Two or More Races,*
+county,Orange,2022-10,Unreported,84
+county,Orleans,2022-10,American Indian or Alaskan Native,0
+county,Orleans,2022-10,Asian,0
+county,Orleans,2022-10,Black or African American,*
+county,Orleans,2022-10,Native Hawaiian or Pacific Islander,0
+county,Orleans,2022-10,Prefer not to answer,*
+county,Orleans,2022-10,Prefer to self-describe,*
+county,Orleans,2022-10,White,135
+county,Orleans,2022-10,Two or More Races,0
+county,Orleans,2022-10,Unreported,259
+county,Rutland,2022-10,American Indian or Alaskan Native,0
+county,Rutland,2022-10,Asian,*
+county,Rutland,2022-10,Black or African American,24
+county,Rutland,2022-10,Native Hawaiian or Pacific Islander,0
+county,Rutland,2022-10,Prefer not to answer,0
+county,Rutland,2022-10,Prefer to self-describe,0
+county,Rutland,2022-10,White,490
+county,Rutland,2022-10,Two or More Races,*
+county,Rutland,2022-10,Unreported,294
+county,Washington,2022-10,American Indian or Alaskan Native,0
+county,Washington,2022-10,Asian,*
+county,Washington,2022-10,Black or African American,*
+county,Washington,2022-10,Native Hawaiian or Pacific Islander,0
+county,Washington,2022-10,Prefer not to answer,*
+county,Washington,2022-10,Prefer to self-describe,0
+county,Washington,2022-10,White,208
+county,Washington,2022-10,Two or More Races,10
+county,Washington,2022-10,Unreported,121
+county,Windham,2022-10,American Indian or Alaskan Native,*
+county,Windham,2022-10,Asian,*
+county,Windham,2022-10,Black or African American,*
+county,Windham,2022-10,Native Hawaiian or Pacific Islander,0
+county,Windham,2022-10,Prefer not to answer,0
+county,Windham,2022-10,Prefer to self-describe,*
+county,Windham,2022-10,White,157
+county,Windham,2022-10,Two or More Races,*
+county,Windham,2022-10,Unreported,242
+county,Windsor,2022-10,American Indian or Alaskan Native,*
+county,Windsor,2022-10,Asian,*
+county,Windsor,2022-10,Black or African American,*
+county,Windsor,2022-10,Native Hawaiian or Pacific Islander,0
+county,Windsor,2022-10,Prefer not to answer,0
+county,Windsor,2022-10,Prefer to self-describe,0
+county,Windsor,2022-10,White,301
+county,Windsor,2022-10,Two or More Races,*
+county,Windsor,2022-10,Unreported,191
+county,Addison,2022-09,American Indian or Alaskan Native,0
+county,Addison,2022-09,Asian,0
+county,Addison,2022-09,Black or African American,*
+county,Addison,2022-09,Native Hawaiian or Pacific Islander,0
+county,Addison,2022-09,Prefer not to answer,0
+county,Addison,2022-09,Prefer to self-describe,0
+county,Addison,2022-09,White,*
+county,Addison,2022-09,Two or More Races,0
+county,Addison,2022-09,Unreported,330
+county,Bennington,2022-09,American Indian or Alaskan Native,0
+county,Bennington,2022-09,Asian,*
+county,Bennington,2022-09,Black or African American,*
+county,Bennington,2022-09,Native Hawaiian or Pacific Islander,0
+county,Bennington,2022-09,Prefer not to answer,0
+county,Bennington,2022-09,Prefer to self-describe,*
+county,Bennington,2022-09,White,326
+county,Bennington,2022-09,Two or More Races,14
+county,Bennington,2022-09,Unreported,230
+county,Caledonia,2022-09,American Indian or Alaskan Native,0
+county,Caledonia,2022-09,Asian,*
+county,Caledonia,2022-09,Black or African American,*
+county,Caledonia,2022-09,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2022-09,Prefer not to answer,0
+county,Caledonia,2022-09,Prefer to self-describe,*
+county,Caledonia,2022-09,White,118
+county,Caledonia,2022-09,Two or More Races,*
+county,Caledonia,2022-09,Unreported,470
+county,Chittenden,2022-09,American Indian or Alaskan Native,0
+county,Chittenden,2022-09,Asian,23
+county,Chittenden,2022-09,Black or African American,114
+county,Chittenden,2022-09,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2022-09,Prefer not to answer,*
+county,Chittenden,2022-09,Prefer to self-describe,*
+county,Chittenden,2022-09,White,440
+county,Chittenden,2022-09,Two or More Races,38
+county,Chittenden,2022-09,Unreported,776
+county,Essex,2022-09,American Indian or Alaskan Native,0
+county,Essex,2022-09,Asian,0
+county,Essex,2022-09,Black or African American,*
+county,Essex,2022-09,Native Hawaiian or Pacific Islander,0
+county,Essex,2022-09,Prefer not to answer,0
+county,Essex,2022-09,Prefer to self-describe,0
+county,Essex,2022-09,White,*
+county,Essex,2022-09,Two or More Races,0
+county,Essex,2022-09,Unreported,50
+county,Franklin,2022-09,American Indian or Alaskan Native,*
+county,Franklin,2022-09,Asian,0
+county,Franklin,2022-09,Black or African American,*
+county,Franklin,2022-09,Native Hawaiian or Pacific Islander,0
+county,Franklin,2022-09,Prefer not to answer,*
+county,Franklin,2022-09,Prefer to self-describe,*
+county,Franklin,2022-09,White,355
+county,Franklin,2022-09,Two or More Races,13
+county,Franklin,2022-09,Unreported,201
+county,Grand Isle,2022-09,American Indian or Alaskan Native,0
+county,Grand Isle,2022-09,Asian,*
+county,Grand Isle,2022-09,Black or African American,*
+county,Grand Isle,2022-09,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2022-09,Prefer not to answer,0
+county,Grand Isle,2022-09,Prefer to self-describe,0
+county,Grand Isle,2022-09,White,38
+county,Grand Isle,2022-09,Two or More Races,*
+county,Grand Isle,2022-09,Unreported,25
+county,Lamoille,2022-09,American Indian or Alaskan Native,0
+county,Lamoille,2022-09,Asian,0
+county,Lamoille,2022-09,Black or African American,*
+county,Lamoille,2022-09,Native Hawaiian or Pacific Islander,0
+county,Lamoille,2022-09,Prefer not to answer,*
+county,Lamoille,2022-09,Prefer to self-describe,0
+county,Lamoille,2022-09,White,113
+county,Lamoille,2022-09,Two or More Races,11
+county,Lamoille,2022-09,Unreported,195
+county,Orange,2022-09,American Indian or Alaskan Native,0
+county,Orange,2022-09,Asian,*
+county,Orange,2022-09,Black or African American,0
+county,Orange,2022-09,Native Hawaiian or Pacific Islander,0
+county,Orange,2022-09,Prefer not to answer,0
+county,Orange,2022-09,Prefer to self-describe,0
+county,Orange,2022-09,White,90
+county,Orange,2022-09,Two or More Races,*
+county,Orange,2022-09,Unreported,94
+county,Orleans,2022-09,American Indian or Alaskan Native,0
+county,Orleans,2022-09,Asian,0
+county,Orleans,2022-09,Black or African American,*
+county,Orleans,2022-09,Native Hawaiian or Pacific Islander,0
+county,Orleans,2022-09,Prefer not to answer,*
+county,Orleans,2022-09,Prefer to self-describe,*
+county,Orleans,2022-09,White,120
+county,Orleans,2022-09,Two or More Races,0
+county,Orleans,2022-09,Unreported,275
+county,Rutland,2022-09,American Indian or Alaskan Native,0
+county,Rutland,2022-09,Asian,*
+county,Rutland,2022-09,Black or African American,*
+county,Rutland,2022-09,Native Hawaiian or Pacific Islander,0
+county,Rutland,2022-09,Prefer not to answer,0
+county,Rutland,2022-09,Prefer to self-describe,0
+county,Rutland,2022-09,White,451
+county,Rutland,2022-09,Two or More Races,21
+county,Rutland,2022-09,Unreported,348
+county,Washington,2022-09,American Indian or Alaskan Native,0
+county,Washington,2022-09,Asian,*
+county,Washington,2022-09,Black or African American,*
+county,Washington,2022-09,Native Hawaiian or Pacific Islander,0
+county,Washington,2022-09,Prefer not to answer,*
+county,Washington,2022-09,Prefer to self-describe,0
+county,Washington,2022-09,White,179
+county,Washington,2022-09,Two or More Races,*
+county,Washington,2022-09,Unreported,144
+county,Windham,2022-09,American Indian or Alaskan Native,0
+county,Windham,2022-09,Asian,*
+county,Windham,2022-09,Black or African American,*
+county,Windham,2022-09,Native Hawaiian or Pacific Islander,0
+county,Windham,2022-09,Prefer not to answer,0
+county,Windham,2022-09,Prefer to self-describe,*
+county,Windham,2022-09,White,151
+county,Windham,2022-09,Two or More Races,*
+county,Windham,2022-09,Unreported,271
+county,Windsor,2022-09,American Indian or Alaskan Native,*
+county,Windsor,2022-09,Asian,*
+county,Windsor,2022-09,Black or African American,*
+county,Windsor,2022-09,Native Hawaiian or Pacific Islander,0
+county,Windsor,2022-09,Prefer not to answer,0
+county,Windsor,2022-09,Prefer to self-describe,0
+county,Windsor,2022-09,White,288
+county,Windsor,2022-09,Two or More Races,*
+county,Windsor,2022-09,Unreported,231
+county,Addison,2022-08,American Indian or Alaskan Native,0
+county,Addison,2022-08,Asian,0
+county,Addison,2022-08,Black or African American,*
+county,Addison,2022-08,Native Hawaiian or Pacific Islander,0
+county,Addison,2022-08,Prefer not to answer,0
+county,Addison,2022-08,Prefer to self-describe,0
+county,Addison,2022-08,White,*
+county,Addison,2022-08,Two or More Races,0
+county,Addison,2022-08,Unreported,413
+county,Bennington,2022-08,American Indian or Alaskan Native,0
+county,Bennington,2022-08,Asian,*
+county,Bennington,2022-08,Black or African American,*
+county,Bennington,2022-08,Native Hawaiian or Pacific Islander,0
+county,Bennington,2022-08,Prefer not to answer,*
+county,Bennington,2022-08,Prefer to self-describe,0
+county,Bennington,2022-08,White,326
+county,Bennington,2022-08,Two or More Races,16
+county,Bennington,2022-08,Unreported,289
+county,Caledonia,2022-08,American Indian or Alaskan Native,0
+county,Caledonia,2022-08,Asian,0
+county,Caledonia,2022-08,Black or African American,*
+county,Caledonia,2022-08,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2022-08,Prefer not to answer,0
+county,Caledonia,2022-08,Prefer to self-describe,*
+county,Caledonia,2022-08,White,97
+county,Caledonia,2022-08,Two or More Races,*
+county,Caledonia,2022-08,Unreported,523
+county,Chittenden,2022-08,American Indian or Alaskan Native,0
+county,Chittenden,2022-08,Asian,21
+county,Chittenden,2022-08,Black or African American,95
+county,Chittenden,2022-08,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2022-08,Prefer not to answer,*
+county,Chittenden,2022-08,Prefer to self-describe,*
+county,Chittenden,2022-08,White,450
+county,Chittenden,2022-08,Two or More Races,36
+county,Chittenden,2022-08,Unreported,894
+county,Essex,2022-08,American Indian or Alaskan Native,0
+county,Essex,2022-08,Asian,0
+county,Essex,2022-08,Black or African American,*
+county,Essex,2022-08,Native Hawaiian or Pacific Islander,0
+county,Essex,2022-08,Prefer not to answer,0
+county,Essex,2022-08,Prefer to self-describe,0
+county,Essex,2022-08,White,*
+county,Essex,2022-08,Two or More Races,0
+county,Essex,2022-08,Unreported,49
+county,Franklin,2022-08,American Indian or Alaskan Native,*
+county,Franklin,2022-08,Asian,0
+county,Franklin,2022-08,Black or African American,10
+county,Franklin,2022-08,Native Hawaiian or Pacific Islander,0
+county,Franklin,2022-08,Prefer not to answer,0
+county,Franklin,2022-08,Prefer to self-describe,*
+county,Franklin,2022-08,White,338
+county,Franklin,2022-08,Two or More Races,12
+county,Franklin,2022-08,Unreported,232
+county,Grand Isle,2022-08,American Indian or Alaskan Native,0
+county,Grand Isle,2022-08,Asian,*
+county,Grand Isle,2022-08,Black or African American,*
+county,Grand Isle,2022-08,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2022-08,Prefer not to answer,0
+county,Grand Isle,2022-08,Prefer to self-describe,0
+county,Grand Isle,2022-08,White,36
+county,Grand Isle,2022-08,Two or More Races,*
+county,Grand Isle,2022-08,Unreported,34
+county,Lamoille,2022-08,American Indian or Alaskan Native,0
+county,Lamoille,2022-08,Asian,0
+county,Lamoille,2022-08,Black or African American,0
+county,Lamoille,2022-08,Native Hawaiian or Pacific Islander,0
+county,Lamoille,2022-08,Prefer not to answer,0
+county,Lamoille,2022-08,Prefer to self-describe,0
+county,Lamoille,2022-08,White,102
+county,Lamoille,2022-08,Two or More Races,10
+county,Lamoille,2022-08,Unreported,241
+county,Orange,2022-08,American Indian or Alaskan Native,0
+county,Orange,2022-08,Asian,*
+county,Orange,2022-08,Black or African American,0
+county,Orange,2022-08,Native Hawaiian or Pacific Islander,0
+county,Orange,2022-08,Prefer not to answer,0
+county,Orange,2022-08,Prefer to self-describe,0
+county,Orange,2022-08,White,99
+county,Orange,2022-08,Two or More Races,*
+county,Orange,2022-08,Unreported,125
+county,Orleans,2022-08,American Indian or Alaskan Native,0
+county,Orleans,2022-08,Asian,0
+county,Orleans,2022-08,Black or African American,*
+county,Orleans,2022-08,Native Hawaiian or Pacific Islander,0
+county,Orleans,2022-08,Prefer not to answer,*
+county,Orleans,2022-08,Prefer to self-describe,*
+county,Orleans,2022-08,White,105
+county,Orleans,2022-08,Two or More Races,0
+county,Orleans,2022-08,Unreported,307
+county,Rutland,2022-08,American Indian or Alaskan Native,0
+county,Rutland,2022-08,Asian,*
+county,Rutland,2022-08,Black or African American,15
+county,Rutland,2022-08,Native Hawaiian or Pacific Islander,0
+county,Rutland,2022-08,Prefer not to answer,0
+county,Rutland,2022-08,Prefer to self-describe,0
+county,Rutland,2022-08,White,414
+county,Rutland,2022-08,Two or More Races,*
+county,Rutland,2022-08,Unreported,483
+county,Washington,2022-08,American Indian or Alaskan Native,0
+county,Washington,2022-08,Asian,*
+county,Washington,2022-08,Black or African American,*
+county,Washington,2022-08,Native Hawaiian or Pacific Islander,0
+county,Washington,2022-08,Prefer not to answer,0
+county,Washington,2022-08,Prefer to self-describe,0
+county,Washington,2022-08,White,193
+county,Washington,2022-08,Two or More Races,12
+county,Washington,2022-08,Unreported,208
+county,Windham,2022-08,American Indian or Alaskan Native,0
+county,Windham,2022-08,Asian,*
+county,Windham,2022-08,Black or African American,*
+county,Windham,2022-08,Native Hawaiian or Pacific Islander,0
+county,Windham,2022-08,Prefer not to answer,0
+county,Windham,2022-08,Prefer to self-describe,*
+county,Windham,2022-08,White,120
+county,Windham,2022-08,Two or More Races,*
+county,Windham,2022-08,Unreported,327
+county,Windsor,2022-08,American Indian or Alaskan Native,*
+county,Windsor,2022-08,Asian,*
+county,Windsor,2022-08,Black or African American,*
+county,Windsor,2022-08,Native Hawaiian or Pacific Islander,0
+county,Windsor,2022-08,Prefer not to answer,0
+county,Windsor,2022-08,Prefer to self-describe,0
+county,Windsor,2022-08,White,248
+county,Windsor,2022-08,Two or More Races,*
+county,Windsor,2022-08,Unreported,316
+county,Addison,2022-07,American Indian or Alaskan Native,0
+county,Addison,2022-07,Asian,0
+county,Addison,2022-07,Black or African American,*
+county,Addison,2022-07,Native Hawaiian or Pacific Islander,0
+county,Addison,2022-07,Prefer not to answer,0
+county,Addison,2022-07,Prefer to self-describe,0
+county,Addison,2022-07,White,*
+county,Addison,2022-07,Two or More Races,0
+county,Addison,2022-07,Unreported,380
+county,Bennington,2022-07,American Indian or Alaskan Native,0
+county,Bennington,2022-07,Asian,*
+county,Bennington,2022-07,Black or African American,0
+county,Bennington,2022-07,Native Hawaiian or Pacific Islander,0
+county,Bennington,2022-07,Prefer not to answer,*
+county,Bennington,2022-07,Prefer to self-describe,0
+county,Bennington,2022-07,White,293
+county,Bennington,2022-07,Two or More Races,12
+county,Bennington,2022-07,Unreported,329
+county,Caledonia,2022-07,American Indian or Alaskan Native,0
+county,Caledonia,2022-07,Asian,0
+county,Caledonia,2022-07,Black or African American,*
+county,Caledonia,2022-07,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2022-07,Prefer not to answer,0
+county,Caledonia,2022-07,Prefer to self-describe,*
+county,Caledonia,2022-07,White,76
+county,Caledonia,2022-07,Two or More Races,*
+county,Caledonia,2022-07,Unreported,505
+county,Chittenden,2022-07,American Indian or Alaskan Native,0
+county,Chittenden,2022-07,Asian,*
+county,Chittenden,2022-07,Black or African American,76
+county,Chittenden,2022-07,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2022-07,Prefer not to answer,0
+county,Chittenden,2022-07,Prefer to self-describe,*
+county,Chittenden,2022-07,White,355
+county,Chittenden,2022-07,Two or More Races,35
+county,Chittenden,2022-07,Unreported,900
+county,Essex,2022-07,American Indian or Alaskan Native,0
+county,Essex,2022-07,Asian,0
+county,Essex,2022-07,Black or African American,*
+county,Essex,2022-07,Native Hawaiian or Pacific Islander,0
+county,Essex,2022-07,Prefer not to answer,0
+county,Essex,2022-07,Prefer to self-describe,0
+county,Essex,2022-07,White,*
+county,Essex,2022-07,Two or More Races,0
+county,Essex,2022-07,Unreported,52
+county,Franklin,2022-07,American Indian or Alaskan Native,*
+county,Franklin,2022-07,Asian,0
+county,Franklin,2022-07,Black or African American,*
+county,Franklin,2022-07,Native Hawaiian or Pacific Islander,0
+county,Franklin,2022-07,Prefer not to answer,0
+county,Franklin,2022-07,Prefer to self-describe,*
+county,Franklin,2022-07,White,309
+county,Franklin,2022-07,Two or More Races,11
+county,Franklin,2022-07,Unreported,247
+county,Grand Isle,2022-07,American Indian or Alaskan Native,0
+county,Grand Isle,2022-07,Asian,0
+county,Grand Isle,2022-07,Black or African American,*
+county,Grand Isle,2022-07,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2022-07,Prefer not to answer,0
+county,Grand Isle,2022-07,Prefer to self-describe,0
+county,Grand Isle,2022-07,White,32
+county,Grand Isle,2022-07,Two or More Races,*
+county,Grand Isle,2022-07,Unreported,37
+county,Lamoille,2022-07,American Indian or Alaskan Native,0
+county,Lamoille,2022-07,Asian,0
+county,Lamoille,2022-07,Black or African American,0
+county,Lamoille,2022-07,Native Hawaiian or Pacific Islander,0
+county,Lamoille,2022-07,Prefer not to answer,0
+county,Lamoille,2022-07,Prefer to self-describe,0
+county,Lamoille,2022-07,White,*
+county,Lamoille,2022-07,Two or More Races,*
+county,Lamoille,2022-07,Unreported,233
+county,Orange,2022-07,American Indian or Alaskan Native,0
+county,Orange,2022-07,Asian,*
+county,Orange,2022-07,Black or African American,0
+county,Orange,2022-07,Native Hawaiian or Pacific Islander,0
+county,Orange,2022-07,Prefer not to answer,0
+county,Orange,2022-07,Prefer to self-describe,0
+county,Orange,2022-07,White,79
+county,Orange,2022-07,Two or More Races,*
+county,Orange,2022-07,Unreported,128
+county,Orleans,2022-07,American Indian or Alaskan Native,*
+county,Orleans,2022-07,Asian,0
+county,Orleans,2022-07,Black or African American,*
+county,Orleans,2022-07,Native Hawaiian or Pacific Islander,0
+county,Orleans,2022-07,Prefer not to answer,0
+county,Orleans,2022-07,Prefer to self-describe,*
+county,Orleans,2022-07,White,75
+county,Orleans,2022-07,Two or More Races,0
+county,Orleans,2022-07,Unreported,307
+county,Rutland,2022-07,American Indian or Alaskan Native,*
+county,Rutland,2022-07,Asian,*
+county,Rutland,2022-07,Black or African American,10
+county,Rutland,2022-07,Native Hawaiian or Pacific Islander,0
+county,Rutland,2022-07,Prefer not to answer,0
+county,Rutland,2022-07,Prefer to self-describe,0
+county,Rutland,2022-07,White,319
+county,Rutland,2022-07,Two or More Races,*
+county,Rutland,2022-07,Unreported,533
+county,Washington,2022-07,American Indian or Alaskan Native,0
+county,Washington,2022-07,Asian,*
+county,Washington,2022-07,Black or African American,*
+county,Washington,2022-07,Native Hawaiian or Pacific Islander,0
+county,Washington,2022-07,Prefer not to answer,0
+county,Washington,2022-07,Prefer to self-describe,0
+county,Washington,2022-07,White,126
+county,Washington,2022-07,Two or More Races,*
+county,Washington,2022-07,Unreported,252
+county,Windham,2022-07,American Indian or Alaskan Native,0
+county,Windham,2022-07,Asian,*
+county,Windham,2022-07,Black or African American,*
+county,Windham,2022-07,Native Hawaiian or Pacific Islander,0
+county,Windham,2022-07,Prefer not to answer,0
+county,Windham,2022-07,Prefer to self-describe,0
+county,Windham,2022-07,White,70
+county,Windham,2022-07,Two or More Races,*
+county,Windham,2022-07,Unreported,324
+county,Windsor,2022-07,American Indian or Alaskan Native,*
+county,Windsor,2022-07,Asian,0
+county,Windsor,2022-07,Black or African American,*
+county,Windsor,2022-07,Native Hawaiian or Pacific Islander,0
+county,Windsor,2022-07,Prefer not to answer,0
+county,Windsor,2022-07,Prefer to self-describe,0
+county,Windsor,2022-07,White,179
+county,Windsor,2022-07,Two or More Races,*
+county,Windsor,2022-07,Unreported,353
+state,Vermont,2023-06,American Indian or Alaskan Native,*
+state,Vermont,2023-06,Asian,71
+state,Vermont,2023-06,Black or African American,275
+state,Vermont,2023-06,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-06,Prefer not to answer,36
+state,Vermont,2023-06,Prefer to self-describe,37
+state,Vermont,2023-06,White,4668
+state,Vermont,2023-06,Two or More Races,236
+state,Vermont,2023-06,Unreported,2397
+state,Vermont,2023-05,American Indian or Alaskan Native,*
+state,Vermont,2023-05,Asian,61
+state,Vermont,2023-05,Black or African American,247
+state,Vermont,2023-05,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-05,Prefer not to answer,32
+state,Vermont,2023-05,Prefer to self-describe,30
+state,Vermont,2023-05,White,4231
+state,Vermont,2023-05,Two or More Races,218
+state,Vermont,2023-05,Unreported,2231
+state,Vermont,2023-04,American Indian or Alaskan Native,*
+state,Vermont,2023-04,Asian,58
+state,Vermont,2023-04,Black or African American,247
+state,Vermont,2023-04,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-04,Prefer not to answer,26
+state,Vermont,2023-04,Prefer to self-describe,27
+state,Vermont,2023-04,White,4170
+state,Vermont,2023-04,Two or More Races,214
+state,Vermont,2023-04,Unreported,2396
+state,Vermont,2023-03,American Indian or Alaskan Native,*
+state,Vermont,2023-03,Asian,56
+state,Vermont,2023-03,Black or African American,244
+state,Vermont,2023-03,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-03,Prefer not to answer,24
+state,Vermont,2023-03,Prefer to self-describe,21
+state,Vermont,2023-03,White,3921
+state,Vermont,2023-03,Two or More Races,199
+state,Vermont,2023-03,Unreported,2496
+state,Vermont,2023-02,American Indian or Alaskan Native,*
+state,Vermont,2023-02,Asian,56
+state,Vermont,2023-02,Black or African American,226
+state,Vermont,2023-02,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-02,Prefer not to answer,23
+state,Vermont,2023-02,Prefer to self-describe,16
+state,Vermont,2023-02,White,3736
+state,Vermont,2023-02,Two or More Races,186
+state,Vermont,2023-02,Unreported,2682
+state,Vermont,2023-01,American Indian or Alaskan Native,*
+state,Vermont,2023-01,Asian,56
+state,Vermont,2023-01,Black or African American,226
+state,Vermont,2023-01,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-01,Prefer not to answer,23
+state,Vermont,2023-01,Prefer to self-describe,16
+state,Vermont,2023-01,White,3736
+state,Vermont,2023-01,Two or More Races,172
+state,Vermont,2023-01,Unreported,2889
+state,Vermont,2022-12,American Indian or Alaskan Native,*
+state,Vermont,2022-12,Asian,46
+state,Vermont,2022-12,Black or African American,191
+state,Vermont,2022-12,Native Hawaiian or Pacific Islander,0
+state,Vermont,2022-12,Prefer not to answer,15
+state,Vermont,2022-12,Prefer to self-describe,*
+state,Vermont,2022-12,White,3195
+state,Vermont,2022-12,Two or More Races,159
+state,Vermont,2022-12,Unreported,3102
+state,Vermont,2022-11,American Indian or Alaskan Native,*
+state,Vermont,2022-11,Asian,46
+state,Vermont,2022-11,Black or African American,190
+state,Vermont,2022-11,Native Hawaiian or Pacific Islander,0
+state,Vermont,2022-11,Prefer not to answer,12
+state,Vermont,2022-11,Prefer to self-describe,*
+state,Vermont,2022-11,White,3128
+state,Vermont,2022-11,Two or More Races,151
+state,Vermont,2022-11,Unreported,3188
+state,Vermont,2022-10,American Indian or Alaskan Native,*
+state,Vermont,2022-10,Asian,46
+state,Vermont,2022-10,Black or African American,177
+state,Vermont,2022-10,Native Hawaiian or Pacific Islander,0
+state,Vermont,2022-10,Prefer not to answer,13
+state,Vermont,2022-10,Prefer to self-describe,*
+state,Vermont,2022-10,White,2935
+state,Vermont,2022-10,Two or More Races,138
+state,Vermont,2022-10,Unreported,3330
+state,Vermont,2022-09,American Indian or Alaskan Native,*
+state,Vermont,2022-09,Asian,48
+state,Vermont,2022-09,Black or African American,169
+state,Vermont,2022-09,Native Hawaiian or Pacific Islander,0
+state,Vermont,2022-09,Prefer not to answer,*
+state,Vermont,2022-09,Prefer to self-describe,10
+state,Vermont,2022-09,White,2738
+state,Vermont,2022-09,Two or More Races,127
+state,Vermont,2022-09,Unreported,3640
+state,Vermont,2022-08,American Indian or Alaskan Native,*
+state,Vermont,2022-08,Asian,43
+state,Vermont,2022-08,Black or African American,144
+state,Vermont,2022-08,Native Hawaiian or Pacific Islander,0
+state,Vermont,2022-08,Prefer not to answer,*
+state,Vermont,2022-08,Prefer to self-describe,*
+state,Vermont,2022-08,White,2603
+state,Vermont,2022-08,Two or More Races,122
+state,Vermont,2022-08,Unreported,4441
+state,Vermont,2022-07,American Indian or Alaskan Native,*
+state,Vermont,2022-07,Asian,26
+state,Vermont,2022-07,Black or African American,112
+state,Vermont,2022-07,Native Hawaiian or Pacific Islander,0
+state,Vermont,2022-07,Prefer not to answer,*
+state,Vermont,2022-07,Prefer to self-describe,*
+state,Vermont,2022-07,White,2044
+state,Vermont,2022-07,Two or More Races,96
+state,Vermont,2022-07,Unreported,4580
+county,Addison,2024-06,American Indian or Alaskan Native,0
+county,Addison,2024-06,Asian,0
+county,Addison,2024-06,Black or African American,0
+county,Addison,2024-06,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-06,Prefer not to answer,0
+county,Addison,2024-06,Prefer to self-describe,*
+county,Addison,2024-06,White,*
+county,Addison,2024-06,Two or More Races,0
+county,Addison,2024-06,Unreported,524
+county,Bennington,2024-06,American Indian or Alaskan Native,*
+county,Bennington,2024-06,Asian,*
+county,Bennington,2024-06,Black or African American,17
+county,Bennington,2024-06,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-06,Prefer not to answer,*
+county,Bennington,2024-06,Prefer to self-describe,*
+county,Bennington,2024-06,White,643
+county,Bennington,2024-06,Two or More Races,36
+county,Bennington,2024-06,Unreported,64
+county,Caledonia,2024-06,American Indian or Alaskan Native,0
+county,Caledonia,2024-06,Asian,*
+county,Caledonia,2024-06,Black or African American,*
+county,Caledonia,2024-06,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-06,Prefer not to answer,0
+county,Caledonia,2024-06,Prefer to self-describe,0
+county,Caledonia,2024-06,White,274
+county,Caledonia,2024-06,Two or More Races,17
+county,Caledonia,2024-06,Unreported,437
+county,Chittenden,2024-06,American Indian or Alaskan Native,*
+county,Chittenden,2024-06,Asian,48
+county,Chittenden,2024-06,Black or African American,235
+county,Chittenden,2024-06,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-06,Prefer not to answer,24
+county,Chittenden,2024-06,Prefer to self-describe,*
+county,Chittenden,2024-06,White,1036
+county,Chittenden,2024-06,Two or More Races,90
+county,Chittenden,2024-06,Unreported,542
+county,Essex,2024-06,American Indian or Alaskan Native,0
+county,Essex,2024-06,Asian,0
+county,Essex,2024-06,Black or African American,*
+county,Essex,2024-06,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-06,Prefer not to answer,0
+county,Essex,2024-06,Prefer to self-describe,*
+county,Essex,2024-06,White,*
+county,Essex,2024-06,Two or More Races,0
+county,Essex,2024-06,Unreported,57
+county,Franklin,2024-06,American Indian or Alaskan Native,*
+county,Franklin,2024-06,Asian,0
+county,Franklin,2024-06,Black or African American,11
+county,Franklin,2024-06,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-06,Prefer not to answer,*
+county,Franklin,2024-06,Prefer to self-describe,*
+county,Franklin,2024-06,White,555
+county,Franklin,2024-06,Two or More Races,19
+county,Franklin,2024-06,Unreported,88
+county,Grand Isle,2024-06,American Indian or Alaskan Native,*
+county,Grand Isle,2024-06,Asian,*
+county,Grand Isle,2024-06,Black or African American,*
+county,Grand Isle,2024-06,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-06,Prefer not to answer,0
+county,Grand Isle,2024-06,Prefer to self-describe,*
+county,Grand Isle,2024-06,White,65
+county,Grand Isle,2024-06,Two or More Races,*
+county,Grand Isle,2024-06,Unreported,*
+county,Lamoille,2024-06,American Indian or Alaskan Native,*
+county,Lamoille,2024-06,Asian,0
+county,Lamoille,2024-06,Black or African American,11
+county,Lamoille,2024-06,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-06,Prefer not to answer,*
+county,Lamoille,2024-06,Prefer to self-describe,*
+county,Lamoille,2024-06,White,358
+county,Lamoille,2024-06,Two or More Races,26
+county,Lamoille,2024-06,Unreported,*
+county,Orange,2024-06,American Indian or Alaskan Native,0
+county,Orange,2024-06,Asian,*
+county,Orange,2024-06,Black or African American,*
+county,Orange,2024-06,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-06,Prefer not to answer,*
+county,Orange,2024-06,Prefer to self-describe,*
+county,Orange,2024-06,White,262
+county,Orange,2024-06,Two or More Races,*
+county,Orange,2024-06,Unreported,47
+county,Orleans,2024-06,American Indian or Alaskan Native,0
+county,Orleans,2024-06,Asian,0
+county,Orleans,2024-06,Black or African American,*
+county,Orleans,2024-06,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-06,Prefer not to answer,*
+county,Orleans,2024-06,Prefer to self-describe,0
+county,Orleans,2024-06,White,327
+county,Orleans,2024-06,Two or More Races,*
+county,Orleans,2024-06,Unreported,131
+county,Rutland,2024-06,American Indian or Alaskan Native,*
+county,Rutland,2024-06,Asian,*
+county,Rutland,2024-06,Black or African American,40
+county,Rutland,2024-06,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-06,Prefer not to answer,11
+county,Rutland,2024-06,Prefer to self-describe,*
+county,Rutland,2024-06,White,933
+county,Rutland,2024-06,Two or More Races,34
+county,Rutland,2024-06,Unreported,93
+county,Washington,2024-06,American Indian or Alaskan Native,0
+county,Washington,2024-06,Asian,*
+county,Washington,2024-06,Black or African American,11
+county,Washington,2024-06,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-06,Prefer not to answer,*
+county,Washington,2024-06,Prefer to self-describe,*
+county,Washington,2024-06,White,474
+county,Washington,2024-06,Two or More Races,17
+county,Washington,2024-06,Unreported,42
+county,Windham,2024-06,American Indian or Alaskan Native,*
+county,Windham,2024-06,Asian,*
+county,Windham,2024-06,Black or African American,17
+county,Windham,2024-06,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-06,Prefer not to answer,11
+county,Windham,2024-06,Prefer to self-describe,14
+county,Windham,2024-06,White,467
+county,Windham,2024-06,Two or More Races,33
+county,Windham,2024-06,Unreported,80
+county,Windsor,2024-06,American Indian or Alaskan Native,*
+county,Windsor,2024-06,Asian,*
+county,Windsor,2024-06,Black or African American,11
+county,Windsor,2024-06,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-06,Prefer not to answer,*
+county,Windsor,2024-06,Prefer to self-describe,12
+county,Windsor,2024-06,White,627
+county,Windsor,2024-06,Two or More Races,31
+county,Windsor,2024-06,Unreported,84
+county,Addison,2024-05,American Indian or Alaskan Native,*
+county,Addison,2024-05,Asian,0
+county,Addison,2024-05,Black or African American,0
+county,Addison,2024-05,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-05,Prefer not to answer,0
+county,Addison,2024-05,Prefer to self-describe,*
+county,Addison,2024-05,White,76
+county,Addison,2024-05,Two or More Races,0
+county,Addison,2024-05,Unreported,436
+county,Bennington,2024-05,American Indian or Alaskan Native,0
+county,Bennington,2024-05,Asian,*
+county,Bennington,2024-05,Black or African American,14
+county,Bennington,2024-05,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-05,Prefer not to answer,0
+county,Bennington,2024-05,Prefer to self-describe,*
+county,Bennington,2024-05,White,573
+county,Bennington,2024-05,Two or More Races,36
+county,Bennington,2024-05,Unreported,57
+county,Caledonia,2024-05,American Indian or Alaskan Native,0
+county,Caledonia,2024-05,Asian,*
+county,Caledonia,2024-05,Black or African American,*
+county,Caledonia,2024-05,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-05,Prefer not to answer,0
+county,Caledonia,2024-05,Prefer to self-describe,0
+county,Caledonia,2024-05,White,258
+county,Caledonia,2024-05,Two or More Races,14
+county,Caledonia,2024-05,Unreported,409
+county,Chittenden,2024-05,American Indian or Alaskan Native,*
+county,Chittenden,2024-05,Asian,41
+county,Chittenden,2024-05,Black or African American,218
+county,Chittenden,2024-05,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-05,Prefer not to answer,16
+county,Chittenden,2024-05,Prefer to self-describe,*
+county,Chittenden,2024-05,White,885
+county,Chittenden,2024-05,Two or More Races,77
+county,Chittenden,2024-05,Unreported,462
+county,Essex,2024-05,American Indian or Alaskan Native,0
+county,Essex,2024-05,Asian,0
+county,Essex,2024-05,Black or African American,*
+county,Essex,2024-05,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-05,Prefer not to answer,0
+county,Essex,2024-05,Prefer to self-describe,*
+county,Essex,2024-05,White,41
+county,Essex,2024-05,Two or More Races,0
+county,Essex,2024-05,Unreported,54
+county,Franklin,2024-05,American Indian or Alaskan Native,*
+county,Franklin,2024-05,Asian,0
+county,Franklin,2024-05,Black or African American,10
+county,Franklin,2024-05,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-05,Prefer not to answer,*
+county,Franklin,2024-05,Prefer to self-describe,*
+county,Franklin,2024-05,White,514
+county,Franklin,2024-05,Two or More Races,17
+county,Franklin,2024-05,Unreported,78
+county,Grand Isle,2024-05,American Indian or Alaskan Native,*
+county,Grand Isle,2024-05,Asian,*
+county,Grand Isle,2024-05,Black or African American,*
+county,Grand Isle,2024-05,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-05,Prefer not to answer,0
+county,Grand Isle,2024-05,Prefer to self-describe,*
+county,Grand Isle,2024-05,White,52
+county,Grand Isle,2024-05,Two or More Races,*
+county,Grand Isle,2024-05,Unreported,*
+county,Lamoille,2024-05,American Indian or Alaskan Native,*
+county,Lamoille,2024-05,Asian,0
+county,Lamoille,2024-05,Black or African American,11
+county,Lamoille,2024-05,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-05,Prefer not to answer,*
+county,Lamoille,2024-05,Prefer to self-describe,*
+county,Lamoille,2024-05,White,340
+county,Lamoille,2024-05,Two or More Races,22
+county,Lamoille,2024-05,Unreported,*
+county,Orange,2024-05,American Indian or Alaskan Native,0
+county,Orange,2024-05,Asian,*
+county,Orange,2024-05,Black or African American,*
+county,Orange,2024-05,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-05,Prefer not to answer,*
+county,Orange,2024-05,Prefer to self-describe,*
+county,Orange,2024-05,White,235
+county,Orange,2024-05,Two or More Races,*
+county,Orange,2024-05,Unreported,41
+county,Orleans,2024-05,American Indian or Alaskan Native,0
+county,Orleans,2024-05,Asian,0
+county,Orleans,2024-05,Black or African American,*
+county,Orleans,2024-05,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-05,Prefer not to answer,*
+county,Orleans,2024-05,Prefer to self-describe,0
+county,Orleans,2024-05,White,314
+county,Orleans,2024-05,Two or More Races,*
+county,Orleans,2024-05,Unreported,131
+county,Rutland,2024-05,American Indian or Alaskan Native,0
+county,Rutland,2024-05,Asian,*
+county,Rutland,2024-05,Black or African American,31
+county,Rutland,2024-05,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-05,Prefer not to answer,*
+county,Rutland,2024-05,Prefer to self-describe,0
+county,Rutland,2024-05,White,793
+county,Rutland,2024-05,Two or More Races,28
+county,Rutland,2024-05,Unreported,84
+county,Washington,2024-05,American Indian or Alaskan Native,0
+county,Washington,2024-05,Asian,*
+county,Washington,2024-05,Black or African American,*
+county,Washington,2024-05,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-05,Prefer not to answer,*
+county,Washington,2024-05,Prefer to self-describe,*
+county,Washington,2024-05,White,395
+county,Washington,2024-05,Two or More Races,16
+county,Washington,2024-05,Unreported,38
+county,Windham,2024-05,American Indian or Alaskan Native,*
+county,Windham,2024-05,Asian,*
+county,Windham,2024-05,Black or African American,15
+county,Windham,2024-05,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-05,Prefer not to answer,10
+county,Windham,2024-05,Prefer to self-describe,13
+county,Windham,2024-05,White,413
+county,Windham,2024-05,Two or More Races,27
+county,Windham,2024-05,Unreported,82
+county,Windsor,2024-05,American Indian or Alaskan Native,*
+county,Windsor,2024-05,Asian,*
+county,Windsor,2024-05,Black or African American,10
+county,Windsor,2024-05,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-05,Prefer not to answer,*
+county,Windsor,2024-05,Prefer to self-describe,12
+county,Windsor,2024-05,White,514
+county,Windsor,2024-05,Two or More Races,29
+county,Windsor,2024-05,Unreported,71
+county,Addison,2024-04,American Indian or Alaskan Native,*
+county,Addison,2024-04,Asian,0
+county,Addison,2024-04,Black or African American,0
+county,Addison,2024-04,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-04,Prefer not to answer,0
+county,Addison,2024-04,Prefer to self-describe,*
+county,Addison,2024-04,White,77
+county,Addison,2024-04,Two or More Races,0
+county,Addison,2024-04,Unreported,432
+county,Bennington,2024-04,American Indian or Alaskan Native,0
+county,Bennington,2024-04,Asian,*
+county,Bennington,2024-04,Black or African American,15
+county,Bennington,2024-04,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-04,Prefer not to answer,0
+county,Bennington,2024-04,Prefer to self-describe,*
+county,Bennington,2024-04,White,577
+county,Bennington,2024-04,Two or More Races,34
+county,Bennington,2024-04,Unreported,56
+county,Caledonia,2024-04,American Indian or Alaskan Native,*
+county,Caledonia,2024-04,Asian,*
+county,Caledonia,2024-04,Black or African American,*
+county,Caledonia,2024-04,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-04,Prefer not to answer,0
+county,Caledonia,2024-04,Prefer to self-describe,0
+county,Caledonia,2024-04,White,251
+county,Caledonia,2024-04,Two or More Races,13
+county,Caledonia,2024-04,Unreported,397
+county,Chittenden,2024-04,American Indian or Alaskan Native,*
+county,Chittenden,2024-04,Asian,41
+county,Chittenden,2024-04,Black or African American,217
+county,Chittenden,2024-04,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-04,Prefer not to answer,*
+county,Chittenden,2024-04,Prefer to self-describe,16
+county,Chittenden,2024-04,White,887
+county,Chittenden,2024-04,Two or More Races,76
+county,Chittenden,2024-04,Unreported,479
+county,Essex,2024-04,American Indian or Alaskan Native,0
+county,Essex,2024-04,Asian,0
+county,Essex,2024-04,Black or African American,*
+county,Essex,2024-04,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-04,Prefer not to answer,0
+county,Essex,2024-04,Prefer to self-describe,*
+county,Essex,2024-04,White,34
+county,Essex,2024-04,Two or More Races,0
+county,Essex,2024-04,Unreported,53
+county,Franklin,2024-04,American Indian or Alaskan Native,*
+county,Franklin,2024-04,Asian,0
+county,Franklin,2024-04,Black or African American,10
+county,Franklin,2024-04,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-04,Prefer not to answer,*
+county,Franklin,2024-04,Prefer to self-describe,*
+county,Franklin,2024-04,White,510
+county,Franklin,2024-04,Two or More Races,17
+county,Franklin,2024-04,Unreported,79
+county,Grand Isle,2024-04,American Indian or Alaskan Native,*
+county,Grand Isle,2024-04,Asian,*
+county,Grand Isle,2024-04,Black or African American,*
+county,Grand Isle,2024-04,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-04,Prefer not to answer,0
+county,Grand Isle,2024-04,Prefer to self-describe,*
+county,Grand Isle,2024-04,White,54
+county,Grand Isle,2024-04,Two or More Races,*
+county,Grand Isle,2024-04,Unreported,*
+county,Lamoille,2024-04,American Indian or Alaskan Native,*
+county,Lamoille,2024-04,Asian,0
+county,Lamoille,2024-04,Black or African American,10
+county,Lamoille,2024-04,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-04,Prefer not to answer,*
+county,Lamoille,2024-04,Prefer to self-describe,*
+county,Lamoille,2024-04,White,336
+county,Lamoille,2024-04,Two or More Races,23
+county,Lamoille,2024-04,Unreported,*
+county,Orange,2024-04,American Indian or Alaskan Native,0
+county,Orange,2024-04,Asian,*
+county,Orange,2024-04,Black or African American,*
+county,Orange,2024-04,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-04,Prefer not to answer,*
+county,Orange,2024-04,Prefer to self-describe,*
+county,Orange,2024-04,White,223
+county,Orange,2024-04,Two or More Races,*
+county,Orange,2024-04,Unreported,41
+county,Orleans,2024-04,American Indian or Alaskan Native,0
+county,Orleans,2024-04,Asian,0
+county,Orleans,2024-04,Black or African American,*
+county,Orleans,2024-04,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-04,Prefer not to answer,*
+county,Orleans,2024-04,Prefer to self-describe,0
+county,Orleans,2024-04,White,301
+county,Orleans,2024-04,Two or More Races,*
+county,Orleans,2024-04,Unreported,131
+county,Rutland,2024-04,American Indian or Alaskan Native,0
+county,Rutland,2024-04,Asian,*
+county,Rutland,2024-04,Black or African American,24
+county,Rutland,2024-04,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-04,Prefer not to answer,*
+county,Rutland,2024-04,Prefer to self-describe,0
+county,Rutland,2024-04,White,774
+county,Rutland,2024-04,Two or More Races,28
+county,Rutland,2024-04,Unreported,89
+county,Washington,2024-04,American Indian or Alaskan Native,0
+county,Washington,2024-04,Asian,*
+county,Washington,2024-04,Black or African American,*
+county,Washington,2024-04,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-04,Prefer not to answer,*
+county,Washington,2024-04,Prefer to self-describe,*
+county,Washington,2024-04,White,383
+county,Washington,2024-04,Two or More Races,16
+county,Washington,2024-04,Unreported,41
+county,Windham,2024-04,American Indian or Alaskan Native,*
+county,Windham,2024-04,Asian,*
+county,Windham,2024-04,Black or African American,15
+county,Windham,2024-04,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-04,Prefer not to answer,10
+county,Windham,2024-04,Prefer to self-describe,11
+county,Windham,2024-04,White,407
+county,Windham,2024-04,Two or More Races,30
+county,Windham,2024-04,Unreported,87
+county,Windsor,2024-04,American Indian or Alaskan Native,*
+county,Windsor,2024-04,Asian,*
+county,Windsor,2024-04,Black or African American,10
+county,Windsor,2024-04,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-04,Prefer not to answer,*
+county,Windsor,2024-04,Prefer to self-describe,14
+county,Windsor,2024-04,White,512
+county,Windsor,2024-04,Two or More Races,30
+county,Windsor,2024-04,Unreported,72
+county,Addison,2024-03,American Indian or Alaskan Native,*
+county,Addison,2024-03,Asian,0
+county,Addison,2024-03,Black or African American,0
+county,Addison,2024-03,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-03,Prefer not to answer,0
+county,Addison,2024-03,Prefer to self-describe,*
+county,Addison,2024-03,White,73
+county,Addison,2024-03,Two or More Races,0
+county,Addison,2024-03,Unreported,415
+county,Bennington,2024-03,American Indian or Alaskan Native,*
+county,Bennington,2024-03,Asian,*
+county,Bennington,2024-03,Black or African American,15
+county,Bennington,2024-03,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-03,Prefer not to answer,0
+county,Bennington,2024-03,Prefer to self-describe,*
+county,Bennington,2024-03,White,553
+county,Bennington,2024-03,Two or More Races,32
+county,Bennington,2024-03,Unreported,56
+county,Caledonia,2024-03,American Indian or Alaskan Native,*
+county,Caledonia,2024-03,Asian,*
+county,Caledonia,2024-03,Black or African American,*
+county,Caledonia,2024-03,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-03,Prefer not to answer,0
+county,Caledonia,2024-03,Prefer to self-describe,0
+county,Caledonia,2024-03,White,243
+county,Caledonia,2024-03,Two or More Races,12
+county,Caledonia,2024-03,Unreported,378
+county,Chittenden,2024-03,American Indian or Alaskan Native,*
+county,Chittenden,2024-03,Asian,39
+county,Chittenden,2024-03,Black or African American,219
+county,Chittenden,2024-03,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-03,Prefer not to answer,*
+county,Chittenden,2024-03,Prefer to self-describe,16
+county,Chittenden,2024-03,White,810
+county,Chittenden,2024-03,Two or More Races,72
+county,Chittenden,2024-03,Unreported,490
+county,Essex,2024-03,American Indian or Alaskan Native,0
+county,Essex,2024-03,Asian,0
+county,Essex,2024-03,Black or African American,0
+county,Essex,2024-03,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-03,Prefer not to answer,0
+county,Essex,2024-03,Prefer to self-describe,*
+county,Essex,2024-03,White,*
+county,Essex,2024-03,Two or More Races,0
+county,Essex,2024-03,Unreported,49
+county,Franklin,2024-03,American Indian or Alaskan Native,*
+county,Franklin,2024-03,Asian,0
+county,Franklin,2024-03,Black or African American,10
+county,Franklin,2024-03,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-03,Prefer not to answer,*
+county,Franklin,2024-03,Prefer to self-describe,*
+county,Franklin,2024-03,White,484
+county,Franklin,2024-03,Two or More Races,17
+county,Franklin,2024-03,Unreported,76
+county,Grand Isle,2024-03,American Indian or Alaskan Native,*
+county,Grand Isle,2024-03,Asian,*
+county,Grand Isle,2024-03,Black or African American,*
+county,Grand Isle,2024-03,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-03,Prefer not to answer,0
+county,Grand Isle,2024-03,Prefer to self-describe,*
+county,Grand Isle,2024-03,White,*
+county,Grand Isle,2024-03,Two or More Races,*
+county,Grand Isle,2024-03,Unreported,*
+county,Lamoille,2024-03,American Indian or Alaskan Native,*
+county,Lamoille,2024-03,Asian,0
+county,Lamoille,2024-03,Black or African American,10
+county,Lamoille,2024-03,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-03,Prefer not to answer,*
+county,Lamoille,2024-03,Prefer to self-describe,*
+county,Lamoille,2024-03,White,320
+county,Lamoille,2024-03,Two or More Races,22
+county,Lamoille,2024-03,Unreported,*
+county,Orange,2024-03,American Indian or Alaskan Native,0
+county,Orange,2024-03,Asian,*
+county,Orange,2024-03,Black or African American,*
+county,Orange,2024-03,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-03,Prefer not to answer,*
+county,Orange,2024-03,Prefer to self-describe,0
+county,Orange,2024-03,White,213
+county,Orange,2024-03,Two or More Races,*
+county,Orange,2024-03,Unreported,44
+county,Orleans,2024-03,American Indian or Alaskan Native,0
+county,Orleans,2024-03,Asian,0
+county,Orleans,2024-03,Black or African American,*
+county,Orleans,2024-03,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-03,Prefer not to answer,*
+county,Orleans,2024-03,Prefer to self-describe,0
+county,Orleans,2024-03,White,290
+county,Orleans,2024-03,Two or More Races,*
+county,Orleans,2024-03,Unreported,133
+county,Rutland,2024-03,American Indian or Alaskan Native,0
+county,Rutland,2024-03,Asian,*
+county,Rutland,2024-03,Black or African American,25
+county,Rutland,2024-03,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-03,Prefer not to answer,*
+county,Rutland,2024-03,Prefer to self-describe,0
+county,Rutland,2024-03,White,746
+county,Rutland,2024-03,Two or More Races,28
+county,Rutland,2024-03,Unreported,85
+county,Washington,2024-03,American Indian or Alaskan Native,0
+county,Washington,2024-03,Asian,*
+county,Washington,2024-03,Black or African American,*
+county,Washington,2024-03,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-03,Prefer not to answer,*
+county,Washington,2024-03,Prefer to self-describe,*
+county,Washington,2024-03,White,362
+county,Washington,2024-03,Two or More Races,15
+county,Washington,2024-03,Unreported,40
+county,Windham,2024-03,American Indian or Alaskan Native,*
+county,Windham,2024-03,Asian,*
+county,Windham,2024-03,Black or African American,14
+county,Windham,2024-03,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-03,Prefer not to answer,10
+county,Windham,2024-03,Prefer to self-describe,11
+county,Windham,2024-03,White,383
+county,Windham,2024-03,Two or More Races,25
+county,Windham,2024-03,Unreported,88
+county,Windsor,2024-03,American Indian or Alaskan Native,*
+county,Windsor,2024-03,Asian,*
+county,Windsor,2024-03,Black or African American,10
+county,Windsor,2024-03,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-03,Prefer not to answer,*
+county,Windsor,2024-03,Prefer to self-describe,13
+county,Windsor,2024-03,White,494
+county,Windsor,2024-03,Two or More Races,28
+county,Windsor,2024-03,Unreported,66
+county,Addison,2024-02,American Indian or Alaskan Native,*
+county,Addison,2024-02,Asian,0
+county,Addison,2024-02,Black or African American,0
+county,Addison,2024-02,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-02,Prefer not to answer,0
+county,Addison,2024-02,Prefer to self-describe,*
+county,Addison,2024-02,White,76
+county,Addison,2024-02,Two or More Races,0
+county,Addison,2024-02,Unreported,404
+county,Bennington,2024-02,American Indian or Alaskan Native,*
+county,Bennington,2024-02,Asian,*
+county,Bennington,2024-02,Black or African American,15
+county,Bennington,2024-02,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-02,Prefer not to answer,0
+county,Bennington,2024-02,Prefer to self-describe,*
+county,Bennington,2024-02,White,542
+county,Bennington,2024-02,Two or More Races,33
+county,Bennington,2024-02,Unreported,50
+county,Caledonia,2024-02,American Indian or Alaskan Native,*
+county,Caledonia,2024-02,Asian,*
+county,Caledonia,2024-02,Black or African American,*
+county,Caledonia,2024-02,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-02,Prefer not to answer,0
+county,Caledonia,2024-02,Prefer to self-describe,*
+county,Caledonia,2024-02,White,238
+county,Caledonia,2024-02,Two or More Races,*
+county,Caledonia,2024-02,Unreported,361
+county,Chittenden,2024-02,American Indian or Alaskan Native,*
+county,Chittenden,2024-02,Asian,39
+county,Chittenden,2024-02,Black or African American,212
+county,Chittenden,2024-02,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-02,Prefer not to answer,*
+county,Chittenden,2024-02,Prefer to self-describe,16
+county,Chittenden,2024-02,White,775
+county,Chittenden,2024-02,Two or More Races,69
+county,Chittenden,2024-02,Unreported,491
+county,Essex,2024-02,American Indian or Alaskan Native,0
+county,Essex,2024-02,Asian,0
+county,Essex,2024-02,Black or African American,0
+county,Essex,2024-02,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-02,Prefer not to answer,0
+county,Essex,2024-02,Prefer to self-describe,*
+county,Essex,2024-02,White,*
+county,Essex,2024-02,Two or More Races,0
+county,Essex,2024-02,Unreported,45
+county,Franklin,2024-02,American Indian or Alaskan Native,*
+county,Franklin,2024-02,Asian,0
+county,Franklin,2024-02,Black or African American,11
+county,Franklin,2024-02,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-02,Prefer not to answer,*
+county,Franklin,2024-02,Prefer to self-describe,*
+county,Franklin,2024-02,White,480
+county,Franklin,2024-02,Two or More Races,16
+county,Franklin,2024-02,Unreported,78
+county,Grand Isle,2024-02,American Indian or Alaskan Native,*
+county,Grand Isle,2024-02,Asian,*
+county,Grand Isle,2024-02,Black or African American,*
+county,Grand Isle,2024-02,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-02,Prefer not to answer,0
+county,Grand Isle,2024-02,Prefer to self-describe,*
+county,Grand Isle,2024-02,White,*
+county,Grand Isle,2024-02,Two or More Races,*
+county,Grand Isle,2024-02,Unreported,*
+county,Lamoille,2024-02,American Indian or Alaskan Native,*
+county,Lamoille,2024-02,Asian,0
+county,Lamoille,2024-02,Black or African American,*
+county,Lamoille,2024-02,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-02,Prefer not to answer,*
+county,Lamoille,2024-02,Prefer to self-describe,*
+county,Lamoille,2024-02,White,311
+county,Lamoille,2024-02,Two or More Races,22
+county,Lamoille,2024-02,Unreported,*
+county,Orange,2024-02,American Indian or Alaskan Native,0
+county,Orange,2024-02,Asian,*
+county,Orange,2024-02,Black or African American,*
+county,Orange,2024-02,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-02,Prefer not to answer,*
+county,Orange,2024-02,Prefer to self-describe,0
+county,Orange,2024-02,White,206
+county,Orange,2024-02,Two or More Races,*
+county,Orange,2024-02,Unreported,39
+county,Orleans,2024-02,American Indian or Alaskan Native,0
+county,Orleans,2024-02,Asian,0
+county,Orleans,2024-02,Black or African American,*
+county,Orleans,2024-02,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-02,Prefer not to answer,*
+county,Orleans,2024-02,Prefer to self-describe,0
+county,Orleans,2024-02,White,293
+county,Orleans,2024-02,Two or More Races,*
+county,Orleans,2024-02,Unreported,135
+county,Rutland,2024-02,American Indian or Alaskan Native,0
+county,Rutland,2024-02,Asian,*
+county,Rutland,2024-02,Black or African American,25
+county,Rutland,2024-02,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-02,Prefer not to answer,*
+county,Rutland,2024-02,Prefer to self-describe,0
+county,Rutland,2024-02,White,734
+county,Rutland,2024-02,Two or More Races,29
+county,Rutland,2024-02,Unreported,87
+county,Washington,2024-02,American Indian or Alaskan Native,0
+county,Washington,2024-02,Asian,*
+county,Washington,2024-02,Black or African American,*
+county,Washington,2024-02,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-02,Prefer not to answer,*
+county,Washington,2024-02,Prefer to self-describe,*
+county,Washington,2024-02,White,353
+county,Washington,2024-02,Two or More Races,15
+county,Washington,2024-02,Unreported,38
+county,Windham,2024-02,American Indian or Alaskan Native,*
+county,Windham,2024-02,Asian,*
+county,Windham,2024-02,Black or African American,16
+county,Windham,2024-02,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-02,Prefer not to answer,10
+county,Windham,2024-02,Prefer to self-describe,11
+county,Windham,2024-02,White,370
+county,Windham,2024-02,Two or More Races,22
+county,Windham,2024-02,Unreported,88
+county,Windsor,2024-02,American Indian or Alaskan Native,*
+county,Windsor,2024-02,Asian,*
+county,Windsor,2024-02,Black or African American,10
+county,Windsor,2024-02,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-02,Prefer not to answer,*
+county,Windsor,2024-02,Prefer to self-describe,10
+county,Windsor,2024-02,White,481
+county,Windsor,2024-02,Two or More Races,28
+county,Windsor,2024-02,Unreported,71
+county,Addison,2024-01,American Indian or Alaskan Native,*
+county,Addison,2024-01,Asian,0
+county,Addison,2024-01,Black or African American,0
+county,Addison,2024-01,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-01,Prefer not to answer,0
+county,Addison,2024-01,Prefer to self-describe,*
+county,Addison,2024-01,White,76
+county,Addison,2024-01,Two or More Races,0
+county,Addison,2024-01,Unreported,397
+county,Bennington,2024-01,American Indian or Alaskan Native,*
+county,Bennington,2024-01,Asian,*
+county,Bennington,2024-01,Black or African American,15
+county,Bennington,2024-01,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-01,Prefer not to answer,0
+county,Bennington,2024-01,Prefer to self-describe,*
+county,Bennington,2024-01,White,542
+county,Bennington,2024-01,Two or More Races,32
+county,Bennington,2024-01,Unreported,48
+county,Caledonia,2024-01,American Indian or Alaskan Native,*
+county,Caledonia,2024-01,Asian,*
+county,Caledonia,2024-01,Black or African American,*
+county,Caledonia,2024-01,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-01,Prefer not to answer,0
+county,Caledonia,2024-01,Prefer to self-describe,*
+county,Caledonia,2024-01,White,238
+county,Caledonia,2024-01,Two or More Races,*
+county,Caledonia,2024-01,Unreported,363
+county,Chittenden,2024-01,American Indian or Alaskan Native,*
+county,Chittenden,2024-01,Asian,39
+county,Chittenden,2024-01,Black or African American,212
+county,Chittenden,2024-01,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-01,Prefer not to answer,*
+county,Chittenden,2024-01,Prefer to self-describe,16
+county,Chittenden,2024-01,White,775
+county,Chittenden,2024-01,Two or More Races,63
+county,Chittenden,2024-01,Unreported,487
+county,Essex,2024-01,American Indian or Alaskan Native,0
+county,Essex,2024-01,Asian,0
+county,Essex,2024-01,Black or African American,0
+county,Essex,2024-01,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-01,Prefer not to answer,0
+county,Essex,2024-01,Prefer to self-describe,*
+county,Essex,2024-01,White,*
+county,Essex,2024-01,Two or More Races,0
+county,Essex,2024-01,Unreported,47
+county,Franklin,2024-01,American Indian or Alaskan Native,*
+county,Franklin,2024-01,Asian,0
+county,Franklin,2024-01,Black or African American,11
+county,Franklin,2024-01,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-01,Prefer not to answer,*
+county,Franklin,2024-01,Prefer to self-describe,*
+county,Franklin,2024-01,White,480
+county,Franklin,2024-01,Two or More Races,17
+county,Franklin,2024-01,Unreported,80
+county,Grand Isle,2024-01,American Indian or Alaskan Native,*
+county,Grand Isle,2024-01,Asian,*
+county,Grand Isle,2024-01,Black or African American,*
+county,Grand Isle,2024-01,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-01,Prefer not to answer,0
+county,Grand Isle,2024-01,Prefer to self-describe,*
+county,Grand Isle,2024-01,White,*
+county,Grand Isle,2024-01,Two or More Races,*
+county,Grand Isle,2024-01,Unreported,*
+county,Lamoille,2024-01,American Indian or Alaskan Native,*
+county,Lamoille,2024-01,Asian,0
+county,Lamoille,2024-01,Black or African American,*
+county,Lamoille,2024-01,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-01,Prefer not to answer,*
+county,Lamoille,2024-01,Prefer to self-describe,*
+county,Lamoille,2024-01,White,311
+county,Lamoille,2024-01,Two or More Races,22
+county,Lamoille,2024-01,Unreported,*
+county,Orange,2024-01,American Indian or Alaskan Native,0
+county,Orange,2024-01,Asian,*
+county,Orange,2024-01,Black or African American,*
+county,Orange,2024-01,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-01,Prefer not to answer,*
+county,Orange,2024-01,Prefer to self-describe,0
+county,Orange,2024-01,White,206
+county,Orange,2024-01,Two or More Races,*
+county,Orange,2024-01,Unreported,38
+county,Orleans,2024-01,American Indian or Alaskan Native,0
+county,Orleans,2024-01,Asian,0
+county,Orleans,2024-01,Black or African American,*
+county,Orleans,2024-01,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-01,Prefer not to answer,*
+county,Orleans,2024-01,Prefer to self-describe,0
+county,Orleans,2024-01,White,293
+county,Orleans,2024-01,Two or More Races,*
+county,Orleans,2024-01,Unreported,140
+county,Rutland,2024-01,American Indian or Alaskan Native,0
+county,Rutland,2024-01,Asian,*
+county,Rutland,2024-01,Black or African American,25
+county,Rutland,2024-01,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-01,Prefer not to answer,*
+county,Rutland,2024-01,Prefer to self-describe,0
+county,Rutland,2024-01,White,734
+county,Rutland,2024-01,Two or More Races,32
+county,Rutland,2024-01,Unreported,88
+county,Washington,2024-01,American Indian or Alaskan Native,0
+county,Washington,2024-01,Asian,*
+county,Washington,2024-01,Black or African American,*
+county,Washington,2024-01,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-01,Prefer not to answer,*
+county,Washington,2024-01,Prefer to self-describe,*
+county,Washington,2024-01,White,353
+county,Washington,2024-01,Two or More Races,16
+county,Washington,2024-01,Unreported,37
+county,Windham,2024-01,American Indian or Alaskan Native,*
+county,Windham,2024-01,Asian,*
+county,Windham,2024-01,Black or African American,16
+county,Windham,2024-01,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-01,Prefer not to answer,10
+county,Windham,2024-01,Prefer to self-describe,11
+county,Windham,2024-01,White,370
+county,Windham,2024-01,Two or More Races,22
+county,Windham,2024-01,Unreported,92
+county,Windsor,2024-01,American Indian or Alaskan Native,*
+county,Windsor,2024-01,Asian,*
+county,Windsor,2024-01,Black or African American,10
+county,Windsor,2024-01,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-01,Prefer not to answer,*
+county,Windsor,2024-01,Prefer to self-describe,10
+county,Windsor,2024-01,White,481
+county,Windsor,2024-01,Two or More Races,29
+county,Windsor,2024-01,Unreported,75
+county,Addison,2023-12,American Indian or Alaskan Native,0
+county,Addison,2023-12,Asian,0
+county,Addison,2023-12,Black or African American,0
+county,Addison,2023-12,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-12,Prefer not to answer,0
+county,Addison,2023-12,Prefer to self-describe,*
+county,Addison,2023-12,White,*
+county,Addison,2023-12,Two or More Races,0
+county,Addison,2023-12,Unreported,380
+county,Bennington,2023-12,American Indian or Alaskan Native,*
+county,Bennington,2023-12,Asian,*
+county,Bennington,2023-12,Black or African American,12
+county,Bennington,2023-12,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-12,Prefer not to answer,0
+county,Bennington,2023-12,Prefer to self-describe,0
+county,Bennington,2023-12,White,546
+county,Bennington,2023-12,Two or More Races,30
+county,Bennington,2023-12,Unreported,52
+county,Caledonia,2023-12,American Indian or Alaskan Native,*
+county,Caledonia,2023-12,Asian,*
+county,Caledonia,2023-12,Black or African American,*
+county,Caledonia,2023-12,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-12,Prefer not to answer,*
+county,Caledonia,2023-12,Prefer to self-describe,*
+county,Caledonia,2023-12,White,233
+county,Caledonia,2023-12,Two or More Races,11
+county,Caledonia,2023-12,Unreported,377
+county,Chittenden,2023-12,American Indian or Alaskan Native,*
+county,Chittenden,2023-12,Asian,40
+county,Chittenden,2023-12,Black or African American,198
+county,Chittenden,2023-12,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-12,Prefer not to answer,*
+county,Chittenden,2023-12,Prefer to self-describe,15
+county,Chittenden,2023-12,White,752
+county,Chittenden,2023-12,Two or More Races,64
+county,Chittenden,2023-12,Unreported,501
+county,Essex,2023-12,American Indian or Alaskan Native,0
+county,Essex,2023-12,Asian,0
+county,Essex,2023-12,Black or African American,0
+county,Essex,2023-12,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-12,Prefer not to answer,0
+county,Essex,2023-12,Prefer to self-describe,*
+county,Essex,2023-12,White,*
+county,Essex,2023-12,Two or More Races,0
+county,Essex,2023-12,Unreported,47
+county,Franklin,2023-12,American Indian or Alaskan Native,*
+county,Franklin,2023-12,Asian,0
+county,Franklin,2023-12,Black or African American,11
+county,Franklin,2023-12,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-12,Prefer not to answer,*
+county,Franklin,2023-12,Prefer to self-describe,*
+county,Franklin,2023-12,White,491
+county,Franklin,2023-12,Two or More Races,13
+county,Franklin,2023-12,Unreported,78
+county,Grand Isle,2023-12,American Indian or Alaskan Native,*
+county,Grand Isle,2023-12,Asian,*
+county,Grand Isle,2023-12,Black or African American,*
+county,Grand Isle,2023-12,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-12,Prefer not to answer,0
+county,Grand Isle,2023-12,Prefer to self-describe,0
+county,Grand Isle,2023-12,White,45
+county,Grand Isle,2023-12,Two or More Races,*
+county,Grand Isle,2023-12,Unreported,11
+county,Lamoille,2023-12,American Indian or Alaskan Native,*
+county,Lamoille,2023-12,Asian,0
+county,Lamoille,2023-12,Black or African American,*
+county,Lamoille,2023-12,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-12,Prefer not to answer,*
+county,Lamoille,2023-12,Prefer to self-describe,*
+county,Lamoille,2023-12,White,303
+county,Lamoille,2023-12,Two or More Races,22
+county,Lamoille,2023-12,Unreported,34
+county,Orange,2023-12,American Indian or Alaskan Native,0
+county,Orange,2023-12,Asian,*
+county,Orange,2023-12,Black or African American,*
+county,Orange,2023-12,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-12,Prefer not to answer,*
+county,Orange,2023-12,Prefer to self-describe,0
+county,Orange,2023-12,White,195
+county,Orange,2023-12,Two or More Races,*
+county,Orange,2023-12,Unreported,41
+county,Orleans,2023-12,American Indian or Alaskan Native,0
+county,Orleans,2023-12,Asian,0
+county,Orleans,2023-12,Black or African American,*
+county,Orleans,2023-12,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-12,Prefer not to answer,*
+county,Orleans,2023-12,Prefer to self-describe,0
+county,Orleans,2023-12,White,276
+county,Orleans,2023-12,Two or More Races,*
+county,Orleans,2023-12,Unreported,158
+county,Rutland,2023-12,American Indian or Alaskan Native,0
+county,Rutland,2023-12,Asian,*
+county,Rutland,2023-12,Black or African American,20
+county,Rutland,2023-12,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-12,Prefer not to answer,*
+county,Rutland,2023-12,Prefer to self-describe,0
+county,Rutland,2023-12,White,693
+county,Rutland,2023-12,Two or More Races,33
+county,Rutland,2023-12,Unreported,93
+county,Washington,2023-12,American Indian or Alaskan Native,0
+county,Washington,2023-12,Asian,*
+county,Washington,2023-12,Black or African American,*
+county,Washington,2023-12,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-12,Prefer not to answer,*
+county,Washington,2023-12,Prefer to self-describe,*
+county,Washington,2023-12,White,347
+county,Washington,2023-12,Two or More Races,16
+county,Washington,2023-12,Unreported,34
+county,Windham,2023-12,American Indian or Alaskan Native,*
+county,Windham,2023-12,Asian,*
+county,Windham,2023-12,Black or African American,14
+county,Windham,2023-12,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-12,Prefer not to answer,*
+county,Windham,2023-12,Prefer to self-describe,10
+county,Windham,2023-12,White,351
+county,Windham,2023-12,Two or More Races,22
+county,Windham,2023-12,Unreported,92
+county,Windsor,2023-12,American Indian or Alaskan Native,*
+county,Windsor,2023-12,Asian,*
+county,Windsor,2023-12,Black or African American,*
+county,Windsor,2023-12,Native Hawaiian or Pacific Islander,*
+county,Windsor,2023-12,Prefer not to answer,0
+county,Windsor,2023-12,Prefer to self-describe,*
+county,Windsor,2023-12,White,483
+county,Windsor,2023-12,Two or More Races,28
+county,Windsor,2023-12,Unreported,69
+county,Addison,2023-11,American Indian or Alaskan Native,0
+county,Addison,2023-11,Asian,0
+county,Addison,2023-11,Black or African American,0
+county,Addison,2023-11,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-11,Prefer not to answer,0
+county,Addison,2023-11,Prefer to self-describe,*
+county,Addison,2023-11,White,*
+county,Addison,2023-11,Two or More Races,0
+county,Addison,2023-11,Unreported,383
+county,Bennington,2023-11,American Indian or Alaskan Native,*
+county,Bennington,2023-11,Asian,*
+county,Bennington,2023-11,Black or African American,11
+county,Bennington,2023-11,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-11,Prefer not to answer,0
+county,Bennington,2023-11,Prefer to self-describe,0
+county,Bennington,2023-11,White,537
+county,Bennington,2023-11,Two or More Races,30
+county,Bennington,2023-11,Unreported,49
+county,Caledonia,2023-11,American Indian or Alaskan Native,*
+county,Caledonia,2023-11,Asian,*
+county,Caledonia,2023-11,Black or African American,*
+county,Caledonia,2023-11,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-11,Prefer not to answer,*
+county,Caledonia,2023-11,Prefer to self-describe,*
+county,Caledonia,2023-11,White,235
+county,Caledonia,2023-11,Two or More Races,10
+county,Caledonia,2023-11,Unreported,365
+county,Chittenden,2023-11,American Indian or Alaskan Native,*
+county,Chittenden,2023-11,Asian,44
+county,Chittenden,2023-11,Black or African American,196
+county,Chittenden,2023-11,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-11,Prefer not to answer,*
+county,Chittenden,2023-11,Prefer to self-describe,13
+county,Chittenden,2023-11,White,742
+county,Chittenden,2023-11,Two or More Races,67
+county,Chittenden,2023-11,Unreported,499
+county,Essex,2023-11,American Indian or Alaskan Native,0
+county,Essex,2023-11,Asian,0
+county,Essex,2023-11,Black or African American,0
+county,Essex,2023-11,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-11,Prefer not to answer,0
+county,Essex,2023-11,Prefer to self-describe,*
+county,Essex,2023-11,White,*
+county,Essex,2023-11,Two or More Races,0
+county,Essex,2023-11,Unreported,46
+county,Franklin,2023-11,American Indian or Alaskan Native,0
+county,Franklin,2023-11,Asian,0
+county,Franklin,2023-11,Black or African American,11
+county,Franklin,2023-11,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-11,Prefer not to answer,*
+county,Franklin,2023-11,Prefer to self-describe,*
+county,Franklin,2023-11,White,468
+county,Franklin,2023-11,Two or More Races,13
+county,Franklin,2023-11,Unreported,79
+county,Grand Isle,2023-11,American Indian or Alaskan Native,*
+county,Grand Isle,2023-11,Asian,*
+county,Grand Isle,2023-11,Black or African American,*
+county,Grand Isle,2023-11,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-11,Prefer not to answer,0
+county,Grand Isle,2023-11,Prefer to self-describe,0
+county,Grand Isle,2023-11,White,43
+county,Grand Isle,2023-11,Two or More Races,*
+county,Grand Isle,2023-11,Unreported,12
+county,Lamoille,2023-11,American Indian or Alaskan Native,0
+county,Lamoille,2023-11,Asian,0
+county,Lamoille,2023-11,Black or African American,*
+county,Lamoille,2023-11,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-11,Prefer not to answer,*
+county,Lamoille,2023-11,Prefer to self-describe,0
+county,Lamoille,2023-11,White,299
+county,Lamoille,2023-11,Two or More Races,21
+county,Lamoille,2023-11,Unreported,43
+county,Orange,2023-11,American Indian or Alaskan Native,0
+county,Orange,2023-11,Asian,*
+county,Orange,2023-11,Black or African American,*
+county,Orange,2023-11,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-11,Prefer not to answer,*
+county,Orange,2023-11,Prefer to self-describe,0
+county,Orange,2023-11,White,191
+county,Orange,2023-11,Two or More Races,*
+county,Orange,2023-11,Unreported,41
+county,Orleans,2023-11,American Indian or Alaskan Native,0
+county,Orleans,2023-11,Asian,0
+county,Orleans,2023-11,Black or African American,*
+county,Orleans,2023-11,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-11,Prefer not to answer,*
+county,Orleans,2023-11,Prefer to self-describe,0
+county,Orleans,2023-11,White,269
+county,Orleans,2023-11,Two or More Races,*
+county,Orleans,2023-11,Unreported,159
+county,Rutland,2023-11,American Indian or Alaskan Native,0
+county,Rutland,2023-11,Asian,*
+county,Rutland,2023-11,Black or African American,18
+county,Rutland,2023-11,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-11,Prefer not to answer,*
+county,Rutland,2023-11,Prefer to self-describe,*
+county,Rutland,2023-11,White,672
+county,Rutland,2023-11,Two or More Races,34
+county,Rutland,2023-11,Unreported,92
+county,Washington,2023-11,American Indian or Alaskan Native,0
+county,Washington,2023-11,Asian,*
+county,Washington,2023-11,Black or African American,*
+county,Washington,2023-11,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-11,Prefer not to answer,*
+county,Washington,2023-11,Prefer to self-describe,*
+county,Washington,2023-11,White,336
+county,Washington,2023-11,Two or More Races,16
+county,Washington,2023-11,Unreported,32
+county,Windham,2023-11,American Indian or Alaskan Native,*
+county,Windham,2023-11,Asian,*
+county,Windham,2023-11,Black or African American,11
+county,Windham,2023-11,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-11,Prefer not to answer,*
+county,Windham,2023-11,Prefer to self-describe,*
+county,Windham,2023-11,White,328
+county,Windham,2023-11,Two or More Races,25
+county,Windham,2023-11,Unreported,102
+county,Windsor,2023-11,American Indian or Alaskan Native,*
+county,Windsor,2023-11,Asian,*
+county,Windsor,2023-11,Black or African American,*
+county,Windsor,2023-11,Native Hawaiian or Pacific Islander,*
+county,Windsor,2023-11,Prefer not to answer,0
+county,Windsor,2023-11,Prefer to self-describe,*
+county,Windsor,2023-11,White,471
+county,Windsor,2023-11,Two or More Races,26
+county,Windsor,2023-11,Unreported,68
+county,Addison,2023-10,American Indian or Alaskan Native,0
+county,Addison,2023-10,Asian,0
+county,Addison,2023-10,Black or African American,0
+county,Addison,2023-10,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-10,Prefer not to answer,0
+county,Addison,2023-10,Prefer to self-describe,*
+county,Addison,2023-10,White,*
+county,Addison,2023-10,Two or More Races,0
+county,Addison,2023-10,Unreported,390
+county,Bennington,2023-10,American Indian or Alaskan Native,0
+county,Bennington,2023-10,Asian,*
+county,Bennington,2023-10,Black or African American,*
+county,Bennington,2023-10,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-10,Prefer not to answer,0
+county,Bennington,2023-10,Prefer to self-describe,0
+county,Bennington,2023-10,White,550
+county,Bennington,2023-10,Two or More Races,30
+county,Bennington,2023-10,Unreported,52
+county,Caledonia,2023-10,American Indian or Alaskan Native,*
+county,Caledonia,2023-10,Asian,*
+county,Caledonia,2023-10,Black or African American,*
+county,Caledonia,2023-10,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-10,Prefer not to answer,*
+county,Caledonia,2023-10,Prefer to self-describe,*
+county,Caledonia,2023-10,White,234
+county,Caledonia,2023-10,Two or More Races,10
+county,Caledonia,2023-10,Unreported,386
+county,Chittenden,2023-10,American Indian or Alaskan Native,*
+county,Chittenden,2023-10,Asian,44
+county,Chittenden,2023-10,Black or African American,195
+county,Chittenden,2023-10,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-10,Prefer not to answer,*
+county,Chittenden,2023-10,Prefer to self-describe,14
+county,Chittenden,2023-10,White,717
+county,Chittenden,2023-10,Two or More Races,68
+county,Chittenden,2023-10,Unreported,519
+county,Essex,2023-10,American Indian or Alaskan Native,0
+county,Essex,2023-10,Asian,0
+county,Essex,2023-10,Black or African American,0
+county,Essex,2023-10,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-10,Prefer not to answer,0
+county,Essex,2023-10,Prefer to self-describe,*
+county,Essex,2023-10,White,*
+county,Essex,2023-10,Two or More Races,0
+county,Essex,2023-10,Unreported,50
+county,Franklin,2023-10,American Indian or Alaskan Native,0
+county,Franklin,2023-10,Asian,0
+county,Franklin,2023-10,Black or African American,10
+county,Franklin,2023-10,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-10,Prefer not to answer,*
+county,Franklin,2023-10,Prefer to self-describe,*
+county,Franklin,2023-10,White,481
+county,Franklin,2023-10,Two or More Races,13
+county,Franklin,2023-10,Unreported,78
+county,Grand Isle,2023-10,American Indian or Alaskan Native,*
+county,Grand Isle,2023-10,Asian,*
+county,Grand Isle,2023-10,Black or African American,*
+county,Grand Isle,2023-10,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-10,Prefer not to answer,0
+county,Grand Isle,2023-10,Prefer to self-describe,0
+county,Grand Isle,2023-10,White,40
+county,Grand Isle,2023-10,Two or More Races,*
+county,Grand Isle,2023-10,Unreported,12
+county,Lamoille,2023-10,American Indian or Alaskan Native,0
+county,Lamoille,2023-10,Asian,0
+county,Lamoille,2023-10,Black or African American,*
+county,Lamoille,2023-10,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-10,Prefer not to answer,*
+county,Lamoille,2023-10,Prefer to self-describe,0
+county,Lamoille,2023-10,White,286
+county,Lamoille,2023-10,Two or More Races,22
+county,Lamoille,2023-10,Unreported,47
+county,Orange,2023-10,American Indian or Alaskan Native,0
+county,Orange,2023-10,Asian,*
+county,Orange,2023-10,Black or African American,*
+county,Orange,2023-10,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-10,Prefer not to answer,*
+county,Orange,2023-10,Prefer to self-describe,0
+county,Orange,2023-10,White,191
+county,Orange,2023-10,Two or More Races,*
+county,Orange,2023-10,Unreported,41
+county,Orleans,2023-10,American Indian or Alaskan Native,0
+county,Orleans,2023-10,Asian,0
+county,Orleans,2023-10,Black or African American,*
+county,Orleans,2023-10,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-10,Prefer not to answer,*
+county,Orleans,2023-10,Prefer to self-describe,0
+county,Orleans,2023-10,White,270
+county,Orleans,2023-10,Two or More Races,*
+county,Orleans,2023-10,Unreported,160
+county,Rutland,2023-10,American Indian or Alaskan Native,0
+county,Rutland,2023-10,Asian,*
+county,Rutland,2023-10,Black or African American,19
+county,Rutland,2023-10,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-10,Prefer not to answer,*
+county,Rutland,2023-10,Prefer to self-describe,*
+county,Rutland,2023-10,White,690
+county,Rutland,2023-10,Two or More Races,34
+county,Rutland,2023-10,Unreported,90
+county,Washington,2023-10,American Indian or Alaskan Native,0
+county,Washington,2023-10,Asian,*
+county,Washington,2023-10,Black or African American,*
+county,Washington,2023-10,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-10,Prefer not to answer,10
+county,Washington,2023-10,Prefer to self-describe,*
+county,Washington,2023-10,White,335
+county,Washington,2023-10,Two or More Races,17
+county,Washington,2023-10,Unreported,29
+county,Windham,2023-10,American Indian or Alaskan Native,*
+county,Windham,2023-10,Asian,*
+county,Windham,2023-10,Black or African American,*
+county,Windham,2023-10,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-10,Prefer not to answer,*
+county,Windham,2023-10,Prefer to self-describe,10
+county,Windham,2023-10,White,313
+county,Windham,2023-10,Two or More Races,23
+county,Windham,2023-10,Unreported,110
+county,Windsor,2023-10,American Indian or Alaskan Native,0
+county,Windsor,2023-10,Asian,*
+county,Windsor,2023-10,Black or African American,*
+county,Windsor,2023-10,Native Hawaiian or Pacific Islander,*
+county,Windsor,2023-10,Prefer not to answer,0
+county,Windsor,2023-10,Prefer to self-describe,*
+county,Windsor,2023-10,White,461
+county,Windsor,2023-10,Two or More Races,29
+county,Windsor,2023-10,Unreported,66
+county,Addison,2023-09,American Indian or Alaskan Native,0
+county,Addison,2023-09,Asian,0
+county,Addison,2023-09,Black or African American,*
+county,Addison,2023-09,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-09,Prefer not to answer,0
+county,Addison,2023-09,Prefer to self-describe,*
+county,Addison,2023-09,White,75
+county,Addison,2023-09,Two or More Races,0
+county,Addison,2023-09,Unreported,391
+county,Bennington,2023-09,American Indian or Alaskan Native,*
+county,Bennington,2023-09,Asian,*
+county,Bennington,2023-09,Black or African American,11
+county,Bennington,2023-09,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-09,Prefer not to answer,0
+county,Bennington,2023-09,Prefer to self-describe,*
+county,Bennington,2023-09,White,555
+county,Bennington,2023-09,Two or More Races,27
+county,Bennington,2023-09,Unreported,56
+county,Caledonia,2023-09,American Indian or Alaskan Native,*
+county,Caledonia,2023-09,Asian,*
+county,Caledonia,2023-09,Black or African American,*
+county,Caledonia,2023-09,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-09,Prefer not to answer,*
+county,Caledonia,2023-09,Prefer to self-describe,*
+county,Caledonia,2023-09,White,244
+county,Caledonia,2023-09,Two or More Races,*
+county,Caledonia,2023-09,Unreported,399
+county,Chittenden,2023-09,American Indian or Alaskan Native,*
+county,Chittenden,2023-09,Asian,39
+county,Chittenden,2023-09,Black or African American,203
+county,Chittenden,2023-09,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2023-09,Prefer not to answer,*
+county,Chittenden,2023-09,Prefer to self-describe,15
+county,Chittenden,2023-09,White,707
+county,Chittenden,2023-09,Two or More Races,69
+county,Chittenden,2023-09,Unreported,551
+county,Essex,2023-09,American Indian or Alaskan Native,0
+county,Essex,2023-09,Asian,0
+county,Essex,2023-09,Black or African American,0
+county,Essex,2023-09,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-09,Prefer not to answer,0
+county,Essex,2023-09,Prefer to self-describe,*
+county,Essex,2023-09,White,*
+county,Essex,2023-09,Two or More Races,0
+county,Essex,2023-09,Unreported,49
+county,Franklin,2023-09,American Indian or Alaskan Native,0
+county,Franklin,2023-09,Asian,0
+county,Franklin,2023-09,Black or African American,10
+county,Franklin,2023-09,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-09,Prefer not to answer,*
+county,Franklin,2023-09,Prefer to self-describe,*
+county,Franklin,2023-09,White,500
+county,Franklin,2023-09,Two or More Races,15
+county,Franklin,2023-09,Unreported,81
+county,Grand Isle,2023-09,American Indian or Alaskan Native,*
+county,Grand Isle,2023-09,Asian,*
+county,Grand Isle,2023-09,Black or African American,*
+county,Grand Isle,2023-09,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-09,Prefer not to answer,0
+county,Grand Isle,2023-09,Prefer to self-describe,0
+county,Grand Isle,2023-09,White,*
+county,Grand Isle,2023-09,Two or More Races,*
+county,Grand Isle,2023-09,Unreported,12
+county,Lamoille,2023-09,American Indian or Alaskan Native,0
+county,Lamoille,2023-09,Asian,0
+county,Lamoille,2023-09,Black or African American,10
+county,Lamoille,2023-09,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-09,Prefer not to answer,*
+county,Lamoille,2023-09,Prefer to self-describe,0
+county,Lamoille,2023-09,White,260
+county,Lamoille,2023-09,Two or More Races,22
+county,Lamoille,2023-09,Unreported,61
+county,Orange,2023-09,American Indian or Alaskan Native,0
+county,Orange,2023-09,Asian,*
+county,Orange,2023-09,Black or African American,*
+county,Orange,2023-09,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-09,Prefer not to answer,*
+county,Orange,2023-09,Prefer to self-describe,0
+county,Orange,2023-09,White,178
+county,Orange,2023-09,Two or More Races,*
+county,Orange,2023-09,Unreported,47
+county,Orleans,2023-09,American Indian or Alaskan Native,0
+county,Orleans,2023-09,Asian,0
+county,Orleans,2023-09,Black or African American,*
+county,Orleans,2023-09,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-09,Prefer not to answer,*
+county,Orleans,2023-09,Prefer to self-describe,0
+county,Orleans,2023-09,White,274
+county,Orleans,2023-09,Two or More Races,0
+county,Orleans,2023-09,Unreported,168
+county,Rutland,2023-09,American Indian or Alaskan Native,0
+county,Rutland,2023-09,Asian,*
+county,Rutland,2023-09,Black or African American,24
+county,Rutland,2023-09,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-09,Prefer not to answer,*
+county,Rutland,2023-09,Prefer to self-describe,*
+county,Rutland,2023-09,White,700
+county,Rutland,2023-09,Two or More Races,37
+county,Rutland,2023-09,Unreported,87
+county,Washington,2023-09,American Indian or Alaskan Native,0
+county,Washington,2023-09,Asian,*
+county,Washington,2023-09,Black or African American,*
+county,Washington,2023-09,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-09,Prefer not to answer,*
+county,Washington,2023-09,Prefer to self-describe,*
+county,Washington,2023-09,White,323
+county,Washington,2023-09,Two or More Races,16
+county,Washington,2023-09,Unreported,31
+county,Windham,2023-09,American Indian or Alaskan Native,*
+county,Windham,2023-09,Asian,*
+county,Windham,2023-09,Black or African American,*
+county,Windham,2023-09,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-09,Prefer not to answer,*
+county,Windham,2023-09,Prefer to self-describe,12
+county,Windham,2023-09,White,312
+county,Windham,2023-09,Two or More Races,23
+county,Windham,2023-09,Unreported,131
+county,Windsor,2023-09,American Indian or Alaskan Native,0
+county,Windsor,2023-09,Asian,*
+county,Windsor,2023-09,Black or African American,*
+county,Windsor,2023-09,Native Hawaiian or Pacific Islander,*
+county,Windsor,2023-09,Prefer not to answer,0
+county,Windsor,2023-09,Prefer to self-describe,*
+county,Windsor,2023-09,White,479
+county,Windsor,2023-09,Two or More Races,25
+county,Windsor,2023-09,Unreported,72
+county,Addison,2023-08,American Indian or Alaskan Native,0
+county,Addison,2023-08,Asian,0
+county,Addison,2023-08,Black or African American,*
+county,Addison,2023-08,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-08,Prefer not to answer,0
+county,Addison,2023-08,Prefer to self-describe,*
+county,Addison,2023-08,White,86
+county,Addison,2023-08,Two or More Races,0
+county,Addison,2023-08,Unreported,440
+county,Bennington,2023-08,American Indian or Alaskan Native,*
+county,Bennington,2023-08,Asian,*
+county,Bennington,2023-08,Black or African American,*
+county,Bennington,2023-08,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-08,Prefer not to answer,*
+county,Bennington,2023-08,Prefer to self-describe,*
+county,Bennington,2023-08,White,579
+county,Bennington,2023-08,Two or More Races,36
+county,Bennington,2023-08,Unreported,55
+county,Caledonia,2023-08,American Indian or Alaskan Native,*
+county,Caledonia,2023-08,Asian,*
+county,Caledonia,2023-08,Black or African American,*
+county,Caledonia,2023-08,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-08,Prefer not to answer,*
+county,Caledonia,2023-08,Prefer to self-describe,*
+county,Caledonia,2023-08,White,241
+county,Caledonia,2023-08,Two or More Races,*
+county,Caledonia,2023-08,Unreported,397
+county,Chittenden,2023-08,American Indian or Alaskan Native,*
+county,Chittenden,2023-08,Asian,40
+county,Chittenden,2023-08,Black or African American,207
+county,Chittenden,2023-08,Native Hawaiian or Pacific Islander,*
+county,Chittenden,2023-08,Prefer not to answer,*
+county,Chittenden,2023-08,Prefer to self-describe,14
+county,Chittenden,2023-08,White,750
+county,Chittenden,2023-08,Two or More Races,72
+county,Chittenden,2023-08,Unreported,623
+county,Essex,2023-08,American Indian or Alaskan Native,0
+county,Essex,2023-08,Asian,0
+county,Essex,2023-08,Black or African American,0
+county,Essex,2023-08,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-08,Prefer not to answer,0
+county,Essex,2023-08,Prefer to self-describe,*
+county,Essex,2023-08,White,*
+county,Essex,2023-08,Two or More Races,0
+county,Essex,2023-08,Unreported,52
+county,Franklin,2023-08,American Indian or Alaskan Native,0
+county,Franklin,2023-08,Asian,0
+county,Franklin,2023-08,Black or African American,*
+county,Franklin,2023-08,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-08,Prefer not to answer,*
+county,Franklin,2023-08,Prefer to self-describe,*
+county,Franklin,2023-08,White,501
+county,Franklin,2023-08,Two or More Races,17
+county,Franklin,2023-08,Unreported,85
+county,Grand Isle,2023-08,American Indian or Alaskan Native,*
+county,Grand Isle,2023-08,Asian,*
+county,Grand Isle,2023-08,Black or African American,*
+county,Grand Isle,2023-08,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-08,Prefer not to answer,0
+county,Grand Isle,2023-08,Prefer to self-describe,0
+county,Grand Isle,2023-08,White,*
+county,Grand Isle,2023-08,Two or More Races,*
+county,Grand Isle,2023-08,Unreported,14
+county,Lamoille,2023-08,American Indian or Alaskan Native,0
+county,Lamoille,2023-08,Asian,0
+county,Lamoille,2023-08,Black or African American,*
+county,Lamoille,2023-08,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-08,Prefer not to answer,*
+county,Lamoille,2023-08,Prefer to self-describe,0
+county,Lamoille,2023-08,White,275
+county,Lamoille,2023-08,Two or More Races,20
+county,Lamoille,2023-08,Unreported,81
+county,Orange,2023-08,American Indian or Alaskan Native,0
+county,Orange,2023-08,Asian,*
+county,Orange,2023-08,Black or African American,*
+county,Orange,2023-08,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-08,Prefer not to answer,*
+county,Orange,2023-08,Prefer to self-describe,0
+county,Orange,2023-08,White,181
+county,Orange,2023-08,Two or More Races,*
+county,Orange,2023-08,Unreported,46
+county,Orleans,2023-08,American Indian or Alaskan Native,0
+county,Orleans,2023-08,Asian,0
+county,Orleans,2023-08,Black or African American,*
+county,Orleans,2023-08,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-08,Prefer not to answer,*
+county,Orleans,2023-08,Prefer to self-describe,0
+county,Orleans,2023-08,White,260
+county,Orleans,2023-08,Two or More Races,0
+county,Orleans,2023-08,Unreported,172
+county,Rutland,2023-08,American Indian or Alaskan Native,0
+county,Rutland,2023-08,Asian,*
+county,Rutland,2023-08,Black or African American,21
+county,Rutland,2023-08,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-08,Prefer not to answer,*
+county,Rutland,2023-08,Prefer to self-describe,*
+county,Rutland,2023-08,White,750
+county,Rutland,2023-08,Two or More Races,37
+county,Rutland,2023-08,Unreported,90
+county,Washington,2023-08,American Indian or Alaskan Native,*
+county,Washington,2023-08,Asian,*
+county,Washington,2023-08,Black or African American,*
+county,Washington,2023-08,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-08,Prefer not to answer,15
+county,Washington,2023-08,Prefer to self-describe,*
+county,Washington,2023-08,White,354
+county,Washington,2023-08,Two or More Races,17
+county,Washington,2023-08,Unreported,33
+county,Windham,2023-08,American Indian or Alaskan Native,*
+county,Windham,2023-08,Asian,*
+county,Windham,2023-08,Black or African American,*
+county,Windham,2023-08,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-08,Prefer not to answer,*
+county,Windham,2023-08,Prefer to self-describe,*
+county,Windham,2023-08,White,308
+county,Windham,2023-08,Two or More Races,20
+county,Windham,2023-08,Unreported,150
+county,Windsor,2023-08,American Indian or Alaskan Native,*
+county,Windsor,2023-08,Asian,*
+county,Windsor,2023-08,Black or African American,*
+county,Windsor,2023-08,Native Hawaiian or Pacific Islander,*
+county,Windsor,2023-08,Prefer not to answer,0
+county,Windsor,2023-08,Prefer to self-describe,*
+county,Windsor,2023-08,White,492
+county,Windsor,2023-08,Two or More Races,24
+county,Windsor,2023-08,Unreported,76
+county,Addison,2023-07,American Indian or Alaskan Native,0
+county,Addison,2023-07,Asian,0
+county,Addison,2023-07,Black or African American,*
+county,Addison,2023-07,Native Hawaiian or Pacific Islander,0
+county,Addison,2023-07,Prefer not to answer,0
+county,Addison,2023-07,Prefer to self-describe,*
+county,Addison,2023-07,White,81
+county,Addison,2023-07,Two or More Races,0
+county,Addison,2023-07,Unreported,394
+county,Bennington,2023-07,American Indian or Alaskan Native,*
+county,Bennington,2023-07,Asian,*
+county,Bennington,2023-07,Black or African American,*
+county,Bennington,2023-07,Native Hawaiian or Pacific Islander,0
+county,Bennington,2023-07,Prefer not to answer,*
+county,Bennington,2023-07,Prefer to self-describe,*
+county,Bennington,2023-07,White,568
+county,Bennington,2023-07,Two or More Races,32
+county,Bennington,2023-07,Unreported,70
+county,Caledonia,2023-07,American Indian or Alaskan Native,*
+county,Caledonia,2023-07,Asian,*
+county,Caledonia,2023-07,Black or African American,*
+county,Caledonia,2023-07,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2023-07,Prefer not to answer,*
+county,Caledonia,2023-07,Prefer to self-describe,*
+county,Caledonia,2023-07,White,241
+county,Caledonia,2023-07,Two or More Races,*
+county,Caledonia,2023-07,Unreported,402
+county,Chittenden,2023-07,American Indian or Alaskan Native,*
+county,Chittenden,2023-07,Asian,36
+county,Chittenden,2023-07,Black or African American,168
+county,Chittenden,2023-07,Native Hawaiian or Pacific Islander,*
+county,Chittenden,2023-07,Prefer not to answer,*
+county,Chittenden,2023-07,Prefer to self-describe,10
+county,Chittenden,2023-07,White,681
+county,Chittenden,2023-07,Two or More Races,72
+county,Chittenden,2023-07,Unreported,610
+county,Essex,2023-07,American Indian or Alaskan Native,0
+county,Essex,2023-07,Asian,0
+county,Essex,2023-07,Black or African American,0
+county,Essex,2023-07,Native Hawaiian or Pacific Islander,0
+county,Essex,2023-07,Prefer not to answer,0
+county,Essex,2023-07,Prefer to self-describe,*
+county,Essex,2023-07,White,*
+county,Essex,2023-07,Two or More Races,0
+county,Essex,2023-07,Unreported,51
+county,Franklin,2023-07,American Indian or Alaskan Native,0
+county,Franklin,2023-07,Asian,0
+county,Franklin,2023-07,Black or African American,*
+county,Franklin,2023-07,Native Hawaiian or Pacific Islander,0
+county,Franklin,2023-07,Prefer not to answer,*
+county,Franklin,2023-07,Prefer to self-describe,*
+county,Franklin,2023-07,White,505
+county,Franklin,2023-07,Two or More Races,18
+county,Franklin,2023-07,Unreported,89
+county,Grand Isle,2023-07,American Indian or Alaskan Native,*
+county,Grand Isle,2023-07,Asian,*
+county,Grand Isle,2023-07,Black or African American,*
+county,Grand Isle,2023-07,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2023-07,Prefer not to answer,0
+county,Grand Isle,2023-07,Prefer to self-describe,0
+county,Grand Isle,2023-07,White,*
+county,Grand Isle,2023-07,Two or More Races,*
+county,Grand Isle,2023-07,Unreported,14
+county,Lamoille,2023-07,American Indian or Alaskan Native,0
+county,Lamoille,2023-07,Asian,0
+county,Lamoille,2023-07,Black or African American,*
+county,Lamoille,2023-07,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2023-07,Prefer not to answer,0
+county,Lamoille,2023-07,Prefer to self-describe,0
+county,Lamoille,2023-07,White,226
+county,Lamoille,2023-07,Two or More Races,14
+county,Lamoille,2023-07,Unreported,73
+county,Orange,2023-07,American Indian or Alaskan Native,0
+county,Orange,2023-07,Asian,*
+county,Orange,2023-07,Black or African American,*
+county,Orange,2023-07,Native Hawaiian or Pacific Islander,0
+county,Orange,2023-07,Prefer not to answer,0
+county,Orange,2023-07,Prefer to self-describe,0
+county,Orange,2023-07,White,175
+county,Orange,2023-07,Two or More Races,*
+county,Orange,2023-07,Unreported,44
+county,Orleans,2023-07,American Indian or Alaskan Native,0
+county,Orleans,2023-07,Asian,0
+county,Orleans,2023-07,Black or African American,*
+county,Orleans,2023-07,Native Hawaiian or Pacific Islander,0
+county,Orleans,2023-07,Prefer not to answer,*
+county,Orleans,2023-07,Prefer to self-describe,*
+county,Orleans,2023-07,White,241
+county,Orleans,2023-07,Two or More Races,0
+county,Orleans,2023-07,Unreported,182
+county,Rutland,2023-07,American Indian or Alaskan Native,0
+county,Rutland,2023-07,Asian,*
+county,Rutland,2023-07,Black or African American,22
+county,Rutland,2023-07,Native Hawaiian or Pacific Islander,0
+county,Rutland,2023-07,Prefer not to answer,*
+county,Rutland,2023-07,Prefer to self-describe,*
+county,Rutland,2023-07,White,755
+county,Rutland,2023-07,Two or More Races,37
+county,Rutland,2023-07,Unreported,88
+county,Washington,2023-07,American Indian or Alaskan Native,*
+county,Washington,2023-07,Asian,*
+county,Washington,2023-07,Black or African American,*
+county,Washington,2023-07,Native Hawaiian or Pacific Islander,0
+county,Washington,2023-07,Prefer not to answer,12
+county,Washington,2023-07,Prefer to self-describe,*
+county,Washington,2023-07,White,339
+county,Washington,2023-07,Two or More Races,16
+county,Washington,2023-07,Unreported,38
+county,Windham,2023-07,American Indian or Alaskan Native,*
+county,Windham,2023-07,Asian,*
+county,Windham,2023-07,Black or African American,*
+county,Windham,2023-07,Native Hawaiian or Pacific Islander,0
+county,Windham,2023-07,Prefer not to answer,*
+county,Windham,2023-07,Prefer to self-describe,*
+county,Windham,2023-07,White,270
+county,Windham,2023-07,Two or More Races,17
+county,Windham,2023-07,Unreported,169
+county,Windsor,2023-07,American Indian or Alaskan Native,*
+county,Windsor,2023-07,Asian,*
+county,Windsor,2023-07,Black or African American,*
+county,Windsor,2023-07,Native Hawaiian or Pacific Islander,*
+county,Windsor,2023-07,Prefer not to answer,0
+county,Windsor,2023-07,Prefer to self-describe,*
+county,Windsor,2023-07,White,470
+county,Windsor,2023-07,Two or More Races,17
+county,Windsor,2023-07,Unreported,73
+state,Vermont,2024-06,American Indian or Alaskan Native,*
+state,Vermont,2024-06,Asian,70
+state,Vermont,2024-06,Black or African American,368
+state,Vermont,2024-06,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-06,Prefer not to answer,68
+state,Vermont,2024-06,Prefer to self-describe,59
+state,Vermont,2024-06,White,6171
+state,Vermont,2024-06,Two or More Races,317
+state,Vermont,2024-06,Unreported,2227
+state,Vermont,2024-05,American Indian or Alaskan Native,*
+state,Vermont,2024-05,Asian,60
+state,Vermont,2024-05,Black or African American,331
+state,Vermont,2024-05,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-05,Prefer not to answer,49
+state,Vermont,2024-05,Prefer to self-describe,50
+state,Vermont,2024-05,White,5403
+state,Vermont,2024-05,Two or More Races,275
+state,Vermont,2024-05,Unreported,1978
+state,Vermont,2024-04,American Indian or Alaskan Native,*
+state,Vermont,2024-04,Asian,60
+state,Vermont,2024-04,Black or African American,319
+state,Vermont,2024-04,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-04,Prefer not to answer,49
+state,Vermont,2024-04,Prefer to self-describe,55
+state,Vermont,2024-04,White,5326
+state,Vermont,2024-04,Two or More Races,276
+state,Vermont,2024-04,Unreported,1992
+state,Vermont,2024-03,American Indian or Alaskan Native,*
+state,Vermont,2024-03,Asian,57
+state,Vermont,2024-03,Black or African American,320
+state,Vermont,2024-03,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-03,Prefer not to answer,47
+state,Vermont,2024-03,Prefer to self-describe,54
+state,Vermont,2024-03,White,5054
+state,Vermont,2024-03,Two or More Races,259
+state,Vermont,2024-03,Unreported,1955
+state,Vermont,2024-02,American Indian or Alaskan Native,*
+state,Vermont,2024-02,Asian,58
+state,Vermont,2024-02,Black or African American,314
+state,Vermont,2024-02,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-02,Prefer not to answer,41
+state,Vermont,2024-02,Prefer to self-describe,48
+state,Vermont,2024-02,White,4941
+state,Vermont,2024-02,Two or More Races,249
+state,Vermont,2024-02,Unreported,1923
+state,Vermont,2024-01,American Indian or Alaskan Native,*
+state,Vermont,2024-01,Asian,58
+state,Vermont,2024-01,Black or African American,314
+state,Vermont,2024-01,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-01,Prefer not to answer,41
+state,Vermont,2024-01,Prefer to self-describe,48
+state,Vermont,2024-01,White,4941
+state,Vermont,2024-01,Two or More Races,247
+state,Vermont,2024-01,Unreported,1931
+state,Vermont,2023-12,American Indian or Alaskan Native,*
+state,Vermont,2023-12,Asian,60
+state,Vermont,2023-12,Black or African American,293
+state,Vermont,2023-12,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-12,Prefer not to answer,38
+state,Vermont,2023-12,Prefer to self-describe,43
+state,Vermont,2023-12,White,4819
+state,Vermont,2023-12,Two or More Races,244
+state,Vermont,2023-12,Unreported,1967
+state,Vermont,2023-11,American Indian or Alaskan Native,*
+state,Vermont,2023-11,Asian,66
+state,Vermont,2023-11,Black or African American,284
+state,Vermont,2023-11,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-11,Prefer not to answer,32
+state,Vermont,2023-11,Prefer to self-describe,37
+state,Vermont,2023-11,White,4692
+state,Vermont,2023-11,Two or More Races,252
+state,Vermont,2023-11,Unreported,1970
+state,Vermont,2023-10,American Indian or Alaskan Native,*
+state,Vermont,2023-10,Asian,66
+state,Vermont,2023-10,Black or African American,279
+state,Vermont,2023-10,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-10,Prefer not to answer,32
+state,Vermont,2023-10,Prefer to self-describe,39
+state,Vermont,2023-10,White,4669
+state,Vermont,2023-10,Two or More Races,255
+state,Vermont,2023-10,Unreported,2030
+state,Vermont,2023-09,American Indian or Alaskan Native,*
+state,Vermont,2023-09,Asian,61
+state,Vermont,2023-09,Black or African American,295
+state,Vermont,2023-09,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-09,Prefer not to answer,35
+state,Vermont,2023-09,Prefer to self-describe,43
+state,Vermont,2023-09,White,4682
+state,Vermont,2023-09,Two or More Races,251
+state,Vermont,2023-09,Unreported,2136
+state,Vermont,2023-08,American Indian or Alaskan Native,*
+state,Vermont,2023-08,Asian,62
+state,Vermont,2023-08,Black or African American,292
+state,Vermont,2023-08,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-08,Prefer not to answer,41
+state,Vermont,2023-08,Prefer to self-describe,41
+state,Vermont,2023-08,White,4855
+state,Vermont,2023-08,Two or More Races,260
+state,Vermont,2023-08,Unreported,2314
+state,Vermont,2023-07,American Indian or Alaskan Native,*
+state,Vermont,2023-07,Asian,62
+state,Vermont,2023-07,Black or African American,255
+state,Vermont,2023-07,Native Hawaiian or Pacific Islander,*
+state,Vermont,2023-07,Prefer not to answer,34
+state,Vermont,2023-07,Prefer to self-describe,33
+state,Vermont,2023-07,White,4636
+state,Vermont,2023-07,Two or More Races,239
+state,Vermont,2023-07,Unreported,2297
+county,Addison,2024-09,American Indian or Alaskan Native,0
+county,Addison,2024-09,Asian,*
+county,Addison,2024-09,Black or African American,0
+county,Addison,2024-09,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-09,Prefer not to answer,0
+county,Addison,2024-09,Prefer to self-describe,*
+county,Addison,2024-09,White,122
+county,Addison,2024-09,Two or More Races,0
+county,Addison,2024-09,Unreported,471
+county,Bennington,2024-09,American Indian or Alaskan Native,*
+county,Bennington,2024-09,Asian,*
+county,Bennington,2024-09,Black or African American,16
+county,Bennington,2024-09,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-09,Prefer not to answer,*
+county,Bennington,2024-09,Prefer to self-describe,*
+county,Bennington,2024-09,White,610
+county,Bennington,2024-09,Two or More Races,30
+county,Bennington,2024-09,Unreported,56
+county,Caledonia,2024-09,American Indian or Alaskan Native,0
+county,Caledonia,2024-09,Asian,*
+county,Caledonia,2024-09,Black or African American,*
+county,Caledonia,2024-09,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-09,Prefer not to answer,0
+county,Caledonia,2024-09,Prefer to self-describe,0
+county,Caledonia,2024-09,White,290
+county,Caledonia,2024-09,Two or More Races,16
+county,Caledonia,2024-09,Unreported,448
+county,Chittenden,2024-09,American Indian or Alaskan Native,*
+county,Chittenden,2024-09,Asian,48
+county,Chittenden,2024-09,Black or African American,242
+county,Chittenden,2024-09,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-09,Prefer not to answer,*
+county,Chittenden,2024-09,Prefer to self-describe,23
+county,Chittenden,2024-09,White,1012
+county,Chittenden,2024-09,Two or More Races,108
+county,Chittenden,2024-09,Unreported,413
+county,Essex,2024-09,American Indian or Alaskan Native,0
+county,Essex,2024-09,Asian,0
+county,Essex,2024-09,Black or African American,*
+county,Essex,2024-09,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-09,Prefer not to answer,0
+county,Essex,2024-09,Prefer to self-describe,*
+county,Essex,2024-09,White,44
+county,Essex,2024-09,Two or More Races,0
+county,Essex,2024-09,Unreported,57
+county,Franklin,2024-09,American Indian or Alaskan Native,*
+county,Franklin,2024-09,Asian,0
+county,Franklin,2024-09,Black or African American,13
+county,Franklin,2024-09,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-09,Prefer not to answer,*
+county,Franklin,2024-09,Prefer to self-describe,*
+county,Franklin,2024-09,White,560
+county,Franklin,2024-09,Two or More Races,16
+county,Franklin,2024-09,Unreported,96
+county,Grand Isle,2024-09,American Indian or Alaskan Native,*
+county,Grand Isle,2024-09,Asian,0
+county,Grand Isle,2024-09,Black or African American,*
+county,Grand Isle,2024-09,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-09,Prefer not to answer,0
+county,Grand Isle,2024-09,Prefer to self-describe,*
+county,Grand Isle,2024-09,White,65
+county,Grand Isle,2024-09,Two or More Races,*
+county,Grand Isle,2024-09,Unreported,*
+county,Lamoille,2024-09,American Indian or Alaskan Native,*
+county,Lamoille,2024-09,Asian,0
+county,Lamoille,2024-09,Black or African American,*
+county,Lamoille,2024-09,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-09,Prefer not to answer,*
+county,Lamoille,2024-09,Prefer to self-describe,*
+county,Lamoille,2024-09,White,363
+county,Lamoille,2024-09,Two or More Races,23
+county,Lamoille,2024-09,Unreported,*
+county,Orange,2024-09,American Indian or Alaskan Native,0
+county,Orange,2024-09,Asian,*
+county,Orange,2024-09,Black or African American,*
+county,Orange,2024-09,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-09,Prefer not to answer,*
+county,Orange,2024-09,Prefer to self-describe,*
+county,Orange,2024-09,White,270
+county,Orange,2024-09,Two or More Races,*
+county,Orange,2024-09,Unreported,47
+county,Orleans,2024-09,American Indian or Alaskan Native,0
+county,Orleans,2024-09,Asian,0
+county,Orleans,2024-09,Black or African American,*
+county,Orleans,2024-09,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-09,Prefer not to answer,*
+county,Orleans,2024-09,Prefer to self-describe,0
+county,Orleans,2024-09,White,367
+county,Orleans,2024-09,Two or More Races,*
+county,Orleans,2024-09,Unreported,91
+county,Rutland,2024-09,American Indian or Alaskan Native,*
+county,Rutland,2024-09,Asian,*
+county,Rutland,2024-09,Black or African American,36
+county,Rutland,2024-09,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-09,Prefer not to answer,*
+county,Rutland,2024-09,Prefer to self-describe,*
+county,Rutland,2024-09,White,834
+county,Rutland,2024-09,Two or More Races,24
+county,Rutland,2024-09,Unreported,108
+county,Washington,2024-09,American Indian or Alaskan Native,0
+county,Washington,2024-09,Asian,*
+county,Washington,2024-09,Black or African American,*
+county,Washington,2024-09,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-09,Prefer not to answer,10
+county,Washington,2024-09,Prefer to self-describe,*
+county,Washington,2024-09,White,418
+county,Washington,2024-09,Two or More Races,17
+county,Washington,2024-09,Unreported,33
+county,Windham,2024-09,American Indian or Alaskan Native,*
+county,Windham,2024-09,Asian,*
+county,Windham,2024-09,Black or African American,17
+county,Windham,2024-09,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-09,Prefer not to answer,12
+county,Windham,2024-09,Prefer to self-describe,10
+county,Windham,2024-09,White,466
+county,Windham,2024-09,Two or More Races,33
+county,Windham,2024-09,Unreported,96
+county,Windsor,2024-09,American Indian or Alaskan Native,*
+county,Windsor,2024-09,Asian,*
+county,Windsor,2024-09,Black or African American,14
+county,Windsor,2024-09,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-09,Prefer not to answer,*
+county,Windsor,2024-09,Prefer to self-describe,10
+county,Windsor,2024-09,White,620
+county,Windsor,2024-09,Two or More Races,25
+county,Windsor,2024-09,Unreported,82
+county,Addison,2024-08,American Indian or Alaskan Native,0
+county,Addison,2024-08,Asian,0
+county,Addison,2024-08,Black or African American,0
+county,Addison,2024-08,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-08,Prefer not to answer,0
+county,Addison,2024-08,Prefer to self-describe,*
+county,Addison,2024-08,White,*
+county,Addison,2024-08,Two or More Races,0
+county,Addison,2024-08,Unreported,550
+county,Bennington,2024-08,American Indian or Alaskan Native,*
+county,Bennington,2024-08,Asian,*
+county,Bennington,2024-08,Black or African American,16
+county,Bennington,2024-08,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-08,Prefer not to answer,*
+county,Bennington,2024-08,Prefer to self-describe,*
+county,Bennington,2024-08,White,643
+county,Bennington,2024-08,Two or More Races,35
+county,Bennington,2024-08,Unreported,60
+county,Caledonia,2024-08,American Indian or Alaskan Native,0
+county,Caledonia,2024-08,Asian,*
+county,Caledonia,2024-08,Black or African American,*
+county,Caledonia,2024-08,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-08,Prefer not to answer,0
+county,Caledonia,2024-08,Prefer to self-describe,*
+county,Caledonia,2024-08,White,285
+county,Caledonia,2024-08,Two or More Races,17
+county,Caledonia,2024-08,Unreported,453
+county,Chittenden,2024-08,American Indian or Alaskan Native,*
+county,Chittenden,2024-08,Asian,56
+county,Chittenden,2024-08,Black or African American,243
+county,Chittenden,2024-08,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-08,Prefer not to answer,21
+county,Chittenden,2024-08,Prefer to self-describe,*
+county,Chittenden,2024-08,White,1091
+county,Chittenden,2024-08,Two or More Races,105
+county,Chittenden,2024-08,Unreported,531
+county,Essex,2024-08,American Indian or Alaskan Native,0
+county,Essex,2024-08,Asian,0
+county,Essex,2024-08,Black or African American,*
+county,Essex,2024-08,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-08,Prefer not to answer,0
+county,Essex,2024-08,Prefer to self-describe,*
+county,Essex,2024-08,White,*
+county,Essex,2024-08,Two or More Races,0
+county,Essex,2024-08,Unreported,54
+county,Franklin,2024-08,American Indian or Alaskan Native,*
+county,Franklin,2024-08,Asian,0
+county,Franklin,2024-08,Black or African American,12
+county,Franklin,2024-08,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-08,Prefer not to answer,*
+county,Franklin,2024-08,Prefer to self-describe,*
+county,Franklin,2024-08,White,568
+county,Franklin,2024-08,Two or More Races,18
+county,Franklin,2024-08,Unreported,89
+county,Grand Isle,2024-08,American Indian or Alaskan Native,*
+county,Grand Isle,2024-08,Asian,0
+county,Grand Isle,2024-08,Black or African American,*
+county,Grand Isle,2024-08,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-08,Prefer not to answer,0
+county,Grand Isle,2024-08,Prefer to self-describe,*
+county,Grand Isle,2024-08,White,69
+county,Grand Isle,2024-08,Two or More Races,*
+county,Grand Isle,2024-08,Unreported,*
+county,Lamoille,2024-08,American Indian or Alaskan Native,*
+county,Lamoille,2024-08,Asian,0
+county,Lamoille,2024-08,Black or African American,10
+county,Lamoille,2024-08,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-08,Prefer not to answer,*
+county,Lamoille,2024-08,Prefer to self-describe,*
+county,Lamoille,2024-08,White,381
+county,Lamoille,2024-08,Two or More Races,29
+county,Lamoille,2024-08,Unreported,*
+county,Orange,2024-08,American Indian or Alaskan Native,0
+county,Orange,2024-08,Asian,*
+county,Orange,2024-08,Black or African American,*
+county,Orange,2024-08,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-08,Prefer not to answer,*
+county,Orange,2024-08,Prefer to self-describe,*
+county,Orange,2024-08,White,259
+county,Orange,2024-08,Two or More Races,*
+county,Orange,2024-08,Unreported,49
+county,Orleans,2024-08,American Indian or Alaskan Native,0
+county,Orleans,2024-08,Asian,0
+county,Orleans,2024-08,Black or African American,*
+county,Orleans,2024-08,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-08,Prefer not to answer,*
+county,Orleans,2024-08,Prefer to self-describe,0
+county,Orleans,2024-08,White,360
+county,Orleans,2024-08,Two or More Races,*
+county,Orleans,2024-08,Unreported,101
+county,Rutland,2024-08,American Indian or Alaskan Native,*
+county,Rutland,2024-08,Asian,*
+county,Rutland,2024-08,Black or African American,39
+county,Rutland,2024-08,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-08,Prefer not to answer,13
+county,Rutland,2024-08,Prefer to self-describe,*
+county,Rutland,2024-08,White,933
+county,Rutland,2024-08,Two or More Races,29
+county,Rutland,2024-08,Unreported,101
+county,Washington,2024-08,American Indian or Alaskan Native,0
+county,Washington,2024-08,Asian,*
+county,Washington,2024-08,Black or African American,12
+county,Washington,2024-08,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-08,Prefer not to answer,11
+county,Washington,2024-08,Prefer to self-describe,*
+county,Washington,2024-08,White,458
+county,Washington,2024-08,Two or More Races,18
+county,Washington,2024-08,Unreported,38
+county,Windham,2024-08,American Indian or Alaskan Native,*
+county,Windham,2024-08,Asian,*
+county,Windham,2024-08,Black or African American,16
+county,Windham,2024-08,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-08,Prefer not to answer,12
+county,Windham,2024-08,Prefer to self-describe,12
+county,Windham,2024-08,White,488
+county,Windham,2024-08,Two or More Races,36
+county,Windham,2024-08,Unreported,90
+county,Windsor,2024-08,American Indian or Alaskan Native,*
+county,Windsor,2024-08,Asian,*
+county,Windsor,2024-08,Black or African American,12
+county,Windsor,2024-08,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-08,Prefer not to answer,*
+county,Windsor,2024-08,Prefer to self-describe,11
+county,Windsor,2024-08,White,646
+county,Windsor,2024-08,Two or More Races,29
+county,Windsor,2024-08,Unreported,83
+county,Addison,2024-07,American Indian or Alaskan Native,0
+county,Addison,2024-07,Asian,0
+county,Addison,2024-07,Black or African American,0
+county,Addison,2024-07,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-07,Prefer not to answer,0
+county,Addison,2024-07,Prefer to self-describe,*
+county,Addison,2024-07,White,*
+county,Addison,2024-07,Two or More Races,0
+county,Addison,2024-07,Unreported,487
+county,Bennington,2024-07,American Indian or Alaskan Native,*
+county,Bennington,2024-07,Asian,*
+county,Bennington,2024-07,Black or African American,16
+county,Bennington,2024-07,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-07,Prefer not to answer,*
+county,Bennington,2024-07,Prefer to self-describe,*
+county,Bennington,2024-07,White,623
+county,Bennington,2024-07,Two or More Races,36
+county,Bennington,2024-07,Unreported,60
+county,Caledonia,2024-07,American Indian or Alaskan Native,0
+county,Caledonia,2024-07,Asian,*
+county,Caledonia,2024-07,Black or African American,*
+county,Caledonia,2024-07,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-07,Prefer not to answer,0
+county,Caledonia,2024-07,Prefer to self-describe,*
+county,Caledonia,2024-07,White,272
+county,Caledonia,2024-07,Two or More Races,17
+county,Caledonia,2024-07,Unreported,431
+county,Chittenden,2024-07,American Indian or Alaskan Native,*
+county,Chittenden,2024-07,Asian,44
+county,Chittenden,2024-07,Black or African American,218
+county,Chittenden,2024-07,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-07,Prefer not to answer,20
+county,Chittenden,2024-07,Prefer to self-describe,*
+county,Chittenden,2024-07,White,995
+county,Chittenden,2024-07,Two or More Races,92
+county,Chittenden,2024-07,Unreported,514
+county,Essex,2024-07,American Indian or Alaskan Native,0
+county,Essex,2024-07,Asian,0
+county,Essex,2024-07,Black or African American,*
+county,Essex,2024-07,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-07,Prefer not to answer,0
+county,Essex,2024-07,Prefer to self-describe,*
+county,Essex,2024-07,White,*
+county,Essex,2024-07,Two or More Races,0
+county,Essex,2024-07,Unreported,52
+county,Franklin,2024-07,American Indian or Alaskan Native,*
+county,Franklin,2024-07,Asian,0
+county,Franklin,2024-07,Black or African American,11
+county,Franklin,2024-07,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-07,Prefer not to answer,*
+county,Franklin,2024-07,Prefer to self-describe,*
+county,Franklin,2024-07,White,562
+county,Franklin,2024-07,Two or More Races,20
+county,Franklin,2024-07,Unreported,85
+county,Grand Isle,2024-07,American Indian or Alaskan Native,*
+county,Grand Isle,2024-07,Asian,*
+county,Grand Isle,2024-07,Black or African American,*
+county,Grand Isle,2024-07,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-07,Prefer not to answer,0
+county,Grand Isle,2024-07,Prefer to self-describe,*
+county,Grand Isle,2024-07,White,53
+county,Grand Isle,2024-07,Two or More Races,*
+county,Grand Isle,2024-07,Unreported,*
+county,Lamoille,2024-07,American Indian or Alaskan Native,*
+county,Lamoille,2024-07,Asian,0
+county,Lamoille,2024-07,Black or African American,*
+county,Lamoille,2024-07,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-07,Prefer not to answer,*
+county,Lamoille,2024-07,Prefer to self-describe,*
+county,Lamoille,2024-07,White,328
+county,Lamoille,2024-07,Two or More Races,26
+county,Lamoille,2024-07,Unreported,*
+county,Orange,2024-07,American Indian or Alaskan Native,0
+county,Orange,2024-07,Asian,*
+county,Orange,2024-07,Black or African American,*
+county,Orange,2024-07,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-07,Prefer not to answer,*
+county,Orange,2024-07,Prefer to self-describe,*
+county,Orange,2024-07,White,239
+county,Orange,2024-07,Two or More Races,*
+county,Orange,2024-07,Unreported,44
+county,Orleans,2024-07,American Indian or Alaskan Native,0
+county,Orleans,2024-07,Asian,0
+county,Orleans,2024-07,Black or African American,*
+county,Orleans,2024-07,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-07,Prefer not to answer,*
+county,Orleans,2024-07,Prefer to self-describe,0
+county,Orleans,2024-07,White,324
+county,Orleans,2024-07,Two or More Races,*
+county,Orleans,2024-07,Unreported,114
+county,Rutland,2024-07,American Indian or Alaskan Native,*
+county,Rutland,2024-07,Asian,*
+county,Rutland,2024-07,Black or African American,40
+county,Rutland,2024-07,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-07,Prefer not to answer,13
+county,Rutland,2024-07,Prefer to self-describe,*
+county,Rutland,2024-07,White,899
+county,Rutland,2024-07,Two or More Races,30
+county,Rutland,2024-07,Unreported,95
+county,Washington,2024-07,American Indian or Alaskan Native,0
+county,Washington,2024-07,Asian,*
+county,Washington,2024-07,Black or African American,12
+county,Washington,2024-07,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-07,Prefer not to answer,*
+county,Washington,2024-07,Prefer to self-describe,*
+county,Washington,2024-07,White,419
+county,Washington,2024-07,Two or More Races,17
+county,Washington,2024-07,Unreported,38
+county,Windham,2024-07,American Indian or Alaskan Native,*
+county,Windham,2024-07,Asian,*
+county,Windham,2024-07,Black or African American,13
+county,Windham,2024-07,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-07,Prefer not to answer,*
+county,Windham,2024-07,Prefer to self-describe,15
+county,Windham,2024-07,White,432
+county,Windham,2024-07,Two or More Races,28
+county,Windham,2024-07,Unreported,77
+county,Windsor,2024-07,American Indian or Alaskan Native,*
+county,Windsor,2024-07,Asian,*
+county,Windsor,2024-07,Black or African American,10
+county,Windsor,2024-07,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-07,Prefer not to answer,*
+county,Windsor,2024-07,Prefer to self-describe,11
+county,Windsor,2024-07,White,604
+county,Windsor,2024-07,Two or More Races,30
+county,Windsor,2024-07,Unreported,80
+state,Vermont,2024-09,American Indian or Alaskan Native,*
+state,Vermont,2024-09,Asian,67
+state,Vermont,2024-09,Black or African American,369
+state,Vermont,2024-09,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-09,Prefer not to answer,73
+state,Vermont,2024-09,Prefer to self-describe,72
+state,Vermont,2024-09,White,6041
+state,Vermont,2024-09,Two or More Races,302
+state,Vermont,2024-09,Unreported,2035
+state,Vermont,2024-08,American Indian or Alaskan Native,*
+state,Vermont,2024-08,Asian,77
+state,Vermont,2024-08,Black or African American,373
+state,Vermont,2024-08,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-08,Prefer not to answer,80
+state,Vermont,2024-08,Prefer to self-describe,66
+state,Vermont,2024-08,White,6349
+state,Vermont,2024-08,Two or More Races,328
+state,Vermont,2024-08,Unreported,2233
+state,Vermont,2024-07,American Indian or Alaskan Native,*
+state,Vermont,2024-07,Asian,67
+state,Vermont,2024-07,Black or African American,340
+state,Vermont,2024-07,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-07,Prefer not to answer,67
+state,Vermont,2024-07,Prefer to self-describe,61
+state,Vermont,2024-07,White,5891
+state,Vermont,2024-07,Two or More Races,308
+state,Vermont,2024-07,Unreported,2109
+county,Addison,2024-12,American Indian or Alaskan Native,0
+county,Addison,2024-12,Asian,*
+county,Addison,2024-12,Black or African American,*
+county,Addison,2024-12,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-12,Prefer not to answer,*
+county,Addison,2024-12,Prefer to self-describe,*
+county,Addison,2024-12,White,166
+county,Addison,2024-12,Two or More Races,*
+county,Addison,2024-12,Unreported,487
+county,Bennington,2024-12,American Indian or Alaskan Native,*
+county,Bennington,2024-12,Asian,*
+county,Bennington,2024-12,Black or African American,18
+county,Bennington,2024-12,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-12,Prefer not to answer,*
+county,Bennington,2024-12,Prefer to self-describe,11
+county,Bennington,2024-12,White,652
+county,Bennington,2024-12,Two or More Races,30
+county,Bennington,2024-12,Unreported,56
+county,Caledonia,2024-12,American Indian or Alaskan Native,*
+county,Caledonia,2024-12,Asian,*
+county,Caledonia,2024-12,Black or African American,*
+county,Caledonia,2024-12,Native Hawaiian or Pacific Islander,*
+county,Caledonia,2024-12,Prefer not to answer,0
+county,Caledonia,2024-12,Prefer to self-describe,*
+county,Caledonia,2024-12,White,300
+county,Caledonia,2024-12,Two or More Races,14
+county,Caledonia,2024-12,Unreported,442
+county,Chittenden,2024-12,American Indian or Alaskan Native,*
+county,Chittenden,2024-12,Asian,47
+county,Chittenden,2024-12,Black or African American,255
+county,Chittenden,2024-12,Native Hawaiian or Pacific Islander,*
+county,Chittenden,2024-12,Prefer not to answer,30
+county,Chittenden,2024-12,Prefer to self-describe,30
+county,Chittenden,2024-12,White,1345
+county,Chittenden,2024-12,Two or More Races,138
+county,Chittenden,2024-12,Unreported,519
+county,Essex,2024-12,American Indian or Alaskan Native,0
+county,Essex,2024-12,Asian,0
+county,Essex,2024-12,Black or African American,*
+county,Essex,2024-12,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-12,Prefer not to answer,0
+county,Essex,2024-12,Prefer to self-describe,*
+county,Essex,2024-12,White,49
+county,Essex,2024-12,Two or More Races,0
+county,Essex,2024-12,Unreported,57
+county,Franklin,2024-12,American Indian or Alaskan Native,*
+county,Franklin,2024-12,Asian,*
+county,Franklin,2024-12,Black or African American,12
+county,Franklin,2024-12,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-12,Prefer not to answer,*
+county,Franklin,2024-12,Prefer to self-describe,*
+county,Franklin,2024-12,White,626
+county,Franklin,2024-12,Two or More Races,28
+county,Franklin,2024-12,Unreported,136
+county,Grand Isle,2024-12,American Indian or Alaskan Native,*
+county,Grand Isle,2024-12,Asian,0
+county,Grand Isle,2024-12,Black or African American,0
+county,Grand Isle,2024-12,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-12,Prefer not to answer,0
+county,Grand Isle,2024-12,Prefer to self-describe,*
+county,Grand Isle,2024-12,White,79
+county,Grand Isle,2024-12,Two or More Races,*
+county,Grand Isle,2024-12,Unreported,15
+county,Lamoille,2024-12,American Indian or Alaskan Native,*
+county,Lamoille,2024-12,Asian,0
+county,Lamoille,2024-12,Black or African American,*
+county,Lamoille,2024-12,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-12,Prefer not to answer,*
+county,Lamoille,2024-12,Prefer to self-describe,*
+county,Lamoille,2024-12,White,380
+county,Lamoille,2024-12,Two or More Races,25
+county,Lamoille,2024-12,Unreported,60
+county,Orange,2024-12,American Indian or Alaskan Native,*
+county,Orange,2024-12,Asian,*
+county,Orange,2024-12,Black or African American,*
+county,Orange,2024-12,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-12,Prefer not to answer,*
+county,Orange,2024-12,Prefer to self-describe,*
+county,Orange,2024-12,White,320
+county,Orange,2024-12,Two or More Races,*
+county,Orange,2024-12,Unreported,55
+county,Orleans,2024-12,American Indian or Alaskan Native,*
+county,Orleans,2024-12,Asian,0
+county,Orleans,2024-12,Black or African American,*
+county,Orleans,2024-12,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-12,Prefer not to answer,*
+county,Orleans,2024-12,Prefer to self-describe,0
+county,Orleans,2024-12,White,400
+county,Orleans,2024-12,Two or More Races,*
+county,Orleans,2024-12,Unreported,79
+county,Rutland,2024-12,American Indian or Alaskan Native,0
+county,Rutland,2024-12,Asian,*
+county,Rutland,2024-12,Black or African American,38
+county,Rutland,2024-12,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-12,Prefer not to answer,*
+county,Rutland,2024-12,Prefer to self-describe,*
+county,Rutland,2024-12,White,900
+county,Rutland,2024-12,Two or More Races,27
+county,Rutland,2024-12,Unreported,136
+county,Washington,2024-12,American Indian or Alaskan Native,*
+county,Washington,2024-12,Asian,*
+county,Washington,2024-12,Black or African American,*
+county,Washington,2024-12,Native Hawaiian or Pacific Islander,*
+county,Washington,2024-12,Prefer not to answer,12
+county,Washington,2024-12,Prefer to self-describe,*
+county,Washington,2024-12,White,485
+county,Washington,2024-12,Two or More Races,16
+county,Washington,2024-12,Unreported,76
+county,Windham,2024-12,American Indian or Alaskan Native,*
+county,Windham,2024-12,Asian,*
+county,Windham,2024-12,Black or African American,15
+county,Windham,2024-12,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-12,Prefer not to answer,12
+county,Windham,2024-12,Prefer to self-describe,11
+county,Windham,2024-12,White,502
+county,Windham,2024-12,Two or More Races,31
+county,Windham,2024-12,Unreported,103
+county,Windsor,2024-12,American Indian or Alaskan Native,*
+county,Windsor,2024-12,Asian,*
+county,Windsor,2024-12,Black or African American,13
+county,Windsor,2024-12,Native Hawaiian or Pacific Islander,0
+county,Windsor,2024-12,Prefer not to answer,*
+county,Windsor,2024-12,Prefer to self-describe,11
+county,Windsor,2024-12,White,636
+county,Windsor,2024-12,Two or More Races,24
+county,Windsor,2024-12,Unreported,83
+county,Addison,2024-11,American Indian or Alaskan Native,0
+county,Addison,2024-11,Asian,*
+county,Addison,2024-11,Black or African American,*
+county,Addison,2024-11,Native Hawaiian or Pacific Islander,0
+county,Addison,2024-11,Prefer not to answer,*
+county,Addison,2024-11,Prefer to self-describe,*
+county,Addison,2024-11,White,168
+county,Addison,2024-11,Two or More Races,*
+county,Addison,2024-11,Unreported,500
+county,Bennington,2024-11,American Indian or Alaskan Native,*
+county,Bennington,2024-11,Asian,*
+county,Bennington,2024-11,Black or African American,19
+county,Bennington,2024-11,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-11,Prefer not to answer,*
+county,Bennington,2024-11,Prefer to self-describe,10
+county,Bennington,2024-11,White,647
+county,Bennington,2024-11,Two or More Races,30
+county,Bennington,2024-11,Unreported,48
+county,Caledonia,2024-11,American Indian or Alaskan Native,*
+county,Caledonia,2024-11,Asian,*
+county,Caledonia,2024-11,Black or African American,*
+county,Caledonia,2024-11,Native Hawaiian or Pacific Islander,*
+county,Caledonia,2024-11,Prefer not to answer,0
+county,Caledonia,2024-11,Prefer to self-describe,*
+county,Caledonia,2024-11,White,296
+county,Caledonia,2024-11,Two or More Races,16
+county,Caledonia,2024-11,Unreported,446
+county,Chittenden,2024-11,American Indian or Alaskan Native,*
+county,Chittenden,2024-11,Asian,48
+county,Chittenden,2024-11,Black or African American,253
+county,Chittenden,2024-11,Native Hawaiian or Pacific Islander,*
+county,Chittenden,2024-11,Prefer not to answer,29
+county,Chittenden,2024-11,Prefer to self-describe,29
+county,Chittenden,2024-11,White,1328
+county,Chittenden,2024-11,Two or More Races,135
+county,Chittenden,2024-11,Unreported,503
+county,Essex,2024-11,American Indian or Alaskan Native,0
+county,Essex,2024-11,Asian,0
+county,Essex,2024-11,Black or African American,*
+county,Essex,2024-11,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-11,Prefer not to answer,0
+county,Essex,2024-11,Prefer to self-describe,*
+county,Essex,2024-11,White,50
+county,Essex,2024-11,Two or More Races,0
+county,Essex,2024-11,Unreported,58
+county,Franklin,2024-11,American Indian or Alaskan Native,*
+county,Franklin,2024-11,Asian,*
+county,Franklin,2024-11,Black or African American,12
+county,Franklin,2024-11,Native Hawaiian or Pacific Islander,*
+county,Franklin,2024-11,Prefer not to answer,*
+county,Franklin,2024-11,Prefer to self-describe,*
+county,Franklin,2024-11,White,618
+county,Franklin,2024-11,Two or More Races,27
+county,Franklin,2024-11,Unreported,130
+county,Grand Isle,2024-11,American Indian or Alaskan Native,*
+county,Grand Isle,2024-11,Asian,0
+county,Grand Isle,2024-11,Black or African American,*
+county,Grand Isle,2024-11,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-11,Prefer not to answer,0
+county,Grand Isle,2024-11,Prefer to self-describe,*
+county,Grand Isle,2024-11,White,73
+county,Grand Isle,2024-11,Two or More Races,*
+county,Grand Isle,2024-11,Unreported,12
+county,Lamoille,2024-11,American Indian or Alaskan Native,*
+county,Lamoille,2024-11,Asian,0
+county,Lamoille,2024-11,Black or African American,*
+county,Lamoille,2024-11,Native Hawaiian or Pacific Islander,*
+county,Lamoille,2024-11,Prefer not to answer,*
+county,Lamoille,2024-11,Prefer to self-describe,*
+county,Lamoille,2024-11,White,389
+county,Lamoille,2024-11,Two or More Races,25
+county,Lamoille,2024-11,Unreported,56
+county,Orange,2024-11,American Indian or Alaskan Native,*
+county,Orange,2024-11,Asian,*
+county,Orange,2024-11,Black or African American,*
+county,Orange,2024-11,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-11,Prefer not to answer,*
+county,Orange,2024-11,Prefer to self-describe,*
+county,Orange,2024-11,White,319
+county,Orange,2024-11,Two or More Races,*
+county,Orange,2024-11,Unreported,51
+county,Orleans,2024-11,American Indian or Alaskan Native,*
+county,Orleans,2024-11,Asian,0
+county,Orleans,2024-11,Black or African American,*
+county,Orleans,2024-11,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-11,Prefer not to answer,*
+county,Orleans,2024-11,Prefer to self-describe,0
+county,Orleans,2024-11,White,396
+county,Orleans,2024-11,Two or More Races,*
+county,Orleans,2024-11,Unreported,82
+county,Rutland,2024-11,American Indian or Alaskan Native,0
+county,Rutland,2024-11,Asian,*
+county,Rutland,2024-11,Black or African American,37
+county,Rutland,2024-11,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-11,Prefer not to answer,*
+county,Rutland,2024-11,Prefer to self-describe,*
+county,Rutland,2024-11,White,930
+county,Rutland,2024-11,Two or More Races,28
+county,Rutland,2024-11,Unreported,122
+county,Washington,2024-11,American Indian or Alaskan Native,*
+county,Washington,2024-11,Asian,*
+county,Washington,2024-11,Black or African American,*
+county,Washington,2024-11,Native Hawaiian or Pacific Islander,0
+county,Washington,2024-11,Prefer not to answer,10
+county,Washington,2024-11,Prefer to self-describe,*
+county,Washington,2024-11,White,491
+county,Washington,2024-11,Two or More Races,16
+county,Washington,2024-11,Unreported,68
+county,Windham,2024-11,American Indian or Alaskan Native,*
+county,Windham,2024-11,Asian,*
+county,Windham,2024-11,Black or African American,15
+county,Windham,2024-11,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-11,Prefer not to answer,13
+county,Windham,2024-11,Prefer to self-describe,11
+county,Windham,2024-11,White,500
+county,Windham,2024-11,Two or More Races,35
+county,Windham,2024-11,Unreported,96
+county,Windsor,2024-11,American Indian or Alaskan Native,*
+county,Windsor,2024-11,Asian,*
+county,Windsor,2024-11,Black or African American,14
+county,Windsor,2024-11,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-11,Prefer not to answer,*
+county,Windsor,2024-11,Prefer to self-describe,10
+county,Windsor,2024-11,White,650
+county,Windsor,2024-11,Two or More Races,26
+county,Windsor,2024-11,Unreported,78
+county,Addison,2024-10,American Indian or Alaskan Native,0
+county,Addison,2024-10,Asian,*
+county,Addison,2024-10,Black or African American,26
+county,Addison,2024-10,Native Hawaiian or Pacific Islander,*
+county,Addison,2024-10,Prefer not to answer,*
+county,Addison,2024-10,Prefer to self-describe,*
+county,Addison,2024-10,White,489
+county,Addison,2024-10,Two or More Races,22
+county,Addison,2024-10,Unreported,153
+county,Bennington,2024-10,American Indian or Alaskan Native,*
+county,Bennington,2024-10,Asian,*
+county,Bennington,2024-10,Black or African American,36
+county,Bennington,2024-10,Native Hawaiian or Pacific Islander,0
+county,Bennington,2024-10,Prefer not to answer,*
+county,Bennington,2024-10,Prefer to self-describe,*
+county,Bennington,2024-10,White,530
+county,Bennington,2024-10,Two or More Races,33
+county,Bennington,2024-10,Unreported,152
+county,Caledonia,2024-10,American Indian or Alaskan Native,*
+county,Caledonia,2024-10,Asian,*
+county,Caledonia,2024-10,Black or African American,28
+county,Caledonia,2024-10,Native Hawaiian or Pacific Islander,0
+county,Caledonia,2024-10,Prefer not to answer,*
+county,Caledonia,2024-10,Prefer to self-describe,*
+county,Caledonia,2024-10,White,590
+county,Caledonia,2024-10,Two or More Races,30
+county,Caledonia,2024-10,Unreported,197
+county,Chittenden,2024-10,American Indian or Alaskan Native,10
+county,Chittenden,2024-10,Asian,18
+county,Chittenden,2024-10,Black or African American,88
+county,Chittenden,2024-10,Native Hawaiian or Pacific Islander,0
+county,Chittenden,2024-10,Prefer not to answer,15
+county,Chittenden,2024-10,Prefer to self-describe,21
+county,Chittenden,2024-10,White,1517
+county,Chittenden,2024-10,Two or More Races,80
+county,Chittenden,2024-10,Unreported,502
+county,Essex,2024-10,American Indian or Alaskan Native,0
+county,Essex,2024-10,Asian,0
+county,Essex,2024-10,Black or African American,*
+county,Essex,2024-10,Native Hawaiian or Pacific Islander,0
+county,Essex,2024-10,Prefer not to answer,*
+county,Essex,2024-10,Prefer to self-describe,*
+county,Essex,2024-10,White,91
+county,Essex,2024-10,Two or More Races,*
+county,Essex,2024-10,Unreported,35
+county,Franklin,2024-10,American Indian or Alaskan Native,0
+county,Franklin,2024-10,Asian,*
+county,Franklin,2024-10,Black or African American,28
+county,Franklin,2024-10,Native Hawaiian or Pacific Islander,0
+county,Franklin,2024-10,Prefer not to answer,*
+county,Franklin,2024-10,Prefer to self-describe,*
+county,Franklin,2024-10,White,563
+county,Franklin,2024-10,Two or More Races,27
+county,Franklin,2024-10,Unreported,185
+county,Grand Isle,2024-10,American Indian or Alaskan Native,0
+county,Grand Isle,2024-10,Asian,*
+county,Grand Isle,2024-10,Black or African American,*
+county,Grand Isle,2024-10,Native Hawaiian or Pacific Islander,0
+county,Grand Isle,2024-10,Prefer not to answer,0
+county,Grand Isle,2024-10,Prefer to self-describe,0
+county,Grand Isle,2024-10,White,60
+county,Grand Isle,2024-10,Two or More Races,*
+county,Grand Isle,2024-10,Unreported,16
+county,Lamoille,2024-10,American Indian or Alaskan Native,*
+county,Lamoille,2024-10,Asian,*
+county,Lamoille,2024-10,Black or African American,19
+county,Lamoille,2024-10,Native Hawaiian or Pacific Islander,0
+county,Lamoille,2024-10,Prefer not to answer,15
+county,Lamoille,2024-10,Prefer to self-describe,*
+county,Lamoille,2024-10,White,372
+county,Lamoille,2024-10,Two or More Races,16
+county,Lamoille,2024-10,Unreported,132
+county,Orange,2024-10,American Indian or Alaskan Native,0
+county,Orange,2024-10,Asian,*
+county,Orange,2024-10,Black or African American,16
+county,Orange,2024-10,Native Hawaiian or Pacific Islander,0
+county,Orange,2024-10,Prefer not to answer,*
+county,Orange,2024-10,Prefer to self-describe,*
+county,Orange,2024-10,White,253
+county,Orange,2024-10,Two or More Races,11
+county,Orange,2024-10,Unreported,78
+county,Orleans,2024-10,American Indian or Alaskan Native,*
+county,Orleans,2024-10,Asian,*
+county,Orleans,2024-10,Black or African American,15
+county,Orleans,2024-10,Native Hawaiian or Pacific Islander,0
+county,Orleans,2024-10,Prefer not to answer,*
+county,Orleans,2024-10,Prefer to self-describe,*
+county,Orleans,2024-10,White,290
+county,Orleans,2024-10,Two or More Races,*
+county,Orleans,2024-10,Unreported,104
+county,Rutland,2024-10,American Indian or Alaskan Native,*
+county,Rutland,2024-10,Asian,*
+county,Rutland,2024-10,Black or African American,46
+county,Rutland,2024-10,Native Hawaiian or Pacific Islander,0
+county,Rutland,2024-10,Prefer not to answer,11
+county,Rutland,2024-10,Prefer to self-describe,12
+county,Rutland,2024-10,White,723
+county,Rutland,2024-10,Two or More Races,30
+county,Rutland,2024-10,Unreported,234
+county,Washington,2024-10,American Indian or Alaskan Native,*
+county,Washington,2024-10,Asian,*
+county,Washington,2024-10,Black or African American,18
+county,Washington,2024-10,Native Hawaiian or Pacific Islander,*
+county,Washington,2024-10,Prefer not to answer,*
+county,Washington,2024-10,Prefer to self-describe,0
+county,Washington,2024-10,White,315
+county,Washington,2024-10,Two or More Races,11
+county,Washington,2024-10,Unreported,108
+county,Windham,2024-10,American Indian or Alaskan Native,0
+county,Windham,2024-10,Asian,*
+county,Windham,2024-10,Black or African American,28
+county,Windham,2024-10,Native Hawaiian or Pacific Islander,0
+county,Windham,2024-10,Prefer not to answer,*
+county,Windham,2024-10,Prefer to self-describe,*
+county,Windham,2024-10,White,382
+county,Windham,2024-10,Two or More Races,33
+county,Windham,2024-10,Unreported,135
+county,Windsor,2024-10,American Indian or Alaskan Native,*
+county,Windsor,2024-10,Asian,*
+county,Windsor,2024-10,Black or African American,23
+county,Windsor,2024-10,Native Hawaiian or Pacific Islander,*
+county,Windsor,2024-10,Prefer not to answer,*
+county,Windsor,2024-10,Prefer to self-describe,*
+county,Windsor,2024-10,White,499
+county,Windsor,2024-10,Two or More Races,20
+county,Windsor,2024-10,Unreported,151
+state,Vermont,2024-12,American Indian or Alaskan Native,*
+state,Vermont,2024-12,Asian,71
+state,Vermont,2024-12,Black or African American,379
+state,Vermont,2024-12,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-12,Prefer not to answer,89
+state,Vermont,2024-12,Prefer to self-describe,91
+state,Vermont,2024-12,White,6840
+state,Vermont,2024-12,Two or More Races,342
+state,Vermont,2024-12,Unreported,2304
+state,Vermont,2024-11,American Indian or Alaskan Native,*
+state,Vermont,2024-11,Asian,73
+state,Vermont,2024-11,Black or African American,382
+state,Vermont,2024-11,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-11,Prefer not to answer,87
+state,Vermont,2024-11,Prefer to self-describe,85
+state,Vermont,2024-11,White,6855
+state,Vermont,2024-11,Two or More Races,345
+state,Vermont,2024-11,Unreported,2250
+state,Vermont,2024-10,American Indian or Alaskan Native,*
+state,Vermont,2024-10,Asian,69
+state,Vermont,2024-10,Black or African American,380
+state,Vermont,2024-10,Native Hawaiian or Pacific Islander,*
+state,Vermont,2024-10,Prefer not to answer,85
+state,Vermont,2024-10,Prefer to self-describe,82
+state,Vermont,2024-10,White,6674
+state,Vermont,2024-10,Two or More Races,333
+state,Vermont,2024-10,Unreported,2182

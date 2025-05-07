@@ -1,0 +1,1561 @@
+geo type,geography,year,category,value
+AHSD,Barre District,2023-06,Infant,37
+AHSD,Barre District,2023-06,Preschool,224
+AHSD,Barre District,2023-06,School,182
+AHSD,Barre District,2023-06,Toddler,57
+AHSD,Bennington District,2023-06,Infant,105
+AHSD,Bennington District,2023-06,Preschool,334
+AHSD,Bennington District,2023-06,School,136
+AHSD,Bennington District,2023-06,Toddler,85
+AHSD,Brattleboro District,2023-06,Infant,65
+AHSD,Brattleboro District,2023-06,Preschool,196
+AHSD,Brattleboro District,2023-06,School,80
+AHSD,Brattleboro District,2023-06,Toddler,57
+AHSD,Burlington District,2023-06,Infant,218
+AHSD,Burlington District,2023-06,Preschool,591
+AHSD,Burlington District,2023-06,School,702
+AHSD,Burlington District,2023-06,Toddler,166
+AHSD,Hartford District,2023-06,Infant,57
+AHSD,Hartford District,2023-06,Preschool,137
+AHSD,Hartford District,2023-06,School,103
+AHSD,Hartford District,2023-06,Toddler,30
+AHSD,Middlebury District,2023-06,Infant,46
+AHSD,Middlebury District,2023-06,Preschool,183
+AHSD,Middlebury District,2023-06,School,229
+AHSD,Middlebury District,2023-06,Toddler,44
+AHSD,Morrisville District,2023-06,Infant,63
+AHSD,Morrisville District,2023-06,Preschool,190
+AHSD,Morrisville District,2023-06,School,138
+AHSD,Morrisville District,2023-06,Toddler,43
+AHSD,Newport District,2023-06,Infant,45
+AHSD,Newport District,2023-06,Preschool,169
+AHSD,Newport District,2023-06,School,138
+AHSD,Newport District,2023-06,Toddler,52
+AHSD,Rutland District,2023-06,Infant,124
+AHSD,Rutland District,2023-06,Preschool,329
+AHSD,Rutland District,2023-06,School,359
+AHSD,Rutland District,2023-06,Toddler,102
+AHSD,Springfield District,2023-06,Infant,63
+AHSD,Springfield District,2023-06,Preschool,192
+AHSD,Springfield District,2023-06,School,186
+AHSD,Springfield District,2023-06,Toddler,52
+AHSD,St. Albans District,2023-06,Infant,93
+AHSD,St. Albans District,2023-06,Preschool,274
+AHSD,St. Albans District,2023-06,School,250
+AHSD,St. Albans District,2023-06,Toddler,69
+AHSD,St. Johnsbury District,2023-06,Infant,110
+AHSD,St. Johnsbury District,2023-06,Preschool,276
+AHSD,St. Johnsbury District,2023-06,School,270
+AHSD,St. Johnsbury District,2023-06,Toddler,83
+AHSD,Barre District,2023-05,Infant,45
+AHSD,Barre District,2023-05,Preschool,216
+AHSD,Barre District,2023-05,School,135
+AHSD,Barre District,2023-05,Toddler,51
+AHSD,Bennington District,2023-05,Infant,99
+AHSD,Bennington District,2023-05,Preschool,320
+AHSD,Bennington District,2023-05,School,102
+AHSD,Bennington District,2023-05,Toddler,86
+AHSD,Brattleboro District,2023-05,Infant,67
+AHSD,Brattleboro District,2023-05,Preschool,178
+AHSD,Brattleboro District,2023-05,School,55
+AHSD,Brattleboro District,2023-05,Toddler,56
+AHSD,Burlington District,2023-05,Infant,213
+AHSD,Burlington District,2023-05,Preschool,565
+AHSD,Burlington District,2023-05,School,543
+AHSD,Burlington District,2023-05,Toddler,161
+AHSD,Hartford District,2023-05,Infant,53
+AHSD,Hartford District,2023-05,Preschool,130
+AHSD,Hartford District,2023-05,School,92
+AHSD,Hartford District,2023-05,Toddler,31
+AHSD,Middlebury District,2023-05,Infant,50
+AHSD,Middlebury District,2023-05,Preschool,175
+AHSD,Middlebury District,2023-05,School,160
+AHSD,Middlebury District,2023-05,Toddler,40
+AHSD,Morrisville District,2023-05,Infant,61
+AHSD,Morrisville District,2023-05,Preschool,179
+AHSD,Morrisville District,2023-05,School,121
+AHSD,Morrisville District,2023-05,Toddler,49
+AHSD,Newport District,2023-05,Infant,50
+AHSD,Newport District,2023-05,Preschool,162
+AHSD,Newport District,2023-05,School,144
+AHSD,Newport District,2023-05,Toddler,50
+AHSD,Rutland District,2023-05,Infant,125
+AHSD,Rutland District,2023-05,Preschool,317
+AHSD,Rutland District,2023-05,School,281
+AHSD,Rutland District,2023-05,Toddler,101
+AHSD,Springfield District,2023-05,Infant,67
+AHSD,Springfield District,2023-05,Preschool,191
+AHSD,Springfield District,2023-05,School,149
+AHSD,Springfield District,2023-05,Toddler,48
+AHSD,St. Albans District,2023-05,Infant,95
+AHSD,St. Albans District,2023-05,Preschool,256
+AHSD,St. Albans District,2023-05,School,219
+AHSD,St. Albans District,2023-05,Toddler,69
+AHSD,St. Johnsbury District,2023-05,Infant,107
+AHSD,St. Johnsbury District,2023-05,Preschool,264
+AHSD,St. Johnsbury District,2023-05,School,251
+AHSD,St. Johnsbury District,2023-05,Toddler,83
+AHSD,Barre District,2023-04,Infant,46
+AHSD,Barre District,2023-04,Preschool,212
+AHSD,Barre District,2023-04,School,136
+AHSD,Barre District,2023-04,Toddler,45
+AHSD,Bennington District,2023-04,Infant,94
+AHSD,Bennington District,2023-04,Preschool,310
+AHSD,Bennington District,2023-04,School,114
+AHSD,Bennington District,2023-04,Toddler,94
+AHSD,Brattleboro District,2023-04,Infant,64
+AHSD,Brattleboro District,2023-04,Preschool,179
+AHSD,Brattleboro District,2023-04,School,66
+AHSD,Brattleboro District,2023-04,Toddler,57
+AHSD,Burlington District,2023-04,Infant,221
+AHSD,Burlington District,2023-04,Preschool,561
+AHSD,Burlington District,2023-04,School,579
+AHSD,Burlington District,2023-04,Toddler,155
+AHSD,Hartford District,2023-04,Infant,56
+AHSD,Hartford District,2023-04,Preschool,135
+AHSD,Hartford District,2023-04,School,94
+AHSD,Hartford District,2023-04,Toddler,31
+AHSD,Middlebury District,2023-04,Infant,51
+AHSD,Middlebury District,2023-04,Preschool,175
+AHSD,Middlebury District,2023-04,School,168
+AHSD,Middlebury District,2023-04,Toddler,39
+AHSD,Morrisville District,2023-04,Infant,63
+AHSD,Morrisville District,2023-04,Preschool,182
+AHSD,Morrisville District,2023-04,School,119
+AHSD,Morrisville District,2023-04,Toddler,47
+AHSD,Newport District,2023-04,Infant,53
+AHSD,Newport District,2023-04,Preschool,166
+AHSD,Newport District,2023-04,School,151
+AHSD,Newport District,2023-04,Toddler,50
+AHSD,Rutland District,2023-04,Infant,126
+AHSD,Rutland District,2023-04,Preschool,315
+AHSD,Rutland District,2023-04,School,292
+AHSD,Rutland District,2023-04,Toddler,105
+AHSD,Springfield District,2023-04,Infant,69
+AHSD,Springfield District,2023-04,Preschool,199
+AHSD,Springfield District,2023-04,School,151
+AHSD,Springfield District,2023-04,Toddler,46
+AHSD,St. Albans District,2023-04,Infant,93
+AHSD,St. Albans District,2023-04,Preschool,251
+AHSD,St. Albans District,2023-04,School,219
+AHSD,St. Albans District,2023-04,Toddler,72
+AHSD,St. Johnsbury District,2023-04,Infant,110
+AHSD,St. Johnsbury District,2023-04,Preschool,268
+AHSD,St. Johnsbury District,2023-04,School,247
+AHSD,St. Johnsbury District,2023-04,Toddler,75
+AHSD,Barre District,2023-03,Infant,47
+AHSD,Barre District,2023-03,Preschool,204
+AHSD,Barre District,2023-03,School,134
+AHSD,Barre District,2023-03,Toddler,41
+AHSD,Bennington District,2023-03,Infant,93
+AHSD,Bennington District,2023-03,Preschool,291
+AHSD,Bennington District,2023-03,School,99
+AHSD,Bennington District,2023-03,Toddler,106
+AHSD,Brattleboro District,2023-03,Infant,63
+AHSD,Brattleboro District,2023-03,Preschool,179
+AHSD,Brattleboro District,2023-03,School,65
+AHSD,Brattleboro District,2023-03,Toddler,48
+AHSD,Burlington District,2023-03,Infant,223
+AHSD,Burlington District,2023-03,Preschool,543
+AHSD,Burlington District,2023-03,School,558
+AHSD,Burlington District,2023-03,Toddler,153
+AHSD,Hartford District,2023-03,Infant,55
+AHSD,Hartford District,2023-03,Preschool,133
+AHSD,Hartford District,2023-03,School,90
+AHSD,Hartford District,2023-03,Toddler,31
+AHSD,Middlebury District,2023-03,Infant,48
+AHSD,Middlebury District,2023-03,Preschool,174
+AHSD,Middlebury District,2023-03,School,155
+AHSD,Middlebury District,2023-03,Toddler,44
+AHSD,Morrisville District,2023-03,Infant,64
+AHSD,Morrisville District,2023-03,Preschool,176
+AHSD,Morrisville District,2023-03,School,116
+AHSD,Morrisville District,2023-03,Toddler,45
+AHSD,Newport District,2023-03,Infant,54
+AHSD,Newport District,2023-03,Preschool,162
+AHSD,Newport District,2023-03,School,150
+AHSD,Newport District,2023-03,Toddler,51
+AHSD,Rutland District,2023-03,Infant,130
+AHSD,Rutland District,2023-03,Preschool,315
+AHSD,Rutland District,2023-03,School,277
+AHSD,Rutland District,2023-03,Toddler,105
+AHSD,Springfield District,2023-03,Infant,72
+AHSD,Springfield District,2023-03,Preschool,192
+AHSD,Springfield District,2023-03,School,146
+AHSD,Springfield District,2023-03,Toddler,44
+AHSD,St. Albans District,2023-03,Infant,83
+AHSD,St. Albans District,2023-03,Preschool,242
+AHSD,St. Albans District,2023-03,School,215
+AHSD,St. Albans District,2023-03,Toddler,74
+AHSD,St. Johnsbury District,2023-03,Infant,104
+AHSD,St. Johnsbury District,2023-03,Preschool,270
+AHSD,St. Johnsbury District,2023-03,School,236
+AHSD,St. Johnsbury District,2023-03,Toddler,73
+AHSD,Barre District,2023-02,Infant,48
+AHSD,Barre District,2023-02,Preschool,198
+AHSD,Barre District,2023-02,School,129
+AHSD,Barre District,2023-02,Toddler,42
+AHSD,Bennington District,2023-02,Infant,86
+AHSD,Bennington District,2023-02,Preschool,293
+AHSD,Bennington District,2023-02,School,108
+AHSD,Bennington District,2023-02,Toddler,106
+AHSD,Brattleboro District,2023-02,Infant,66
+AHSD,Brattleboro District,2023-02,Preschool,172
+AHSD,Brattleboro District,2023-02,School,61
+AHSD,Brattleboro District,2023-02,Toddler,45
+AHSD,Burlington District,2023-02,Infant,221
+AHSD,Burlington District,2023-02,Preschool,525
+AHSD,Burlington District,2023-02,School,542
+AHSD,Burlington District,2023-02,Toddler,155
+AHSD,Hartford District,2023-02,Infant,54
+AHSD,Hartford District,2023-02,Preschool,136
+AHSD,Hartford District,2023-02,School,87
+AHSD,Hartford District,2023-02,Toddler,29
+AHSD,Middlebury District,2023-02,Infant,46
+AHSD,Middlebury District,2023-02,Preschool,175
+AHSD,Middlebury District,2023-02,School,149
+AHSD,Middlebury District,2023-02,Toddler,45
+AHSD,Morrisville District,2023-02,Infant,64
+AHSD,Morrisville District,2023-02,Preschool,177
+AHSD,Morrisville District,2023-02,School,121
+AHSD,Morrisville District,2023-02,Toddler,42
+AHSD,Newport District,2023-02,Infant,52
+AHSD,Newport District,2023-02,Preschool,162
+AHSD,Newport District,2023-02,School,146
+AHSD,Newport District,2023-02,Toddler,51
+AHSD,Rutland District,2023-02,Infant,135
+AHSD,Rutland District,2023-02,Preschool,308
+AHSD,Rutland District,2023-02,School,298
+AHSD,Rutland District,2023-02,Toddler,110
+AHSD,Springfield District,2023-02,Infant,70
+AHSD,Springfield District,2023-02,Preschool,193
+AHSD,Springfield District,2023-02,School,145
+AHSD,Springfield District,2023-02,Toddler,47
+AHSD,St. Albans District,2023-02,Infant,80
+AHSD,St. Albans District,2023-02,Preschool,233
+AHSD,St. Albans District,2023-02,School,215
+AHSD,St. Albans District,2023-02,Toddler,87
+AHSD,St. Johnsbury District,2023-02,Infant,105
+AHSD,St. Johnsbury District,2023-02,Preschool,265
+AHSD,St. Johnsbury District,2023-02,School,233
+AHSD,St. Johnsbury District,2023-02,Toddler,79
+AHSD,Barre District,2023-01,Infant,50
+AHSD,Barre District,2023-01,Preschool,191
+AHSD,Barre District,2023-01,School,118
+AHSD,Barre District,2023-01,Toddler,42
+AHSD,Bennington District,2023-01,Infant,90
+AHSD,Bennington District,2023-01,Preschool,284
+AHSD,Bennington District,2023-01,School,92
+AHSD,Bennington District,2023-01,Toddler,102
+AHSD,Brattleboro District,2023-01,Infant,63
+AHSD,Brattleboro District,2023-01,Preschool,164
+AHSD,Brattleboro District,2023-01,School,58
+AHSD,Brattleboro District,2023-01,Toddler,54
+AHSD,Burlington District,2023-01,Infant,216
+AHSD,Burlington District,2023-01,Preschool,521
+AHSD,Burlington District,2023-01,School,515
+AHSD,Burlington District,2023-01,Toddler,165
+AHSD,Hartford District,2023-01,Infant,51
+AHSD,Hartford District,2023-01,Preschool,130
+AHSD,Hartford District,2023-01,School,81
+AHSD,Hartford District,2023-01,Toddler,25
+AHSD,Middlebury District,2023-01,Infant,42
+AHSD,Middlebury District,2023-01,Preschool,167
+AHSD,Middlebury District,2023-01,School,141
+AHSD,Middlebury District,2023-01,Toddler,47
+AHSD,Morrisville District,2023-01,Infant,60
+AHSD,Morrisville District,2023-01,Preschool,174
+AHSD,Morrisville District,2023-01,School,115
+AHSD,Morrisville District,2023-01,Toddler,38
+AHSD,Newport District,2023-01,Infant,52
+AHSD,Newport District,2023-01,Preschool,159
+AHSD,Newport District,2023-01,School,144
+AHSD,Newport District,2023-01,Toddler,58
+AHSD,Rutland District,2023-01,Infant,139
+AHSD,Rutland District,2023-01,Preschool,301
+AHSD,Rutland District,2023-01,School,306
+AHSD,Rutland District,2023-01,Toddler,109
+AHSD,Springfield District,2023-01,Infant,65
+AHSD,Springfield District,2023-01,Preschool,193
+AHSD,Springfield District,2023-01,School,135
+AHSD,Springfield District,2023-01,Toddler,49
+AHSD,St. Albans District,2023-01,Infant,76
+AHSD,St. Albans District,2023-01,Preschool,231
+AHSD,St. Albans District,2023-01,School,218
+AHSD,St. Albans District,2023-01,Toddler,89
+AHSD,St. Johnsbury District,2023-01,Infant,103
+AHSD,St. Johnsbury District,2023-01,Preschool,264
+AHSD,St. Johnsbury District,2023-01,School,237
+AHSD,St. Johnsbury District,2023-01,Toddler,81
+AHSD,Barre District,2022-12,Infant,56
+AHSD,Barre District,2022-12,Preschool,175
+AHSD,Barre District,2022-12,School,116
+AHSD,Barre District,2022-12,Toddler,45
+AHSD,Bennington District,2022-12,Infant,90
+AHSD,Bennington District,2022-12,Preschool,282
+AHSD,Bennington District,2022-12,School,92
+AHSD,Bennington District,2022-12,Toddler,103
+AHSD,Brattleboro District,2022-12,Infant,64
+AHSD,Brattleboro District,2022-12,Preschool,158
+AHSD,Brattleboro District,2022-12,School,55
+AHSD,Brattleboro District,2022-12,Toddler,56
+AHSD,Burlington District,2022-12,Infant,209
+AHSD,Burlington District,2022-12,Preschool,507
+AHSD,Burlington District,2022-12,School,520
+AHSD,Burlington District,2022-12,Toddler,161
+AHSD,Hartford District,2022-12,Infant,46
+AHSD,Hartford District,2022-12,Preschool,126
+AHSD,Hartford District,2022-12,School,82
+AHSD,Hartford District,2022-12,Toddler,31
+AHSD,Middlebury District,2022-12,Infant,43
+AHSD,Middlebury District,2022-12,Preschool,156
+AHSD,Middlebury District,2022-12,School,144
+AHSD,Middlebury District,2022-12,Toddler,47
+AHSD,Morrisville District,2022-12,Infant,61
+AHSD,Morrisville District,2022-12,Preschool,166
+AHSD,Morrisville District,2022-12,School,117
+AHSD,Morrisville District,2022-12,Toddler,41
+AHSD,Newport District,2022-12,Infant,51
+AHSD,Newport District,2022-12,Preschool,157
+AHSD,Newport District,2022-12,School,137
+AHSD,Newport District,2022-12,Toddler,55
+AHSD,Rutland District,2022-12,Infant,132
+AHSD,Rutland District,2022-12,Preschool,293
+AHSD,Rutland District,2022-12,School,307
+AHSD,Rutland District,2022-12,Toddler,119
+AHSD,Springfield District,2022-12,Infant,66
+AHSD,Springfield District,2022-12,Preschool,187
+AHSD,Springfield District,2022-12,School,132
+AHSD,Springfield District,2022-12,Toddler,47
+AHSD,St. Albans District,2022-12,Infant,78
+AHSD,St. Albans District,2022-12,Preschool,237
+AHSD,St. Albans District,2022-12,School,223
+AHSD,St. Albans District,2022-12,Toddler,91
+AHSD,St. Johnsbury District,2022-12,Infant,97
+AHSD,St. Johnsbury District,2022-12,Preschool,254
+AHSD,St. Johnsbury District,2022-12,School,236
+AHSD,St. Johnsbury District,2022-12,Toddler,80
+AHSD,Barre District,2022-11,Infant,58
+AHSD,Barre District,2022-11,Preschool,173
+AHSD,Barre District,2022-11,School,112
+AHSD,Barre District,2022-11,Toddler,48
+AHSD,Bennington District,2022-11,Infant,92
+AHSD,Bennington District,2022-11,Preschool,280
+AHSD,Bennington District,2022-11,School,91
+AHSD,Bennington District,2022-11,Toddler,104
+AHSD,Brattleboro District,2022-11,Infant,64
+AHSD,Brattleboro District,2022-11,Preschool,152
+AHSD,Brattleboro District,2022-11,School,58
+AHSD,Brattleboro District,2022-11,Toddler,55
+AHSD,Burlington District,2022-11,Infant,216
+AHSD,Burlington District,2022-11,Preschool,506
+AHSD,Burlington District,2022-11,School,511
+AHSD,Burlington District,2022-11,Toddler,163
+AHSD,Hartford District,2022-11,Infant,51
+AHSD,Hartford District,2022-11,Preschool,120
+AHSD,Hartford District,2022-11,School,79
+AHSD,Hartford District,2022-11,Toddler,35
+AHSD,Middlebury District,2022-11,Infant,43
+AHSD,Middlebury District,2022-11,Preschool,154
+AHSD,Middlebury District,2022-11,School,145
+AHSD,Middlebury District,2022-11,Toddler,51
+AHSD,Morrisville District,2022-11,Infant,62
+AHSD,Morrisville District,2022-11,Preschool,166
+AHSD,Morrisville District,2022-11,School,117
+AHSD,Morrisville District,2022-11,Toddler,42
+AHSD,Newport District,2022-11,Infant,50
+AHSD,Newport District,2022-11,Preschool,156
+AHSD,Newport District,2022-11,School,133
+AHSD,Newport District,2022-11,Toddler,54
+AHSD,Rutland District,2022-11,Infant,141
+AHSD,Rutland District,2022-11,Preschool,291
+AHSD,Rutland District,2022-11,School,308
+AHSD,Rutland District,2022-11,Toddler,118
+AHSD,Springfield District,2022-11,Infant,68
+AHSD,Springfield District,2022-11,Preschool,185
+AHSD,Springfield District,2022-11,School,134
+AHSD,Springfield District,2022-11,Toddler,52
+AHSD,St. Albans District,2022-11,Infant,87
+AHSD,St. Albans District,2022-11,Preschool,235
+AHSD,St. Albans District,2022-11,School,232
+AHSD,St. Albans District,2022-11,Toddler,93
+AHSD,St. Johnsbury District,2022-11,Infant,97
+AHSD,St. Johnsbury District,2022-11,Preschool,256
+AHSD,St. Johnsbury District,2022-11,School,220
+AHSD,St. Johnsbury District,2022-11,Toddler,77
+AHSD,Barre District,2022-10,Infant,61
+AHSD,Barre District,2022-10,Preschool,165
+AHSD,Barre District,2022-10,School,111
+AHSD,Barre District,2022-10,Toddler,52
+AHSD,Bennington District,2022-10,Infant,93
+AHSD,Bennington District,2022-10,Preschool,269
+AHSD,Bennington District,2022-10,School,96
+AHSD,Bennington District,2022-10,Toddler,100
+AHSD,Brattleboro District,2022-10,Infant,69
+AHSD,Brattleboro District,2022-10,Preschool,151
+AHSD,Brattleboro District,2022-10,School,59
+AHSD,Brattleboro District,2022-10,Toddler,57
+AHSD,Burlington District,2022-10,Infant,212
+AHSD,Burlington District,2022-10,Preschool,493
+AHSD,Burlington District,2022-10,School,487
+AHSD,Burlington District,2022-10,Toddler,177
+AHSD,Hartford District,2022-10,Infant,50
+AHSD,Hartford District,2022-10,Preschool,121
+AHSD,Hartford District,2022-10,School,73
+AHSD,Hartford District,2022-10,Toddler,35
+AHSD,Middlebury District,2022-10,Infant,45
+AHSD,Middlebury District,2022-10,Preschool,153
+AHSD,Middlebury District,2022-10,School,135
+AHSD,Middlebury District,2022-10,Toddler,51
+AHSD,Morrisville District,2022-10,Infant,59
+AHSD,Morrisville District,2022-10,Preschool,160
+AHSD,Morrisville District,2022-10,School,119
+AHSD,Morrisville District,2022-10,Toddler,50
+AHSD,Newport District,2022-10,Infant,50
+AHSD,Newport District,2022-10,Preschool,157
+AHSD,Newport District,2022-10,School,133
+AHSD,Newport District,2022-10,Toddler,56
+AHSD,Rutland District,2022-10,Infant,138
+AHSD,Rutland District,2022-10,Preschool,291
+AHSD,Rutland District,2022-10,School,292
+AHSD,Rutland District,2022-10,Toddler,112
+AHSD,Springfield District,2022-10,Infant,72
+AHSD,Springfield District,2022-10,Preschool,184
+AHSD,Springfield District,2022-10,School,123
+AHSD,Springfield District,2022-10,Toddler,57
+AHSD,St. Albans District,2022-10,Infant,89
+AHSD,St. Albans District,2022-10,Preschool,239
+AHSD,St. Albans District,2022-10,School,227
+AHSD,St. Albans District,2022-10,Toddler,92
+AHSD,St. Johnsbury District,2022-10,Infant,93
+AHSD,St. Johnsbury District,2022-10,Preschool,255
+AHSD,St. Johnsbury District,2022-10,School,218
+AHSD,St. Johnsbury District,2022-10,Toddler,74
+AHSD,Barre District,2022-09,Infant,57
+AHSD,Barre District,2022-09,Preschool,166
+AHSD,Barre District,2022-09,School,106
+AHSD,Barre District,2022-09,Toddler,50
+AHSD,Bennington District,2022-09,Infant,93
+AHSD,Bennington District,2022-09,Preschool,275
+AHSD,Bennington District,2022-09,School,108
+AHSD,Bennington District,2022-09,Toddler,102
+AHSD,Brattleboro District,2022-09,Infant,72
+AHSD,Brattleboro District,2022-09,Preschool,163
+AHSD,Brattleboro District,2022-09,School,63
+AHSD,Brattleboro District,2022-09,Toddler,57
+AHSD,Burlington District,2022-09,Infant,203
+AHSD,Burlington District,2022-09,Preschool,505
+AHSD,Burlington District,2022-09,School,502
+AHSD,Burlington District,2022-09,Toddler,184
+AHSD,Hartford District,2022-09,Infant,53
+AHSD,Hartford District,2022-09,Preschool,130
+AHSD,Hartford District,2022-09,School,68
+AHSD,Hartford District,2022-09,Toddler,33
+AHSD,Middlebury District,2022-09,Infant,48
+AHSD,Middlebury District,2022-09,Preschool,152
+AHSD,Middlebury District,2022-09,School,136
+AHSD,Middlebury District,2022-09,Toddler,46
+AHSD,Morrisville District,2022-09,Infant,54
+AHSD,Morrisville District,2022-09,Preschool,156
+AHSD,Morrisville District,2022-09,School,103
+AHSD,Morrisville District,2022-09,Toddler,51
+AHSD,Newport District,2022-09,Infant,51
+AHSD,Newport District,2022-09,Preschool,160
+AHSD,Newport District,2022-09,School,140
+AHSD,Newport District,2022-09,Toddler,46
+AHSD,Rutland District,2022-09,Infant,144
+AHSD,Rutland District,2022-09,Preschool,295
+AHSD,Rutland District,2022-09,School,290
+AHSD,Rutland District,2022-09,Toddler,114
+AHSD,Springfield District,2022-09,Infant,73
+AHSD,Springfield District,2022-09,Preschool,205
+AHSD,Springfield District,2022-09,School,125
+AHSD,Springfield District,2022-09,Toddler,58
+AHSD,St. Albans District,2022-09,Infant,84
+AHSD,St. Albans District,2022-09,Preschool,229
+AHSD,St. Albans District,2022-09,School,236
+AHSD,St. Albans District,2022-09,Toddler,102
+AHSD,St. Johnsbury District,2022-09,Infant,93
+AHSD,St. Johnsbury District,2022-09,Preschool,259
+AHSD,St. Johnsbury District,2022-09,School,227
+AHSD,St. Johnsbury District,2022-09,Toddler,76
+AHSD,Barre District,2022-08,Infant,52
+AHSD,Barre District,2022-08,Preschool,195
+AHSD,Barre District,2022-08,School,158
+AHSD,Barre District,2022-08,Toddler,57
+AHSD,Bennington District,2022-08,Infant,87
+AHSD,Bennington District,2022-08,Preschool,311
+AHSD,Bennington District,2022-08,School,136
+AHSD,Bennington District,2022-08,Toddler,102
+AHSD,Brattleboro District,2022-08,Infant,62
+AHSD,Brattleboro District,2022-08,Preschool,188
+AHSD,Brattleboro District,2022-08,School,74
+AHSD,Brattleboro District,2022-08,Toddler,48
+AHSD,Burlington District,2022-08,Infant,203
+AHSD,Burlington District,2022-08,Preschool,554
+AHSD,Burlington District,2022-08,School,564
+AHSD,Burlington District,2022-08,Toddler,178
+AHSD,Hartford District,2022-08,Infant,56
+AHSD,Hartford District,2022-08,Preschool,157
+AHSD,Hartford District,2022-08,School,101
+AHSD,Hartford District,2022-08,Toddler,32
+AHSD,Middlebury District,2022-08,Infant,47
+AHSD,Middlebury District,2022-08,Preschool,185
+AHSD,Middlebury District,2022-08,School,199
+AHSD,Middlebury District,2022-08,Toddler,45
+AHSD,Morrisville District,2022-08,Infant,50
+AHSD,Morrisville District,2022-08,Preschool,162
+AHSD,Morrisville District,2022-08,School,133
+AHSD,Morrisville District,2022-08,Toddler,51
+AHSD,Newport District,2022-08,Infant,47
+AHSD,Newport District,2022-08,Preschool,162
+AHSD,Newport District,2022-08,School,159
+AHSD,Newport District,2022-08,Toddler,48
+AHSD,Rutland District,2022-08,Infant,138
+AHSD,Rutland District,2022-08,Preschool,333
+AHSD,Rutland District,2022-08,School,347
+AHSD,Rutland District,2022-08,Toddler,111
+AHSD,Springfield District,2022-08,Infant,65
+AHSD,Springfield District,2022-08,Preschool,202
+AHSD,Springfield District,2022-08,School,161
+AHSD,Springfield District,2022-08,Toddler,56
+AHSD,St. Albans District,2022-08,Infant,76
+AHSD,St. Albans District,2022-08,Preschool,237
+AHSD,St. Albans District,2022-08,School,266
+AHSD,St. Albans District,2022-08,Toddler,91
+AHSD,St. Johnsbury District,2022-08,Infant,97
+AHSD,St. Johnsbury District,2022-08,Preschool,260
+AHSD,St. Johnsbury District,2022-08,School,248
+AHSD,St. Johnsbury District,2022-08,Toddler,77
+AHSD,Barre District,2022-07,Infant,37
+AHSD,Barre District,2022-07,Preschool,185
+AHSD,Barre District,2022-07,School,150
+AHSD,Barre District,2022-07,Toddler,60
+AHSD,Bennington District,2022-07,Infant,88
+AHSD,Bennington District,2022-07,Preschool,317
+AHSD,Bennington District,2022-07,School,135
+AHSD,Bennington District,2022-07,Toddler,98
+AHSD,Brattleboro District,2022-07,Infant,44
+AHSD,Brattleboro District,2022-07,Preschool,174
+AHSD,Brattleboro District,2022-07,School,60
+AHSD,Brattleboro District,2022-07,Toddler,45
+AHSD,Burlington District,2022-07,Infant,184
+AHSD,Burlington District,2022-07,Preschool,535
+AHSD,Burlington District,2022-07,School,498
+AHSD,Burlington District,2022-07,Toddler,161
+AHSD,Hartford District,2022-07,Infant,56
+AHSD,Hartford District,2022-07,Preschool,155
+AHSD,Hartford District,2022-07,School,91
+AHSD,Hartford District,2022-07,Toddler,28
+AHSD,Middlebury District,2022-07,Infant,44
+AHSD,Middlebury District,2022-07,Preschool,170
+AHSD,Middlebury District,2022-07,School,182
+AHSD,Middlebury District,2022-07,Toddler,36
+AHSD,Morrisville District,2022-07,Infant,46
+AHSD,Morrisville District,2022-07,Preschool,144
+AHSD,Morrisville District,2022-07,School,106
+AHSD,Morrisville District,2022-07,Toddler,48
+AHSD,Newport District,2022-07,Infant,47
+AHSD,Newport District,2022-07,Preschool,153
+AHSD,Newport District,2022-07,School,145
+AHSD,Newport District,2022-07,Toddler,45
+AHSD,Rutland District,2022-07,Infant,135
+AHSD,Rutland District,2022-07,Preschool,326
+AHSD,Rutland District,2022-07,School,313
+AHSD,Rutland District,2022-07,Toddler,99
+AHSD,Springfield District,2022-07,Infant,55
+AHSD,Springfield District,2022-07,Preschool,189
+AHSD,Springfield District,2022-07,School,150
+AHSD,Springfield District,2022-07,Toddler,49
+AHSD,St. Albans District,2022-07,Infant,78
+AHSD,St. Albans District,2022-07,Preschool,231
+AHSD,St. Albans District,2022-07,School,260
+AHSD,St. Albans District,2022-07,Toddler,83
+AHSD,St. Johnsbury District,2022-07,Infant,81
+AHSD,St. Johnsbury District,2022-07,Preschool,243
+AHSD,St. Johnsbury District,2022-07,School,237
+AHSD,St. Johnsbury District,2022-07,Toddler,74
+state,Vermont,2023-06,Infant,1026
+state,Vermont,2023-06,Preschool,3095
+state,Vermont,2023-06,School,2773
+state,Vermont,2023-06,Toddler,840
+state,Vermont,2023-05,Infant,1032
+state,Vermont,2023-05,Preschool,2953
+state,Vermont,2023-05,School,2252
+state,Vermont,2023-05,Toddler,825
+state,Vermont,2023-04,Infant,1046
+state,Vermont,2023-04,Preschool,2953
+state,Vermont,2023-04,School,2336
+state,Vermont,2023-04,Toddler,816
+state,Vermont,2023-03,Infant,1036
+state,Vermont,2023-03,Preschool,2881
+state,Vermont,2023-03,School,2241
+state,Vermont,2023-03,Toddler,815
+state,Vermont,2023-02,Infant,1027
+state,Vermont,2023-02,Preschool,2837
+state,Vermont,2023-02,School,2234
+state,Vermont,2023-02,Toddler,838
+state,Vermont,2023-01,Infant,1007
+state,Vermont,2023-01,Preschool,2779
+state,Vermont,2023-01,School,2160
+state,Vermont,2023-01,Toddler,859
+state,Vermont,2022-12,Infant,993
+state,Vermont,2022-12,Preschool,2698
+state,Vermont,2022-12,School,2161
+state,Vermont,2022-12,Toddler,876
+state,Vermont,2022-11,Infant,1029
+state,Vermont,2022-11,Preschool,2674
+state,Vermont,2022-11,School,2140
+state,Vermont,2022-11,Toddler,892
+state,Vermont,2022-10,Infant,1031
+state,Vermont,2022-10,Preschool,2638
+state,Vermont,2022-10,School,2073
+state,Vermont,2022-10,Toddler,913
+state,Vermont,2022-09,Infant,1025
+state,Vermont,2022-09,Preschool,2695
+state,Vermont,2022-09,School,2104
+state,Vermont,2022-09,Toddler,919
+state,Vermont,2022-08,Infant,980
+state,Vermont,2022-08,Preschool,2946
+state,Vermont,2022-08,School,2546
+state,Vermont,2022-08,Toddler,896
+state,Vermont,2022-07,Infant,895
+state,Vermont,2022-07,Preschool,2822
+state,Vermont,2022-07,School,2327
+state,Vermont,2022-07,Toddler,826
+AHSD,Barre District,2024-06,Infant,75
+AHSD,Barre District,2024-06,Preschool,263
+AHSD,Barre District,2024-06,School,223
+AHSD,Barre District,2024-06,Toddler,61
+AHSD,Bennington District,2024-06,Infant,126
+AHSD,Bennington District,2024-06,Preschool,358
+AHSD,Bennington District,2024-06,School,188
+AHSD,Bennington District,2024-06,Toddler,100
+AHSD,Brattleboro District,2024-06,Infant,81
+AHSD,Brattleboro District,2024-06,Preschool,238
+AHSD,Brattleboro District,2024-06,School,124
+AHSD,Brattleboro District,2024-06,Toddler,80
+AHSD,Burlington District,2024-06,Infant,252
+AHSD,Burlington District,2024-06,Preschool,686
+AHSD,Burlington District,2024-06,School,829
+AHSD,Burlington District,2024-06,Toddler,222
+AHSD,Hartford District,2024-06,Infant,76
+AHSD,Hartford District,2024-06,Preschool,158
+AHSD,Hartford District,2024-06,School,154
+AHSD,Hartford District,2024-06,Toddler,69
+AHSD,Middlebury District,2024-06,Infant,73
+AHSD,Middlebury District,2024-06,Preschool,227
+AHSD,Middlebury District,2024-06,School,270
+AHSD,Middlebury District,2024-06,Toddler,60
+AHSD,Morrisville District,2024-06,Infant,91
+AHSD,Morrisville District,2024-06,Preschool,215
+AHSD,Morrisville District,2024-06,School,144
+AHSD,Morrisville District,2024-06,Toddler,53
+AHSD,Newport District,2024-06,Infant,65
+AHSD,Newport District,2024-06,Preschool,212
+AHSD,Newport District,2024-06,School,151
+AHSD,Newport District,2024-06,Toddler,41
+AHSD,Rutland District,2024-06,Infant,151
+AHSD,Rutland District,2024-06,Preschool,386
+AHSD,Rutland District,2024-06,School,450
+AHSD,Rutland District,2024-06,Toddler,128
+AHSD,Springfield District,2024-06,Infant,78
+AHSD,Springfield District,2024-06,Preschool,246
+AHSD,Springfield District,2024-06,School,256
+AHSD,Springfield District,2024-06,Toddler,66
+AHSD,St. Albans District,2024-06,Infant,109
+AHSD,St. Albans District,2024-06,Preschool,299
+AHSD,St. Albans District,2024-06,School,282
+AHSD,St. Albans District,2024-06,Toddler,80
+AHSD,St. Johnsbury District,2024-06,Infant,130
+AHSD,St. Johnsbury District,2024-06,Preschool,310
+AHSD,St. Johnsbury District,2024-06,School,277
+AHSD,St. Johnsbury District,2024-06,Toddler,92
+AHSD,Barre District,2024-05,Infant,68
+AHSD,Barre District,2024-05,Preschool,242
+AHSD,Barre District,2024-05,School,150
+AHSD,Barre District,2024-05,Toddler,61
+AHSD,Bennington District,2024-05,Infant,115
+AHSD,Bennington District,2024-05,Preschool,335
+AHSD,Bennington District,2024-05,School,146
+AHSD,Bennington District,2024-05,Toddler,91
+AHSD,Brattleboro District,2024-05,Infant,80
+AHSD,Brattleboro District,2024-05,Preschool,226
+AHSD,Brattleboro District,2024-05,School,86
+AHSD,Brattleboro District,2024-05,Toddler,76
+AHSD,Burlington District,2024-05,Infant,248
+AHSD,Burlington District,2024-05,Preschool,645
+AHSD,Burlington District,2024-05,School,611
+AHSD,Burlington District,2024-05,Toddler,208
+AHSD,Hartford District,2024-05,Infant,66
+AHSD,Hartford District,2024-05,Preschool,141
+AHSD,Hartford District,2024-05,School,118
+AHSD,Hartford District,2024-05,Toddler,69
+AHSD,Middlebury District,2024-05,Infant,71
+AHSD,Middlebury District,2024-05,Preschool,208
+AHSD,Middlebury District,2024-05,School,179
+AHSD,Middlebury District,2024-05,Toddler,57
+AHSD,Morrisville District,2024-05,Infant,84
+AHSD,Morrisville District,2024-05,Preschool,202
+AHSD,Morrisville District,2024-05,School,129
+AHSD,Morrisville District,2024-05,Toddler,57
+AHSD,Newport District,2024-05,Infant,63
+AHSD,Newport District,2024-05,Preschool,205
+AHSD,Newport District,2024-05,School,138
+AHSD,Newport District,2024-05,Toddler,45
+AHSD,Rutland District,2024-05,Infant,151
+AHSD,Rutland District,2024-05,Preschool,349
+AHSD,Rutland District,2024-05,School,316
+AHSD,Rutland District,2024-05,Toddler,127
+AHSD,Springfield District,2024-05,Infant,79
+AHSD,Springfield District,2024-05,Preschool,228
+AHSD,Springfield District,2024-05,School,178
+AHSD,Springfield District,2024-05,Toddler,62
+AHSD,St. Albans District,2024-05,Infant,104
+AHSD,St. Albans District,2024-05,Preschool,282
+AHSD,St. Albans District,2024-05,School,238
+AHSD,St. Albans District,2024-05,Toddler,74
+AHSD,St. Johnsbury District,2024-05,Infant,126
+AHSD,St. Johnsbury District,2024-05,Preschool,298
+AHSD,St. Johnsbury District,2024-05,School,247
+AHSD,St. Johnsbury District,2024-05,Toddler,84
+AHSD,Barre District,2024-04,Infant,68
+AHSD,Barre District,2024-04,Preschool,229
+AHSD,Barre District,2024-04,School,150
+AHSD,Barre District,2024-04,Toddler,63
+AHSD,Bennington District,2024-04,Infant,112
+AHSD,Bennington District,2024-04,Preschool,333
+AHSD,Bennington District,2024-04,School,149
+AHSD,Bennington District,2024-04,Toddler,95
+AHSD,Brattleboro District,2024-04,Infant,80
+AHSD,Brattleboro District,2024-04,Preschool,220
+AHSD,Brattleboro District,2024-04,School,92
+AHSD,Brattleboro District,2024-04,Toddler,78
+AHSD,Burlington District,2024-04,Infant,240
+AHSD,Burlington District,2024-04,Preschool,635
+AHSD,Burlington District,2024-04,School,639
+AHSD,Burlington District,2024-04,Toddler,218
+AHSD,Hartford District,2024-04,Infant,67
+AHSD,Hartford District,2024-04,Preschool,141
+AHSD,Hartford District,2024-04,School,112
+AHSD,Hartford District,2024-04,Toddler,60
+AHSD,Middlebury District,2024-04,Infant,70
+AHSD,Middlebury District,2024-04,Preschool,201
+AHSD,Middlebury District,2024-04,School,187
+AHSD,Middlebury District,2024-04,Toddler,54
+AHSD,Morrisville District,2024-04,Infant,86
+AHSD,Morrisville District,2024-04,Preschool,198
+AHSD,Morrisville District,2024-04,School,129
+AHSD,Morrisville District,2024-04,Toddler,51
+AHSD,Newport District,2024-04,Infant,65
+AHSD,Newport District,2024-04,Preschool,189
+AHSD,Newport District,2024-04,School,135
+AHSD,Newport District,2024-04,Toddler,45
+AHSD,Rutland District,2024-04,Infant,154
+AHSD,Rutland District,2024-04,Preschool,346
+AHSD,Rutland District,2024-04,School,299
+AHSD,Rutland District,2024-04,Toddler,123
+AHSD,Springfield District,2024-04,Infant,78
+AHSD,Springfield District,2024-04,Preschool,221
+AHSD,Springfield District,2024-04,School,181
+AHSD,Springfield District,2024-04,Toddler,70
+AHSD,St. Albans District,2024-04,Infant,113
+AHSD,St. Albans District,2024-04,Preschool,277
+AHSD,St. Albans District,2024-04,School,237
+AHSD,St. Albans District,2024-04,Toddler,70
+AHSD,St. Johnsbury District,2024-04,Infant,120
+AHSD,St. Johnsbury District,2024-04,Preschool,287
+AHSD,St. Johnsbury District,2024-04,School,245
+AHSD,St. Johnsbury District,2024-04,Toddler,82
+AHSD,Barre District,2024-03,Infant,69
+AHSD,Barre District,2024-03,Preschool,209
+AHSD,Barre District,2024-03,School,146
+AHSD,Barre District,2024-03,Toddler,61
+AHSD,Bennington District,2024-03,Infant,109
+AHSD,Bennington District,2024-03,Preschool,324
+AHSD,Bennington District,2024-03,School,141
+AHSD,Bennington District,2024-03,Toddler,90
+AHSD,Brattleboro District,2024-03,Infant,78
+AHSD,Brattleboro District,2024-03,Preschool,212
+AHSD,Brattleboro District,2024-03,School,78
+AHSD,Brattleboro District,2024-03,Toddler,74
+AHSD,Burlington District,2024-03,Infant,219
+AHSD,Burlington District,2024-03,Preschool,593
+AHSD,Burlington District,2024-03,School,628
+AHSD,Burlington District,2024-03,Toddler,220
+AHSD,Hartford District,2024-03,Infant,62
+AHSD,Hartford District,2024-03,Preschool,136
+AHSD,Hartford District,2024-03,School,109
+AHSD,Hartford District,2024-03,Toddler,54
+AHSD,Middlebury District,2024-03,Infant,68
+AHSD,Middlebury District,2024-03,Preschool,190
+AHSD,Middlebury District,2024-03,School,186
+AHSD,Middlebury District,2024-03,Toddler,47
+AHSD,Morrisville District,2024-03,Infant,86
+AHSD,Morrisville District,2024-03,Preschool,191
+AHSD,Morrisville District,2024-03,School,124
+AHSD,Morrisville District,2024-03,Toddler,43
+AHSD,Newport District,2024-03,Infant,58
+AHSD,Newport District,2024-03,Preschool,185
+AHSD,Newport District,2024-03,School,135
+AHSD,Newport District,2024-03,Toddler,45
+AHSD,Rutland District,2024-03,Infant,146
+AHSD,Rutland District,2024-03,Preschool,340
+AHSD,Rutland District,2024-03,School,287
+AHSD,Rutland District,2024-03,Toddler,118
+AHSD,Springfield District,2024-03,Infant,73
+AHSD,Springfield District,2024-03,Preschool,211
+AHSD,Springfield District,2024-03,School,178
+AHSD,Springfield District,2024-03,Toddler,70
+AHSD,St. Albans District,2024-03,Infant,95
+AHSD,St. Albans District,2024-03,Preschool,266
+AHSD,St. Albans District,2024-03,School,228
+AHSD,St. Albans District,2024-03,Toddler,74
+AHSD,St. Johnsbury District,2024-03,Infant,114
+AHSD,St. Johnsbury District,2024-03,Preschool,269
+AHSD,St. Johnsbury District,2024-03,School,239
+AHSD,St. Johnsbury District,2024-03,Toddler,84
+AHSD,Barre District,2024-02,Infant,63
+AHSD,Barre District,2024-02,Preschool,207
+AHSD,Barre District,2024-02,School,138
+AHSD,Barre District,2024-02,Toddler,60
+AHSD,Bennington District,2024-02,Infant,99
+AHSD,Bennington District,2024-02,Preschool,321
+AHSD,Bennington District,2024-02,School,137
+AHSD,Bennington District,2024-02,Toddler,88
+AHSD,Brattleboro District,2024-02,Infant,81
+AHSD,Brattleboro District,2024-02,Preschool,205
+AHSD,Brattleboro District,2024-02,School,70
+AHSD,Brattleboro District,2024-02,Toddler,75
+AHSD,Burlington District,2024-02,Infant,216
+AHSD,Burlington District,2024-02,Preschool,571
+AHSD,Burlington District,2024-02,School,606
+AHSD,Burlington District,2024-02,Toddler,220
+AHSD,Hartford District,2024-02,Infant,63
+AHSD,Hartford District,2024-02,Preschool,132
+AHSD,Hartford District,2024-02,School,104
+AHSD,Hartford District,2024-02,Toddler,52
+AHSD,Middlebury District,2024-02,Infant,67
+AHSD,Middlebury District,2024-02,Preschool,182
+AHSD,Middlebury District,2024-02,School,188
+AHSD,Middlebury District,2024-02,Toddler,46
+AHSD,Morrisville District,2024-02,Infant,83
+AHSD,Morrisville District,2024-02,Preschool,186
+AHSD,Morrisville District,2024-02,School,119
+AHSD,Morrisville District,2024-02,Toddler,43
+AHSD,Newport District,2024-02,Infant,59
+AHSD,Newport District,2024-02,Preschool,187
+AHSD,Newport District,2024-02,School,136
+AHSD,Newport District,2024-02,Toddler,44
+AHSD,Rutland District,2024-02,Infant,140
+AHSD,Rutland District,2024-02,Preschool,335
+AHSD,Rutland District,2024-02,School,293
+AHSD,Rutland District,2024-02,Toddler,114
+AHSD,Springfield District,2024-02,Infant,75
+AHSD,Springfield District,2024-02,Preschool,207
+AHSD,Springfield District,2024-02,School,174
+AHSD,Springfield District,2024-02,Toddler,63
+AHSD,St. Albans District,2024-02,Infant,94
+AHSD,St. Albans District,2024-02,Preschool,272
+AHSD,St. Albans District,2024-02,School,224
+AHSD,St. Albans District,2024-02,Toddler,74
+AHSD,St. Johnsbury District,2024-02,Infant,105
+AHSD,St. Johnsbury District,2024-02,Preschool,258
+AHSD,St. Johnsbury District,2024-02,School,236
+AHSD,St. Johnsbury District,2024-02,Toddler,79
+AHSD,Barre District,2024-01,Infant,65
+AHSD,Barre District,2024-01,Preschool,207
+AHSD,Barre District,2024-01,School,140
+AHSD,Barre District,2024-01,Toddler,56
+AHSD,Bennington District,2024-01,Infant,100
+AHSD,Bennington District,2024-01,Preschool,310
+AHSD,Bennington District,2024-01,School,137
+AHSD,Bennington District,2024-01,Toddler,93
+AHSD,Brattleboro District,2024-01,Infant,84
+AHSD,Brattleboro District,2024-01,Preschool,193
+AHSD,Brattleboro District,2024-01,School,72
+AHSD,Brattleboro District,2024-01,Toddler,67
+AHSD,Burlington District,2024-01,Infant,216
+AHSD,Burlington District,2024-01,Preschool,556
+AHSD,Burlington District,2024-01,School,571
+AHSD,Burlington District,2024-01,Toddler,209
+AHSD,Hartford District,2024-01,Infant,67
+AHSD,Hartford District,2024-01,Preschool,127
+AHSD,Hartford District,2024-01,School,98
+AHSD,Hartford District,2024-01,Toddler,60
+AHSD,Middlebury District,2024-01,Infant,63
+AHSD,Middlebury District,2024-01,Preschool,187
+AHSD,Middlebury District,2024-01,School,182
+AHSD,Middlebury District,2024-01,Toddler,44
+AHSD,Morrisville District,2024-01,Infant,84
+AHSD,Morrisville District,2024-01,Preschool,184
+AHSD,Morrisville District,2024-01,School,119
+AHSD,Morrisville District,2024-01,Toddler,42
+AHSD,Newport District,2024-01,Infant,55
+AHSD,Newport District,2024-01,Preschool,184
+AHSD,Newport District,2024-01,School,132
+AHSD,Newport District,2024-01,Toddler,39
+AHSD,Rutland District,2024-01,Infant,138
+AHSD,Rutland District,2024-01,Preschool,327
+AHSD,Rutland District,2024-01,School,290
+AHSD,Rutland District,2024-01,Toddler,114
+AHSD,Springfield District,2024-01,Infant,75
+AHSD,Springfield District,2024-01,Preschool,207
+AHSD,Springfield District,2024-01,School,176
+AHSD,Springfield District,2024-01,Toddler,60
+AHSD,St. Albans District,2024-01,Infant,102
+AHSD,St. Albans District,2024-01,Preschool,272
+AHSD,St. Albans District,2024-01,School,223
+AHSD,St. Albans District,2024-01,Toddler,71
+AHSD,St. Johnsbury District,2024-01,Infant,107
+AHSD,St. Johnsbury District,2024-01,Preschool,252
+AHSD,St. Johnsbury District,2024-01,School,238
+AHSD,St. Johnsbury District,2024-01,Toddler,82
+AHSD,Barre District,2023-12,Infant,61
+AHSD,Barre District,2023-12,Preschool,200
+AHSD,Barre District,2023-12,School,144
+AHSD,Barre District,2023-12,Toddler,58
+AHSD,Bennington District,2023-12,Infant,105
+AHSD,Bennington District,2023-12,Preschool,310
+AHSD,Bennington District,2023-12,School,138
+AHSD,Bennington District,2023-12,Toddler,91
+AHSD,Brattleboro District,2023-12,Infant,82
+AHSD,Brattleboro District,2023-12,Preschool,195
+AHSD,Brattleboro District,2023-12,School,67
+AHSD,Brattleboro District,2023-12,Toddler,67
+AHSD,Burlington District,2023-12,Infant,233
+AHSD,Burlington District,2023-12,Preschool,560
+AHSD,Burlington District,2023-12,School,588
+AHSD,Burlington District,2023-12,Toddler,199
+AHSD,Hartford District,2023-12,Infant,71
+AHSD,Hartford District,2023-12,Preschool,123
+AHSD,Hartford District,2023-12,School,93
+AHSD,Hartford District,2023-12,Toddler,56
+AHSD,Middlebury District,2023-12,Infant,54
+AHSD,Middlebury District,2023-12,Preschool,176
+AHSD,Middlebury District,2023-12,School,178
+AHSD,Middlebury District,2023-12,Toddler,50
+AHSD,Morrisville District,2023-12,Infant,81
+AHSD,Morrisville District,2023-12,Preschool,181
+AHSD,Morrisville District,2023-12,School,122
+AHSD,Morrisville District,2023-12,Toddler,48
+AHSD,Newport District,2023-12,Infant,52
+AHSD,Newport District,2023-12,Preschool,191
+AHSD,Newport District,2023-12,School,141
+AHSD,Newport District,2023-12,Toddler,47
+AHSD,Rutland District,2023-12,Infant,145
+AHSD,Rutland District,2023-12,Preschool,322
+AHSD,Rutland District,2023-12,School,274
+AHSD,Rutland District,2023-12,Toddler,104
+AHSD,Springfield District,2023-12,Infant,81
+AHSD,Springfield District,2023-12,Preschool,201
+AHSD,Springfield District,2023-12,School,170
+AHSD,Springfield District,2023-12,Toddler,59
+AHSD,St. Albans District,2023-12,Infant,104
+AHSD,St. Albans District,2023-12,Preschool,274
+AHSD,St. Albans District,2023-12,School,221
+AHSD,St. Albans District,2023-12,Toddler,67
+AHSD,St. Johnsbury District,2023-12,Infant,112
+AHSD,St. Johnsbury District,2023-12,Preschool,256
+AHSD,St. Johnsbury District,2023-12,School,246
+AHSD,St. Johnsbury District,2023-12,Toddler,80
+AHSD,Barre District,2023-11,Infant,61
+AHSD,Barre District,2023-11,Preschool,199
+AHSD,Barre District,2023-11,School,141
+AHSD,Barre District,2023-11,Toddler,55
+AHSD,Bennington District,2023-11,Infant,116
+AHSD,Bennington District,2023-11,Preschool,296
+AHSD,Bennington District,2023-11,School,133
+AHSD,Bennington District,2023-11,Toddler,86
+AHSD,Brattleboro District,2023-11,Infant,83
+AHSD,Brattleboro District,2023-11,Preschool,186
+AHSD,Brattleboro District,2023-11,School,63
+AHSD,Brattleboro District,2023-11,Toddler,63
+AHSD,Burlington District,2023-11,Infant,235
+AHSD,Burlington District,2023-11,Preschool,557
+AHSD,Burlington District,2023-11,School,576
+AHSD,Burlington District,2023-11,Toddler,200
+AHSD,Hartford District,2023-11,Infant,66
+AHSD,Hartford District,2023-11,Preschool,120
+AHSD,Hartford District,2023-11,School,85
+AHSD,Hartford District,2023-11,Toddler,53
+AHSD,Middlebury District,2023-11,Infant,56
+AHSD,Middlebury District,2023-11,Preschool,172
+AHSD,Middlebury District,2023-11,School,175
+AHSD,Middlebury District,2023-11,Toddler,54
+AHSD,Morrisville District,2023-11,Infant,80
+AHSD,Morrisville District,2023-11,Preschool,181
+AHSD,Morrisville District,2023-11,School,123
+AHSD,Morrisville District,2023-11,Toddler,47
+AHSD,Newport District,2023-11,Infant,52
+AHSD,Newport District,2023-11,Preschool,183
+AHSD,Newport District,2023-11,School,141
+AHSD,Newport District,2023-11,Toddler,50
+AHSD,Rutland District,2023-11,Infant,134
+AHSD,Rutland District,2023-11,Preschool,315
+AHSD,Rutland District,2023-11,School,267
+AHSD,Rutland District,2023-11,Toddler,107
+AHSD,Springfield District,2023-11,Infant,80
+AHSD,Springfield District,2023-11,Preschool,196
+AHSD,Springfield District,2023-11,School,171
+AHSD,Springfield District,2023-11,Toddler,59
+AHSD,St. Albans District,2023-11,Infant,95
+AHSD,St. Albans District,2023-11,Preschool,255
+AHSD,St. Albans District,2023-11,School,219
+AHSD,St. Albans District,2023-11,Toddler,72
+AHSD,St. Johnsbury District,2023-11,Infant,118
+AHSD,St. Johnsbury District,2023-11,Preschool,260
+AHSD,St. Johnsbury District,2023-11,School,239
+AHSD,St. Johnsbury District,2023-11,Toddler,70
+AHSD,Barre District,2023-10,Infant,63
+AHSD,Barre District,2023-10,Preschool,199
+AHSD,Barre District,2023-10,School,139
+AHSD,Barre District,2023-10,Toddler,55
+AHSD,Bennington District,2023-10,Infant,120
+AHSD,Bennington District,2023-10,Preschool,290
+AHSD,Bennington District,2023-10,School,141
+AHSD,Bennington District,2023-10,Toddler,95
+AHSD,Brattleboro District,2023-10,Infant,79
+AHSD,Brattleboro District,2023-10,Preschool,181
+AHSD,Brattleboro District,2023-10,School,59
+AHSD,Brattleboro District,2023-10,Toddler,63
+AHSD,Burlington District,2023-10,Infant,236
+AHSD,Burlington District,2023-10,Preschool,572
+AHSD,Burlington District,2023-10,School,568
+AHSD,Burlington District,2023-10,Toddler,188
+AHSD,Hartford District,2023-10,Infant,67
+AHSD,Hartford District,2023-10,Preschool,120
+AHSD,Hartford District,2023-10,School,80
+AHSD,Hartford District,2023-10,Toddler,54
+AHSD,Middlebury District,2023-10,Infant,59
+AHSD,Middlebury District,2023-10,Preschool,169
+AHSD,Middlebury District,2023-10,School,178
+AHSD,Middlebury District,2023-10,Toddler,54
+AHSD,Morrisville District,2023-10,Infant,80
+AHSD,Morrisville District,2023-10,Preschool,173
+AHSD,Morrisville District,2023-10,School,124
+AHSD,Morrisville District,2023-10,Toddler,41
+AHSD,Newport District,2023-10,Infant,55
+AHSD,Newport District,2023-10,Preschool,183
+AHSD,Newport District,2023-10,School,139
+AHSD,Newport District,2023-10,Toddler,53
+AHSD,Rutland District,2023-10,Infant,128
+AHSD,Rutland District,2023-10,Preschool,325
+AHSD,Rutland District,2023-10,School,282
+AHSD,Rutland District,2023-10,Toddler,106
+AHSD,Springfield District,2023-10,Infant,76
+AHSD,Springfield District,2023-10,Preschool,183
+AHSD,Springfield District,2023-10,School,174
+AHSD,Springfield District,2023-10,Toddler,63
+AHSD,St. Albans District,2023-10,Infant,95
+AHSD,St. Albans District,2023-10,Preschool,262
+AHSD,St. Albans District,2023-10,School,224
+AHSD,St. Albans District,2023-10,Toddler,69
+AHSD,St. Johnsbury District,2023-10,Infant,117
+AHSD,St. Johnsbury District,2023-10,Preschool,272
+AHSD,St. Johnsbury District,2023-10,School,250
+AHSD,St. Johnsbury District,2023-10,Toddler,78
+AHSD,Barre District,2023-09,Infant,52
+AHSD,Barre District,2023-09,Preschool,197
+AHSD,Barre District,2023-09,School,131
+AHSD,Barre District,2023-09,Toddler,58
+AHSD,Bennington District,2023-09,Infant,115
+AHSD,Bennington District,2023-09,Preschool,301
+AHSD,Bennington District,2023-09,School,143
+AHSD,Bennington District,2023-09,Toddler,95
+AHSD,Brattleboro District,2023-09,Infant,83
+AHSD,Brattleboro District,2023-09,Preschool,193
+AHSD,Brattleboro District,2023-09,School,50
+AHSD,Brattleboro District,2023-09,Toddler,63
+AHSD,Burlington District,2023-09,Infant,237
+AHSD,Burlington District,2023-09,Preschool,587
+AHSD,Burlington District,2023-09,School,580
+AHSD,Burlington District,2023-09,Toddler,189
+AHSD,Hartford District,2023-09,Infant,63
+AHSD,Hartford District,2023-09,Preschool,124
+AHSD,Hartford District,2023-09,School,81
+AHSD,Hartford District,2023-09,Toddler,55
+AHSD,Middlebury District,2023-09,Infant,63
+AHSD,Middlebury District,2023-09,Preschool,169
+AHSD,Middlebury District,2023-09,School,180
+AHSD,Middlebury District,2023-09,Toddler,56
+AHSD,Morrisville District,2023-09,Infant,77
+AHSD,Morrisville District,2023-09,Preschool,173
+AHSD,Morrisville District,2023-09,School,118
+AHSD,Morrisville District,2023-09,Toddler,41
+AHSD,Newport District,2023-09,Infant,53
+AHSD,Newport District,2023-09,Preschool,191
+AHSD,Newport District,2023-09,School,143
+AHSD,Newport District,2023-09,Toddler,57
+AHSD,Rutland District,2023-09,Infant,127
+AHSD,Rutland District,2023-09,Preschool,329
+AHSD,Rutland District,2023-09,School,300
+AHSD,Rutland District,2023-09,Toddler,100
+AHSD,Springfield District,2023-09,Infant,75
+AHSD,Springfield District,2023-09,Preschool,199
+AHSD,Springfield District,2023-09,School,179
+AHSD,Springfield District,2023-09,Toddler,69
+AHSD,St. Albans District,2023-09,Infant,90
+AHSD,St. Albans District,2023-09,Preschool,288
+AHSD,St. Albans District,2023-09,School,239
+AHSD,St. Albans District,2023-09,Toddler,64
+AHSD,St. Johnsbury District,2023-09,Infant,112
+AHSD,St. Johnsbury District,2023-09,Preschool,286
+AHSD,St. Johnsbury District,2023-09,School,256
+AHSD,St. Johnsbury District,2023-09,Toddler,85
+AHSD,Barre District,2023-08,Infant,43
+AHSD,Barre District,2023-08,Preschool,207
+AHSD,Barre District,2023-08,School,179
+AHSD,Barre District,2023-08,Toddler,51
+AHSD,Bennington District,2023-08,Infant,101
+AHSD,Bennington District,2023-08,Preschool,330
+AHSD,Bennington District,2023-08,School,164
+AHSD,Bennington District,2023-08,Toddler,89
+AHSD,Brattleboro District,2023-08,Infant,76
+AHSD,Brattleboro District,2023-08,Preschool,190
+AHSD,Brattleboro District,2023-08,School,60
+AHSD,Brattleboro District,2023-08,Toddler,62
+AHSD,Burlington District,2023-08,Infant,227
+AHSD,Burlington District,2023-08,Preschool,605
+AHSD,Burlington District,2023-08,School,705
+AHSD,Burlington District,2023-08,Toddler,180
+AHSD,Hartford District,2023-08,Infant,55
+AHSD,Hartford District,2023-08,Preschool,128
+AHSD,Hartford District,2023-08,School,106
+AHSD,Hartford District,2023-08,Toddler,46
+AHSD,Middlebury District,2023-08,Infant,55
+AHSD,Middlebury District,2023-08,Preschool,187
+AHSD,Middlebury District,2023-08,School,238
+AHSD,Middlebury District,2023-08,Toddler,48
+AHSD,Morrisville District,2023-08,Infant,77
+AHSD,Morrisville District,2023-08,Preschool,190
+AHSD,Morrisville District,2023-08,School,138
+AHSD,Morrisville District,2023-08,Toddler,42
+AHSD,Newport District,2023-08,Infant,48
+AHSD,Newport District,2023-08,Preschool,184
+AHSD,Newport District,2023-08,School,141
+AHSD,Newport District,2023-08,Toddler,59
+AHSD,Rutland District,2023-08,Infant,122
+AHSD,Rutland District,2023-08,Preschool,336
+AHSD,Rutland District,2023-08,School,346
+AHSD,Rutland District,2023-08,Toddler,104
+AHSD,Springfield District,2023-08,Infant,75
+AHSD,Springfield District,2023-08,Preschool,194
+AHSD,Springfield District,2023-08,School,213
+AHSD,Springfield District,2023-08,Toddler,62
+AHSD,St. Albans District,2023-08,Infant,90
+AHSD,St. Albans District,2023-08,Preschool,285
+AHSD,St. Albans District,2023-08,School,249
+AHSD,St. Albans District,2023-08,Toddler,64
+AHSD,St. Johnsbury District,2023-08,Infant,110
+AHSD,St. Johnsbury District,2023-08,Preschool,276
+AHSD,St. Johnsbury District,2023-08,School,260
+AHSD,St. Johnsbury District,2023-08,Toddler,84
+AHSD,Barre District,2023-07,Infant,37
+AHSD,Barre District,2023-07,Preschool,211
+AHSD,Barre District,2023-07,School,166
+AHSD,Barre District,2023-07,Toddler,53
+AHSD,Bennington District,2023-07,Infant,103
+AHSD,Bennington District,2023-07,Preschool,340
+AHSD,Bennington District,2023-07,School,153
+AHSD,Bennington District,2023-07,Toddler,87
+AHSD,Brattleboro District,2023-07,Infant,64
+AHSD,Brattleboro District,2023-07,Preschool,182
+AHSD,Brattleboro District,2023-07,School,66
+AHSD,Brattleboro District,2023-07,Toddler,62
+AHSD,Burlington District,2023-07,Infant,211
+AHSD,Burlington District,2023-07,Preschool,594
+AHSD,Burlington District,2023-07,School,615
+AHSD,Burlington District,2023-07,Toddler,168
+AHSD,Hartford District,2023-07,Infant,55
+AHSD,Hartford District,2023-07,Preschool,128
+AHSD,Hartford District,2023-07,School,103
+AHSD,Hartford District,2023-07,Toddler,39
+AHSD,Middlebury District,2023-07,Infant,44
+AHSD,Middlebury District,2023-07,Preschool,167
+AHSD,Middlebury District,2023-07,School,220
+AHSD,Middlebury District,2023-07,Toddler,46
+AHSD,Morrisville District,2023-07,Infant,68
+AHSD,Morrisville District,2023-07,Preschool,163
+AHSD,Morrisville District,2023-07,School,109
+AHSD,Morrisville District,2023-07,Toddler,40
+AHSD,Newport District,2023-07,Infant,44
+AHSD,Newport District,2023-07,Preschool,181
+AHSD,Newport District,2023-07,School,148
+AHSD,Newport District,2023-07,Toddler,54
+AHSD,Rutland District,2023-07,Infant,125
+AHSD,Rutland District,2023-07,Preschool,322
+AHSD,Rutland District,2023-07,School,366
+AHSD,Rutland District,2023-07,Toddler,99
+AHSD,Springfield District,2023-07,Infant,62
+AHSD,Springfield District,2023-07,Preschool,181
+AHSD,Springfield District,2023-07,School,204
+AHSD,Springfield District,2023-07,Toddler,60
+AHSD,St. Albans District,2023-07,Infant,89
+AHSD,St. Albans District,2023-07,Preschool,283
+AHSD,St. Albans District,2023-07,School,260
+AHSD,St. Albans District,2023-07,Toddler,71
+AHSD,St. Johnsbury District,2023-07,Infant,108
+AHSD,St. Johnsbury District,2023-07,Preschool,277
+AHSD,St. Johnsbury District,2023-07,School,265
+AHSD,St. Johnsbury District,2023-07,Toddler,81
+state,Vermont,2024-06,Infant,1307
+state,Vermont,2024-06,Preschool,3598
+state,Vermont,2024-06,School,3348
+state,Vermont,2024-06,Toddler,1052
+state,Vermont,2024-05,Infant,1255
+state,Vermont,2024-05,Preschool,3361
+state,Vermont,2024-05,School,2536
+state,Vermont,2024-05,Toddler,1011
+state,Vermont,2024-04,Infant,1253
+state,Vermont,2024-04,Preschool,3277
+state,Vermont,2024-04,School,2555
+state,Vermont,2024-04,Toddler,1009
+state,Vermont,2024-03,Infant,1177
+state,Vermont,2024-03,Preschool,3126
+state,Vermont,2024-03,School,2479
+state,Vermont,2024-03,Toddler,980
+state,Vermont,2024-02,Infant,1145
+state,Vermont,2024-02,Preschool,3063
+state,Vermont,2024-02,School,2425
+state,Vermont,2024-02,Toddler,958
+state,Vermont,2024-01,Infant,1156
+state,Vermont,2024-01,Preschool,3006
+state,Vermont,2024-01,School,2378
+state,Vermont,2024-01,Toddler,937
+state,Vermont,2023-12,Infant,1181
+state,Vermont,2023-12,Preschool,2989
+state,Vermont,2023-12,School,2382
+state,Vermont,2023-12,Toddler,926
+state,Vermont,2023-11,Infant,1176
+state,Vermont,2023-11,Preschool,2920
+state,Vermont,2023-11,School,2333
+state,Vermont,2023-11,Toddler,916
+state,Vermont,2023-10,Infant,1175
+state,Vermont,2023-10,Preschool,2929
+state,Vermont,2023-10,School,2358
+state,Vermont,2023-10,Toddler,919
+state,Vermont,2023-09,Infant,1147
+state,Vermont,2023-09,Preschool,3037
+state,Vermont,2023-09,School,2400
+state,Vermont,2023-09,Toddler,932
+state,Vermont,2023-08,Infant,1079
+state,Vermont,2023-08,Preschool,3112
+state,Vermont,2023-08,School,2799
+state,Vermont,2023-08,Toddler,891
+state,Vermont,2023-07,Infant,1010
+state,Vermont,2023-07,Preschool,3029
+state,Vermont,2023-07,School,2675
+state,Vermont,2023-07,Toddler,860
+AHSD,Barre District,2024-09,Infant,94
+AHSD,Barre District,2024-09,Preschool,239
+AHSD,Barre District,2024-09,School,137
+AHSD,Barre District,2024-09,Toddler,63
+AHSD,Bennington District,2024-09,Infant,133
+AHSD,Bennington District,2024-09,Preschool,313
+AHSD,Bennington District,2024-09,School,171
+AHSD,Bennington District,2024-09,Toddler,109
+AHSD,Brattleboro District,2024-09,Infant,112
+AHSD,Brattleboro District,2024-09,Preschool,225
+AHSD,Brattleboro District,2024-09,School,97
+AHSD,Brattleboro District,2024-09,Toddler,86
+AHSD,Burlington District,2024-09,Infant,306
+AHSD,Burlington District,2024-09,Preschool,705
+AHSD,Burlington District,2024-09,School,622
+AHSD,Burlington District,2024-09,Toddler,232
+AHSD,Hartford District,2024-09,Infant,97
+AHSD,Hartford District,2024-09,Preschool,168
+AHSD,Hartford District,2024-09,School,129
+AHSD,Hartford District,2024-09,Toddler,84
+AHSD,Middlebury District,2024-09,Infant,93
+AHSD,Middlebury District,2024-09,Preschool,246
+AHSD,Middlebury District,2024-09,School,193
+AHSD,Middlebury District,2024-09,Toddler,65
+AHSD,Morrisville District,2024-09,Infant,101
+AHSD,Morrisville District,2024-09,Preschool,200
+AHSD,Morrisville District,2024-09,School,132
+AHSD,Morrisville District,2024-09,Toddler,83
+AHSD,Newport District,2024-09,Infant,68
+AHSD,Newport District,2024-09,Preschool,196
+AHSD,Newport District,2024-09,School,153
+AHSD,Newport District,2024-09,Toddler,54
+AHSD,Rutland District,2024-09,Infant,163
+AHSD,Rutland District,2024-09,Preschool,375
+AHSD,Rutland District,2024-09,School,336
+AHSD,Rutland District,2024-09,Toddler,143
+AHSD,Springfield District,2024-09,Infant,84
+AHSD,Springfield District,2024-09,Preschool,271
+AHSD,Springfield District,2024-09,School,218
+AHSD,Springfield District,2024-09,Toddler,73
+AHSD,St. Albans District,2024-09,Infant,113
+AHSD,St. Albans District,2024-09,Preschool,327
+AHSD,St. Albans District,2024-09,School,249
+AHSD,St. Albans District,2024-09,Toddler,95
+AHSD,St. Johnsbury District,2024-09,Infant,135
+AHSD,St. Johnsbury District,2024-09,Preschool,318
+AHSD,St. Johnsbury District,2024-09,School,284
+AHSD,St. Johnsbury District,2024-09,Toddler,93
+AHSD,Barre District,2024-08,Infant,85
+AHSD,Barre District,2024-08,Preschool,248
+AHSD,Barre District,2024-08,School,208
+AHSD,Barre District,2024-08,Toddler,55
+AHSD,Bennington District,2024-08,Infant,124
+AHSD,Bennington District,2024-08,Preschool,347
+AHSD,Bennington District,2024-08,School,196
+AHSD,Bennington District,2024-08,Toddler,101
+AHSD,Brattleboro District,2024-08,Infant,96
+AHSD,Brattleboro District,2024-08,Preschool,246
+AHSD,Brattleboro District,2024-08,School,123
+AHSD,Brattleboro District,2024-08,Toddler,77
+AHSD,Burlington District,2024-08,Infant,287
+AHSD,Burlington District,2024-08,Preschool,738
+AHSD,Burlington District,2024-08,School,831
+AHSD,Burlington District,2024-08,Toddler,210
+AHSD,Hartford District,2024-08,Infant,84
+AHSD,Hartford District,2024-08,Preschool,155
+AHSD,Hartford District,2024-08,School,156
+AHSD,Hartford District,2024-08,Toddler,74
+AHSD,Middlebury District,2024-08,Infant,89
+AHSD,Middlebury District,2024-08,Preschool,259
+AHSD,Middlebury District,2024-08,School,265
+AHSD,Middlebury District,2024-08,Toddler,63
+AHSD,Morrisville District,2024-08,Infant,97
+AHSD,Morrisville District,2024-08,Preschool,215
+AHSD,Morrisville District,2024-08,School,153
+AHSD,Morrisville District,2024-08,Toddler,79
+AHSD,Newport District,2024-08,Infant,62
+AHSD,Newport District,2024-08,Preschool,197
+AHSD,Newport District,2024-08,School,159
+AHSD,Newport District,2024-08,Toddler,49
+AHSD,Rutland District,2024-08,Infant,161
+AHSD,Rutland District,2024-08,Preschool,393
+AHSD,Rutland District,2024-08,School,434
+AHSD,Rutland District,2024-08,Toddler,132
+AHSD,Springfield District,2024-08,Infant,74
+AHSD,Springfield District,2024-08,Preschool,257
+AHSD,Springfield District,2024-08,School,267
+AHSD,Springfield District,2024-08,Toddler,70
+AHSD,St. Albans District,2024-08,Infant,109
+AHSD,St. Albans District,2024-08,Preschool,322
+AHSD,St. Albans District,2024-08,School,273
+AHSD,St. Albans District,2024-08,Toddler,83
+AHSD,St. Johnsbury District,2024-08,Infant,134
+AHSD,St. Johnsbury District,2024-08,Preschool,316
+AHSD,St. Johnsbury District,2024-08,School,290
+AHSD,St. Johnsbury District,2024-08,Toddler,87
+AHSD,Barre District,2024-07,Infant,76
+AHSD,Barre District,2024-07,Preschool,219
+AHSD,Barre District,2024-07,School,196
+AHSD,Barre District,2024-07,Toddler,58
+AHSD,Bennington District,2024-07,Infant,121
+AHSD,Bennington District,2024-07,Preschool,342
+AHSD,Bennington District,2024-07,School,187
+AHSD,Bennington District,2024-07,Toddler,98
+AHSD,Brattleboro District,2024-07,Infant,81
+AHSD,Brattleboro District,2024-07,Preschool,220
+AHSD,Brattleboro District,2024-07,School,93
+AHSD,Brattleboro District,2024-07,Toddler,77
+AHSD,Burlington District,2024-07,Infant,256
+AHSD,Burlington District,2024-07,Preschool,694
+AHSD,Burlington District,2024-07,School,740
+AHSD,Burlington District,2024-07,Toddler,209
+AHSD,Hartford District,2024-07,Infant,78
+AHSD,Hartford District,2024-07,Preschool,144
+AHSD,Hartford District,2024-07,School,139
+AHSD,Hartford District,2024-07,Toddler,67
+AHSD,Middlebury District,2024-07,Infant,73
+AHSD,Middlebury District,2024-07,Preschool,209
+AHSD,Middlebury District,2024-07,School,249
+AHSD,Middlebury District,2024-07,Toddler,56
+AHSD,Morrisville District,2024-07,Infant,89
+AHSD,Morrisville District,2024-07,Preschool,197
+AHSD,Morrisville District,2024-07,School,121
+AHSD,Morrisville District,2024-07,Toddler,59
+AHSD,Newport District,2024-07,Infant,59
+AHSD,Newport District,2024-07,Preschool,194
+AHSD,Newport District,2024-07,School,153
+AHSD,Newport District,2024-07,Toddler,45
+AHSD,Rutland District,2024-07,Infant,146
+AHSD,Rutland District,2024-07,Preschool,379
+AHSD,Rutland District,2024-07,School,423
+AHSD,Rutland District,2024-07,Toddler,133
+AHSD,Springfield District,2024-07,Infant,71
+AHSD,Springfield District,2024-07,Preschool,243
+AHSD,Springfield District,2024-07,School,256
+AHSD,Springfield District,2024-07,Toddler,63
+AHSD,St. Albans District,2024-07,Infant,106
+AHSD,St. Albans District,2024-07,Preschool,304
+AHSD,St. Albans District,2024-07,School,274
+AHSD,St. Albans District,2024-07,Toddler,80
+AHSD,St. Johnsbury District,2024-07,Infant,127
+AHSD,St. Johnsbury District,2024-07,Preschool,303
+AHSD,St. Johnsbury District,2024-07,School,274
+AHSD,St. Johnsbury District,2024-07,Toddler,89
+state,Vermont,2024-09,Infant,1499
+state,Vermont,2024-09,Preschool,3583
+state,Vermont,2024-09,School,2721
+state,Vermont,2024-09,Toddler,1180
+state,Vermont,2024-08,Infant,1402
+state,Vermont,2024-08,Preschool,3693
+state,Vermont,2024-08,School,3355
+state,Vermont,2024-08,Toddler,1080
+state,Vermont,2024-07,Infant,1283
+state,Vermont,2024-07,Preschool,3448
+state,Vermont,2024-07,School,3105
+state,Vermont,2024-07,Toddler,1034
+AHSD,Barre District,2024-12,Infant,122
+AHSD,Barre District,2024-12,Preschool,284
+AHSD,Barre District,2024-12,School,156
+AHSD,Barre District,2024-12,Toddler,98
+AHSD,Bennington District,2024-12,Infant,150
+AHSD,Bennington District,2024-12,Preschool,338
+AHSD,Bennington District,2024-12,School,181
+AHSD,Bennington District,2024-12,Toddler,106
+AHSD,Brattleboro District,2024-12,Infant,112
+AHSD,Brattleboro District,2024-12,Preschool,242
+AHSD,Brattleboro District,2024-12,School,107
+AHSD,Brattleboro District,2024-12,Toddler,99
+AHSD,Burlington District,2024-12,Infant,423
+AHSD,Burlington District,2024-12,Preschool,894
+AHSD,Burlington District,2024-12,School,733
+AHSD,Burlington District,2024-12,Toddler,318
+AHSD,Hartford District,2024-12,Infant,112
+AHSD,Hartford District,2024-12,Preschool,193
+AHSD,Hartford District,2024-12,School,162
+AHSD,Hartford District,2024-12,Toddler,100
+AHSD,Middlebury District,2024-12,Infant,96
+AHSD,Middlebury District,2024-12,Preschool,276
+AHSD,Middlebury District,2024-12,School,206
+AHSD,Middlebury District,2024-12,Toddler,87
+AHSD,Morrisville District,2024-12,Infant,101
+AHSD,Morrisville District,2024-12,Preschool,240
+AHSD,Morrisville District,2024-12,School,139
+AHSD,Morrisville District,2024-12,Toddler,88
+AHSD,Newport District,2024-12,Infant,87
+AHSD,Newport District,2024-12,Preschool,191
+AHSD,Newport District,2024-12,School,154
+AHSD,Newport District,2024-12,Toddler,54
+AHSD,Rutland District,2024-12,Infant,192
+AHSD,Rutland District,2024-12,Preschool,429
+AHSD,Rutland District,2024-12,School,345
+AHSD,Rutland District,2024-12,Toddler,150
+AHSD,Springfield District,2024-12,Infant,88
+AHSD,Springfield District,2024-12,Preschool,254
+AHSD,Springfield District,2024-12,School,198
+AHSD,Springfield District,2024-12,Toddler,78
+AHSD,St. Albans District,2024-12,Infant,165
+AHSD,St. Albans District,2024-12,Preschool,364
+AHSD,St. Albans District,2024-12,School,271
+AHSD,St. Albans District,2024-12,Toddler,128
+AHSD,St. Johnsbury District,2024-12,Infant,138
+AHSD,St. Johnsbury District,2024-12,Preschool,312
+AHSD,St. Johnsbury District,2024-12,School,291
+AHSD,St. Johnsbury District,2024-12,Toddler,102
+AHSD,Barre District,2024-11,Infant,123
+AHSD,Barre District,2024-11,Preschool,293
+AHSD,Barre District,2024-11,School,156
+AHSD,Barre District,2024-11,Toddler,86
+AHSD,Bennington District,2024-11,Infant,149
+AHSD,Bennington District,2024-11,Preschool,323
+AHSD,Bennington District,2024-11,School,179
+AHSD,Bennington District,2024-11,Toddler,111
+AHSD,Brattleboro District,2024-11,Infant,117
+AHSD,Brattleboro District,2024-11,Preschool,237
+AHSD,Brattleboro District,2024-11,School,105
+AHSD,Brattleboro District,2024-11,Toddler,96
+AHSD,Burlington District,2024-11,Infant,430
+AHSD,Burlington District,2024-11,Preschool,874
+AHSD,Burlington District,2024-11,School,716
+AHSD,Burlington District,2024-11,Toddler,309
+AHSD,Hartford District,2024-11,Infant,122
+AHSD,Hartford District,2024-11,Preschool,189
+AHSD,Hartford District,2024-11,School,156
+AHSD,Hartford District,2024-11,Toddler,97
+AHSD,Middlebury District,2024-11,Infant,106
+AHSD,Middlebury District,2024-11,Preschool,282
+AHSD,Middlebury District,2024-11,School,209
+AHSD,Middlebury District,2024-11,Toddler,82
+AHSD,Morrisville District,2024-11,Infant,111
+AHSD,Morrisville District,2024-11,Preschool,241
+AHSD,Morrisville District,2024-11,School,135
+AHSD,Morrisville District,2024-11,Toddler,86
+AHSD,Newport District,2024-11,Infant,82
+AHSD,Newport District,2024-11,Preschool,192
+AHSD,Newport District,2024-11,School,152
+AHSD,Newport District,2024-11,Toddler,61
+AHSD,Rutland District,2024-11,Infant,186
+AHSD,Rutland District,2024-11,Preschool,437
+AHSD,Rutland District,2024-11,School,361
+AHSD,Rutland District,2024-11,Toddler,147
+AHSD,Springfield District,2024-11,Infant,88
+AHSD,Springfield District,2024-11,Preschool,261
+AHSD,Springfield District,2024-11,School,199
+AHSD,Springfield District,2024-11,Toddler,81
+AHSD,St. Albans District,2024-11,Infant,155
+AHSD,St. Albans District,2024-11,Preschool,358
+AHSD,St. Albans District,2024-11,School,268
+AHSD,St. Albans District,2024-11,Toddler,122
+AHSD,St. Johnsbury District,2024-11,Infant,141
+AHSD,St. Johnsbury District,2024-11,Preschool,310
+AHSD,St. Johnsbury District,2024-11,School,286
+AHSD,St. Johnsbury District,2024-11,Toddler,106
+AHSD,Barre District,2024-10,Infant,90
+AHSD,Barre District,2024-10,Preschool,197
+AHSD,Barre District,2024-10,School,150
+AHSD,Barre District,2024-10,Toddler,68
+AHSD,Bennington District,2024-10,Infant,137
+AHSD,Bennington District,2024-10,Preschool,310
+AHSD,Bennington District,2024-10,School,206
+AHSD,Bennington District,2024-10,Toddler,117
+AHSD,Brattleboro District,2024-10,Infant,71
+AHSD,Brattleboro District,2024-10,Preschool,176
+AHSD,Brattleboro District,2024-10,School,149
+AHSD,Brattleboro District,2024-10,Toddler,61
+AHSD,Burlington District,2024-10,Infant,438
+AHSD,Burlington District,2024-10,Preschool,847
+AHSD,Burlington District,2024-10,School,649
+AHSD,Burlington District,2024-10,Toddler,317
+AHSD,Hartford District,2024-10,Infant,111
+AHSD,Hartford District,2024-10,Preschool,218
+AHSD,Hartford District,2024-10,School,160
+AHSD,Hartford District,2024-10,Toddler,74
+AHSD,Middlebury District,2024-10,Infant,140
+AHSD,Middlebury District,2024-10,Preschool,275
+AHSD,Middlebury District,2024-10,School,196
+AHSD,Middlebury District,2024-10,Toddler,103
+AHSD,Morrisville District,2024-10,Infant,96
+AHSD,Morrisville District,2024-10,Preschool,267
+AHSD,Morrisville District,2024-10,School,187
+AHSD,Morrisville District,2024-10,Toddler,81
+AHSD,Newport District,2024-10,Infant,79
+AHSD,Newport District,2024-10,Preschool,174
+AHSD,Newport District,2024-10,School,117
+AHSD,Newport District,2024-10,Toddler,52
+AHSD,Rutland District,2024-10,Infant,174
+AHSD,Rutland District,2024-10,Preschool,411
+AHSD,Rutland District,2024-10,School,316
+AHSD,Rutland District,2024-10,Toddler,161
+AHSD,Springfield District,2024-10,Infant,97
+AHSD,Springfield District,2024-10,Preschool,243
+AHSD,Springfield District,2024-10,School,169
+AHSD,Springfield District,2024-10,Toddler,61
+AHSD,St. Albans District,2024-10,Infant,158
+AHSD,St. Albans District,2024-10,Preschool,345
+AHSD,St. Albans District,2024-10,School,270
+AHSD,St. Albans District,2024-10,Toddler,127
+AHSD,St. Johnsbury District,2024-10,Infant,177
+AHSD,St. Johnsbury District,2024-10,Preschool,392
+AHSD,St. Johnsbury District,2024-10,School,288
+AHSD,St. Johnsbury District,2024-10,Toddler,134
+state,Vermont,2024-12,Infant,1786
+state,Vermont,2024-12,Preschool,4017
+state,Vermont,2024-12,School,2943
+state,Vermont,2024-12,Toddler,1408
+state,Vermont,2024-11,Infant,1810
+state,Vermont,2024-11,Preschool,3997
+state,Vermont,2024-11,School,2922
+state,Vermont,2024-11,Toddler,1384
+state,Vermont,2024-10,Infant,1768
+state,Vermont,2024-10,Preschool,3855
+state,Vermont,2024-10,School,2857
+state,Vermont,2024-10,Toddler,1356

@@ -219,7 +219,7 @@ VALUES
 insert into
   queries (name, sqlText, uploadType, metadata) value (
     'blood_lead:chart',
-    'SELECT `year` as `cat`, category as `label`, `value`*100 as `value` FROM data_blood_lead order by `year`',
+    'SELECT `year` as `cat`, category as `label`, `value`*100 as `value` FROM data_blood_lead where category like "%with elevated%" order by `year`',
     'general:blood_lead',
     '{"yAxis": {"type": "percent"}}'
   );

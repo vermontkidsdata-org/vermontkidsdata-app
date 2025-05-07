@@ -1,0 +1,145 @@
+Month.Year,AHS District,Female,Male,Non-binary,Prefer not to answer,Prefer to self-describe,Unknown
+2024-06-01,Barre District,285,333,0,*,*,0
+2024-06-01,Bennington District,*,400,0,*,0,0
+2024-06-01,Brattleboro District,248,266,*,*,*,0
+2024-06-01,Burlington District,1033,953,*,*,*,0
+2024-06-01,Hartford District,233,222,*,*,0,0
+2024-06-01,Middlebury District,322,*,0,*,0,0
+2024-06-01,Morrisville District,*,253,0,*,0,0
+2024-06-01,Newport District,*,255,0,*,0,0
+2024-06-01,Rutland District,559,*,0,*,0,0
+2024-06-01,Springfield District,314,332,0,0,0,0
+2024-06-01,St. Albans District,389,381,0,0,0,0
+2024-06-01,St. Johnsbury District,447,*,0,0,0,*
+2024-05-01,Barre District,237,278,0,*,*,*
+2024-05-01,Bennington District,*,362,0,*,0,0
+2024-05-01,Brattleboro District,234,226,*,*,*,0
+2024-05-01,Burlington District,880,829,*,*,*,0
+2024-05-01,Hartford District,201,*,*,0,0,0
+2024-05-01,Middlebury District,263,*,0,*,0,0
+2024-05-01,Morrisville District,238,*,0,*,0,0
+2024-05-01,Newport District,*,244,0,*,0,0
+2024-05-01,Rutland District,482,*,0,*,0,0
+2024-05-01,Springfield District,272,275,0,0,0,0
+2024-05-01,St. Albans District,346,352,0,0,0,0
+2024-05-01,St. Johnsbury District,406,*,0,0,0,*
+2024-04-01,Barre District,225,279,0,*,*,*
+2024-04-01,Bennington District,*,358,0,*,0,0
+2024-04-01,Brattleboro District,236,227,*,*,0,0
+2024-04-01,Burlington District,889,840,*,*,*,0
+2024-04-01,Hartford District,192,*,*,0,0,0
+2024-04-01,Middlebury District,258,252,*,*,0,0
+2024-04-01,Morrisville District,232,*,0,*,0,0
+2024-04-01,Newport District,*,237,0,*,0,0
+2024-04-01,Rutland District,464,*,0,*,0,0
+2024-04-01,Springfield District,271,279,0,0,0,0
+2024-04-01,St. Albans District,343,354,0,0,0,0
+2024-04-01,St. Johnsbury District,396,*,0,0,0,*
+2024-03-01,Barre District,213,268,0,*,*,*
+2024-03-01,Bennington District,*,340,0,*,0,0
+2024-03-01,Brattleboro District,223,213,*,*,0,0
+2024-03-01,Burlington District,841,816,*,*,*,0
+2024-03-01,Hartford District,183,178,0,0,0,0
+2024-03-01,Middlebury District,246,243,*,*,0,0
+2024-03-01,Morrisville District,*,221,0,*,0,0
+2024-03-01,Newport District,*,233,0,*,0,0
+2024-03-01,Rutland District,447,*,0,*,0,0
+2024-03-01,Springfield District,258,274,0,0,0,0
+2024-03-01,St. Albans District,326,337,0,0,0,0
+2024-03-01,St. Johnsbury District,380,*,0,0,0,*
+2024-02-01,Barre District,207,257,0,*,*,*
+2024-02-01,Bennington District,*,333,0,*,0,0
+2024-02-01,Brattleboro District,215,210,*,*,0,0
+2024-02-01,Burlington District,813,797,*,*,*,0
+2024-02-01,Hartford District,180,171,0,0,0,0
+2024-02-01,Middlebury District,243,238,*,*,0,0
+2024-02-01,Morrisville District,215,*,0,*,0,0
+2024-02-01,Newport District,*,232,0,*,0,0
+2024-02-01,Rutland District,449,*,0,*,0,0
+2024-02-01,Springfield District,254,265,0,0,0,0
+2024-02-01,St. Albans District,323,341,0,0,0,0
+2024-02-01,St. Johnsbury District,368,*,0,0,0,*
+2024-01-01,Barre District,207,258,0,*,0,*
+2024-01-01,Bennington District,309,331,0,0,0,0
+2024-01-01,Brattleboro District,207,202,*,*,0,0
+2024-01-01,Burlington District,778,772,0,*,*,0
+2024-01-01,Hartford District,*,180,0,*,0,0
+2024-01-01,Middlebury District,240,234,*,*,0,0
+2024-01-01,Morrisville District,214,*,0,*,0,0
+2024-01-01,Newport District,*,221,0,*,0,0
+2024-01-01,Rutland District,441,*,0,*,0,0
+2024-01-01,Springfield District,254,264,0,0,0,0
+2024-01-01,St. Albans District,327,341,0,0,0,0
+2024-01-01,St. Johnsbury District,368,*,0,0,0,*
+2023-12-01,Barre District,206,253,0,*,0,*
+2023-12-01,Bennington District,311,333,0,0,0,0
+2023-12-01,Brattleboro District,201,203,*,*,0,0
+2023-12-01,Burlington District,787,791,0,*,*,0
+2023-12-01,Hartford District,*,173,0,*,0,0
+2023-12-01,Middlebury District,229,227,*,*,0,0
+2023-12-01,Morrisville District,219,*,0,*,0,0
+2023-12-01,Newport District,*,236,0,*,0,0
+2023-12-01,Rutland District,427,*,0,*,0,0
+2023-12-01,Springfield District,247,264,0,0,0,0
+2023-12-01,St. Albans District,325,341,0,0,0,0
+2023-12-01,St. Johnsbury District,374,*,0,*,0,0
+2023-11-01,Barre District,201,252,0,*,0,*
+2023-11-01,Bennington District,300,331,0,0,0,0
+2023-11-01,Brattleboro District,191,197,*,*,0,0
+2023-11-01,Burlington District,789,777,0,*,*,0
+2023-11-01,Hartford District,*,164,0,*,0,0
+2023-11-01,Middlebury District,227,228,*,*,0,0
+2023-11-01,Morrisville District,217,*,0,*,0,0
+2023-11-01,Newport District,*,235,0,*,0,0
+2023-11-01,Rutland District,415,*,0,*,0,0
+2023-11-01,Springfield District,247,259,0,0,0,0
+2023-11-01,St. Albans District,320,321,0,0,0,0
+2023-11-01,St. Johnsbury District,368,*,0,*,0,0
+2023-10-01,Barre District,*,252,0,*,0,0
+2023-10-01,Bennington District,310,336,0,0,0,0
+2023-10-01,Brattleboro District,182,193,*,*,0,0
+2023-10-01,Burlington District,794,*,0,*,0,0
+2023-10-01,Hartford District,*,167,0,*,0,0
+2023-10-01,Middlebury District,230,228,*,*,0,0
+2023-10-01,Morrisville District,207,211,0,0,0,0
+2023-10-01,Newport District,*,235,0,*,0,0
+2023-10-01,Rutland District,429,*,0,*,0,0
+2023-10-01,Springfield District,242,254,0,0,0,0
+2023-10-01,St. Albans District,*,332,0,*,0,0
+2023-10-01,St. Johnsbury District,387,*,0,*,0,0
+2023-09-01,Barre District,*,250,0,*,0,0
+2023-09-01,Bennington District,313,341,0,0,0,0
+2023-09-01,Brattleboro District,186,196,*,*,0,0
+2023-09-01,Burlington District,799,*,0,*,0,0
+2023-09-01,Hartford District,*,173,0,*,0,0
+2023-09-01,Middlebury District,234,232,*,*,0,0
+2023-09-01,Morrisville District,207,202,0,0,0,0
+2023-09-01,Newport District,*,237,0,*,0,0
+2023-09-01,Rutland District,430,*,0,*,0,0
+2023-09-01,Springfield District,254,268,0,0,0,0
+2023-09-01,St. Albans District,*,349,0,*,0,0
+2023-09-01,St. Johnsbury District,394,*,0,*,0,0
+2023-08-01,Barre District,211,259,0,10,0,0
+2023-08-01,Bennington District,338,346,0,0,0,0
+2023-08-01,Brattleboro District,191,192,*,*,*,0
+2023-08-01,Burlington District,891,*,0,*,0,0
+2023-08-01,Hartford District,*,175,0,*,0,0
+2023-08-01,Middlebury District,264,262,*,*,0,0
+2023-08-01,Morrisville District,225,222,0,0,0,0
+2023-08-01,Newport District,197,235,0,0,0,0
+2023-08-01,Rutland District,*,454,0,*,0,0
+2023-08-01,Springfield District,268,276,0,0,0,0
+2023-08-01,St. Albans District,*,348,0,*,0,0
+2023-08-01,St. Johnsbury District,391,*,0,*,0,0
+2023-07-01,Barre District,*,253,0,*,0,0
+2023-07-01,Bennington District,338,345,0,0,0,0
+2023-07-01,Brattleboro District,181,190,0,*,*,0
+2023-07-01,Burlington District,822,*,0,*,0,0
+2023-07-01,Hartford District,*,174,0,*,0,0
+2023-07-01,Middlebury District,238,237,*,*,0,0
+2023-07-01,Morrisville District,194,186,0,0,0,0
+2023-07-01,Newport District,191,236,0,0,0,0
+2023-07-01,Rutland District,457,*,0,*,0,0
+2023-07-01,Springfield District,261,246,0,0,0,0
+2023-07-01,St. Albans District,*,357,0,*,0,0
+2023-07-01,St. Johnsbury District,395,*,0,*,0,0
