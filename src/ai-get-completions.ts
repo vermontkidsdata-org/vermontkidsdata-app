@@ -1,26 +1,27 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
-import { ALL_WITH_COMMENTS, Completion, CompletionData, forEachThing, getReactionKeyAttribute } from "./db-utils";
+import { ALL_WITH_COMMENTS, Completion, CompletionData, forEachThing, getReactionKeyAttribute, getTypeKeyAttribute } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
-import { validateAPIAuthorization } from "./ai-utils";
 
 const pt = makePowerTools({ prefix: 'ai-get-completions' });
 
 export async function lambdaHandler(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
-  const ret = validateAPIAuthorization(event);
-  if (ret) {
-    return ret;
-  }
+  // const ret = validateAPIAuthorization(event);
+  // if (ret) {
+  //   return ret;
+  // }
 
   // Filtering. The only filters we allow at the moment is (1) by reaction or (2) completions with comments.
   // We don't allow filtering by both reaction and comment, so it's one or the other.
-  const { reaction, comment } = event.queryStringParameters || {};
-  if (!reaction && !comment || reaction && comment) {
+  const { reaction, comment, type } = event.queryStringParameters || {};
+  // Only one of reaction, comment, or type can be present
+  const filterCount = [reaction, comment, type].filter(Boolean).length;
+  if (filterCount !== 1) {
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: "Invalid request - filter by reaction or comment but not both",
+        message: "Invalid request - filter by exactly one of reaction, comment, or type",
       }),
     }
   }
@@ -42,10 +43,14 @@ export async function lambdaHandler(
 
   // Fetch the requested completions from the database
   const { query, index } = {
-    query: reaction ?
+    query: type ?
+      getTypeKeyAttribute(type) :
+    reaction ?
       getReactionKeyAttribute(reaction) :
       ALL_WITH_COMMENTS,
-    index: reaction ?
+    index: type ? 
+      { index: 'GSI3' } :
+    reaction ?
       { index: 'GSI1' } :
       { index: 'GSI2' },
   };
@@ -61,6 +66,10 @@ export async function lambdaHandler(
     }),
     async (completion) => {
       const { thread, entity, ...rest } = completion;
+      // If it's a type, only use if sort key 0
+      if (type && completion.sortKey !== 0) {
+        return;
+      }
       completions.push(rest);
     },
   );

@@ -228,6 +228,10 @@ export const serviceTable = new Table({
       partitionKey: 'GSI2PK',
       sortKey: 'GSI2SK',
     },
+    GSI3: {
+      partitionKey: 'GSI3PK',
+      sortKey: 'GSI3SK',
+    },
   },
 
   DocumentClient: DynamoDBDocumentClient.from(new DynamoDBClient({ region: getRegion() }), {
@@ -417,6 +421,10 @@ export function getReactionKeyAttribute(reaction: string): string {
   return `REACTION#${reaction}`;
 }
 
+export function getTypeKeyAttribute(type: string): string {
+  return `TYPE#${type}`;
+}
+
 // Define a completion
 export const Completion = new Entity({
   name: ENTITY_COMPLETION,
@@ -432,6 +440,11 @@ export const Completion = new Entity({
     GSI2SK: {
       hidden: true, default: (data: { comment?: string, id: string, sortKey: number }) =>
         data.comment ? getConversationKeyAttribute(data.id) + '#' + getSortKeyAttribute(data.sortKey) : undefined,
+    },
+    GSI3PK: { hidden: true, default: (data: { type: string }) => `TYPE#${data.type}` },
+    GSI3SK: {
+      hidden: true, default: (data: { id: string, sortKey: number }) =>
+        getConversationKeyAttribute(data.id) + '#' + getSortKeyAttribute(data.sortKey),
     },
 
     id: { type: 'string', required: true },

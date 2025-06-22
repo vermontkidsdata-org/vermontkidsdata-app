@@ -21,7 +21,7 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
 
   // Fetch the thread from the database
   const record = await Completion.get(getCompletionPK(id, parseInt(sortKey)));
-  if (record?.Item?.thread == null) {
+  if (record?.Item?.status == null) {
     return {
       statusCode: 400,
       body: JSON.stringify({

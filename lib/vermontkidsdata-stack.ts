@@ -176,6 +176,12 @@ export class VermontkidsdataStack extends Stack {
       sortKey: { name: 'GSI2SK', type: AttributeType.STRING },
     });
 
+    serviceTable.addGlobalSecondaryIndex({
+      indexName: 'GSI3',
+      partitionKey: { name: 'GSI3PK', type: AttributeType.STRING },
+      sortKey: { name: 'GSI3SK', type: AttributeType.STRING },
+    });
+
     new CfnOutput(this, "Service table name", {
       value: serviceTable.tableName,
     });
