@@ -454,7 +454,8 @@ export const Completion = new Entity({
 
     status: { type: 'string', required: true },
     message: { type: 'string' },
-
+    fileName: { type: 'string', required: false }, // If a file upload
+    
     // User response to the completion
     reaction: { type: 'string' },
     comment: { type: 'string' },

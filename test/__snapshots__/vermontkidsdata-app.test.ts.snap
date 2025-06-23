@@ -4556,6 +4556,14 @@ def sort_filter_rules(json_obj):
             "AttributeName": "GSI2SK",
             "AttributeType": "S",
           },
+          {
+            "AttributeName": "GSI3PK",
+            "AttributeType": "S",
+          },
+          {
+            "AttributeName": "GSI3SK",
+            "AttributeType": "S",
+          },
         ],
         "BillingMode": "PAY_PER_REQUEST",
         "GlobalSecondaryIndexes": [
@@ -4584,6 +4592,22 @@ def sort_filter_rules(json_obj):
               },
               {
                 "AttributeName": "GSI2SK",
+                "KeyType": "RANGE",
+              },
+            ],
+            "Projection": {
+              "ProjectionType": "ALL",
+            },
+          },
+          {
+            "IndexName": "GSI3",
+            "KeySchema": [
+              {
+                "AttributeName": "GSI3PK",
+                "KeyType": "HASH",
+              },
+              {
+                "AttributeName": "GSI3SK",
                 "KeyType": "RANGE",
               },
             ],
