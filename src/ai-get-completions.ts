@@ -66,18 +66,36 @@ export async function lambdaHandler(
     }),
     async (completion) => {
       const { thread, entity, ...rest } = completion;
-      // If it's a type, only use if sort key 0
-      if (type && completion.sortKey !== 0) {
-        return;
-      }
+      // No longer filter by sortKey for type; collect all completions
       completions.push(rest);
     },
   );
 
+  // Group completions by id (PK), and for each group, find min/max sortKey
+  const grouped: Record<string, Omit<CompletionData, 'thread' | 'entity'>[]> = {};
+  for (const c of completions) {
+    if (!grouped[c.id]) grouped[c.id] = [];
+    grouped[c.id].push(c);
+  }
+
+  const result = Object.values(grouped).map(group => {
+    const sortKeys = group.map(c => c.sortKey).filter(sk => typeof sk === 'number');
+    const minSortKey = Math.min(...sortKeys);
+    const maxSortKey = Math.max(...sortKeys);
+    // Use the record with the min sortKey as the base
+    const base = group.find(c => c.sortKey === minSortKey) || group[0];
+    // Exclude the original sortKey, replace with [min, max]
+    const { sortKey, ...rest } = base;
+    return {
+      ...rest,
+      sortKey: { min: minSortKey, max: maxSortKey },
+    };
+  });
+
   return {
     statusCode: 200,
     body: JSON.stringify({
-      completions,
+      completions: result,
     }),
   }
 }
