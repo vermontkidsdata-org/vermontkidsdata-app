@@ -8,6 +8,7 @@ import { Construct } from "constructs";
 import { IN_PROGRESS_ERROR } from "../src/ai-utils";
 import { AuthInfo, OnAddCallback, addLambdaResource, makeLambda } from "./cdk-utils";
 import { ManagedPolicy, Role, ServicePrincipal } from "aws-cdk-lib/aws-iam";
+import { Bucket } from "aws-cdk-lib/aws-s3";
 
 interface AIAssistantProps extends NestedStackProps {
   api: RestApi;
@@ -18,6 +19,7 @@ interface AIAssistantProps extends NestedStackProps {
   serviceTable: ITable;
   secret: ISecret;
   ns: string;
+  bucketName: string;
 }
 export const VKD_API_KEY = '09848734-8745-afrt-8745-8745873487';
 
@@ -28,7 +30,7 @@ export class AIAssistantConstruct extends NestedStack {
     super(scope, id);
     this._props = props;
 
-    const { api, commonEnv, onAdd, methodOptions, auth, serviceTable, secret, ns } = props;
+    const { api, commonEnv, onAdd, methodOptions, auth, serviceTable, secret, ns, bucketName } = props;
     const aiAssistantRoot = api.root.addResource('ai');
 
     const aiSecret = Secret.fromSecretNameV2(this, 'AI Secret', `openai-config/${ns}`);
@@ -41,7 +43,10 @@ export class AIAssistantConstruct extends NestedStack {
       SERVICE_TABLE: serviceTable.tableName,
       AI_SECRET_NAME: aiSecret.secretName,
       VKD_API_KEY,
+      S3_BUCKET_NAME: bucketName,
     };
+
+    const bucket = Bucket.fromBucketName(this, 'AI Assistant Bucket', bucketName);
 
     // Get the role for all the lambdas
     const role = new Role(this, 'AI Assistant Lambda Role', {
@@ -112,6 +117,7 @@ export class AIAssistantConstruct extends NestedStack {
     (({ fn }) => {
       sf.grantStartExecution(fn);
       aiSecret.grantRead(fn);
+      bucket.grantReadWrite(fn);
     })(addLambdaResource({
       scope: this,
       root: aiAssistantRoot,

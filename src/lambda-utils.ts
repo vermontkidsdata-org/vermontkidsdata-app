@@ -72,6 +72,9 @@ export interface StepFunctionInputOutput {
   stream?: boolean;
   type: string;
   envName?: string;
+  uploadedFilePath?: string;
+  uploadedFileName?: string;
+  uploadedFileMime?: string;
 }
 
 export function prepareStepFunction(fn: (event: StepFunctionInputOutput) => Promise<StepFunctionInputOutput>, props?: {

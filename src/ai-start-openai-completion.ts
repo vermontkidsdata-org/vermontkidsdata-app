@@ -34,7 +34,25 @@ export const lambdaHandler = async (event: StepFunctionInputOutput): Promise<Ste
     throw new Error('Assistant not found');
   }
   pt.logger.info({ message: 'Got assistant data', assistantData });
-  
+
+  // --- File upload logic ---
+  let fileIds: string[] = [];
+  if (event.uploadedFilePath) {
+    const fs = await import("fs");
+    const path = await import("path");
+    const fileStream = fs.createReadStream(event.uploadedFilePath);
+    const fileName = event.uploadedFileName || path.basename(event.uploadedFilePath);
+    pt.logger.info({ message: 'Uploading file to OpenAI', fileName, uploadedFilePath: event.uploadedFilePath, uploadedFileMime: event.uploadedFileMime });
+    const fileUpload = await getOpenAI().files.create({
+      file: fileStream,
+      purpose: "assistants",
+      filename: fileName,
+    } as any); // OpenAI SDK v4+ expects { file, purpose, filename }
+    pt.logger.info({ message: 'Uploaded file to OpenAI', fileId: fileUpload.id });
+    fileIds.push(fileUpload.id);
+  }
+  // --- End file upload logic ---
+
   if (event.stream) {
     // Start the assistant with streaming
     const chunkHandler = new ChunkHandler();
@@ -44,10 +62,7 @@ export const lambdaHandler = async (event: StepFunctionInputOutput): Promise<Ste
       userQuestion: event.query,
       assistantId: assistantData.openAIAssistantId,
       assistant: assistantData.definition,
-      
-      // debugCallback: async ({ event }) => {
-      //   pt.logger.info({ message: 'Debug callback', event });
-      // },
+      fileIds: fileIds.length > 0 ? fileIds : undefined,
       callback: async ({ finished, chunk, annotations }) => {
         const { cleanChunk, refnum: newRefnum } = await chunkHandler.handleChunk({ openai: getOpenAI(), finished, chunk, annotations, footnotes, refnum });
         refnum = newRefnum;
@@ -86,6 +101,7 @@ export const lambdaHandler = async (event: StepFunctionInputOutput): Promise<Ste
       thread,
       userQuestion: event.query,
       assistantId: assistantData.openAIAssistantId,
+      fileIds: fileIds.length > 0 ? fileIds : undefined,
     });
 
     return {

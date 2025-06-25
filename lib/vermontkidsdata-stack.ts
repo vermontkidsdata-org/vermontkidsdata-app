@@ -791,6 +791,7 @@ export class VermontkidsdataStack extends Stack {
       auth,
       serviceTable,
       secret,
+      bucketName,
       onAdd: (fn) => {
         // Don't need to grant access anymore
       },

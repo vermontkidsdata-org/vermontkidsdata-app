@@ -306,24 +306,27 @@ async function handleEvent(props: {
   return false;
 }
 
-export async function askWithStreaming(props: { thread: Thread, userQuestion: string, assistant: LimitedAssistantDef, assistantId: string, callback: StreamingCallback, debugCallback?: StreamingDebugCallback }): Promise<void> {
-  const { thread, userQuestion, assistantId, callback, debugCallback, assistant } = props;
+export async function askWithStreaming(props: {
+  thread: Thread,
+  userQuestion: string,
+  assistant: LimitedAssistantDef,
+  assistantId: string,
+  callback: StreamingCallback,
+  debugCallback?: StreamingDebugCallback,
+  fileIds?: string[]
+}): Promise<void> {
+  const { thread, userQuestion, assistantId, callback, debugCallback, assistant, fileIds } = props;
 
   const ns = process.env.VKD_ENVIRONMENT;
   if (!ns) {
     throw new Error("VKD_ENVIRONMENT not set");
   }
 
-  // const spech = await openai.audio.speech.create({
-  //   model: 'text-to-speech',
-  //   voice: 'shimmer',
-  //   input: 'Hello, how are you?'
-  // });
-
   // Pass in the user question into the existing thread
   await openai.beta.threads.messages.create(thread.id, {
     role: "user",
     content: userQuestion,
+    ...(fileIds && fileIds.length > 0 ? { file_ids: fileIds } : {}),
   });
 
   // Create a run
@@ -343,15 +346,21 @@ export async function askWithStreaming(props: { thread: Thread, userQuestion: st
 }
 
 
-export async function startAskWithoutStreaming(props: { thread: Thread, userQuestion: string, assistantId: string }): Promise<{
+export async function startAskWithoutStreaming(props: {
+  thread: Thread,
+  userQuestion: string,
+  assistantId: string,
+  fileIds?: string[]
+}): Promise<{
   runId: string,
 }> {
-  const { thread, userQuestion, assistantId } = props;
+  const { thread, userQuestion, assistantId, fileIds } = props;
 
   // Pass in the user question into the existing thread
   await openai.beta.threads.messages.create(thread.id, {
     role: "user",
     content: userQuestion,
+    ...(fileIds && fileIds.length > 0 ? { file_ids: fileIds } : {}),
   });
 
   // Create a run
