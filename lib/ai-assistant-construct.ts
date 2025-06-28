@@ -69,6 +69,8 @@ export class AIAssistantConstruct extends NestedStack {
       role,
     });
     ((fn) => {
+      // Grant the Lambda function access to the S3 bucket
+      bucket.grantReadWrite(fn);
     })(startOpenAICompletion);
 
     const checkOpenAICompletion = makeLambda({

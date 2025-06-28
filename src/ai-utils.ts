@@ -16,6 +16,12 @@ const pt = makePowerTools({ prefix: 'ai-utils' });
 const secretManager = new SecretsManagerClient({});
 export let openai: OpenAI;
 
+export interface FileNameType {
+  filename: string, // e.g. "cacfp.csv"
+  encoding: string, // e.g. "7bit"
+  mimeType: string  // e.g. "text/csv"
+}
+
 export function getOpenAI(): OpenAI {
   return openai;
 }
@@ -255,9 +261,11 @@ class EventHandler {
     try {
       // Use the submitToolOutputsStream helper
       const stream = openai.beta.threads.runs.submitToolOutputsStream(
-        threadId,
-        runId,
-        { tool_outputs: toolOutputs },
+        runId, 
+        {
+          thread_id: threadId,
+          tool_outputs: toolOutputs
+        }
       );
       for await (const event of stream) {
         if (await handleEvent({ event, callback, assistant })) break;
@@ -326,7 +334,14 @@ export async function askWithStreaming(props: {
   await openai.beta.threads.messages.create(thread.id, {
     role: "user",
     content: userQuestion,
-    ...(fileIds && fileIds.length > 0 ? { file_ids: fileIds } : {}),
+    ...(fileIds && fileIds.length > 0 ? { 
+      attachments: fileIds.map(fileId => ({
+        file_id: fileId,
+        tools: [{
+          type: 'file_search'
+        }],
+      }))
+    } : {}),
   });
 
   // Create a run
@@ -383,8 +398,10 @@ export async function checkAskWithoutStreaming(props: { thread: Thread, runId: s
 
   console.log("Polling for completion...", thread.id, runId);
   const runStatus = await openai.beta.threads.runs.retrieve(
-    thread.id,
     runId,
+    {
+      thread_id: thread.id
+    }
   );
   console.log({ message: "Current status...", runStatus });
   if (runStatus.status === "completed") {
