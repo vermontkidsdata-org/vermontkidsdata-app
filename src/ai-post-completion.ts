@@ -2,7 +2,7 @@ import { S3Client, PutObjectCommand, PutObjectCommandInput, S3ServiceException }
 import { SFNClient, StartExecutionCommand } from "@aws-sdk/client-sfn";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { Thread } from "openai/resources/beta/threads/threads";
-import { connectOpenAI, createThread, FileNameType } from "./ai-utils";
+import { connectOpenAI, createThread, FileMetadataType } from "./ai-utils";
 import { ASSISTANT_TYPE_VKD, Completion, CompletionData, getCompletionPK, getNamespace, getPublishedAssistantKey, PublishedAssistant } from "./db-utils";
 import { makePowerTools, prepareAPIGateway, StepFunctionInputOutput } from "./lambda-utils";
 import { ulid } from "ulid";
@@ -40,7 +40,7 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
   let _type: string | undefined;
   let data: any = {};
   let uploadedFileS3Path: string | undefined;
-  let uploadedFileMetadata: FileNameType | undefined;
+  let uploadedFileMetadata: FileMetadataType | undefined;
 
   const {S3_BUCKET_NAME} = process.env;
   if (!S3_BUCKET_NAME) {
@@ -65,11 +65,11 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
 
     // Promisify busboy parsing
     await new Promise<void>((resolve, reject) => {
-      bb.on("file", async (_fieldname: any,
-        file: Readable,
-        _uploadedFileMetadata: FileNameType,
-        _encoding: any,
-        _mimetype: string | undefined) => {
+      bb.on("file", async (
+          _fieldname: any,
+          file: Readable,
+          _uploadedFileMetadata: FileMetadataType,
+        ) => {
         pt.logger.info({ message: 'Received file upload', _uploadedFileMetadata });
         
         try {

@@ -16,7 +16,7 @@ const pt = makePowerTools({ prefix: 'ai-utils' });
 const secretManager = new SecretsManagerClient({});
 export let openai: OpenAI;
 
-export interface FileNameType {
+export interface FileMetadataType {
   filename: string, // e.g. "cacfp.csv"
   encoding: string, // e.g. "7bit"
   mimeType: string  // e.g. "text/csv"

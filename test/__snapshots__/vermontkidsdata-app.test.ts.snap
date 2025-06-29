@@ -71,6 +71,9 @@ exports[`Lambda Snapshot Test 1`] = `
           "referencetotestTestStackSingleServiceTable2C62739BRef": {
             "Ref": "SingleServiceTableABC698C2",
           },
+          "referencetotestTestStackUploadsbucketF3884514Ref": {
+            "Ref": "Uploadsbucket86F42938",
+          },
         },
         "TemplateURL": {
           "Fn::Join": [
@@ -2309,6 +2312,27 @@ def sort_filter_rules(json_obj):
           "[ASSET BUCKET]",
         ],
         "SourceMarkers": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+        ],
+        "SourceMarkersConfig": [
           {},
           {},
           {},
@@ -6087,6 +6111,9 @@ def sort_filter_rules(json_obj):
         "sandboxVermontKidsDatauploadOPTIONSD378F471",
         "sandboxVermontKidsDatauploadB80A6D41",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
