@@ -1,7 +1,7 @@
 import { createReadStream, readdirSync, statSync } from "fs";
 import OpenAI from "openai";
 import { FileObject, FileObjectsPage } from "openai/resources";
-import { VectorStoreFile } from "openai/resources/beta/vector-stores/files";
+import { VectorStoreFile } from "openai/resources/vector-stores/files";
 import { join } from "path";
 import { getAssistantInfo } from "./assistant-def";
 const openai = new OpenAI();
@@ -36,7 +36,7 @@ async function syncAssistant(props: { ns: string }) {
     filesToReference: FileObject[] = [];
 
   // Get files currently in the vector store
-  const vsFiles = (await openai.beta.vectorStores.files.list(info.vectorStore)).data;
+  const vsFiles = (await openai.vectorStores.files.list(info.vectorStore)).data;
   console.log('vs', vsFiles);
   // if (1 == 1) process.exit(1);
 
@@ -74,7 +74,7 @@ async function syncAssistant(props: { ns: string }) {
   // Add or remove
   console.log("Adding files: ", filesToAdd.map((f) => f.id));
   if (filesToAdd.length > 0) {
-    await openai.beta.vectorStores.fileBatches.create(
+    await openai.vectorStores.fileBatches.create(
       info.vectorStore,
       {
         file_ids: filesToAdd.map((f) => f.id),
@@ -86,7 +86,9 @@ async function syncAssistant(props: { ns: string }) {
   if (filesToRemove.length > 0) {
     for (const file of filesToRemove) {
       console.log("Removing file from vs: ", file.id);
-      await openai.beta.vectorStores.files.del(info.vectorStore, file.id);
+      await openai.vectorStores.files.delete(file.id, {
+        vector_store_id: info.vectorStore,
+      });
     }
   }
 
