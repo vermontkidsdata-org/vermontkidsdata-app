@@ -5897,7 +5897,7 @@ def sort_filter_rules(json_obj):
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "sandboxVermontKidsDataDeployment13909A1B39e5b4297e996e7d91f68114cf50ae5b": {
+    "sandboxVermontKidsDataDeployment13909A1B700cb65fc34e0e885df79c19f5490317": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -6048,6 +6048,9 @@ def sort_filter_rules(json_obj):
         "sandboxVermontKidsDataportalseditelementOPTIONS4A8BBBAA",
         "sandboxVermontKidsDataportalseditelementPOSTD3B2B884",
         "sandboxVermontKidsDataportalseditelementFC2B6349",
+        "sandboxVermontKidsDataportalseditindicatorOPTIONS35D6C2A7",
+        "sandboxVermontKidsDataportalseditindicatorPOST4726B526",
+        "sandboxVermontKidsDataportalseditindicatorA35A7C27",
         "sandboxVermontKidsDataportalselementeltidGET3492A253",
         "sandboxVermontKidsDataportalselementeltidOPTIONS4F26A59C",
         "sandboxVermontKidsDataportalselementeltidCA3EBC4E",
@@ -6128,7 +6131,7 @@ def sort_filter_rules(json_obj):
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "sandboxVermontKidsDataDeployment13909A1B39e5b4297e996e7d91f68114cf50ae5b",
+          "Ref": "sandboxVermontKidsDataDeployment13909A1B700cb65fc34e0e885df79c19f5490317",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -13755,6 +13758,186 @@ def sort_filter_rules(json_obj):
         },
       },
       "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataportalseditindicatorA35A7C27": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataportals3F1E6A4F",
+        },
+        "PathPart": "editindicator",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataportalseditindicatorOPTIONS35D6C2A7": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
+                "method.response.header.Vary": "'Origin'",
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params().header.get("Origin"))
+#if($origin == "")
+  #set($origin = $input.params().header.get("origin"))
+#end
+#if($origin == "http://localhost:3000")
+  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
+#end",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Vary": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataportalseditindicatorA35A7C27",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataportalseditindicatorPOST4726B526": {
+      "Properties": {
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+                    "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostEditIndicator661576D9Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataportalseditindicatorA35A7C27",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataportalseditindicatorPOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTportalseditindicatorDAC5CE38": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostEditIndicator661576D9Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/POST/portals/editindicator",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataportalseditindicatorPOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTportalseditindicator970975B0": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "portalsfunctionsNestedStackportalsfunctionsNestedStackResource2278EC33",
+            "Outputs.testTestStackportalsfunctionsPortalsLambdaportalsPostEditIndicator661576D9Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/POST/portals/editindicator",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
     },
     "sandboxVermontKidsDataportalselementED7B4BC4": {
       "Properties": {

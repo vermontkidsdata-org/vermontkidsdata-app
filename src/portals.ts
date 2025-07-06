@@ -607,3 +607,99 @@ export const portalsGetIndicators = prepareAPIGateway(async (event: APIGatewayPr
     body: JSON.stringify(rows),
   }
 });
+
+// router.post('/editindicator', async function (req, res, next) {
+export const portalsPostEditIndicator = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
+  const body = JSON.parse(event.body || '{}');
+  console.log(body);
+
+  // Expected body:
+  // {
+  //   "eltid": "p1_t1_c1_s1_i1",
+  //   "eltval": "Updated Indicator Title",
+  //   "elturl": "/columnchart/updated_chart:chart",
+  //   "eltlink": "https://www.updated-link.com"
+  // }
+  
+  const eltid = body.eltid;
+  const eltval = body.eltval;
+  const elturl = body.elturl;
+  const eltlink = body.eltlink;
+
+  if (eltid == null) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "Missing indicator ID" }),
+    }
+  }
+
+  await doDBOpen();
+
+  const idElts = eltid.split('_');
+  
+  // Extract indicator ID from the eltid (format: p1_t1_c1_s1_i1)
+  if (idElts.length < 5 || !idElts[4].startsWith('i')) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "Invalid indicator ID format" }),
+    }
+  }
+  
+  const indicatorId = idElts[4].replace('i', '');
+  
+  console.log('Updating indicator:', indicatorId);
+  console.log('New title:', eltval);
+  console.log('New chart URL:', elturl);
+  console.log('New link:', eltlink);
+
+  let sql = 'UPDATE portal_indicators SET ';
+  const params: any[] = [];
+  const updates: string[] = [];
+  
+  // Only include fields that are provided in the update
+  if (eltval !== undefined) {
+    updates.push('title = ?');
+    params.push(eltval);
+  }
+  
+  if (elturl !== undefined) {
+    updates.push('chart_url = ?');
+    params.push(elturl);
+  }
+  
+  if (eltlink !== undefined) {
+    updates.push('link = ?');
+    params.push(eltlink);
+  }
+  
+  // If no fields to update, return early
+  if (updates.length === 0) {
+    await doDBClose();
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "No fields to update" }),
+    }
+  }
+  
+  sql += updates.join(', ') + ' WHERE id = ?';
+  params.push(indicatorId);
+  
+  try {
+    await doDBQuery(sql, params);
+    await doDBCommit();
+  } catch (e) {
+    console.log((e as Error).message);
+    await doDBClose();
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Failed to update indicator" }),
+    }
+  }
+  
+  await doDBClose();
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify('indicator updated'),
+  }
+});

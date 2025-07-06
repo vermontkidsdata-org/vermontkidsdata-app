@@ -114,6 +114,14 @@ export class PortalsFunctions extends NestedStack {
       onAdd,
     })), methodOptionsWithAuth);
 
+    // router.post('/editindicator', async function (req, res, next) {
+    addResource(portalsRoot, '/editindicator').addMethod('POST', new LambdaIntegration(getPortalsLambda({
+      scope: this,
+      handler: 'portalsPostEditIndicator',
+      commonEnv,
+      onAdd,
+    })), methodOptionsWithAuth);
+
     // router.get('/element/:elt/:id', async function (req, res, next) {
     addResource(portalsRoot, '/element/{elt}/{id}').addMethod('GET', new LambdaIntegration(getPortalsLambda({
       scope: this,
