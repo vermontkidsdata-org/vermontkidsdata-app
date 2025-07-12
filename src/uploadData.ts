@@ -776,6 +776,82 @@ export async function processUploadDocument(props: {
   };
 }
 
+export async function processUploadCSVRow({
+  record,
+  lnum,
+  total,
+  preFunction,
+  postFunction,
+  uploadTypeStr,
+  identifier,
+  dryRun,
+  errors,
+  clientData,
+  doTruncateTable,
+  updateUploadStatus,
+  processRowFunction
+}: {
+  record: string[],
+  lnum: number,
+  total: number,
+  preFunction?: PreFunctionCallback,
+  postFunction?: CsvProcessCallback,
+  uploadTypeStr: string,
+  identifier: string,
+  dryRun: boolean,
+  errors: Error[],
+  clientData: any,
+  doTruncateTable?: boolean,
+  updateUploadStatus?: boolean,
+  processRowFunction?: any
+}) {
+  console.log({ message: 'row', index: lnum, record });
+
+  let statusUpdatePct = 0;
+  let lastStatusUpdatePct = 0;
+
+  // Get it the first time
+  let uploadType = clientData.uploadType as UploadType ?? await getUploadType(uploadTypeStr);
+
+  if (lnum === 1 && preFunction) {
+    console.log({ message: 'executing pre-function' });
+
+    const quit = await preFunction({ uploadType, record, lnum, identifier, dryRun, errors, clientData, doTruncateTable });
+    if (quit) {
+      return quit;
+    }
+
+    // The preFunction may have changed the upload type, we need to re-evaluate it
+    clientData.uploadType = await getUploadType(uploadTypeStr);
+
+    // Start by truncating the table if requested. We only do this if the preFunction returns OK.
+    if (doTruncateTable) {
+      await truncateTable(uploadType, [], 0, identifier, dryRun, errors, clientData);
+    }
+  }
+  
+  if (processRowFunction) {
+    await processRowFunction(uploadType, record, lnum, identifier, dryRun, errors, clientData);
+  }
+  
+  if (lnum === total && postFunction) {
+    console.log({ message: 'executing post-function' });
+
+    await postFunction(uploadType, record, lnum, identifier, dryRun, errors, clientData);
+  }
+
+  // Update status every 10%
+  statusUpdatePct = Math.round(100 * lnum / total);
+  if (Math.floor(lastStatusUpdatePct / 10) != Math.floor(statusUpdatePct / 10)) {
+    lastStatusUpdatePct = statusUpdatePct;
+    if (updateUploadStatus) {
+      await updateStatus(identifier, 'In progress', statusUpdatePct, total, []);
+    }
+  }
+
+  return false;
+}
+
 /**
  * Really process an upload, from whatever source.
  * @param props 
@@ -828,44 +904,21 @@ export async function processUploadCSV(props: {
     // Client data - handlers can put anything they want in there
     const clientData: any = {};
 
-    await processCSV(bodyContents, uploadType, async (record, lnum, total) => {
-      console.log({ message: 'row', index: lnum, record });
-
-      if (lnum === 1 && preFunction) {
-        console.log({ message: 'executing pre-function' });
-
-        const quit = await preFunction({ uploadType, record, lnum, identifier, dryRun: dryRun ?? false, errors, clientData, doTruncateTable });
-        if (quit) {
-          return quit;
-        }
-
-        // The preFunction may have changed the upload type, we need to re-evaluate it
-        uploadType = await getUploadType(uploadTypeStr);
-
-        // Start by truncating the table if requested. We only do this if the preFunction returns OK.
-        if (doTruncateTable) {
-          await truncateTable(uploadType, [], 0, identifier, dryRun ?? false, errors, clientData);
-        }
-      }
-      await processRowFunction(uploadType, record, lnum, identifier, dryRun ?? false, errors, clientData);
-      if (lnum === total && postFunction) {
-        console.log({ message: 'executing post-function' });
-
-        await postFunction(uploadType, record, lnum, identifier, dryRun ?? false, errors, clientData);
-      }
-
-      // Update status every 10%
-      statusUpdatePct = Math.round(100 * lnum / total);
-      if (Math.floor(lastStatusUpdatePct / 10) != Math.floor(statusUpdatePct / 10)) {
-        lastStatusUpdatePct = statusUpdatePct;
-        if (updateUploadStatus) {
-          await updateStatus(identifier, 'In progress', statusUpdatePct, total, []);
-        }
-      }
-      saveTotal = total;
-
-      return false;
-    });
+    await processCSV(bodyContents, uploadType, (record, lnum, total) => processUploadCSVRow({
+      record,
+      lnum,
+      total,
+      preFunction,
+      postFunction,
+      uploadTypeStr,
+      identifier,
+      dryRun: dryRun ?? false,
+      errors,
+      clientData,
+      doTruncateTable,
+      updateUploadStatus,
+      processRowFunction
+    }));
 
     // Update the last upload timestamp
     const now = new Date();
