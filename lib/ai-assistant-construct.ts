@@ -344,6 +344,20 @@ export class AIAssistantConstruct extends NestedStack {
       role,
     }));
 
+    // POST /ai/assistant
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'POST',
+      path: 'assistant',
+      entry: 'ai-post-assistant.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
     // GET /ai/assistant/{id}/documents
     (({ fn }) => {
     })(addLambdaResource({

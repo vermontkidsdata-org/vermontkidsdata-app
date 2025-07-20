@@ -112,8 +112,7 @@ export async function lambdaHandler(
 
   const envName = (ns + (assItem.sandbox ? `/${assItem.sandbox}` : '')).toLowerCase();
 
-  assistantDef.name = `Vermont Kids Data Assistant with Functions (${envName})`;
-
+  assistantDef.name = `${assItem.name} <${envName}>`;
   pt.logger.info({ message: 'assistant to define in OpenAI', assistantDef });
 
   await connectOpenAI();
