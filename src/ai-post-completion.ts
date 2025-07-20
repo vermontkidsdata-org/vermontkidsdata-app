@@ -6,6 +6,10 @@ import { connectOpenAI, createThread, FileMetadataType } from "./ai-utils";
 import { ASSISTANT_TYPE_VKD, Completion, CompletionData, getCompletionPK, getNamespace, getPublishedAssistantKey, PublishedAssistant } from "./db-utils";
 import { makePowerTools, prepareAPIGateway, StepFunctionInputOutput } from "./lambda-utils";
 import { ulid } from "ulid";
+import * as https from 'https';
+import * as http from 'http';
+import * as path from 'path';
+import { Readable } from 'stream';
 
 const { VKD_API_KEY } = process.env;
 
@@ -29,10 +33,10 @@ interface PostCompletionRequest {
   stream?: boolean,
   type?: string,
   sandbox?: string,
+  fileurl?: string,
 }
 
 import Busboy from "busboy";
-import { Readable } from "stream";
 
 export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   let key: string | undefined;
@@ -41,6 +45,8 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
   let data: any = {};
   let uploadedFileS3Path: string | undefined;
   let uploadedFileMetadata: FileMetadataType | undefined;
+  let fileUrl: string | undefined;
+  let hasFileUpload = false;
 
   const {S3_BUCKET_NAME} = process.env;
   if (!S3_BUCKET_NAME) {
@@ -71,6 +77,13 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
           _uploadedFileMetadata: FileMetadataType,
         ) => {
         pt.logger.info({ message: 'Received file upload', _uploadedFileMetadata });
+        hasFileUpload = true;
+        
+        // Check if fileUrl was also provided
+        if (fileUrl) {
+          reject(new Error('Cannot provide both fileurl and file upload'));
+          return;
+        }
         
         try {
           // Generate a ULID for the file name
@@ -174,6 +187,14 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
         if (fieldname === "key") key = val;
         else if (fieldname === "sandbox") sandbox = val;
         else if (fieldname === "type") _type = val;
+        else if (fieldname === "fileurl") {
+          // Check if we already have a file upload
+          if (hasFileUpload) {
+            reject(new Error('Cannot provide both fileurl and file upload'));
+            return;
+          }
+          fileUrl = val;
+        }
         else data[fieldname] = val;
       });
       bb.on("finish", () => resolve());
@@ -186,10 +207,115 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
     key = parsed.key;
     sandbox = parsed.sandbox;
     _type = parsed.type;
+    fileUrl = parsed.fileurl;
     data = { ...parsed };
     delete data.key;
     delete data.sandbox;
     delete data.type;
+    delete data.fileurl;
+  }
+
+  // If fileUrl is provided, fetch the file and upload it to S3
+  if (fileUrl && !uploadedFileS3Path) {
+    try {
+      pt.logger.info({ message: 'Fetching file from URL', fileUrl });
+      
+      // Generate a ULID for the file name
+      const fileId = ulid();
+      const s3Key = `uploads/${fileId}`;
+      
+      // Extract filename from URL
+      const urlObj = new URL(fileUrl);
+      const fileName = path.basename(urlObj.pathname);
+      
+      // Determine content type based on file extension
+      const ext = path.extname(fileName).toLowerCase();
+      let mimeType = 'application/octet-stream'; // Default
+      if (ext === '.pdf') mimeType = 'application/pdf';
+      else if (ext === '.txt') mimeType = 'text/plain';
+      else if (ext === '.json') mimeType = 'application/json';
+      else if (ext === '.csv') mimeType = 'text/csv';
+      
+      // Create file metadata
+      uploadedFileMetadata = {
+        filename: fileName,
+        encoding: '7bit',
+        mimeType
+      };
+      
+      // Fetch the file and upload it to S3
+      await new Promise<void>((resolve, reject) => {
+        // We know fileUrl is defined here because of the outer if condition
+        const fileUrlString = fileUrl as string;
+        const protocol = fileUrlString.startsWith('https') ? https : http;
+        
+        protocol.get(fileUrlString, (response) => {
+          if (response.statusCode !== 200) {
+            reject(new Error(`Failed to fetch file: ${response.statusCode}`));
+            return;
+          }
+          
+          // Collect the file data in memory
+          const chunks: Buffer[] = [];
+          let totalLength = 0;
+          
+          response.on('data', (chunk) => {
+            chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+            totalLength += chunk.length;
+          });
+          
+          response.on('end', async () => {
+            try {
+              // Combine all chunks into a single buffer
+              const fileData = Buffer.concat(chunks, totalLength);
+              
+              // Upload to S3
+              const params: PutObjectCommandInput = {
+                Bucket: S3_BUCKET_NAME,
+                Key: s3Key,
+                Body: fileData,
+                ContentLength: fileData.length
+              };
+              
+              pt.logger.info({
+                message: 'Uploading file to S3',
+                bucket: S3_BUCKET_NAME,
+                key: s3Key,
+                fileSize: fileData.length
+              });
+              
+              await s3.send(new PutObjectCommand(params));
+              
+              pt.logger.info({ message: 'S3 upload completed successfully' });
+              uploadedFileS3Path = `${S3_BUCKET_NAME}/${s3Key}`;
+              resolve();
+            } catch (error) {
+              pt.logger.error({ message: 'Error uploading file to S3', error });
+              reject(error);
+            }
+          });
+          
+          response.on('error', (error) => {
+            pt.logger.error({ message: 'Error reading response', error });
+            reject(error);
+          });
+        }).on('error', (error) => {
+          pt.logger.error({ message: 'Error fetching file from URL', error });
+          reject(error);
+        });
+      });
+      
+      pt.logger.info({ message: 'File fetched from URL and uploaded to S3', s3Path: uploadedFileS3Path });
+    } catch (error) {
+      pt.logger.error({ message: 'Error processing fileurl', error });
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          message: "Error processing fileurl",
+          error: (error as Error).message
+        }),
+      };
+    }
   }
 
   if (key !== VKD_API_KEY) {
@@ -262,7 +388,7 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
     thread = record.Item.thread;
   }
 
-  // If a file was uploaded, store its info in the Completion record for downstream processing
+  // If a file was uploaded or fileUrl was provided, store its info in the Completion record for downstream processing
   const completionData: Omit<CompletionData, 'created' | 'modified' | 'entity'> = {
     ...data,
     status: 'new',
