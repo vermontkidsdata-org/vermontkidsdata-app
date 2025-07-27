@@ -454,9 +454,10 @@ export const Completion = new Entity({
 
     status: { type: 'string', required: true },
     message: { type: 'string' },
+    title: { type: 'string', required: false }, // Optional title for the conversation
     fileName: { type: 'string', required: false }, // If a file upload
     uploadedFileS3Path: { type: 'string', required: false }, // If a file upload
-    uploadedFileMetadata: { type: 'map', required: false }, // If a file upload, type is 
+    uploadedFileMetadata: { type: 'map', required: false }, // If a file upload, type is
 
     // User response to the completion
     reaction: { type: 'string' },

@@ -84,6 +84,17 @@ export class AIAssistantConstruct extends NestedStack {
     ((fn) => {
     })(checkOpenAICompletion);
 
+    const generateTitle = makeLambda({
+      scope: this,
+      name: 'Generate Title',
+      entry: 'ai-generate-title.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      role,
+    });
+    ((fn) => {
+    })(generateTitle);
+
     const checkComplete = new LambdaInvoke(this, 'Invoke Check OpenAI Completion', {
       lambdaFunction: checkOpenAICompletion,
       outputPath: '$.Payload',
@@ -95,11 +106,16 @@ export class AIAssistantConstruct extends NestedStack {
       backoffRate: 1.0,
     });
 
+    const generateTitleStep = new LambdaInvoke(this, 'Invoke Generate Title', {
+      lambdaFunction: generateTitle,
+      outputPath: '$.Payload',
+    });
+
     const definition =
       new LambdaInvoke(this, 'Invoke Start OpenAI Completion', {
         lambdaFunction: startOpenAICompletion,
         outputPath: '$.Payload',
-      }).next(checkComplete);
+      }).next(checkComplete).next(generateTitleStep);
 
     const sf = new StateMachine(this, `${ns}-AIAssistant`, {
       tracingEnabled: true,
@@ -107,6 +123,7 @@ export class AIAssistantConstruct extends NestedStack {
     });
     startOpenAICompletion.grantInvoke(sf);
     checkOpenAICompletion.grantInvoke(sf);
+    generateTitle.grantInvoke(sf);
 
     aiCommonEnv.VKD_STATE_MACHINE_ARN = sf.stateMachineArn;
 
