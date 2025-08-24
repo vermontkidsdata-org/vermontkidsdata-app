@@ -106,3 +106,4 @@ async function syncAssistant(props: { ns: string }) {
 
   await syncAssistant({ ns });
 })().catch(console.error);
+

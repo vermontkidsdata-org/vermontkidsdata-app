@@ -1,6 +1,11 @@
 import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager";
 import OpenAI from "openai";
 import { AssistantStreamEvent } from "openai/resources/beta/assistants";
+import { FileObject } from "openai/resources";
+import { ulid } from "ulid";
+import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+import { Readable } from "stream";
+import { toFile } from "openai";
 import { AnnotationDelta, TextContentBlock, TextDeltaBlock } from "openai/resources/beta/threads/messages";
 import { RequiredActionFunctionToolCall } from "openai/resources/beta/threads/runs/runs";
 import { Thread } from "openai/resources/beta/threads/threads";
@@ -14,7 +19,28 @@ export const IN_PROGRESS_ERROR = 'InProgressError';
 const pt = makePowerTools({ prefix: 'ai-utils' });
 
 const secretManager = new SecretsManagerClient({});
+const s3Client = new S3Client({ region: process.env.AWS_REGION || 'us-east-1' });
 export let openai: OpenAI;
+
+/**
+ * Downloads a file from S3 and returns it as a readable stream
+ */
+async function downloadFromS3(bucket: string, key: string): Promise<Readable> {
+  pt.logger.info({ message: 'Downloading file from S3', bucket, key });
+
+  const command = new GetObjectCommand({
+    Bucket: bucket,
+    Key: key,
+  });
+
+  const response = await s3Client.send(command);
+
+  if (!response.Body) {
+    throw new Error('Empty response body from S3');
+  }
+
+  return response.Body as Readable;
+}
 
 export interface FileMetadataType {
   filename: string, // e.g. "cacfp.csv"
@@ -57,6 +83,7 @@ export async function connectOpenAI(): Promise<void> {
     apiKey = config.OPENAI_API_KEY;
   }
 
+  pt.logger.info({ message: 'Connecting to OpenAI', apiKey });
   openai = new OpenAI({ apiKey });
 }
 
@@ -605,4 +632,103 @@ export function validateAPIAuthorization(event: any): APIGatewayProxyResultV2 | 
 export function resetAIUtils() {
   openai = undefined as any;
   fileMapInUse = FILE_MAP;
+}
+
+/**
+ * Creates a new vector store and loads it with files from an assistant.
+ * Also updates the assistant object to include the new vector store ID.
+ * @param assistant The assistant object whose documents should be loaded into the vector store
+ */
+export async function createAndLoadVectorStore(assistantId: string, assistant: OpenAI.Beta.Assistants.Assistant): Promise<void> {
+  const assistantName = assistant.name || "Unnamed Assistant";
+  
+  // Get all documents for the assistant
+  const { getAllAssistantDocuments, Document, getDocumentKey } = await import("./db-utils");
+  const assistantDocuments = await getAllAssistantDocuments(assistantId);
+  
+  console.log(`Found ${assistantDocuments.length} documents for assistant ${assistantId} (${assistantName})`);
+  
+  // Create a new vector store
+  const vectorStore = await openai.vectorStores.create({
+    name: `${assistantName} Vector Store - ${new Date().toISOString()}`,
+  });
+  
+  console.log(`Created new vector store: ${vectorStore.id}`);
+  
+  const filesToAdd: FileObject[] = [];
+
+  // Process each assistant document
+  for (const document of assistantDocuments) {
+    try {
+      // Get the original document to access its tags
+      const docRow = await Document.get(getDocumentKey(document.identifier), {
+        consistent: true,
+      });
+      
+      if (!docRow.Item) {
+        console.error(`Document not found for identifier: ${document.identifier}`);
+        continue;
+      }
+      
+      // Extract the name from tags if available
+      const documentName = docRow.Item.tags?.name || document.identifier;
+      
+      // Generate a new ULID for the file name to avoid clashes, including the original document name
+      const uniqueFilename = `${ulid()}_${documentName}`;
+      
+      console.log(`Processing document ${document.identifier} (${documentName}), will upload as ${uniqueFilename}`);
+      console.log(`Downloading from S3 bucket ${document.bucket}, key ${document.key}`);
+      
+      // Download the file from S3
+      const fileStream = await downloadFromS3(document.bucket, document.key);
+      
+      // Convert the S3 stream to a File object
+      console.log(`Converting S3 stream to File object for ${uniqueFilename}`);
+      const fileObject = await toFile(fileStream, uniqueFilename);
+      
+      // Upload the file to OpenAI
+      console.log(`Uploading ${uniqueFilename} to OpenAI`);
+      const uploadedFile = await openai.files.create({
+        file: fileObject,
+        purpose: "assistants",
+      });
+
+      console.log(`Successfully uploaded file to OpenAI with ID: ${uploadedFile.id}`);
+      filesToAdd.push(uploadedFile);
+    } catch (error) {
+      console.error(`Error processing document ${document.identifier}:`, error);
+      console.log(`Skipping document ${document.identifier} due to error`);
+    }
+  }
+
+  // Add files to the vector store
+  console.log("Adding files: ", filesToAdd.map((f) => f.id));
+  if (filesToAdd.length > 0) {
+    await openai.vectorStores.fileBatches.create(
+      vectorStore.id,
+      {
+        file_ids: filesToAdd.map((f) => f.id),
+      },
+    );
+  }
+
+  // Update the assistant object to include the new vector store ID
+  if (!assistant.tool_resources) {
+    assistant.tool_resources = {};
+  }
+  
+  if (!assistant.tool_resources.file_search) {
+    assistant.tool_resources.file_search = { vector_store_ids: [] };
+  }
+  
+  // Overwrite the vector_store_ids array with the new vector store ID
+  assistant.tool_resources.file_search.vector_store_ids = [vectorStore.id];
+  
+  // Update the assistant in OpenAI
+  await openai.beta.assistants.update(assistant.id, {
+    tool_resources: assistant.tool_resources
+  });
+  
+  console.log(`Vector store ${vectorStore.id} created and loaded with ${filesToAdd.length} files`);
+  console.log(`Updated assistant ${assistant.id} with new vector store ID`);
 }

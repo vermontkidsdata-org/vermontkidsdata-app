@@ -1,7 +1,7 @@
 import { APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2 } from "aws-lambda";
 import { Assistant, getAllAssistantFunctions, getAssistantKey, getNamespace, PublishedAssistant } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
-import { connectOpenAI, getOpenAI, validateAPIAuthorization } from "./ai-utils";
+import { connectOpenAI, createAndLoadVectorStore, getOpenAI, validateAPIAuthorization } from "./ai-utils";
 import { removeVkdProperties } from "./assistant-def";
 
 const SERVICE = 'ai-post-assistant-publish';
@@ -113,7 +113,6 @@ export async function lambdaHandler(
   const envName = (ns + (assItem.sandbox ? `/${assItem.sandbox}` : '')).toLowerCase();
 
   assistantDef.name = `${assItem.name} <${envName}>`;
-  pt.logger.info({ message: 'assistant to define in OpenAI', assistantDef });
 
   await connectOpenAI();
   const openai = getOpenAI();
@@ -121,7 +120,16 @@ export async function lambdaHandler(
   // Remove from function? Yes except for _vkd. We'll remove that right before
   // we actually publish it using the existing function.
   const createDef = removeVkdProperties(assistantDef);
+
+  pt.logger.info({ message: 'about to create assistant', createDef });
+
+  // First create the assistant with no vector store/files
+  pt.logger.info({ message: 'assistant to define in OpenAI', assistantDef, createDef });
   const resp = await openai.beta.assistants.create(createDef);
+  
+  // Then create and load the vector store with the created assistant
+  await createAndLoadVectorStore(assistantId, resp);
+  pt.logger.info({ message: 'vector store created and loaded for assistant', assistantId: resp.id });
 
   await PublishedAssistant.put({
     envName,

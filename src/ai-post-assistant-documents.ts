@@ -74,17 +74,26 @@ export async function lambdaHandler(
   const { commands } = JSON.parse(event.body) as PostAssistantDocumentCommand;
   pt.logger.info({ message: 'commands to execute', assistantId, commands });
 
+  // Wait 5 seconds
+  pt.logger.info({ message: 'waiting 5 seconds' });
+  await new Promise(resolve => setTimeout(resolve, 5000));
+
   for (const command of commands) {
     if (command.command === 'add') {// Add document
       // First get the document (must exist, obviously)
-      const docRow = await Document.get(getDocumentKey(command.identifier));
+      const pk = getDocumentKey(command.identifier);
+      pt.logger.info({ message: 'adding document to assistant', assistantId, command, pk });
+      const docRow = await Document.get(pk, {
+        consistent: true, // Might be a race condition
+      });
+      pt.logger.info({ message: 'fetched document?', assistantId, command, docRow });
       if (!docRow.Item) {
         return {
           statusCode: HttpStatusCode.BadRequest,
           body: JSON.stringify({
             message: "Document not found",
             identifier: command.identifier,
-            pk: getDocumentKey(command.identifier)
+            pk
           })
         }
       }

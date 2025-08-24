@@ -656,7 +656,7 @@ export class VermontkidsdataStack extends Stack {
     serviceTable.grantReadWriteData(authorizerFunction);
 
     const corsOptions: CorsOptions = {
-      allowOrigins: [uiOrigin, LOCALHOST_ORIGIN],
+      allowOrigins: ['*'],
       allowHeaders: Cors.DEFAULT_HEADERS,
       allowMethods: Cors.ALL_METHODS,
       allowCredentials: true,
