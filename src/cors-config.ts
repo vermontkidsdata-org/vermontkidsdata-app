@@ -6,6 +6,7 @@ export const CORSConfigDefault = {
 
     if (incomingOrigin == null ||
       !(incomingOrigin.endsWith('vtkidsdata.org') ||
+        incomingOrigin.endsWith('amplifyapp.com') ||
         incomingOrigin === 'http://localhost:3000' ||
         incomingOrigin === 'http://ui.qa.vtkidsdata.org:3000' ||
         incomingOrigin === 'http://ui.dev.vtkidsdata.org:3000')) {

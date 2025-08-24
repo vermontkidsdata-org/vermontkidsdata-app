@@ -1,0 +1,192 @@
+Sending request to https://api.qa.vtkidsdata.org/ai/mcp
+Payload: {
+  "action": "list_functions",
+  "params": {}
+}
+Response:
+{
+  "result": [
+    {
+      "type": "function",
+      "function": {
+        "name": "children_in_poverty_under_12_all-chart",
+        "_vkd": {
+          "query": "children_in_poverty_under_12_all:chart",
+          "urlPath": "linechart/children_in_poverty_under_12:chart"
+        },
+        "description": "Determine percent of children in poverty within Vermont for a given year. It returns the percent \n    of children in poverty for a certain year. It can give the information either for a particular AHS region in Vermont, or across the\n    entire state. Returns a JSON object with two properties: a 'value' which is the value requested, and a 'url' which is the URL of\n    a chart that allows to user to explore the data in more detail. If the requested year is not available, use the earliest year available.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The location, either a Building Bright Futures region within Vermont, or across the entire state. Should either be the region name \n          (e.g. Chittendon) or the word 'Vermont' for poverty across the entire state. It returns a JSON object with four fields: \n          \"value\" which gives the requested value, \"url\" which gives a URL for a dataset you can reference for more information, \n          \"geography\" which is the geography the value is for, and \"year\" which is the year the data is returned for. The geography \n          and year might be different from what you requested if the function can't return the value for the requested geography or year.",
+              "enum": [
+                "Addison",
+                "Bennington",
+                "Caledonia and Southern Essex",
+                "Central Vermont",
+                "Chittenden",
+                "Franklin Grand Isle",
+                "Lamoille Valley",
+                "Northern Windsor and Orange",
+                "Orleans and Northern Essex",
+                "Rutland",
+                "Southeast Vermont",
+                "Springfield",
+                "Vermont"
+              ],
+              "_vkd": {
+                "type": "series"
+              }
+            },
+            "year": {
+              "type": "string",
+              "description": "The year of interest. Should be greater than or equal to 2017. If the request is for before 2017, request data\n          for 2017 and tell the user that the data is only available from 2017 onwards.",
+              "_vkd": {
+                "type": "category"
+              }
+            }
+          },
+          "required": [
+            "location",
+            "type",
+            "year"
+          ]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "avgbenefit_3squares_vt-chart",
+        "description": "Determine the average '3 squares' benefit for an individual or household within Vermont. Returns a JSON object \n    with two properties: a 'value' which is the value requested, and a 'url' which is the URL of a chart that allows to user to \n    explore the data in more detail.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "group": {
+              "type": "string",
+              "description": "Whether the user is asking about an individual or an entire household (also referred to as a 'family').",
+              "enum": [
+                "individual",
+                "household"
+              ],
+              "_vkd": {
+                "type": "series"
+              }
+            },
+            "year": {
+              "type": "string",
+              "description": "The year of interest. Should be greater than or equal to 2017. If the request is for before 2017, request data\n          for 2017 and tell the user that the data is only available from 2017 onwards.",
+              "_vkd": {
+                "type": "category"
+              }
+            }
+          },
+          "required": [
+            "group"
+          ]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "iep-chart",
+        "description": "Find the total number of kids in Vermont by school year who have an IEP, which stands for Individualized Education Program. \n    When students are identified as having an educational disability and require special education services to meet their unique learning needs, \n    they are provided an Individualized Education Program (IEP) which is overseen by local public school divisions. An IEP is comprised of \n    specially designed instruction that involves adapting the content, methodology, or delivery of instruction to address the needs of the \n    student and accommodations, modifications, and other supplementary aids and services to ensure their access to the general curriculum so \n    the child can meet the educational standards that apply to all children in the state. \n    \n    Returns a JSON object with two properties: a 'value' which is the value requested, and a 'url' which is the URL of a chart that allows\n    to user to explore the data in more detail.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "year": {
+              "type": "string",
+              "description": "The school year, which should be a string of the form 'SSSS-EEEE' where SSSS is the starting school year (e.g. 2020) \n      and EEEE is the ending school year (e.g. 2021). The ending year should always be one greater than the starting year.\n      Should be greater than or equal to 2017. If the request is for before 2017, request data\n      for 2017 and tell the user that the data is only available from 2017 onwards.",
+              "_vkd": {
+                "type": "category"
+              }
+            },
+            "type": {
+              "type": "string",
+              "description": "The type of data being requested. This should always be the constant value 'IEP'.",
+              "enum": [
+                "IEP"
+              ],
+              "_vkd": {
+                "type": "series"
+              }
+            }
+          },
+          "required": [
+            "year",
+            "type"
+          ]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "get_idea_by_year",
+        "description": "Return the number of children in Vermont who receive early intervention services under IDEA. The Individuals with \n    Disabilities Education Act (IDEA) is a federal law that makes available a free appropriate public education (FAPE) to eligible \n    children with disabilities throughout the nation and ensures special education and related services to those children. Infants \n    and toddlers, birth through age 2, with disabilities and their families receive early intervention services under IDEA Part C. \n    Children and youth ages 3 through 21 receive special education and related services under IDEA Part B. \n    \n    Returns a JSON object with two properties: a 'value' which is the value requested, and a 'url' which is the URL of a chart \n    that allows to user to explore the data in more detail.",
+        "_vkd": {
+          "query": "idea_bc:chart_by_year",
+          "chartType": "stackedcolumnchart"
+        },
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "part": {
+              "type": "string",
+              "description": "The part of the IDEA act of interest. This can be determined by the age of the children of interest.",
+              "enum": [
+                "IDEA B",
+                "IDEA C"
+              ],
+              "_vkd": {
+                "type": "series"
+              }
+            },
+            "year": {
+              "type": "string",
+              "description": "The year of interest. Should be greater than or equal to 2018. If the request is for before 2018, request data\n          for 2018 and tell the user that the data is only available from 2018 onwards.",
+              "_vkd": {
+                "type": "category"
+              }
+            }
+          },
+          "required": [
+            "part",
+            "year"
+          ]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "get_babies_count",
+        "description": "Return the number of babies born by year in Vermont.\n    \n    Returns a JSON object with two properties: a 'value' which is the value requested, and a 'url' which is the URL of a chart \n    that allows to user to explore the data in more detail.",
+        "_vkd": {
+          "query": "number_babies:chart",
+          "chartType": "linechart",
+          "defaultSeries": "Vermont"
+        },
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "year": {
+              "type": "string",
+              "description": "The year of interest. Should be greater than or equal to 2017. If the request is for before 2017, request data\n          for 2017 and tell the user that the data is only available from 2017 onwards.",
+              "_vkd": {
+                "type": "category"
+              }
+            }
+          },
+          "required": [
+            "part",
+            "year"
+          ]
+        }
+      }
+    }
+  ]
+}

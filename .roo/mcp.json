@@ -1,3 +1,9 @@
 {
-  "mcpServers": {}
+  "mcpServers": {
+    "vtkidsdata": {
+      "type": "sse",
+      "url": "https://api.qa.vtkidsdata.org/ai/mcp",
+      "description": "Vermont Kids Data API"
+    }
+  }
 }

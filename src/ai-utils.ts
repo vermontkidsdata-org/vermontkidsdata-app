@@ -196,7 +196,7 @@ async function getFunctionResponseFromSeries(props: {
   };
 }
 
-class ToolCallHandler {
+export class ToolCallHandler {
   async handleToolCall(props: {
     toolCall: RequiredActionFunctionToolCall,
     assistant: LimitedAssistantDef,

@@ -403,6 +403,21 @@ export class AIAssistantConstruct extends NestedStack {
       role,
     }));
 
+    // POST /ai/mcp - MCP server endpoint for tool calls
+    (({ fn }) => {
+      aiSecret.grantRead(fn);
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'POST',
+      path: 'mcp',
+      entry: 'ai-mcp-server.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
   }
 
 }
