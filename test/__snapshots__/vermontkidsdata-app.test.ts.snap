@@ -5897,7 +5897,7 @@ def sort_filter_rules(json_obj):
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "sandboxVermontKidsDataDeployment13909A1B19cce340e9b3150f56a7ab8bce77144f": {
+    "sandboxVermontKidsDataDeployment13909A1B4db246d45f5c4f68439dc0d9f616e1c1": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -6135,7 +6135,7 @@ def sort_filter_rules(json_obj):
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "sandboxVermontKidsDataDeployment13909A1B19cce340e9b3150f56a7ab8bce77144f",
+          "Ref": "sandboxVermontKidsDataDeployment13909A1B4db246d45f5c4f68439dc0d9f616e1c1",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -6157,17 +6157,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -6184,7 +6174,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -6228,17 +6217,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -6255,7 +6234,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -6391,17 +6369,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -6418,7 +6386,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -6652,17 +6619,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -6679,7 +6636,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -6815,17 +6771,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -6842,7 +6788,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -7076,17 +7021,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -7103,7 +7038,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -7239,17 +7173,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -7266,7 +7190,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -7500,17 +7423,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -7527,7 +7440,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -7761,17 +7673,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -7788,7 +7690,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -7924,17 +7825,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -7951,7 +7842,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -8087,17 +7977,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -8114,7 +7994,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -8250,17 +8129,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -8277,7 +8146,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -8413,17 +8281,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -8440,7 +8298,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -8576,17 +8433,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -8603,7 +8450,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -8837,17 +8683,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -8864,7 +8700,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9000,17 +8835,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9027,7 +8852,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9065,17 +8889,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9092,7 +8906,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9296,17 +9109,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9323,7 +9126,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9364,17 +9166,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9391,7 +9183,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9429,17 +9220,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9456,7 +9237,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9592,17 +9372,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9619,7 +9389,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9657,17 +9426,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9684,7 +9443,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9820,17 +9578,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9847,7 +9595,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9888,17 +9635,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9915,7 +9652,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -9953,17 +9689,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -9980,7 +9706,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -10018,17 +9743,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -10045,7 +9760,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -10181,17 +9895,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -10208,7 +9912,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -10246,17 +9949,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -10273,7 +9966,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -10409,17 +10101,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -10436,7 +10118,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -10474,17 +10155,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -10501,7 +10172,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -10637,17 +10307,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -10664,7 +10324,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -10820,17 +10479,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -10847,7 +10496,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -10888,17 +10536,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -10915,7 +10553,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -11051,17 +10688,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -11078,7 +10705,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -11119,17 +10745,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -11146,7 +10762,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -11184,17 +10799,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -11211,7 +10816,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -11347,17 +10951,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -11374,7 +10968,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -11510,17 +11103,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -11537,7 +11120,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -11575,17 +11157,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -11602,7 +11174,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -11755,17 +11326,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -11782,7 +11343,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -11935,17 +11495,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -11962,7 +11512,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -12098,17 +11647,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -12125,7 +11664,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -12166,17 +11704,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -12193,7 +11721,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -12329,17 +11856,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -12356,7 +11873,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -12509,17 +12025,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -12536,7 +12042,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -12675,17 +12180,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -12702,7 +12197,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -12740,17 +12234,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -12767,7 +12251,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -12920,17 +12403,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -12947,7 +12420,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -13100,17 +12572,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -13127,7 +12589,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -13280,17 +12741,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -13307,7 +12758,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -13460,17 +12910,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -13487,7 +12927,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -13623,17 +13062,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -13650,7 +13079,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -13688,17 +13116,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -13715,7 +13133,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -13868,17 +13285,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -13895,7 +13302,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -14048,17 +13454,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -14075,7 +13471,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -14228,17 +13623,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -14255,7 +13640,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -14293,17 +13677,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -14320,7 +13694,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -14456,17 +13829,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -14483,7 +13846,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -14619,17 +13981,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -14646,7 +13998,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -14684,17 +14035,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -14711,7 +14052,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -14847,17 +14187,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -14874,7 +14204,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -14912,17 +14241,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -14939,7 +14258,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -15075,17 +14393,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -15102,7 +14410,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -15140,17 +14447,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -15167,7 +14464,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -15303,17 +14599,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -15330,7 +14616,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -15486,17 +14771,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -15513,7 +14788,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -15896,17 +15170,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -15923,7 +15187,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -16177,17 +15440,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -16204,7 +15457,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -16340,17 +15592,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -16367,7 +15609,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -16420,17 +15661,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -16447,7 +15678,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -16473,17 +15703,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -16500,7 +15720,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -16538,17 +15757,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -16565,7 +15774,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -16603,17 +15811,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -16630,7 +15828,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -16766,17 +15963,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -16793,7 +15980,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -16929,17 +16115,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -16956,7 +16132,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -17095,17 +16270,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -17122,7 +16287,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -17163,17 +16327,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -17190,7 +16344,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
@@ -17326,17 +16479,7 @@ def sort_filter_rules(json_obj):
                 "method.response.header.Access-Control-Allow-Credentials": "'true'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'https://ui.sandbox.vtkidsdata.org'",
-                "method.response.header.Vary": "'Origin'",
-              },
-              "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params().header.get("Origin"))
-#if($origin == "")
-  #set($origin = $input.params().header.get("origin"))
-#end
-#if($origin == "http://localhost:3000")
-  #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin)
-#end",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
               },
               "StatusCode": "204",
             },
@@ -17353,7 +16496,6 @@ def sort_filter_rules(json_obj):
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true,
               "method.response.header.Access-Control-Allow-Origin": true,
-              "method.response.header.Vary": true,
             },
             "StatusCode": "204",
           },
