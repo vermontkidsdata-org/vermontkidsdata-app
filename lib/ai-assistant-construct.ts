@@ -162,6 +162,20 @@ export class AIAssistantConstruct extends NestedStack {
       role,
     }));
 
+    // Get all completions for a conversation by id
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'completion/{id}',
+      entry: 'ai-get-completions-by-id.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
     (({ fn }) => {
     })(addLambdaResource({
       scope: this,

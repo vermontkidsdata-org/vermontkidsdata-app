@@ -125,6 +125,7 @@ def apply_suppression(df, suppress):
 
 ## iterate through all the date blocks as we want to suppress within them
 def suppress_blocks(df, key_var, threshold):
+    f.write(f'Suppressing {key_var}\n')
     blocks = []
     count, pcount = 0, 0 
     for _, group in df.groupby("Month.Year"):
@@ -164,21 +165,49 @@ if __name__ == "__main__":
 
     ## begin loading -> suppression -> output loop
     dfs = load_as_dict(args.inputfile)
-    dfs = {name: forward_date(df) for name, df in dfs.items()} 
+    dfs = {name: forward_date(df) for name, df in dfs.items()}
+    
+    # Check if there are any dataframes to process
+    if not dfs:
+        print(f"Error: No sheets found in {args.inputfile}")
+        exit(1)
+        
     with open(logfile, 'w') as f:
             f.write(f"Data from file: {args.inputfile} \n-----------\n")
+            
+            # Create a dummy sheet if needed to ensure at least one sheet is visible
             with pd.ExcelWriter(args.outputfile, engine='openpyxl') as writer:
+                # Process each dataframe
+                processed_count = 0
                 for name, df in dfs.items():
-                    key_var = "County" if "County" in name else "AHS District"
-                    df, count, pcount = suppress_blocks(df, key_var, args.threshold)
+                    try:
+                        f.write(f"Starting {name}...\n")
 
-                    f.write(f"{name} : Primary Suppressed {pcount}, Secondary Suppressed {count}. Threshold = {args.threshold}\n")
+                        # Check if "State" is in the dataframe columns, otherwise use the original logic
+                        if "State" in df.columns:
+                            key_var = "State"
+                        else:
+                            key_var = "County" if "County" in name else "AHS District"
+                        f.write(f"Starting {name} : Threshold = {args.threshold}, key_var = {key_var}\n")
 
-                    df = df.assign(
-                        is_vermont=df[key_var].eq("Vermont")
-                    ).sort_values(
-                        by=['Month.Year', 'is_vermont', key_var],
-                        ascending=(False, True, True)
-                    ).drop(columns='is_vermont')
+                        df, count, pcount = suppress_blocks(df, key_var, args.threshold)
 
-                    df.to_excel(writer, sheet_name=name, index=False)
+                        f.write(f"{name} : Primary Suppressed {pcount}, Secondary Suppressed {count}. Threshold = {args.threshold}, key_var = {key_var}\n")
+
+                        df = df.assign(
+                            is_vermont=df[key_var].eq("Vermont")
+                        ).sort_values(
+                            by=['Month.Year', 'is_vermont', key_var],
+                            ascending=(False, True, True)
+                        ).drop(columns='is_vermont')
+
+                        df.to_excel(writer, sheet_name=name, index=False)
+                        processed_count += 1
+                    except Exception as e:
+                        f.write(f"Error processing sheet {name}: {str(e)}\n")
+                        print(f"Error processing sheet {name}: {str(e)}")
+                
+                # If no sheets were successfully processed, create a dummy sheet
+                if processed_count == 0:
+                    pd.DataFrame({'Note': ['No data could be processed']}).to_excel(writer, sheet_name='Info', index=False)
+                    print("Warning: Created an Info sheet because no data sheets could be processed")
