@@ -5897,7 +5897,7 @@ def sort_filter_rules(json_obj):
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "sandboxVermontKidsDataDeployment13909A1B4db246d45f5c4f68439dc0d9f616e1c1": {
+    "sandboxVermontKidsDataDeployment13909A1B91480c1ea4c8a9bb415f5c2059d3325c": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -5938,6 +5938,7 @@ def sort_filter_rules(json_obj):
         "sandboxVermontKidsDataaicompletionidsortKeyOPTIONSFD50B247",
         "sandboxVermontKidsDataaicompletionidsortKeyPOST5270AFD4",
         "sandboxVermontKidsDataaicompletionidsortKey3A58D548",
+        "sandboxVermontKidsDataaicompletionidGET824E3005",
         "sandboxVermontKidsDataaicompletionidOPTIONS71769CF2",
         "sandboxVermontKidsDataaicompletionidE3609905",
         "sandboxVermontKidsDataaicompletionOPTIONS21D701C9",
@@ -6135,7 +6136,7 @@ def sort_filter_rules(json_obj):
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "sandboxVermontKidsDataDeployment13909A1B4db246d45f5c4f68439dc0d9f616e1c1",
+          "Ref": "sandboxVermontKidsDataDeployment13909A1B91480c1ea4c8a9bb415f5c2059d3325c",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -8268,6 +8269,104 @@ def sort_filter_rules(json_obj):
         },
       },
       "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaicompletionidGET824E3005": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantGETcompletionid8D3A6011Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaicompletionidE3609905",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaicompletionidGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaicompletionid137ABF2B": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETcompletionid8D3A6011Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/ai/completion/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaicompletionidGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaicompletionidC222C0CD": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETcompletionid8D3A6011Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/ai/completion/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
     },
     "sandboxVermontKidsDataaicompletionidOPTIONS71769CF2": {
       "Properties": {
