@@ -168,6 +168,10 @@ def generate_ddl_for_data_type(data_type, sheets_data, file_type):
         # Add month_year column
         ddl += "  `month_year` VARCHAR(255),\n"
         
+        # Add month and year columns
+        ddl += "  `month` INT COMMENT 'Month (1-12)',\n"
+        ddl += "  `year` INT COMMENT 'Year (e.g., 2023)',\n"
+        
         # Add geo_type column
         ddl += "  `geo_type` VARCHAR(50),\n"
         
@@ -186,33 +190,28 @@ def generate_ddl_for_data_type(data_type, sheets_data, file_type):
                     # Store the original column name, not the string version
                     all_columns.add(col)
         
-        # Check if "Total" column exists
-        has_total = False
-        for col in all_columns:
-            if str(col).lower() == "total":
-                has_total = True
-                break
-        
         # Convert all column names to strings for sorting
         all_columns_str = [str(col) for col in all_columns]
         
         # Sort columns for consistent output
         all_columns_str = sorted(all_columns_str)
         
-        # Add value columns
-        for col in all_columns_str:
-            field_name = column_to_field_name(col)
-            ddl += f"  `{field_name}` DOUBLE COMMENT '{col}',\n"
+        # Add category column based on data_type
+        category_column = data_type.lower().replace(" ", "_").replace("%", "pct")
+        ddl += f"  `{category_column}` VARCHAR(100) COMMENT 'Category value (e.g., infant, white, hispanic)',\n"
         
-        # Add optional total column if it doesn't exist
-        if not has_total:
-            ddl += f"  `value_total` DOUBLE COMMENT 'Optional total column',\n"
+        # Add value and value_suppressed columns
+        ddl += "  `value` DOUBLE COMMENT 'The actual count/number',\n"
+        ddl += "  `value_suppressed` DOUBLE COMMENT 'Suppressed version of the value',\n"
         
         # Add primary key
         ddl += "  PRIMARY KEY (`id`),\n"
         
-        # Add unique key
-        ddl += "  UNIQUE KEY `unique_record` (`month_year`, `geo_type`, `geography`)\n"
+        # Add unique key that includes the category column
+        ddl += f"  UNIQUE KEY `unique_record` (`month_year`, `geo_type`, `geography`, `{category_column}`),\n"
+        
+        # Add index on month and year for better query performance
+        ddl += "  INDEX `idx_month_year` (`year`, `month`)\n"
         
         # Close the DDL
         ddl += ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n\n"
@@ -320,8 +319,8 @@ def main():
     # Process the Excel file
     ddl, file_type = process_excel_file(args.xlsx_file)
     
-    # Generate output filename
-    output_file = f"act76-{file_type}-tables.sql"
+    # Generate output filename in the scripts directory
+    output_file = f"scripts/act76-{file_type}-tables.sql"
     
     # Write the DDL to the output file
     if ddl:

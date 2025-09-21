@@ -19,6 +19,43 @@ from datetime import datetime
 from collections import defaultdict
 
 
+def extract_month_year(date_value):
+    """
+    Extract month and year from a date value.
+    
+    Args:
+        date_value: The date value (can be string, datetime, or other format)
+        
+    Returns:
+        tuple: (month, year) as integers
+    """
+    try:
+        # If it's already a datetime object
+        if isinstance(date_value, datetime):
+            return date_value.month, date_value.year
+        
+        # Try to parse as a datetime
+        try:
+            date_obj = pd.to_datetime(date_value)
+            return date_obj.month, date_obj.year
+        except:
+            # If parsing fails, try to extract from string formats like "6/1/2023"
+            if isinstance(date_value, str):
+                parts = date_value.split('/')
+                if len(parts) >= 2:
+                    month = int(parts[0])
+                    # Year might be in the third position or second position
+                    year = int(parts[2]) if len(parts) > 2 else int(parts[1])
+                    return month, year
+            
+            # If all else fails, return None values
+            print(f"Warning: Could not extract month and year from '{date_value}'", file=sys.stderr)
+            return None, None
+    except Exception as e:
+        print(f"Error extracting month and year from '{date_value}': {str(e)}", file=sys.stderr)
+        return None, None
+
+
 def extract_data_type(worksheet_name):
     """
     Extract the data type from a worksheet name (the part before "by").
@@ -204,6 +241,12 @@ def generate_insert_statements(data_type, sheet_name, df, file_type):
         # Initialize the list of INSERT statements
         insert_statements = []
         
+        # Get the category column name based on data_type
+        category_column = data_type.lower().replace(" ", "_").replace("%", "pct")
+        
+        # Group rows by month_year and geography
+        grouped_data = defaultdict(list)
+        
         # Process each row
         for _, row in df.iterrows():
             # Skip rows with no data
@@ -218,44 +261,81 @@ def generate_insert_statements(data_type, sheet_name, df, file_type):
             if pd.isna(month_year) or pd.isna(geography):
                 continue
             
-            # Start building the INSERT statement
-            insert = f"INSERT INTO `{table_name}` (`month_year`, `geo_type`, `geography`"
+            # Create a key for grouping
+            key = (month_year, geography)
             
-            # Create a list to store field names for ON DUPLICATE KEY UPDATE
-            field_names = []
-            
-            # Add value column names
+            # Process each column (except month_year and geography)
             for col in df.columns[2:]:
                 # Skip geography-specific columns like "County" or "AHS District"
-                # Convert column name to string to handle non-string column names (like floats)
                 col_str = str(col).lower()
-                if col_str not in ["county", "ahs district"]:
-                    field_name = column_to_field_name(col)
-                    insert += f", `{field_name}`"
-                    field_names.append(field_name)
-            
-            # Add values with a newline for better readability and use an alias
-            insert += f")\nVALUES ({format_value_for_sql(month_year)}, {format_value_for_sql(geo_type)}, {format_value_for_sql(geography)}"
-            
-            # Add value column values
-            for col in df.columns[2:]:
-                # Skip geography-specific columns like "County" or "AHS District"
-                # Convert column name to string to handle non-string column names (like floats)
-                col_str = str(col).lower()
-                if col_str not in ["county", "ahs district"]:
+                if col_str not in ["county", "ahs district", "total"]:
+                    # Get the value for this column
                     value = row[col]
-                    insert += f", {format_value_for_sql(value)}"
+                    
+                    # Skip if value is NaN
+                    if pd.isna(value):
+                        continue
+                    
+                    # Create a category value from the column name
+                    category_value = str(col)
+                    
+                    # Add to grouped data
+                    grouped_data[key].append((category_value, value))
             
-            # Add alias and ON DUPLICATE KEY UPDATE clause
-            insert += ") AS new_data\nON DUPLICATE KEY UPDATE "
+            # Add a row for the total if it exists
+            total_col = None
+            for col in df.columns[2:]:
+                if str(col).lower() == "total":
+                    total_col = col
+                    break
             
-            # Add updates for each field using the alias
-            updates = []
-            for field_name in field_names:
-                updates.append(f"`{field_name}` = new_data.`{field_name}`")
+            if total_col is not None:
+                total_value = row[total_col]
+                if not pd.isna(total_value):
+                    grouped_data[key].append(("total", total_value))
+            else:
+                # Calculate total if it doesn't exist in the data
+                value_sum = 0.0
+                has_valid_values = False
+                
+                for col in df.columns[2:]:
+                    col_str = str(col).lower()
+                    if col_str not in ["county", "ahs district"]:
+                        value = row[col]
+                        if not pd.isna(value):
+                            try:
+                                value_sum += float(value)
+                                has_valid_values = True
+                            except (ValueError, TypeError):
+                                # Skip if value can't be converted to float
+                                pass
+                
+                if has_valid_values:
+                    grouped_data[key].append(("total", value_sum))
+        
+        # Generate INSERT statements for each group
+        for (month_year, geography), values in grouped_data.items():
+            # Extract month and year from month_year
+            month, year = extract_month_year(month_year)
             
-            # Join the updates with commas
-            insert += ", ".join(updates) + ";"
+            # Start building the INSERT statement
+            insert = f"INSERT INTO `{table_name}` (`month_year`, `month`, `year`, `geo_type`, `geography`, `{category_column}`, `value`, `value_suppressed`)\nVALUES\n"
+            
+            # Add values
+            value_strings = []
+            for category_value, value in values:
+                value_str = f"({format_value_for_sql(month_year)}, {format_value_for_sql(month)}, {format_value_for_sql(year)}, "
+                value_str += f"{format_value_for_sql(geo_type)}, {format_value_for_sql(geography)}, "
+                value_str += f"{format_value_for_sql(category_value)}, {format_value_for_sql(value)}, NULL)"
+                value_strings.append(value_str)
+            
+            # Join value strings with commas
+            insert += ",\n".join(value_strings)
+            
+            # Add ON DUPLICATE KEY UPDATE clause
+            insert += " AS new_data\nON DUPLICATE KEY UPDATE "
+            insert += "`month` = new_data.`month`, `year` = new_data.`year`, "
+            insert += "`value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;"
             
             # Add to the list of INSERT statements
             insert_statements.append(insert)
@@ -382,15 +462,15 @@ def main():
         fiscal_year = fy_match.group(1)
         quarter = fy_match.group(2)
         
-        # Generate output filename with fiscal year and optional quarter
+        # Generate output filename with fiscal year and optional quarter in the scripts directory
         if quarter:
-            output_file = f"act76-{file_type}-data-fy{fiscal_year}-q{quarter}.sql"
+            output_file = f"scripts/act76-{file_type}-data-fy{fiscal_year}-q{quarter}.sql"
         else:
-            output_file = f"act76-{file_type}-data-fy{fiscal_year}.sql"
+            output_file = f"scripts/act76-{file_type}-data-fy{fiscal_year}.sql"
     else:
         # Fallback to using the date of the first record if FY not found
         print(f"Warning: Could not extract fiscal year from filename '{file_name}', using date from first record instead", file=sys.stderr)
-        output_file = f"act76-{file_type}-data-{first_date}.sql"
+        output_file = f"scripts/act76-{file_type}-data-{first_date}.sql"
     
     # Write the INSERT statements to the output file
     if insert_statements:
