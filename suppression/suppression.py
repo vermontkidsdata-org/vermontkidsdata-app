@@ -20,8 +20,23 @@ import pandas as pd
 import pulp
 import numpy as np
 import argparse
+import logging
+import os
 from datetime import datetime
 from pathlib import Path
+
+# Set up logging to file
+debug_log_path = os.path.abspath('debug-suppression.log')
+logging.basicConfig(
+    filename=debug_log_path,
+    filemode='w',
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    level=logging.DEBUG
+)
+logger = logging.getLogger('suppression')
+
+# Print message about debug log location
+print(f"Debug logs are being written to: {debug_log_path}")
 
 
 def load_as_dict(path):
@@ -50,9 +65,14 @@ def primary_suppression(df, threshold):
 
 ## carry forward date columns for easier separation
 def forward_date(df):
+    logger.debug(f"Before forward_date: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
     df["Month.Year"]= df['Month.Year'].ffill()
     keep_cols = df.columns.difference(['Month.Year'])
     df = df.dropna(subset=keep_cols, how='all')
+    logger.debug(f"After forward_date: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
+    if df.duplicated().sum() > 0:
+        logger.warning("Duplicated rows found after forward_date!")
+        logger.warning(df[df.duplicated(keep=False)].sort_values(by=df.columns.tolist()).to_string())
     return df
 
 ## primary engine for secondary suppression
@@ -100,13 +120,23 @@ def secondary_suppression(df, key_var='County'):
 
 ## iterate suppressing until a round of suppressing fails to suppress
 def iterative_supression(group, count, key_var):
+    logger.debug(f"Before iterative_supression: shape={group.shape}, duplicated rows={group.duplicated().sum()}")
     total_count = 0
+    iteration = 0
     while True:
+        iteration += 1
+        logger.debug(f"Iteration {iteration} start")
         df, count = secondary_suppression(group, key_var)
+        logger.debug(f"After secondary_suppression: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
         group = group.astype(object)
         group.update(df)
+        logger.debug(f"After update: shape={group.shape}, duplicated rows={group.duplicated().sum()}")
         total_count += count
         if count == 0:
+            logger.debug(f"After iterative_supression: shape={group.shape}, duplicated rows={group.duplicated().sum()}")
+            if group.duplicated().sum() > 0:
+                logger.warning("WARNING: Duplicated rows found after iterative_supression!")
+                logger.warning(group[group.duplicated(keep=False)].sort_values(by=group.columns.tolist()).to_string())
             return group, total_count
 
 def apply_suppression(df, suppress):
@@ -126,16 +156,28 @@ def apply_suppression(df, suppress):
 ## iterate through all the date blocks as we want to suppress within them
 def suppress_blocks(df, key_var, threshold):
     f.write(f'Suppressing {key_var}\n')
+    logger.debug(f"Before suppress_blocks: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
     blocks = []
-    count, pcount = 0, 0 
-    for _, group in df.groupby("Month.Year"):
+    count, pcount = 0, 0
+    for month_year, group in df.groupby("Month.Year"):
+        logger.debug(f"\nProcessing Month.Year: {month_year}")
+        logger.debug(f"Group shape: {group.shape}, duplicated rows={group.duplicated().sum()}")
         workgroup = group.copy()
+        logger.debug(f"After copy: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
         workgroup, t_pcount = primary_suppression(workgroup, threshold)
+        logger.debug(f"After primary_suppression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
         workgroup, t_count = iterative_supression(workgroup, 10, key_var)
+        logger.debug(f"After iterative_supression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
         blocks.append(workgroup)
         count += t_count
         pcount += t_pcount
-    return pd.concat(blocks), count, pcount 
+    
+    result = pd.concat(blocks)
+    logger.debug(f"After pd.concat: shape={result.shape}, duplicated rows={result.duplicated().sum()}")
+    if result.duplicated().sum() > 0:
+        logger.warning("WARNING: Duplicated rows found after concat!")
+        logger.warning(result[result.duplicated(keep=False)].sort_values(by=result.columns.tolist()).to_string())
+    return result, count, pcount
 
 
 if __name__ == "__main__":
@@ -164,8 +206,29 @@ if __name__ == "__main__":
     S_SUPP = args.secondary
 
     ## begin loading -> suppression -> output loop
+    logger.info(f"Loading file: {args.inputfile}")
     dfs = load_as_dict(args.inputfile)
+    logger.info(f"Loaded {len(dfs)} sheets: {list(dfs.keys())}")
+    
+    # Log shape of each dataframe before forward_date
+    for name, df in dfs.items():
+        logger.debug(f"\nSheet {name} before forward_date: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
+        print(f"Sheet {name} initial row count: {df.shape[0]}")
+    
+    # Store row counts before forward_date for comparison
+    before_forward_counts = {name: df.shape[0] for name, df in dfs.items()}
+    
     dfs = {name: forward_date(df) for name, df in dfs.items()}
+    
+    # Check if forward_date removed any rows
+    for name, df in dfs.items():
+        if df.shape[0] != before_forward_counts[name]:
+            logger.warning(f"forward_date() changed row count in {name}: {before_forward_counts[name]} -> {df.shape[0]}")
+            print(f"Note: forward_date() changed row count in {name}: {before_forward_counts[name]} -> {df.shape[0]}")
+    
+    # Log shape of each dataframe after forward_date
+    for name, df in dfs.items():
+        logger.debug(f"Sheet {name} after forward_date: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
     
     # Check if there are any dataframes to process
     if not dfs:

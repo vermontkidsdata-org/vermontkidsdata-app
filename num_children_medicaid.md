@@ -1,0 +1,2 @@
+# num_children_medicaid.md - `queries` table row for num_children_medicaid:chart chart
+INSERT INTO `queries` (`id`,`name`,`sqlText`,`columnMap`,`metadata`,`uploadType`,`filters`) VALUES (599,'num_children_medicaid:chart','SELECT `year` as `cat`, geography as `label`, `value` FROM data_num_children_medicaid order by `year`',NULL,'{\"yAxis\": {\"type\": \"number\"}}','general:num_children_medicaid',NULL);

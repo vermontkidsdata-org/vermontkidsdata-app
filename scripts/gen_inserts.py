@@ -208,14 +208,15 @@ def format_value_for_sql(value):
         return f"'{str(value).replace('\'', '\'\'')}'"
 
 
-def generate_insert_statements(data_type, sheet_name, df, file_type):
+def generate_insert_statements_with_suppression(data_type, sheet_name, value_df, suppressed_df, file_type):
     """
-    Generate INSERT statements for a sheet.
+    Generate INSERT statements for a sheet using values from two dataframes.
     
     Args:
         data_type (str): The data type
         sheet_name (str): The name of the sheet
-        df (pandas.DataFrame): The dataframe containing the sheet data
+        value_df (pandas.DataFrame): The dataframe containing the values for the 'value' column
+        suppressed_df (pandas.DataFrame): The dataframe containing the values for the 'value_suppressed' column
         file_type (str): The file type ("child" or "family")
         
     Returns:
@@ -248,14 +249,17 @@ def generate_insert_statements(data_type, sheet_name, df, file_type):
         grouped_data = defaultdict(list)
         
         # Process each row
-        for _, row in df.iterrows():
+        for i, (_, value_row) in enumerate(value_df.iterrows()):
+            # Get the corresponding row from the suppressed dataframe
+            suppressed_row = suppressed_df.iloc[i]
+            
             # Skip rows with no data
-            if pd.isna(row.iloc[0]) and pd.isna(row.iloc[1]):
+            if pd.isna(value_row.iloc[0]) and pd.isna(value_row.iloc[1]):
                 continue
             
             # Get month_year and geography
-            month_year = row.iloc[0]
-            geography = row.iloc[1]
+            month_year = value_row.iloc[0]
+            geography = value_row.iloc[1]
             
             # Skip rows with no month_year or geography
             if pd.isna(month_year) or pd.isna(geography):
@@ -265,43 +269,48 @@ def generate_insert_statements(data_type, sheet_name, df, file_type):
             key = (month_year, geography)
             
             # Process each column (except month_year and geography)
-            for col in df.columns[2:]:
+            for col in value_df.columns[2:]:
                 # Skip geography-specific columns like "County" or "AHS District"
                 col_str = str(col).lower()
                 if col_str not in ["county", "ahs district", "total"]:
-                    # Get the value for this column
-                    value = row[col]
+                    # Get the value for this column from both dataframes
+                    value = value_row[col]
+                    suppressed_value = suppressed_row[col]
                     
-                    # Skip if value is NaN
-                    if pd.isna(value):
+                    # Skip if both values are NaN
+                    if pd.isna(value) and pd.isna(suppressed_value):
                         continue
                     
                     # Create a category value from the column name
                     category_value = str(col)
                     
                     # Add to grouped data
-                    grouped_data[key].append((category_value, value))
+                    grouped_data[key].append((category_value, value, suppressed_value))
             
             # Add a row for the total if it exists
             total_col = None
-            for col in df.columns[2:]:
+            for col in value_df.columns[2:]:
                 if str(col).lower() == "total":
                     total_col = col
                     break
             
             if total_col is not None:
-                total_value = row[total_col]
-                if not pd.isna(total_value):
-                    grouped_data[key].append(("total", total_value))
+                total_value = value_row[total_col]
+                total_suppressed_value = suppressed_row[total_col]
+                if not (pd.isna(total_value) and pd.isna(total_suppressed_value)):
+                    grouped_data[key].append(("total", total_value, total_suppressed_value))
             else:
                 # Calculate total if it doesn't exist in the data
                 value_sum = 0.0
+                suppressed_sum = 0.0
                 has_valid_values = False
                 
-                for col in df.columns[2:]:
+                for col in value_df.columns[2:]:
                     col_str = str(col).lower()
                     if col_str not in ["county", "ahs district"]:
-                        value = row[col]
+                        value = value_row[col]
+                        suppressed_value = suppressed_row[col]
+                        
                         if not pd.isna(value):
                             try:
                                 value_sum += float(value)
@@ -309,9 +318,16 @@ def generate_insert_statements(data_type, sheet_name, df, file_type):
                             except (ValueError, TypeError):
                                 # Skip if value can't be converted to float
                                 pass
+                        
+                        if not pd.isna(suppressed_value):
+                            try:
+                                suppressed_sum += float(suppressed_value)
+                            except (ValueError, TypeError):
+                                # Skip if value can't be converted to float
+                                pass
                 
                 if has_valid_values:
-                    grouped_data[key].append(("total", value_sum))
+                    grouped_data[key].append(("total", value_sum, suppressed_sum))
         
         # Generate INSERT statements for each group
         for (month_year, geography), values in grouped_data.items():
@@ -323,10 +339,30 @@ def generate_insert_statements(data_type, sheet_name, df, file_type):
             
             # Add values
             value_strings = []
-            for category_value, value in values:
+            for category_value, value, suppressed_value in values:
+                # Format the value_suppressed
+                formatted_suppressed_value = format_value_for_sql(suppressed_value)
+                
+                # If suppressed_value is "***", substitute -1
+                if isinstance(suppressed_value, str) and suppressed_value == "***":
+                    formatted_suppressed_value = "-1"
+                
+                # Ensure value_suppressed is a number
+                if formatted_suppressed_value == "NULL" or formatted_suppressed_value == "''":
+                    formatted_suppressed_value = "NULL"
+                elif formatted_suppressed_value.startswith("'") and formatted_suppressed_value.endswith("'"):
+                    # Try to convert string to number
+                    try:
+                        # Remove quotes and convert to float
+                        num_value = float(formatted_suppressed_value[1:-1])
+                        formatted_suppressed_value = str(num_value)
+                    except (ValueError, TypeError):
+                        # If conversion fails, use -1
+                        formatted_suppressed_value = "-1"
+                
                 value_str = f"({format_value_for_sql(month_year)}, {format_value_for_sql(month)}, {format_value_for_sql(year)}, "
                 value_str += f"{format_value_for_sql(geo_type)}, {format_value_for_sql(geography)}, "
-                value_str += f"{format_value_for_sql(category_value)}, {format_value_for_sql(value)}, NULL)"
+                value_str += f"{format_value_for_sql(category_value)}, {format_value_for_sql(value)}, {formatted_suppressed_value})"
                 value_strings.append(value_str)
             
             # Join value strings with commas
@@ -348,12 +384,98 @@ def generate_insert_statements(data_type, sheet_name, df, file_type):
         sys.exit(1)  # Immediately halt processing on error
 
 
-def process_excel_file(file_path):
+def validate_spreadsheets_structure(value_file_path, suppressed_file_path):
     """
-    Process an Excel file and generate INSERT statements for each row in each sheet.
+    Validate that both spreadsheets have identical structure.
     
     Args:
-        file_path (str): The path to the Excel file
+        value_file_path (str): The path to the Excel file for 'value' column
+        suppressed_file_path (str): The path to the Excel file for 'value_suppressed' column
+        
+    Returns:
+        bool: True if both spreadsheets have identical structure, False otherwise
+    """
+    try:
+        # Read both Excel files
+        value_xls = pd.ExcelFile(value_file_path, engine='openpyxl')
+        suppressed_xls = pd.ExcelFile(suppressed_file_path, engine='openpyxl')
+        
+        # Check if both spreadsheets have the same worksheets
+        if set(value_xls.sheet_names) != set(suppressed_xls.sheet_names):
+            print(f"Error: Spreadsheets have different worksheets", file=sys.stderr)
+            print(f"Value spreadsheet: {value_xls.sheet_names}", file=sys.stderr)
+            print(f"Suppressed spreadsheet: {suppressed_xls.sheet_names}", file=sys.stderr)
+            return False
+        
+        # Check each worksheet
+        for sheet_name in value_xls.sheet_names:
+            print(f"Validating structure for sheet: {sheet_name}")
+            
+            # Read both sheets
+            value_df = pd.read_excel(value_xls, sheet_name=sheet_name)
+            suppressed_df = pd.read_excel(suppressed_xls, sheet_name=sheet_name)
+            
+            # Check if both sheets have the same columns
+            if list(value_df.columns) != list(suppressed_df.columns):
+                print(f"Error: Sheets '{sheet_name}' have different columns", file=sys.stderr)
+                print(f"Value sheet columns: {value_df.columns.tolist()}", file=sys.stderr)
+                print(f"Suppressed sheet columns: {suppressed_df.columns.tolist()}", file=sys.stderr)
+                return False
+            
+            # Check if both sheets have the same number of rows
+            if len(value_df) != len(suppressed_df):
+                print(f"Error: Sheets '{sheet_name}' have different number of rows", file=sys.stderr)
+                print(f"Value sheet rows: {len(value_df)}", file=sys.stderr)
+                print(f"Suppressed sheet rows: {len(suppressed_df)}", file=sys.stderr)
+                return False
+            
+            # Fill missing dates with the previous row's date for both sheets
+            value_df.iloc[:, 0] = value_df.iloc[:, 0].ffill()
+            suppressed_df.iloc[:, 0] = suppressed_df.iloc[:, 0].ffill()
+            
+            # Check if both sheets have the same month/years in corresponding rows
+            for i in range(len(value_df)):
+                if pd.notna(value_df.iloc[i, 0]) and pd.notna(suppressed_df.iloc[i, 0]):
+                    value_month_year = value_df.iloc[i, 0]
+                    suppressed_month_year = suppressed_df.iloc[i, 0]
+                    
+                    # Convert to string for comparison if they are datetime objects
+                    if isinstance(value_month_year, datetime):
+                        value_month_year = value_month_year.strftime('%Y-%m-%d')
+                    if isinstance(suppressed_month_year, datetime):
+                        suppressed_month_year = suppressed_month_year.strftime('%Y-%m-%d')
+                    
+                    if str(value_month_year) != str(suppressed_month_year):
+                        print(f"Error: Sheets '{sheet_name}' have different month/years in row {i+1}", file=sys.stderr)
+                        print(f"Value sheet month/year: {value_month_year}", file=sys.stderr)
+                        print(f"Suppressed sheet month/year: {suppressed_month_year}", file=sys.stderr)
+                        
+                        # Print the entire row for better comparison
+                        print("\nValue sheet row:", file=sys.stderr)
+                        for col_idx, col_name in enumerate(value_df.columns):
+                            print(f"  {col_name}: {value_df.iloc[i, col_idx]}", file=sys.stderr)
+                        
+                        print("\nSuppressed sheet row:", file=sys.stderr)
+                        for col_idx, col_name in enumerate(suppressed_df.columns):
+                            print(f"  {col_name}: {suppressed_df.iloc[i, col_idx]}", file=sys.stderr)
+                        
+                        return False
+        
+        return True
+    
+    except Exception as e:
+        print(f"Error validating spreadsheets structure: {str(e)}", file=sys.stderr)
+        traceback.print_exc()
+        return False
+
+
+def process_excel_files(value_file_path, suppressed_file_path):
+    """
+    Process two Excel files and generate INSERT statements using values from both.
+    
+    Args:
+        value_file_path (str): The path to the Excel file for 'value' column
+        suppressed_file_path (str): The path to the Excel file for 'value_suppressed' column
         
     Returns:
         tuple: (insert_statements, file_type, first_date)
@@ -361,8 +483,8 @@ def process_excel_file(file_path):
             - file_type: "child" or "family" based on the input filename
             - first_date: The date of the first record in YYYY-MM format
     """
-    # Determine file type (child or family)
-    file_name = os.path.basename(file_path).lower()
+    # Determine file type (child or family) from the first file
+    file_name = os.path.basename(value_file_path).lower()
     if "child" in file_name:
         file_type = "child"
     elif "family" in file_name:
@@ -371,12 +493,18 @@ def process_excel_file(file_path):
         print(f"Warning: Could not determine file type (child or family) from filename '{file_name}'", file=sys.stderr)
         file_type = "unknown"
     
-    # Read all sheets from the Excel file
+    # Validate that both spreadsheets have identical structure
+    if not validate_spreadsheets_structure(value_file_path, suppressed_file_path):
+        print("Error: Spreadsheets do not have identical structure", file=sys.stderr)
+        sys.exit(1)
+    
+    # Read all sheets from both Excel files
     try:
-        print(f"Opening file: {file_path}")
-        xls = pd.ExcelFile(file_path, engine='openpyxl')
+        print(f"Opening files: {value_file_path} and {suppressed_file_path}")
+        value_xls = pd.ExcelFile(value_file_path, engine='openpyxl')
+        suppressed_xls = pd.ExcelFile(suppressed_file_path, engine='openpyxl')
         
-        print(f"Found sheets: {xls.sheet_names}")
+        print(f"Found sheets: {value_xls.sheet_names}")
         
         # Initialize the list of INSERT statements
         insert_statements = []
@@ -385,24 +513,30 @@ def process_excel_file(file_path):
         first_date = None
         
         # Process each sheet
-        for sheet_name in xls.sheet_names:
+        for sheet_name in value_xls.sheet_names:
             print(f"Processing sheet: {sheet_name}")
             
-            # Read the sheet
-            df = pd.read_excel(xls, sheet_name=sheet_name)
+            # Read both sheets
+            value_df = pd.read_excel(value_xls, sheet_name=sheet_name)
+            suppressed_df = pd.read_excel(suppressed_xls, sheet_name=sheet_name)
             
             # Validate sheet format
-            if not validate_sheet_format(sheet_name, df):
-                print(f"Error: Sheet '{sheet_name}' has invalid format", file=sys.stderr)
-                sys.exit(1)  # Immediately halt processing on error
+            if not validate_sheet_format(sheet_name, value_df):
+                print(f"Error: Sheet '{sheet_name}' in value file has invalid format", file=sys.stderr)
+                sys.exit(1)
+            
+            if not validate_sheet_format(sheet_name, suppressed_df):
+                print(f"Error: Sheet '{sheet_name}' in suppressed file has invalid format", file=sys.stderr)
+                sys.exit(1)
             
             # Fill missing dates with the previous row's date
-            df.iloc[:, 0] = df.iloc[:, 0].ffill()
+            value_df.iloc[:, 0] = value_df.iloc[:, 0].ffill()
+            suppressed_df.iloc[:, 0] = suppressed_df.iloc[:, 0].ffill()
             
             # If this is the first sheet and we haven't found a date yet, get the date from the first row
-            if first_date is None and not df.empty and not pd.isna(df.iloc[0, 0]):
+            if first_date is None and not value_df.empty and not pd.isna(value_df.iloc[0, 0]):
                 # Get the date from the first row
-                date_value = df.iloc[0, 0]
+                date_value = value_df.iloc[0, 0]
                 
                 # Format the date as YYYY-MM
                 if isinstance(date_value, datetime):
@@ -418,8 +552,8 @@ def process_excel_file(file_path):
             # Extract data type from sheet name
             data_type = extract_data_type(sheet_name)
             
-            # Generate INSERT statements for the sheet
-            sheet_inserts = generate_insert_statements(data_type, sheet_name, df, file_type)
+            # Generate INSERT statements for the sheet using both dataframes
+            sheet_inserts = generate_insert_statements_with_suppression(data_type, sheet_name, value_df, suppressed_df, file_type)
             
             # Add the sheet INSERT statements to the overall list
             insert_statements.extend(sheet_inserts)
@@ -431,31 +565,101 @@ def process_excel_file(file_path):
         return insert_statements, file_type, first_date
     
     except Exception as e:
+        print(f"Error processing files '{value_file_path}' and '{suppressed_file_path}': {str(e)}", file=sys.stderr)
+        traceback.print_exc()
+        return [], file_type, "unknown-date"
+
+
+def generate_insert_statements(data_type, sheet_name, df, file_type):
+    """
+    Generate INSERT statements for a sheet.
+    This function is kept for backward compatibility.
+    
+    Args:
+        data_type (str): The data type
+        sheet_name (str): The name of the sheet
+        df (pandas.DataFrame): The dataframe containing the sheet data
+        file_type (str): The file type ("child" or "family")
+        
+    Returns:
+        list: The INSERT statements for the sheet
+    """
+    try:
+        # Create a dummy suppressed dataframe with the same structure as df
+        # but with NULL values for the value_suppressed column
+        suppressed_df = df.copy()
+        for col in suppressed_df.columns:
+            if col not in [df.columns[0], df.columns[1]]:  # Keep month_year and geography columns
+                suppressed_df[col] = None
+        
+        # Generate INSERT statements using the new function
+        return generate_insert_statements_with_suppression(data_type, sheet_name, df, suppressed_df, file_type)
+    
+    except Exception as e:
+        print(f"Error generating INSERT statements for sheet '{sheet_name}': {str(e)}", file=sys.stderr)
+        traceback.print_exc()
+        sys.exit(1)  # Immediately halt processing on error
+
+
+def process_excel_file(file_path):
+    """
+    Process an Excel file and generate INSERT statements for each row in each sheet.
+    This function is kept for backward compatibility.
+    
+    Args:
+        file_path (str): The path to the Excel file
+        
+    Returns:
+        tuple: (insert_statements, file_type, first_date)
+            - insert_statements: The INSERT statements for all sheets
+            - file_type: "child" or "family" based on the input filename
+            - first_date: The date of the first record in YYYY-MM format
+    """
+    print(f"Warning: Using backward compatibility mode with NULL values for value_suppressed column")
+    print(f"For full functionality, provide both value and suppressed spreadsheets")
+    
+    # Create a temporary copy of the file to use as the suppressed file
+    try:
+        # Process the Excel file using the new function
+        return process_excel_files(file_path, file_path)
+    
+    except Exception as e:
         print(f"Error processing file '{file_path}': {str(e)}", file=sys.stderr)
         traceback.print_exc()
-        return [], file_type
+        file_type = "unknown"
+        file_name = os.path.basename(file_path).lower()
+        if "child" in file_name:
+            file_type = "child"
+        elif "family" in file_name:
+            file_type = "family"
+        return [], file_type, "unknown-date"
 
 
 def main():
     """
-    Main function to parse command line arguments and process the Excel file.
+    Main function to parse command line arguments and process the Excel files.
     """
     parser = argparse.ArgumentParser(description="Generate MySQL INSERT statements from Excel spreadsheets")
-    parser.add_argument("xlsx_file", help="Path to the Excel file")
+    parser.add_argument("value_xlsx_file", help="Path to the Excel file for 'value' column")
+    parser.add_argument("suppressed_xlsx_file", help="Path to the Excel file for 'value_suppressed' column")
     args = parser.parse_args()
     
-    # Check if the file exists
-    if not os.path.isfile(args.xlsx_file):
-        print(f"Error: File '{args.xlsx_file}' does not exist", file=sys.stderr)
+    # Check if the files exist
+    if not os.path.isfile(args.value_xlsx_file):
+        print(f"Error: File '{args.value_xlsx_file}' does not exist", file=sys.stderr)
         sys.exit(1)
     
-    print(f"Starting to process file: {args.xlsx_file}")
+    if not os.path.isfile(args.suppressed_xlsx_file):
+        print(f"Error: File '{args.suppressed_xlsx_file}' does not exist", file=sys.stderr)
+        sys.exit(1)
     
-    # Process the Excel file
-    insert_statements, file_type, first_date = process_excel_file(args.xlsx_file)
+    print(f"Starting to process files: {args.value_xlsx_file} and {args.suppressed_xlsx_file}")
+    
+    # Process the Excel files
+    insert_statements, file_type, first_date = process_excel_files(args.value_xlsx_file, args.suppressed_xlsx_file)
     
     # Extract fiscal year and optional quarter from the original file name
-    file_name = os.path.basename(args.xlsx_file)
+    file_name = os.path.basename(args.value_xlsx_file)
     fy_match = re.search(r'SFY\s*(\d+)(?:\s*Q(\d+))?', file_name, re.IGNORECASE)
     
     if fy_match:
@@ -477,7 +681,7 @@ def main():
         print(f"\nWriting {len(insert_statements)} INSERT statements to {output_file}")
         with open(output_file, "w") as f:
             # Add a header comment
-            f.write(f"-- INSERT statements for {os.path.basename(args.xlsx_file)}\n")
+            f.write(f"-- INSERT statements for {os.path.basename(args.value_xlsx_file)} and {os.path.basename(args.suppressed_xlsx_file)}\n")
             f.write(f"-- Generated on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
             
             # Write each INSERT statement

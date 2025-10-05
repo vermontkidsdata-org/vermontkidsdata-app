@@ -1,0 +1,6 @@
+-- Upload types for Act76 child data tables
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_race','data_act76_child_race','',0,'year,month,geo_type,geography,race',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_age','data_act76_child_age','',0,'year,month,geo_type,geography,age',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_citizenship','data_act76_child_citizenship','',0,'year,month,geo_type,geography,citizenship',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_ethnicity','data_act76_child_ethnicity','',0,'year,month,geo_type,geography,ethnicity',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_gender','data_act76_child_gender','',0,'year,month,geo_type,geography,gender',NULL,NULL,NULL,NULL);
