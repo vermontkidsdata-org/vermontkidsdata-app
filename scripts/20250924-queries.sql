@@ -260,7 +260,7 @@ WHERE
     WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                                "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                                "Windham", "Windsor") THEN "county"
-    ELSE "ahsd"
+     ELSE "AHS district"
   END
   AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
   AND geography != "Vermont"  -- Exclude Vermont total to avoid double counting
@@ -315,7 +315,7 @@ WHERE
     WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                                "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                                "Windham", "Windsor") THEN "county"
-    ELSE "ahsd"
+     ELSE "AHS district"
   END
   AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
   AND (@service_need_filter = "-- All --" OR service_need COLLATE utf8mb4_unicode_ci = @service_need_filter)
@@ -369,7 +369,7 @@ WHERE
     WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                                "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                                "Windham", "Windsor") THEN "county"
-    ELSE "ahsd"
+     ELSE "AHS district"
   END
   AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
   AND (@pct_of_fpl_filter = "-- All --" OR pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter)
@@ -1367,7 +1367,7 @@ VALUES (
   'WITH latest_date AS (
   SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date
   FROM data_act76_family_service_need
-  WHERE geo_type IN ("ahsd", "AHS district")
+  WHERE geo_type = "AHS district"
 )
 SELECT
   geography as label,
@@ -1379,7 +1379,7 @@ SELECT
 FROM data_act76_family_service_need
 CROSS JOIN latest_date
 WHERE
-  geo_type IN ("ahsd", "AHS district")
+  geo_type = "AHS district"
   AND geography != "Vermont"
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') = latest_date.max_date
   AND (@service_need_filter = "-- All --" OR service_need COLLATE utf8mb4_unicode_ci = @service_need_filter)
@@ -1420,7 +1420,7 @@ VALUES (
   'WITH latest_date AS (
   SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date
   FROM data_act76_family_pct_of_fpl
-  WHERE geo_type IN ("ahsd", "AHS district")
+  WHERE geo_type = "AHS district"
 )
 SELECT
   geography as label,
@@ -1432,7 +1432,7 @@ SELECT
 FROM data_act76_family_pct_of_fpl
 CROSS JOIN latest_date
 WHERE
-  geo_type IN ("ahsd", "AHS district")
+  geo_type = "AHS district"
   AND geography != "Vermont"
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') = latest_date.max_date
   AND (@pct_of_fpl_filter = "-- All --" OR pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter)
@@ -1490,7 +1490,7 @@ WHERE
     WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                                "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                                "Windham", "Windsor") THEN "county"
-    ELSE "ahsd"
+     ELSE "AHS district"
   END
   AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
   AND geography != "Vermont"
@@ -1550,7 +1550,7 @@ WHERE
     WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                                "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                                "Windham", "Windsor") THEN "county"
-    ELSE "ahsd"
+     ELSE "AHS district"
   END
   AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
   AND (@service_need_filter = "-- All --" OR service_need COLLATE utf8mb4_unicode_ci = @service_need_filter)
@@ -1615,7 +1615,7 @@ WHERE
     WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                                "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                                "Windham", "Windsor") THEN "county"
-    ELSE "ahsd"
+     ELSE "AHS district"
   END
   AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
   AND (@pct_of_fpl_filter = "-- All --" OR pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter)
