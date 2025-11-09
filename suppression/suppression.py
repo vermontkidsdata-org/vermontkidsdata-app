@@ -63,12 +63,29 @@ def primary_suppression(df, threshold):
 
     return df_suppressed, suppressed_count
 
+## check if a sheet is a "Total by <geography type>" worksheet
+def is_total_worksheet(sheet_name):
+    return sheet_name.lower().startswith("total by")
+
 ## carry forward date columns for easier separation
-def forward_date(df):
+def forward_date(df, sheet_name=""):
     logger.debug(f"Before forward_date: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
-    df["Month.Year"]= df['Month.Year'].ffill()
-    keep_cols = df.columns.difference(['Month.Year'])
-    df = df.dropna(subset=keep_cols, how='all')
+    
+    # Check if this is a "Total by <geography type>" worksheet
+    if is_total_worksheet(sheet_name):
+        # For "Total by <geography type>" worksheets, there's no 'Month.Year' column to forward-fill
+        # The first column is the geography itself
+        logger.debug(f"Skipping forward_date for 'Total by' worksheet: {sheet_name}")
+        # Just drop rows where all columns (except the first) are NA
+        first_col = df.columns[0]
+        keep_cols = df.columns.difference([first_col])
+        df = df.dropna(subset=keep_cols, how='all')
+    else:
+        # For regular worksheets, forward-fill the 'Month.Year' column
+        df["Month.Year"]= df['Month.Year'].ffill()
+        keep_cols = df.columns.difference(['Month.Year'])
+        df = df.dropna(subset=keep_cols, how='all')
+    
     logger.debug(f"After forward_date: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
     if df.duplicated().sum() > 0:
         logger.warning("Duplicated rows found after forward_date!")
@@ -76,11 +93,48 @@ def forward_date(df):
     return df
 
 ## primary engine for secondary suppression
-def secondary_suppression(df, key_var='County'):
-
+def secondary_suppression(df, key_var='County', sheet_name=""):
     ## remove the totals as we don't want to suppress them.
-    id_cols = ["Month.Year"] + [key_var]
-    supp_cols = [col for col in df.columns.difference(id_cols) if col != "Total"]
+    # Check if this is a "Total by <geography type>" worksheet
+    if is_total_worksheet(sheet_name):
+        # For "Total by <geography type>" worksheets, the first column is the geography
+        # Handle both "AHSD" and "AHS District" variations
+        if key_var.lower() == "ahs district":
+            if "AHSD" in df.columns:
+                key_var = "AHSD"
+            elif "AHS District" not in df.columns and df.columns[0].lower() == "ahsd":
+                # If the first column is "ahsd" (case insensitive), use that
+                key_var = df.columns[0]
+        elif key_var.lower() == "ahsd":
+            if "AHS District" in df.columns:
+                key_var = "AHS District"
+            elif "AHSD" not in df.columns and df.columns[0].lower() == "ahs district":
+                # If the first column is "ahs district" (case insensitive), use that
+                key_var = df.columns[0]
+        
+        # For debugging
+        print(f"Using key_var: '{key_var}' for sheet: '{sheet_name}'")
+        print(f"Available columns: {list(df.columns)}")
+        
+        # Make sure key_var is actually in the dataframe columns
+        if key_var not in df.columns:
+            # Try to find a matching column (case insensitive)
+            for col in df.columns:
+                if col.lower() == key_var.lower():
+                    key_var = col
+                    print(f"Found matching column: '{key_var}'")
+                    break
+            else:
+                # If no match found, use the first column as a fallback
+                key_var = df.columns[0]
+                print(f"No matching column found for '{key_var}', using first column: '{key_var}'")
+        
+        id_cols = [key_var]  # Use key_var instead of df.columns[0]
+        supp_cols = [col for col in df.columns.difference(id_cols) if col != "Total"]
+    else:
+        # For regular worksheets
+        id_cols = ["Month.Year"] + [key_var]
+        supp_cols = [col for col in df.columns.difference(id_cols) if col != "Total"]
 
     ## setup problem and df to work in
     suppress_df = df.loc[df[key_var] != 'Vermont', supp_cols]
@@ -119,14 +173,14 @@ def secondary_suppression(df, key_var='County'):
 
 
 ## iterate suppressing until a round of suppressing fails to suppress
-def iterative_supression(group, count, key_var):
+def iterative_supression(group, count, key_var, sheet_name=""):
     logger.debug(f"Before iterative_supression: shape={group.shape}, duplicated rows={group.duplicated().sum()}")
     total_count = 0
     iteration = 0
     while True:
         iteration += 1
         logger.debug(f"Iteration {iteration} start")
-        df, count = secondary_suppression(group, key_var)
+        df, count = secondary_suppression(group, key_var, sheet_name)
         logger.debug(f"After secondary_suppression: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
         group = group.astype(object)
         group.update(df)
@@ -154,23 +208,73 @@ def apply_suppression(df, suppress):
     return df, count
 
 ## iterate through all the date blocks as we want to suppress within them
-def suppress_blocks(df, key_var, threshold):
+def suppress_blocks(df, key_var, threshold, sheet_name=""):
     f.write(f'Suppressing {key_var}\n')
     logger.debug(f"Before suppress_blocks: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
     blocks = []
     count, pcount = 0, 0
-    for month_year, group in df.groupby("Month.Year"):
-        logger.debug(f"\nProcessing Month.Year: {month_year}")
-        logger.debug(f"Group shape: {group.shape}, duplicated rows={group.duplicated().sum()}")
-        workgroup = group.copy()
+    
+    # Check if this is a "Total by <geography type>" worksheet
+    if is_total_worksheet(sheet_name):
+        # For "Total by <geography type>" worksheets, there's no Month.Year column
+        # Process the entire dataframe as a single group
+        logger.debug(f"\nProcessing 'Total by' worksheet: {sheet_name}")
+        logger.debug(f"DataFrame shape: {df.shape}, duplicated rows={df.duplicated().sum()}")
+        
+        # Handle both "AHSD" and "AHS District" variations
+        if key_var.lower() == "ahs district":
+            if "AHSD" in df.columns:
+                key_var = "AHSD"
+            elif "AHS District" not in df.columns and df.columns[0].lower() == "ahsd":
+                # If the first column is "ahsd" (case insensitive), use that
+                key_var = df.columns[0]
+        elif key_var.lower() == "ahsd":
+            if "AHS District" in df.columns:
+                key_var = "AHS District"
+            elif "AHSD" not in df.columns and df.columns[0].lower() == "ahs district":
+                # If the first column is "ahs district" (case insensitive), use that
+                key_var = df.columns[0]
+        
+        # For debugging
+        print(f"Using key_var: '{key_var}' for sheet: '{sheet_name}'")
+        print(f"Available columns: {list(df.columns)}")
+        
+        # Make sure key_var is actually in the dataframe columns
+        if key_var not in df.columns:
+            # Try to find a matching column (case insensitive)
+            for col in df.columns:
+                if col.lower() == key_var.lower():
+                    key_var = col
+                    print(f"Found matching column: '{key_var}'")
+                    break
+            else:
+                # If no match found, use the first column as a fallback
+                key_var = df.columns[0]
+                print(f"No matching column found for '{key_var}', using first column: '{key_var}'")
+            
+        workgroup = df.copy()
         logger.debug(f"After copy: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
         workgroup, t_pcount = primary_suppression(workgroup, threshold)
+        pcount += t_pcount
         logger.debug(f"After primary_suppression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
-        workgroup, t_count = iterative_supression(workgroup, 10, key_var)
+        workgroup, t_count = iterative_supression(workgroup, 0, key_var, sheet_name)
+        count += t_count
         logger.debug(f"After iterative_supression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
         blocks.append(workgroup)
-        count += t_count
-        pcount += t_pcount
+    else:
+        # For regular worksheets, group by Month.Year
+        for month_year, group in df.groupby("Month.Year"):
+            logger.debug(f"\nProcessing Month.Year: {month_year}")
+            logger.debug(f"Group shape: {group.shape}, duplicated rows={group.duplicated().sum()}")
+            workgroup = group.copy()
+            logger.debug(f"After copy: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
+            workgroup, t_pcount = primary_suppression(workgroup, threshold)
+            pcount += t_pcount
+            logger.debug(f"After primary_suppression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
+            workgroup, t_count = iterative_supression(workgroup, 0, key_var, sheet_name)
+            count += t_count
+            logger.debug(f"After iterative_supression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
+            blocks.append(workgroup)
     
     result = pd.concat(blocks)
     logger.debug(f"After pd.concat: shape={result.shape}, duplicated rows={result.duplicated().sum()}")
@@ -218,7 +322,7 @@ if __name__ == "__main__":
     # Store row counts before forward_date for comparison
     before_forward_counts = {name: df.shape[0] for name, df in dfs.items()}
     
-    dfs = {name: forward_date(df) for name, df in dfs.items()}
+    dfs = {name: forward_date(df, name) for name, df in dfs.items()}
     
     # Check if forward_date removed any rows
     for name, df in dfs.items():
@@ -250,19 +354,44 @@ if __name__ == "__main__":
                         if "State" in df.columns:
                             key_var = "State"
                         else:
-                            key_var = "County" if "County" in name else "AHS District"
+                            # Determine key_var based on sheet name
+                            if "county" in name.lower():
+                                key_var = "County"
+                            elif "ahsd" in name.lower() or "ahs district" in name.lower():
+                                # Check if "AHSD" or "AHS District" is in the dataframe columns
+                                if "AHSD" in df.columns:
+                                    key_var = "AHSD"
+                                elif "AHS District" in df.columns:
+                                    key_var = "AHS District"
+                                else:
+                                    # Use the first column as a fallback
+                                    key_var = df.columns[0]
+                                    print(f"Using first column as key_var: '{key_var}'")
+                            else:
+                                key_var = "County"  # Default to County
                         f.write(f"Starting {name} : Threshold = {args.threshold}, key_var = {key_var}\n")
 
-                        df, count, pcount = suppress_blocks(df, key_var, args.threshold)
+                        df, count, pcount = suppress_blocks(df, key_var, args.threshold, name)
 
                         f.write(f"{name} : Primary Suppressed {pcount}, Secondary Suppressed {count}. Threshold = {args.threshold}, key_var = {key_var}\n")
 
-                        df = df.assign(
-                            is_vermont=df[key_var].eq("Vermont")
-                        ).sort_values(
-                            by=['Month.Year', 'is_vermont', key_var],
-                            ascending=(False, True, True)
-                        ).drop(columns='is_vermont')
+                        # Check if this is a "Total by <geography type>" worksheet
+                        if is_total_worksheet(name):
+                            # For "Total by <geography type>" worksheets, sort by geography only
+                            df = df.assign(
+                                is_vermont=df[key_var].eq("Vermont")
+                            ).sort_values(
+                                by=['is_vermont', key_var],
+                                ascending=(True, True)
+                            ).drop(columns='is_vermont')
+                        else:
+                            # For regular worksheets, sort by Month.Year, is_vermont, and key_var
+                            df = df.assign(
+                                is_vermont=df[key_var].eq("Vermont")
+                            ).sort_values(
+                                by=['Month.Year', 'is_vermont', key_var],
+                                ascending=(False, True, True)
+                            ).drop(columns='is_vermont')
 
                         df.to_excel(writer, sheet_name=name, index=False)
                         processed_count += 1

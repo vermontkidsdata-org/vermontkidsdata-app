@@ -21,6 +21,19 @@ import traceback
 from collections import defaultdict
 
 
+def is_total_worksheet(worksheet_name):
+    """
+    Check if a worksheet is a "Total by <geography type>" worksheet.
+    
+    Args:
+        worksheet_name (str): The name of the worksheet
+        
+    Returns:
+        bool: True if the worksheet is a "Total by <geography type>" worksheet, False otherwise
+    """
+    return worksheet_name.lower().startswith("total by")
+
+
 def extract_data_type(worksheet_name):
     """
     Extract the data type from a worksheet name (the part before "by").
@@ -130,11 +143,97 @@ def validate_sheet_format(sheet_name, df):
         # Extract data type from sheet name
         extract_data_type(sheet_name)
         
+        # Check if this is a "Total by <geography type>" worksheet
+        if is_total_worksheet(sheet_name):
+            # For "Total by <geography type>" worksheets, we expect the first column to be the geography
+            # and the other columns to be dates
+            print(f"Validating 'Total by <geography type>' worksheet: {sheet_name}")
+            
+            # Check if the first column contains geography values
+            # This is a basic check - we just ensure it's not empty
+            if df.iloc[:, 0].isnull().all():
+                print(f"Error: First column in sheet '{sheet_name}' is empty", file=sys.stderr)
+                return False
+                
+            # Handle both "AHSD" and "AHS District" variations
+            first_col = df.columns[0]
+            if first_col.lower() == "ahsd":
+                # Rename to "AHS District" for consistency
+                df.rename(columns={first_col: "AHS District"}, inplace=True)
+                print(f"Renamed column '{first_col}' to 'AHS District' for consistency")
+            elif first_col.lower() == "ahs district" and first_col != "AHS District":
+                # Ensure consistent capitalization
+                df.rename(columns={first_col: "AHS District"}, inplace=True)
+                print(f"Renamed column '{first_col}' to 'AHS District' for consistent capitalization")
+        
         return True
     
     except ValueError as e:
         print(f"Error validating sheet '{sheet_name}': {str(e)}", file=sys.stderr)
         return False
+
+
+def generate_ddl_for_total_worksheet(sheets_data, file_type):
+    """
+    Generate DDL statements for "Total by <geography type>" worksheets.
+    
+    Args:
+        sheets_data (list): List of tuples (sheet_name, dataframe)
+        file_type (str): The file type ("child" or "family")
+        
+    Returns:
+        str: The DDL statements for the total table
+    """
+    try:
+        # Generate table name
+        table_name = f"data_act76_{file_type}_total"
+        
+        # Collect worksheet names
+        worksheet_names = [sheet_name for sheet_name, _ in sheets_data]
+        worksheet_list = ", ".join(f"'{name}'" for name in worksheet_names)
+        
+        # Start building the DDL
+        ddl = f"-- DDL for Total by <geography type>\n"
+        ddl += f"-- Source worksheets: {worksheet_list}\n"
+        ddl += f"CREATE TABLE IF NOT EXISTS `{table_name}` (\n"
+        
+        # Add id column
+        ddl += "  `id` INT AUTO_INCREMENT,\n"
+        
+        # Add month_year column
+        ddl += "  `month_year` VARCHAR(255),\n"
+        
+        # Add month and year columns
+        ddl += "  `month` INT COMMENT 'Month (1-12)',\n"
+        ddl += "  `year` INT COMMENT 'Year (e.g., 2023)',\n"
+        
+        # Add geo_type column
+        ddl += "  `geo_type` VARCHAR(50),\n"
+        
+        # Add geography column
+        ddl += "  `geography` VARCHAR(255),\n"
+        
+        # Add total column
+        ddl += "  `total` DOUBLE,\n"
+        
+        # Add primary key
+        ddl += "  PRIMARY KEY (`id`),\n"
+        
+        # Add unique key
+        ddl += "  UNIQUE KEY `unique_record` (`month_year`, `geo_type`, `geography`),\n"
+        
+        # Add index on month, year, geo_type, and geography for better query performance
+        ddl += "  INDEX `idx_month_year_geo` (`month`, `year`, `geo_type`, `geography`)\n"
+        
+        # Close the DDL
+        ddl += ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n\n"
+        
+        return ddl
+    
+    except Exception as e:
+        print(f"Error generating DDL for Total by <geography type> worksheets: {str(e)}", file=sys.stderr)
+        traceback.print_exc()
+        sys.exit(1)  # Immediately halt processing on error
 
 
 def generate_ddl_for_data_type(data_type, sheets_data, file_type):
@@ -150,6 +249,10 @@ def generate_ddl_for_data_type(data_type, sheets_data, file_type):
         str: The DDL statements for the data type
     """
     try:
+        # Check if this is a "Total by <geography type>" worksheet
+        if data_type.lower() == "total":
+            return generate_ddl_for_total_worksheet(sheets_data, file_type)
+        
         # Generate table name with file type included
         table_name = f"data_act76_{file_type}_{data_type_to_table_name(data_type).replace('data_act76_', '')}"
         
@@ -227,6 +330,11 @@ def generate_ddl_for_data_type(data_type, sheets_data, file_type):
 def process_excel_file(file_path):
     """
     Process an Excel file and generate DDL statements for each data type.
+    
+    Special handling is provided for worksheets named "Total by <geography type>":
+    1. These worksheets will be mapped to a table named "data_act76_<family or child>_total"
+    2. The table structure will be different from other tables, with only one data column "total"
+    3. For these worksheets, the first column is the geography itself
     
     Args:
         file_path (str): The path to the Excel file

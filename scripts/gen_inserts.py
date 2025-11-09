@@ -56,6 +56,19 @@ def extract_month_year(date_value):
         return None, None
 
 
+def is_total_worksheet(worksheet_name):
+    """
+    Check if a worksheet is a "Total by <geography type>" worksheet.
+    
+    Args:
+        worksheet_name (str): The name of the worksheet
+        
+    Returns:
+        bool: True if the worksheet is a "Total by <geography type>" worksheet, False otherwise
+    """
+    return worksheet_name.lower().startswith("total by")
+
+
 def extract_data_type(worksheet_name):
     """
     Extract the data type from a worksheet name (the part before "by").
@@ -166,6 +179,29 @@ def validate_sheet_format(sheet_name, df):
         # Extract data type from sheet name
         extract_data_type(sheet_name)
         
+        # Check if this is a "Total by <geography type>" worksheet
+        if is_total_worksheet(sheet_name):
+            # For "Total by <geography type>" worksheets, we expect the first column to be the geography
+            # and the other columns to be dates
+            print(f"Validating 'Total by <geography type>' worksheet: {sheet_name}")
+            
+            # Check if the first column contains geography values
+            # This is a basic check - we just ensure it's not empty
+            if df.iloc[:, 0].isnull().all():
+                print(f"Error: First column in sheet '{sheet_name}' is empty", file=sys.stderr)
+                return False
+                
+            # Handle both "AHSD" and "AHS District" variations
+            first_col = df.columns[0]
+            if first_col.lower() == "ahsd":
+                # Rename to "AHS District" for consistency
+                df.rename(columns={first_col: "AHS District"}, inplace=True)
+                print(f"Renamed column '{first_col}' to 'AHS District' for consistency")
+            elif first_col.lower() == "ahs district" and first_col != "AHS District":
+                # Ensure consistent capitalization
+                df.rename(columns={first_col: "AHS District"}, inplace=True)
+                print(f"Renamed column '{first_col}' to 'AHS District' for consistent capitalization")
+        
         return True
     
     except ValueError as e:
@@ -183,7 +219,7 @@ def validate_geo_type(geo_type):
     Returns:
         bool: True if the geo_type is valid, False otherwise
     """
-    valid_geo_types = ["state", "county", "ahs district"]
+    valid_geo_types = ["state", "county", "ahs district", "ahsd"]
     return geo_type.lower() in valid_geo_types
 
 
@@ -208,6 +244,131 @@ def format_value_for_sql(value):
         return f"'{str(value).replace('\'', '\'\'')}'"
 
 
+def generate_insert_statements_for_total_worksheet(sheet_name, value_df, suppressed_df, file_type):
+    """
+    Generate INSERT statements for a "Total by <geography type>" worksheet.
+    
+    Args:
+        sheet_name (str): The name of the sheet
+        value_df (pandas.DataFrame): The dataframe containing the values for the 'value' column
+        suppressed_df (pandas.DataFrame): The dataframe containing the values for the 'value_suppressed' column
+        file_type (str): The file type ("child" or "family")
+        
+    Returns:
+        list: The INSERT statements for the sheet
+    """
+    try:
+        # Generate table name
+        table_name = f"data_act76_{file_type}_total"
+        
+        # Extract geo_type from sheet name (the part after "by")
+        geo_type = sheet_name.split("by")[1].strip().lower()
+        if "county" in geo_type:
+            geo_type = "county"
+        elif "ahsd" in geo_type or "ahs district" in geo_type:
+            geo_type = "AHS district"
+            
+        # Handle both "AHSD" and "AHS District" variations in the first column
+        first_col = value_df.columns[0]
+        if first_col.lower() == "ahsd":
+            # Rename to "AHS District" for consistency
+            value_df.rename(columns={first_col: "AHS District"}, inplace=True)
+            suppressed_df.rename(columns={first_col: "AHS District"}, inplace=True)
+            print(f"Renamed column '{first_col}' to 'AHS District' for consistency")
+        elif first_col.lower() == "ahs district" and first_col != "AHS District":
+            # Ensure consistent capitalization
+            value_df.rename(columns={first_col: "AHS District"}, inplace=True)
+            suppressed_df.rename(columns={first_col: "AHS District"}, inplace=True)
+            print(f"Renamed column '{first_col}' to 'AHS District' for consistent capitalization")
+        
+        # Validate geo_type
+        if not validate_geo_type(geo_type):
+            print(f"Error: Invalid geo_type '{geo_type}' in sheet '{sheet_name}'", file=sys.stderr)
+            sys.exit(1)  # Immediately halt processing on error
+        
+        # Initialize the list of INSERT statements
+        insert_statements = []
+        
+        # Process each row
+        for i, (_, value_row) in enumerate(value_df.iterrows()):
+            # Get the corresponding row from the suppressed dataframe
+            suppressed_row = suppressed_df.iloc[i]
+            
+            # Skip rows with no data
+            if pd.isna(value_row.iloc[0]):
+                continue
+            
+            # Get geography (first column)
+            geography = value_row.iloc[0]
+            
+            # Skip rows with no geography
+            if pd.isna(geography):
+                continue
+            
+            # Process each date column (all columns except the first one)
+            for col_idx in range(1, len(value_df.columns)):
+                col = value_df.columns[col_idx]
+                
+                # Get the value for this column from both dataframes
+                value = value_row[col]
+                suppressed_value = suppressed_row[col]
+                
+                # Skip if both values are NaN
+                if pd.isna(value) and pd.isna(suppressed_value):
+                    continue
+                
+                # Use the column header as the month_year
+                month_year = col
+                
+                # Extract month and year from month_year
+                month, year = extract_month_year(month_year)
+                
+                # Format the value_suppressed
+                formatted_suppressed_value = format_value_for_sql(suppressed_value)
+                
+                # If suppressed_value is "***", substitute -1
+                if isinstance(suppressed_value, str) and suppressed_value == "***":
+                    formatted_suppressed_value = "-1"
+                
+                # Ensure value_suppressed is a number
+                if formatted_suppressed_value == "NULL" or formatted_suppressed_value == "''":
+                    formatted_suppressed_value = "NULL"
+                elif formatted_suppressed_value.startswith("'") and formatted_suppressed_value.endswith("'"):
+                    # Try to convert string to number
+                    try:
+                        # Remove quotes and convert to float
+                        num_value = float(formatted_suppressed_value[1:-1])
+                        formatted_suppressed_value = str(num_value)
+                    except (ValueError, TypeError):
+                        # If conversion fails, use -1
+                        formatted_suppressed_value = "-1"
+                
+                # Start building the INSERT statement
+                insert = f"INSERT INTO `{table_name}` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)\nVALUES\n"
+                
+                # Add values
+                value_str = f"({format_value_for_sql(month_year)}, {format_value_for_sql(month)}, {format_value_for_sql(year)}, "
+                value_str += f"{format_value_for_sql(geo_type)}, {format_value_for_sql(geography)}, {format_value_for_sql(value)})"
+                
+                # Complete the INSERT statement
+                insert += value_str
+                
+                # Add ON DUPLICATE KEY UPDATE clause
+                insert += " AS new_data\nON DUPLICATE KEY UPDATE "
+                insert += "`month` = new_data.`month`, `year` = new_data.`year`, "
+                insert += "`total` = new_data.`total`;"
+                
+                # Add to the list of INSERT statements
+                insert_statements.append(insert)
+        
+        return insert_statements
+    
+    except Exception as e:
+        print(f"Error generating INSERT statements for sheet '{sheet_name}': {str(e)}", file=sys.stderr)
+        traceback.print_exc()
+        sys.exit(1)  # Immediately halt processing on error
+
+
 def generate_insert_statements_with_suppression(data_type, sheet_name, value_df, suppressed_df, file_type):
     """
     Generate INSERT statements for a sheet using values from two dataframes.
@@ -223,6 +384,10 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
         list: The INSERT statements for the sheet
     """
     try:
+        # Check if this is a "Total by <geography type>" worksheet
+        if is_total_worksheet(sheet_name):
+            return generate_insert_statements_for_total_worksheet(sheet_name, value_df, suppressed_df, file_type)
+        
         # Generate table name
         table_name = data_type_to_table_name(data_type, file_type)
         
@@ -472,6 +637,12 @@ def validate_spreadsheets_structure(value_file_path, suppressed_file_path):
 def process_excel_files(value_file_path, suppressed_file_path):
     """
     Process two Excel files and generate INSERT statements using values from both.
+    
+    Special handling is provided for worksheets named "Total by <geography type>":
+    1. These worksheets will be mapped to a table named "data_act76_<family or child>_total"
+    2. For these worksheets, the first column is the geography itself
+    3. The other column headers are dates
+    4. Only one "data" column is generated, the total
     
     Args:
         value_file_path (str): The path to the Excel file for 'value' column

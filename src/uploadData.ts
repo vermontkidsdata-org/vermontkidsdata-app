@@ -213,6 +213,24 @@ const transformFunctions: Record<string, TransformFunctionSpec> = {
       const [y, m] = v.split('/');
       return `${m}/${y}`;
     },
+  },
+  'fpl-decimal-to-percent': {
+    intToExt: (v: string) => {
+      // Convert decimal FPL values to percentage (e.g., "3" -> "300%")
+      const numValue = parseFloat(v);
+      if (isNaN(numValue)) {
+        return v; // Return as-is if not a number
+      }
+      return `${Math.round(numValue * 100)}%`;
+    },
+    extToInt: (v: string) => {
+      // Convert percentage back to decimal (e.g., "300%" -> "3")
+      const percentMatch = v.match(/^(\d+(?:\.\d+)?)%$/);
+      if (percentMatch) {
+        return `${parseFloat(percentMatch[1]) / 100}`;
+      }
+      return v; // Return as-is if not a percentage
+    },
   }
 }
 
@@ -329,7 +347,7 @@ export function transformValueIntToExt(props: { columnName: string, value: strin
   const valueMap = valueMaps?.[columnName];
   let realValue: string = value;
 
-  console.log({ message: 'transformValueIntToExt', columnName, value, valueMap, xf: props.xf });
+  console.log({ message: 'transformValueIntToExt', columnName, value, valueMap, xf: props.xf, timestamp: new Date().toISOString() });
 
   if (valueMap) {
     const found = valueMap.values?.find(e => e.int === realValue);
