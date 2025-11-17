@@ -385,7 +385,7 @@ ORDER BY
     "yAxis": {"type": "number"},
     "filters": [
       {"key": "geography_filter", "title": "Geography"},
-      {"key": "pct_of_fpl_filter", "title": "% of FPL"}
+      {"key": "pct_of_fpl_filter", "title": "% of FPL", "xf": "fpl-decimal-to-percent"}
     ],
     "chartTypes": {
       "default": "line",
@@ -1344,7 +1344,7 @@ ORDER BY
     "title": "Families Receiving CCFAP by County",
     "subtitle": "By % of FPL",
     "filters": [
-      {"key": "pct_of_fpl_filter", "title": "% of FPL"}
+      {"key": "pct_of_fpl_filter", "title": "% of FPL", "xf": "fpl-decimal-to-percent"}
     ],
     "chartTypes": {
       "default": "bar",
@@ -1355,7 +1355,7 @@ ORDER BY
   '{
     "table": "data_act76_family_pct_of_fpl",
     "filters": {
-      "pct_of_fpl_filter": {"column": "pct_of_fpl"}
+      "pct_of_fpl_filter": {"column": "pct_of_fpl", "xf": "fpl-decimal-to-percent", "exclude": ["total"]}
     }
   }'
 );
@@ -1450,7 +1450,7 @@ ORDER BY
     "title": "Families Receiving CCFAP by AHS District",
     "subtitle": "By % of FPL",
     "filters": [
-      {"key": "pct_of_fpl_filter", "title": "% of FPL"}
+      {"key": "pct_of_fpl_filter", "title": "% of FPL", "xf": "fpl-decimal-to-percent"}
     ],
     "chartTypes": {
       "default": "bar",
@@ -1461,7 +1461,7 @@ ORDER BY
   '{
     "table": "data_act76_family_pct_of_fpl",
     "filters": {
-      "pct_of_fpl_filter": {"column": "pct_of_fpl"}
+      "pct_of_fpl_filter": {"column": "pct_of_fpl", "xf": "fpl-decimal-to-percent", "exclude": ["total"]}
     }
   }'
 );
@@ -1638,7 +1638,7 @@ ORDER BY
     "subtitle": "By % of FPL",
     "filters": [
       {"key": "geography_filter", "title": "Geography"},
-      {"key": "pct_of_fpl_filter", "title": "% of FPL"}
+      {"key": "pct_of_fpl_filter", "title": "% of FPL", "xf": "fpl-decimal-to-percent"}
     ],
     "chartTypes": {
       "default": "line",
@@ -1650,7 +1650,52 @@ ORDER BY
     "table": "data_act76_family_pct_of_fpl",
     "filters": {
       "geography_filter": {"column": "geography"},
-      "pct_of_fpl_filter": {"column": "pct_of_fpl"}
+      "pct_of_fpl_filter": {"column": "pct_of_fpl", "xf": "fpl-decimal-to-percent", "exclude": ["total"]}
+    }
+  }'
+);
+
+-- New query: Families Receiving CCFAP by Percent of FPL (Column Chart - Most Recent Statewide Data)
+INSERT INTO `queries` (`name`, `sqlText`, `metadata`, `uploadType`, `filters`)
+VALUES (
+  'act76_ccfap_family_pct_of_fpl:column',
+  'WITH latest_date AS (
+    SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date
+    FROM data_act76_family_pct_of_fpl
+    WHERE geo_type = "county"
+  )
+  SELECT
+    CASE
+      WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(CAST(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100 AS UNSIGNED), ''%'')
+      ELSE pct_of_fpl
+    END as cat,
+    SUM(value_suppressed) as value
+  FROM data_act76_family_pct_of_fpl
+  CROSS JOIN latest_date
+  WHERE
+    STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') = latest_date.max_date
+    AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+    AND geography != "Vermont"  -- Exclude Vermont total to avoid double counting
+    AND pct_of_fpl != "total"  -- Exclude total category
+  GROUP BY pct_of_fpl
+  ORDER BY CAST(pct_of_fpl AS DECIMAL(10,2))',
+  '{
+    "yAxis": {"type": "number"},
+    "title": "Families Receiving CCFAP by Percent of FPL",
+    "subtitle": "Most Recent Data by Geography",
+    "filters": [
+      {"key": "geography_filter", "title": "Geography"}
+    ],
+    "chartTypes": {
+      "default": "column",
+      "allowed": ["column", "bar"]
+    }
+  }',
+  'act76:family_pct_of_fpl',
+  '{
+    "table": "data_act76_family_pct_of_fpl",
+    "filters": {
+      "geography_filter": {"column": "geography"}
     }
   }'
 );
