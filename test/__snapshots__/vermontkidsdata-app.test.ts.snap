@@ -616,189 +616,6 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::IAM::Policy",
     },
-    "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691": {
-      "DependsOn": [
-        "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36",
-        "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC",
-      ],
-      "Properties": {
-        "Code": {
-          "ZipFile": "import boto3  # type: ignore
-import json
-import logging
-import urllib.request
-
-s3 = boto3.client("s3")
-
-EVENTBRIDGE_CONFIGURATION = 'EventBridgeConfiguration'
-CONFIGURATION_TYPES = ["TopicConfigurations", "QueueConfigurations", "LambdaFunctionConfigurations"]
-
-def handler(event: dict, context):
-  response_status = "SUCCESS"
-  error_message = ""
-  try:
-    props = event["ResourceProperties"]
-    notification_configuration = props["NotificationConfiguration"]
-    managed = props.get('Managed', 'true').lower() == 'true'
-    skipDestinationValidation = props.get('SkipDestinationValidation', 'false').lower() == 'true'
-    stack_id = event['StackId']
-    old = event.get("OldResourceProperties", {}).get("NotificationConfiguration", {})
-    if managed:
-      config = handle_managed(event["RequestType"], notification_configuration)
-    else:
-      config = handle_unmanaged(props["BucketName"], stack_id, event["RequestType"], notification_configuration, old)
-    s3.put_bucket_notification_configuration(Bucket=props["BucketName"], NotificationConfiguration=config, SkipDestinationValidation=skipDestinationValidation)
-  except Exception as e:
-    logging.exception("Failed to put bucket notification configuration")
-    response_status = "FAILED"
-    error_message = f"Error: {str(e)}. "
-  finally:
-    submit_response(event, context, response_status, error_message)
-
-def handle_managed(request_type, notification_configuration):
-  if request_type == 'Delete':
-    return {}
-  return notification_configuration
-
-def handle_unmanaged(bucket, stack_id, request_type, notification_configuration, old):
-  def get_id(n):
-    n['Id'] = ''
-    sorted_notifications = sort_filter_rules(n)
-    strToHash=json.dumps(sorted_notifications, sort_keys=True).replace('"Name": "prefix"', '"Name": "Prefix"').replace('"Name": "suffix"', '"Name": "Suffix"')
-    return f"{stack_id}-{hash(strToHash)}"
-  def with_id(n):
-    n['Id'] = get_id(n)
-    return n
-
-  external_notifications = {}
-  existing_notifications = s3.get_bucket_notification_configuration(Bucket=bucket)
-  for t in CONFIGURATION_TYPES:
-    if request_type == 'Update':
-        old_incoming_ids = [get_id(n) for n in old.get(t, [])]
-        external_notifications[t] = [n for n in existing_notifications.get(t, []) if not get_id(n) in old_incoming_ids]      
-    elif request_type == 'Delete':
-        external_notifications[t] = [n for n in existing_notifications.get(t, []) if not n['Id'].startswith(f"{stack_id}-")]
-    elif request_type == 'Create':
-        external_notifications[t] = [n for n in existing_notifications.get(t, [])]
-  if EVENTBRIDGE_CONFIGURATION in existing_notifications:
-    external_notifications[EVENTBRIDGE_CONFIGURATION] = existing_notifications[EVENTBRIDGE_CONFIGURATION]
-
-  if request_type == 'Delete':
-    return external_notifications
-
-  notifications = {}
-  for t in CONFIGURATION_TYPES:
-    external = external_notifications.get(t, [])
-    incoming = [with_id(n) for n in notification_configuration.get(t, [])]
-    notifications[t] = external + incoming
-
-  if EVENTBRIDGE_CONFIGURATION in notification_configuration:
-    notifications[EVENTBRIDGE_CONFIGURATION] = notification_configuration[EVENTBRIDGE_CONFIGURATION]
-  elif EVENTBRIDGE_CONFIGURATION in external_notifications:
-    notifications[EVENTBRIDGE_CONFIGURATION] = external_notifications[EVENTBRIDGE_CONFIGURATION]
-
-  return notifications
-
-def submit_response(event: dict, context, response_status: str, error_message: str):
-  response_body = json.dumps(
-    {
-      "Status": response_status,
-      "Reason": f"{error_message}See the details in CloudWatch Log Stream: {context.log_stream_name}",
-      "PhysicalResourceId": event.get("PhysicalResourceId") or event["LogicalResourceId"],
-      "StackId": event["StackId"],
-      "RequestId": event["RequestId"],
-      "LogicalResourceId": event["LogicalResourceId"],
-      "NoEcho": False,
-    }
-  ).encode("utf-8")
-  headers = {"content-type": "", "content-length": str(len(response_body))}
-  try:
-    req = urllib.request.Request(url=event["ResponseURL"], headers=headers, data=response_body, method="PUT")
-    with urllib.request.urlopen(req) as response:
-      print(response.read().decode("utf-8"))
-    print("Status code: " + response.reason)
-  except Exception as e:
-      print("send(..) failed executing request.urlopen(..): " + str(e))
-
-def sort_filter_rules(json_obj):
-  if not isinstance(json_obj, dict):
-      return json_obj
-  for key, value in json_obj.items():
-      if isinstance(value, dict):
-          json_obj[key] = sort_filter_rules(value)
-      elif isinstance(value, list):
-          json_obj[key] = [sort_filter_rules(item) for item in value]
-  if "Filter" in json_obj and "Key" in json_obj["Filter"] and "FilterRules" in json_obj["Filter"]["Key"]:
-      filter_rules = json_obj["Filter"]["Key"]["FilterRules"]
-      sorted_filter_rules = sorted(filter_rules, key=lambda x: x["Name"])
-      json_obj["Filter"]["Key"]["FilterRules"] = sorted_filter_rules
-  return json_obj",
-        },
-        "Description": "AWS CloudFormation handler for "Custom::S3BucketNotifications" resources (@aws-cdk/aws-s3)",
-        "Handler": "index.handler",
-        "Role": {
-          "Fn::GetAtt": [
-            "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC",
-            "Arn",
-          ],
-        },
-        "Runtime": "python3.11",
-        "Timeout": 300,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": "s3:PutBucketNotification",
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36",
-        "Roles": [
-          {
-            "Ref": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
     "CensusTableByGeoFunction1EF3A681": {
       "DependsOn": [
         "CensusTableByGeoFunctionServiceRoleDefaultPolicy4D3B2C24",
@@ -1541,443 +1358,6 @@ def sort_filter_rules(json_obj):
         ],
       },
       "Type": "AWS::IAM::Role",
-    },
-    "DatasetBackupFunctionC91238D9": {
-      "DependsOn": [
-        "DatasetBackupFunctionServiceRoleDefaultPolicyD6EBE967",
-        "DatasetBackupFunctionServiceRoleCB80604D",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "S3_BUCKET_NAME": {
-              "Ref": "Uploadsbucket86F42938",
-            },
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.main",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "DatasetBackupFunctionServiceRoleCB80604D",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 900,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "DatasetBackupFunctionLogRetentionFC134E05": {
-      "Properties": {
-        "LogGroupName": {
-          "Fn::Join": [
-            "",
-            [
-              "/aws/lambda/",
-              {
-                "Ref": "DatasetBackupFunctionC91238D9",
-              },
-            ],
-          ],
-        },
-        "RetentionInDays": 1,
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::LogRetention",
-    },
-    "DatasetBackupFunctionServiceRoleCB80604D": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "DatasetBackupFunctionServiceRoleDefaultPolicyD6EBE967": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": "secretsmanager:GetSecretValue",
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "sqs:ReceiveMessage",
-                "sqs:ChangeMessageVisibility",
-                "sqs:GetQueueUrl",
-                "sqs:DeleteMessage",
-                "sqs:GetQueueAttributes",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "BackupqueueE3E58E0E",
-                  "Arn",
-                ],
-              },
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "Uploadsbucket86F42938",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "Uploadsbucket86F42938",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "DatasetBackupFunctionServiceRoleDefaultPolicyD6EBE967",
-        "Roles": [
-          {
-            "Ref": "DatasetBackupFunctionServiceRoleCB80604D",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "DatasetBackupFunctionSqsEventSourcetestTestStackBackupqueueF7E46FBD79E39644": {
-      "Properties": {
-        "BatchSize": 1,
-        "EventSourceArn": {
-          "Fn::GetAtt": [
-            "BackupqueueE3E58E0E",
-            "Arn",
-          ],
-        },
-        "FunctionName": {
-          "Ref": "DatasetBackupFunctionC91238D9",
-        },
-      },
-      "Type": "AWS::Lambda::EventSourceMapping",
-    },
-    "DatasetRevertFunction219B9FBB": {
-      "DependsOn": [
-        "DatasetRevertFunctionServiceRoleDefaultPolicyCC687689",
-        "DatasetRevertFunctionServiceRoleD489927F",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "S3_BUCKET_NAME": {
-              "Ref": "Uploadsbucket86F42938",
-            },
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.main",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "DatasetRevertFunctionServiceRoleD489927F",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 900,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "DatasetRevertFunctionLogRetentionDFCA3F6E": {
-      "Properties": {
-        "LogGroupName": {
-          "Fn::Join": [
-            "",
-            [
-              "/aws/lambda/",
-              {
-                "Ref": "DatasetRevertFunction219B9FBB",
-              },
-            ],
-          ],
-        },
-        "RetentionInDays": 1,
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::LogRetention",
-    },
-    "DatasetRevertFunctionServiceRoleD489927F": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "DatasetRevertFunctionServiceRoleDefaultPolicyCC687689": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "Uploadsbucket86F42938",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "Uploadsbucket86F42938",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": "secretsmanager:GetSecretValue",
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "DatasetRevertFunctionServiceRoleDefaultPolicyCC687689",
-        "Roles": [
-          {
-            "Ref": "DatasetRevertFunctionServiceRoleD489927F",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
     },
     "DatasetpostAPIFunctionB555A2CF": {
       "DependsOn": [
@@ -2728,204 +2108,6 @@ def sort_filter_rules(json_obj):
       },
       "Type": "AWS::IAM::Policy",
     },
-    "GetDatasetBackupFunction960C1285": {
-      "DependsOn": [
-        "GetDatasetBackupFunctionServiceRoleDefaultPolicy0600C4B9",
-        "GetDatasetBackupFunctionServiceRole2C334398",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "S3_BUCKET_NAME": {
-              "Ref": "Uploadsbucket86F42938",
-            },
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.main",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "GetDatasetBackupFunctionServiceRole2C334398",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 900,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "GetDatasetBackupFunctionLogRetentionBCCDE9D4": {
-      "Properties": {
-        "LogGroupName": {
-          "Fn::Join": [
-            "",
-            [
-              "/aws/lambda/",
-              {
-                "Ref": "GetDatasetBackupFunction960C1285",
-              },
-            ],
-          ],
-        },
-        "RetentionInDays": 1,
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::LogRetention",
-    },
-    "GetDatasetBackupFunctionServiceRole2C334398": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "GetDatasetBackupFunctionServiceRoleDefaultPolicy0600C4B9": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "Uploadsbucket86F42938",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "Uploadsbucket86F42938",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "GetDatasetBackupFunctionServiceRoleDefaultPolicy0600C4B9",
-        "Roles": [
-          {
-            "Ref": "GetDatasetBackupFunctionServiceRole2C334398",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
     "GetFiltersFunctionA3097827": {
       "DependsOn": [
         "GetFiltersFunctionServiceRoleDefaultPolicyFC2B4430",
@@ -3452,164 +2634,6 @@ def sort_filter_rules(json_obj):
         "Roles": [
           {
             "Ref": "GetYearsFunctionServiceRoleCF1DCE76",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "ListDatasetBackupsFunction0650E3F1": {
-      "DependsOn": [
-        "ListDatasetBackupsFunctionServiceRoleDefaultPolicy44503DDD",
-        "ListDatasetBackupsFunctionServiceRoleD0AB32C5",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.main",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "ListDatasetBackupsFunctionServiceRoleD0AB32C5",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 60,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "ListDatasetBackupsFunctionLogRetentionD7E9CA82": {
-      "Properties": {
-        "LogGroupName": {
-          "Fn::Join": [
-            "",
-            [
-              "/aws/lambda/",
-              {
-                "Ref": "ListDatasetBackupsFunction0650E3F1",
-              },
-            ],
-          ],
-        },
-        "RetentionInDays": 1,
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::LogRetention",
-    },
-    "ListDatasetBackupsFunctionServiceRoleD0AB32C5": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "ListDatasetBackupsFunctionServiceRoleDefaultPolicy44503DDD": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "ListDatasetBackupsFunctionServiceRoleDefaultPolicy44503DDD",
-        "Roles": [
-          {
-            "Ref": "ListDatasetBackupsFunctionServiceRoleD0AB32C5",
           },
         ],
       },
@@ -4782,422 +3806,6 @@ def sort_filter_rules(json_obj):
       },
       "Type": "AWS::IAM::Policy",
     },
-    "UploadDataFunction2E82FB6B": {
-      "DependsOn": [
-        "UploadDataFunctionServiceRoleDefaultPolicy5821DD73",
-        "UploadDataFunctionServiceRole0AA81148",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "S3_BUCKET_NAME": {
-              "Ref": "Uploadsbucket86F42938",
-            },
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.main",
-        "MemorySize": 512,
-        "Role": {
-          "Fn::GetAtt": [
-            "UploadDataFunctionServiceRole0AA81148",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 900,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "UploadDataFunctionLogRetentionC11AAF2E": {
-      "Properties": {
-        "LogGroupName": {
-          "Fn::Join": [
-            "",
-            [
-              "/aws/lambda/",
-              {
-                "Ref": "UploadDataFunction2E82FB6B",
-              },
-            ],
-          ],
-        },
-        "RetentionInDays": 1,
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::LogRetention",
-    },
-    "UploadDataFunctionServiceRole0AA81148": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "UploadDataFunctionServiceRoleDefaultPolicy5821DD73": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "Uploadsbucket86F42938",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "Uploadsbucket86F42938",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "sqs:SendMessage",
-                "sqs:GetQueueAttributes",
-                "sqs:GetQueueUrl",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "BackupqueueE3E58E0E",
-                  "Arn",
-                ],
-              },
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            {
-              "Action": [
-                "sqs:ReceiveMessage",
-                "sqs:ChangeMessageVisibility",
-                "sqs:GetQueueUrl",
-                "sqs:DeleteMessage",
-                "sqs:GetQueueAttributes",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "UploadqueueE932C434",
-                  "Arn",
-                ],
-              },
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "UploadDataFunctionServiceRoleDefaultPolicy5821DD73",
-        "Roles": [
-          {
-            "Ref": "UploadDataFunctionServiceRole0AA81148",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "UploadDataFunctionSqsEventSourcetestTestStackUploadqueueC7063E9FC7E87162": {
-      "Properties": {
-        "BatchSize": 1,
-        "EventSourceArn": {
-          "Fn::GetAtt": [
-            "UploadqueueE932C434",
-            "Arn",
-          ],
-        },
-        "FunctionName": {
-          "Ref": "UploadDataFunction2E82FB6B",
-        },
-      },
-      "Type": "AWS::Lambda::EventSourceMapping",
-    },
-    "UploadStatusFunction296B6E97": {
-      "DependsOn": [
-        "UploadStatusFunctionServiceRoleDefaultPolicy37A1DC4B",
-        "UploadStatusFunctionServiceRole9F253A43",
-      ],
-      "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "S3_BUCKET_NAME": {
-              "Ref": "Uploadsbucket86F42938",
-            },
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
-          },
-        },
-        "Handler": "index.handler",
-        "MemorySize": 128,
-        "Role": {
-          "Fn::GetAtt": [
-            "UploadStatusFunctionServiceRole9F253A43",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 5,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "UploadStatusFunctionLogRetentionB8036749": {
-      "Properties": {
-        "LogGroupName": {
-          "Fn::Join": [
-            "",
-            [
-              "/aws/lambda/",
-              {
-                "Ref": "UploadStatusFunction296B6E97",
-              },
-            ],
-          ],
-        },
-        "RetentionInDays": 1,
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::LogRetention",
-    },
-    "UploadStatusFunctionServiceRole9F253A43": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "UploadStatusFunctionServiceRoleDefaultPolicy37A1DC4B": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:Query",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:ConditionCheckItem",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:DescribeTable",
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "SingleServiceTableABC698C2",
-                    "Arn",
-                  ],
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "SingleServiceTableABC698C2",
-                          "Arn",
-                        ],
-                      },
-                      "/index/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "UploadStatusFunctionServiceRoleDefaultPolicy37A1DC4B",
-        "Roles": [
-          {
-            "Ref": "UploadStatusFunctionServiceRole9F253A43",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
     "UploadqueueE932C434": {
       "DeletionPolicy": "Delete",
       "Properties": {
@@ -5205,65 +3813,6 @@ def sort_filter_rules(json_obj):
       },
       "Type": "AWS::SQS::Queue",
       "UpdateReplacePolicy": "Delete",
-    },
-    "UploadqueuePolicy914D0D01": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "sqs:SendMessage",
-                "sqs:GetQueueAttributes",
-                "sqs:GetQueueUrl",
-              ],
-              "Condition": {
-                "ArnLike": {
-                  "aws:SourceArn": {
-                    "Fn::GetAtt": [
-                      "Uploadsbucket86F42938",
-                      "Arn",
-                    ],
-                  },
-                },
-              },
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "s3.amazonaws.com",
-              },
-              "Resource": {
-                "Fn::GetAtt": [
-                  "UploadqueueE932C434",
-                  "Arn",
-                ],
-              },
-            },
-            {
-              "Action": [
-                "sqs:SendMessage",
-                "sqs:GetQueueAttributes",
-                "sqs:GetQueueUrl",
-              ],
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "s3.amazonaws.com",
-              },
-              "Resource": {
-                "Fn::GetAtt": [
-                  "UploadqueueE932C434",
-                  "Arn",
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "Queues": [
-          {
-            "Ref": "UploadqueueE932C434",
-          },
-        ],
-      },
-      "Type": "AWS::SQS::QueuePolicy",
     },
     "Uploadsbucket86F42938": {
       "DeletionPolicy": "Delete",
@@ -5328,73 +3877,6 @@ def sort_filter_rules(json_obj):
       },
       "Type": "Custom::S3AutoDeleteObjects",
       "UpdateReplacePolicy": "Delete",
-    },
-    "UploadsbucketNotifications8DBD3ABE": {
-      "DependsOn": [
-        "UploadqueuePolicy914D0D01",
-        "UploadqueueE932C434",
-        "UploadsbucketPolicy1532F88C",
-      ],
-      "Properties": {
-        "BucketName": {
-          "Ref": "Uploadsbucket86F42938",
-        },
-        "Managed": true,
-        "NotificationConfiguration": {
-          "QueueConfigurations": [
-            {
-              "Events": [
-                "s3:ObjectTagging:Put",
-              ],
-              "Filter": {
-                "Key": {
-                  "FilterRules": [
-                    {
-                      "Name": "suffix",
-                      "Value": "csv",
-                    },
-                  ],
-                },
-              },
-              "QueueArn": {
-                "Fn::GetAtt": [
-                  "UploadqueueE932C434",
-                  "Arn",
-                ],
-              },
-            },
-            {
-              "Events": [
-                "s3:ObjectTagging:Put",
-              ],
-              "Filter": {
-                "Key": {
-                  "FilterRules": [
-                    {
-                      "Name": "suffix",
-                      "Value": "txt",
-                    },
-                  ],
-                },
-              },
-              "QueueArn": {
-                "Fn::GetAtt": [
-                  "UploadqueueE932C434",
-                  "Arn",
-                ],
-              },
-            },
-          ],
-        },
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691",
-            "Arn",
-          ],
-        },
-        "SkipDestinationValidation": false,
-      },
-      "Type": "Custom::S3BucketNotifications",
     },
     "UploadsbucketPolicy1532F88C": {
       "Properties": {
@@ -5897,7 +4379,7 @@ def sort_filter_rules(json_obj):
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "sandboxVermontKidsDataDeployment13909A1B91480c1ea4c8a9bb415f5c2059d3325c": {
+    "sandboxVermontKidsDataDeployment13909A1Ba04da1a76ee8fbcabdcfe24ef7ad12d3": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -5912,6 +4394,9 @@ def sort_filter_rules(json_obj):
         "sandboxVermontKidsDataaiassistantidenableOPTIONS2C0C2C3A",
         "sandboxVermontKidsDataaiassistantidenablePOST8E780569",
         "sandboxVermontKidsDataaiassistantidenable1A94ABBA",
+        "sandboxVermontKidsDataaiassistantidexportGET07B589AB",
+        "sandboxVermontKidsDataaiassistantidexportOPTIONSF76AC25E",
+        "sandboxVermontKidsDataaiassistantidexport184C6AB7",
         "sandboxVermontKidsDataaiassistantidfunctionfunctionIdGETF855527C",
         "sandboxVermontKidsDataaiassistantidfunctionfunctionIdOPTIONS7FAB07AE",
         "sandboxVermontKidsDataaiassistantidfunctionfunctionIdPUT28A87416",
@@ -5931,6 +4416,9 @@ def sort_filter_rules(json_obj):
         "sandboxVermontKidsDataaiassistantidPUT81E27FC5",
         "sandboxVermontKidsDataaiassistantid60F2682A",
         "sandboxVermontKidsDataaiassistantGETDD3B1E67",
+        "sandboxVermontKidsDataaiassistantimportOPTIONS23848E4A",
+        "sandboxVermontKidsDataaiassistantimportPOST7AAD1481",
+        "sandboxVermontKidsDataaiassistantimport36515A57",
         "sandboxVermontKidsDataaiassistantOPTIONSCAC7FBF7",
         "sandboxVermontKidsDataaiassistantPOSTD39780D5",
         "sandboxVermontKidsDataaiassistant84B4237C",
@@ -6000,17 +4488,6 @@ def sort_filter_rules(json_obj):
         "sandboxVermontKidsDatadatasetdatasetOPTIONS54310E6E",
         "sandboxVermontKidsDatadatasetdatasetPOSTA9DB39B6",
         "sandboxVermontKidsDatadatasetdataset930CCC5E",
-        "sandboxVermontKidsDatadatasetbackupsdatasetversionGET8CF8B199",
-        "sandboxVermontKidsDatadatasetbackupsdatasetversionOPTIONSED906FC7",
-        "sandboxVermontKidsDatadatasetbackupsdatasetversionA4F0F5FC",
-        "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertOPTIONS6E4F3389",
-        "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertPOSTB4F2F8E4",
-        "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertBE74A58F",
-        "sandboxVermontKidsDatadatasetbackupsdatasetGET3C6E4C7D",
-        "sandboxVermontKidsDatadatasetbackupsdatasetOPTIONS2C7FA765",
-        "sandboxVermontKidsDatadatasetbackupsdataset564749FB",
-        "sandboxVermontKidsDatadatasetbackupsOPTIONS979BE285",
-        "sandboxVermontKidsDatadatasetbackupsE1CF654D",
         "sandboxVermontKidsDatadatasetOPTIONSE2DCD45B",
         "sandboxVermontKidsDatadatasetBEA8A300",
         "sandboxVermontKidsDatadatasetyearsdatasetGET557C7FE7",
@@ -6113,11 +4590,6 @@ def sort_filter_rules(json_obj):
         "sandboxVermontKidsDatatestdbGET19998466",
         "sandboxVermontKidsDatatestdbOPTIONS933508EE",
         "sandboxVermontKidsDatatestdb1E7656E1",
-        "sandboxVermontKidsDatauploaduploadIdGETA9B02C5E",
-        "sandboxVermontKidsDatauploaduploadIdOPTIONS6EEAEABC",
-        "sandboxVermontKidsDatauploaduploadId1D2B86C3",
-        "sandboxVermontKidsDatauploadOPTIONSD378F471",
-        "sandboxVermontKidsDatauploadB80A6D41",
       ],
       "Metadata": {
         "aws:cdk:do-not-refactor": true,
@@ -6136,7 +4608,7 @@ def sort_filter_rules(json_obj):
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "sandboxVermontKidsDataDeployment13909A1B91480c1ea4c8a9bb415f5c2059d3325c",
+          "Ref": "sandboxVermontKidsDataDeployment13909A1Ba04da1a76ee8fbcabdcfe24ef7ad12d3",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -7302,6 +5774,158 @@ def sort_filter_rules(json_obj):
       },
       "Type": "AWS::Lambda::Permission",
     },
+    "sandboxVermontKidsDataaiassistantidexport184C6AB7": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataaiassistantid60F2682A",
+        },
+        "PathPart": "export",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantidexportGET07B589AB": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantGETassistantidexport15395EF9Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidexport184C6AB7",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantidexportGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETaiassistantidexportE7206DCD": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistantidexport15395EF9Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/ai/assistant/*/export",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidexportGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETaiassistantidexport28C10781": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantGETassistantidexport15395EF9Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/ai/assistant/*/export",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantidexportOPTIONSF76AC25E": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantidexport184C6AB7",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
     "sandboxVermontKidsDataaiassistantidfunctionC8503245": {
       "Properties": {
         "ParentId": {
@@ -8100,6 +6724,158 @@ def sort_filter_rules(json_obj):
                 "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
               },
               "/POST/ai/assistant/*/publish",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantimport36515A57": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDataaiassistant84B4237C",
+        },
+        "PathPart": "import",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDataaiassistantimportOPTIONS23848E4A": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantimport36515A57",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantimportPOST7AAD1481": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+                    "Outputs.testTestStackAIAssistantPOSTassistantimport015FC3F9Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDataaiassistantimport36515A57",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDataaiassistantimportPOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantimport320FC3E9": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantimport015FC3F9Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/POST/ai/assistant/import",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDataaiassistantimportPOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTaiassistantimportA32A38A5": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AIAssistantNestedStackAIAssistantNestedStackResource763EFBC6",
+            "Outputs.testTestStackAIAssistantPOSTassistantimport015FC3F9Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/POST/ai/assistant/import",
             ],
           ],
         },
@@ -10867,533 +9643,6 @@ def sort_filter_rules(json_obj):
         ],
         "ResourceId": {
           "Ref": "sandboxVermontKidsDatadatasetBEA8A300",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatadatasetbackupsE1CF654D": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "sandboxVermontKidsDatadatasetBEA8A300",
-        },
-        "PathPart": "backups",
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "sandboxVermontKidsDatadatasetbackupsOPTIONS979BE285": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsE1CF654D",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdataset564749FB": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsE1CF654D",
-        },
-        "PathPart": "{dataset}",
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetGET3C6E4C7D": {
-      "Properties": {
-        "AuthorizationType": "NONE",
-        "HttpMethod": "GET",
-        "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "ListDatasetBackupsFunction0650E3F1",
-                    "Arn",
-                  ],
-                },
-                "/invocations",
-              ],
-            ],
-          },
-        },
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsdataset564749FB",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETdatasetbackupsdataset41523CEE": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "ListDatasetBackupsFunction0650E3F1",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "sandboxVermontKidsData3EAE2FF7",
-              },
-              "/test-invoke-stage/GET/dataset/backups/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETdatasetbackupsdatasetAB618CBE": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "ListDatasetBackupsFunction0650E3F1",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "sandboxVermontKidsData3EAE2FF7",
-              },
-              "/",
-              {
-                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
-              },
-              "/GET/dataset/backups/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetOPTIONS2C7FA765": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsdataset564749FB",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionA4F0F5FC": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsdataset564749FB",
-        },
-        "PathPart": "{version}",
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionGET8CF8B199": {
-      "Properties": {
-        "AuthorizationType": "NONE",
-        "HttpMethod": "GET",
-        "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "GetDatasetBackupFunction960C1285",
-                    "Arn",
-                  ],
-                },
-                "/invocations",
-              ],
-            ],
-          },
-        },
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsdatasetversionA4F0F5FC",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETdatasetbackupsdatasetversionCE2A9CD8": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "GetDatasetBackupFunction960C1285",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "sandboxVermontKidsData3EAE2FF7",
-              },
-              "/test-invoke-stage/GET/dataset/backups/*/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETdatasetbackupsdatasetversionCCE92ACD": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "GetDatasetBackupFunction960C1285",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "sandboxVermontKidsData3EAE2FF7",
-              },
-              "/",
-              {
-                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
-              },
-              "/GET/dataset/backups/*/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionOPTIONSED906FC7": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsdatasetversionA4F0F5FC",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertBE74A58F": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsdatasetversionA4F0F5FC",
-        },
-        "PathPart": "revert",
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertOPTIONS6E4F3389": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertBE74A58F",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertPOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTdatasetbackupsdatasetversionrevert182B2067": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "DatasetRevertFunction219B9FBB",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "sandboxVermontKidsData3EAE2FF7",
-              },
-              "/test-invoke-stage/POST/dataset/backups/*/*/revert",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertPOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTdatasetbackupsdatasetversionrevert0A1F48FF": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "DatasetRevertFunction219B9FBB",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "sandboxVermontKidsData3EAE2FF7",
-              },
-              "/",
-              {
-                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
-              },
-              "/POST/dataset/backups/*/*/revert",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertPOSTB4F2F8E4": {
-      "Properties": {
-        "AuthorizationType": "CUSTOM",
-        "AuthorizerId": {
-          "Ref": "requestauthorizerD239B518",
-        },
-        "HttpMethod": "POST",
-        "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "DatasetRevertFunction219B9FBB",
-                    "Arn",
-                  ],
-                },
-                "/invocations",
-              ],
-            ],
-          },
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "401",
-          },
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "403",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatadatasetbackupsdatasetversionrevertBE74A58F",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -16392,215 +14641,6 @@ def sort_filter_rules(json_obj):
         ],
         "ResourceId": {
           "Ref": "sandboxVermontKidsDatatestdb1E7656E1",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatauploadB80A6D41": {
-      "Properties": {
-        "ParentId": {
-          "Fn::GetAtt": [
-            "sandboxVermontKidsData3EAE2FF7",
-            "RootResourceId",
-          ],
-        },
-        "PathPart": "upload",
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "sandboxVermontKidsDatauploadOPTIONSD378F471": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatauploadB80A6D41",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatauploaduploadId1D2B86C3": {
-      "Properties": {
-        "ParentId": {
-          "Ref": "sandboxVermontKidsDatauploadB80A6D41",
-        },
-        "PathPart": "{uploadId}",
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Resource",
-    },
-    "sandboxVermontKidsDatauploaduploadIdGETA9B02C5E": {
-      "Properties": {
-        "AuthorizationType": "NONE",
-        "HttpMethod": "GET",
-        "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "UploadStatusFunction296B6E97",
-                    "Arn",
-                  ],
-                },
-                "/invocations",
-              ],
-            ],
-          },
-        },
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatauploaduploadId1D2B86C3",
-        },
-        "RestApiId": {
-          "Ref": "sandboxVermontKidsData3EAE2FF7",
-        },
-      },
-      "Type": "AWS::ApiGateway::Method",
-    },
-    "sandboxVermontKidsDatauploaduploadIdGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETuploaduploadId52920745": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "UploadStatusFunction296B6E97",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "sandboxVermontKidsData3EAE2FF7",
-              },
-              "/test-invoke-stage/GET/upload/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "sandboxVermontKidsDatauploaduploadIdGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETuploaduploadIdC8F03E11": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "UploadStatusFunction296B6E97",
-            "Arn",
-          ],
-        },
-        "Principal": "apigateway.amazonaws.com",
-        "SourceArn": {
-          "Fn::Join": [
-            "",
-            [
-              "arn:",
-              {
-                "Ref": "AWS::Partition",
-              },
-              ":execute-api:aq-south-1:999999999:",
-              {
-                "Ref": "sandboxVermontKidsData3EAE2FF7",
-              },
-              "/",
-              {
-                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
-              },
-              "/GET/upload/*",
-            ],
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "sandboxVermontKidsDatauploaduploadIdOPTIONS6EEAEABC": {
-      "Properties": {
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "HttpMethod": "OPTIONS",
-        "Integration": {
-          "IntegrationResponses": [
-            {
-              "ResponseParameters": {
-                "method.response.header.Access-Control-Allow-Credentials": "'true'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
-                "method.response.header.Access-Control-Allow-Origin": "'*'",
-              },
-              "StatusCode": "204",
-            },
-          ],
-          "RequestTemplates": {
-            "application/json": "{ statusCode: 200 }",
-          },
-          "Type": "MOCK",
-        },
-        "MethodResponses": [
-          {
-            "ResponseParameters": {
-              "method.response.header.Access-Control-Allow-Credentials": true,
-              "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Origin": true,
-            },
-            "StatusCode": "204",
-          },
-        ],
-        "ResourceId": {
-          "Ref": "sandboxVermontKidsDatauploaduploadId1D2B86C3",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
