@@ -1,0 +1,132 @@
+# Debugging and Testing Rules for Vermont Kids Data App
+
+## Integration Testing Rules
+
+### Always Run Full Test Suite
+- **Rule**: When implementing new features or fixing bugs, ALWAYS run the complete integration test suite, not just individual tests
+- **Command**: `npx ts-node test/integration-test.ts --env=qa`
+- **Reason**: Ensures changes don't break existing functionality
+
+### Test-Driven Development
+- **Rule**: Before claiming a fix is complete, verify it works with comprehensive testing
+- **Process**: 
+  1. Run specific test to verify fix: `npx ts-node test/integration-test.ts --env=qa --test-type=<test-name>`
+  2. Run full test suite to check for regressions: `npx ts-node test/integration-test.ts --env=qa`
+
+## AWS Debugging Rules
+
+### Finding Lambda Functions in State Machines
+- **Rule**: When debugging state machine issues, find Lambda functions through the state machine definition, not by searching
+- **Process**:
+  1. Get state machine definition: `aws stepfunctions describe-state-machine --state-machine-arn <arn> --query "definition"`
+  2. Extract Lambda function names from the definition
+  3. Use function names to find CloudWatch logs
+
+### CloudWatch Log Investigation
+- **Rule**: When Lambda functions fail, go directly to the Lambda function to find its associated log group
+- **Process**:
+  1. Find Lambda function name from state machine definition
+  2. CloudWatch log group will be: `/aws/lambda/<function-name>`
+  3. Check recent log streams for errors
+
+### State Machine Execution Analysis
+- **Rule**: When completions get stuck, check recent state machine executions for patterns
+- **Commands**:
+  - List recent executions: `aws stepfunctions list-executions --state-machine-arn <arn> --max-items 5`
+  - Get execution details: `aws stepfunctions describe-execution --execution-arn <arn>`
+  - Look for FAILED executions and examine their error messages
+
+## Deployment Rules
+
+### Use Proper Deployment Scripts
+- **Rule**: Use the provided deployment script instead of trying to set environment variables manually
+- **Command**: `bash do_not_commit/deploy.sh`
+- **Reason**: The script handles all necessary environment variables and configurations
+
+### Environment Setup
+- **Rule**: When AWS CLI commands fail due to environment issues, use the BBF profile
+- **Format**: Add `--profile BBF --region us-east-1` to AWS CLI commands
+- **Example**: `aws stepfunctions list-executions --state-machine-arn <arn> --profile BBF --region us-east-1`
+
+## Code Investigation Rules
+
+### API Error Analysis
+- **Rule**: When getting OpenAI API errors, the issue is likely in ai-utils.ts or ai-start-openai-completion.ts
+- **Common Issues**:
+  - Deprecated API parameters (like `file_ids` → `attachments`)
+  - Null reference errors in file metadata access
+  - Missing optional chaining for undefined objects
+
+### File Upload Debugging
+- **Rule**: When file upload features fail, check both the upload processing AND the OpenAI integration
+- **Key Files**:
+  - `src/ai-post-completion.ts` - Handles upload parameter processing
+  - `src/uploadData.ts` - Processes document uploads
+  - `src/ai-start-openai-completion.ts` - Integrates with OpenAI API
+  - `src/ai-utils.ts` - Core OpenAI API functions
+
+## Testing Patterns
+
+### Debug Mode Usage
+- **Rule**: Use debug mode to get detailed API request/response information
+- **Command**: Add `--debug` flag to integration tests
+- **Benefits**: Shows exact API calls, response structures, and timing information
+
+### Status Progression Monitoring
+- **Rule**: Monitor completion status progression to identify where issues occur
+- **Expected Flow**: "new" → "in_progress" → "success"
+- **Stuck States**: If stuck in "new" = state machine not starting; if stuck in "queued" = OpenAI processing issues
+
+## Error Pattern Recognition
+
+### Common Error Patterns
+1. **"Cannot read properties of undefined"** → Add optional chaining (`?.`)
+2. **"Unknown parameter"** → Check for deprecated API parameters
+3. **State machine FAILED** → Check Lambda function logs
+4. **Stuck in "queued"** → OpenAI API rate limiting or processing issues
+5. **Stuck in "new"** → State machine not starting, check POST completion logic
+
+## Best Practices
+
+### Systematic Debugging Approach
+1. Identify the failure point (API, state machine, Lambda function)
+2. Check recent executions/logs for error patterns
+3. Trace the code path from API call to completion
+4. Fix the root cause, not just symptoms
+5. Test both the specific fix AND full regression testing
+6. Deploy and verify in target environment
+
+### Documentation
+- **Rule**: When fixing bugs, document the root cause and solution
+- **Format**: Include both the technical fix and the debugging process used
+- **Purpose**: Helps future debugging of similar issues
+
+9. **CRITICAL - FIX ALL DISPLAY ISSUES**: If you find even minor display issues (incorrect text, formatting problems, "[object Object]" displays, missing data, etc.), you MUST investigate and fix them immediately. Always consider whether your code changes might have caused them. We cannot allow ANY regressions to happen, no matter how minor they seem. Do NOT wait for the user to point out display issues - proactively look for and fix them.
+
+10. **CRITICAL - DO NOT MODIFY EXISTING WORKING CODE**: When fixing bugs, you must be very cautious about changing existing code that was working before your changes. If you introduced a bug with new code, fix the NEW code, not the existing code. Only modify existing code if you can prove it was already broken. If you think you need to change existing working code to fix an issue, you must ask the user first.
+
+11. You must be very cautious about changing the database format. Do not change the database structure unless the user explicitly tells you to. If you think you need to change the database structure, you must ask the user if that is acceptable.
+
+**MANDATORY WORKFLOW VERIFICATION**
+
+Before considering any task complete, you MUST confirm:
+- ☐ Lint has been run (errors fixed, not just lint:fix)
+- ☐ Unit tests have been run
+- ☐ All tests pass
+- ☐ If tests failed, they were fixed (not skipped)
+
+If you cannot check all boxes, the task is INCOMPLETE and you must state: "Task incomplete - tests not run/passing" and continue working until they pass.
+
+**ERROR HANDLING IN MANDATORY STEPS**
+
+If you encounter ANY error during mandatory workflow steps (lint, test, etc):
+1. Stop proceeding to other work
+2. Fix the error
+3. Do not skip to deployment, browser testing, or other tasks
+4. If you cannot fix it after 3 attempts, ASK the user for guidance
+
+Never rationalize skipping a mandatory step due to errors.
+
+**Exception:** Only skip these steps if the user explicitly tells you not to run tests or deploy (e.g., "don't deploy yet" or "skip tests for now").
+
+When setting VKD_ENVIRONMENT, note that the VKD_ENVIRONMENT is always set to "qa" for development tasks.

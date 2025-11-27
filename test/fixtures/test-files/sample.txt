@@ -1,0 +1,12 @@
+This is a sample text file for testing file upload functionality.
+
+It contains multiple lines of text to test how the AI processes text files.
+
+Key points to test:
+- Text file processing
+- Multi-line content handling
+- Special characters: !@#$%^&*()
+- Numbers: 12345
+- Unicode: 🚀 ✅ ❌
+
+This file should be processed correctly by the AI completion system.

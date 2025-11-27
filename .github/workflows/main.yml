@@ -85,6 +85,11 @@ jobs:
           . ./scripts/deploy.sh
       - name: Test QA
         run: . ./.github/scripts/test-qa.sh
+      - name: Run Integration Tests
+        env:
+          VKD_QA_API_KEY: ${{ secrets.VKD_QA_API_KEY }}
+        run: |
+          npx ts-node test/integration-test.ts --env=qa --debug
   main-diff-prod:
     needs: [main-deploy-qa]
     runs-on: ubuntu-latest

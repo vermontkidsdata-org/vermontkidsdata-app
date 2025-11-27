@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "title": "Test Data for AI Processing",
+    "version": "1.0",
+    "created": "2024-01-01T00:00:00Z"
+  },
+  "data": {
+    "users": [
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "email": "alice@example.com",
+        "preferences": {
+          "theme": "dark",
+          "notifications": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "email": "bob@example.com",
+        "preferences": {
+          "theme": "light",
+          "notifications": false
+        }
+      }
+    ],
+    "statistics": {
+      "total_users": 2,
+      "active_users": 1,
+      "conversion_rate": 0.85
+    }
+  },
+  "config": {
+    "api_version": "v2",
+    "features": ["analytics", "reporting", "notifications"],
+    "limits": {
+      "max_requests_per_hour": 1000,
+      "max_file_size_mb": 50
+    }
+  }
+}

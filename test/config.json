@@ -1,0 +1,28 @@
+{
+  "environments": {
+    "qa": {
+      "baseUrl": "https://api-qa.vermontkidsdata.org",
+      "testDocuments": {
+        "samplePdf": "test-documents/sample.pdf",
+        "sampleTxt": "test-documents/sample.txt"
+      }
+    },
+    "prod": {
+      "baseUrl": "https://api.vermontkidsdata.org",
+      "testDocuments": {
+        "samplePdf": "test-documents/sample.pdf",
+        "sampleTxt": "test-documents/sample.txt"
+      }
+    }
+  },
+  "testSettings": {
+    "maxWaitTime": 60000,
+    "pollInterval": 2000,
+    "timeout": 30000
+  },
+  "testQueries": {
+    "basic": "What is the capital of Vermont?",
+    "documentAnalysis": "Please analyze this document and provide a brief summary of its key points.",
+    "dataQuery": "What trends do you see in this data?"
+  }
+}

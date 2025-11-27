@@ -20,8 +20,8 @@
     "clean": "del src\\*.js src\\*.d.ts test\\*.d.ts test\\*.js lib\\*.d.ts lib\\*.js bin\\*.d.ts bin\\*.js"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.138",
-    "@types/busboy": "^1.5.0",
+    "@types/aws-lambda": "^8.10.159",
+    "@types/busboy": "^1.5.4",
     "@types/express": "^4.17.21",
     "@types/google-spreadsheet": "^4.0.0",
     "@types/jest": "^29.5.12",
