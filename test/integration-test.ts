@@ -415,13 +415,14 @@ class IntegrationTester {
 // Test implementations
 async function testBasicCompletion(this: IntegrationTester): Promise<any> {
   const id = this.generateTestId();
+  const timestamp = new Date().toISOString();
   
   const payload = {
     key: this.config.apiKey,
     id,
     sortKey: 0,
-    query: "What is the capital of Vermont?",
-    stream: false
+    query: `What is the capital of Vermont? Please answer this simple question. Test timestamp: ${timestamp}`,
+    stream: true
   };
 
   console.log(`  Posting completion with ID: ${id}`);
@@ -465,7 +466,7 @@ async function testFileUploadCompletion(this: IntegrationTester): Promise<any> {
     id,
     sortKey: '0',
     query: 'Please analyze this Vermont Early Childhood Action Plan document and provide a brief summary of its key goals and strategies.',
-    stream: 'false'
+    stream: 'true'
   };
 
   console.log(`  Uploading file: ${fileName}`);
@@ -588,7 +589,7 @@ async function testMultipleFileTypes(this: IntegrationTester): Promise<any> {
     id,
     sortKey: '0',
     query: fileTest.query,
-    stream: 'false'
+    stream: 'true'
   };
 
   console.log(`  Testing ${fileTest.type.toUpperCase()} file: ${fileName}`);
@@ -659,7 +660,7 @@ async function testLargeFileUpload(this: IntegrationTester): Promise<any> {
     id,
     sortKey: '0',
     query: 'Please provide a summary of this large document, focusing on the main themes.',
-    stream: 'false'
+    stream: 'true'
   };
 
   console.log(`  Uploading large file: ${fileName} (${fileSizeKB}KB)`);
@@ -700,7 +701,7 @@ async function testFileUrlProcessing(this: IntegrationTester): Promise<any> {
     id,
     sortKey: 0,
     query: 'What type of license is this?',
-    stream: false,
+    stream: true,
     fileurl: fileUrl
   };
 
@@ -768,7 +769,7 @@ async function testFileRetrievalWithLinks(this: IntegrationTester): Promise<any>
     id,
     sortKey: '0',
     query: 'Analyze this file and provide insights.',
-    stream: 'false'
+    stream: 'true'
   };
 
   console.log(`  Uploading file for retrieval test: ${fileName}`);
@@ -869,7 +870,7 @@ async function testFileErrorHandling(this: IntegrationTester): Promise<any> {
       id,
       sortKey: 0,
       query: 'Analyze this file.',
-      stream: false,
+      stream: true,
       fileurl: 'https://example.com/nonexistent-file.txt'
     };
     
@@ -897,7 +898,7 @@ async function testFileErrorHandling(this: IntegrationTester): Promise<any> {
         id,
         sortKey: '0',
         query: 'Analyze this file.',
-        stream: 'false'
+        stream: 'true'
       };
       
       const response = await this.postCompletionWithFile(fields, filePath, fileName);
@@ -935,7 +936,7 @@ async function testFileErrorHandling(this: IntegrationTester): Promise<any> {
         id,
         sortKey: '0',
         query: 'Analyze this file.',
-        stream: 'false',
+        stream: 'true',
         fileurl: 'https://example.com/test.txt' // This should conflict with file upload
       };
       
@@ -988,7 +989,9 @@ async function main(): Promise<void> {
       ? [specificTest]
       : Object.keys(TEST_SCENARIOS).filter(testName => !skipTests.includes(testName));
 
-    for (const testName of testsToRun) {
+    for (let i = 0; i < testsToRun.length; i++) {
+      const testName = testsToRun[i];
+      
       if (!TEST_SCENARIOS[testName]) {
         console.log(`❌ Unknown test: ${testName}`);
         continue;
@@ -1003,6 +1006,12 @@ async function main(): Promise<void> {
         await tester.runTest(testName, TEST_SCENARIOS[testName].test);
       } catch (error) {
         // Error already logged in runTest
+      }
+      
+      // Add delay between tests to prevent backend overload (except for last test)
+      if (i < testsToRun.length - 1) {
+        console.log(`⏸️  Waiting 3 seconds before next test...`);
+        await new Promise(resolve => setTimeout(resolve, 3000));
       }
     }
 

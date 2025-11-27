@@ -1,4 +1,4 @@
-import { S3Client, PutObjectCommand, PutObjectCommandInput, S3ServiceException } from "@aws-sdk/client-s3";
+import { S3Client, PutObjectCommand, PutObjectCommandInput, GetObjectCommand, GetObjectCommandOutput, S3ServiceException } from "@aws-sdk/client-s3";
 import { SFNClient, StartExecutionCommand } from "@aws-sdk/client-sfn";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { Thread } from "openai/resources/beta/threads/threads";
@@ -37,6 +37,92 @@ interface PostCompletionRequest {
 }
 
 import Busboy from "busboy";
+
+// Function to retrieve objects from S3 URLs
+async function getS3Object(s3Url: string): Promise<{ data: Buffer, fileName: string }> {
+  try {
+    // Parse the S3 URL: s3://bucket-name/path/to/object
+    const s3UrlWithoutProtocol = s3Url.substring(5); // Remove 's3://'
+    const firstSlashIndex = s3UrlWithoutProtocol.indexOf('/');
+    
+    if (firstSlashIndex === -1) {
+      throw new Error('Invalid S3 URL format: missing object key');
+    }
+    
+    const bucketName = s3UrlWithoutProtocol.substring(0, firstSlashIndex);
+    const objectKey = s3UrlWithoutProtocol.substring(firstSlashIndex + 1);
+    
+    if (!bucketName || !objectKey) {
+      throw new Error('Invalid S3 URL: missing bucket name or object key');
+    }
+    
+    pt.logger.info({ message: 'Retrieving S3 object', bucketName, objectKey });
+    
+    // Get the object from S3
+    const command = new GetObjectCommand({
+      Bucket: bucketName,
+      Key: objectKey
+    });
+    
+    try {
+      const response = await s3.send(command) as GetObjectCommandOutput;
+      
+      if (!response.Body) {
+        throw new Error('Empty response body from S3');
+      }
+      
+      // Convert the readable stream to a buffer
+      const chunks: Buffer[] = [];
+      const stream = response.Body as Readable;
+      
+      return new Promise((resolve, reject) => {
+        stream.on('data', (chunk) => {
+          chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+        });
+        
+        stream.on('end', () => {
+          const data = Buffer.concat(chunks as readonly Uint8Array[]);
+          const fileName = objectKey.split('/').pop() || 'unknown';
+          resolve({ data, fileName });
+        });
+        
+        stream.on('error', (err) => {
+          pt.logger.error({ message: 'Error reading S3 object stream', error: err });
+          reject(new Error(`Error reading S3 object stream: ${err.message}`));
+        });
+      });
+    } catch (error) {
+      // Handle specific S3 errors
+      if (error instanceof S3ServiceException) {
+        pt.logger.error({
+          message: 'S3 Service Exception',
+          errorName: error.name,
+          errorMessage: error.message,
+          errorCode: error.$metadata?.httpStatusCode,
+          requestId: error.$metadata?.requestId,
+          bucket: bucketName,
+          key: objectKey
+        });
+        
+        // Provide more specific error messages based on error code
+        if (error.name === 'NoSuchKey') {
+          throw new Error(`S3 object not found: s3://${bucketName}/${objectKey}`);
+        } else if (error.name === 'AccessDenied') {
+          throw new Error(`Access denied to S3 object: s3://${bucketName}/${objectKey}`);
+        } else if (error.name === 'NoSuchBucket') {
+          throw new Error(`S3 bucket not found: ${bucketName}`);
+        } else {
+          throw new Error(`S3 error: ${error.message}`);
+        }
+      }
+      throw error;
+    }
+  } catch (error) {
+    // Catch any other errors in the URL parsing or processing
+    pt.logger.error({ message: 'Error processing S3 URL', error, s3Url });
+    throw new Error(`Error processing S3 URL: ${(error as Error).message}`);
+  }
+}
 
 export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) => {
   let key: string | undefined;
@@ -218,15 +304,85 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
   // If fileUrl is provided, fetch the file and upload it to S3
   if (fileUrl && !uploadedFileS3Path) {
     try {
-      pt.logger.info({ message: 'Fetching file from URL', fileUrl });
+      pt.logger.info({ message: 'Processing file from URL', fileUrl });
       
       // Generate a ULID for the file name
       const fileId = ulid();
       const s3Key = `uploads/${fileId}`;
       
-      // Extract filename from URL
-      const urlObj = new URL(fileUrl);
-      const fileName = path.basename(urlObj.pathname);
+      let fileData: Buffer;
+      let fileName: string;
+      
+      // Check if it's an S3 URL
+      if (fileUrl.startsWith('s3://')) {
+        pt.logger.info({ message: 'Detected S3 URL, retrieving directly from S3', fileUrl });
+        
+        try {
+          // Use our S3 retrieval function
+          const s3Object = await getS3Object(fileUrl);
+          fileData = s3Object.data;
+          fileName = s3Object.fileName;
+          
+          pt.logger.info({ message: 'Retrieved file from S3', fileName, fileSize: fileData.length });
+        } catch (error) {
+          pt.logger.error({ message: 'Failed to retrieve file from S3', error, fileUrl });
+          return {
+            statusCode: 400,
+            body: JSON.stringify({
+              message: "Failed to retrieve file from S3",
+              error: (error as Error).message
+            }),
+          };
+        }
+      } else {
+        // Extract filename from URL for HTTP/HTTPS URLs
+        const urlObj = new URL(fileUrl);
+        fileName = path.basename(urlObj.pathname);
+        
+        // Fetch the file using HTTP/HTTPS (existing code)
+        fileData = await new Promise<Buffer>((resolve, reject) => {
+          // We know fileUrl is defined here because of the outer if condition
+          const fileUrlString = fileUrl as string;
+          const protocol = fileUrlString.startsWith('https') ? https : http;
+          
+          protocol.get(fileUrlString, (response) => {
+            if (response.statusCode !== 200) {
+              reject(new Error(`Failed to fetch file: ${response.statusCode}`));
+              return;
+            }
+            
+            // Collect the file data in memory
+            const chunks: Buffer[] = [];
+            let totalLength = 0;
+            
+            response.on('data', (chunk) => {
+              chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+              totalLength += chunk.length;
+            });
+            
+            response.on('end', async () => {
+              try {
+                // Combine all chunks into a single buffer
+                const combinedFileData = Buffer.concat(chunks as readonly Uint8Array[], totalLength);
+                resolve(combinedFileData);
+              } catch (error) {
+                pt.logger.error({ message: 'Error combining file chunks', error });
+                reject(error);
+              }
+            });
+            
+            response.on('error', (error) => {
+              pt.logger.error({ message: 'Error reading response', error });
+              reject(error);
+            });
+          }).on('error', (error) => {
+            pt.logger.error({ message: 'Error fetching file from URL', error });
+            reject(error);
+          });
+        });
+        
+        pt.logger.info({ message: 'Retrieved file from HTTP/HTTPS', fileName, fileSize: fileData.length });
+      }
       
       // Determine content type based on file extension
       const ext = path.extname(fileName).toLowerCase();
@@ -243,69 +399,25 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
         mimeType
       };
       
-      // Fetch the file and upload it to S3
-      await new Promise<void>((resolve, reject) => {
-        // We know fileUrl is defined here because of the outer if condition
-        const fileUrlString = fileUrl as string;
-        const protocol = fileUrlString.startsWith('https') ? https : http;
-        
-        protocol.get(fileUrlString, (response) => {
-          if (response.statusCode !== 200) {
-            reject(new Error(`Failed to fetch file: ${response.statusCode}`));
-            return;
-          }
-          
-          // Collect the file data in memory
-          const chunks: Buffer[] = [];
-          let totalLength = 0;
-          
-          response.on('data', (chunk) => {
-            chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
-            totalLength += chunk.length;
-          });
-          
-          response.on('end', async () => {
-            try {
-              // Combine all chunks into a single buffer
-              const fileData = Buffer.concat(chunks as readonly Uint8Array[], totalLength);
-              
-              // Upload to S3
-              const params: PutObjectCommandInput = {
-                Bucket: S3_BUCKET_NAME,
-                Key: s3Key,
-                Body: fileData,
-                ContentLength: fileData.length
-              };
-              
-              pt.logger.info({
-                message: 'Uploading file to S3',
-                bucket: S3_BUCKET_NAME,
-                key: s3Key,
-                fileSize: fileData.length
-              });
-              
-              await s3.send(new PutObjectCommand(params));
-              
-              pt.logger.info({ message: 'S3 upload completed successfully' });
-              uploadedFileS3Path = `${S3_BUCKET_NAME}/${s3Key}`;
-              resolve();
-            } catch (error) {
-              pt.logger.error({ message: 'Error uploading file to S3', error });
-              reject(error);
-            }
-          });
-          
-          response.on('error', (error) => {
-            pt.logger.error({ message: 'Error reading response', error });
-            reject(error);
-          });
-        }).on('error', (error) => {
-          pt.logger.error({ message: 'Error fetching file from URL', error });
-          reject(error);
-        });
+      // Upload to S3
+      const params: PutObjectCommandInput = {
+        Bucket: S3_BUCKET_NAME,
+        Key: s3Key,
+        Body: fileData,
+        ContentLength: fileData.length
+      };
+      
+      pt.logger.info({
+        message: 'Uploading file to S3',
+        bucket: S3_BUCKET_NAME,
+        key: s3Key,
+        fileSize: fileData.length
       });
       
-      pt.logger.info({ message: 'File fetched from URL and uploaded to S3', s3Path: uploadedFileS3Path });
+      await s3.send(new PutObjectCommand(params));
+      
+      pt.logger.info({ message: 'S3 upload completed successfully' });
+      uploadedFileS3Path = `${S3_BUCKET_NAME}/${s3Key}`;
     } catch (error) {
       pt.logger.error({ message: 'Error processing fileurl', error });
       return {
