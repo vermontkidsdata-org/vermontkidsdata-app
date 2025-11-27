@@ -7,7 +7,6 @@ import { CfnIdentityPool, CfnIdentityPoolRoleAttachment, UserPool, UserPoolClien
 import { AttributeType, BillingMode, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { Effect, FederatedPrincipal, PolicyDocument, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
-import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
 import { Queue } from 'aws-cdk-lib/aws-sqs';
 
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -15,9 +14,8 @@ import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { ApiGateway } from 'aws-cdk-lib/aws-route53-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3'; // For some reason we need this one...
-import { BlockPublicAccess, Bucket, BucketEncryption, EventType } from 'aws-cdk-lib/aws-s3';
+import { BlockPublicAccess, Bucket, BucketEncryption } from 'aws-cdk-lib/aws-s3';
 import { BucketDeployment, Source } from 'aws-cdk-lib/aws-s3-deployment';
-import { SqsDestination } from 'aws-cdk-lib/aws-s3-notifications';
 import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 import { Construct } from 'constructs';
 import { readFileSync, readdirSync } from 'fs';
@@ -209,134 +207,14 @@ export class VermontkidsdataStack extends Stack {
       DB_SECRET_NAME,
     };
 
-    // Upload data function.
-    const uploadFunction = new NodejsFunction(this, 'Upload Data Function', {
-      memorySize: 512,
-      timeout: Duration.seconds(900),
-      runtime,
-      entry: join(__dirname, "../src/uploadData.ts"),
-      handler: 'main',
-      logRetention: RetentionDays.ONE_DAY,
-      environment: {
-        ...commonEnv,
-        S3_BUCKET_NAME: bucketName,
-      },
-      tracing: Tracing.ACTIVE,
-    });
-    bucket.grantRead(uploadFunction);
-    queue.grantSendMessages(uploadFunction);
-    serviceTable.grantReadWriteData(uploadFunction);
-
     const getSecretValueStatement = new PolicyStatement({
       actions: ["secretsmanager:GetSecretValue"],
       resources: ["*"],
     });
 
-    const datasetBackupFunction = new NodejsFunction(this, 'Dataset Backup Function', {
-      memorySize: 1024,
-      timeout: Duration.minutes(15),
-      runtime,
-      handler: 'main',
-      entry: join(__dirname, "../src/datasetBackup.ts"),
-      logRetention: RetentionDays.ONE_DAY,
-      environment: {
-        ...commonEnv,
-        S3_BUCKET_NAME: bucketName,
-      },
-      tracing: Tracing.ACTIVE,
-    });
-    datasetBackupFunction.addToRolePolicy(getSecretValueStatement);
-    datasetBackupFunction.addEventSource(new SqsEventSource(queue, {
-      batchSize: 1,
-    }));
-    serviceTable.grantReadWriteData(datasetBackupFunction);
-    bucket.grantReadWrite(datasetBackupFunction);
-
-    const listDataSetBackupsFunction = new NodejsFunction(this, 'List Dataset Backups Function', {
-      memorySize: 1024,
-      timeout: Duration.minutes(1),
-      runtime,
-      handler: 'main',
-      entry: join(__dirname, "../src/datasetBackupList.ts"),
-      logRetention: RetentionDays.ONE_DAY,
-      environment: {
-        ...commonEnv,
-      },
-      tracing: Tracing.ACTIVE,
-    });
-    serviceTable.grantReadWriteData(listDataSetBackupsFunction);
-
-    const getDataSetBackupFunction = new NodejsFunction(this, 'Get Dataset Backup Function', {
-      memorySize: 1024,
-      timeout: Duration.minutes(15),
-      runtime,
-      handler: 'main',
-      entry: join(__dirname, "../src/datasetBackupGet.ts"),
-      logRetention: RetentionDays.ONE_DAY,
-      environment: {
-        ...commonEnv,
-        S3_BUCKET_NAME: bucketName,
-      },
-      tracing: Tracing.ACTIVE,
-    });
-    serviceTable.grantReadWriteData(getDataSetBackupFunction);
-    bucket.grantReadWrite(getDataSetBackupFunction);
-
-    const dataSetRevertFunction = new NodejsFunction(this, 'Dataset Revert Function', {
-      memorySize: 1024,
-      timeout: Duration.minutes(15),
-      runtime,
-      handler: 'main',
-      entry: join(__dirname, "../src/datasetBackupRevert.ts"),
-      logRetention: RetentionDays.ONE_DAY,
-      environment: {
-        ...commonEnv,
-        S3_BUCKET_NAME: bucketName,
-      },
-      tracing: Tracing.ACTIVE,
-    });
-    serviceTable.grantReadWriteData(dataSetRevertFunction);
-    bucket.grantReadWrite(dataSetRevertFunction);
-    dataSetRevertFunction.addToRolePolicy(getSecretValueStatement);
-
-    const notify = new SqsDestination(uploadQueue);
-    //  LambdaDestination(uploadFunction);
-    notify.bind(this, bucket);
-    // bucket.addObjectCreatedNotification(notify, {
-    //   suffix: 'csv'
-    // });
-    bucket.addEventNotification(EventType.OBJECT_TAGGING_PUT, notify, {
-      suffix: 'csv',
-    });
-    bucket.addEventNotification(EventType.OBJECT_TAGGING_PUT, notify, {
-      suffix: 'txt',
-    });
-    uploadQueue.grantSendMessages(S3_SERVICE_PRINCIPAL);
-    uploadFunction.addEventSource(new SqsEventSource(uploadQueue, {
-      batchSize: 1,
-    }));
-
-    // uploadFunction.grantInvoke(S3_SERVICE_PRINCIPAL);
-
-    // Also shows status of uploads.
-    const uploadStatusFunction = new NodejsFunction(this, 'Upload Status Function', {
-      memorySize: 128,
-      timeout: Duration.seconds(5),
-      runtime,
-      handler: 'handler',
-      entry: join(__dirname, "../src/upload-get-status.ts"),
-      logRetention: RetentionDays.ONE_DAY,
-      environment: {
-        ...commonEnv,
-        S3_BUCKET_NAME: bucketName,
-      },
-      tracing: Tracing.ACTIVE,
-    });
-    serviceTable.grantReadWriteData(uploadStatusFunction);
-
     // The secret where the DB login info is. Grant read access.
     const secret = Secret.fromSecretNameV2(this, 'DB credentials', DB_SECRET_NAME);
-    secret.grantRead(uploadFunction);
+
 
     const apiChartBarFunction = new NodejsFunction(this, 'Bar Chart API Function', {
       memorySize: 1024,
@@ -821,19 +699,7 @@ export class VermontkidsdataStack extends Stack {
     // GET /dataset/years/{dataset}
     rDatasetYearsDataset.addMethod("GET", new LambdaIntegration(getDataSetYearsByDatasetFunction));
 
-    const rDatasetBackups = rDataset.addResource('backups');
-    const rDatasetBackupsDataset = rDatasetBackups.addResource('{dataset}');
-    // GET /dataset/backups/{dataset}
-    rDatasetBackupsDataset.addMethod("GET", new LambdaIntegration(listDataSetBackupsFunction));
-    const rDatasetBackupsDatasetVersion = rDatasetBackupsDataset.addResource('{version}');
-    // GET /dataset/backups/{dataset}/{version}
-    rDatasetBackupsDatasetVersion.addMethod("GET", new LambdaIntegration(getDataSetBackupFunction));
-    // POST /dataset/backups/{dataset}/{version}/revert
-    rDatasetBackupsDatasetVersion.addResource('revert').addMethod("POST", new LambdaIntegration(dataSetRevertFunction), auth);
-
-    const rUpload = api.root.addResource("upload");
-    const rUploadById = rUpload.addResource("{uploadId}");
-    rUploadById.addMethod("GET", new LambdaIntegration(uploadStatusFunction));
+    // Dataset backup and upload endpoints are now handled by DatasetConstruct
 
     const rChart = api.root.addResource("chart");
     const rChartBar = rChart.addResource("bar");

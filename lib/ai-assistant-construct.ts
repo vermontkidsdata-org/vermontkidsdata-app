@@ -417,6 +417,34 @@ export class AIAssistantConstruct extends NestedStack {
       role,
     }));
 
+    // GET /ai/assistant/{id}/export - Export assistant definition
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'assistant/{id}/export',
+      entry: 'ai-assistant-download.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
+    // POST /ai/assistant/import - Import assistant definition
+    (({ fn }) => {
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'POST',
+      path: 'assistant/import',
+      entry: 'ai-assistant-upload.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
     // POST /ai/mcp - MCP server endpoint for tool calls
     (({ fn }) => {
       aiSecret.grantRead(fn);

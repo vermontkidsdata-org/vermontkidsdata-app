@@ -90,6 +90,21 @@ const TEST_SCENARIOS: Record<string, TestScenario> = {
     name: 'S3 URL Processing',
     description: 'Test AI completion with S3 URL scheme (s3://bucket/key)',
     test: testS3UrlProcessing
+  },
+  'assistant-export': {
+    name: 'Assistant Export',
+    description: 'Test exporting assistant definition',
+    test: testAssistantExport
+  },
+  'assistant-import': {
+    name: 'Assistant Import',
+    description: 'Test importing assistant definition',
+    test: testAssistantImport
+  },
+  'assistant-export-import-workflow': {
+    name: 'Assistant Export-Import Workflow',
+    description: 'Test complete export from one assistant and import as new assistant',
+    test: testAssistantExportImportWorkflow
   }
 };
 
@@ -1098,6 +1113,193 @@ async function testFileErrorHandling(this: IntegrationTester): Promise<any> {
   }
 
   return results;
+}
+
+// Assistant Export/Import Test Functions
+async function testAssistantExport(this: IntegrationTester): Promise<any> {
+  console.log(`  Getting list of assistants...`);
+  
+  // First get list of assistants to find one to export
+  const assistantsResponse = await this.makeRequest('GET', `/ai/assistant?key=${this.config.apiKey}`);
+  
+  if (assistantsResponse.statusCode !== 200) {
+    throw new Error(`Failed to get assistants: ${assistantsResponse.statusCode} ${JSON.stringify(assistantsResponse.body)}`);
+  }
+
+  const assistants = assistantsResponse.body.assistants;
+  if (!assistants || assistants.length === 0) {
+    throw new Error('No assistants found to export');
+  }
+
+  // Use the first active assistant
+  const assistant = assistants.find((a: any) => a.active) || assistants[0];
+  console.log(`  Exporting assistant: ${assistant.id} (${assistant.name})`);
+
+  // Export the assistant
+  const exportResponse = await this.makeRequest('GET', `/ai/assistant/${assistant.id}/export?key=${this.config.apiKey}`);
+  
+  if (exportResponse.statusCode !== 200) {
+    throw new Error(`Export failed: ${exportResponse.statusCode} ${JSON.stringify(exportResponse.body)}`);
+  }
+
+  const exportData = exportResponse.body;
+  
+  // Validate export structure
+  if (!exportData.assistant || !exportData.metadata) {
+    throw new Error('Invalid export data structure');
+  }
+
+  if (exportData.assistant.id !== assistant.id) {
+    throw new Error('Exported assistant ID mismatch');
+  }
+
+  console.log(`  ✓ Export successful: ${exportData.functions.length} functions, ${exportData.documents.length} documents`);
+
+  return {
+    assistantId: assistant.id,
+    assistantName: assistant.name,
+    functionsCount: exportData.functions.length,
+    documentsCount: exportData.documents.length,
+    exportedFrom: exportData.metadata.exportedFrom,
+    exportSize: JSON.stringify(exportData).length
+  };
+}
+
+async function testAssistantImport(this: IntegrationTester): Promise<any> {
+  console.log(`  Testing assistant import with dry run...`);
+  
+  // First get an assistant to export
+  const assistantsResponse = await this.makeRequest('GET', `/ai/assistant?key=${this.config.apiKey}`);
+  
+  if (assistantsResponse.statusCode !== 200) {
+    throw new Error(`Failed to get assistants: ${assistantsResponse.statusCode}`);
+  }
+
+  const assistants = assistantsResponse.body.assistants;
+  if (!assistants || assistants.length === 0) {
+    throw new Error('No assistants found to use for import test');
+  }
+
+  const sourceAssistant = assistants.find((a: any) => a.active) || assistants[0];
+  
+  // Export the assistant
+  const exportResponse = await this.makeRequest('GET', `/ai/assistant/${sourceAssistant.id}/export?key=${this.config.apiKey}`);
+  
+  if (exportResponse.statusCode !== 200) {
+    throw new Error(`Export failed: ${exportResponse.statusCode}`);
+  }
+
+  const exportData = exportResponse.body;
+  
+  // Test dry run import with a different type name
+  const testType = `test-import-${Date.now()}`;
+  const importRequest = {
+    exportData,
+    options: {
+      mode: 'create',
+      dryRun: true,
+      targetType: testType
+    }
+  };
+
+  console.log(`  Performing dry run import with type: ${testType}`);
+  const dryRunResponse = await this.makeRequest('POST', `/ai/assistant/import?key=${this.config.apiKey}`, importRequest);
+  
+  if (dryRunResponse.statusCode !== 200) {
+    throw new Error(`Dry run import failed: ${dryRunResponse.statusCode} ${JSON.stringify(dryRunResponse.body)}`);
+  }
+
+  const dryRunResult = dryRunResponse.body;
+  
+  if (dryRunResult.operation !== 'create') {
+    throw new Error('Dry run operation mismatch');
+  }
+
+  console.log(`  ✓ Dry run successful: ${dryRunResult.changes.functionsToImport} functions, ${dryRunResult.changes.documentsToImport} documents`);
+
+  return {
+    sourceAssistantId: sourceAssistant.id,
+    targetType: testType,
+    dryRunResult: dryRunResult.changes,
+    operation: dryRunResult.operation
+  };
+}
+
+async function testAssistantExportImportWorkflow(this: IntegrationTester): Promise<any> {
+  console.log(`  Testing complete export-import workflow...`);
+  
+  // Step 1: Get source assistant
+  const assistantsResponse = await this.makeRequest('GET', `/ai/assistant?key=${this.config.apiKey}`);
+  
+  if (assistantsResponse.statusCode !== 200) {
+    throw new Error(`Failed to get assistants: ${assistantsResponse.statusCode}`);
+  }
+
+  const assistants = assistantsResponse.body.assistants;
+  if (!assistants || assistants.length === 0) {
+    throw new Error('No assistants found for workflow test');
+  }
+
+  const sourceAssistant = assistants.find((a: any) => a.active) || assistants[0];
+  console.log(`  Source assistant: ${sourceAssistant.id} (${sourceAssistant.name})`);
+
+  // Step 2: Export
+  const exportResponse = await this.makeRequest('GET', `/ai/assistant/${sourceAssistant.id}/export?key=${this.config.apiKey}`);
+  
+  if (exportResponse.statusCode !== 200) {
+    throw new Error(`Export failed: ${exportResponse.statusCode}`);
+  }
+
+  const exportData = exportResponse.body;
+  console.log(`  ✓ Export completed: ${exportData.functions.length} functions, ${exportData.documents.length} documents`);
+
+  // Step 3: Import as new assistant
+  const newType = `workflow-test-${Date.now()}`;
+  const importRequest = {
+    exportData,
+    options: {
+      mode: 'create',
+      dryRun: false,
+      targetType: newType
+    }
+  };
+
+  console.log(`  Importing as new assistant with type: ${newType}`);
+  const importResponse = await this.makeRequest('POST', `/ai/assistant/import?key=${this.config.apiKey}`, importRequest);
+  
+  if (importResponse.statusCode !== 201) {
+    throw new Error(`Import failed: ${importResponse.statusCode} ${JSON.stringify(importResponse.body)}`);
+  }
+
+  const importResult = importResponse.body;
+  const newAssistantId = importResult.assistant.id;
+  
+  console.log(`  ✓ Import completed: new assistant ID ${newAssistantId}`);
+
+  // Step 4: Verify the imported assistant
+  const verifyResponse = await this.makeRequest('GET', `/ai/assistant/${newAssistantId}?key=${this.config.apiKey}`);
+  
+  if (verifyResponse.statusCode !== 200) {
+    throw new Error(`Failed to verify imported assistant: ${verifyResponse.statusCode}`);
+  }
+
+  const importedAssistant = verifyResponse.body.assistant;
+  
+  if (importedAssistant.type !== newType) {
+    throw new Error(`Type mismatch: expected ${newType}, got ${importedAssistant.type}`);
+  }
+
+  console.log(`  ✓ Verification successful: assistant ${newAssistantId} created with type ${newType}`);
+
+  return {
+    sourceAssistantId: sourceAssistant.id,
+    sourceAssistantName: sourceAssistant.name,
+    newAssistantId: newAssistantId,
+    newAssistantType: newType,
+    functionsImported: importResult.assistant.functionsCount,
+    documentsImported: importResult.assistant.documentsCount,
+    exportSize: JSON.stringify(exportData).length
+  };
 }
 
 // Main execution
