@@ -82,7 +82,13 @@ async function getS3Object(s3Url: string): Promise<{ data: Buffer, fileName: str
         
         stream.on('end', () => {
           const data = Buffer.concat(chunks as readonly Uint8Array[]);
-          const fileName = objectKey.split('/').pop() || 'unknown';
+          
+          // Try to get original filename from metadata, fallback to object key
+          let fileName = objectKey.split('/').pop() || 'unknown';
+          if (response.Metadata && response.Metadata['original-filename']) {
+            fileName = response.Metadata['original-filename'];
+          }
+          
           resolve({ data, fileName });
         });
         
@@ -195,11 +201,14 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
             });
           });
           
-          // Use absolute minimal parameters for S3 upload - just bucket, key, and body
+          // Store original filename as metadata for later retrieval
           const params: PutObjectCommandInput = {
             Bucket: S3_BUCKET_NAME,
             Key: s3Key,
-            Body: fileData
+            Body: fileData,
+            Metadata: {
+              'original-filename': _uploadedFileMetadata.filename || 'unknown'
+            }
           };
           
           // Skip ContentType for now to eliminate potential header issues
@@ -399,12 +408,15 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
         mimeType
       };
       
-      // Upload to S3
+      // Upload to S3 with original filename metadata
       const params: PutObjectCommandInput = {
         Bucket: S3_BUCKET_NAME,
         Key: s3Key,
         Body: fileData,
-        ContentLength: fileData.length
+        ContentLength: fileData.length,
+        Metadata: {
+          'original-filename': fileName
+        }
       };
       
       pt.logger.info({

@@ -1008,7 +1008,14 @@ async function getUploadFile(props: {
       const { TagSet } = await s3.send(new GetObjectTaggingCommand(params));
       console.log('TAGS:', TagSet);
       if (TagSet != null) {
-        TagSet.forEach(tag => tags[tag.Key?.toLowerCase() ?? UNKNOWN] = tag.Value?.toLowerCase() ?? UNKNOWN);
+        TagSet.forEach(tag => {
+          const tagKey = tag.Key?.toLowerCase() ?? UNKNOWN;
+          // Ignore the 'ai-processed' tag - this tag is used to mark files that have been processed by AI
+          // but should not affect the upload processing logic
+          if (tagKey !== 'ai-processed') {
+            tags[tagKey] = tag.Value?.toLowerCase() ?? UNKNOWN;
+          }
+        });
       }
 
       // Look up the type tag as an uploadType prefix; only get the content if we're supposed to
