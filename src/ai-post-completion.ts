@@ -99,7 +99,7 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
             });
             
             file.on('end', () => {
-              const buffer = Buffer.concat(chunks);
+              const buffer = Buffer.concat(chunks as readonly Uint8Array[]);
               resolve(buffer);
             });
             
@@ -267,7 +267,7 @@ export const handler = prepareAPIGateway(async (event: APIGatewayProxyEventV2) =
           response.on('end', async () => {
             try {
               // Combine all chunks into a single buffer
-              const fileData = Buffer.concat(chunks, totalLength);
+              const fileData = Buffer.concat(chunks as readonly Uint8Array[], totalLength);
               
               // Upload to S3
               const params: PutObjectCommandInput = {
