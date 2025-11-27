@@ -452,7 +452,7 @@ async function testBasicCompletion(this: IntegrationTester): Promise<any> {
 
 async function testFileUploadCompletion(this: IntegrationTester): Promise<any> {
   const id = this.generateTestId();
-  const filePath = path.join(__dirname, '..', 'do_not_commit', 'The_Vermont_Early_Childhood_Action_Plan_-_November_2020.md');
+  const filePath = path.join(__dirname, '..', 'files', 'The_Vermont_Early_Childhood_Action_Plan_-_November_2020.md');
   const fileName = 'The_Vermont_Early_Childhood_Action_Plan_-_November_2020.md';
   
   // Check if file exists
