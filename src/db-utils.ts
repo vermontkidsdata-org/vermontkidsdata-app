@@ -513,6 +513,8 @@ export const Assistant = new Entity({
     name: { type: 'string', required: true },
     definition: { type: 'map', required: true },
     active: { type: 'boolean', required: true, default: () => true },
+    temporary: { type: 'boolean', required: false, default: () => false }, // Flag for temporary assistants
+    TTL: { type: 'number', required: false }, // TTL for temporary assistants (6 hours from creation)
   },
   table: serviceTable,
 });
@@ -805,8 +807,8 @@ export async function getAllDocuments(props: { includeInactive?: boolean}): Prom
   return documents;
 }
 
-export async function getAllAssistants(props: { sandbox?: string, includeInactive?: boolean, type?: string }): Promise<AssistantData[]> {
-  const { sandbox, includeInactive, type } = props;
+export async function getAllAssistants(props: { sandbox?: string, includeInactive?: boolean, type?: string, includeTemporary?: boolean }): Promise<AssistantData[]> {
+  const { sandbox, includeInactive, type, includeTemporary } = props;
 
   const assistants: AssistantData[] = [];
 
@@ -815,8 +817,10 @@ export async function getAllAssistants(props: { sandbox?: string, includeInactiv
       index: 'GSI1',
     }),
     async (assistant) => {
-      if ((!sandbox || assistant.sandbox === sandbox) && (includeInactive || assistant.active) &&
-        (!type || assistant.type === type)) {
+      if ((!sandbox || assistant.sandbox === sandbox) &&
+          (includeInactive || assistant.active) &&
+          (!type || assistant.type === type) &&
+          (includeTemporary || !assistant.temporary)) {
         assistants.push(assistant);
       }
     },

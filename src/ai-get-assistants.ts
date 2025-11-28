@@ -14,12 +14,13 @@ export async function lambdaHandler(
     return ret;
   }
 
-  // See if we should include inactive ones, or non-default types
+  // See if we should include inactive ones, temporary ones, or non-default types
   const includeInactive = event.queryStringParameters?.includeInactive === 'true';
+  const includeTemporary = event.queryStringParameters?.includeTemporary === 'true';
   const type = event.queryStringParameters?.type;
 
   // Get all the defined and active (or all, if requested) assistants
-  const assistants = (await getAllAssistants({ includeInactive, type })).map(ass => ({
+  const assistants = (await getAllAssistants({ includeInactive, includeTemporary, type })).map(ass => ({
     ...ass,
     entity: undefined
   }));

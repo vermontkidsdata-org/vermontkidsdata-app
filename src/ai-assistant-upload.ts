@@ -97,6 +97,10 @@ export async function lambdaHandler(
       targetAssistantId = existingAssistant.id;
     }
 
+    // Handle temporary flag and TTL for imported assistants
+    const temporary = (sourceAssistant as any).temporary === true;
+    const ttl = temporary ? Math.floor(Date.now() / 1000) + (6 * 60 * 60) : undefined; // 6 hours from now
+
     // Prepare the new assistant data
     const newAssistant = {
       id: targetAssistantId,
@@ -109,6 +113,8 @@ export async function lambdaHandler(
       },
       active: sourceAssistant.active,
       ...(sourceAssistant.sandbox && { sandbox: sourceAssistant.sandbox }),
+      ...(temporary && { temporary: true }),
+      ...(ttl && { TTL: ttl }),
     };
 
     if (dryRun) {

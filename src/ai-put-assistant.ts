@@ -2,7 +2,6 @@ import { APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2 } fro
 import { Assistant, getAssistantKey } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 import { validateAPIAuthorization } from "./ai-utils";
-import { HttpStatusCode } from "axios";
 import { removeVkdProperties } from "./assistant-def";
 
 const SERVICE = 'ai-put-assistant';
@@ -72,6 +71,10 @@ export async function lambdaHandler(
       }
     }
 
+    // Handle temporary flag and TTL updates
+    const temporary = requestBody.temporary;
+    const ttl = temporary === true ? Math.floor(Date.now() / 1000) + (6 * 60 * 60) : undefined; // 6 hours from now
+
     // Update the assistant record
     const updatedAssistant = {
       ...assItem,
@@ -82,7 +85,12 @@ export async function lambdaHandler(
           ...updatedDefinition,
           modified: new Date().toISOString()
         }
-      })
+      }),
+      // Handle temporary flag updates
+      ...(temporary !== undefined && { temporary }),
+      // Set TTL if making temporary, or remove it if making non-temporary
+      ...(temporary === true && ttl && { TTL: ttl }),
+      ...(temporary === false && { TTL: undefined }),
     };
 
     pt.logger.info({ message: 'Updating assistant', assistantId, updatedAssistant });

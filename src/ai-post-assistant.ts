@@ -1,5 +1,5 @@
 import { APIGatewayProxyEventV2WithRequestContext, APIGatewayProxyResultV2 } from "aws-lambda";
-import { Assistant, getAssistantKey, getAllAssistants } from "./db-utils";
+import { Assistant, getAllAssistants } from "./db-utils";
 import { makePowerTools, prepareAPIGateway } from "./lambda-utils";
 import { validateAPIAuthorization } from "./ai-utils";
 import { removeVkdProperties } from "./assistant-def";
@@ -68,6 +68,10 @@ export async function lambdaHandler(
     // Generate a new assistant ID
     const assistantId = ulid().toLowerCase();
 
+    // Handle temporary flag and TTL
+    const temporary = requestBody.temporary === true;
+    const ttl = temporary ? Math.floor(Date.now() / 1000) + (6 * 60 * 60) : undefined; // 6 hours from now
+
     // Create the assistant record
     const newAssistant = {
       id: assistantId,
@@ -79,6 +83,8 @@ export async function lambdaHandler(
       },
       active: true,
       ...(requestBody.sandbox && { sandbox: requestBody.sandbox }),
+      ...(temporary && { temporary: true }),
+      ...(ttl && { TTL: ttl }),
     };
 
     pt.logger.info({ message: 'Creating new assistant', assistantId, newAssistant });

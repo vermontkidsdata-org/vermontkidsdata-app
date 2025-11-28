@@ -1253,10 +1253,20 @@ async function testAssistantExportImportWorkflow(this: IntegrationTester): Promi
   const exportData = exportResponse.body;
   console.log(`  ✓ Export completed: ${exportData.functions.length} functions, ${exportData.documents.length} documents`);
 
-  // Step 3: Import as new assistant
+  // Step 3: Import as new assistant with temporary flag
   const newType = `workflow-test-${Date.now()}`;
+  
+  // Modify the exported assistant to be temporary for testing
+  const modifiedExportData = {
+    ...exportData,
+    assistant: {
+      ...exportData.assistant,
+      temporary: true // Set the temporary flag for testing
+    }
+  };
+  
   const importRequest = {
-    exportData,
+    exportData: modifiedExportData,
     options: {
       mode: 'create',
       dryRun: false,
