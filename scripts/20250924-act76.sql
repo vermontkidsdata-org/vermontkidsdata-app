@@ -1,3 +1,24 @@
+DELETE FROM `queries` WHERE `name` like 'ccfap_families%';
+DELETE FROM `queries` WHERE `name` like 'act76%';
+delete from `upload_types` where `type` like 'act76:%';
+
+-- Upload types for Act76 child data tables
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_race','data_act76_child_race','',0,'year,month,geo_type,geography,race',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_age','data_act76_child_age','',0,'year,month,geo_type,geography,age',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_citizenship','data_act76_child_citizenship','',0,'year,month,geo_type,geography,citizenship',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_ethnicity','data_act76_child_ethnicity','',0,'year,month,geo_type,geography,ethnicity',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_gender','data_act76_child_gender','',0,'year,month,geo_type,geography,gender',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_total','data_act76_child_total','',0,'year,month,geo_type,geography',NULL,NULL,NULL,NULL);
+
+-- Upload types for Act76 family data tables
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:family_pct_of_fpl','data_act76_family_pct_of_fpl','',0,'year,month,geo_type,geography,pct_of_fpl',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:family_service_need','data_act76_family_service_need','',0,'year,month,geo_type,geography,service_need',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:family_total','data_act76_family_total','',0,'year,month,geo_type,geography',NULL,NULL,NULL,NULL);
+
+-- Upload types for Act76 child total data by geography type (filtered)
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_total_county','data_act76_child_total','SELECT * FROM data_act76_child_total WHERE geo_type = "county"',0,'year,month,geo_type,geography',NULL,NULL,NULL,NULL);
+INSERT INTO `upload_types` (`type`,`table`,`download_query`,`read_only`,`index_columns`,`column_map`,`name`,`last_upload`,`filters`) VALUES ('act76:child_total_ahsd','data_act76_child_total','SELECT * FROM data_act76_child_total WHERE geo_type = "AHS district"',0,'year,month,geo_type,geography',NULL,NULL,NULL,NULL);
+
 INSERT INTO `queries` (`name`,`sqlText`,`columnMap`,`metadata`,`uploadType`,`filters`) 
 VALUES (
   'act76_child_race:bar:unsuppressed',
@@ -94,8 +115,8 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  CONCAT(race, " (", DATE_FORMAT(month_year, "%b %Y"), ")") as cat,
-  SUM(`value_suppressed`) as value
+  `race` as cat,
+  `value_suppressed` as value
 FROM data_act76_child_race, latest_date
 WHERE
   geo_type = CASE
@@ -105,7 +126,10 @@ WHERE
                            "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@county_filter = "-- All --" OR `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  AND (
+    (@county_filter = "-- All --" AND `geography` = "Vermont")
+    OR (@county_filter != "-- All --" AND `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  )
   AND (
       (@month_filter = "-- All --" AND MONTH(`month_year`) = latest_date.latest_month)
       OR MONTH(`month_year`) = @month_filter
@@ -116,15 +140,12 @@ WHERE
   )
   AND (@race_filter = "-- All --" OR `race` COLLATE utf8mb4_unicode_ci = @race_filter)
   AND `race` != "total"
-GROUP BY
-  CASE WHEN @county_filter = "-- All --" THEN `race` ELSE `geography` END,
-  CASE WHEN @county_filter = "-- All --" THEN 1 ELSE `race` END
 ORDER BY
-  CASE WHEN `race` = "total" THEN 1 ELSE 0 END,
-  value DESC',
+  `race`',
   NULL,
   '{
     "yAxis": {"type": "number"},
+    "xAxis": {"type": "categorical"},
     "filters": [
       {"key": "race_filter", "title": "Race", "ifSelected": [{"disable": ["month_filter", "year_filter"] }, {"query": "act76_child_race:line" }]},
       {"key": "county_filter", "title": "Geography"},
@@ -359,7 +380,10 @@ VALUES (
 )
 SELECT
   CONCAT(MONTHNAME(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')), '' '', year) as cat,
-  pct_of_fpl as label,
+  CASE
+    WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), ''%'')
+    ELSE pct_of_fpl
+  END as label,
   SUM(value_suppressed) as value
 FROM data_act76_family_pct_of_fpl
 CROSS JOIN last_18_months
@@ -1602,7 +1626,11 @@ VALUES (
 SELECT
   CONCAT(MONTHNAME(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')), '' '', year) as cat,
   CASE
-    WHEN @pct_of_fpl_filter != "-- All --" THEN pct_of_fpl
+    WHEN @pct_of_fpl_filter != "-- All --" THEN
+      CASE
+        WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), ''%'')
+        ELSE pct_of_fpl
+      END
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Total Families"
   END as label,
@@ -1625,7 +1653,11 @@ WHERE
 GROUP BY
   year, month,
   CASE
-    WHEN @pct_of_fpl_filter != "-- All --" THEN pct_of_fpl
+    WHEN @pct_of_fpl_filter != "-- All --" THEN
+      CASE
+        WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), ''%'')
+        ELSE pct_of_fpl
+      END
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Total Families"
   END
@@ -1660,31 +1692,64 @@ INSERT INTO `queries` (`name`, `sqlText`, `metadata`, `uploadType`, `filters`)
 VALUES (
   'act76_ccfap_family_pct_of_fpl:column',
   'WITH latest_date AS (
-    SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date
+    SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date,
+           MONTH(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''))) as latest_month,
+           YEAR(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''))) as latest_year
     FROM data_act76_family_pct_of_fpl
-    WHERE geo_type = "county"
+    WHERE geo_type = CASE
+      WHEN @geography_filter = "-- All --" THEN "county"
+      WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
+                                 "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
+                                 "Windham", "Windsor") THEN "county"
+      ELSE "AHS district"
+    END
   )
   SELECT
     CASE
-      WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(CAST(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100 AS UNSIGNED), ''%'')
-      ELSE pct_of_fpl
+      WHEN @geography_filter = "-- All --" THEN "Vermont"
+      ELSE @geography_filter
     END as cat,
+    CASE
+      WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(CAST(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100 AS UNSIGNED), ''% ('', MONTHNAME(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')), '' '', year, '')'')
+      ELSE CONCAT(pct_of_fpl, '' ('', MONTHNAME(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')), '' '', year, '')'')
+    END as label,
     SUM(value_suppressed) as value
   FROM data_act76_family_pct_of_fpl
   CROSS JOIN latest_date
   WHERE
-    STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') = latest_date.max_date
+    geo_type = CASE
+      WHEN @geography_filter = "-- All --" THEN "county"
+      WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
+                                 "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
+                                 "Windham", "Windsor") THEN "county"
+      ELSE "AHS district"
+    END
+    AND (
+        (@month_filter = "-- All --" AND month = latest_date.latest_month)
+        OR month = @month_filter
+    )
+    AND (
+        (@year_filter = "-- All --" AND year = latest_date.latest_year)
+        OR year = @year_filter
+    )
     AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
-    AND geography != "Vermont"  -- Exclude Vermont total to avoid double counting
+    AND (@geography_filter = "-- All --" OR geography != "Vermont")  -- Exclude Vermont total when not aggregating
     AND pct_of_fpl != "total"  -- Exclude total category
-  GROUP BY pct_of_fpl
+  GROUP BY
+    CASE
+      WHEN @geography_filter = "-- All --" THEN "Vermont"
+      ELSE @geography_filter
+    END,
+    pct_of_fpl
   ORDER BY CAST(pct_of_fpl AS DECIMAL(10,2))',
   '{
     "yAxis": {"type": "number"},
     "title": "Families Receiving CCFAP by Percent of FPL",
-    "subtitle": "Most Recent Data by Geography",
+    "subtitle": "Data by Geography, Month and Year",
     "filters": [
-      {"key": "geography_filter", "title": "Geography"}
+      {"key": "geography_filter", "title": "Geography"},
+      {"key": "month_filter", "title": "Month"},
+      {"key": "year_filter", "title": "Year"}
     ],
     "chartTypes": {
       "default": "column",
@@ -1695,7 +1760,9 @@ VALUES (
   '{
     "table": "data_act76_family_pct_of_fpl",
     "filters": {
-      "geography_filter": {"column": "geography"}
+      "geography_filter": {"column": "geography"},
+      "month_filter": {"column": "month", "sort": "number"},
+      "year_filter": {"column": "year", "sort": "number"}
     }
   }'
 );
@@ -1755,29 +1822,43 @@ VALUES (
   SELECT
     MAX(month_year) as max_date
   FROM data_act76_child_citizenship
-  WHERE geo_type = "county"
+  WHERE geo_type = CASE
+    WHEN @geography_filter = "-- All --" THEN "county"
+    WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
+                               "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
+                               "Windham", "Windsor") THEN "county"
+    ELSE "AHS district"
+  END
 )
 SELECT
   CONCAT(MONTHNAME(month_year), '' '', YEAR(month_year)) as cat,
   `citizenship` as label,
-  SUM(`value_suppressed`) as value
+  `value_suppressed` as value
 FROM data_act76_child_citizenship
 CROSS JOIN last_18_months
 WHERE
-  geo_type = "county"
-  AND (@citizenship_filter = "-- All --" OR `citizenship` COLLATE utf8mb4_unicode_ci = @citizenship_filter)
+  geo_type = CASE
+    WHEN @geography_filter = "-- All --" THEN "county"
+    WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
+                               "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
+                               "Windham", "Windsor") THEN "county"
+    ELSE "AHS district"
+  END
+  AND (
+    (@geography_filter = "-- All --" AND geography = "Vermont")
+    OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  )
+  AND `citizenship` = "Qualified Immigrant"
   AND month_year >= DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
-GROUP BY
-  month_year, `citizenship`
 ORDER BY
   month_year, `citizenship`',
   NULL,
   '{
     "yAxis": {"type": "number"},
     "title": "Children Receiving CCFAP by Citizenship Over Time",
-    "subtitle": "Count of children statewide over time for the last 18 months by citizenship",
+    "subtitle": "Count of qualified immigrant children over time for the last 18 months",
     "filters": [
-      {"key": "citizenship_filter", "title": "Citizenship"}
+      {"key": "geography_filter", "title": "Geography"}
     ],
     "chartTypes": {
       "default": "line",
@@ -1788,7 +1869,7 @@ ORDER BY
   '{
     "table": "data_act76_child_citizenship",
     "filters": {
-      "citizenship_filter": {"column": "citizenship"}
+      "geography_filter": {"column": "geography"}
     }
   }'
 );
@@ -1815,8 +1896,8 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  CONCAT(ethnicity, " (", DATE_FORMAT(month_year, "%b %Y"), ")") as cat,
-  SUM(`value_suppressed`) as value
+  `ethnicity` as cat,
+  `value_suppressed` as value
 FROM data_act76_child_ethnicity, latest_date
 WHERE
   geo_type = CASE
@@ -1826,7 +1907,10 @@ WHERE
                            "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@county_filter = "-- All --" OR `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  AND (
+    (@county_filter = "-- All --" AND `geography` = "Vermont")
+    OR (@county_filter != "-- All --" AND `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  )
   AND (
       (@month_filter = "-- All --" AND MONTH(`month_year`) = latest_date.latest_month)
       OR MONTH(`month_year`) = @month_filter
@@ -1838,14 +1922,12 @@ WHERE
   AND (@ethnicity_filter = "-- All --" OR `ethnicity` COLLATE utf8mb4_unicode_ci = @ethnicity_filter)
   AND `ethnicity` != "total"
   AND `ethnicity` != "Native American"
-GROUP BY
-  CASE WHEN @county_filter = "-- All --" THEN `ethnicity` ELSE `geography` END,
-  CASE WHEN @county_filter = "-- All --" THEN 1 ELSE `ethnicity` END
 ORDER BY
-  value DESC',
+  `ethnicity`',
   NULL,
   '{
     "yAxis": {"type": "number"},
+    "xAxis": {"type": "categorical"},
     "filters": [
       {"key": "ethnicity_filter", "title": "Ethnicity", "ifSelected": [{"disable": ["month_filter", "year_filter"] }, {"query": "act76_child_ethnicity_ccfap:line" }]},
       {"key": "county_filter", "title": "Geography"},
@@ -1938,8 +2020,8 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  CONCAT(age, " (", DATE_FORMAT(month_year, "%b %Y"), ")") as cat,
-  SUM(`value_suppressed`) as value
+  `age` as cat,
+  `value_suppressed` as value
 FROM data_act76_child_age, latest_date
 WHERE
   geo_type = CASE
@@ -1949,7 +2031,10 @@ WHERE
                            "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@county_filter = "-- All --" OR `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  AND (
+    (@county_filter = "-- All --" AND `geography` = "Vermont")
+    OR (@county_filter != "-- All --" AND `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  )
   AND (
       (@month_filter = "-- All --" AND MONTH(`month_year`) = latest_date.latest_month)
       OR MONTH(`month_year`) = @month_filter
@@ -1960,14 +2045,18 @@ WHERE
   )
   AND (@age_filter = "-- All --" OR `age` COLLATE utf8mb4_unicode_ci = @age_filter)
   AND `age` != "total"
-GROUP BY
-  CASE WHEN @county_filter = "-- All --" THEN `age` ELSE `geography` END,
-  CASE WHEN @county_filter = "-- All --" THEN 1 ELSE `age` END
 ORDER BY
-  value DESC',
+  CASE
+    WHEN `age` = "Infant" THEN 1
+    WHEN `age` = "Toddler" THEN 2
+    WHEN `age` = "Preschool" THEN 3
+    WHEN `age` = "School" THEN 4
+    ELSE 5
+  END',
   NULL,
   '{
     "yAxis": {"type": "number"},
+    "xAxis": {"type": "categorical"},
     "filters": [
       {"key": "age_filter", "title": "Age", "ifSelected": [{"disable": ["month_filter", "year_filter"] }, {"query": "act76_child_age_ccfap:line" }]},
       {"key": "county_filter", "title": "Geography"},
@@ -2105,15 +2194,16 @@ VALUES (
     WHEN @county_filter = "-- All --" THEN "Vermont Total"
     ELSE `geography`
   END as label,
-  SUM(`total`) as value
+  `total` as value
 FROM data_act76_child_total
 WHERE
-  (geo_type = "county" OR geo_type = "AHS district")
-  AND geography != "Vermont"
-  AND (@county_filter = "-- All --" OR `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
-GROUP BY
-  month_year,
-  CASE WHEN @county_filter = "-- All --" THEN "Vermont Total" ELSE `geography` END
+  CASE
+    WHEN @county_filter = "-- All --" THEN (geo_type = "county" AND geography = "Vermont")
+    WHEN @county_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
+                           "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
+                           "Windham", "Windsor") THEN (geo_type = "county" AND geography COLLATE utf8mb4_unicode_ci = @county_filter)
+    ELSE (geo_type = "AHS district" AND geography COLLATE utf8mb4_unicode_ci = @county_filter)
+  END
 ORDER BY
   month_year, `geography`',
   NULL,
@@ -2130,7 +2220,7 @@ ORDER BY
   }',
   'act76:child_total',
   '{
-    "table": "(SELECT * FROM data_act76_child_total WHERE (geo_type = \\\"county\\\" OR geo_type = \\\"AHS district\\\") AND geography != \\\"Vermont\\\") filtered_total",
+    "table": "data_act76_child_total",
     "filters": {
       "county_filter": {"column": "geography"}
     }
@@ -2151,8 +2241,8 @@ VALUES (
 )
 SELECT
   `geography` as label,
-  CONCAT("Total (", DATE_FORMAT(month_year, "%b %Y"), ")") as cat,
-  SUM(`total`) as value
+  "Children Receiving CCFAP" as cat,
+  `total` as value
 FROM data_act76_child_total, latest_date
 WHERE
   geo_type = "county"
@@ -2166,13 +2256,12 @@ WHERE
       (@year_filter = "-- All --" AND YEAR(`month_year`) = latest_date.latest_year)
       OR YEAR(`month_year`) = @year_filter
   )
-GROUP BY
-  `geography`
 ORDER BY
-  value DESC',
+  `geography`',
   NULL,
   '{
     "yAxis": {"type": "number"},
+    "xAxis": {"type": "categorical"},
     "title": "Children Receiving CCFAP by County",
     "filters": [
       {"key": "county_filter", "title": "County", "ifSelected": [{"disable": ["month_filter", "year_filter"] }, {"query": "act76_child_ccfap_county:line" }]},
@@ -2186,7 +2275,7 @@ ORDER BY
   }',
   'act76:child_total_county',
   '{
-    "table": "(SELECT * FROM data_act76_child_total WHERE geo_type = \\\"county\\\" AND geography != \\\"Vermont\\\") filtered_total",
+    "table": "data_act76_child_total",
     "filters": {
       "county_filter": {"column": "geography"},
       "month_filter": {"column": "month", "sort": "number"},
@@ -2250,8 +2339,8 @@ VALUES (
 )
 SELECT
   `geography` as label,
-  CONCAT("Total (", DATE_FORMAT(month_year, "%b %Y"), ")") as cat,
-  SUM(`total`) as value
+  "Children Receiving CCFAP" as cat,
+  `total` as value
 FROM data_act76_child_total, latest_date
 WHERE
   geo_type = "AHS district"
@@ -2265,13 +2354,12 @@ WHERE
       (@year_filter = "-- All --" AND YEAR(`month_year`) = latest_date.latest_year)
       OR YEAR(`month_year`) = @year_filter
   )
-GROUP BY
-  `geography`
 ORDER BY
-  value DESC',
+  `geography`',
   NULL,
   '{
     "yAxis": {"type": "number"},
+    "xAxis": {"type": "categorical"},
     "title": "Children Receiving CCFAP by AHS District",
     "filters": [
       {"key": "ahsd_filter", "title": "AHS District", "ifSelected": [{"disable": ["month_filter", "year_filter"] }, {"query": "act76_child_ccfap_ahsd:line" }]},
@@ -2285,7 +2373,7 @@ ORDER BY
   }',
   'act76:child_total_ahsd',
   '{
-    "table": "(SELECT * FROM data_act76_child_total WHERE geo_type = \\\"AHS district\\\" AND geography != \\\"Vermont\\\") filtered_total",
+    "table": "(SELECT * FROM data_act76_child_total WHERE geo_type = \\\"AHS district\\\") filtered_total",
     "filters": {
       "ahsd_filter": {"column": "geography"},
       "month_filter": {"column": "month", "sort": "number"},
@@ -2381,7 +2469,7 @@ GROUP BY
     ELSE "Vermont"
   END
 ORDER BY
-  value DESC',
+  service_need',
   NULL,
   '{
     "yAxis": {"type": "number"},

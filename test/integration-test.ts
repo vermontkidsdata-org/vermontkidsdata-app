@@ -105,6 +105,11 @@ const TEST_SCENARIOS: Record<string, TestScenario> = {
     name: 'Assistant Export-Import Workflow',
     description: 'Test complete export from one assistant and import as new assistant',
     test: testAssistantExportImportWorkflow
+  },
+  'act76-download': {
+    name: 'Act76 Data Download',
+    description: 'Test downloading Act76 data (child_race, family_pct_of_fpl, etc.)',
+    test: testAct76Download
   }
 };
 
@@ -1397,6 +1402,75 @@ async function main(): Promise<void> {
     console.error(`💥 Test execution failed: ${errorMessage}`);
     process.exit(1);
   }
+}
+
+async function testAct76Download(this: IntegrationTester): Promise<any> {
+  console.log(`  Testing Act76 data download functionality...`);
+  
+  const testCases = [
+    'act76:child_race',
+    'act76:family_pct_of_fpl',
+    'act76:family_service_need'
+  ];
+  
+  const results: any[] = [];
+  
+  for (const uploadType of testCases) {
+    console.log(`  Testing download for: ${uploadType}`);
+    
+    try {
+      // Test basic download without filters
+      const response = await this.makeRequest('GET', `/download/${uploadType}?key=${this.config.apiKey}&limit=10`);
+      
+      if (response.statusCode !== 200) {
+        throw new Error(`Download failed for ${uploadType}: ${response.statusCode} ${JSON.stringify(response.body)}`);
+      }
+      
+      // Check that we got CSV content
+      const csvContent = response.body;
+      if (typeof csvContent !== 'string' || !csvContent.includes(',')) {
+        throw new Error(`Invalid CSV content for ${uploadType}: expected string with commas`);
+      }
+      
+      // Check that we have at least a header row
+      const lines = csvContent.split('\n').filter(line => line.trim());
+      if (lines.length < 1) {
+        throw new Error(`No data returned for ${uploadType}`);
+      }
+      
+      console.log(`    ✓ ${uploadType}: ${lines.length} rows (including header)`);
+      
+      results.push({
+        uploadType,
+        status: 'success',
+        rowCount: lines.length,
+        hasHeader: lines.length > 0,
+        sampleHeader: lines[0]?.substring(0, 100) + '...'
+      });
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.log(`    ✗ ${uploadType}: ${errorMessage}`);
+      results.push({
+        uploadType,
+        status: 'failed',
+        error: errorMessage
+      });
+    }
+  }
+  
+  // Check that at least one test passed
+  const successCount = results.filter(r => r.status === 'success').length;
+  if (successCount === 0) {
+    throw new Error('All Act76 download tests failed');
+  }
+  
+  return {
+    totalTests: testCases.length,
+    successCount,
+    failedCount: testCases.length - successCount,
+    results
+  };
 }
 
 // Help text

@@ -231,6 +231,32 @@ const transformFunctions: Record<string, TransformFunctionSpec> = {
       }
       return v; // Return as-is if not a percentage
     },
+  },
+  'month-number-to-name': {
+    intToExt: (v: string) => {
+      // Convert month number to month name (e.g., "1" -> "January")
+      const monthNumber = parseInt(v);
+      if (isNaN(monthNumber) || monthNumber < 1 || monthNumber > 12) {
+        return v; // Return as-is if not a valid month number
+      }
+      const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+      return monthNames[monthNumber - 1];
+    },
+    extToInt: (v: string) => {
+      // Convert month name back to number (e.g., "January" -> "1")
+      const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+      const monthIndex = monthNames.indexOf(v);
+      if (monthIndex !== -1) {
+        return `${monthIndex + 1}`;
+      }
+      return v; // Return as-is if not a valid month name
+    },
   }
 }
 
@@ -283,7 +309,7 @@ export async function getUploadType(type: string): Promise<UploadType> {
   if (types == null || types.length !== 1) {
     throw new Error(`no types found for type=${type}`);
   } else {
-    const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string, filters?: string } = types[0];
+    const uploadTypeRaw: { id: number, type: string, table: string, index_columns: string, column_map?: string, filters?: string, download_query?: string } = types[0];
     // Get the columns list
     const columns = await getColumns(uploadTypeRaw.table);
     const { columnMap, preserve, valueMaps, calc } = (() => {
@@ -331,6 +357,7 @@ export async function getUploadType(type: string): Promise<UploadType> {
       filters: uploadTypeRaw.filters ? JSON.parse(uploadTypeRaw.filters) : {},
       valueMaps,
       calc,
+      download_query: uploadTypeRaw.download_query,
     } as UploadType;
 
     // uploadTypes[type] = uploadType;

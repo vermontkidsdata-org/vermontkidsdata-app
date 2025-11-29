@@ -46,6 +46,10 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
     processRowFunction: processGeneralRow,
     getTableNameForFunction: (type: string) => "data_" + type.substring('general'.length + 1),
   },
+  act76: {
+    processRowFunction: processGeneralRow,
+    getTableNameForFunction: (type: string) => "data_act76_" + type.substring('act76:'.length),
+  },
 }
 
 async function processAssessmentRow(type: UploadType, record: DBRow, lnum: number, rows: string[][], errors: Error[], clientData: any): Promise<void> {

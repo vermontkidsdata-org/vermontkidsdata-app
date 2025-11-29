@@ -43,6 +43,22 @@
 - **Command**: `bash do_not_commit/deploy.sh`
 - **Reason**: The script handles all necessary environment variables and configurations
 
+### CRITICAL: Always Deploy and Test After Code Changes
+- **Rule**: When making ANY code changes (SQL queries, Lambda functions, transformations, etc.), you MUST:
+  1. Deploy using `do_not_commit/deploy.sh`
+  2. Test the actual API endpoints with real HTTP calls
+  3. Verify the changes work as expected in the deployed environment
+- **Reason**: Code changes don't take effect until deployed, and local testing doesn't reflect production behavior
+- **Example**: After fixing SQL queries, deploy first, then test with `curl "https://api.qa.vtkidsdata.org/..."`
+
+### Database Updates Require Script Execution
+- **Rule**: When modifying SQL scripts (like `scripts/20250924-act76.sql`), the database must be updated separately
+- **Process**:
+  1. Deploy code changes with `do_not_commit/deploy.sh`
+  2. Execute SQL script to update database queries
+  3. Test API endpoints to verify both code and database changes work together
+- **Note**: Code deployment and database updates are separate steps
+
 ### Environment Setup
 - **Rule**: When AWS CLI commands fail due to environment issues, use the BBF profile
 - **Format**: Add `--profile BBF --region us-east-1` to AWS CLI commands
@@ -72,10 +88,54 @@
 - **Command**: Add `--debug` flag to integration tests
 - **Benefits**: Shows exact API calls, response structures, and timing information
 
+### API Endpoint Testing After Changes
+- **Rule**: After deploying code changes, ALWAYS test the actual API endpoints with curl or similar tools
+- **Process**:
+  1. Test the specific endpoint that was modified
+  2. Test with different parameter combinations (filters, etc.)
+  3. Verify the response structure and data correctness
+  4. Test edge cases (empty results, invalid parameters)
+- **Example**: `curl "https://api.qa.vtkidsdata.org/chart/bar/query_name?param1=value1&param2=value2"`
+
+### Filter and Transformation Testing
+- **Rule**: When implementing filter transformations, test both the API behavior and user experience
+- **Key Points**:
+  - API should accept simple values (numbers, basic strings)
+  - Frontend transformations should only affect display, not API calls
+  - Test that filters work with both transformed and raw values
+  - Verify that empty results indicate a real issue, not just transformation problems
+
 ### Status Progression Monitoring
 - **Rule**: Monitor completion status progression to identify where issues occur
 - **Expected Flow**: "new" → "in_progress" → "success"
 - **Stuck States**: If stuck in "new" = state machine not starting; if stuck in "queued" = OpenAI processing issues
+
+## SQL Query and Database Rules
+
+### Query Modification Process
+- **Rule**: When modifying SQL queries in scripts, follow this exact process:
+  1. Identify the correct query name (check API calls to find exact query being used)
+  2. Modify the SQL script file
+  3. Deploy code changes with `do_not_commit/deploy.sh`
+  4. Execute the SQL script to update database
+  5. Test API endpoints to verify changes work
+- **Common Mistake**: Modifying the wrong query (e.g., `act76_family_pct_of_fpl:line` vs `act76_ccfap_family_pct_of_fpl:line`)
+
+### Filter Implementation Best Practices
+- **Rule**: Keep API filters simple and reliable
+- **Approach**:
+  - Use basic data types for API parameters (numbers for months: 1,2,3... not "January","February")
+  - Apply transformations only in frontend display, not in API logic
+  - Test with raw values first, then add display transformations
+- **Example**: Month filter accepts `month_filter=7` (July) but displays "July" in dropdown
+
+### Database Query Testing
+- **Rule**: Test SQL queries directly in database before deploying
+- **Process**:
+  1. Use MCP MySQL tool to test query logic
+  2. Verify data exists for test parameters
+  3. Check that transformations work as expected
+  4. Deploy and test via API
 
 ## Error Pattern Recognition
 
@@ -85,6 +145,8 @@
 3. **State machine FAILED** → Check Lambda function logs
 4. **Stuck in "queued"** → OpenAI API rate limiting or processing issues
 5. **Stuck in "new"** → State machine not starting, check POST completion logic
+6. **Empty API results after changes** → Check if database was updated AND code was deployed
+7. **Filter not working with transformed values** → Use simple values in API, transform only for display
 
 ## Best Practices
 
