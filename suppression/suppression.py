@@ -1,12 +1,18 @@
 """
 Author: Fitz Koch
 Created: 2025-07-19
+Modified: 2025-12-14 (Added primary-only suppression support)
 Description: A script to suppress data in worksheets (one sheet at a time)
-Notes: 
+Notes:
     * always run the script as a whole, don't access functions with imports
     * run the script with -h to see options
     * always quote file names
     * first filename = input, second filename=output
+    * to perform only primary suppression on a worksheet, add "primary" to the worksheet title
+      (case insensitive, tolerant of spacing). Examples:
+      - "Ethnicity by County - primary" (with dash)
+      - "Ethnicity by County primary" (without dash)
+    * the primary annotation will be stripped from the output worksheet name
     *example usage: python src/suppression.py "child.xlsx" "clean_child.xlsx" -p "PRIM" -s "SEC"
         *python
         *script name
@@ -41,6 +47,51 @@ print(f"Debug logs are being written to: {debug_log_path}")
 
 def load_as_dict(path):
     return pd.read_excel(path, engine='openpyxl', sheet_name=None)
+
+def parse_worksheet_title(sheet_name):
+    """
+    Parse worksheet title to detect primary-only annotation and return clean name.
+    
+    Detects primary-only suppression in two ways:
+    1. "- primary" (with dash): "Ethnicity by County - primary"
+    2. Just "primary" (without dash): "Ethnicity by County primary"
+    
+    Args:
+        sheet_name (str): Original worksheet name
+        
+    Returns:
+        tuple: (clean_name, is_primary_only)
+            clean_name: Sheet name with primary annotation stripped
+            is_primary_only: Boolean indicating if primary-only suppression should be used
+    """
+    # Convert to string and strip whitespace
+    name = str(sheet_name).strip()
+    
+    import re
+    
+    # First check for "- primary" pattern (with dash)
+    # This pattern ensures "primary" is the last word after a dash
+    dash_pattern = r'\s*-\s*primary\s*$'
+    dash_match = re.search(dash_pattern, name, re.IGNORECASE)
+    
+    if dash_match:
+        # Strip the "- primary" part and any trailing whitespace
+        clean_name = name[:dash_match.start()].strip()
+        return clean_name, True
+    
+    # Then check for just "primary" at the end (without dash)
+    # Require at least two words before "primary" to avoid matching "Just primary"
+    # This pattern matches: <word> <word>+ primary (at least 2 words before primary)
+    word_pattern = r'^(.+\S\s+\S.*?)\s+primary\s*$'
+    word_match = re.search(word_pattern, name, re.IGNORECASE)
+    
+    if word_match:
+        # Extract the clean name (everything before the space+primary)
+        clean_name = word_match.group(1).strip()
+        return clean_name, True
+    
+    # No primary annotation found
+    return name, False
 
 ## replace all cells with P_SUPP value if suppressed
 def primary_suppression(df, threshold):
@@ -208,8 +259,8 @@ def apply_suppression(df, suppress):
     return df, count
 
 ## iterate through all the date blocks as we want to suppress within them
-def suppress_blocks(df, key_var, threshold, sheet_name=""):
-    f.write(f'Suppressing {key_var}\n')
+def suppress_blocks(df, key_var, threshold, sheet_name="", primary_only=False):
+    f.write(f'Suppressing {key_var} (primary_only={primary_only})\n')
     logger.debug(f"Before suppress_blocks: shape={df.shape}, duplicated rows={df.duplicated().sum()}")
     blocks = []
     count, pcount = 0, 0
@@ -257,9 +308,15 @@ def suppress_blocks(df, key_var, threshold, sheet_name=""):
         workgroup, t_pcount = primary_suppression(workgroup, threshold)
         pcount += t_pcount
         logger.debug(f"After primary_suppression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
-        workgroup, t_count = iterative_supression(workgroup, 0, key_var, sheet_name)
-        count += t_count
-        logger.debug(f"After iterative_supression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
+        
+        # Only perform secondary suppression if not primary_only
+        if not primary_only:
+            workgroup, t_count = iterative_supression(workgroup, 0, key_var, sheet_name)
+            count += t_count
+            logger.debug(f"After iterative_supression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
+        else:
+            logger.debug(f"Skipping secondary suppression for primary-only sheet: {sheet_name}")
+        
         blocks.append(workgroup)
     else:
         # For regular worksheets, group by Month.Year
@@ -271,9 +328,15 @@ def suppress_blocks(df, key_var, threshold, sheet_name=""):
             workgroup, t_pcount = primary_suppression(workgroup, threshold)
             pcount += t_pcount
             logger.debug(f"After primary_suppression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
-            workgroup, t_count = iterative_supression(workgroup, 0, key_var, sheet_name)
-            count += t_count
-            logger.debug(f"After iterative_supression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
+            
+            # Only perform secondary suppression if not primary_only
+            if not primary_only:
+                workgroup, t_count = iterative_supression(workgroup, 0, key_var, sheet_name)
+                count += t_count
+                logger.debug(f"After iterative_supression: shape={workgroup.shape}, duplicated rows={workgroup.duplicated().sum()}")
+            else:
+                logger.debug(f"Skipping secondary suppression for primary-only sheet: {sheet_name}")
+            
             blocks.append(workgroup)
     
     result = pd.concat(blocks)
@@ -346,9 +409,18 @@ if __name__ == "__main__":
             with pd.ExcelWriter(args.outputfile, engine='openpyxl') as writer:
                 # Process each dataframe
                 processed_count = 0
-                for name, df in dfs.items():
+                for original_name, df in dfs.items():
                     try:
-                        f.write(f"Starting {name}...\n")
+                        # Parse worksheet title to check for primary-only annotation
+                        clean_name, is_primary_only = parse_worksheet_title(original_name)
+                        
+                        f.write(f"Starting {original_name}...\n")
+                        if is_primary_only:
+                            f.write(f"  -> Detected primary-only suppression for sheet: {original_name}\n")
+                            f.write(f"  -> Using clean name for processing: {clean_name}\n")
+                            print(f"Processing '{original_name}' with PRIMARY-ONLY suppression (output: '{clean_name}')")
+                        else:
+                            print(f"Processing '{original_name}' with full suppression (primary + secondary)")
 
                         # Check if "State" is in the dataframe columns, otherwise use the original logic
                         if "State" in df.columns:
@@ -369,14 +441,19 @@ if __name__ == "__main__":
                                     print(f"Using first column as key_var: '{key_var}'")
                             else:
                                 key_var = "County"  # Default to County
-                        f.write(f"Starting {name} : Threshold = {args.threshold}, key_var = {key_var}\n")
+                        f.write(f"Starting {clean_name} : Threshold = {args.threshold}, key_var = {key_var}, primary_only = {is_primary_only}\n")
 
-                        df, count, pcount = suppress_blocks(df, key_var, args.threshold, name)
+                        df, count, pcount = suppress_blocks(df, key_var, args.threshold, clean_name, is_primary_only)
 
-                        f.write(f"{name} : Primary Suppressed {pcount}, Secondary Suppressed {count}. Threshold = {args.threshold}, key_var = {key_var}\n")
+                        if is_primary_only:
+                            f.write(f"{clean_name} : Primary Suppressed {pcount} (secondary suppression skipped). Threshold = {args.threshold}, key_var = {key_var}\n")
+                            print(f"  -> '{clean_name}': Primary suppressed {pcount} values (secondary suppression skipped)")
+                        else:
+                            f.write(f"{clean_name} : Primary Suppressed {pcount}, Secondary Suppressed {count}. Threshold = {args.threshold}, key_var = {key_var}\n")
+                            print(f"  -> '{clean_name}': Primary suppressed {pcount}, Secondary suppressed {count} values")
 
-                        # Check if this is a "Total by <geography type>" worksheet
-                        if is_total_worksheet(name):
+                        # Check if this is a "Total by <geography type>" worksheet (use clean name)
+                        if is_total_worksheet(clean_name):
                             # For "Total by <geography type>" worksheets, sort by geography only
                             df = df.assign(
                                 is_vermont=df[key_var].eq("Vermont")
@@ -393,11 +470,12 @@ if __name__ == "__main__":
                                 ascending=(False, True, True)
                             ).drop(columns='is_vermont')
 
-                        df.to_excel(writer, sheet_name=name, index=False)
+                        # Use clean name for the output sheet name
+                        df.to_excel(writer, sheet_name=clean_name, index=False)
                         processed_count += 1
                     except Exception as e:
-                        f.write(f"Error processing sheet {name}: {str(e)}\n")
-                        print(f"Error processing sheet {name}: {str(e)}")
+                        f.write(f"Error processing sheet {original_name}: {str(e)}\n")
+                        print(f"Error processing sheet {original_name}: {str(e)}")
                 
                 # If no sheets were successfully processed, create a dummy sheet
                 if processed_count == 0:

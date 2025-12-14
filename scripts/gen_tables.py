@@ -21,6 +21,52 @@ import traceback
 from collections import defaultdict
 
 
+def parse_worksheet_title(sheet_name):
+    """
+    Parse worksheet title to detect primary-only annotation and return clean name.
+    
+    Detects primary-only suppression in two ways:
+    1. "- primary" (with dash): "Ethnicity by County - primary"
+    2. Just "primary" (without dash): "Ethnicity by County primary"
+    
+    Args:
+        sheet_name (str): Original worksheet name
+        
+    Returns:
+        tuple: (clean_name, is_primary_only)
+            clean_name: Sheet name with primary annotation stripped
+            is_primary_only: Boolean indicating if primary-only suppression should be used
+    """
+    # Convert to string and strip whitespace
+    name = str(sheet_name).strip()
+    
+    import re
+    
+    # First check for "- primary" pattern (with dash)
+    # This pattern ensures "primary" is the last word after a dash
+    dash_pattern = r'\s*-\s*primary\s*$'
+    dash_match = re.search(dash_pattern, name, re.IGNORECASE)
+    
+    if dash_match:
+        # Strip the "- primary" part and any trailing whitespace
+        clean_name = name[:dash_match.start()].strip()
+        return clean_name, True
+    
+    # Then check for just "primary" at the end (without dash)
+    # Require at least two words before "primary" to avoid matching "Just primary"
+    # This pattern matches: <word> <word>+ primary (at least 2 words before primary)
+    word_pattern = r'^(.+\S\s+\S.*?)\s+primary\s*$'
+    word_match = re.search(word_pattern, name, re.IGNORECASE)
+    
+    if word_match:
+        # Extract the clean name (everything before the space+primary)
+        clean_name = word_match.group(1).strip()
+        return clean_name, True
+    
+    # No primary annotation found
+    return name, False
+
+
 def is_total_worksheet(worksheet_name):
     """
     Check if a worksheet is a "Total by <geography type>" worksheet.
@@ -195,7 +241,8 @@ def generate_ddl_for_total_worksheet(sheets_data, file_type):
         # Start building the DDL
         ddl = f"-- DDL for Total by <geography type>\n"
         ddl += f"-- Source worksheets: {worksheet_list}\n"
-        ddl += f"CREATE TABLE IF NOT EXISTS `{table_name}` (\n"
+        ddl += f"DROP TABLE IF EXISTS `{table_name}`;\n"
+        ddl += f"CREATE TABLE `{table_name}` (\n"
         
         # Add id column
         ddl += "  `id` INT AUTO_INCREMENT,\n"
@@ -263,7 +310,8 @@ def generate_ddl_for_data_type(data_type, sheets_data, file_type):
         # Start building the DDL
         ddl = f"-- DDL for {data_type}\n"
         ddl += f"-- Source worksheets: {worksheet_list}\n"
-        ddl += f"CREATE TABLE IF NOT EXISTS `{table_name}` (\n"
+        ddl += f"DROP TABLE IF EXISTS `{table_name}`;\n"
+        ddl += f"CREATE TABLE `{table_name}` (\n"
         
         # Add id column
         ddl += "  `id` INT AUTO_INCREMENT,\n"
@@ -368,28 +416,33 @@ def process_excel_file(file_path):
         data_types = defaultdict(list)
         
         # First pass: validate all sheets and group by data type
-        for sheet_name in xls.sheet_names:
-            print(f"Processing sheet: {sheet_name}")
+        for original_sheet_name in xls.sheet_names:
+            # Parse worksheet title to get clean name
+            clean_sheet_name, is_primary_only = parse_worksheet_title(original_sheet_name)
+            
+            print(f"Processing sheet: '{original_sheet_name}' (clean name: '{clean_sheet_name}')")
+            if is_primary_only:
+                print(f"  -> Detected primary-only annotation, using clean name for table generation")
             
             # Read the sheet
-            df = pd.read_excel(xls, sheet_name=sheet_name)
+            df = pd.read_excel(xls, sheet_name=original_sheet_name)
             
             # Print column names for debugging
-            print(f"Sheet '{sheet_name}' has columns: {df.columns.tolist()}")
+            print(f"Sheet '{clean_sheet_name}' has columns: {df.columns.tolist()}")
             
-            # Validate sheet format
-            if not validate_sheet_format(sheet_name, df):
-                print(f"Skipping sheet '{sheet_name}' due to validation errors", file=sys.stderr)
+            # Validate sheet format (use clean name)
+            if not validate_sheet_format(clean_sheet_name, df):
+                print(f"Skipping sheet '{original_sheet_name}' due to validation errors", file=sys.stderr)
                 continue
             
             # Fill missing dates with the previous row's date
             df.iloc[:, 0] = df.iloc[:, 0].ffill()
             
-            # Extract data type from sheet name
-            data_type = extract_data_type(sheet_name)
+            # Extract data type from clean sheet name
+            data_type = extract_data_type(clean_sheet_name)
             
-            # Add to the appropriate group
-            data_types[data_type].append((sheet_name, df))
+            # Add to the appropriate group (use clean name for consistency)
+            data_types[data_type].append((clean_sheet_name, df))
         
         # Second pass: generate DDL for each data type
         for data_type, sheets_data in data_types.items():

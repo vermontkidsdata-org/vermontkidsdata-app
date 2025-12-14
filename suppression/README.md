@@ -15,6 +15,16 @@ A script to suppress data in worksheets (one sheet at a time)
     * -p flag to set the string for primary suppression (default=***)
     * -s flag to set the string for secondary suppression
 
+## Primary-Only Suppression
+* To perform only primary suppression (skip secondary suppression) on a worksheet, add "primary" to the worksheet title
+* The annotation is case insensitive and works with or without a dash
+* Examples of valid annotations:
+  * **With dash**: "Ethnicity by County - primary", "Ethnicity by County-primary", "Ethnicity by County - Primary"
+  * **Without dash**: "Ethnicity by County primary", "Ethnicity by County PRIMARY", "Ethnicity by County Primary"
+  * **Spacing tolerant**: "Ethnicity by County  -  primary", "Ethnicity by County   primary"
+* The primary annotation will be automatically stripped from the output worksheet name
+* The clean worksheet name (without the primary annotation) will be used for table definitions and output
+
 
 # Credits
 Author: Fitz Koch

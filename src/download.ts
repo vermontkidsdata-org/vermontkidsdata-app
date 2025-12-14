@@ -25,6 +25,7 @@ interface TypesConfigElement {
   processRowFunction: CsvProcessCallback;
   getTableNameForFunction: GetTableNameForFunction;
   getQueryForFunction?: GetQueryForFunction;
+  skipTotalRows?: boolean;
 }
 
 const typesConfig: { [type: string]: TypesConfigElement } = {
@@ -49,6 +50,7 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
   act76: {
     processRowFunction: processGeneralRow,
     getTableNameForFunction: (type: string) => "data_act76_" + type.substring('act76:'.length),
+    skipTotalRows: true,
   },
 }
 
@@ -65,6 +67,14 @@ async function processGeneralRow(uploadTypeData: UploadType, record: DBRow, lnum
     clientData.keys = Object.keys(record).
       filter(key => key !== 'id').
       filter(key => !uploadTypeData.calc?.some(calc => calc.column === key));
+
+    // If both 'value' and 'value_suppressed' columns exist, exclude 'value'
+    // If both 'value' and 'value_suppressed' columns exist, exclude 'value'
+    const hasValueSuppressed = clientData.keys.includes('value_suppressed');
+    const hasValue = clientData.keys.includes('value');
+    if (hasValueSuppressed && hasValue) {
+      clientData.keys = clientData.keys.filter(key => key !== 'value');
+    }
 
     pt.logger.info('first row, look for calc columns', {calc: uploadTypeData.calc, record, finalKeys: clientData.keys});
 
@@ -151,6 +161,18 @@ export async function getCSVData(uploadTypeData: UploadType, limit: number, colu
   const clientData: any = {};
 
   for (const row of resp) {
+    // Skip rows where any column value equals "total" (case-insensitive) if configured
+    if (entry.skipTotalRows) {
+      const hasTotal = Object.values(row).some(value =>
+        typeof value === 'string' && value.toLowerCase() === 'total'
+      );
+      
+      if (hasTotal) {
+        pt.logger.info('Skipping row with total value', { uploadType, row, lnum });
+        continue;
+      }
+    }
+
     entry.processRowFunction(uploadTypeData, row, lnum, rows, errors, clientData);
 
     lnum++;

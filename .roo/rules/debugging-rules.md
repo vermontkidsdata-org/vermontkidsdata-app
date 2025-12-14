@@ -40,7 +40,7 @@
 
 ### Use Proper Deployment Scripts
 - **Rule**: Use the provided deployment script instead of trying to set environment variables manually
-- **Command**: `bash do_not_commit/deploy.sh`
+- **Command**: `bash do_not_commit/deploy.sh` (if there are AWS infrastructure changes other than just modifying lambda code) or `bash do_not_commit/hotswap.sh` (if the changes are only to TypeScript lambda function code)
 - **Reason**: The script handles all necessary environment variables and configurations
 
 ### CRITICAL: Always Deploy and Test After Code Changes
@@ -130,12 +130,18 @@
 - **Example**: Month filter accepts `month_filter=7` (July) but displays "July" in dropdown
 
 ### Database Query Testing
-- **Rule**: Test SQL queries directly in database before deploying
-- **Process**:
-  1. Use MCP MySQL tool to test query logic
-  2. Verify data exists for test parameters
-  3. Check that transformations work as expected
-  4. Deploy and test via API
+- **Rule**: Test SQL queries directly in database before deploying, then test full-stack integration
+- **Database Testing Process**:
+  1. Use MCP MySQL tool to test query logic against actual database (dbvkd_qa)
+  2. Verify data exists for test parameters and check data format/capitalization
+  3. Confirm queries return expected results in correct order
+  4. Check that transformations work as expected
+- **Full-Stack Testing Process**:
+  5. Deploy code changes
+  6. Test actual API endpoints with HTTP calls (curl or browser)
+  7. Verify frontend integration and check for JavaScript errors
+  8. Ensure user interface displays correctly with proper labels and formatting
+- **Why Both Levels Are Required**: Database testing catches SQL/data issues; browser testing catches frontend integration and user experience issues
 
 ## Error Pattern Recognition
 

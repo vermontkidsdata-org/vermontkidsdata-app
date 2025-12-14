@@ -1,3 +1,5 @@
+-- Rebuild all the ACT76 queries!
+
 DELETE FROM `queries` WHERE `name` like 'ccfap_families%';
 DELETE FROM `queries` WHERE `name` like 'act76%';
 delete from `upload_types` where `type` like 'act76:%';
@@ -23,25 +25,25 @@ INSERT INTO `queries` (`name`,`sqlText`,`columnMap`,`metadata`,`uploadType`,`fil
 VALUES (
   'act76_child_race:bar:unsuppressed',
   'WITH latest_date AS (
-  SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
-  FROM data_act76_child_race
-  WHERE geo_type = CASE
-    WHEN @county_filter = "-- All --" THEN "county"
-    WHEN @county_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
-                           "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
-                           "Windham", "Windsor") THEN "county"
-    ELSE "AHS district"
-  END
-)
-SELECT
-  CASE
-    WHEN @county_filter = "-- All --" THEN "Vermont"
-    ELSE `geography`
-  END as label,
-  `race` as cat,
-  SUM(`value`) as value
+    SELECT MAX(month_year) as max_date,
+           MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+           YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
+    FROM data_act76_child_race
+    WHERE geo_type = CASE
+      WHEN @county_filter = "-- All --" THEN "county"
+      WHEN @county_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
+                             "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
+                             "Windham", "Windsor") THEN "county"
+      ELSE "AHS district"
+    END
+  )
+  SELECT
+    CASE
+      WHEN @county_filter = "-- All --" THEN "Vermont"
+      ELSE `geography`
+    END as label,
+    CONCAT(`race`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
+    SUM(`value`) as value
 FROM data_act76_child_race, latest_date
 WHERE
   geo_type = CASE
@@ -99,8 +101,8 @@ VALUES (
   'act76_child_race:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_race
   WHERE geo_type = CASE
     WHEN @county_filter = "-- All --" THEN "county"
@@ -115,7 +117,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `race` as cat,
+  CONCAT(`race`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   `value_suppressed` as value
 FROM data_act76_child_race, latest_date
 WHERE
@@ -432,8 +434,8 @@ VALUES (
   'act76_child_age:bar:unsuppressed',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_age
   WHERE geo_type = "county"
 )
@@ -442,7 +444,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `age` as cat,
+  CONCAT(`age`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   SUM(`value`) as value
 FROM data_act76_child_age, latest_date
 WHERE
@@ -495,8 +497,8 @@ VALUES (
   'act76_child_age:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_age
   WHERE geo_type = "county"
 )
@@ -505,7 +507,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `age` as cat,
+  CONCAT(`age`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   SUM(`value_suppressed`) as value
 FROM data_act76_child_age, latest_date
 WHERE
@@ -597,8 +599,8 @@ VALUES (
   'act76_child_citizenship:bar:unsuppressed',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_citizenship
   WHERE geo_type = "county"
 )
@@ -607,7 +609,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `citizenship` as cat,
+  CONCAT(`citizenship`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   SUM(`value`) as value
 FROM data_act76_child_citizenship, latest_date
 WHERE
@@ -660,8 +662,8 @@ VALUES (
   'act76_child_citizenship:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_citizenship
   WHERE geo_type = "county"
 )
@@ -670,7 +672,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `citizenship` as cat,
+  CONCAT(`citizenship`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   SUM(`value_suppressed`) as value
 FROM data_act76_child_citizenship, latest_date
 WHERE
@@ -801,8 +803,8 @@ VALUES (
   'act76_child_ethnicity:bar:unsuppressed',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_ethnicity
   WHERE geo_type = CASE
     WHEN @county_filter = "-- All --" THEN "county"
@@ -817,7 +819,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `ethnicity` as cat,
+  CONCAT(`ethnicity`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   SUM(`value`) as value
 FROM data_act76_child_ethnicity, latest_date
 WHERE
@@ -876,8 +878,8 @@ VALUES (
   'act76_child_ethnicity:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_ethnicity
   WHERE geo_type = CASE
     WHEN @county_filter = "-- All --" THEN "county"
@@ -892,7 +894,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `ethnicity` as cat,
+  CONCAT(`ethnicity`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   SUM(`value_suppressed`) as value
 FROM data_act76_child_ethnicity, latest_date
 WHERE
@@ -1041,8 +1043,8 @@ VALUES (
   'act76_child_gender:bar:unsuppressed',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_gender
   WHERE geo_type = "county"
 )
@@ -1051,7 +1053,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `gender` as cat,
+  CONCAT(`gender`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   SUM(`value`) as value
 FROM data_act76_child_gender, latest_date
 WHERE
@@ -1104,8 +1106,8 @@ VALUES (
   'act76_child_gender:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_gender
   WHERE geo_type = "county"
 )
@@ -1114,7 +1116,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `gender` as cat,
+  CONCAT(`gender`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   SUM(`value_suppressed`) as value
 FROM data_act76_child_gender, latest_date
 WHERE
@@ -1293,7 +1295,8 @@ SELECT
     WHEN @service_need_filter = "-- All --" THEN CONCAT("Total (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
     ELSE CONCAT(service_need, " (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
   END as cat,
-  SUM(value_suppressed) as value
+  SUM(value_suppressed) as value,
+  DATE_FORMAT(latest_date.max_date, "%M %Y") as date_label
 FROM data_act76_family_service_need
 CROSS JOIN latest_date
 WHERE
@@ -1346,7 +1349,8 @@ SELECT
     WHEN @pct_of_fpl_filter = "-- All --" THEN CONCAT("Total (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
     ELSE CONCAT(pct_of_fpl, " (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
   END as cat,
-  SUM(value_suppressed) as value
+  SUM(value_suppressed) as value,
+  DATE_FORMAT(latest_date.max_date, "%M %Y") as date_label
 FROM data_act76_family_pct_of_fpl
 CROSS JOIN latest_date
 WHERE
@@ -1399,7 +1403,8 @@ SELECT
     WHEN @service_need_filter = "-- All --" THEN CONCAT("Total (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
     ELSE CONCAT(service_need, " (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
   END as cat,
-  SUM(value_suppressed) as value
+  SUM(value_suppressed) as value,
+  DATE_FORMAT(latest_date.max_date, "%M %Y") as date_label
 FROM data_act76_family_service_need
 CROSS JOIN latest_date
 WHERE
@@ -1452,7 +1457,8 @@ SELECT
     WHEN @pct_of_fpl_filter = "-- All --" THEN CONCAT("Total (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
     ELSE CONCAT(pct_of_fpl, " (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
   END as cat,
-  SUM(value_suppressed) as value
+  SUM(value_suppressed) as value,
+  DATE_FORMAT(latest_date.max_date, "%M %Y") as date_label
 FROM data_act76_family_pct_of_fpl
 CROSS JOIN latest_date
 WHERE
@@ -1880,8 +1886,8 @@ VALUES (
   'act76_child_ethnicity_ccfap:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_ethnicity
   WHERE geo_type = CASE
     WHEN @county_filter = "-- All --" THEN "county"
@@ -1896,7 +1902,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `ethnicity` as cat,
+  CONCAT(`ethnicity`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   `value_suppressed` as value
 FROM data_act76_child_ethnicity, latest_date
 WHERE
@@ -2004,8 +2010,8 @@ VALUES (
   'act76_child_age_ccfap:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_age
   WHERE geo_type = CASE
     WHEN @county_filter = "-- All --" THEN "county"
@@ -2020,7 +2026,7 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  `age` as cat,
+  CONCAT(`age`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
   `value_suppressed` as value
 FROM data_act76_child_age, latest_date
 WHERE
@@ -2131,8 +2137,8 @@ VALUES (
   'act76_child_ccfap_total:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_total
   WHERE geo_type = "county"
 )
@@ -2141,8 +2147,9 @@ SELECT
     WHEN @county_filter = "-- All --" THEN "Vermont"
     ELSE `geography`
   END as label,
-  CONCAT("Total (", DATE_FORMAT(month_year, "%b %Y"), ")") as cat,
-  SUM(`total`) as value
+  CONCAT("Total (", DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), "%b %Y"), ")") as cat,
+  SUM(`total`) as value,
+  CONCAT(MONTHNAME(STR_TO_DATE(latest_date.max_date, ''%Y-%m-%d'')), '' '', YEAR(STR_TO_DATE(latest_date.max_date, ''%Y-%m-%d''))) as date_label
 FROM data_act76_child_total, latest_date
 WHERE
   geo_type = "county"
@@ -2234,14 +2241,14 @@ VALUES (
   'act76_child_ccfap_county:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_total
   WHERE geo_type = "county"
 )
 SELECT
   `geography` as label,
-  "Children Receiving CCFAP" as cat,
+  CONCAT("Children Receiving CCFAP (", DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), ")") as cat,
   `total` as value
 FROM data_act76_child_total, latest_date
 WHERE
@@ -2275,7 +2282,7 @@ ORDER BY
   }',
   'act76:child_total_county',
   '{
-    "table": "data_act76_child_total",
+    "table": "(SELECT * FROM data_act76_child_total WHERE geo_type = \\\"county\\\" AND geography != \\\"Vermont\\\") filtered_total",
     "filters": {
       "county_filter": {"column": "geography"},
       "month_filter": {"column": "month", "sort": "number"},
@@ -2332,15 +2339,16 @@ VALUES (
   'act76_child_ccfap_ahsd:bar',
   'WITH latest_date AS (
   SELECT MAX(month_year) as max_date,
-         MONTH(MAX(month_year)) as latest_month,
-         YEAR(MAX(month_year)) as latest_year
+         MONTH(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_total
   WHERE geo_type = "AHS district"
 )
 SELECT
   `geography` as label,
   "Children Receiving CCFAP" as cat,
-  `total` as value
+  `total` as value,
+  CONCAT(MONTHNAME(STR_TO_DATE(month_year, ''%Y-%m-%d'')), '' '', YEAR(STR_TO_DATE(month_year, ''%Y-%m-%d''))) as date_label
 FROM data_act76_child_total, latest_date
 WHERE
   geo_type = "AHS district"

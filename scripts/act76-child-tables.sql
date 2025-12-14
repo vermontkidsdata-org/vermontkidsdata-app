@@ -2,7 +2,8 @@
 
 -- DDL for Age
 -- Source worksheets: 'Age by County', 'Age by AHSD'
-CREATE TABLE IF NOT EXISTS `data_act76_child_age` (
+DROP TABLE IF EXISTS `data_act76_child_age`;
+CREATE TABLE `data_act76_child_age` (
   `id` INT AUTO_INCREMENT,
   `month_year` VARCHAR(255),
   `month` INT COMMENT 'Month (1-12)',
@@ -19,7 +20,8 @@ CREATE TABLE IF NOT EXISTS `data_act76_child_age` (
 
 -- DDL for Citizenship
 -- Source worksheets: 'Citizenship by County', 'Citizenship by AHSD'
-CREATE TABLE IF NOT EXISTS `data_act76_child_citizenship` (
+DROP TABLE IF EXISTS `data_act76_child_citizenship`;
+CREATE TABLE `data_act76_child_citizenship` (
   `id` INT AUTO_INCREMENT,
   `month_year` VARCHAR(255),
   `month` INT COMMENT 'Month (1-12)',
@@ -36,7 +38,8 @@ CREATE TABLE IF NOT EXISTS `data_act76_child_citizenship` (
 
 -- DDL for Ethnicity
 -- Source worksheets: 'Ethnicity by County', 'Ethnicity by AHSD'
-CREATE TABLE IF NOT EXISTS `data_act76_child_ethnicity` (
+DROP TABLE IF EXISTS `data_act76_child_ethnicity`;
+CREATE TABLE `data_act76_child_ethnicity` (
   `id` INT AUTO_INCREMENT,
   `month_year` VARCHAR(255),
   `month` INT COMMENT 'Month (1-12)',
@@ -53,7 +56,8 @@ CREATE TABLE IF NOT EXISTS `data_act76_child_ethnicity` (
 
 -- DDL for Race
 -- Source worksheets: 'Race by County', 'Race by AHSD'
-CREATE TABLE IF NOT EXISTS `data_act76_child_race` (
+DROP TABLE IF EXISTS `data_act76_child_race`;
+CREATE TABLE `data_act76_child_race` (
   `id` INT AUTO_INCREMENT,
   `month_year` VARCHAR(255),
   `month` INT COMMENT 'Month (1-12)',
@@ -70,7 +74,8 @@ CREATE TABLE IF NOT EXISTS `data_act76_child_race` (
 
 -- DDL for Total by <geography type>
 -- Source worksheets: 'Total by County', 'Total by AHSD'
-CREATE TABLE IF NOT EXISTS `data_act76_child_total` (
+DROP TABLE IF EXISTS `data_act76_child_total`;
+CREATE TABLE `data_act76_child_total` (
   `id` INT AUTO_INCREMENT,
   `month_year` VARCHAR(255),
   `month` INT COMMENT 'Month (1-12)',

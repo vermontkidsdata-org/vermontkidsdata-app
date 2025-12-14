@@ -19,6 +19,52 @@ from datetime import datetime
 from collections import defaultdict
 
 
+def parse_worksheet_title(sheet_name):
+    """
+    Parse worksheet title to detect primary-only annotation and return clean name.
+    
+    Detects primary-only suppression in two ways:
+    1. "- primary" (with dash): "Ethnicity by County - primary"
+    2. Just "primary" (without dash): "Ethnicity by County primary"
+    
+    Args:
+        sheet_name (str): Original worksheet name
+        
+    Returns:
+        tuple: (clean_name, is_primary_only)
+            clean_name: Sheet name with primary annotation stripped
+            is_primary_only: Boolean indicating if primary-only suppression should be used
+    """
+    # Convert to string and strip whitespace
+    name = str(sheet_name).strip()
+    
+    import re
+    
+    # First check for "- primary" pattern (with dash)
+    # This pattern ensures "primary" is the last word after a dash
+    dash_pattern = r'\s*-\s*primary\s*$'
+    dash_match = re.search(dash_pattern, name, re.IGNORECASE)
+    
+    if dash_match:
+        # Strip the "- primary" part and any trailing whitespace
+        clean_name = name[:dash_match.start()].strip()
+        return clean_name, True
+    
+    # Then check for just "primary" at the end (without dash)
+    # Require at least two words before "primary" to avoid matching "Just primary"
+    # This pattern matches: <word> <word>+ primary (at least 2 words before primary)
+    word_pattern = r'^(.+\S\s+\S.*?)\s+primary\s*$'
+    word_match = re.search(word_pattern, name, re.IGNORECASE)
+    
+    if word_match:
+        # Extract the clean name (everything before the space+primary)
+        clean_name = word_match.group(1).strip()
+        return clean_name, True
+    
+    # No primary annotation found
+    return name, False
+
+
 def extract_month_year(date_value):
     """
     Extract month and year from a date value.
@@ -565,31 +611,40 @@ def validate_spreadsheets_structure(value_file_path, suppressed_file_path):
         value_xls = pd.ExcelFile(value_file_path, engine='openpyxl')
         suppressed_xls = pd.ExcelFile(suppressed_file_path, engine='openpyxl')
         
-        # Check if both spreadsheets have the same worksheets
-        if set(value_xls.sheet_names) != set(suppressed_xls.sheet_names):
-            print(f"Error: Spreadsheets have different worksheets", file=sys.stderr)
-            print(f"Value spreadsheet: {value_xls.sheet_names}", file=sys.stderr)
-            print(f"Suppressed spreadsheet: {suppressed_xls.sheet_names}", file=sys.stderr)
+        # Parse sheet names to get clean names (strip primary annotations)
+        value_clean_names = {parse_worksheet_title(name)[0]: name for name in value_xls.sheet_names}
+        suppressed_clean_names = {parse_worksheet_title(name)[0]: name for name in suppressed_xls.sheet_names}
+        
+        # Check if both spreadsheets have the same worksheets (comparing clean names)
+        if set(value_clean_names.keys()) != set(suppressed_clean_names.keys()):
+            print(f"Error: Spreadsheets have different worksheets (after stripping primary annotations)", file=sys.stderr)
+            print(f"Value spreadsheet clean names: {list(value_clean_names.keys())}", file=sys.stderr)
+            print(f"Suppressed spreadsheet clean names: {list(suppressed_clean_names.keys())}", file=sys.stderr)
+            print(f"Value spreadsheet original names: {value_xls.sheet_names}", file=sys.stderr)
+            print(f"Suppressed spreadsheet original names: {suppressed_xls.sheet_names}", file=sys.stderr)
             return False
         
-        # Check each worksheet
-        for sheet_name in value_xls.sheet_names:
-            print(f"Validating structure for sheet: {sheet_name}")
+        # Check each worksheet (using clean names for matching)
+        for clean_name in value_clean_names.keys():
+            value_sheet_name = value_clean_names[clean_name]
+            suppressed_sheet_name = suppressed_clean_names[clean_name]
+            
+            print(f"Validating structure for sheet: '{value_sheet_name}' vs '{suppressed_sheet_name}' (clean name: '{clean_name}')")
             
             # Read both sheets
-            value_df = pd.read_excel(value_xls, sheet_name=sheet_name)
-            suppressed_df = pd.read_excel(suppressed_xls, sheet_name=sheet_name)
+            value_df = pd.read_excel(value_xls, sheet_name=value_sheet_name)
+            suppressed_df = pd.read_excel(suppressed_xls, sheet_name=suppressed_sheet_name)
             
             # Check if both sheets have the same columns
             if list(value_df.columns) != list(suppressed_df.columns):
-                print(f"Error: Sheets '{sheet_name}' have different columns", file=sys.stderr)
+                print(f"Error: Sheets '{value_sheet_name}' vs '{suppressed_sheet_name}' have different columns", file=sys.stderr)
                 print(f"Value sheet columns: {value_df.columns.tolist()}", file=sys.stderr)
                 print(f"Suppressed sheet columns: {suppressed_df.columns.tolist()}", file=sys.stderr)
                 return False
             
             # Check if both sheets have the same number of rows
             if len(value_df) != len(suppressed_df):
-                print(f"Error: Sheets '{sheet_name}' have different number of rows", file=sys.stderr)
+                print(f"Error: Sheets '{value_sheet_name}' vs '{suppressed_sheet_name}' have different number of rows", file=sys.stderr)
                 print(f"Value sheet rows: {len(value_df)}", file=sys.stderr)
                 print(f"Suppressed sheet rows: {len(suppressed_df)}", file=sys.stderr)
                 return False
@@ -611,7 +666,7 @@ def validate_spreadsheets_structure(value_file_path, suppressed_file_path):
                         suppressed_month_year = suppressed_month_year.strftime('%Y-%m-%d')
                     
                     if str(value_month_year) != str(suppressed_month_year):
-                        print(f"Error: Sheets '{sheet_name}' have different month/years in row {i+1}", file=sys.stderr)
+                        print(f"Error: Sheets '{value_sheet_name}' vs '{suppressed_sheet_name}' have different month/years in row {i+1}", file=sys.stderr)
                         print(f"Value sheet month/year: {value_month_year}", file=sys.stderr)
                         print(f"Suppressed sheet month/year: {suppressed_month_year}", file=sys.stderr)
                         
@@ -683,21 +738,28 @@ def process_excel_files(value_file_path, suppressed_file_path):
         # Variable to store the first date found
         first_date = None
         
-        # Process each sheet
-        for sheet_name in value_xls.sheet_names:
-            print(f"Processing sheet: {sheet_name}")
+        # Parse sheet names to get clean names for matching
+        value_clean_names = {parse_worksheet_title(name)[0]: name for name in value_xls.sheet_names}
+        suppressed_clean_names = {parse_worksheet_title(name)[0]: name for name in suppressed_xls.sheet_names}
+        
+        # Process each sheet (using clean names for matching)
+        for clean_name in value_clean_names.keys():
+            value_sheet_name = value_clean_names[clean_name]
+            suppressed_sheet_name = suppressed_clean_names[clean_name]
+            
+            print(f"Processing sheet: '{value_sheet_name}' vs '{suppressed_sheet_name}' (clean name: '{clean_name}')")
             
             # Read both sheets
-            value_df = pd.read_excel(value_xls, sheet_name=sheet_name)
-            suppressed_df = pd.read_excel(suppressed_xls, sheet_name=sheet_name)
+            value_df = pd.read_excel(value_xls, sheet_name=value_sheet_name)
+            suppressed_df = pd.read_excel(suppressed_xls, sheet_name=suppressed_sheet_name)
             
-            # Validate sheet format
-            if not validate_sheet_format(sheet_name, value_df):
-                print(f"Error: Sheet '{sheet_name}' in value file has invalid format", file=sys.stderr)
+            # Validate sheet format (use clean name for validation)
+            if not validate_sheet_format(clean_name, value_df):
+                print(f"Error: Sheet '{value_sheet_name}' in value file has invalid format", file=sys.stderr)
                 sys.exit(1)
             
-            if not validate_sheet_format(sheet_name, suppressed_df):
-                print(f"Error: Sheet '{sheet_name}' in suppressed file has invalid format", file=sys.stderr)
+            if not validate_sheet_format(clean_name, suppressed_df):
+                print(f"Error: Sheet '{suppressed_sheet_name}' in suppressed file has invalid format", file=sys.stderr)
                 sys.exit(1)
             
             # Fill missing dates with the previous row's date
@@ -720,11 +782,11 @@ def process_excel_files(value_file_path, suppressed_file_path):
                         print(f"Warning: Could not parse date from first record: {date_value}", file=sys.stderr)
                         first_date = "unknown-date"
             
-            # Extract data type from sheet name
-            data_type = extract_data_type(sheet_name)
+            # Extract data type from clean sheet name
+            data_type = extract_data_type(clean_name)
             
-            # Generate INSERT statements for the sheet using both dataframes
-            sheet_inserts = generate_insert_statements_with_suppression(data_type, sheet_name, value_df, suppressed_df, file_type)
+            # Generate INSERT statements for the sheet using both dataframes (use clean name)
+            sheet_inserts = generate_insert_statements_with_suppression(data_type, clean_name, value_df, suppressed_df, file_type)
             
             # Add the sheet INSERT statements to the overall list
             insert_statements.extend(sheet_inserts)
