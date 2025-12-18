@@ -181,6 +181,7 @@ interface FiltersDef {
     sort?: 'number' | 'mmyyyy',    // If 'number', then sort by number but non-numbers come first; default is alphanumeric
     xf?: string, // Transform the value from internal to external, e.g. datetime-to-mmyyyy
     exclude?: string[], // Values to exclude from the response
+    default?: string, // Default value for the filter
   }
 }
 
@@ -315,6 +316,7 @@ export async function lambdaHandlerGetFilter(
 
   const filters = JSON.parse(queryRow.filters) as QueryFilters;
   const ret: Record<string, string[]> = {};
+  const defaults: Record<string, string> = {};
 
   await doDBOpen();
   const uploadType = queryRow.uploadType ? await getUploadType(queryRow.uploadType) : undefined;
@@ -388,14 +390,32 @@ export async function lambdaHandlerGetFilter(
           return a.localeCompare(b);
         }          
       });
+
+      // If there's a default value specified, store it separately
+      if (spec.default) {
+        defaults[key] = spec.default;
+      }
     }
   } finally {
     await doDBClose();
   }
 
+  // Structure the final response
+  const response: Record<string, string[] | { values: string[], default: string }> = {};
+  for (const [key, values] of Object.entries(ret)) {
+    if (defaults[key]) {
+      response[key] = {
+        values: values,
+        default: defaults[key]
+      };
+    } else {
+      response[key] = values;
+    }
+  }
+
   return {
     statusCode: 200,
-    body: JSON.stringify(ret),
+    body: JSON.stringify(response),
   };
 }
 

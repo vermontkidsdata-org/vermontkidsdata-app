@@ -218,7 +218,7 @@ ORDER BY
 INSERT INTO `queries` (`name`,`sqlText`,`columnMap`,`metadata`,`uploadType`,`filters`) 
 VALUES (
   'act76_child_race:line',
-  'SELECT 
+  'SELECT
   CONCAT(MONTHNAME(month_year), '' '', YEAR(month_year)) as cat,
   `race` as label,
   SUM(`value_suppressed`) as value
@@ -231,11 +231,15 @@ WHERE
                            "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@county_filter = "-- All --" OR `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  AND (
+    (@county_filter = "-- All --" AND `geography` = "Vermont")
+    OR (@county_filter != "-- All --" AND `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  )
   AND (@race_filter = "-- All --" OR `race` COLLATE utf8mb4_unicode_ci = @race_filter)
-GROUP BY 
+  AND `race` != "total"
+GROUP BY
   month_year, `race`
-ORDER BY 
+ORDER BY
   month_year, `race`',
   NULL,
   '{
@@ -1615,7 +1619,11 @@ ORDER BY
     "table": "data_act76_family_service_need",
     "filters": {
       "geography_filter": {"column": "geography"},
-      "service_need_filter": {"column": "service_need"}
+      "service_need_filter": {
+        "column": "service_need",
+        "exclude": ["total", "all"],
+        "default": "Working"
+      }
     }
   }'
 );
@@ -1651,9 +1659,11 @@ WHERE
                                "Windham", "Windsor") THEN "county"
      ELSE "AHS district"
   END
-  AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  AND (
+    (@geography_filter = "-- All --" AND geography = "Vermont")
+    OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  )
   AND (@pct_of_fpl_filter = "-- All --" OR pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter)
-  AND geography != "Vermont"
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') >=
       DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
 GROUP BY
@@ -1974,8 +1984,12 @@ WHERE
                            "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@county_filter = "-- All --" OR `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  AND (
+    (@county_filter = "-- All --" AND `geography` = "Vermont")
+    OR (@county_filter != "-- All --" AND `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  )
   AND (@ethnicity_filter = "-- All --" OR `ethnicity` COLLATE utf8mb4_unicode_ci = @ethnicity_filter)
+  AND `ethnicity` != "total"
   AND `ethnicity` != "Native American"
 GROUP BY
   month_year, `ethnicity`
@@ -2103,8 +2117,12 @@ WHERE
                            "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@county_filter = "-- All --" OR `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  AND (
+    (@county_filter = "-- All --" AND `geography` = "Vermont")
+    OR (@county_filter != "-- All --" AND `geography` COLLATE utf8mb4_unicode_ci = @county_filter)
+  )
   AND (@age_filter = "-- All --" OR `age` COLLATE utf8mb4_unicode_ci = @age_filter)
+  AND `age` != "total"
 GROUP BY
   month_year, `age`
 ORDER BY
