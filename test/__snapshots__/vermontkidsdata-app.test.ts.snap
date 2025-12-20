@@ -1359,146 +1359,53 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::IAM::Role",
     },
-    "DatasetpostAPIFunctionB555A2CF": {
-      "DependsOn": [
-        "DatasetpostAPIFunctionServiceRoleDefaultPolicy619AFDF1",
-        "DatasetpostAPIFunctionServiceRole63551C9C",
-      ],
+    "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA": {
+      "DeletionPolicy": "Delete",
       "Properties": {
-        "Code": {
-          "S3Bucket": "[ASSET BUCKET]",
-          "S3Key": "[ASSET ZIP]",
-        },
-        "Environment": {
-          "Variables": {
-            "DATASET_BACKUP_QUEUE_URL": {
-              "Ref": "BackupqueueE3E58E0E",
-            },
-            "DB_SECRET_NAME": "vkd/sandbox/dbcreds",
-            "IS_PRODUCTION": "false",
-            "LOG_LEVEL": "info",
-            "REGION": "aq-south-1",
-            "S3_BUCKET_NAME": {
-              "Ref": "Uploadsbucket86F42938",
-            },
-            "SERVICE_TABLE": {
-              "Ref": "SingleServiceTableABC698C2",
-            },
-            "VKD_ENVIRONMENT": "sandbox",
+        "Parameters": {
+          "referencetotestTestStackBackupqueue9AD2C365Arn": {
+            "Fn::GetAtt": [
+              "BackupqueueE3E58E0E",
+              "Arn",
+            ],
+          },
+          "referencetotestTestStackBackupqueue9AD2C365Ref": {
+            "Ref": "BackupqueueE3E58E0E",
+          },
+          "referencetotestTestStackSingleServiceTable2C62739BArn": {
+            "Fn::GetAtt": [
+              "SingleServiceTableABC698C2",
+              "Arn",
+            ],
+          },
+          "referencetotestTestStackSingleServiceTable2C62739BRef": {
+            "Ref": "SingleServiceTableABC698C2",
+          },
+          "referencetotestTestStackUploadsbucketF3884514Arn": {
+            "Fn::GetAtt": [
+              "Uploadsbucket86F42938",
+              "Arn",
+            ],
+          },
+          "referencetotestTestStackUploadsbucketF3884514Ref": {
+            "Ref": "Uploadsbucket86F42938",
           },
         },
-        "Handler": "index.handlerPost",
-        "MemorySize": 128,
-        "Role": {
-          "Fn::GetAtt": [
-            "DatasetpostAPIFunctionServiceRole63551C9C",
-            "Arn",
-          ],
-        },
-        "Runtime": "nodejs20.x",
-        "Timeout": 30,
-        "TracingConfig": {
-          "Mode": "Active",
-        },
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "DatasetpostAPIFunctionLogRetentionB9878A39": {
-      "Properties": {
-        "LogGroupName": {
+        "TemplateURL": {
           "Fn::Join": [
             "",
             [
-              "/aws/lambda/",
+              "https://s3.aq-south-1.",
               {
-                "Ref": "DatasetpostAPIFunctionB555A2CF",
+                "Ref": "AWS::URLSuffix",
               },
+              "/[ASSET BUCKET]/[ASSET ZIP]",
             ],
           ],
         },
-        "RetentionInDays": 1,
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
-            "Arn",
-          ],
-        },
       },
-      "Type": "Custom::LogRetention",
-    },
-    "DatasetpostAPIFunctionServiceRole63551C9C": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "lambda.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "DatasetpostAPIFunctionServiceRoleDefaultPolicy619AFDF1": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            {
-              "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret",
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":secretsmanager:aq-south-1:999999999:secret:vkd/sandbox/dbcreds-??????",
-                  ],
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "DatasetpostAPIFunctionServiceRoleDefaultPolicy619AFDF1",
-        "Roles": [
-          {
-            "Ref": "DatasetpostAPIFunctionServiceRole63551C9C",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
+      "Type": "AWS::CloudFormation::Stack",
+      "UpdateReplacePolicy": "Delete",
     },
     "DeleteSessionfunction5693F658": {
       "DependsOn": [
@@ -4379,7 +4286,7 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::ApiGateway::BasePathMapping",
     },
-    "sandboxVermontKidsDataDeployment13909A1Ba04da1a76ee8fbcabdcfe24ef7ad12d3": {
+    "sandboxVermontKidsDataDeployment13909A1Bb1fdfa3d1985f0a181f0966a942333ea": {
       "DependsOn": [
         "gatewayresponseforACCESSDENIEDCCB1887E",
         "gatewayresponseforDEFAULT4XXE9C3E6DB",
@@ -4485,10 +4392,17 @@ exports[`Lambda Snapshot Test 1`] = `
         "sandboxVermontKidsDatadashboardcheckB14A4D32",
         "sandboxVermontKidsDatadashboardOPTIONSF5D80883",
         "sandboxVermontKidsDatadashboard956FE50E",
-        "sandboxVermontKidsDatadatasetdatasetOPTIONS54310E6E",
-        "sandboxVermontKidsDatadatasetdatasetPOSTA9DB39B6",
-        "sandboxVermontKidsDatadatasetdataset930CCC5E",
+        "sandboxVermontKidsDatadatasetbackupidGET6E412947",
+        "sandboxVermontKidsDatadatasetbackupidOPTIONS5FC4FDE5",
+        "sandboxVermontKidsDatadatasetbackupid0420C6FB",
+        "sandboxVermontKidsDatadatasetbackupidrevertOPTIONS7C08DDBE",
+        "sandboxVermontKidsDatadatasetbackupidrevertPOSTBA1F9AB2",
+        "sandboxVermontKidsDatadatasetbackupidrevertA33B6A5C",
+        "sandboxVermontKidsDatadatasetbackupGET9C75FA4C",
+        "sandboxVermontKidsDatadatasetbackupOPTIONSC77159CE",
+        "sandboxVermontKidsDatadatasetbackupA04211C9",
         "sandboxVermontKidsDatadatasetOPTIONSE2DCD45B",
+        "sandboxVermontKidsDatadatasetPOST16C5C633",
         "sandboxVermontKidsDatadatasetBEA8A300",
         "sandboxVermontKidsDatadatasetyearsdatasetGET557C7FE7",
         "sandboxVermontKidsDatadatasetyearsdatasetOPTIONSBE6D0891",
@@ -4590,6 +4504,11 @@ exports[`Lambda Snapshot Test 1`] = `
         "sandboxVermontKidsDatatestdbGET19998466",
         "sandboxVermontKidsDatatestdbOPTIONS933508EE",
         "sandboxVermontKidsDatatestdb1E7656E1",
+        "sandboxVermontKidsDatauploadstatusidGETEB54A9C3",
+        "sandboxVermontKidsDatauploadstatusidOPTIONS357A7504",
+        "sandboxVermontKidsDatauploadstatusidA6A439E0",
+        "sandboxVermontKidsDatauploadstatusOPTIONSAFCDCA71",
+        "sandboxVermontKidsDatauploadstatus85890B5B",
       ],
       "Metadata": {
         "aws:cdk:do-not-refactor": true,
@@ -4608,7 +4527,7 @@ exports[`Lambda Snapshot Test 1`] = `
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "sandboxVermontKidsDataDeployment13909A1Ba04da1a76ee8fbcabdcfe24ef7ad12d3",
+          "Ref": "sandboxVermontKidsDataDeployment13909A1Bb1fdfa3d1985f0a181f0966a942333ea",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -9650,19 +9569,249 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "sandboxVermontKidsDatadatasetdataset930CCC5E": {
+    "sandboxVermontKidsDatadatasetPOST16C5C633": {
+      "Properties": {
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+                    "Outputs.testTestStackDatasetFunctionsDatasetpostAPIFunction1086A560Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDatadatasetBEA8A300",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDatadatasetPOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTdatasetAA802925": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsDatasetpostAPIFunction1086A560Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/POST/dataset",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDatadatasetPOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTdatasetFD8BD472": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsDatasetpostAPIFunction1086A560Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/POST/dataset",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDatadatasetbackupA04211C9": {
       "Properties": {
         "ParentId": {
           "Ref": "sandboxVermontKidsDatadatasetBEA8A300",
         },
-        "PathPart": "{dataset}",
+        "PathPart": "backup",
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
         },
       },
       "Type": "AWS::ApiGateway::Resource",
     },
-    "sandboxVermontKidsDatadatasetdatasetOPTIONS54310E6E": {
+    "sandboxVermontKidsDatadatasetbackupGET9C75FA4C": {
+      "Properties": {
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+                    "Outputs.testTestStackDatasetFunctionsListDatasetBackupsFunction15CD0FA4Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDatadatasetbackupA04211C9",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDatadatasetbackupGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETdatasetbackupD527E787": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsListDatasetBackupsFunction15CD0FA4Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/dataset/backup",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDatadatasetbackupGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETdatasetbackup7DD206C4": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsListDatasetBackupsFunction15CD0FA4Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/dataset/backup",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDatadatasetbackupOPTIONSC77159CE": {
       "Properties": {
         "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
@@ -9696,7 +9845,7 @@ exports[`Lambda Snapshot Test 1`] = `
           },
         ],
         "ResourceId": {
-          "Ref": "sandboxVermontKidsDatadatasetdataset930CCC5E",
+          "Ref": "sandboxVermontKidsDatadatasetbackupA04211C9",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -9704,13 +9853,25 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "sandboxVermontKidsDatadatasetdatasetPOSTA9DB39B6": {
+    "sandboxVermontKidsDatadatasetbackupid0420C6FB": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDatadatasetbackupA04211C9",
+        },
+        "PathPart": "{id}",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDatadatasetbackupidGET6E412947": {
       "Properties": {
         "AuthorizationType": "CUSTOM",
         "AuthorizerId": {
           "Ref": "requestauthorizerD239B518",
         },
-        "HttpMethod": "POST",
+        "HttpMethod": "GET",
         "Integration": {
           "IntegrationHttpMethod": "POST",
           "Type": "AWS_PROXY",
@@ -9725,8 +9886,8 @@ exports[`Lambda Snapshot Test 1`] = `
                 ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "DatasetpostAPIFunctionB555A2CF",
-                    "Arn",
+                    "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+                    "Outputs.testTestStackDatasetFunctionsGetDatasetBackupFunctionF693D5C5Arn",
                   ],
                 },
                 "/invocations",
@@ -9749,7 +9910,7 @@ exports[`Lambda Snapshot Test 1`] = `
           },
         ],
         "ResourceId": {
-          "Ref": "sandboxVermontKidsDatadatasetdataset930CCC5E",
+          "Ref": "sandboxVermontKidsDatadatasetbackupid0420C6FB",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
@@ -9757,13 +9918,13 @@ exports[`Lambda Snapshot Test 1`] = `
       },
       "Type": "AWS::ApiGateway::Method",
     },
-    "sandboxVermontKidsDatadatasetdatasetPOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTdatasetdataset25B794C6": {
+    "sandboxVermontKidsDatadatasetbackupidGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETdatasetbackupid4FADBD05": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "DatasetpostAPIFunctionB555A2CF",
-            "Arn",
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsGetDatasetBackupFunctionF693D5C5Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9779,20 +9940,20 @@ exports[`Lambda Snapshot Test 1`] = `
               {
                 "Ref": "sandboxVermontKidsData3EAE2FF7",
               },
-              "/test-invoke-stage/POST/dataset/*",
+              "/test-invoke-stage/GET/dataset/backup/*",
             ],
           ],
         },
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "sandboxVermontKidsDatadatasetdatasetPOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTdatasetdatasetBFF5C302": {
+    "sandboxVermontKidsDatadatasetbackupidGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETdatasetbackupidDFE411C2": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
           "Fn::GetAtt": [
-            "DatasetpostAPIFunctionB555A2CF",
-            "Arn",
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsGetDatasetBackupFunctionF693D5C5Arn",
           ],
         },
         "Principal": "apigateway.amazonaws.com",
@@ -9812,12 +9973,223 @@ exports[`Lambda Snapshot Test 1`] = `
               {
                 "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
               },
-              "/POST/dataset/*",
+              "/GET/dataset/backup/*",
             ],
           ],
         },
       },
       "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDatadatasetbackupidOPTIONS5FC4FDE5": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDatadatasetbackupid0420C6FB",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDatadatasetbackupidrevertA33B6A5C": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDatadatasetbackupid0420C6FB",
+        },
+        "PathPart": "revert",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDatadatasetbackupidrevertOPTIONS7C08DDBE": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDatadatasetbackupidrevertA33B6A5C",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDatadatasetbackupidrevertPOSTApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BPOSTdatasetbackupidrevert19720D16": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsDatasetRevertFunctionAA445B5FArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/POST/dataset/backup/*/revert",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDatadatasetbackupidrevertPOSTApiPermissiontestTestStacksandboxVermontKidsData42030C9BPOSTdatasetbackupidrevert33D7088E": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsDatasetRevertFunctionAA445B5FArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/POST/dataset/backup/*/revert",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDatadatasetbackupidrevertPOSTBA1F9AB2": {
+      "Properties": {
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
+        "HttpMethod": "POST",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+                    "Outputs.testTestStackDatasetFunctionsDatasetRevertFunctionAA445B5FArn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDatadatasetbackupidrevertA33B6A5C",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
     },
     "sandboxVermontKidsDatadatasetyears02F184CB": {
       "Properties": {
@@ -14641,6 +15013,232 @@ exports[`Lambda Snapshot Test 1`] = `
         ],
         "ResourceId": {
           "Ref": "sandboxVermontKidsDatatestdb1E7656E1",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDatauploadstatus85890B5B": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "sandboxVermontKidsData3EAE2FF7",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "upload-status",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDatauploadstatusOPTIONSAFCDCA71": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDatauploadstatus85890B5B",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDatauploadstatusidA6A439E0": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "sandboxVermontKidsDatauploadstatus85890B5B",
+        },
+        "PathPart": "{id}",
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "sandboxVermontKidsDatauploadstatusidGETApiPermissionTesttestTestStacksandboxVermontKidsData42030C9BGETuploadstatusidED409D9A": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsUploadStatusFunctionE09F834DArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/test-invoke-stage/GET/upload-status/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDatauploadstatusidGETApiPermissiontestTestStacksandboxVermontKidsData42030C9BGETuploadstatusid8353CB0D": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+            "Outputs.testTestStackDatasetFunctionsUploadStatusFunctionE09F834DArn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:aq-south-1:999999999:",
+              {
+                "Ref": "sandboxVermontKidsData3EAE2FF7",
+              },
+              "/",
+              {
+                "Ref": "sandboxVermontKidsDataDeploymentStageprodC97740DF",
+              },
+              "/GET/upload-status/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "sandboxVermontKidsDatauploadstatusidGETEB54A9C3": {
+      "Properties": {
+        "AuthorizationType": "CUSTOM",
+        "AuthorizerId": {
+          "Ref": "requestauthorizerD239B518",
+        },
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:aq-south-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "DatasetFunctionsNestedStackDatasetFunctionsNestedStackResource333B18FA",
+                    "Outputs.testTestStackDatasetFunctionsUploadStatusFunctionE09F834DArn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "401",
+          },
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "403",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDatauploadstatusidA6A439E0",
+        },
+        "RestApiId": {
+          "Ref": "sandboxVermontKidsData3EAE2FF7",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "sandboxVermontKidsDatauploadstatusidOPTIONS357A7504": {
+      "Properties": {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": {
+          "Ref": "sandboxVermontKidsDatauploadstatusidA6A439E0",
         },
         "RestApiId": {
           "Ref": "sandboxVermontKidsData3EAE2FF7",
