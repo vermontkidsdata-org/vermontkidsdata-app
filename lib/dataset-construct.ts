@@ -6,7 +6,8 @@ import { Runtime, Tracing } from "aws-cdk-lib/aws-lambda";
 import { SqsEventSource } from "aws-cdk-lib/aws-lambda-event-sources";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { RetentionDays } from "aws-cdk-lib/aws-logs";
-import { Bucket } from "aws-cdk-lib/aws-s3";
+import { Bucket, EventType } from "aws-cdk-lib/aws-s3";
+import { SqsDestination } from "aws-cdk-lib/aws-s3-notifications";
 import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
 import { Queue } from "aws-cdk-lib/aws-sqs";
 import { Construct } from "constructs";
@@ -23,6 +24,7 @@ interface DatasetConstructProps extends NestedStackProps {
   secret: ISecret;
   bucket: Bucket;
   queue: Queue;
+  uploadQueue: Queue;
   runtime: Runtime;
   getDataSetYearsByDatasetFunction?: any; // Lambda function for years endpoint
 }
@@ -31,7 +33,7 @@ export class DatasetConstruct extends NestedStack {
   constructor(scope: Construct, id: string, props: DatasetConstructProps) {
     super(scope, id);
     
-    const { api, commonEnv, methodOptions, auth, onAdd, serviceTable, secret, bucket, queue, runtime, getDataSetYearsByDatasetFunction } = props;
+    const { api, commonEnv, methodOptions, auth, onAdd, serviceTable, secret, bucket, queue, uploadQueue, runtime, getDataSetYearsByDatasetFunction } = props;
     const bucketName = bucket.bucketName;
     
     const getSecretValueStatement = new PolicyStatement({
@@ -56,7 +58,16 @@ export class DatasetConstruct extends NestedStack {
     bucket.grantRead(uploadFunction);
     queue.grantSendMessages(uploadFunction);
     serviceTable.grantReadWriteData(uploadFunction);
+    
+    // Add SQS event source to trigger the upload function when messages are received
+    uploadFunction.addEventSource(new SqsEventSource(uploadQueue, {
+      batchSize: 1,
+    }));
+    
     if (onAdd) onAdd(uploadFunction);
+    
+    // Configure S3 bucket to send notifications to SQS when objects are created
+    bucket.addEventNotification(EventType.OBJECT_CREATED, new SqsDestination(uploadQueue));
     
     // 2. Dataset Backup Function
     const datasetBackupFunction = new NodejsFunction(this, 'Dataset Backup Function', {

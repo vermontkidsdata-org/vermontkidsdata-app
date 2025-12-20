@@ -671,6 +671,7 @@ export class VermontkidsdataStack extends Stack {
       secret,
       bucket,
       queue,
+      uploadQueue,
       runtime,
       getDataSetYearsByDatasetFunction,
       onAdd: (fn: NodejsFunction) => {
