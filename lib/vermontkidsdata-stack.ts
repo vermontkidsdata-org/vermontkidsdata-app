@@ -23,6 +23,7 @@ import { join } from 'path';
 import * as util from 'util';
 import { AIAssistantConstruct } from './ai-assistant-construct';
 import { AuthInfo } from './cdk-utils';
+import { DatasetConstruct } from './dataset-construct';
 import { PortalsFunctions } from './portals-functions';
 // import { OpenApiBuilder } from './openapi';
 
@@ -342,20 +343,6 @@ export class VermontkidsdataStack extends Stack {
     });
     secret.grantRead(queriesPostFunction);
 
-    const datasetPostFunction = new NodejsFunction(this, 'Dataset post API Function', {
-      memorySize: 128,
-      timeout: Duration.seconds(30),
-      runtime,
-      handler: 'handlerPost',
-      entry: join(__dirname, "../src/dataset-api.ts"),
-      logRetention: RetentionDays.ONE_DAY,
-      environment: {
-        ...commonEnv,
-        S3_BUCKET_NAME: bucketName,
-      },
-      tracing: Tracing.ACTIVE,
-    });
-    secret.grantRead(datasetPostFunction);
 
     const tableCensusByGeoFunction = new NodejsFunction(this, 'Census Table By Geo Function', {
       memorySize: 1024,
@@ -675,6 +662,22 @@ export class VermontkidsdataStack extends Stack {
       },
     });
 
+    new DatasetConstruct(this, 'Dataset Functions', {
+      api,
+      commonEnv,
+      methodOptions: auth,
+      auth,
+      serviceTable,
+      secret,
+      bucket,
+      queue,
+      runtime,
+      getDataSetYearsByDatasetFunction,
+      onAdd: (fn: NodejsFunction) => {
+        // Grant additional permissions if needed
+      },
+    });
+
     const rSession = api.root.addResource('session');
     rSession.addMethod("GET", new LambdaIntegration(getSessionFunction));
     rSession.addResource('end').addMethod("GET", new LambdaIntegration(deleteSessionFunction));
@@ -689,17 +692,7 @@ export class VermontkidsdataStack extends Stack {
     });
     // rOauthCallback.addMethod("OPTIONS", new LambdaIntegration(optionsFunction));
 
-    const rDataset = api.root.addResource('dataset');
-    const rDatasetDataset = rDataset.addResource('{dataset}');
-    // POST /dataset/{dataset}
-    rDatasetDataset.addMethod("POST", new LambdaIntegration(datasetPostFunction), auth);
-
-    const rDatasetYears = rDataset.addResource('years');
-    const rDatasetYearsDataset = rDatasetYears.addResource('{dataset}');
-    // GET /dataset/years/{dataset}
-    rDatasetYearsDataset.addMethod("GET", new LambdaIntegration(getDataSetYearsByDatasetFunction));
-
-    // Dataset backup and upload endpoints are now handled by DatasetConstruct
+    // Dataset endpoints (including years) are now handled by DatasetConstruct
 
     const rChart = api.root.addResource("chart");
     const rChartBar = rChart.addResource("bar");

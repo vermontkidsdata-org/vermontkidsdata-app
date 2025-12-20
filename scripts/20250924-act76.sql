@@ -1586,9 +1586,10 @@ WHERE
                                "Windham", "Windsor") THEN "county"
      ELSE "AHS district"
   END
-  AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
-  AND (@service_need_filter = "-- All --" OR service_need COLLATE utf8mb4_unicode_ci = @service_need_filter)
-  AND geography != "Vermont"
+  AND ((@geography_filter = "-- All --" AND geography = "Vermont")
+       OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter))
+  AND ((@service_need_filter = "-- All --" AND service_need = "total")
+       OR (@service_need_filter != "-- All --" AND service_need COLLATE utf8mb4_unicode_ci = @service_need_filter))
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') >=
       DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
 GROUP BY
@@ -1634,15 +1635,15 @@ VALUES (
   'act76_ccfap_family_pct_of_fpl:line',
   'WITH last_18_months AS (
   SELECT
-    MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date
+    MAX(STR_TO_DATE(CONCAT(year, "-", LPAD(month, 2, "0"), "-01"), "%Y-%m-%d")) as max_date
   FROM data_act76_family_pct_of_fpl
 )
 SELECT
-  CONCAT(MONTHNAME(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')), '' '', year) as cat,
+  CONCAT(MONTHNAME(STR_TO_DATE(CONCAT(year, "-", LPAD(month, 2, "0"), "-01"), "%Y-%m-%d")), " ", year) as cat,
   CASE
     WHEN @pct_of_fpl_filter != "-- All --" THEN
       CASE
-        WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), ''%'')
+        WHEN pct_of_fpl REGEXP "^[0-9]+(\.[0-9]+)?$" THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), "%")
         ELSE pct_of_fpl
       END
     WHEN @geography_filter != "-- All --" THEN geography
@@ -1660,18 +1661,18 @@ WHERE
      ELSE "AHS district"
   END
   AND (
-    (@geography_filter = "-- All --" AND geography = "Vermont")
+    (@geography_filter = "-- All --" AND geography = "Vermont" AND geo_type = "county")
     OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter)
   )
-  AND (@pct_of_fpl_filter = "-- All --" OR pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter)
-  AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') >=
+  AND ((@pct_of_fpl_filter = "-- All --" AND pct_of_fpl = "total") OR (@pct_of_fpl_filter != "-- All --" AND pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter))
+  AND STR_TO_DATE(CONCAT(year, "-", LPAD(month, 2, "0"), "-01"), "%Y-%m-%d") >=
       DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
 GROUP BY
   year, month,
   CASE
     WHEN @pct_of_fpl_filter != "-- All --" THEN
       CASE
-        WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), ''%'')
+        WHEN pct_of_fpl REGEXP "^[0-9]+(\.[0-9]+)?$" THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), "%")
         ELSE pct_of_fpl
       END
     WHEN @geography_filter != "-- All --" THEN geography
@@ -1708,7 +1709,7 @@ INSERT INTO `queries` (`name`, `sqlText`, `metadata`, `uploadType`, `filters`)
 VALUES (
   'act76_ccfap_family_pct_of_fpl:column',
   'WITH latest_date AS (
-    SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date,
+    SELECT MAX(STR_TO_DATE(CONCAT(year, "-", LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date,
            MONTH(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''))) as latest_month,
            YEAR(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''))) as latest_year
     FROM data_act76_family_pct_of_fpl

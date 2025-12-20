@@ -24,13 +24,14 @@ interface DatasetConstructProps extends NestedStackProps {
   bucket: Bucket;
   queue: Queue;
   runtime: Runtime;
+  getDataSetYearsByDatasetFunction?: any; // Lambda function for years endpoint
 }
 
 export class DatasetConstruct extends NestedStack {
   constructor(scope: Construct, id: string, props: DatasetConstructProps) {
     super(scope, id);
     
-    const { api, commonEnv, methodOptions, auth, onAdd, serviceTable, secret, bucket, queue, runtime } = props;
+    const { api, commonEnv, methodOptions, auth, onAdd, serviceTable, secret, bucket, queue, runtime, getDataSetYearsByDatasetFunction } = props;
     const bucketName = bucket.bucketName;
     
     const getSecretValueStatement = new PolicyStatement({
@@ -181,5 +182,12 @@ export class DatasetConstruct extends NestedStack {
     
     const revertPath = backupIdPath.addResource('revert');
     revertPath.addMethod('POST', new LambdaIntegration(dataSetRevertFunction), methodOptions);
+    
+    // Add years endpoint if function is provided
+    if (getDataSetYearsByDatasetFunction) {
+      const yearsPath = datasetRoot.addResource('years');
+      const yearsDatasetPath = yearsPath.addResource('{dataset}');
+      yearsDatasetPath.addMethod('GET', new LambdaIntegration(getDataSetYearsByDatasetFunction));
+    }
   }
 }

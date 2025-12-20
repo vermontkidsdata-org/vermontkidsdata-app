@@ -40,10 +40,10 @@ AND ((@county_filter = "-- All --" AND geography = "Vermont")
 ## 🛠️ DEPLOYMENT & TESTING
 
 ### Deploy-Test-Verify Cycle
-1. **Deploy**: `bash do_not_commit/deploy.sh` (or `hotswap.sh` for Lambda-only changes)
-2. **Update DB**: Execute SQL scripts if queries were modified
+1. **Deploy**: `bash do_not_commit/deploy.sh` (or `hotswap.sh` for Lambda-only changes). This is NOT necessary if only database queries are being modified.
+2. **Update DB**: Execute SQL scripts directly using the mysql MCP if queries were modified. However to do end to end tests, the user must execute the DB scripts himself. So if you modify queries and want to test end-to-end, ask the user to update the queries in the database.
 3. **Test API**: `curl "https://api.qa.vtkidsdata.org/chart/bar/query_name?params"`
-4. **Test UI**: Verify charts display correctly in browser
+4. **Test API and UI**: Verify charts display correctly in browser
 5. **Integration Test**: `npx ts-node test/integration-test.ts --env=qa`
 
 ### Database Testing Strategy
