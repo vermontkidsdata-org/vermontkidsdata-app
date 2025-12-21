@@ -58,6 +58,7 @@ export class DatasetConstruct extends NestedStack {
     bucket.grantRead(uploadFunction);
     queue.grantSendMessages(uploadFunction);
     serviceTable.grantReadWriteData(uploadFunction);
+    uploadFunction.addToRolePolicy(getSecretValueStatement);
     
     // Add SQS event source to trigger the upload function when messages are received
     uploadFunction.addEventSource(new SqsEventSource(uploadQueue, {
