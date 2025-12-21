@@ -88,7 +88,6 @@ jobs:
   main-integration-test-qa:
     needs: [main-deploy-qa]
     runs-on: ubuntu-latest
-    environment: qa
     env:
       VKD_ENVIRONMENT: qa
     steps:
