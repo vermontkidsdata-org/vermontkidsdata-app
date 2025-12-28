@@ -1,8 +1,9 @@
--- DDL for Act 76 Family Data FY 23-25.xlsx
+-- DDL for family-fy23-fy25.xlsx
 
 -- DDL for % of FPL
 -- Source worksheets: '% of FPL by County', '% of FPL by AHSD'
-CREATE TABLE IF NOT EXISTS `data_act76_family_pct_of_fpl` (
+DROP TABLE IF EXISTS `data_act76_family_pct_of_fpl`;
+CREATE TABLE `data_act76_family_pct_of_fpl` (
   `id` INT AUTO_INCREMENT,
   `month_year` VARCHAR(255),
   `month` INT COMMENT 'Month (1-12)',
@@ -19,7 +20,8 @@ CREATE TABLE IF NOT EXISTS `data_act76_family_pct_of_fpl` (
 
 -- DDL for Service Need
 -- Source worksheets: 'Service Need by County', 'Service Need by AHSD'
-CREATE TABLE IF NOT EXISTS `data_act76_family_service_need` (
+DROP TABLE IF EXISTS `data_act76_family_service_need`;
+CREATE TABLE `data_act76_family_service_need` (
   `id` INT AUTO_INCREMENT,
   `month_year` VARCHAR(255),
   `month` INT COMMENT 'Month (1-12)',
@@ -36,7 +38,8 @@ CREATE TABLE IF NOT EXISTS `data_act76_family_service_need` (
 
 -- DDL for Total by <geography type>
 -- Source worksheets: 'Total by County', 'Total by AHSD'
-CREATE TABLE IF NOT EXISTS `data_act76_family_total` (
+DROP TABLE IF EXISTS `data_act76_family_total`;
+CREATE TABLE `data_act76_family_total` (
   `id` INT AUTO_INCREMENT,
   `month_year` VARCHAR(255),
   `month` INT COMMENT 'Month (1-12)',

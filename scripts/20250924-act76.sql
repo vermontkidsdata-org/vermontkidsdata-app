@@ -1461,7 +1461,10 @@ SELECT
     WHEN @pct_of_fpl_filter = "-- All --" THEN CONCAT("Total (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
     ELSE CONCAT(pct_of_fpl, " (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
   END as cat,
-  SUM(value_suppressed) as value,
+  CASE
+    WHEN @pct_of_fpl_filter = "-- All --" THEN value
+    ELSE value_suppressed
+  END as value,
   DATE_FORMAT(latest_date.max_date, "%M %Y") as date_label
 FROM data_act76_family_pct_of_fpl
 CROSS JOIN latest_date
@@ -1469,13 +1472,10 @@ WHERE
   geo_type = "AHS district"
   AND geography != "Vermont"
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') = latest_date.max_date
-  AND (@pct_of_fpl_filter = "-- All --" OR pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter)
-GROUP BY
-  geography,
-  CASE
-    WHEN @pct_of_fpl_filter = "-- All --" THEN "Total"
-    ELSE pct_of_fpl
-  END
+  AND (
+    (@pct_of_fpl_filter = "-- All --" AND pct_of_fpl = "total")
+    OR (@pct_of_fpl_filter != "-- All --" AND pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter)
+  )
 ORDER BY
   geography',
   NULL,
@@ -1575,7 +1575,7 @@ SELECT
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Total Families"
   END as label,
-  value_suppressed as value
+  CASE WHEN @service_need_filter != "-- All --" THEN value_suppressed ELSE value END as value
 FROM data_act76_family_service_need
 CROSS JOIN last_18_months
 WHERE
@@ -1642,7 +1642,7 @@ SELECT
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Total Families"
   END as label,
-  value_suppressed as value
+  CASE WHEN @pct_of_fpl_filter != "-- All --" THEN value_suppressed ELSE value END as value
 FROM data_act76_family_pct_of_fpl
 CROSS JOIN last_18_months
 WHERE
@@ -2456,7 +2456,10 @@ SELECT
     year,
     ")"
   ) as cat,
-  SUM(value_suppressed) as value
+  CASE
+    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    ELSE SUM(value_suppressed)
+  END as value
 FROM data_act76_family_service_need
 CROSS JOIN latest_date
 WHERE
@@ -2467,9 +2470,11 @@ WHERE
                                "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  AND (
+    (@geography_filter = "-- All --" AND geography = "Vermont")
+    OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  )
   AND service_need != "total"  -- Exclude total to show individual categories
-  AND geography != "Vermont"  -- Exclude Vermont total to avoid double counting when aggregating
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') = latest_date.max_date
 GROUP BY
   service_need,
@@ -2515,7 +2520,10 @@ SELECT
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Vermont"
   END as label,
-  SUM(value_suppressed) as value
+  CASE
+    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    ELSE SUM(value_suppressed)
+  END as value
 FROM data_act76_family_service_need
 CROSS JOIN last_18_months
 WHERE
@@ -2526,9 +2534,11 @@ WHERE
                                "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  AND (
+    (@geography_filter = "-- All --" AND geography = "Vermont")
+    OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  )
   AND service_need = "Working"  -- Filter specifically for Working service need
-  AND geography != "Vermont"  -- Exclude Vermont total to avoid double counting when aggregating
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') >=
       DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
 GROUP BY
@@ -2575,7 +2585,10 @@ SELECT
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Vermont"
   END as label,
-  SUM(value_suppressed) as value
+  CASE
+    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    ELSE SUM(value_suppressed)
+  END as value
 FROM data_act76_family_service_need
 CROSS JOIN last_18_months
 WHERE
@@ -2586,9 +2599,11 @@ WHERE
                                "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  AND (
+    (@geography_filter = "-- All --" AND geography = "Vermont")
+    OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  )
   AND service_need = "Self employed"  -- Filter specifically for Self employed service need
-  AND geography != "Vermont"  -- Exclude Vermont total to avoid double counting when aggregating
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') >=
       DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
 GROUP BY
@@ -2635,7 +2650,10 @@ SELECT
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Vermont"
   END as label,
-  SUM(value_suppressed) as value
+  CASE
+    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    ELSE SUM(value_suppressed)
+  END as value
 FROM data_act76_family_service_need
 CROSS JOIN last_18_months
 WHERE
@@ -2646,9 +2664,11 @@ WHERE
                                "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  AND (
+    (@geography_filter = "-- All --" AND geography = "Vermont")
+    OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  )
   AND service_need = "Family Support"  -- Filter specifically for Family Support service need
-  AND geography != "Vermont"  -- Exclude Vermont total to avoid double counting when aggregating
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') >=
       DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
 GROUP BY
@@ -2694,7 +2714,10 @@ SELECT
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Vermont"
   END as label,
-  SUM(value_suppressed) as value
+  CASE
+    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    ELSE SUM(value_suppressed)
+  END as value
 FROM data_act76_family_service_need
 CROSS JOIN last_18_months
 WHERE
@@ -2705,9 +2728,11 @@ WHERE
                                "Windham", "Windsor") THEN "county"
     ELSE "AHS district"
   END
-  AND (@geography_filter = "-- All --" OR geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  AND (
+    (@geography_filter = "-- All --" AND geography = "Vermont")
+    OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter)
+  )
   AND service_need = "Reach up"  -- Filter specifically for Reach up service need
-  AND geography != "Vermont"  -- Exclude Vermont total to avoid double counting when aggregating
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') >=
       DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
 GROUP BY

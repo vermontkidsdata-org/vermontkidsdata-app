@@ -178,13 +178,17 @@ def column_to_field_name(column_name):
     as the table name conversion.
     
     Args:
-        column_name: The name of the column (can be string, float, or other type)
+        column_name: The name of the column (can be string, datetime, float, or other type)
         
     Returns:
         str: The field name
     """
-    # Convert to string to handle non-string column names (like floats)
-    column_name_str = str(column_name)
+    # Handle datetime objects by converting to string format
+    if isinstance(column_name, datetime):
+        column_name_str = column_name.strftime('%Y-%m-%d %H:%M:%S')
+    else:
+        # Convert to string to handle non-string column names (like floats)
+        column_name_str = str(column_name)
     
     # Replace "%" with "pct"
     name_part = column_name_str.replace("%", "pct")
@@ -301,7 +305,7 @@ def generate_insert_statements_for_total_worksheet(sheet_name, value_df, suppres
         file_type (str): The file type ("child" or "family")
         
     Returns:
-        list: The INSERT statements for the sheet
+        tuple: (insert_statements, table_name) - The INSERT statements and table name for the sheet
     """
     try:
         # Generate table name
@@ -354,17 +358,25 @@ def generate_insert_statements_for_total_worksheet(sheet_name, value_df, suppres
             # Process each date column (all columns except the first one)
             for col_idx in range(1, len(value_df.columns)):
                 col = value_df.columns[col_idx]
+                suppressed_col = suppressed_df.columns[col_idx]
                 
                 # Get the value for this column from both dataframes
                 value = value_row[col]
-                suppressed_value = suppressed_row[col]
+                suppressed_value = suppressed_row[suppressed_col]
                 
                 # Skip if both values are NaN
                 if pd.isna(value) and pd.isna(suppressed_value):
                     continue
                 
-                # Use the column header as the month_year
-                month_year = col
+                # Normalize the column header to handle datetime vs string
+                if isinstance(col, datetime):
+                    month_year = col
+                else:
+                    # Try to parse string as datetime, fallback to original if it fails
+                    try:
+                        month_year = pd.to_datetime(col)
+                    except (ValueError, TypeError):
+                        month_year = col
                 
                 # Extract month and year from month_year
                 month, year = extract_month_year(month_year)
@@ -407,7 +419,7 @@ def generate_insert_statements_for_total_worksheet(sheet_name, value_df, suppres
                 # Add to the list of INSERT statements
                 insert_statements.append(insert)
         
-        return insert_statements
+        return insert_statements, table_name
     
     except Exception as e:
         print(f"Error generating INSERT statements for sheet '{sheet_name}': {str(e)}", file=sys.stderr)
@@ -427,7 +439,7 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
         file_type (str): The file type ("child" or "family")
         
     Returns:
-        list: The INSERT statements for the sheet
+        tuple: (insert_statements, table_name) - The INSERT statements and table name for the sheet
     """
     try:
         # Check if this is a "Total by <geography type>" worksheet
@@ -480,13 +492,16 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
             key = (month_year, geography)
             
             # Process each column (except month_year and geography)
-            for col in value_df.columns[2:]:
+            for col_idx in range(2, len(value_df.columns)):
+                col = value_df.columns[col_idx]
+                suppressed_col = suppressed_df.columns[col_idx]
+                
                 # Skip geography-specific columns like "County" or "AHS District"
                 col_str = str(col).lower()
                 if col_str not in ["county", "ahs district", "total"]:
                     # Get the value for this column from both dataframes
                     value = value_row[col]
-                    suppressed_value = suppressed_row[col]
+                    suppressed_value = suppressed_row[suppressed_col]
                     
                     # Skip if both values are NaN
                     if pd.isna(value) and pd.isna(suppressed_value):
@@ -499,15 +514,18 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
                     grouped_data[key].append((category_value, value, suppressed_value))
             
             # Add a row for the total if it exists
-            total_col = None
-            for col in value_df.columns[2:]:
+            total_col_idx = None
+            for col_idx in range(2, len(value_df.columns)):
+                col = value_df.columns[col_idx]
                 if str(col).lower() == "total":
-                    total_col = col
+                    total_col_idx = col_idx
                     break
             
-            if total_col is not None:
+            if total_col_idx is not None:
+                total_col = value_df.columns[total_col_idx]
+                total_suppressed_col = suppressed_df.columns[total_col_idx]
                 total_value = value_row[total_col]
-                total_suppressed_value = suppressed_row[total_col]
+                total_suppressed_value = suppressed_row[total_suppressed_col]
                 if not (pd.isna(total_value) and pd.isna(total_suppressed_value)):
                     grouped_data[key].append(("total", total_value, total_suppressed_value))
             else:
@@ -516,11 +534,13 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
                 suppressed_sum = 0.0
                 has_valid_values = False
                 
-                for col in value_df.columns[2:]:
+                for col_idx in range(2, len(value_df.columns)):
+                    col = value_df.columns[col_idx]
+                    suppressed_col = suppressed_df.columns[col_idx]
                     col_str = str(col).lower()
                     if col_str not in ["county", "ahs district"]:
                         value = value_row[col]
-                        suppressed_value = suppressed_row[col]
+                        suppressed_value = suppressed_row[suppressed_col]
                         
                         if not pd.isna(value):
                             try:
@@ -587,12 +607,43 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
             # Add to the list of INSERT statements
             insert_statements.append(insert)
         
-        return insert_statements
+        return insert_statements, table_name
     
     except Exception as e:
         print(f"Error generating INSERT statements for sheet '{sheet_name}': {str(e)}", file=sys.stderr)
         traceback.print_exc()
         sys.exit(1)  # Immediately halt processing on error
+
+
+def normalize_column_headers(columns):
+    """
+    Normalize column headers to handle both datetime objects and string representations.
+    
+    Args:
+        columns: List or Index of column headers (can contain datetime objects or strings)
+        
+    Returns:
+        list: Normalized column headers as strings
+    """
+    normalized = []
+    for col in columns:
+        if isinstance(col, datetime):
+            # Convert datetime to string format YYYY-MM-DD HH:MM:SS
+            normalized.append(col.strftime('%Y-%m-%d %H:%M:%S'))
+        elif pd.api.types.is_datetime64_any_dtype(type(col)):
+            # Handle pandas datetime types
+            normalized.append(pd.to_datetime(col).strftime('%Y-%m-%d %H:%M:%S'))
+        else:
+            # Convert to string and handle existing string datetime formats
+            col_str = str(col)
+            try:
+                # Try to parse as datetime and normalize format
+                dt = pd.to_datetime(col_str)
+                normalized.append(dt.strftime('%Y-%m-%d %H:%M:%S'))
+            except (ValueError, TypeError):
+                # If not a datetime string, keep as is
+                normalized.append(col_str)
+    return normalized
 
 
 def validate_spreadsheets_structure(value_file_path, suppressed_file_path):
@@ -635,11 +686,17 @@ def validate_spreadsheets_structure(value_file_path, suppressed_file_path):
             value_df = pd.read_excel(value_xls, sheet_name=value_sheet_name)
             suppressed_df = pd.read_excel(suppressed_xls, sheet_name=suppressed_sheet_name)
             
-            # Check if both sheets have the same columns
-            if list(value_df.columns) != list(suppressed_df.columns):
+            # Normalize column headers to handle datetime vs string differences
+            value_columns_normalized = normalize_column_headers(value_df.columns)
+            suppressed_columns_normalized = normalize_column_headers(suppressed_df.columns)
+            
+            # Check if both sheets have the same columns after normalization
+            if value_columns_normalized != suppressed_columns_normalized:
                 print(f"Error: Sheets '{value_sheet_name}' vs '{suppressed_sheet_name}' have different columns", file=sys.stderr)
                 print(f"Value sheet columns: {value_df.columns.tolist()}", file=sys.stderr)
                 print(f"Suppressed sheet columns: {suppressed_df.columns.tolist()}", file=sys.stderr)
+                print(f"Value sheet normalized: {value_columns_normalized}", file=sys.stderr)
+                print(f"Suppressed sheet normalized: {suppressed_columns_normalized}", file=sys.stderr)
                 return False
             
             # Check if both sheets have the same number of rows
@@ -704,10 +761,11 @@ def process_excel_files(value_file_path, suppressed_file_path):
         suppressed_file_path (str): The path to the Excel file for 'value_suppressed' column
         
     Returns:
-        tuple: (insert_statements, file_type, first_date)
+        tuple: (insert_statements, file_type, first_date, table_names)
             - insert_statements: The INSERT statements for all sheets
             - file_type: "child" or "family" based on the input filename
             - first_date: The date of the first record in YYYY-MM format
+            - table_names: Set of table names that will be inserted into
     """
     # Determine file type (child or family) from the first file
     file_name = os.path.basename(value_file_path).lower()
@@ -732,8 +790,9 @@ def process_excel_files(value_file_path, suppressed_file_path):
         
         print(f"Found sheets: {value_xls.sheet_names}")
         
-        # Initialize the list of INSERT statements
+        # Initialize the list of INSERT statements and set of table names
         insert_statements = []
+        table_names = set()
         
         # Variable to store the first date found
         first_date = None
@@ -786,7 +845,10 @@ def process_excel_files(value_file_path, suppressed_file_path):
             data_type = extract_data_type(clean_name)
             
             # Generate INSERT statements for the sheet using both dataframes (use clean name)
-            sheet_inserts = generate_insert_statements_with_suppression(data_type, clean_name, value_df, suppressed_df, file_type)
+            sheet_inserts, table_name = generate_insert_statements_with_suppression(data_type, clean_name, value_df, suppressed_df, file_type)
+            
+            # Add the table name to our set
+            table_names.add(table_name)
             
             # Add the sheet INSERT statements to the overall list
             insert_statements.extend(sheet_inserts)
@@ -795,12 +857,12 @@ def process_excel_files(value_file_path, suppressed_file_path):
         if first_date is None:
             first_date = "unknown-date"
             
-        return insert_statements, file_type, first_date
+        return insert_statements, file_type, first_date, table_names
     
     except Exception as e:
         print(f"Error processing files '{value_file_path}' and '{suppressed_file_path}': {str(e)}", file=sys.stderr)
         traceback.print_exc()
-        return [], file_type, "unknown-date"
+        return [], file_type, "unknown-date", set()
 
 
 def generate_insert_statements(data_type, sheet_name, df, file_type):
@@ -865,7 +927,7 @@ def process_excel_file(file_path):
             file_type = "child"
         elif "family" in file_name:
             file_type = "family"
-        return [], file_type, "unknown-date"
+        return [], file_type, "unknown-date", set()
 
 
 def main():
@@ -889,7 +951,7 @@ def main():
     print(f"Starting to process files: {args.value_xlsx_file} and {args.suppressed_xlsx_file}")
     
     # Process the Excel files
-    insert_statements, file_type, first_date = process_excel_files(args.value_xlsx_file, args.suppressed_xlsx_file)
+    insert_statements, file_type, first_date, table_names = process_excel_files(args.value_xlsx_file, args.suppressed_xlsx_file)
     
     # Extract fiscal year and optional quarter from the original file name
     file_name = os.path.basename(args.value_xlsx_file)
@@ -911,13 +973,20 @@ def main():
     
     # Write the INSERT statements to the output file
     if insert_statements:
-        print(f"\nWriting {len(insert_statements)} INSERT statements to {output_file}")
+        print(f"\nWriting TRUNCATE and {len(insert_statements)} INSERT statements to {output_file}")
         with open(output_file, "w") as f:
             # Add a header comment
-            f.write(f"-- INSERT statements for {os.path.basename(args.value_xlsx_file)} and {os.path.basename(args.suppressed_xlsx_file)}\n")
+            f.write(f"-- TRUNCATE and INSERT statements for {os.path.basename(args.value_xlsx_file)} and {os.path.basename(args.suppressed_xlsx_file)}\n")
             f.write(f"-- Generated on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
             
+            # Write TRUNCATE statements for all tables
+            f.write("-- TRUNCATE TABLE statements\n")
+            for table_name in sorted(table_names):
+                f.write(f"TRUNCATE TABLE `{table_name}`;\n")
+            f.write("\n")
+            
             # Write each INSERT statement
+            f.write("-- INSERT statements\n")
             for insert in insert_statements:
                 f.write(f"{insert}\n")
         

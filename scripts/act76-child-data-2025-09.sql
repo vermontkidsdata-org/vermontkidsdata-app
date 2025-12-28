@@ -1,6 +1,14 @@
--- INSERT statements for Child Data FY 23-25.xlsx and child-data-fy-23-25.xlsx
--- Generated on 2025-12-14 12:25:04
+-- TRUNCATE and INSERT statements for Child Data FY 23-25.xlsx and child-data-fy-23-25.xlsx
+-- Generated on 2025-12-28 11:57:44
 
+-- TRUNCATE TABLE statements
+TRUNCATE TABLE `data_act76_child_age`;
+TRUNCATE TABLE `data_act76_child_citizenship`;
+TRUNCATE TABLE `data_act76_child_ethnicity`;
+TRUNCATE TABLE `data_act76_child_race`;
+TRUNCATE TABLE `data_act76_child_total`;
+
+-- INSERT statements
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-09-01', 9, 2025, 'county', 'Addison', 'Infant', 117, 117),
@@ -19,27 +27,27 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-09-01', 9, 2025, 'county', 'Caledonia', 'Infant', 128, -1),
-('2025-09-01', 9, 2025, 'county', 'Caledonia', 'Toddler', 96, -1),
+('2025-09-01', 9, 2025, 'county', 'Caledonia', 'Infant', 128, 128),
+('2025-09-01', 9, 2025, 'county', 'Caledonia', 'Toddler', 96, 96),
 ('2025-09-01', 9, 2025, 'county', 'Caledonia', 'Preschool', 311, 311),
 ('2025-09-01', 9, 2025, 'county', 'Caledonia', 'School', 309, 309),
-('2025-09-01', 9, 2025, 'county', 'Caledonia', 'total', 844.0, 620.0) AS new_data
+('2025-09-01', 9, 2025, 'county', 'Caledonia', 'total', 844.0, 844.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Infant', 510, 510),
-('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Toddler', 402, -1),
-('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Preschool', 1115, -1),
+('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Toddler', 402, 402),
+('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Preschool', 1115, 1115),
 ('2025-09-01', 9, 2025, 'county', 'Chittenden', 'School', 841, 841),
-('2025-09-01', 9, 2025, 'county', 'Chittenden', 'total', 2868.0, 1351.0) AS new_data
+('2025-09-01', 9, 2025, 'county', 'Chittenden', 'total', 2868.0, 2868.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-09-01', 9, 2025, 'county', 'Essex', 'Infant', 22, 22),
-('2025-09-01', 9, 2025, 'county', 'Essex', 'Toddler', 12, 12),
-('2025-09-01', 9, 2025, 'county', 'Essex', 'Preschool', 50, 50),
-('2025-09-01', 9, 2025, 'county', 'Essex', 'School', 25, 25),
-('2025-09-01', 9, 2025, 'county', 'Essex', 'total', 109.0, 109.0) AS new_data
+('2025-09-01', 9, 2025, 'county', 'Essex', 'Toddler', 12, -1),
+('2025-09-01', 9, 2025, 'county', 'Essex', 'Preschool', 50, -1),
+('2025-09-01', 9, 2025, 'county', 'Essex', 'School', 25, -1),
+('2025-09-01', 9, 2025, 'county', 'Essex', 'total', 109.0, 22.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -51,11 +59,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-09-01', 9, 2025, 'county', 'Grand Isle', 'Infant', 18, 18),
-('2025-09-01', 9, 2025, 'county', 'Grand Isle', 'Toddler', 14, 14),
+('2025-09-01', 9, 2025, 'county', 'Grand Isle', 'Infant', 18, -1),
+('2025-09-01', 9, 2025, 'county', 'Grand Isle', 'Toddler', 14, -1),
 ('2025-09-01', 9, 2025, 'county', 'Grand Isle', 'Preschool', 62, 62),
 ('2025-09-01', 9, 2025, 'county', 'Grand Isle', 'School', 32, 32),
-('2025-09-01', 9, 2025, 'county', 'Grand Isle', 'total', 126.0, 126.0) AS new_data
+('2025-09-01', 9, 2025, 'county', 'Grand Isle', 'total', 126.0, 94.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -76,10 +84,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-09-01', 9, 2025, 'county', 'Orleans', 'Infant', 99, 99),
-('2025-09-01', 9, 2025, 'county', 'Orleans', 'Toddler', 70, -1),
+('2025-09-01', 9, 2025, 'county', 'Orleans', 'Toddler', 70, 70),
 ('2025-09-01', 9, 2025, 'county', 'Orleans', 'Preschool', 215, 215),
-('2025-09-01', 9, 2025, 'county', 'Orleans', 'School', 170, -1),
-('2025-09-01', 9, 2025, 'county', 'Orleans', 'total', 554.0, 314.0) AS new_data
+('2025-09-01', 9, 2025, 'county', 'Orleans', 'School', 170, 170),
+('2025-09-01', 9, 2025, 'county', 'Orleans', 'total', 554.0, 554.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -132,10 +140,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-08-01', 8, 2025, 'county', 'Addison', 'Infant', 116, 116),
-('2025-08-01', 8, 2025, 'county', 'Addison', 'Toddler', 99, -1),
+('2025-08-01', 8, 2025, 'county', 'Addison', 'Toddler', 99, 99),
 ('2025-08-01', 8, 2025, 'county', 'Addison', 'Preschool', 363, 363),
-('2025-08-01', 8, 2025, 'county', 'Addison', 'School', 345, -1),
-('2025-08-01', 8, 2025, 'county', 'Addison', 'total', 923.0, 479.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Addison', 'School', 345, 345),
+('2025-08-01', 8, 2025, 'county', 'Addison', 'total', 923.0, 923.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -165,9 +173,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2025-08-01', 8, 2025, 'county', 'Essex', 'Infant', 22, 22),
 ('2025-08-01', 8, 2025, 'county', 'Essex', 'Toddler', 13, 13),
-('2025-08-01', 8, 2025, 'county', 'Essex', 'Preschool', 56, 56),
-('2025-08-01', 8, 2025, 'county', 'Essex', 'School', 23, 23),
-('2025-08-01', 8, 2025, 'county', 'Essex', 'total', 114.0, 114.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Essex', 'Preschool', 56, -1),
+('2025-08-01', 8, 2025, 'county', 'Essex', 'School', 23, -1),
+('2025-08-01', 8, 2025, 'county', 'Essex', 'total', 114.0, 35.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -179,11 +187,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-08-01', 8, 2025, 'county', 'Grand Isle', 'Infant', 15, 15),
-('2025-08-01', 8, 2025, 'county', 'Grand Isle', 'Toddler', 12, 12),
+('2025-08-01', 8, 2025, 'county', 'Grand Isle', 'Infant', 15, -1),
+('2025-08-01', 8, 2025, 'county', 'Grand Isle', 'Toddler', 12, -1),
 ('2025-08-01', 8, 2025, 'county', 'Grand Isle', 'Preschool', 62, 62),
 ('2025-08-01', 8, 2025, 'county', 'Grand Isle', 'School', 38, 38),
-('2025-08-01', 8, 2025, 'county', 'Grand Isle', 'total', 127.0, 127.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Grand Isle', 'total', 127.0, 100.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -251,19 +259,19 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-08-01', 8, 2025, 'county', 'Vermont', 'Infant', 2054, -1),
-('2025-08-01', 8, 2025, 'county', 'Vermont', 'Toddler', 1649, -1),
-('2025-08-01', 8, 2025, 'county', 'Vermont', 'Preschool', 5157, -1),
+('2025-08-01', 8, 2025, 'county', 'Vermont', 'Infant', 2054, 2054),
+('2025-08-01', 8, 2025, 'county', 'Vermont', 'Toddler', 1649, 1649),
+('2025-08-01', 8, 2025, 'county', 'Vermont', 'Preschool', 5157, 5157),
 ('2025-08-01', 8, 2025, 'county', 'Vermont', 'School', 4189, 4189),
-('2025-08-01', 8, 2025, 'county', 'Vermont', 'total', 13049.0, 4189.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Vermont', 'total', 13049.0, 13049.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-07-01', 7, 2025, 'county', 'Addison', 'Infant', 86, 86),
-('2025-07-01', 7, 2025, 'county', 'Addison', 'Toddler', 94, -1),
+('2025-07-01', 7, 2025, 'county', 'Addison', 'Toddler', 94, 94),
 ('2025-07-01', 7, 2025, 'county', 'Addison', 'Preschool', 307, 307),
-('2025-07-01', 7, 2025, 'county', 'Addison', 'School', 332, -1),
-('2025-07-01', 7, 2025, 'county', 'Addison', 'total', 819.0, 393.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Addison', 'School', 332, 332),
+('2025-07-01', 7, 2025, 'county', 'Addison', 'total', 819.0, 819.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -292,10 +300,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-07-01', 7, 2025, 'county', 'Essex', 'Infant', 19, 19),
-('2025-07-01', 7, 2025, 'county', 'Essex', 'Toddler', 11, 11),
-('2025-07-01', 7, 2025, 'county', 'Essex', 'Preschool', 50, 50),
-('2025-07-01', 7, 2025, 'county', 'Essex', 'School', 25, 25),
-('2025-07-01', 7, 2025, 'county', 'Essex', 'total', 105.0, 105.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Essex', 'Toddler', 11, -1),
+('2025-07-01', 7, 2025, 'county', 'Essex', 'Preschool', 50, -1),
+('2025-07-01', 7, 2025, 'county', 'Essex', 'School', 25, -1),
+('2025-07-01', 7, 2025, 'county', 'Essex', 'total', 105.0, 19.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -307,11 +315,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-07-01', 7, 2025, 'county', 'Grand Isle', 'Infant', 13, 13),
-('2025-07-01', 7, 2025, 'county', 'Grand Isle', 'Toddler', 12, 12),
+('2025-07-01', 7, 2025, 'county', 'Grand Isle', 'Infant', 13, -1),
+('2025-07-01', 7, 2025, 'county', 'Grand Isle', 'Toddler', 12, -1),
 ('2025-07-01', 7, 2025, 'county', 'Grand Isle', 'Preschool', 56, 56),
 ('2025-07-01', 7, 2025, 'county', 'Grand Isle', 'School', 37, 37),
-('2025-07-01', 7, 2025, 'county', 'Grand Isle', 'total', 118.0, 118.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Grand Isle', 'total', 118.0, 93.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -379,19 +387,19 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-07-01', 7, 2025, 'county', 'Vermont', 'Infant', 1777, -1),
-('2025-07-01', 7, 2025, 'county', 'Vermont', 'Toddler', 1489, -1),
-('2025-07-01', 7, 2025, 'county', 'Vermont', 'Preschool', 4616, -1),
+('2025-07-01', 7, 2025, 'county', 'Vermont', 'Infant', 1777, 1777),
+('2025-07-01', 7, 2025, 'county', 'Vermont', 'Toddler', 1489, 1489),
+('2025-07-01', 7, 2025, 'county', 'Vermont', 'Preschool', 4616, 4616),
 ('2025-07-01', 7, 2025, 'county', 'Vermont', 'School', 3812, 3812),
-('2025-07-01', 7, 2025, 'county', 'Vermont', 'total', 11694.0, 3812.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Vermont', 'total', 11694.0, 11694.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-06-01', 6, 2025, 'county', 'Addison', 'Infant', 90, 90),
-('2025-06-01', 6, 2025, 'county', 'Addison', 'Toddler', 91, -1),
+('2025-06-01', 6, 2025, 'county', 'Addison', 'Toddler', 91, 91),
 ('2025-06-01', 6, 2025, 'county', 'Addison', 'Preschool', 340, 340),
-('2025-06-01', 6, 2025, 'county', 'Addison', 'School', 356, -1),
-('2025-06-01', 6, 2025, 'county', 'Addison', 'total', 877.0, 430.0) AS new_data
+('2025-06-01', 6, 2025, 'county', 'Addison', 'School', 356, 356),
+('2025-06-01', 6, 2025, 'county', 'Addison', 'total', 877.0, 877.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -420,10 +428,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-06-01', 6, 2025, 'county', 'Essex', 'Infant', 19, 19),
-('2025-06-01', 6, 2025, 'county', 'Essex', 'Toddler', 13, 13),
+('2025-06-01', 6, 2025, 'county', 'Essex', 'Toddler', 13, -1),
 ('2025-06-01', 6, 2025, 'county', 'Essex', 'Preschool', 56, 56),
-('2025-06-01', 6, 2025, 'county', 'Essex', 'School', 28, 28),
-('2025-06-01', 6, 2025, 'county', 'Essex', 'total', 116.0, 116.0) AS new_data
+('2025-06-01', 6, 2025, 'county', 'Essex', 'School', 28, -1),
+('2025-06-01', 6, 2025, 'county', 'Essex', 'total', 116.0, 75.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -435,11 +443,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-06-01', 6, 2025, 'county', 'Grand Isle', 'Infant', 12, 12),
-('2025-06-01', 6, 2025, 'county', 'Grand Isle', 'Toddler', 11, 11),
-('2025-06-01', 6, 2025, 'county', 'Grand Isle', 'Preschool', 51, 51),
+('2025-06-01', 6, 2025, 'county', 'Grand Isle', 'Infant', 12, -1),
+('2025-06-01', 6, 2025, 'county', 'Grand Isle', 'Toddler', 11, -1),
+('2025-06-01', 6, 2025, 'county', 'Grand Isle', 'Preschool', 51, -1),
 ('2025-06-01', 6, 2025, 'county', 'Grand Isle', 'School', 41, 41),
-('2025-06-01', 6, 2025, 'county', 'Grand Isle', 'total', 115.0, 115.0) AS new_data
+('2025-06-01', 6, 2025, 'county', 'Grand Isle', 'total', 115.0, 41.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -507,19 +515,19 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-06-01', 6, 2025, 'county', 'Vermont', 'Infant', 1791, -1),
-('2025-06-01', 6, 2025, 'county', 'Vermont', 'Toddler', 1512, -1),
-('2025-06-01', 6, 2025, 'county', 'Vermont', 'Preschool', 4851, -1),
+('2025-06-01', 6, 2025, 'county', 'Vermont', 'Infant', 1791, 1791),
+('2025-06-01', 6, 2025, 'county', 'Vermont', 'Toddler', 1512, 1512),
+('2025-06-01', 6, 2025, 'county', 'Vermont', 'Preschool', 4851, 4851),
 ('2025-06-01', 6, 2025, 'county', 'Vermont', 'School', 4080, 4080),
-('2025-06-01', 6, 2025, 'county', 'Vermont', 'total', 12234.0, 4080.0) AS new_data
+('2025-06-01', 6, 2025, 'county', 'Vermont', 'total', 12234.0, 12234.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-05-01', 5, 2025, 'county', 'Addison', 'Infant', 91, 91),
-('2025-05-01', 5, 2025, 'county', 'Addison', 'Toddler', 93, -1),
+('2025-05-01', 5, 2025, 'county', 'Addison', 'Toddler', 93, 93),
 ('2025-05-01', 5, 2025, 'county', 'Addison', 'Preschool', 319, 319),
-('2025-05-01', 5, 2025, 'county', 'Addison', 'School', 227, -1),
-('2025-05-01', 5, 2025, 'county', 'Addison', 'total', 730.0, 410.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Addison', 'School', 227, 227),
+('2025-05-01', 5, 2025, 'county', 'Addison', 'total', 730.0, 730.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -548,10 +556,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-05-01', 5, 2025, 'county', 'Essex', 'Infant', 19, 19),
-('2025-05-01', 5, 2025, 'county', 'Essex', 'Toddler', 13, 13),
+('2025-05-01', 5, 2025, 'county', 'Essex', 'Toddler', 13, -1),
 ('2025-05-01', 5, 2025, 'county', 'Essex', 'Preschool', 58, 58),
-('2025-05-01', 5, 2025, 'county', 'Essex', 'School', 25, 25),
-('2025-05-01', 5, 2025, 'county', 'Essex', 'total', 115.0, 115.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Essex', 'School', 25, -1),
+('2025-05-01', 5, 2025, 'county', 'Essex', 'total', 115.0, 77.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -563,11 +571,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'Infant', 11, 11),
+('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'Infant', 11, -1),
 ('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'Toddler', 14, 14),
-('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'Preschool', 50, 50),
+('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'Preschool', 50, -1),
 ('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'School', 34, 34),
-('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'total', 109.0, 109.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'total', 109.0, 48.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -635,19 +643,19 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-05-01', 5, 2025, 'county', 'Vermont', 'Infant', 1787, -1),
-('2025-05-01', 5, 2025, 'county', 'Vermont', 'Toddler', 1491, -1),
-('2025-05-01', 5, 2025, 'county', 'Vermont', 'Preschool', 4609, -1),
+('2025-05-01', 5, 2025, 'county', 'Vermont', 'Infant', 1787, 1787),
+('2025-05-01', 5, 2025, 'county', 'Vermont', 'Toddler', 1491, 1491),
+('2025-05-01', 5, 2025, 'county', 'Vermont', 'Preschool', 4609, 4609),
 ('2025-05-01', 5, 2025, 'county', 'Vermont', 'School', 3287, 3287),
-('2025-05-01', 5, 2025, 'county', 'Vermont', 'total', 11174.0, 3287.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Vermont', 'total', 11174.0, 11174.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-04-01', 4, 2025, 'county', 'Addison', 'Infant', 96, 96),
-('2025-04-01', 4, 2025, 'county', 'Addison', 'Toddler', 92, -1),
+('2025-04-01', 4, 2025, 'county', 'Addison', 'Toddler', 92, 92),
 ('2025-04-01', 4, 2025, 'county', 'Addison', 'Preschool', 316, 316),
-('2025-04-01', 4, 2025, 'county', 'Addison', 'School', 235, -1),
-('2025-04-01', 4, 2025, 'county', 'Addison', 'total', 739.0, 412.0) AS new_data
+('2025-04-01', 4, 2025, 'county', 'Addison', 'School', 235, 235),
+('2025-04-01', 4, 2025, 'county', 'Addison', 'total', 739.0, 739.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -676,10 +684,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-04-01', 4, 2025, 'county', 'Essex', 'Infant', 20, 20),
-('2025-04-01', 4, 2025, 'county', 'Essex', 'Toddler', 15, 15),
+('2025-04-01', 4, 2025, 'county', 'Essex', 'Toddler', 15, -1),
 ('2025-04-01', 4, 2025, 'county', 'Essex', 'Preschool', 54, 54),
-('2025-04-01', 4, 2025, 'county', 'Essex', 'School', 25, 25),
-('2025-04-01', 4, 2025, 'county', 'Essex', 'total', 114.0, 114.0) AS new_data
+('2025-04-01', 4, 2025, 'county', 'Essex', 'School', 25, -1),
+('2025-04-01', 4, 2025, 'county', 'Essex', 'total', 114.0, 74.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -691,11 +699,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Infant', 14, 14),
-('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Toddler', 12, 12),
-('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Preschool', 45, 45),
+('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Infant', 14, -1),
+('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Toddler', 12, -1),
+('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Preschool', 45, -1),
 ('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'School', 33, 33),
-('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'total', 104.0, 104.0) AS new_data
+('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'total', 104.0, 33.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -763,11 +771,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-04-01', 4, 2025, 'county', 'Vermont', 'Infant', 1845, -1),
-('2025-04-01', 4, 2025, 'county', 'Vermont', 'Toddler', 1444, -1),
-('2025-04-01', 4, 2025, 'county', 'Vermont', 'Preschool', 4540, -1),
+('2025-04-01', 4, 2025, 'county', 'Vermont', 'Infant', 1845, 1845),
+('2025-04-01', 4, 2025, 'county', 'Vermont', 'Toddler', 1444, 1444),
+('2025-04-01', 4, 2025, 'county', 'Vermont', 'Preschool', 4540, 4540),
 ('2025-04-01', 4, 2025, 'county', 'Vermont', 'School', 3338, 3338),
-('2025-04-01', 4, 2025, 'county', 'Vermont', 'total', 11167.0, 3338.0) AS new_data
+('2025-04-01', 4, 2025, 'county', 'Vermont', 'total', 11167.0, 11167.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -796,18 +804,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Infant', 433, 433),
-('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Toddler', 315, -1),
+('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Toddler', 315, 315),
 ('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Preschool', 1002, 1002),
-('2025-03-01', 3, 2025, 'county', 'Chittenden', 'School', 800, -1),
-('2025-03-01', 3, 2025, 'county', 'Chittenden', 'total', 2550.0, 1435.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Chittenden', 'School', 800, 800),
+('2025-03-01', 3, 2025, 'county', 'Chittenden', 'total', 2550.0, 2550.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-03-01', 3, 2025, 'county', 'Essex', 'Infant', 21, 21),
-('2025-03-01', 3, 2025, 'county', 'Essex', 'Toddler', 15, 15),
+('2025-03-01', 3, 2025, 'county', 'Essex', 'Toddler', 15, -1),
 ('2025-03-01', 3, 2025, 'county', 'Essex', 'Preschool', 52, 52),
-('2025-03-01', 3, 2025, 'county', 'Essex', 'School', 24, 24),
-('2025-03-01', 3, 2025, 'county', 'Essex', 'total', 112.0, 112.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Essex', 'School', 24, -1),
+('2025-03-01', 3, 2025, 'county', 'Essex', 'total', 112.0, 73.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -819,11 +827,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Infant', 14, 14),
-('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Toddler', 12, 12),
-('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Preschool', 43, 43),
+('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Infant', 14, -1),
+('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Toddler', 12, -1),
+('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Preschool', 43, -1),
 ('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'School', 33, 33),
-('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'total', 102.0, 102.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'total', 102.0, 33.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -867,19 +875,19 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-03-01', 3, 2025, 'county', 'Washington', 'Infant', 105, -1),
-('2025-03-01', 3, 2025, 'county', 'Washington', 'Toddler', 89, -1),
+('2025-03-01', 3, 2025, 'county', 'Washington', 'Infant', 105, 105),
+('2025-03-01', 3, 2025, 'county', 'Washington', 'Toddler', 89, 89),
 ('2025-03-01', 3, 2025, 'county', 'Washington', 'Preschool', 292, 292),
 ('2025-03-01', 3, 2025, 'county', 'Washington', 'School', 172, 172),
-('2025-03-01', 3, 2025, 'county', 'Washington', 'total', 658.0, 464.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Washington', 'total', 658.0, 658.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-03-01', 3, 2025, 'county', 'Windham', 'Infant', 129, 129),
-('2025-03-01', 3, 2025, 'county', 'Windham', 'Toddler', 117, -1),
-('2025-03-01', 3, 2025, 'county', 'Windham', 'Preschool', 344, -1),
+('2025-03-01', 3, 2025, 'county', 'Windham', 'Toddler', 117, 117),
+('2025-03-01', 3, 2025, 'county', 'Windham', 'Preschool', 344, 344),
 ('2025-03-01', 3, 2025, 'county', 'Windham', 'School', 149, 149),
-('2025-03-01', 3, 2025, 'county', 'Windham', 'total', 739.0, 278.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Windham', 'total', 739.0, 739.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -900,10 +908,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-02-01', 2, 2025, 'county', 'Addison', 'Infant', 102, 102),
-('2025-02-01', 2, 2025, 'county', 'Addison', 'Toddler', 90, -1),
+('2025-02-01', 2, 2025, 'county', 'Addison', 'Toddler', 90, 90),
 ('2025-02-01', 2, 2025, 'county', 'Addison', 'Preschool', 296, 296),
-('2025-02-01', 2, 2025, 'county', 'Addison', 'School', 230, -1),
-('2025-02-01', 2, 2025, 'county', 'Addison', 'total', 718.0, 398.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Addison', 'School', 230, 230),
+('2025-02-01', 2, 2025, 'county', 'Addison', 'total', 718.0, 718.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -932,10 +940,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-02-01', 2, 2025, 'county', 'Essex', 'Infant', 23, 23),
-('2025-02-01', 2, 2025, 'county', 'Essex', 'Toddler', 13, 13),
+('2025-02-01', 2, 2025, 'county', 'Essex', 'Toddler', 13, -1),
 ('2025-02-01', 2, 2025, 'county', 'Essex', 'Preschool', 51, 51),
-('2025-02-01', 2, 2025, 'county', 'Essex', 'School', 24, 24),
-('2025-02-01', 2, 2025, 'county', 'Essex', 'total', 111.0, 111.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Essex', 'School', 24, -1),
+('2025-02-01', 2, 2025, 'county', 'Essex', 'total', 111.0, 74.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -947,11 +955,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Infant', 16, 16),
-('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Toddler', 11, 11),
-('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Preschool', 43, 43),
+('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Infant', 16, -1),
+('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Toddler', 11, -1),
+('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Preschool', 43, -1),
 ('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'School', 34, 34),
-('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'total', 104.0, 104.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'total', 104.0, 34.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1019,11 +1027,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-02-01', 2, 2025, 'county', 'Vermont', 'Infant', 1854, -1),
-('2025-02-01', 2, 2025, 'county', 'Vermont', 'Toddler', 1450, -1),
-('2025-02-01', 2, 2025, 'county', 'Vermont', 'Preschool', 4293, -1),
+('2025-02-01', 2, 2025, 'county', 'Vermont', 'Infant', 1854, 1854),
+('2025-02-01', 2, 2025, 'county', 'Vermont', 'Toddler', 1450, 1450),
+('2025-02-01', 2, 2025, 'county', 'Vermont', 'Preschool', 4293, 4293),
 ('2025-02-01', 2, 2025, 'county', 'Vermont', 'School', 3150, 3150),
-('2025-02-01', 2, 2025, 'county', 'Vermont', 'total', 10747.0, 3150.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Vermont', 'total', 10747.0, 10747.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1060,10 +1068,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-01-01', 1, 2025, 'county', 'Essex', 'Infant', 21, 21),
-('2025-01-01', 1, 2025, 'county', 'Essex', 'Toddler', 12, 12),
+('2025-01-01', 1, 2025, 'county', 'Essex', 'Toddler', 12, -1),
 ('2025-01-01', 1, 2025, 'county', 'Essex', 'Preschool', 53, 53),
-('2025-01-01', 1, 2025, 'county', 'Essex', 'School', 25, 25),
-('2025-01-01', 1, 2025, 'county', 'Essex', 'total', 111.0, 111.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Essex', 'School', 25, -1),
+('2025-01-01', 1, 2025, 'county', 'Essex', 'total', 111.0, 74.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1075,11 +1083,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'Infant', 18, 18),
+('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'Infant', 18, -1),
 ('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'Toddler', 9, -1),
 ('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'Preschool', 42, -1),
 ('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'School', 35, 35),
-('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'total', 104.0, 53.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'total', 104.0, 35.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1115,11 +1123,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-01-01', 1, 2025, 'county', 'Rutland', 'Infant', 203, -1),
-('2025-01-01', 1, 2025, 'county', 'Rutland', 'Toddler', 144, -1),
+('2025-01-01', 1, 2025, 'county', 'Rutland', 'Infant', 203, 203),
+('2025-01-01', 1, 2025, 'county', 'Rutland', 'Toddler', 144, 144),
 ('2025-01-01', 1, 2025, 'county', 'Rutland', 'Preschool', 447, 447),
 ('2025-01-01', 1, 2025, 'county', 'Rutland', 'School', 357, 357),
-('2025-01-01', 1, 2025, 'county', 'Rutland', 'total', 1151.0, 804.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Rutland', 'total', 1151.0, 1151.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1148,10 +1156,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-01-01', 1, 2025, 'county', 'Vermont', 'Infant', 1842, 1842),
-('2025-01-01', 1, 2025, 'county', 'Vermont', 'Toddler', 1436, -1),
+('2025-01-01', 1, 2025, 'county', 'Vermont', 'Toddler', 1436, 1436),
 ('2025-01-01', 1, 2025, 'county', 'Vermont', 'Preschool', 4179, 4179),
-('2025-01-01', 1, 2025, 'county', 'Vermont', 'School', 3041, -1),
-('2025-01-01', 1, 2025, 'county', 'Vermont', 'total', 10498.0, 6021.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Vermont', 'School', 3041, 3041),
+('2025-01-01', 1, 2025, 'county', 'Vermont', 'total', 10498.0, 10498.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1188,10 +1196,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-12-01', 12, 2024, 'county', 'Essex', 'Infant', 21, 21),
-('2024-12-01', 12, 2024, 'county', 'Essex', 'Toddler', 13, 13),
+('2024-12-01', 12, 2024, 'county', 'Essex', 'Toddler', 13, -1),
 ('2024-12-01', 12, 2024, 'county', 'Essex', 'Preschool', 49, 49),
-('2024-12-01', 12, 2024, 'county', 'Essex', 'School', 25, 25),
-('2024-12-01', 12, 2024, 'county', 'Essex', 'total', 108.0, 108.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Essex', 'School', 25, -1),
+('2024-12-01', 12, 2024, 'county', 'Essex', 'total', 108.0, 70.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1203,11 +1211,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'Infant', 18, 18),
+('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'Infant', 18, -1),
 ('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'Toddler', 7, -1),
 ('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'Preschool', 41, -1),
 ('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'School', 36, 36),
-('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'total', 102.0, 54.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'total', 102.0, 36.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1243,11 +1251,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-12-01', 12, 2024, 'county', 'Rutland', 'Infant', 192, -1),
-('2024-12-01', 12, 2024, 'county', 'Rutland', 'Toddler', 150, -1),
+('2024-12-01', 12, 2024, 'county', 'Rutland', 'Infant', 192, 192),
+('2024-12-01', 12, 2024, 'county', 'Rutland', 'Toddler', 150, 150),
 ('2024-12-01', 12, 2024, 'county', 'Rutland', 'Preschool', 429, 429),
 ('2024-12-01', 12, 2024, 'county', 'Rutland', 'School', 345, 345),
-('2024-12-01', 12, 2024, 'county', 'Rutland', 'total', 1116.0, 774.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Rutland', 'total', 1116.0, 1116.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1276,10 +1284,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-12-01', 12, 2024, 'county', 'Vermont', 'Infant', 1789, 1789),
-('2024-12-01', 12, 2024, 'county', 'Vermont', 'Toddler', 1410, -1),
+('2024-12-01', 12, 2024, 'county', 'Vermont', 'Toddler', 1410, 1410),
 ('2024-12-01', 12, 2024, 'county', 'Vermont', 'Preschool', 4020, 4020),
-('2024-12-01', 12, 2024, 'county', 'Vermont', 'School', 2949, -1),
-('2024-12-01', 12, 2024, 'county', 'Vermont', 'total', 10168.0, 5809.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Vermont', 'School', 2949, 2949),
+('2024-12-01', 12, 2024, 'county', 'Vermont', 'total', 10168.0, 10168.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1316,10 +1324,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-11-01', 11, 2024, 'county', 'Essex', 'Infant', 22, 22),
-('2024-11-01', 11, 2024, 'county', 'Essex', 'Toddler', 13, 13),
+('2024-11-01', 11, 2024, 'county', 'Essex', 'Toddler', 13, -1),
 ('2024-11-01', 11, 2024, 'county', 'Essex', 'Preschool', 49, 49),
-('2024-11-01', 11, 2024, 'county', 'Essex', 'School', 26, 26),
-('2024-11-01', 11, 2024, 'county', 'Essex', 'total', 110.0, 110.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Essex', 'School', 26, -1),
+('2024-11-01', 11, 2024, 'county', 'Essex', 'total', 110.0, 71.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1331,11 +1339,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'Infant', 15, 15),
+('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'Infant', 15, -1),
 ('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'Toddler', 6, -1),
 ('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'Preschool', 40, -1),
 ('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'School', 33, 33),
-('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'total', 94.0, 48.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'total', 94.0, 33.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1371,11 +1379,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-11-01', 11, 2024, 'county', 'Rutland', 'Infant', 186, -1),
-('2024-11-01', 11, 2024, 'county', 'Rutland', 'Toddler', 147, -1),
+('2024-11-01', 11, 2024, 'county', 'Rutland', 'Infant', 186, 186),
+('2024-11-01', 11, 2024, 'county', 'Rutland', 'Toddler', 147, 147),
 ('2024-11-01', 11, 2024, 'county', 'Rutland', 'Preschool', 437, 437),
 ('2024-11-01', 11, 2024, 'county', 'Rutland', 'School', 361, 361),
-('2024-11-01', 11, 2024, 'county', 'Rutland', 'total', 1131.0, 798.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Rutland', 'total', 1131.0, 1131.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1404,10 +1412,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-11-01', 11, 2024, 'county', 'Vermont', 'Infant', 1813, 1813),
-('2024-11-01', 11, 2024, 'county', 'Vermont', 'Toddler', 1386, -1),
+('2024-11-01', 11, 2024, 'county', 'Vermont', 'Toddler', 1386, 1386),
 ('2024-11-01', 11, 2024, 'county', 'Vermont', 'Preschool', 4003, 4003),
-('2024-11-01', 11, 2024, 'county', 'Vermont', 'School', 2928, -1),
-('2024-11-01', 11, 2024, 'county', 'Vermont', 'total', 10130.0, 5816.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Vermont', 'School', 2928, 2928),
+('2024-11-01', 11, 2024, 'county', 'Vermont', 'total', 10130.0, 10130.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1444,10 +1452,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-10-01', 10, 2024, 'county', 'Essex', 'Infant', 19, 19),
-('2024-10-01', 10, 2024, 'county', 'Essex', 'Toddler', 12, 12),
+('2024-10-01', 10, 2024, 'county', 'Essex', 'Toddler', 12, -1),
 ('2024-10-01', 10, 2024, 'county', 'Essex', 'Preschool', 50, 50),
-('2024-10-01', 10, 2024, 'county', 'Essex', 'School', 24, 24),
-('2024-10-01', 10, 2024, 'county', 'Essex', 'total', 105.0, 105.0) AS new_data
+('2024-10-01', 10, 2024, 'county', 'Essex', 'School', 24, -1),
+('2024-10-01', 10, 2024, 'county', 'Essex', 'total', 105.0, 69.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1459,11 +1467,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-10-01', 10, 2024, 'county', 'Grand Isle', 'Infant', 12, 12),
+('2024-10-01', 10, 2024, 'county', 'Grand Isle', 'Infant', 12, -1),
 ('2024-10-01', 10, 2024, 'county', 'Grand Isle', 'Toddler', 5, -1),
 ('2024-10-01', 10, 2024, 'county', 'Grand Isle', 'Preschool', 38, -1),
 ('2024-10-01', 10, 2024, 'county', 'Grand Isle', 'School', 35, 35),
-('2024-10-01', 10, 2024, 'county', 'Grand Isle', 'total', 90.0, 47.0) AS new_data
+('2024-10-01', 10, 2024, 'county', 'Grand Isle', 'total', 90.0, 35.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1499,11 +1507,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-10-01', 10, 2024, 'county', 'Rutland', 'Infant', 182, -1),
-('2024-10-01', 10, 2024, 'county', 'Rutland', 'Toddler', 148, -1),
+('2024-10-01', 10, 2024, 'county', 'Rutland', 'Infant', 182, 182),
+('2024-10-01', 10, 2024, 'county', 'Rutland', 'Toddler', 148, 148),
 ('2024-10-01', 10, 2024, 'county', 'Rutland', 'Preschool', 426, 426),
 ('2024-10-01', 10, 2024, 'county', 'Rutland', 'School', 358, 358),
-('2024-10-01', 10, 2024, 'county', 'Rutland', 'total', 1114.0, 784.0) AS new_data
+('2024-10-01', 10, 2024, 'county', 'Rutland', 'total', 1114.0, 1114.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1532,10 +1540,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-10-01', 10, 2024, 'county', 'Vermont', 'Infant', 1767, 1767),
-('2024-10-01', 10, 2024, 'county', 'Vermont', 'Toddler', 1361, -1),
+('2024-10-01', 10, 2024, 'county', 'Vermont', 'Toddler', 1361, 1361),
 ('2024-10-01', 10, 2024, 'county', 'Vermont', 'Preschool', 3855, 3855),
-('2024-10-01', 10, 2024, 'county', 'Vermont', 'School', 2860, -1),
-('2024-10-01', 10, 2024, 'county', 'Vermont', 'total', 9843.0, 5622.0) AS new_data
+('2024-10-01', 10, 2024, 'county', 'Vermont', 'School', 2860, 2860),
+('2024-10-01', 10, 2024, 'county', 'Vermont', 'total', 9843.0, 9843.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1573,9 +1581,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2024-09-01', 9, 2024, 'county', 'Essex', 'Infant', 21, 21),
 ('2024-09-01', 9, 2024, 'county', 'Essex', 'Toddler', 10, -1),
-('2024-09-01', 9, 2024, 'county', 'Essex', 'Preschool', 46, -1),
-('2024-09-01', 9, 2024, 'county', 'Essex', 'School', 26, 26),
-('2024-09-01', 9, 2024, 'county', 'Essex', 'total', 103.0, 47.0) AS new_data
+('2024-09-01', 9, 2024, 'county', 'Essex', 'Preschool', 46, 46),
+('2024-09-01', 9, 2024, 'county', 'Essex', 'School', 26, -1),
+('2024-09-01', 9, 2024, 'county', 'Essex', 'total', 103.0, 67.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1589,9 +1597,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'Infant', 9, -1),
 ('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'Toddler', 5, -1),
-('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'Preschool', 34, 34),
-('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'School', 30, -1),
-('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'total', 78.0, 34.0) AS new_data
+('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'Preschool', 34, -1),
+('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'School', 30, 30),
+('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'total', 78.0, 30.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1701,9 +1709,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2024-08-01', 8, 2024, 'county', 'Essex', 'Infant', 21, 21),
 ('2024-08-01', 8, 2024, 'county', 'Essex', 'Toddler', 10, -1),
-('2024-08-01', 8, 2024, 'county', 'Essex', 'Preschool', 40, -1),
-('2024-08-01', 8, 2024, 'county', 'Essex', 'School', 29, 29),
-('2024-08-01', 8, 2024, 'county', 'Essex', 'total', 100.0, 50.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Essex', 'Preschool', 40, 40),
+('2024-08-01', 8, 2024, 'county', 'Essex', 'School', 29, -1),
+('2024-08-01', 8, 2024, 'county', 'Essex', 'total', 100.0, 61.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1717,9 +1725,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'Infant', 10, -1),
 ('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'Toddler', 5, -1),
-('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'Preschool', 34, 34),
-('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'School', 36, -1),
-('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'total', 85.0, 34.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'Preschool', 34, -1),
+('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'School', 36, 36),
+('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'total', 85.0, 36.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1828,10 +1836,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-07-01', 7, 2024, 'county', 'Essex', 'Infant', 21, 21),
-('2024-07-01', 7, 2024, 'county', 'Essex', 'Toddler', 11, 11),
+('2024-07-01', 7, 2024, 'county', 'Essex', 'Toddler', 11, -1),
 ('2024-07-01', 7, 2024, 'county', 'Essex', 'Preschool', 40, 40),
-('2024-07-01', 7, 2024, 'county', 'Essex', 'School', 25, 25),
-('2024-07-01', 7, 2024, 'county', 'Essex', 'total', 97.0, 97.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Essex', 'School', 25, -1),
+('2024-07-01', 7, 2024, 'county', 'Essex', 'total', 97.0, 61.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1846,8 +1854,8 @@ VALUES
 ('2024-07-01', 7, 2024, 'county', 'Grand Isle', 'Infant', 9, -1),
 ('2024-07-01', 7, 2024, 'county', 'Grand Isle', 'Toddler', 2, -1),
 ('2024-07-01', 7, 2024, 'county', 'Grand Isle', 'Preschool', 28, -1),
-('2024-07-01', 7, 2024, 'county', 'Grand Isle', 'School', 33, -1),
-('2024-07-01', 7, 2024, 'county', 'Grand Isle', 'total', 72.0, 0.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Grand Isle', 'School', 33, 33),
+('2024-07-01', 7, 2024, 'county', 'Grand Isle', 'total', 72.0, 33.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1956,10 +1964,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-06-01', 6, 2024, 'county', 'Essex', 'Infant', 21, 21),
-('2024-06-01', 6, 2024, 'county', 'Essex', 'Toddler', 13, 13),
+('2024-06-01', 6, 2024, 'county', 'Essex', 'Toddler', 13, -1),
 ('2024-06-01', 6, 2024, 'county', 'Essex', 'Preschool', 46, 46),
-('2024-06-01', 6, 2024, 'county', 'Essex', 'School', 25, 25),
-('2024-06-01', 6, 2024, 'county', 'Essex', 'total', 105.0, 105.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Essex', 'School', 25, -1),
+('2024-06-01', 6, 2024, 'county', 'Essex', 'total', 105.0, 67.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -1974,8 +1982,8 @@ VALUES
 ('2024-06-01', 6, 2024, 'county', 'Grand Isle', 'Infant', 10, -1),
 ('2024-06-01', 6, 2024, 'county', 'Grand Isle', 'Toddler', 2, -1),
 ('2024-06-01', 6, 2024, 'county', 'Grand Isle', 'Preschool', 31, -1),
-('2024-06-01', 6, 2024, 'county', 'Grand Isle', 'School', 42, -1),
-('2024-06-01', 6, 2024, 'county', 'Grand Isle', 'total', 85.0, 0.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Grand Isle', 'School', 42, 42),
+('2024-06-01', 6, 2024, 'county', 'Grand Isle', 'total', 85.0, 42.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2083,11 +2091,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-05-01', 5, 2024, 'county', 'Essex', 'Infant', 17, 17),
-('2024-05-01', 5, 2024, 'county', 'Essex', 'Toddler', 15, 15),
+('2024-05-01', 5, 2024, 'county', 'Essex', 'Infant', 17, -1),
+('2024-05-01', 5, 2024, 'county', 'Essex', 'Toddler', 15, -1),
 ('2024-05-01', 5, 2024, 'county', 'Essex', 'Preschool', 42, 42),
-('2024-05-01', 5, 2024, 'county', 'Essex', 'School', 23, 23),
-('2024-05-01', 5, 2024, 'county', 'Essex', 'total', 97.0, 97.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Essex', 'School', 23, -1),
+('2024-05-01', 5, 2024, 'county', 'Essex', 'total', 97.0, 42.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2102,8 +2110,8 @@ VALUES
 ('2024-05-01', 5, 2024, 'county', 'Grand Isle', 'Infant', 9, -1),
 ('2024-05-01', 5, 2024, 'county', 'Grand Isle', 'Toddler', 4, -1),
 ('2024-05-01', 5, 2024, 'county', 'Grand Isle', 'Preschool', 29, -1),
-('2024-05-01', 5, 2024, 'county', 'Grand Isle', 'School', 28, -1),
-('2024-05-01', 5, 2024, 'county', 'Grand Isle', 'total', 70.0, 0.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Grand Isle', 'School', 28, 28),
+('2024-05-01', 5, 2024, 'county', 'Grand Isle', 'total', 70.0, 28.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2211,11 +2219,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-04-01', 4, 2024, 'county', 'Essex', 'Infant', 18, 18),
-('2024-04-01', 4, 2024, 'county', 'Essex', 'Toddler', 12, 12),
+('2024-04-01', 4, 2024, 'county', 'Essex', 'Infant', 18, -1),
+('2024-04-01', 4, 2024, 'county', 'Essex', 'Toddler', 12, -1),
 ('2024-04-01', 4, 2024, 'county', 'Essex', 'Preschool', 35, 35),
-('2024-04-01', 4, 2024, 'county', 'Essex', 'School', 24, 24),
-('2024-04-01', 4, 2024, 'county', 'Essex', 'total', 89.0, 89.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Essex', 'School', 24, -1),
+('2024-04-01', 4, 2024, 'county', 'Essex', 'total', 89.0, 35.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2230,8 +2238,8 @@ VALUES
 ('2024-04-01', 4, 2024, 'county', 'Grand Isle', 'Infant', 9, -1),
 ('2024-04-01', 4, 2024, 'county', 'Grand Isle', 'Toddler', 5, -1),
 ('2024-04-01', 4, 2024, 'county', 'Grand Isle', 'Preschool', 32, -1),
-('2024-04-01', 4, 2024, 'county', 'Grand Isle', 'School', 27, -1),
-('2024-04-01', 4, 2024, 'county', 'Grand Isle', 'total', 73.0, 0.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Grand Isle', 'School', 27, 27),
+('2024-04-01', 4, 2024, 'county', 'Grand Isle', 'total', 73.0, 27.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2339,11 +2347,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-03-01', 3, 2024, 'county', 'Essex', 'Infant', 18, 18),
+('2024-03-01', 3, 2024, 'county', 'Essex', 'Infant', 18, -1),
 ('2024-03-01', 3, 2024, 'county', 'Essex', 'Toddler', 11, 11),
 ('2024-03-01', 3, 2024, 'county', 'Essex', 'Preschool', 30, 30),
-('2024-03-01', 3, 2024, 'county', 'Essex', 'School', 23, 23),
-('2024-03-01', 3, 2024, 'county', 'Essex', 'total', 82.0, 82.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Essex', 'School', 23, -1),
+('2024-03-01', 3, 2024, 'county', 'Essex', 'total', 82.0, 41.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2358,8 +2366,8 @@ VALUES
 ('2024-03-01', 3, 2024, 'county', 'Grand Isle', 'Infant', 8, -1),
 ('2024-03-01', 3, 2024, 'county', 'Grand Isle', 'Toddler', 6, -1),
 ('2024-03-01', 3, 2024, 'county', 'Grand Isle', 'Preschool', 29, -1),
-('2024-03-01', 3, 2024, 'county', 'Grand Isle', 'School', 26, -1),
-('2024-03-01', 3, 2024, 'county', 'Grand Isle', 'total', 69.0, 0.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Grand Isle', 'School', 26, 26),
+('2024-03-01', 3, 2024, 'county', 'Grand Isle', 'total', 69.0, 26.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2467,11 +2475,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-02-01', 2, 2024, 'county', 'Essex', 'Infant', 16, 16),
+('2024-02-01', 2, 2024, 'county', 'Essex', 'Infant', 16, -1),
 ('2024-02-01', 2, 2024, 'county', 'Essex', 'Toddler', 11, 11),
-('2024-02-01', 2, 2024, 'county', 'Essex', 'Preschool', 28, 28),
-('2024-02-01', 2, 2024, 'county', 'Essex', 'School', 22, 22),
-('2024-02-01', 2, 2024, 'county', 'Essex', 'total', 77.0, 77.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Essex', 'Preschool', 28, -1),
+('2024-02-01', 2, 2024, 'county', 'Essex', 'School', 22, -1),
+('2024-02-01', 2, 2024, 'county', 'Essex', 'total', 77.0, 11.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2486,8 +2494,8 @@ VALUES
 ('2024-02-01', 2, 2024, 'county', 'Grand Isle', 'Infant', 8, -1),
 ('2024-02-01', 2, 2024, 'county', 'Grand Isle', 'Toddler', 6, -1),
 ('2024-02-01', 2, 2024, 'county', 'Grand Isle', 'Preschool', 31, 31),
-('2024-02-01', 2, 2024, 'county', 'Grand Isle', 'School', 25, -1),
-('2024-02-01', 2, 2024, 'county', 'Grand Isle', 'total', 70.0, 31.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Grand Isle', 'School', 25, 25),
+('2024-02-01', 2, 2024, 'county', 'Grand Isle', 'total', 70.0, 56.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2517,9 +2525,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2024-02-01', 2, 2024, 'county', 'Out of State', 'Infant', 1, -1),
 ('2024-02-01', 2, 2024, 'county', 'Out of State', 'Toddler', 4, -1),
-('2024-02-01', 2, 2024, 'county', 'Out of State', 'Preschool', 11, 11),
+('2024-02-01', 2, 2024, 'county', 'Out of State', 'Preschool', 11, -1),
 ('2024-02-01', 2, 2024, 'county', 'Out of State', 'School', 4, -1),
-('2024-02-01', 2, 2024, 'county', 'Out of State', 'total', 20.0, 11.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Out of State', 'total', 20.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2595,11 +2603,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-01-01', 1, 2024, 'county', 'Essex', 'Infant', 16, 16),
+('2024-01-01', 1, 2024, 'county', 'Essex', 'Infant', 16, -1),
 ('2024-01-01', 1, 2024, 'county', 'Essex', 'Toddler', 12, 12),
 ('2024-01-01', 1, 2024, 'county', 'Essex', 'Preschool', 28, 28),
-('2024-01-01', 1, 2024, 'county', 'Essex', 'School', 20, 20),
-('2024-01-01', 1, 2024, 'county', 'Essex', 'total', 76.0, 76.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Essex', 'School', 20, -1),
+('2024-01-01', 1, 2024, 'county', 'Essex', 'total', 76.0, 40.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2614,8 +2622,8 @@ VALUES
 ('2024-01-01', 1, 2024, 'county', 'Grand Isle', 'Infant', 8, -1),
 ('2024-01-01', 1, 2024, 'county', 'Grand Isle', 'Toddler', 6, -1),
 ('2024-01-01', 1, 2024, 'county', 'Grand Isle', 'Preschool', 28, 28),
-('2024-01-01', 1, 2024, 'county', 'Grand Isle', 'School', 21, -1),
-('2024-01-01', 1, 2024, 'county', 'Grand Isle', 'total', 63.0, 28.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Grand Isle', 'School', 21, 21),
+('2024-01-01', 1, 2024, 'county', 'Grand Isle', 'total', 63.0, 49.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2725,9 +2733,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-12-01', 12, 2023, 'county', 'Essex', 'Infant', 15, 15),
 ('2023-12-01', 12, 2023, 'county', 'Essex', 'Toddler', 13, 13),
-('2023-12-01', 12, 2023, 'county', 'Essex', 'Preschool', 28, 28),
-('2023-12-01', 12, 2023, 'county', 'Essex', 'School', 19, 19),
-('2023-12-01', 12, 2023, 'county', 'Essex', 'total', 75.0, 75.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Essex', 'Preschool', 28, -1),
+('2023-12-01', 12, 2023, 'county', 'Essex', 'School', 19, -1),
+('2023-12-01', 12, 2023, 'county', 'Essex', 'total', 75.0, 28.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2741,9 +2749,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'Infant', 8, -1),
 ('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'Toddler', 6, -1),
-('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'Preschool', 29, -1),
-('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'School', 22, -1),
-('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'total', 65.0, 0.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'Preschool', 29, 29),
+('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'School', 22, 22),
+('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'total', 65.0, 51.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2852,10 +2860,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-11-01', 11, 2023, 'county', 'Essex', 'Infant', 15, 15),
-('2023-11-01', 11, 2023, 'county', 'Essex', 'Toddler', 12, 12),
+('2023-11-01', 11, 2023, 'county', 'Essex', 'Toddler', 12, -1),
 ('2023-11-01', 11, 2023, 'county', 'Essex', 'Preschool', 29, 29),
-('2023-11-01', 11, 2023, 'county', 'Essex', 'School', 19, 19),
-('2023-11-01', 11, 2023, 'county', 'Essex', 'total', 75.0, 75.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Essex', 'School', 19, -1),
+('2023-11-01', 11, 2023, 'county', 'Essex', 'total', 75.0, 44.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -2870,8 +2878,8 @@ VALUES
 ('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'Infant', 9, -1),
 ('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'Toddler', 7, -1),
 ('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'Preschool', 26, -1),
-('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'School', 22, -1),
-('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'total', 64.0, 0.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'School', 22, 22),
+('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'total', 64.0, 22.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3107,11 +3115,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-09-01', 9, 2023, 'county', 'Essex', 'Infant', 13, 13),
-('2023-09-01', 9, 2023, 'county', 'Essex', 'Toddler', 13, 13),
+('2023-09-01', 9, 2023, 'county', 'Essex', 'Infant', 13, -1),
+('2023-09-01', 9, 2023, 'county', 'Essex', 'Toddler', 13, -1),
 ('2023-09-01', 9, 2023, 'county', 'Essex', 'Preschool', 32, 32),
 ('2023-09-01', 9, 2023, 'county', 'Essex', 'School', 23, 23),
-('2023-09-01', 9, 2023, 'county', 'Essex', 'total', 81.0, 81.0) AS new_data
+('2023-09-01', 9, 2023, 'county', 'Essex', 'total', 81.0, 55.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3236,10 +3244,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-08-01', 8, 2023, 'county', 'Essex', 'Infant', 11, 11),
-('2023-08-01', 8, 2023, 'county', 'Essex', 'Toddler', 14, 14),
+('2023-08-01', 8, 2023, 'county', 'Essex', 'Toddler', 14, -1),
 ('2023-08-01', 8, 2023, 'county', 'Essex', 'Preschool', 35, 35),
-('2023-08-01', 8, 2023, 'county', 'Essex', 'School', 23, 23),
-('2023-08-01', 8, 2023, 'county', 'Essex', 'total', 83.0, 83.0) AS new_data
+('2023-08-01', 8, 2023, 'county', 'Essex', 'School', 23, -1),
+('2023-08-01', 8, 2023, 'county', 'Essex', 'total', 83.0, 46.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3254,8 +3262,8 @@ VALUES
 ('2023-08-01', 8, 2023, 'county', 'Grand Isle', 'Infant', 9, -1),
 ('2023-08-01', 8, 2023, 'county', 'Grand Isle', 'Toddler', 5, -1),
 ('2023-08-01', 8, 2023, 'county', 'Grand Isle', 'Preschool', 34, -1),
-('2023-08-01', 8, 2023, 'county', 'Grand Isle', 'School', 24, -1),
-('2023-08-01', 8, 2023, 'county', 'Grand Isle', 'total', 72.0, 0.0) AS new_data
+('2023-08-01', 8, 2023, 'county', 'Grand Isle', 'School', 24, 24),
+('2023-08-01', 8, 2023, 'county', 'Grand Isle', 'total', 72.0, 24.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3365,9 +3373,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-07-01', 7, 2023, 'county', 'Essex', 'Infant', 10, -1),
 ('2023-07-01', 7, 2023, 'county', 'Essex', 'Toddler', 13, 13),
-('2023-07-01', 7, 2023, 'county', 'Essex', 'Preschool', 37, -1),
-('2023-07-01', 7, 2023, 'county', 'Essex', 'School', 22, 22),
-('2023-07-01', 7, 2023, 'county', 'Essex', 'total', 82.0, 35.0) AS new_data
+('2023-07-01', 7, 2023, 'county', 'Essex', 'Preschool', 37, 37),
+('2023-07-01', 7, 2023, 'county', 'Essex', 'School', 22, -1),
+('2023-07-01', 7, 2023, 'county', 'Essex', 'total', 82.0, 50.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3381,9 +3389,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-07-01', 7, 2023, 'county', 'Grand Isle', 'Infant', 10, -1),
 ('2023-07-01', 7, 2023, 'county', 'Grand Isle', 'Toddler', 7, -1),
-('2023-07-01', 7, 2023, 'county', 'Grand Isle', 'Preschool', 35, 35),
-('2023-07-01', 7, 2023, 'county', 'Grand Isle', 'School', 26, -1),
-('2023-07-01', 7, 2023, 'county', 'Grand Isle', 'total', 78.0, 35.0) AS new_data
+('2023-07-01', 7, 2023, 'county', 'Grand Isle', 'Preschool', 35, -1),
+('2023-07-01', 7, 2023, 'county', 'Grand Isle', 'School', 26, 26),
+('2023-07-01', 7, 2023, 'county', 'Grand Isle', 'total', 78.0, 26.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3493,9 +3501,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-06-01', 6, 2023, 'county', 'Essex', 'Infant', 13, 13),
 ('2023-06-01', 6, 2023, 'county', 'Essex', 'Toddler', 10, -1),
-('2023-06-01', 6, 2023, 'county', 'Essex', 'Preschool', 41, -1),
-('2023-06-01', 6, 2023, 'county', 'Essex', 'School', 24, 24),
-('2023-06-01', 6, 2023, 'county', 'Essex', 'total', 88.0, 37.0) AS new_data
+('2023-06-01', 6, 2023, 'county', 'Essex', 'Preschool', 41, 41),
+('2023-06-01', 6, 2023, 'county', 'Essex', 'School', 24, -1),
+('2023-06-01', 6, 2023, 'county', 'Essex', 'total', 88.0, 54.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3509,9 +3517,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-06-01', 6, 2023, 'county', 'Grand Isle', 'Infant', 10, -1),
 ('2023-06-01', 6, 2023, 'county', 'Grand Isle', 'Toddler', 7, -1),
-('2023-06-01', 6, 2023, 'county', 'Grand Isle', 'Preschool', 36, 36),
-('2023-06-01', 6, 2023, 'county', 'Grand Isle', 'School', 25, -1),
-('2023-06-01', 6, 2023, 'county', 'Grand Isle', 'total', 78.0, 36.0) AS new_data
+('2023-06-01', 6, 2023, 'county', 'Grand Isle', 'Preschool', 36, -1),
+('2023-06-01', 6, 2023, 'county', 'Grand Isle', 'School', 25, 25),
+('2023-06-01', 6, 2023, 'county', 'Grand Isle', 'total', 78.0, 25.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3619,11 +3627,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-05-01', 5, 2023, 'county', 'Essex', 'Infant', 15, 15),
+('2023-05-01', 5, 2023, 'county', 'Essex', 'Infant', 15, -1),
 ('2023-05-01', 5, 2023, 'county', 'Essex', 'Toddler', 10, -1),
-('2023-05-01', 5, 2023, 'county', 'Essex', 'Preschool', 37, -1),
-('2023-05-01', 5, 2023, 'county', 'Essex', 'School', 21, 21),
-('2023-05-01', 5, 2023, 'county', 'Essex', 'total', 83.0, 36.0) AS new_data
+('2023-05-01', 5, 2023, 'county', 'Essex', 'Preschool', 37, 37),
+('2023-05-01', 5, 2023, 'county', 'Essex', 'School', 21, -1),
+('2023-05-01', 5, 2023, 'county', 'Essex', 'total', 83.0, 37.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3637,9 +3645,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-05-01', 5, 2023, 'county', 'Grand Isle', 'Infant', 7, -1),
 ('2023-05-01', 5, 2023, 'county', 'Grand Isle', 'Toddler', 11, 11),
-('2023-05-01', 5, 2023, 'county', 'Grand Isle', 'Preschool', 29, 29),
-('2023-05-01', 5, 2023, 'county', 'Grand Isle', 'School', 21, -1),
-('2023-05-01', 5, 2023, 'county', 'Grand Isle', 'total', 68.0, 40.0) AS new_data
+('2023-05-01', 5, 2023, 'county', 'Grand Isle', 'Preschool', 29, -1),
+('2023-05-01', 5, 2023, 'county', 'Grand Isle', 'School', 21, 21),
+('2023-05-01', 5, 2023, 'county', 'Grand Isle', 'total', 68.0, 32.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3747,11 +3755,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-04-01', 4, 2023, 'county', 'Essex', 'Infant', 16, 16),
+('2023-04-01', 4, 2023, 'county', 'Essex', 'Infant', 16, -1),
 ('2023-04-01', 4, 2023, 'county', 'Essex', 'Toddler', 10, -1),
-('2023-04-01', 4, 2023, 'county', 'Essex', 'Preschool', 34, -1),
+('2023-04-01', 4, 2023, 'county', 'Essex', 'Preschool', 34, 34),
 ('2023-04-01', 4, 2023, 'county', 'Essex', 'School', 23, 23),
-('2023-04-01', 4, 2023, 'county', 'Essex', 'total', 83.0, 39.0) AS new_data
+('2023-04-01', 4, 2023, 'county', 'Essex', 'total', 83.0, 57.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3765,9 +3773,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-04-01', 4, 2023, 'county', 'Grand Isle', 'Infant', 5, -1),
 ('2023-04-01', 4, 2023, 'county', 'Grand Isle', 'Toddler', 12, 12),
-('2023-04-01', 4, 2023, 'county', 'Grand Isle', 'Preschool', 26, 26),
+('2023-04-01', 4, 2023, 'county', 'Grand Isle', 'Preschool', 26, -1),
 ('2023-04-01', 4, 2023, 'county', 'Grand Isle', 'School', 19, -1),
-('2023-04-01', 4, 2023, 'county', 'Grand Isle', 'total', 62.0, 38.0) AS new_data
+('2023-04-01', 4, 2023, 'county', 'Grand Isle', 'total', 62.0, 12.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3875,11 +3883,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-03-01', 3, 2023, 'county', 'Essex', 'Infant', 17, 17),
+('2023-03-01', 3, 2023, 'county', 'Essex', 'Infant', 17, -1),
 ('2023-03-01', 3, 2023, 'county', 'Essex', 'Toddler', 9, -1),
-('2023-03-01', 3, 2023, 'county', 'Essex', 'Preschool', 35, -1),
+('2023-03-01', 3, 2023, 'county', 'Essex', 'Preschool', 35, 35),
 ('2023-03-01', 3, 2023, 'county', 'Essex', 'School', 21, 21),
-('2023-03-01', 3, 2023, 'county', 'Essex', 'total', 82.0, 38.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Essex', 'total', 82.0, 56.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -3893,9 +3901,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-03-01', 3, 2023, 'county', 'Grand Isle', 'Infant', 6, -1),
 ('2023-03-01', 3, 2023, 'county', 'Grand Isle', 'Toddler', 15, 15),
-('2023-03-01', 3, 2023, 'county', 'Grand Isle', 'Preschool', 25, 25),
+('2023-03-01', 3, 2023, 'county', 'Grand Isle', 'Preschool', 25, -1),
 ('2023-03-01', 3, 2023, 'county', 'Grand Isle', 'School', 18, -1),
-('2023-03-01', 3, 2023, 'county', 'Grand Isle', 'total', 64.0, 40.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Grand Isle', 'total', 64.0, 15.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4003,11 +4011,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-02-01', 2, 2023, 'county', 'Essex', 'Infant', 17, 17),
+('2023-02-01', 2, 2023, 'county', 'Essex', 'Infant', 17, -1),
 ('2023-02-01', 2, 2023, 'county', 'Essex', 'Toddler', 9, -1),
-('2023-02-01', 2, 2023, 'county', 'Essex', 'Preschool', 34, -1),
+('2023-02-01', 2, 2023, 'county', 'Essex', 'Preschool', 34, 34),
 ('2023-02-01', 2, 2023, 'county', 'Essex', 'School', 23, 23),
-('2023-02-01', 2, 2023, 'county', 'Essex', 'total', 83.0, 40.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Essex', 'total', 83.0, 57.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4021,9 +4029,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-02-01', 2, 2023, 'county', 'Grand Isle', 'Infant', 6, -1),
 ('2023-02-01', 2, 2023, 'county', 'Grand Isle', 'Toddler', 18, 18),
-('2023-02-01', 2, 2023, 'county', 'Grand Isle', 'Preschool', 25, 25),
+('2023-02-01', 2, 2023, 'county', 'Grand Isle', 'Preschool', 25, -1),
 ('2023-02-01', 2, 2023, 'county', 'Grand Isle', 'School', 18, -1),
-('2023-02-01', 2, 2023, 'county', 'Grand Isle', 'total', 67.0, 43.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Grand Isle', 'total', 67.0, 18.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4131,11 +4139,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-01-01', 1, 2023, 'county', 'Essex', 'Infant', 16, 16),
+('2023-01-01', 1, 2023, 'county', 'Essex', 'Infant', 16, -1),
 ('2023-01-01', 1, 2023, 'county', 'Essex', 'Toddler', 8, -1),
-('2023-01-01', 1, 2023, 'county', 'Essex', 'Preschool', 32, -1),
+('2023-01-01', 1, 2023, 'county', 'Essex', 'Preschool', 32, 32),
 ('2023-01-01', 1, 2023, 'county', 'Essex', 'School', 24, 24),
-('2023-01-01', 1, 2023, 'county', 'Essex', 'total', 80.0, 40.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Essex', 'total', 80.0, 56.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4149,9 +4157,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2023-01-01', 1, 2023, 'county', 'Grand Isle', 'Infant', 6, -1),
 ('2023-01-01', 1, 2023, 'county', 'Grand Isle', 'Toddler', 17, 17),
-('2023-01-01', 1, 2023, 'county', 'Grand Isle', 'Preschool', 26, 26),
+('2023-01-01', 1, 2023, 'county', 'Grand Isle', 'Preschool', 26, -1),
 ('2023-01-01', 1, 2023, 'county', 'Grand Isle', 'School', 18, -1),
-('2023-01-01', 1, 2023, 'county', 'Grand Isle', 'total', 67.0, 43.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Grand Isle', 'total', 67.0, 17.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4259,11 +4267,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-12-01', 12, 2022, 'county', 'Essex', 'Infant', 14, 14),
+('2022-12-01', 12, 2022, 'county', 'Essex', 'Infant', 14, -1),
 ('2022-12-01', 12, 2022, 'county', 'Essex', 'Toddler', 8, -1),
-('2022-12-01', 12, 2022, 'county', 'Essex', 'Preschool', 33, -1),
-('2022-12-01', 12, 2022, 'county', 'Essex', 'School', 16, 16),
-('2022-12-01', 12, 2022, 'county', 'Essex', 'total', 71.0, 30.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Essex', 'Preschool', 33, 33),
+('2022-12-01', 12, 2022, 'county', 'Essex', 'School', 16, -1),
+('2022-12-01', 12, 2022, 'county', 'Essex', 'total', 71.0, 33.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4277,9 +4285,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'Infant', 7, -1),
 ('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'Toddler', 17, 17),
-('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'Preschool', 23, 23),
-('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'School', 17, -1),
-('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'total', 64.0, 40.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'Preschool', 23, -1),
+('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'School', 17, 17),
+('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'total', 64.0, 34.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4387,11 +4395,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-11-01', 11, 2022, 'county', 'Essex', 'Infant', 15, 15),
+('2022-11-01', 11, 2022, 'county', 'Essex', 'Infant', 15, -1),
 ('2022-11-01', 11, 2022, 'county', 'Essex', 'Toddler', 7, -1),
-('2022-11-01', 11, 2022, 'county', 'Essex', 'Preschool', 32, -1),
+('2022-11-01', 11, 2022, 'county', 'Essex', 'Preschool', 32, 32),
 ('2022-11-01', 11, 2022, 'county', 'Essex', 'School', 19, 19),
-('2022-11-01', 11, 2022, 'county', 'Essex', 'total', 73.0, 34.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Essex', 'total', 73.0, 51.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4405,9 +4413,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'Infant', 7, -1),
 ('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'Toddler', 18, 18),
-('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'Preschool', 23, 23),
+('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'Preschool', 23, -1),
 ('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'School', 18, -1),
-('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'total', 66.0, 41.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'total', 66.0, 18.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4515,10 +4523,10 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-10-01', 10, 2022, 'county', 'Essex', 'Infant', 14, 14),
+('2022-10-01', 10, 2022, 'county', 'Essex', 'Infant', 14, -1),
 ('2022-10-01', 10, 2022, 'county', 'Essex', 'Toddler', 6, -1),
-('2022-10-01', 10, 2022, 'county', 'Essex', 'Preschool', 33, -1),
-('2022-10-01', 10, 2022, 'county', 'Essex', 'School', 19, 19),
+('2022-10-01', 10, 2022, 'county', 'Essex', 'Preschool', 33, 33),
+('2022-10-01', 10, 2022, 'county', 'Essex', 'School', 19, -1),
 ('2022-10-01', 10, 2022, 'county', 'Essex', 'total', 72.0, 33.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
@@ -4532,10 +4540,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'Infant', 8, -1),
-('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'Toddler', 14, 14),
-('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'Preschool', 24, 24),
-('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'School', 20, -1),
-('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'total', 66.0, 38.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'Toddler', 14, -1),
+('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'Preschool', 24, -1),
+('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'School', 20, 20),
+('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'total', 66.0, 20.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4645,9 +4653,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2022-09-01', 9, 2022, 'county', 'Essex', 'Infant', 13, 13),
 ('2022-09-01', 9, 2022, 'county', 'Essex', 'Toddler', 7, -1),
-('2022-09-01', 9, 2022, 'county', 'Essex', 'Preschool', 28, -1),
-('2022-09-01', 9, 2022, 'county', 'Essex', 'School', 22, 22),
-('2022-09-01', 9, 2022, 'county', 'Essex', 'total', 70.0, 35.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Essex', 'Preschool', 28, 28),
+('2022-09-01', 9, 2022, 'county', 'Essex', 'School', 22, -1),
+('2022-09-01', 9, 2022, 'county', 'Essex', 'total', 70.0, 41.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4660,10 +4668,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'Infant', 8, -1),
-('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'Toddler', 16, 16),
-('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'Preschool', 21, 21),
-('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'School', 24, -1),
-('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'total', 69.0, 37.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'Toddler', 16, -1),
+('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'Preschool', 21, -1),
+('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'School', 24, 24),
+('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'total', 69.0, 24.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4771,11 +4779,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-08-01', 8, 2022, 'county', 'Essex', 'Infant', 14, 14),
+('2022-08-01', 8, 2022, 'county', 'Essex', 'Infant', 14, -1),
 ('2022-08-01', 8, 2022, 'county', 'Essex', 'Toddler', 6, -1),
-('2022-08-01', 8, 2022, 'county', 'Essex', 'Preschool', 24, -1),
-('2022-08-01', 8, 2022, 'county', 'Essex', 'School', 20, 20),
-('2022-08-01', 8, 2022, 'county', 'Essex', 'total', 64.0, 34.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Essex', 'Preschool', 24, 24),
+('2022-08-01', 8, 2022, 'county', 'Essex', 'School', 20, -1),
+('2022-08-01', 8, 2022, 'county', 'Essex', 'total', 64.0, 24.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4788,10 +4796,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'Infant', 7, -1),
-('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'Toddler', 15, 15),
-('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'Preschool', 22, 22),
-('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'School', 30, -1),
-('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'total', 74.0, 37.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'Toddler', 15, -1),
+('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'Preschool', 22, -1),
+('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'School', 30, 30),
+('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'total', 74.0, 30.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4901,9 +4909,9 @@ INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `
 VALUES
 ('2022-07-01', 7, 2022, 'county', 'Essex', 'Infant', 12, 12),
 ('2022-07-01', 7, 2022, 'county', 'Essex', 'Toddler', 7, -1),
-('2022-07-01', 7, 2022, 'county', 'Essex', 'Preschool', 22, -1),
-('2022-07-01', 7, 2022, 'county', 'Essex', 'School', 24, 24),
-('2022-07-01', 7, 2022, 'county', 'Essex', 'total', 65.0, 36.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Essex', 'Preschool', 22, 22),
+('2022-07-01', 7, 2022, 'county', 'Essex', 'School', 24, -1),
+('2022-07-01', 7, 2022, 'county', 'Essex', 'total', 65.0, 34.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -4916,9 +4924,9 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'Infant', 8, -1),
-('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'Toddler', 12, 12),
-('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'Preschool', 20, 20),
-('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'School', 32, -1),
+('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'Toddler', 12, -1),
+('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'Preschool', 20, -1),
+('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'School', 32, 32),
 ('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'total', 72.0, 32.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
@@ -5052,10 +5060,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'Infant', 98, 98),
-('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'Toddler', 62, 62),
-('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'Preschool', 215, 215),
+('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'Toddler', 62, -1),
+('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'Preschool', 215, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'School', 171, 171),
-('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'total', 546.0, 546.0) AS new_data
+('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'total', 546.0, 269.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5067,19 +5075,19 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Infant', 197, -1),
-('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Toddler', 165, -1),
-('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Preschool', 468, -1),
+('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Infant', 197, 197),
+('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Toddler', 165, 165),
+('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Preschool', 468, 468),
 ('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'School', 434, 434),
-('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'total', 1264.0, 434.0) AS new_data
+('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'total', 1264.0, 1264.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-09-01', 9, 2025, 'AHS district', 'Springfield District', 'Infant', 98, 98),
-('2025-09-01', 9, 2025, 'AHS district', 'Springfield District', 'Toddler', 95, 95),
+('2025-09-01', 9, 2025, 'AHS district', 'Springfield District', 'Infant', 98, -1),
+('2025-09-01', 9, 2025, 'AHS district', 'Springfield District', 'Toddler', 95, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Springfield District', 'Preschool', 314, 314),
 ('2025-09-01', 9, 2025, 'AHS district', 'Springfield District', 'School', 244, 244),
-('2025-09-01', 9, 2025, 'AHS district', 'Springfield District', 'total', 751.0, 751.0) AS new_data
+('2025-09-01', 9, 2025, 'AHS district', 'Springfield District', 'total', 751.0, 558.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5124,10 +5132,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Infant', 121, 121),
-('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 100, 100),
+('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 100, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Preschool', 340, 340),
-('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'School', 183, 183),
-('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'total', 744.0, 744.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'School', 183, -1),
+('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'total', 744.0, 461.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5148,10 +5156,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'Infant', 116, 116),
-('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'Toddler', 99, -1),
+('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'Toddler', 99, 99),
 ('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'Preschool', 363, 363),
-('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'School', 345, -1),
-('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'total', 923.0, 479.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'School', 345, 345),
+('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'total', 923.0, 923.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5163,11 +5171,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Infant', 92, 92),
-('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Toddler', 64, 64),
-('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Preschool', 221, 221),
+('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Infant', 92, -1),
+('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Toddler', 64, -1),
+('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Preschool', 221, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'School', 184, 184),
-('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'total', 561.0, 561.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'total', 561.0, 184.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5203,11 +5211,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 147, -1),
-('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 102, -1),
-('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 369, -1),
+('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 147, 147),
+('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 102, 102),
+('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 369, 369),
 ('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'School', 333, 333),
-('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'total', 951.0, 333.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'total', 951.0, 951.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5252,18 +5260,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-07-01', 7, 2025, 'AHS district', 'Hartford District', 'Infant', 108, 108),
-('2025-07-01', 7, 2025, 'AHS district', 'Hartford District', 'Toddler', 106, 106),
+('2025-07-01', 7, 2025, 'AHS district', 'Hartford District', 'Toddler', 106, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Hartford District', 'Preschool', 226, 226),
-('2025-07-01', 7, 2025, 'AHS district', 'Hartford District', 'School', 148, 148),
-('2025-07-01', 7, 2025, 'AHS district', 'Hartford District', 'total', 588.0, 588.0) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'Hartford District', 'School', 148, -1),
+('2025-07-01', 7, 2025, 'AHS district', 'Hartford District', 'total', 588.0, 334.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'Infant', 86, 86),
+('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'Infant', 86, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'Toddler', 94, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'Preschool', 307, 307),
-('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'School', 332, -1),
-('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'total', 819.0, 393.0) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'School', 332, 332),
+('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'total', 819.0, 639.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5276,10 +5284,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-07-01', 7, 2025, 'AHS district', 'Newport District', 'Infant', 87, 87),
-('2025-07-01', 7, 2025, 'AHS district', 'Newport District', 'Toddler', 60, 60),
-('2025-07-01', 7, 2025, 'AHS district', 'Newport District', 'Preschool', 209, 209),
+('2025-07-01', 7, 2025, 'AHS district', 'Newport District', 'Toddler', 60, -1),
+('2025-07-01', 7, 2025, 'AHS district', 'Newport District', 'Preschool', 209, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Newport District', 'School', 181, 181),
-('2025-07-01', 7, 2025, 'AHS district', 'Newport District', 'total', 537.0, 537.0) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'Newport District', 'total', 537.0, 268.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5315,11 +5323,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 138, -1),
-('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 106, -1),
-('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 346, -1),
+('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 138, 138),
+('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 106, 106),
+('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 346, 346),
 ('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'School', 323, 323),
-('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'total', 913.0, 323.0) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'total', 913.0, 913.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5348,10 +5356,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-06-01', 6, 2025, 'AHS district', 'Brattleboro District', 'Infant', 101, 101),
-('2025-06-01', 6, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 88, 88),
+('2025-06-01', 6, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 88, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Brattleboro District', 'Preschool', 335, 335),
-('2025-06-01', 6, 2025, 'AHS district', 'Brattleboro District', 'School', 167, 167),
-('2025-06-01', 6, 2025, 'AHS district', 'Brattleboro District', 'total', 691.0, 691.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'Brattleboro District', 'School', 167, -1),
+('2025-06-01', 6, 2025, 'AHS district', 'Brattleboro District', 'total', 691.0, 436.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5372,26 +5380,26 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'Infant', 90, 90),
-('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'Toddler', 91, -1),
+('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'Toddler', 91, 91),
 ('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'Preschool', 340, 340),
-('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'School', 356, -1),
-('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'total', 877.0, 430.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'School', 356, 356),
+('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'total', 877.0, 877.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-06-01', 6, 2025, 'AHS district', 'Morrisville District', 'Infant', 90, 90),
-('2025-06-01', 6, 2025, 'AHS district', 'Morrisville District', 'Toddler', 89, 89),
+('2025-06-01', 6, 2025, 'AHS district', 'Morrisville District', 'Infant', 90, -1),
+('2025-06-01', 6, 2025, 'AHS district', 'Morrisville District', 'Toddler', 89, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Morrisville District', 'Preschool', 294, 294),
 ('2025-06-01', 6, 2025, 'AHS district', 'Morrisville District', 'School', 203, 203),
-('2025-06-01', 6, 2025, 'AHS district', 'Morrisville District', 'total', 676.0, 676.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'Morrisville District', 'total', 676.0, 497.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-06-01', 6, 2025, 'AHS district', 'Newport District', 'Infant', 91, 91),
-('2025-06-01', 6, 2025, 'AHS district', 'Newport District', 'Toddler', 63, 63),
-('2025-06-01', 6, 2025, 'AHS district', 'Newport District', 'Preschool', 203, 203),
+('2025-06-01', 6, 2025, 'AHS district', 'Newport District', 'Toddler', 63, -1),
+('2025-06-01', 6, 2025, 'AHS district', 'Newport District', 'Preschool', 203, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Newport District', 'School', 177, 177),
-('2025-06-01', 6, 2025, 'AHS district', 'Newport District', 'total', 534.0, 534.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'Newport District', 'total', 534.0, 268.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5427,11 +5435,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 134, -1),
-('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 116, -1),
-('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 349, -1),
+('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 134, 134),
+('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 116, 116),
+('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 349, 349),
 ('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'School', 326, 326),
-('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'total', 925.0, 326.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'total', 925.0, 925.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5460,10 +5468,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-05-01', 5, 2025, 'AHS district', 'Brattleboro District', 'Infant', 103, 103),
-('2025-05-01', 5, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 87, 87),
+('2025-05-01', 5, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 87, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Brattleboro District', 'Preschool', 311, 311),
-('2025-05-01', 5, 2025, 'AHS district', 'Brattleboro District', 'School', 132, 132),
-('2025-05-01', 5, 2025, 'AHS district', 'Brattleboro District', 'total', 633.0, 633.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'Brattleboro District', 'School', 132, -1),
+('2025-05-01', 5, 2025, 'AHS district', 'Brattleboro District', 'total', 633.0, 414.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5484,10 +5492,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'Infant', 91, 91),
-('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'Toddler', 93, -1),
+('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'Toddler', 93, 93),
 ('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'Preschool', 319, 319),
-('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'School', 227, -1),
-('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'total', 730.0, 410.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'School', 227, 227),
+('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'total', 730.0, 730.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5499,11 +5507,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-05-01', 5, 2025, 'AHS district', 'Newport District', 'Infant', 87, 87),
-('2025-05-01', 5, 2025, 'AHS district', 'Newport District', 'Toddler', 66, 66),
-('2025-05-01', 5, 2025, 'AHS district', 'Newport District', 'Preschool', 205, 205),
+('2025-05-01', 5, 2025, 'AHS district', 'Newport District', 'Infant', 87, -1),
+('2025-05-01', 5, 2025, 'AHS district', 'Newport District', 'Toddler', 66, -1),
+('2025-05-01', 5, 2025, 'AHS district', 'Newport District', 'Preschool', 205, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Newport District', 'School', 171, 171),
-('2025-05-01', 5, 2025, 'AHS district', 'Newport District', 'total', 529.0, 529.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'Newport District', 'total', 529.0, 171.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5539,11 +5547,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 141, -1),
-('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 112, -1),
-('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 338, -1),
+('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 141, 141),
+('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 112, 112),
+('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 338, 338),
 ('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'School', 311, 311),
-('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'total', 902.0, 311.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'total', 902.0, 902.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5572,10 +5580,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-04-01', 4, 2025, 'AHS district', 'Brattleboro District', 'Infant', 103, 103),
-('2025-04-01', 4, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 89, 89),
+('2025-04-01', 4, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 89, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Brattleboro District', 'Preschool', 303, 303),
-('2025-04-01', 4, 2025, 'AHS district', 'Brattleboro District', 'School', 144, 144),
-('2025-04-01', 4, 2025, 'AHS district', 'Brattleboro District', 'total', 639.0, 639.0) AS new_data
+('2025-04-01', 4, 2025, 'AHS district', 'Brattleboro District', 'School', 144, -1),
+('2025-04-01', 4, 2025, 'AHS district', 'Brattleboro District', 'total', 639.0, 406.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5596,10 +5604,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'Infant', 96, 96),
-('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'Toddler', 92, -1),
+('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'Toddler', 92, 92),
 ('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'Preschool', 316, 316),
-('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'School', 235, -1),
-('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'total', 739.0, 412.0) AS new_data
+('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'School', 235, 235),
+('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'total', 739.0, 739.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5611,11 +5619,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-04-01', 4, 2025, 'AHS district', 'Newport District', 'Infant', 87, 87),
-('2025-04-01', 4, 2025, 'AHS district', 'Newport District', 'Toddler', 62, 62),
-('2025-04-01', 4, 2025, 'AHS district', 'Newport District', 'Preschool', 198, 198),
+('2025-04-01', 4, 2025, 'AHS district', 'Newport District', 'Infant', 87, -1),
+('2025-04-01', 4, 2025, 'AHS district', 'Newport District', 'Toddler', 62, -1),
+('2025-04-01', 4, 2025, 'AHS district', 'Newport District', 'Preschool', 198, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Newport District', 'School', 170, 170),
-('2025-04-01', 4, 2025, 'AHS district', 'Newport District', 'total', 517.0, 517.0) AS new_data
+('2025-04-01', 4, 2025, 'AHS district', 'Newport District', 'total', 517.0, 170.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5651,11 +5659,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 152, -1),
-('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 103, -1),
-('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 338, -1),
+('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 152, 152),
+('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 103, 103),
+('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 338, 338),
 ('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'School', 303, 303),
-('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'total', 896.0, 303.0) AS new_data
+('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'total', 896.0, 896.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5684,10 +5692,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-03-01', 3, 2025, 'AHS district', 'Brattleboro District', 'Infant', 102, 102),
-('2025-03-01', 3, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 97, 97),
+('2025-03-01', 3, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 97, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Brattleboro District', 'Preschool', 285, 285),
-('2025-03-01', 3, 2025, 'AHS district', 'Brattleboro District', 'School', 130, 130),
-('2025-03-01', 3, 2025, 'AHS district', 'Brattleboro District', 'total', 614.0, 614.0) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'Brattleboro District', 'School', 130, -1),
+('2025-03-01', 3, 2025, 'AHS district', 'Brattleboro District', 'total', 614.0, 387.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5708,10 +5716,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'Infant', 98, 98),
-('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'Toddler', 87, -1),
+('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'Toddler', 87, 87),
 ('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'Preschool', 306, 306),
-('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'School', 235, -1),
-('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'total', 726.0, 404.0) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'School', 235, 235),
+('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'total', 726.0, 726.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5723,11 +5731,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-03-01', 3, 2025, 'AHS district', 'Newport District', 'Infant', 86, 86),
-('2025-03-01', 3, 2025, 'AHS district', 'Newport District', 'Toddler', 59, 59),
-('2025-03-01', 3, 2025, 'AHS district', 'Newport District', 'Preschool', 196, 196),
+('2025-03-01', 3, 2025, 'AHS district', 'Newport District', 'Infant', 86, -1),
+('2025-03-01', 3, 2025, 'AHS district', 'Newport District', 'Toddler', 59, -1),
+('2025-03-01', 3, 2025, 'AHS district', 'Newport District', 'Preschool', 196, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Newport District', 'School', 160, 160),
-('2025-03-01', 3, 2025, 'AHS district', 'Newport District', 'total', 501.0, 501.0) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'Newport District', 'total', 501.0, 160.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5763,11 +5771,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 145, -1),
-('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 106, -1),
-('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 338, -1),
+('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 145, 145),
+('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 106, 106),
+('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 338, 338),
 ('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'School', 295, 295),
-('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'total', 884.0, 295.0) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'total', 884.0, 884.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5787,19 +5795,19 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Infant', 152, -1),
-('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Toddler', 108, -1),
-('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Preschool', 354, -1),
+('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Infant', 152, 152),
+('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Toddler', 108, 108),
+('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Preschool', 354, 354),
 ('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'School', 197, 197),
-('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'total', 811.0, 197.0) AS new_data
+('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'total', 811.0, 811.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-02-01', 2, 2025, 'AHS district', 'Brattleboro District', 'Infant', 111, 111),
-('2025-02-01', 2, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 103, 103),
+('2025-02-01', 2, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 103, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Brattleboro District', 'Preschool', 268, 268),
-('2025-02-01', 2, 2025, 'AHS district', 'Brattleboro District', 'School', 135, 135),
-('2025-02-01', 2, 2025, 'AHS district', 'Brattleboro District', 'total', 617.0, 617.0) AS new_data
+('2025-02-01', 2, 2025, 'AHS district', 'Brattleboro District', 'School', 135, -1),
+('2025-02-01', 2, 2025, 'AHS district', 'Brattleboro District', 'total', 617.0, 379.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5835,11 +5843,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-02-01', 2, 2025, 'AHS district', 'Newport District', 'Infant', 87, 87),
+('2025-02-01', 2, 2025, 'AHS district', 'Newport District', 'Infant', 87, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Newport District', 'Toddler', 59, -1),
-('2025-02-01', 2, 2025, 'AHS district', 'Newport District', 'Preschool', 198, 198),
-('2025-02-01', 2, 2025, 'AHS district', 'Newport District', 'School', 153, -1),
-('2025-02-01', 2, 2025, 'AHS district', 'Newport District', 'total', 497.0, 285.0) AS new_data
+('2025-02-01', 2, 2025, 'AHS district', 'Newport District', 'Preschool', 198, -1),
+('2025-02-01', 2, 2025, 'AHS district', 'Newport District', 'School', 153, 153),
+('2025-02-01', 2, 2025, 'AHS district', 'Newport District', 'total', 497.0, 153.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5908,10 +5916,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-01-01', 1, 2025, 'AHS district', 'Brattleboro District', 'Infant', 112, 112),
-('2025-01-01', 1, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 101, 101),
+('2025-01-01', 1, 2025, 'AHS district', 'Brattleboro District', 'Toddler', 101, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Brattleboro District', 'Preschool', 256, 256),
-('2025-01-01', 1, 2025, 'AHS district', 'Brattleboro District', 'School', 126, 126),
-('2025-01-01', 1, 2025, 'AHS district', 'Brattleboro District', 'total', 595.0, 595.0) AS new_data
+('2025-01-01', 1, 2025, 'AHS district', 'Brattleboro District', 'School', 126, -1),
+('2025-01-01', 1, 2025, 'AHS district', 'Brattleboro District', 'total', 595.0, 368.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5932,10 +5940,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'Infant', 99, 99),
-('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'Toddler', 89, -1),
+('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'Toddler', 89, 89),
 ('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'Preschool', 294, 294),
-('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'School', 217, -1),
-('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'total', 699.0, 393.0) AS new_data
+('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'School', 217, 217),
+('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'total', 699.0, 699.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5947,11 +5955,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-01-01', 1, 2025, 'AHS district', 'Newport District', 'Infant', 87, 87),
-('2025-01-01', 1, 2025, 'AHS district', 'Newport District', 'Toddler', 58, 58),
-('2025-01-01', 1, 2025, 'AHS district', 'Newport District', 'Preschool', 194, 194),
+('2025-01-01', 1, 2025, 'AHS district', 'Newport District', 'Infant', 87, -1),
+('2025-01-01', 1, 2025, 'AHS district', 'Newport District', 'Toddler', 58, -1),
+('2025-01-01', 1, 2025, 'AHS district', 'Newport District', 'Preschool', 194, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Newport District', 'School', 159, 159),
-('2025-01-01', 1, 2025, 'AHS district', 'Newport District', 'total', 498.0, 498.0) AS new_data
+('2025-01-01', 1, 2025, 'AHS district', 'Newport District', 'total', 498.0, 159.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -5987,11 +5995,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 141, -1),
-('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 106, -1),
-('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 318, -1),
+('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Infant', 141, 141),
+('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Toddler', 106, 106),
+('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Preschool', 318, 318),
 ('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'School', 288, 288),
-('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'total', 853.0, 288.0) AS new_data
+('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'total', 853.0, 853.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6020,10 +6028,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-12-01', 12, 2024, 'AHS district', 'Brattleboro District', 'Infant', 112, 112),
-('2024-12-01', 12, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 99, 99),
+('2024-12-01', 12, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 99, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 242, 242),
-('2024-12-01', 12, 2024, 'AHS district', 'Brattleboro District', 'School', 107, 107),
-('2024-12-01', 12, 2024, 'AHS district', 'Brattleboro District', 'total', 560.0, 560.0) AS new_data
+('2024-12-01', 12, 2024, 'AHS district', 'Brattleboro District', 'School', 107, -1),
+('2024-12-01', 12, 2024, 'AHS district', 'Brattleboro District', 'total', 560.0, 354.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6044,10 +6052,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'Infant', 96, 96),
-('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'Toddler', 87, -1),
+('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'Toddler', 87, 87),
 ('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'Preschool', 276, 276),
-('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'School', 206, -1),
-('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'total', 665.0, 372.0) AS new_data
+('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'School', 206, 206),
+('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'total', 665.0, 665.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6059,11 +6067,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-12-01', 12, 2024, 'AHS district', 'Newport District', 'Infant', 87, 87),
-('2024-12-01', 12, 2024, 'AHS district', 'Newport District', 'Toddler', 54, 54),
-('2024-12-01', 12, 2024, 'AHS district', 'Newport District', 'Preschool', 191, 191),
+('2024-12-01', 12, 2024, 'AHS district', 'Newport District', 'Infant', 87, -1),
+('2024-12-01', 12, 2024, 'AHS district', 'Newport District', 'Toddler', 54, -1),
+('2024-12-01', 12, 2024, 'AHS district', 'Newport District', 'Preschool', 191, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'Newport District', 'School', 154, 154),
-('2024-12-01', 12, 2024, 'AHS district', 'Newport District', 'total', 486.0, 486.0) AS new_data
+('2024-12-01', 12, 2024, 'AHS district', 'Newport District', 'total', 486.0, 154.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6099,11 +6107,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 138, -1),
-('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 102, -1),
-('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 312, -1),
+('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 138, 138),
+('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 102, 102),
+('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 312, 312),
 ('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'School', 291, 291),
-('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'total', 843.0, 291.0) AS new_data
+('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'total', 843.0, 843.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6132,10 +6140,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-11-01', 11, 2024, 'AHS district', 'Brattleboro District', 'Infant', 117, 117),
-('2024-11-01', 11, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 96, 96),
+('2024-11-01', 11, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 96, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 237, 237),
-('2024-11-01', 11, 2024, 'AHS district', 'Brattleboro District', 'School', 105, 105),
-('2024-11-01', 11, 2024, 'AHS district', 'Brattleboro District', 'total', 555.0, 555.0) AS new_data
+('2024-11-01', 11, 2024, 'AHS district', 'Brattleboro District', 'School', 105, -1),
+('2024-11-01', 11, 2024, 'AHS district', 'Brattleboro District', 'total', 555.0, 354.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6148,18 +6156,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-11-01', 11, 2024, 'AHS district', 'Hartford District', 'Infant', 122, 122),
-('2024-11-01', 11, 2024, 'AHS district', 'Hartford District', 'Toddler', 97, 97),
-('2024-11-01', 11, 2024, 'AHS district', 'Hartford District', 'Preschool', 189, 189),
+('2024-11-01', 11, 2024, 'AHS district', 'Hartford District', 'Toddler', 97, -1),
+('2024-11-01', 11, 2024, 'AHS district', 'Hartford District', 'Preschool', 189, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'Hartford District', 'School', 156, 156),
-('2024-11-01', 11, 2024, 'AHS district', 'Hartford District', 'total', 564.0, 564.0) AS new_data
+('2024-11-01', 11, 2024, 'AHS district', 'Hartford District', 'total', 564.0, 278.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'Infant', 106, 106),
-('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'Toddler', 82, -1),
+('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'Toddler', 82, 82),
 ('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'Preschool', 282, 282),
-('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'School', 209, -1),
-('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'total', 679.0, 388.0) AS new_data
+('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'School', 209, 209),
+('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'total', 679.0, 679.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6171,11 +6179,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-11-01', 11, 2024, 'AHS district', 'Newport District', 'Infant', 82, 82),
-('2024-11-01', 11, 2024, 'AHS district', 'Newport District', 'Toddler', 61, 61),
+('2024-11-01', 11, 2024, 'AHS district', 'Newport District', 'Infant', 82, -1),
+('2024-11-01', 11, 2024, 'AHS district', 'Newport District', 'Toddler', 61, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'Newport District', 'Preschool', 192, 192),
 ('2024-11-01', 11, 2024, 'AHS district', 'Newport District', 'School', 152, 152),
-('2024-11-01', 11, 2024, 'AHS district', 'Newport District', 'total', 487.0, 487.0) AS new_data
+('2024-11-01', 11, 2024, 'AHS district', 'Newport District', 'total', 487.0, 344.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6211,11 +6219,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 141, -1),
-('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 106, -1),
-('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 310, -1),
+('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 141, 141),
+('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 106, 106),
+('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 310, 310),
 ('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'School', 286, 286),
-('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'total', 843.0, 286.0) AS new_data
+('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'total', 843.0, 843.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6244,10 +6252,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-10-01', 10, 2024, 'AHS district', 'Brattleboro District', 'Infant', 124, 124),
-('2024-10-01', 10, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 96, 96),
+('2024-10-01', 10, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 96, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 228, 228),
-('2024-10-01', 10, 2024, 'AHS district', 'Brattleboro District', 'School', 104, 104),
-('2024-10-01', 10, 2024, 'AHS district', 'Brattleboro District', 'total', 552.0, 552.0) AS new_data
+('2024-10-01', 10, 2024, 'AHS district', 'Brattleboro District', 'School', 104, -1),
+('2024-10-01', 10, 2024, 'AHS district', 'Brattleboro District', 'total', 552.0, 352.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6260,18 +6268,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-10-01', 10, 2024, 'AHS district', 'Hartford District', 'Infant', 121, 121),
-('2024-10-01', 10, 2024, 'AHS district', 'Hartford District', 'Toddler', 97, 97),
-('2024-10-01', 10, 2024, 'AHS district', 'Hartford District', 'Preschool', 179, 179),
+('2024-10-01', 10, 2024, 'AHS district', 'Hartford District', 'Toddler', 97, -1),
+('2024-10-01', 10, 2024, 'AHS district', 'Hartford District', 'Preschool', 179, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'Hartford District', 'School', 146, 146),
-('2024-10-01', 10, 2024, 'AHS district', 'Hartford District', 'total', 543.0, 543.0) AS new_data
+('2024-10-01', 10, 2024, 'AHS district', 'Hartford District', 'total', 543.0, 267.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'Infant', 109, 109),
-('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'Toddler', 77, -1),
+('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'Toddler', 77, 77),
 ('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'Preschool', 272, 272),
-('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'School', 207, -1),
-('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'total', 665.0, 381.0) AS new_data
+('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'School', 207, 207),
+('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'total', 665.0, 665.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6283,11 +6291,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-10-01', 10, 2024, 'AHS district', 'Newport District', 'Infant', 80, 80),
-('2024-10-01', 10, 2024, 'AHS district', 'Newport District', 'Toddler', 55, 55),
+('2024-10-01', 10, 2024, 'AHS district', 'Newport District', 'Infant', 80, -1),
+('2024-10-01', 10, 2024, 'AHS district', 'Newport District', 'Toddler', 55, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'Newport District', 'Preschool', 191, 191),
 ('2024-10-01', 10, 2024, 'AHS district', 'Newport District', 'School', 152, 152),
-('2024-10-01', 10, 2024, 'AHS district', 'Newport District', 'total', 478.0, 478.0) AS new_data
+('2024-10-01', 10, 2024, 'AHS district', 'Newport District', 'total', 478.0, 343.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6323,11 +6331,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 134, -1),
-('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 105, -1),
-('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 310, -1),
+('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 134, 134),
+('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 105, 105),
+('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 310, 310),
 ('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'School', 277, 277),
-('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'total', 826.0, 277.0) AS new_data
+('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'total', 826.0, 826.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6356,10 +6364,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-09-01', 9, 2024, 'AHS district', 'Brattleboro District', 'Infant', 112, 112),
-('2024-09-01', 9, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 86, 86),
+('2024-09-01', 9, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 86, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 225, 225),
-('2024-09-01', 9, 2024, 'AHS district', 'Brattleboro District', 'School', 97, 97),
-('2024-09-01', 9, 2024, 'AHS district', 'Brattleboro District', 'total', 520.0, 520.0) AS new_data
+('2024-09-01', 9, 2024, 'AHS district', 'Brattleboro District', 'School', 97, -1),
+('2024-09-01', 9, 2024, 'AHS district', 'Brattleboro District', 'total', 520.0, 337.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6372,18 +6380,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-09-01', 9, 2024, 'AHS district', 'Hartford District', 'Infant', 97, 97),
-('2024-09-01', 9, 2024, 'AHS district', 'Hartford District', 'Toddler', 84, 84),
-('2024-09-01', 9, 2024, 'AHS district', 'Hartford District', 'Preschool', 168, 168),
+('2024-09-01', 9, 2024, 'AHS district', 'Hartford District', 'Toddler', 84, -1),
+('2024-09-01', 9, 2024, 'AHS district', 'Hartford District', 'Preschool', 168, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'Hartford District', 'School', 129, 129),
-('2024-09-01', 9, 2024, 'AHS district', 'Hartford District', 'total', 478.0, 478.0) AS new_data
+('2024-09-01', 9, 2024, 'AHS district', 'Hartford District', 'total', 478.0, 226.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'Infant', 93, 93),
-('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'Toddler', 65, -1),
+('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'Toddler', 65, 65),
 ('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'Preschool', 246, 246),
-('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'School', 193, -1),
-('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'total', 597.0, 339.0) AS new_data
+('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'School', 193, 193),
+('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'total', 597.0, 597.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6395,11 +6403,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-09-01', 9, 2024, 'AHS district', 'Newport District', 'Infant', 68, 68),
-('2024-09-01', 9, 2024, 'AHS district', 'Newport District', 'Toddler', 54, 54),
+('2024-09-01', 9, 2024, 'AHS district', 'Newport District', 'Infant', 68, -1),
+('2024-09-01', 9, 2024, 'AHS district', 'Newport District', 'Toddler', 54, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'Newport District', 'Preschool', 196, 196),
 ('2024-09-01', 9, 2024, 'AHS district', 'Newport District', 'School', 153, 153),
-('2024-09-01', 9, 2024, 'AHS district', 'Newport District', 'total', 471.0, 471.0) AS new_data
+('2024-09-01', 9, 2024, 'AHS district', 'Newport District', 'total', 471.0, 349.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6435,11 +6443,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 135, -1),
-('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 93, -1),
-('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 318, -1),
+('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 135, 135),
+('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 93, 93),
+('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 318, 318),
 ('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'School', 284, 284),
-('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'total', 830.0, 284.0) AS new_data
+('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'total', 830.0, 830.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6468,10 +6476,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-08-01', 8, 2024, 'AHS district', 'Brattleboro District', 'Infant', 96, 96),
-('2024-08-01', 8, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 77, 77),
+('2024-08-01', 8, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 77, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 246, 246),
-('2024-08-01', 8, 2024, 'AHS district', 'Brattleboro District', 'School', 123, 123),
-('2024-08-01', 8, 2024, 'AHS district', 'Brattleboro District', 'total', 542.0, 542.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'Brattleboro District', 'School', 123, -1),
+('2024-08-01', 8, 2024, 'AHS district', 'Brattleboro District', 'total', 542.0, 342.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6484,18 +6492,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-08-01', 8, 2024, 'AHS district', 'Hartford District', 'Infant', 84, 84),
-('2024-08-01', 8, 2024, 'AHS district', 'Hartford District', 'Toddler', 74, 74),
-('2024-08-01', 8, 2024, 'AHS district', 'Hartford District', 'Preschool', 155, 155),
+('2024-08-01', 8, 2024, 'AHS district', 'Hartford District', 'Toddler', 74, -1),
+('2024-08-01', 8, 2024, 'AHS district', 'Hartford District', 'Preschool', 155, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Hartford District', 'School', 156, 156),
-('2024-08-01', 8, 2024, 'AHS district', 'Hartford District', 'total', 469.0, 469.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'Hartford District', 'total', 469.0, 240.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'Infant', 89, 89),
-('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'Toddler', 63, -1),
+('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'Toddler', 63, 63),
 ('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'Preschool', 259, 259),
-('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'School', 265, -1),
-('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'total', 676.0, 348.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'School', 265, 265),
+('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'total', 676.0, 676.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6507,11 +6515,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-08-01', 8, 2024, 'AHS district', 'Newport District', 'Infant', 62, 62),
-('2024-08-01', 8, 2024, 'AHS district', 'Newport District', 'Toddler', 49, 49),
+('2024-08-01', 8, 2024, 'AHS district', 'Newport District', 'Infant', 62, -1),
+('2024-08-01', 8, 2024, 'AHS district', 'Newport District', 'Toddler', 49, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Newport District', 'Preschool', 197, 197),
 ('2024-08-01', 8, 2024, 'AHS district', 'Newport District', 'School', 159, 159),
-('2024-08-01', 8, 2024, 'AHS district', 'Newport District', 'total', 467.0, 467.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'Newport District', 'total', 467.0, 356.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6547,11 +6555,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 134, -1),
-('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 87, -1),
-('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 316, -1),
+('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 134, 134),
+('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 87, 87),
+('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 316, 316),
 ('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'School', 290, 290),
-('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'total', 827.0, 290.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'total', 827.0, 827.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6580,10 +6588,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-07-01', 7, 2024, 'AHS district', 'Brattleboro District', 'Infant', 81, 81),
-('2024-07-01', 7, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 77, 77),
+('2024-07-01', 7, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 77, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 220, 220),
-('2024-07-01', 7, 2024, 'AHS district', 'Brattleboro District', 'School', 93, 93),
-('2024-07-01', 7, 2024, 'AHS district', 'Brattleboro District', 'total', 471.0, 471.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'Brattleboro District', 'School', 93, -1),
+('2024-07-01', 7, 2024, 'AHS district', 'Brattleboro District', 'total', 471.0, 301.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6596,18 +6604,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-07-01', 7, 2024, 'AHS district', 'Hartford District', 'Infant', 78, 78),
-('2024-07-01', 7, 2024, 'AHS district', 'Hartford District', 'Toddler', 67, 67),
-('2024-07-01', 7, 2024, 'AHS district', 'Hartford District', 'Preschool', 144, 144),
+('2024-07-01', 7, 2024, 'AHS district', 'Hartford District', 'Toddler', 67, -1),
+('2024-07-01', 7, 2024, 'AHS district', 'Hartford District', 'Preschool', 144, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Hartford District', 'School', 139, 139),
-('2024-07-01', 7, 2024, 'AHS district', 'Hartford District', 'total', 428.0, 428.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'Hartford District', 'total', 428.0, 217.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'Infant', 73, 73),
-('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'Toddler', 56, -1),
+('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'Toddler', 56, 56),
 ('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'Preschool', 209, 209),
-('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'School', 249, -1),
-('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'total', 587.0, 282.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'School', 249, 249),
+('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'total', 587.0, 587.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6619,11 +6627,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-07-01', 7, 2024, 'AHS district', 'Newport District', 'Infant', 59, 59),
-('2024-07-01', 7, 2024, 'AHS district', 'Newport District', 'Toddler', 45, 45),
+('2024-07-01', 7, 2024, 'AHS district', 'Newport District', 'Infant', 59, -1),
+('2024-07-01', 7, 2024, 'AHS district', 'Newport District', 'Toddler', 45, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Newport District', 'Preschool', 194, 194),
 ('2024-07-01', 7, 2024, 'AHS district', 'Newport District', 'School', 153, 153),
-('2024-07-01', 7, 2024, 'AHS district', 'Newport District', 'total', 451.0, 451.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'Newport District', 'total', 451.0, 347.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6659,11 +6667,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 127, -1),
-('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 89, -1),
-('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 303, -1),
+('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 127, 127),
+('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 89, 89),
+('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 303, 303),
 ('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'School', 274, 274),
-('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'total', 793.0, 274.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'total', 793.0, 793.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6692,10 +6700,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Infant', 81, 81),
-('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 80, 80),
+('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 80, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 238, 238),
-('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'School', 124, 124),
-('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'total', 523.0, 523.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'School', 124, -1),
+('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'total', 523.0, 319.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6708,18 +6716,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Hartford District', 'Infant', 76, 76),
-('2024-06-01', 6, 2024, 'AHS district', 'Hartford District', 'Toddler', 69, 69),
-('2024-06-01', 6, 2024, 'AHS district', 'Hartford District', 'Preschool', 158, 158),
+('2024-06-01', 6, 2024, 'AHS district', 'Hartford District', 'Toddler', 69, -1),
+('2024-06-01', 6, 2024, 'AHS district', 'Hartford District', 'Preschool', 158, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Hartford District', 'School', 154, 154),
-('2024-06-01', 6, 2024, 'AHS district', 'Hartford District', 'total', 457.0, 457.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Hartford District', 'total', 457.0, 230.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'Infant', 73, 73),
-('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'Toddler', 60, -1),
+('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'Toddler', 60, 60),
 ('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'Preschool', 227, 227),
-('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'School', 270, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'total', 630.0, 300.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'School', 270, 270),
+('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'total', 630.0, 630.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6731,11 +6739,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-06-01', 6, 2024, 'AHS district', 'Newport District', 'Infant', 65, 65),
-('2024-06-01', 6, 2024, 'AHS district', 'Newport District', 'Toddler', 41, 41),
+('2024-06-01', 6, 2024, 'AHS district', 'Newport District', 'Infant', 65, -1),
+('2024-06-01', 6, 2024, 'AHS district', 'Newport District', 'Toddler', 41, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Newport District', 'Preschool', 212, 212),
 ('2024-06-01', 6, 2024, 'AHS district', 'Newport District', 'School', 151, 151),
-('2024-06-01', 6, 2024, 'AHS district', 'Newport District', 'total', 469.0, 469.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Newport District', 'total', 469.0, 363.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6771,11 +6779,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 130, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 92, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 310, -1),
+('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 130, 130),
+('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 92, 92),
+('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 310, 310),
 ('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'School', 277, 277),
-('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'total', 809.0, 277.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'total', 809.0, 809.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6804,10 +6812,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-05-01', 5, 2024, 'AHS district', 'Brattleboro District', 'Infant', 80, 80),
-('2024-05-01', 5, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 76, 76),
+('2024-05-01', 5, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 76, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 226, 226),
-('2024-05-01', 5, 2024, 'AHS district', 'Brattleboro District', 'School', 86, 86),
-('2024-05-01', 5, 2024, 'AHS district', 'Brattleboro District', 'total', 468.0, 468.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Brattleboro District', 'School', 86, -1),
+('2024-05-01', 5, 2024, 'AHS district', 'Brattleboro District', 'total', 468.0, 306.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6819,19 +6827,19 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-05-01', 5, 2024, 'AHS district', 'Hartford District', 'Infant', 66, 66),
+('2024-05-01', 5, 2024, 'AHS district', 'Hartford District', 'Infant', 66, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Hartford District', 'Toddler', 69, 69),
-('2024-05-01', 5, 2024, 'AHS district', 'Hartford District', 'Preschool', 141, 141),
+('2024-05-01', 5, 2024, 'AHS district', 'Hartford District', 'Preschool', 141, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Hartford District', 'School', 118, 118),
-('2024-05-01', 5, 2024, 'AHS district', 'Hartford District', 'total', 394.0, 394.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Hartford District', 'total', 394.0, 187.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'Infant', 71, 71),
-('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'Toddler', 57, -1),
+('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'Toddler', 57, 57),
 ('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'Preschool', 208, 208),
-('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'School', 179, -1),
-('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'total', 515.0, 279.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'School', 179, 179),
+('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'total', 515.0, 515.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6843,11 +6851,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-05-01', 5, 2024, 'AHS district', 'Newport District', 'Infant', 63, 63),
-('2024-05-01', 5, 2024, 'AHS district', 'Newport District', 'Toddler', 45, 45),
+('2024-05-01', 5, 2024, 'AHS district', 'Newport District', 'Infant', 63, -1),
+('2024-05-01', 5, 2024, 'AHS district', 'Newport District', 'Toddler', 45, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Newport District', 'Preschool', 205, 205),
 ('2024-05-01', 5, 2024, 'AHS district', 'Newport District', 'School', 138, 138),
-('2024-05-01', 5, 2024, 'AHS district', 'Newport District', 'total', 451.0, 451.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Newport District', 'total', 451.0, 343.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6883,11 +6891,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-05-01', 5, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 126, -1),
-('2024-05-01', 5, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 84, -1),
-('2024-05-01', 5, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 298, -1),
+('2024-05-01', 5, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 126, 126),
+('2024-05-01', 5, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 84, 84),
+('2024-05-01', 5, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 298, 298),
 ('2024-05-01', 5, 2024, 'AHS district', 'St. Johnsbury District', 'School', 247, 247),
-('2024-05-01', 5, 2024, 'AHS district', 'St. Johnsbury District', 'total', 755.0, 247.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'St. Johnsbury District', 'total', 755.0, 755.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6916,10 +6924,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Brattleboro District', 'Infant', 80, 80),
-('2024-04-01', 4, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 78, 78),
+('2024-04-01', 4, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 78, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 220, 220),
-('2024-04-01', 4, 2024, 'AHS district', 'Brattleboro District', 'School', 92, 92),
-('2024-04-01', 4, 2024, 'AHS district', 'Brattleboro District', 'total', 470.0, 470.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Brattleboro District', 'School', 92, -1),
+('2024-04-01', 4, 2024, 'AHS district', 'Brattleboro District', 'total', 470.0, 300.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6932,18 +6940,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Hartford District', 'Infant', 67, 67),
-('2024-04-01', 4, 2024, 'AHS district', 'Hartford District', 'Toddler', 60, 60),
-('2024-04-01', 4, 2024, 'AHS district', 'Hartford District', 'Preschool', 141, 141),
+('2024-04-01', 4, 2024, 'AHS district', 'Hartford District', 'Toddler', 60, -1),
+('2024-04-01', 4, 2024, 'AHS district', 'Hartford District', 'Preschool', 141, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Hartford District', 'School', 112, 112),
-('2024-04-01', 4, 2024, 'AHS district', 'Hartford District', 'total', 380.0, 380.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Hartford District', 'total', 380.0, 179.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'Infant', 70, 70),
-('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'Toddler', 54, -1),
+('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'Toddler', 54, 54),
 ('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'Preschool', 201, 201),
-('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'School', 187, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'total', 512.0, 271.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'School', 187, 187),
+('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'total', 512.0, 512.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6955,11 +6963,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'Infant', 65, 65),
-('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'Toddler', 45, 45),
+('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'Infant', 65, -1),
+('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'Toddler', 45, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'Preschool', 189, 189),
 ('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'School', 135, 135),
-('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'total', 434.0, 434.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'total', 434.0, 324.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -6995,11 +7003,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-04-01', 4, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 120, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 82, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 287, -1),
+('2024-04-01', 4, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 120, 120),
+('2024-04-01', 4, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 82, 82),
+('2024-04-01', 4, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 287, 287),
 ('2024-04-01', 4, 2024, 'AHS district', 'St. Johnsbury District', 'School', 245, 245),
-('2024-04-01', 4, 2024, 'AHS district', 'St. Johnsbury District', 'total', 734.0, 245.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'St. Johnsbury District', 'total', 734.0, 734.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7028,10 +7036,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Brattleboro District', 'Infant', 78, 78),
-('2024-03-01', 3, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 74, 74),
+('2024-03-01', 3, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 74, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 212, 212),
-('2024-03-01', 3, 2024, 'AHS district', 'Brattleboro District', 'School', 78, 78),
-('2024-03-01', 3, 2024, 'AHS district', 'Brattleboro District', 'total', 442.0, 442.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Brattleboro District', 'School', 78, -1),
+('2024-03-01', 3, 2024, 'AHS district', 'Brattleboro District', 'total', 442.0, 290.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7044,34 +7052,34 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Hartford District', 'Infant', 62, 62),
-('2024-03-01', 3, 2024, 'AHS district', 'Hartford District', 'Toddler', 54, 54),
-('2024-03-01', 3, 2024, 'AHS district', 'Hartford District', 'Preschool', 136, 136),
+('2024-03-01', 3, 2024, 'AHS district', 'Hartford District', 'Toddler', 54, -1),
+('2024-03-01', 3, 2024, 'AHS district', 'Hartford District', 'Preschool', 136, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Hartford District', 'School', 109, 109),
-('2024-03-01', 3, 2024, 'AHS district', 'Hartford District', 'total', 361.0, 361.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Hartford District', 'total', 361.0, 171.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'Infant', 68, 68),
-('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'Toddler', 47, -1),
+('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'Toddler', 47, 47),
 ('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'Preschool', 190, 190),
-('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'School', 186, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'total', 491.0, 258.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'School', 186, 186),
+('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'total', 491.0, 491.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-03-01', 3, 2024, 'AHS district', 'Morrisville District', 'Infant', 86, 86),
-('2024-03-01', 3, 2024, 'AHS district', 'Morrisville District', 'Toddler', 43, 43),
+('2024-03-01', 3, 2024, 'AHS district', 'Morrisville District', 'Infant', 86, -1),
+('2024-03-01', 3, 2024, 'AHS district', 'Morrisville District', 'Toddler', 43, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Morrisville District', 'Preschool', 191, 191),
 ('2024-03-01', 3, 2024, 'AHS district', 'Morrisville District', 'School', 124, 124),
-('2024-03-01', 3, 2024, 'AHS district', 'Morrisville District', 'total', 444.0, 444.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Morrisville District', 'total', 444.0, 315.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'Infant', 58, 58),
-('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'Toddler', 45, 45),
+('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'Infant', 58, -1),
+('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'Toddler', 45, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'Preschool', 185, 185),
 ('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'School', 135, 135),
-('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'total', 423.0, 423.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'total', 423.0, 320.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7107,11 +7115,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-03-01', 3, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 114, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 84, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 269, -1),
+('2024-03-01', 3, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 114, 114),
+('2024-03-01', 3, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 84, 84),
+('2024-03-01', 3, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 269, 269),
 ('2024-03-01', 3, 2024, 'AHS district', 'St. Johnsbury District', 'School', 239, 239),
-('2024-03-01', 3, 2024, 'AHS district', 'St. Johnsbury District', 'total', 706.0, 239.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'St. Johnsbury District', 'total', 706.0, 706.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7140,10 +7148,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Brattleboro District', 'Infant', 81, 81),
-('2024-02-01', 2, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 75, 75),
+('2024-02-01', 2, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 75, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 205, 205),
-('2024-02-01', 2, 2024, 'AHS district', 'Brattleboro District', 'School', 70, 70),
-('2024-02-01', 2, 2024, 'AHS district', 'Brattleboro District', 'total', 431.0, 431.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Brattleboro District', 'School', 70, -1),
+('2024-02-01', 2, 2024, 'AHS district', 'Brattleboro District', 'total', 431.0, 286.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7172,34 +7180,34 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Morrisville District', 'Infant', 83, 83),
-('2024-02-01', 2, 2024, 'AHS district', 'Morrisville District', 'Toddler', 43, 43),
-('2024-02-01', 2, 2024, 'AHS district', 'Morrisville District', 'Preschool', 186, 186),
+('2024-02-01', 2, 2024, 'AHS district', 'Morrisville District', 'Toddler', 43, -1),
+('2024-02-01', 2, 2024, 'AHS district', 'Morrisville District', 'Preschool', 186, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Morrisville District', 'School', 119, 119),
-('2024-02-01', 2, 2024, 'AHS district', 'Morrisville District', 'total', 431.0, 431.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Morrisville District', 'total', 431.0, 202.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'Infant', 59, 59),
-('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'Toddler', 44, 44),
+('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'Infant', 59, -1),
+('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'Toddler', 44, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'Preschool', 187, 187),
 ('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'School', 136, 136),
-('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'total', 426.0, 426.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'total', 426.0, 323.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'Infant', 1, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'Toddler', 4, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'Preschool', 11, 11),
+('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'Preschool', 11, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'School', 4, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'total', 20.0, 11.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'total', 20.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Infant', 140, 140),
-('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Toddler', 114, -1),
+('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Toddler', 114, 114),
 ('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Preschool', 335, 335),
-('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'School', 293, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'total', 882.0, 475.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'School', 293, 293),
+('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'total', 882.0, 882.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7219,11 +7227,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-02-01', 2, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 105, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 79, -1),
+('2024-02-01', 2, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 105, 105),
+('2024-02-01', 2, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 79, 79),
 ('2024-02-01', 2, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 258, 258),
 ('2024-02-01', 2, 2024, 'AHS district', 'St. Johnsbury District', 'School', 236, 236),
-('2024-02-01', 2, 2024, 'AHS district', 'St. Johnsbury District', 'total', 678.0, 494.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'St. Johnsbury District', 'total', 678.0, 678.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7252,10 +7260,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-01-01', 1, 2024, 'AHS district', 'Brattleboro District', 'Infant', 84, 84),
-('2024-01-01', 1, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 67, 67),
+('2024-01-01', 1, 2024, 'AHS district', 'Brattleboro District', 'Toddler', 67, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Brattleboro District', 'Preschool', 193, 193),
-('2024-01-01', 1, 2024, 'AHS district', 'Brattleboro District', 'School', 72, 72),
-('2024-01-01', 1, 2024, 'AHS district', 'Brattleboro District', 'total', 416.0, 416.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Brattleboro District', 'School', 72, -1),
+('2024-01-01', 1, 2024, 'AHS district', 'Brattleboro District', 'total', 416.0, 277.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7291,11 +7299,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'Infant', 55, 55),
-('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'Toddler', 39, 39),
+('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'Infant', 55, -1),
+('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'Toddler', 39, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'Preschool', 184, 184),
 ('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'School', 132, 132),
-('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'total', 410.0, 410.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'total', 410.0, 316.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7308,10 +7316,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Infant', 138, 138),
-('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Toddler', 114, -1),
+('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Toddler', 114, 114),
 ('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Preschool', 327, 327),
-('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'School', 290, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'total', 869.0, 465.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'School', 290, 290),
+('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'total', 869.0, 869.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7331,11 +7339,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2024-01-01', 1, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 107, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 82, -1),
+('2024-01-01', 1, 2024, 'AHS district', 'St. Johnsbury District', 'Infant', 107, 107),
+('2024-01-01', 1, 2024, 'AHS district', 'St. Johnsbury District', 'Toddler', 82, 82),
 ('2024-01-01', 1, 2024, 'AHS district', 'St. Johnsbury District', 'Preschool', 252, 252),
 ('2024-01-01', 1, 2024, 'AHS district', 'St. Johnsbury District', 'School', 238, 238),
-('2024-01-01', 1, 2024, 'AHS district', 'St. Johnsbury District', 'total', 679.0, 490.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'St. Johnsbury District', 'total', 679.0, 679.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7364,10 +7372,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-12-01', 12, 2023, 'AHS district', 'Brattleboro District', 'Infant', 82, 82),
-('2023-12-01', 12, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 67, 67),
+('2023-12-01', 12, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 67, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 195, 195),
-('2023-12-01', 12, 2023, 'AHS district', 'Brattleboro District', 'School', 67, 67),
-('2023-12-01', 12, 2023, 'AHS district', 'Brattleboro District', 'total', 411.0, 411.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Brattleboro District', 'School', 67, -1),
+('2023-12-01', 12, 2023, 'AHS district', 'Brattleboro District', 'total', 411.0, 277.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7380,18 +7388,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-12-01', 12, 2023, 'AHS district', 'Hartford District', 'Infant', 71, 71),
-('2023-12-01', 12, 2023, 'AHS district', 'Hartford District', 'Toddler', 56, 56),
-('2023-12-01', 12, 2023, 'AHS district', 'Hartford District', 'Preschool', 123, 123),
+('2023-12-01', 12, 2023, 'AHS district', 'Hartford District', 'Toddler', 56, -1),
+('2023-12-01', 12, 2023, 'AHS district', 'Hartford District', 'Preschool', 123, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Hartford District', 'School', 93, 93),
-('2023-12-01', 12, 2023, 'AHS district', 'Hartford District', 'total', 343.0, 343.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Hartford District', 'total', 343.0, 164.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'Infant', 54, 54),
-('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'Toddler', 50, -1),
+('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'Toddler', 50, 50),
 ('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'Preschool', 176, 176),
-('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'School', 178, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'total', 458.0, 230.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'School', 178, 178),
+('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'total', 458.0, 458.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7403,11 +7411,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'Infant', 52, 52),
-('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'Toddler', 47, 47),
+('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'Infant', 52, -1),
+('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'Toddler', 47, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'Preschool', 191, 191),
 ('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'School', 141, 141),
-('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'total', 431.0, 431.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'total', 431.0, 332.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7443,11 +7451,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-12-01', 12, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 112, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 80, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 256, -1),
+('2023-12-01', 12, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 112, 112),
+('2023-12-01', 12, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 80, 80),
+('2023-12-01', 12, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 256, 256),
 ('2023-12-01', 12, 2023, 'AHS district', 'St. Johnsbury District', 'School', 246, 246),
-('2023-12-01', 12, 2023, 'AHS district', 'St. Johnsbury District', 'total', 694.0, 246.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'St. Johnsbury District', 'total', 694.0, 694.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7476,10 +7484,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-11-01', 11, 2023, 'AHS district', 'Brattleboro District', 'Infant', 83, 83),
-('2023-11-01', 11, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 63, 63),
+('2023-11-01', 11, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 63, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 186, 186),
-('2023-11-01', 11, 2023, 'AHS district', 'Brattleboro District', 'School', 63, 63),
-('2023-11-01', 11, 2023, 'AHS district', 'Brattleboro District', 'total', 395.0, 395.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Brattleboro District', 'School', 63, -1),
+('2023-11-01', 11, 2023, 'AHS district', 'Brattleboro District', 'total', 395.0, 269.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7492,34 +7500,34 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-11-01', 11, 2023, 'AHS district', 'Hartford District', 'Infant', 66, 66),
-('2023-11-01', 11, 2023, 'AHS district', 'Hartford District', 'Toddler', 53, 53),
-('2023-11-01', 11, 2023, 'AHS district', 'Hartford District', 'Preschool', 120, 120),
+('2023-11-01', 11, 2023, 'AHS district', 'Hartford District', 'Toddler', 53, -1),
+('2023-11-01', 11, 2023, 'AHS district', 'Hartford District', 'Preschool', 120, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Hartford District', 'School', 85, 85),
-('2023-11-01', 11, 2023, 'AHS district', 'Hartford District', 'total', 324.0, 324.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Hartford District', 'total', 324.0, 151.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'Infant', 56, 56),
-('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'Toddler', 54, -1),
+('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'Toddler', 54, 54),
 ('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'Preschool', 172, 172),
-('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'School', 175, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'total', 457.0, 228.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'School', 175, 175),
+('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'total', 457.0, 457.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-11-01', 11, 2023, 'AHS district', 'Morrisville District', 'Infant', 80, 80),
-('2023-11-01', 11, 2023, 'AHS district', 'Morrisville District', 'Toddler', 47, 47),
+('2023-11-01', 11, 2023, 'AHS district', 'Morrisville District', 'Infant', 80, -1),
+('2023-11-01', 11, 2023, 'AHS district', 'Morrisville District', 'Toddler', 47, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Morrisville District', 'Preschool', 181, 181),
 ('2023-11-01', 11, 2023, 'AHS district', 'Morrisville District', 'School', 123, 123),
-('2023-11-01', 11, 2023, 'AHS district', 'Morrisville District', 'total', 431.0, 431.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Morrisville District', 'total', 431.0, 304.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'Infant', 52, 52),
-('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'Toddler', 50, 50),
+('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'Infant', 52, -1),
+('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'Toddler', 50, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'Preschool', 183, 183),
 ('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'School', 141, 141),
-('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'total', 426.0, 426.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'total', 426.0, 324.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7555,11 +7563,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-11-01', 11, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 118, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 70, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 260, -1),
+('2023-11-01', 11, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 118, 118),
+('2023-11-01', 11, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 70, 70),
+('2023-11-01', 11, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 260, 260),
 ('2023-11-01', 11, 2023, 'AHS district', 'St. Johnsbury District', 'School', 239, 239),
-('2023-11-01', 11, 2023, 'AHS district', 'St. Johnsbury District', 'total', 687.0, 239.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'St. Johnsbury District', 'total', 687.0, 687.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7588,10 +7596,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-10-01', 10, 2023, 'AHS district', 'Brattleboro District', 'Infant', 79, 79),
-('2023-10-01', 10, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 63, 63),
+('2023-10-01', 10, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 63, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 181, 181),
-('2023-10-01', 10, 2023, 'AHS district', 'Brattleboro District', 'School', 59, 59),
-('2023-10-01', 10, 2023, 'AHS district', 'Brattleboro District', 'total', 382.0, 382.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Brattleboro District', 'School', 59, -1),
+('2023-10-01', 10, 2023, 'AHS district', 'Brattleboro District', 'total', 382.0, 260.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7604,34 +7612,34 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-10-01', 10, 2023, 'AHS district', 'Hartford District', 'Infant', 67, 67),
-('2023-10-01', 10, 2023, 'AHS district', 'Hartford District', 'Toddler', 54, 54),
-('2023-10-01', 10, 2023, 'AHS district', 'Hartford District', 'Preschool', 120, 120),
+('2023-10-01', 10, 2023, 'AHS district', 'Hartford District', 'Toddler', 54, -1),
+('2023-10-01', 10, 2023, 'AHS district', 'Hartford District', 'Preschool', 120, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Hartford District', 'School', 80, 80),
-('2023-10-01', 10, 2023, 'AHS district', 'Hartford District', 'total', 321.0, 321.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Hartford District', 'total', 321.0, 147.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'Infant', 59, 59),
-('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'Toddler', 54, -1),
+('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'Toddler', 54, 54),
 ('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'Preschool', 169, 169),
-('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'School', 178, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'total', 460.0, 228.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'School', 178, 178),
+('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'total', 460.0, 460.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-10-01', 10, 2023, 'AHS district', 'Morrisville District', 'Infant', 80, 80),
-('2023-10-01', 10, 2023, 'AHS district', 'Morrisville District', 'Toddler', 41, 41),
+('2023-10-01', 10, 2023, 'AHS district', 'Morrisville District', 'Infant', 80, -1),
+('2023-10-01', 10, 2023, 'AHS district', 'Morrisville District', 'Toddler', 41, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Morrisville District', 'Preschool', 173, 173),
 ('2023-10-01', 10, 2023, 'AHS district', 'Morrisville District', 'School', 124, 124),
-('2023-10-01', 10, 2023, 'AHS district', 'Morrisville District', 'total', 418.0, 418.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Morrisville District', 'total', 418.0, 297.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'Infant', 55, 55),
-('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'Toddler', 53, 53),
+('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'Infant', 55, -1),
+('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'Toddler', 53, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'Preschool', 183, 183),
 ('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'School', 139, 139),
-('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'total', 430.0, 430.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'total', 430.0, 322.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7667,11 +7675,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-10-01', 10, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 117, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 78, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 272, -1),
+('2023-10-01', 10, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 117, 117),
+('2023-10-01', 10, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 78, 78),
+('2023-10-01', 10, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 272, 272),
 ('2023-10-01', 10, 2023, 'AHS district', 'St. Johnsbury District', 'School', 250, 250),
-('2023-10-01', 10, 2023, 'AHS district', 'St. Johnsbury District', 'total', 717.0, 250.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'St. Johnsbury District', 'total', 717.0, 717.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7683,11 +7691,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-09-01', 9, 2023, 'AHS district', 'Barre District', 'Infant', 52, 52),
-('2023-09-01', 9, 2023, 'AHS district', 'Barre District', 'Toddler', 58, 58),
+('2023-09-01', 9, 2023, 'AHS district', 'Barre District', 'Infant', 52, -1),
+('2023-09-01', 9, 2023, 'AHS district', 'Barre District', 'Toddler', 58, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Barre District', 'Preschool', 197, 197),
 ('2023-09-01', 9, 2023, 'AHS district', 'Barre District', 'School', 131, 131),
-('2023-09-01', 9, 2023, 'AHS district', 'Barre District', 'total', 438.0, 438.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Barre District', 'total', 438.0, 328.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7700,10 +7708,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-09-01', 9, 2023, 'AHS district', 'Brattleboro District', 'Infant', 83, 83),
-('2023-09-01', 9, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 63, 63),
+('2023-09-01', 9, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 63, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 193, 193),
-('2023-09-01', 9, 2023, 'AHS district', 'Brattleboro District', 'School', 50, 50),
-('2023-09-01', 9, 2023, 'AHS district', 'Brattleboro District', 'total', 389.0, 389.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Brattleboro District', 'School', 50, -1),
+('2023-09-01', 9, 2023, 'AHS district', 'Brattleboro District', 'total', 389.0, 276.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7716,26 +7724,26 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-09-01', 9, 2023, 'AHS district', 'Hartford District', 'Infant', 63, 63),
-('2023-09-01', 9, 2023, 'AHS district', 'Hartford District', 'Toddler', 55, 55),
-('2023-09-01', 9, 2023, 'AHS district', 'Hartford District', 'Preschool', 124, 124),
+('2023-09-01', 9, 2023, 'AHS district', 'Hartford District', 'Toddler', 55, -1),
+('2023-09-01', 9, 2023, 'AHS district', 'Hartford District', 'Preschool', 124, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Hartford District', 'School', 81, 81),
-('2023-09-01', 9, 2023, 'AHS district', 'Hartford District', 'total', 323.0, 323.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Hartford District', 'total', 323.0, 144.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'Infant', 63, 63),
-('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'Toddler', 56, -1),
+('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'Toddler', 56, 56),
 ('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'Preschool', 169, 169),
-('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'School', 180, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'total', 468.0, 232.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'School', 180, 180),
+('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'total', 468.0, 468.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-09-01', 9, 2023, 'AHS district', 'Morrisville District', 'Infant', 77, 77),
-('2023-09-01', 9, 2023, 'AHS district', 'Morrisville District', 'Toddler', 41, 41),
+('2023-09-01', 9, 2023, 'AHS district', 'Morrisville District', 'Infant', 77, -1),
+('2023-09-01', 9, 2023, 'AHS district', 'Morrisville District', 'Toddler', 41, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Morrisville District', 'Preschool', 173, 173),
 ('2023-09-01', 9, 2023, 'AHS district', 'Morrisville District', 'School', 118, 118),
-('2023-09-01', 9, 2023, 'AHS district', 'Morrisville District', 'total', 409.0, 409.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Morrisville District', 'total', 409.0, 291.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7779,11 +7787,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 112, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 85, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 286, -1),
+('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 112, 112),
+('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 85, 85),
+('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 286, 286),
 ('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'School', 256, 256),
-('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'total', 739.0, 256.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'total', 739.0, 739.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7795,11 +7803,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Infant', 43, 43),
-('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Toddler', 51, 51),
+('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Infant', 43, -1),
+('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Toddler', 51, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Preschool', 207, 207),
 ('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'School', 179, 179),
-('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'total', 480.0, 480.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'total', 480.0, 386.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7812,10 +7820,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-08-01', 8, 2023, 'AHS district', 'Brattleboro District', 'Infant', 76, 76),
-('2023-08-01', 8, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 62, 62),
+('2023-08-01', 8, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 62, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 190, 190),
-('2023-08-01', 8, 2023, 'AHS district', 'Brattleboro District', 'School', 60, 60),
-('2023-08-01', 8, 2023, 'AHS district', 'Brattleboro District', 'total', 388.0, 388.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'Brattleboro District', 'School', 60, -1),
+('2023-08-01', 8, 2023, 'AHS district', 'Brattleboro District', 'total', 388.0, 266.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7828,26 +7836,26 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-08-01', 8, 2023, 'AHS district', 'Hartford District', 'Infant', 55, 55),
-('2023-08-01', 8, 2023, 'AHS district', 'Hartford District', 'Toddler', 46, 46),
-('2023-08-01', 8, 2023, 'AHS district', 'Hartford District', 'Preschool', 128, 128),
+('2023-08-01', 8, 2023, 'AHS district', 'Hartford District', 'Toddler', 46, -1),
+('2023-08-01', 8, 2023, 'AHS district', 'Hartford District', 'Preschool', 128, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Hartford District', 'School', 106, 106),
-('2023-08-01', 8, 2023, 'AHS district', 'Hartford District', 'total', 335.0, 335.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'Hartford District', 'total', 335.0, 161.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'Infant', 55, 55),
-('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'Toddler', 48, -1),
+('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'Toddler', 48, 48),
 ('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'Preschool', 187, 187),
-('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'School', 238, -1),
-('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'total', 528.0, 242.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'School', 238, 238),
+('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'total', 528.0, 528.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-08-01', 8, 2023, 'AHS district', 'Morrisville District', 'Infant', 77, 77),
-('2023-08-01', 8, 2023, 'AHS district', 'Morrisville District', 'Toddler', 42, 42),
+('2023-08-01', 8, 2023, 'AHS district', 'Morrisville District', 'Infant', 77, -1),
+('2023-08-01', 8, 2023, 'AHS district', 'Morrisville District', 'Toddler', 42, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Morrisville District', 'Preschool', 190, 190),
 ('2023-08-01', 8, 2023, 'AHS district', 'Morrisville District', 'School', 138, 138),
-('2023-08-01', 8, 2023, 'AHS district', 'Morrisville District', 'total', 447.0, 447.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'Morrisville District', 'total', 447.0, 328.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7891,11 +7899,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 110, -1),
-('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 84, -1),
-('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 276, -1),
+('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 110, 110),
+('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 84, 84),
+('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 276, 276),
 ('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'School', 260, 260),
-('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'total', 730.0, 260.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'total', 730.0, 730.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7907,11 +7915,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Infant', 37, 37),
-('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Toddler', 53, 53),
+('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Infant', 37, -1),
+('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Toddler', 53, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Preschool', 211, 211),
 ('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'School', 166, 166),
-('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'total', 467.0, 467.0) AS new_data
+('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'total', 467.0, 377.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7924,10 +7932,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-07-01', 7, 2023, 'AHS district', 'Brattleboro District', 'Infant', 64, 64),
-('2023-07-01', 7, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 62, 62),
+('2023-07-01', 7, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 62, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 182, 182),
-('2023-07-01', 7, 2023, 'AHS district', 'Brattleboro District', 'School', 66, 66),
-('2023-07-01', 7, 2023, 'AHS district', 'Brattleboro District', 'total', 374.0, 374.0) AS new_data
+('2023-07-01', 7, 2023, 'AHS district', 'Brattleboro District', 'School', 66, -1),
+('2023-07-01', 7, 2023, 'AHS district', 'Brattleboro District', 'total', 374.0, 246.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -7940,18 +7948,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-07-01', 7, 2023, 'AHS district', 'Hartford District', 'Infant', 55, 55),
-('2023-07-01', 7, 2023, 'AHS district', 'Hartford District', 'Toddler', 39, 39),
-('2023-07-01', 7, 2023, 'AHS district', 'Hartford District', 'Preschool', 128, 128),
+('2023-07-01', 7, 2023, 'AHS district', 'Hartford District', 'Toddler', 39, -1),
+('2023-07-01', 7, 2023, 'AHS district', 'Hartford District', 'Preschool', 128, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Hartford District', 'School', 103, 103),
-('2023-07-01', 7, 2023, 'AHS district', 'Hartford District', 'total', 325.0, 325.0) AS new_data
+('2023-07-01', 7, 2023, 'AHS district', 'Hartford District', 'total', 325.0, 158.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'Infant', 44, 44),
-('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'Toddler', 46, -1),
+('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'Toddler', 46, 46),
 ('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'Preschool', 167, 167),
-('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'School', 220, -1),
-('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'total', 477.0, 211.0) AS new_data
+('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'School', 220, 220),
+('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'total', 477.0, 477.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8003,11 +8011,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-07-01', 7, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 108, -1),
-('2023-07-01', 7, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 81, -1),
-('2023-07-01', 7, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 277, -1),
+('2023-07-01', 7, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 108, 108),
+('2023-07-01', 7, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 81, 81),
+('2023-07-01', 7, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 277, 277),
 ('2023-07-01', 7, 2023, 'AHS district', 'St. Johnsbury District', 'School', 265, 265),
-('2023-07-01', 7, 2023, 'AHS district', 'St. Johnsbury District', 'total', 731.0, 265.0) AS new_data
+('2023-07-01', 7, 2023, 'AHS district', 'St. Johnsbury District', 'total', 731.0, 731.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8019,11 +8027,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-06-01', 6, 2023, 'AHS district', 'Barre District', 'Infant', 37, 37),
-('2023-06-01', 6, 2023, 'AHS district', 'Barre District', 'Toddler', 57, 57),
+('2023-06-01', 6, 2023, 'AHS district', 'Barre District', 'Infant', 37, -1),
+('2023-06-01', 6, 2023, 'AHS district', 'Barre District', 'Toddler', 57, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Barre District', 'Preschool', 224, 224),
 ('2023-06-01', 6, 2023, 'AHS district', 'Barre District', 'School', 182, 182),
-('2023-06-01', 6, 2023, 'AHS district', 'Barre District', 'total', 500.0, 500.0) AS new_data
+('2023-06-01', 6, 2023, 'AHS district', 'Barre District', 'total', 500.0, 406.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8036,10 +8044,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-06-01', 6, 2023, 'AHS district', 'Brattleboro District', 'Infant', 65, 65),
-('2023-06-01', 6, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 57, 57),
+('2023-06-01', 6, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 57, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 196, 196),
-('2023-06-01', 6, 2023, 'AHS district', 'Brattleboro District', 'School', 80, 80),
-('2023-06-01', 6, 2023, 'AHS district', 'Brattleboro District', 'total', 398.0, 398.0) AS new_data
+('2023-06-01', 6, 2023, 'AHS district', 'Brattleboro District', 'School', 80, -1),
+('2023-06-01', 6, 2023, 'AHS district', 'Brattleboro District', 'total', 398.0, 261.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8052,18 +8060,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-06-01', 6, 2023, 'AHS district', 'Hartford District', 'Infant', 57, 57),
-('2023-06-01', 6, 2023, 'AHS district', 'Hartford District', 'Toddler', 30, 30),
-('2023-06-01', 6, 2023, 'AHS district', 'Hartford District', 'Preschool', 137, 137),
+('2023-06-01', 6, 2023, 'AHS district', 'Hartford District', 'Toddler', 30, -1),
+('2023-06-01', 6, 2023, 'AHS district', 'Hartford District', 'Preschool', 137, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Hartford District', 'School', 103, 103),
-('2023-06-01', 6, 2023, 'AHS district', 'Hartford District', 'total', 327.0, 327.0) AS new_data
+('2023-06-01', 6, 2023, 'AHS district', 'Hartford District', 'total', 327.0, 160.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'Infant', 46, 46),
-('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'Toddler', 44, -1),
+('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'Toddler', 44, 44),
 ('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'Preschool', 183, 183),
-('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'School', 229, -1),
-('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'total', 502.0, 229.0) AS new_data
+('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'School', 229, 229),
+('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'total', 502.0, 502.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8115,11 +8123,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-06-01', 6, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 110, -1),
-('2023-06-01', 6, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 83, -1),
-('2023-06-01', 6, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 276, -1),
+('2023-06-01', 6, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 110, 110),
+('2023-06-01', 6, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 83, 83),
+('2023-06-01', 6, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 276, 276),
 ('2023-06-01', 6, 2023, 'AHS district', 'St. Johnsbury District', 'School', 270, 270),
-('2023-06-01', 6, 2023, 'AHS district', 'St. Johnsbury District', 'total', 739.0, 270.0) AS new_data
+('2023-06-01', 6, 2023, 'AHS district', 'St. Johnsbury District', 'total', 739.0, 739.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8131,11 +8139,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-05-01', 5, 2023, 'AHS district', 'Barre District', 'Infant', 45, 45),
-('2023-05-01', 5, 2023, 'AHS district', 'Barre District', 'Toddler', 51, 51),
+('2023-05-01', 5, 2023, 'AHS district', 'Barre District', 'Infant', 45, -1),
+('2023-05-01', 5, 2023, 'AHS district', 'Barre District', 'Toddler', 51, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Barre District', 'Preschool', 216, 216),
 ('2023-05-01', 5, 2023, 'AHS district', 'Barre District', 'School', 135, 135),
-('2023-05-01', 5, 2023, 'AHS district', 'Barre District', 'total', 447.0, 447.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'Barre District', 'total', 447.0, 351.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8148,10 +8156,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-05-01', 5, 2023, 'AHS district', 'Brattleboro District', 'Infant', 67, 67),
-('2023-05-01', 5, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 56, 56),
+('2023-05-01', 5, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 56, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 178, 178),
-('2023-05-01', 5, 2023, 'AHS district', 'Brattleboro District', 'School', 55, 55),
-('2023-05-01', 5, 2023, 'AHS district', 'Brattleboro District', 'total', 356.0, 356.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'Brattleboro District', 'School', 55, -1),
+('2023-05-01', 5, 2023, 'AHS district', 'Brattleboro District', 'total', 356.0, 245.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8164,18 +8172,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-05-01', 5, 2023, 'AHS district', 'Hartford District', 'Infant', 53, 53),
-('2023-05-01', 5, 2023, 'AHS district', 'Hartford District', 'Toddler', 31, 31),
-('2023-05-01', 5, 2023, 'AHS district', 'Hartford District', 'Preschool', 130, 130),
+('2023-05-01', 5, 2023, 'AHS district', 'Hartford District', 'Toddler', 31, -1),
+('2023-05-01', 5, 2023, 'AHS district', 'Hartford District', 'Preschool', 130, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Hartford District', 'School', 92, 92),
-('2023-05-01', 5, 2023, 'AHS district', 'Hartford District', 'total', 306.0, 306.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'Hartford District', 'total', 306.0, 145.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'Infant', 50, 50),
-('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'Toddler', 40, -1),
+('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'Toddler', 40, 40),
 ('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'Preschool', 175, 175),
-('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'School', 160, -1),
-('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'total', 425.0, 225.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'School', 160, 160),
+('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'total', 425.0, 425.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8227,11 +8235,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-05-01', 5, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 107, -1),
-('2023-05-01', 5, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 83, -1),
-('2023-05-01', 5, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 264, -1),
+('2023-05-01', 5, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 107, 107),
+('2023-05-01', 5, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 83, 83),
+('2023-05-01', 5, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 264, 264),
 ('2023-05-01', 5, 2023, 'AHS district', 'St. Johnsbury District', 'School', 251, 251),
-('2023-05-01', 5, 2023, 'AHS district', 'St. Johnsbury District', 'total', 705.0, 251.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'St. Johnsbury District', 'total', 705.0, 705.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8243,11 +8251,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-04-01', 4, 2023, 'AHS district', 'Barre District', 'Infant', 46, 46),
-('2023-04-01', 4, 2023, 'AHS district', 'Barre District', 'Toddler', 45, 45),
+('2023-04-01', 4, 2023, 'AHS district', 'Barre District', 'Infant', 46, -1),
+('2023-04-01', 4, 2023, 'AHS district', 'Barre District', 'Toddler', 45, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Barre District', 'Preschool', 212, 212),
 ('2023-04-01', 4, 2023, 'AHS district', 'Barre District', 'School', 136, 136),
-('2023-04-01', 4, 2023, 'AHS district', 'Barre District', 'total', 439.0, 439.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Barre District', 'total', 439.0, 348.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8260,10 +8268,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-04-01', 4, 2023, 'AHS district', 'Brattleboro District', 'Infant', 64, 64),
-('2023-04-01', 4, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 57, 57),
+('2023-04-01', 4, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 57, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 179, 179),
-('2023-04-01', 4, 2023, 'AHS district', 'Brattleboro District', 'School', 66, 66),
-('2023-04-01', 4, 2023, 'AHS district', 'Brattleboro District', 'total', 366.0, 366.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Brattleboro District', 'School', 66, -1),
+('2023-04-01', 4, 2023, 'AHS district', 'Brattleboro District', 'total', 366.0, 243.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8276,18 +8284,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-04-01', 4, 2023, 'AHS district', 'Hartford District', 'Infant', 56, 56),
-('2023-04-01', 4, 2023, 'AHS district', 'Hartford District', 'Toddler', 31, 31),
-('2023-04-01', 4, 2023, 'AHS district', 'Hartford District', 'Preschool', 135, 135),
+('2023-04-01', 4, 2023, 'AHS district', 'Hartford District', 'Toddler', 31, -1),
+('2023-04-01', 4, 2023, 'AHS district', 'Hartford District', 'Preschool', 135, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Hartford District', 'School', 94, 94),
-('2023-04-01', 4, 2023, 'AHS district', 'Hartford District', 'total', 316.0, 316.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Hartford District', 'total', 316.0, 150.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'Infant', 51, 51),
-('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'Toddler', 39, -1),
+('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'Toddler', 39, 39),
 ('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'Preschool', 175, 175),
-('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'School', 168, -1),
-('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'total', 433.0, 226.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'School', 168, 168),
+('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'total', 433.0, 433.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8339,11 +8347,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-04-01', 4, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 110, -1),
-('2023-04-01', 4, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 75, -1),
-('2023-04-01', 4, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 268, -1),
+('2023-04-01', 4, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 110, 110),
+('2023-04-01', 4, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 75, 75),
+('2023-04-01', 4, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 268, 268),
 ('2023-04-01', 4, 2023, 'AHS district', 'St. Johnsbury District', 'School', 247, 247),
-('2023-04-01', 4, 2023, 'AHS district', 'St. Johnsbury District', 'total', 700.0, 247.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'St. Johnsbury District', 'total', 700.0, 700.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8355,11 +8363,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-03-01', 3, 2023, 'AHS district', 'Barre District', 'Infant', 47, 47),
-('2023-03-01', 3, 2023, 'AHS district', 'Barre District', 'Toddler', 41, 41),
+('2023-03-01', 3, 2023, 'AHS district', 'Barre District', 'Infant', 47, -1),
+('2023-03-01', 3, 2023, 'AHS district', 'Barre District', 'Toddler', 41, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Barre District', 'Preschool', 204, 204),
 ('2023-03-01', 3, 2023, 'AHS district', 'Barre District', 'School', 134, 134),
-('2023-03-01', 3, 2023, 'AHS district', 'Barre District', 'total', 426.0, 426.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Barre District', 'total', 426.0, 338.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8372,10 +8380,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Brattleboro District', 'Infant', 63, 63),
-('2023-03-01', 3, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 48, 48),
+('2023-03-01', 3, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 48, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 179, 179),
-('2023-03-01', 3, 2023, 'AHS district', 'Brattleboro District', 'School', 65, 65),
-('2023-03-01', 3, 2023, 'AHS district', 'Brattleboro District', 'total', 355.0, 355.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Brattleboro District', 'School', 65, -1),
+('2023-03-01', 3, 2023, 'AHS district', 'Brattleboro District', 'total', 355.0, 242.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8388,18 +8396,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Hartford District', 'Infant', 55, 55),
-('2023-03-01', 3, 2023, 'AHS district', 'Hartford District', 'Toddler', 31, 31),
-('2023-03-01', 3, 2023, 'AHS district', 'Hartford District', 'Preschool', 133, 133),
+('2023-03-01', 3, 2023, 'AHS district', 'Hartford District', 'Toddler', 31, -1),
+('2023-03-01', 3, 2023, 'AHS district', 'Hartford District', 'Preschool', 133, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Hartford District', 'School', 90, 90),
-('2023-03-01', 3, 2023, 'AHS district', 'Hartford District', 'total', 309.0, 309.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Hartford District', 'total', 309.0, 145.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'Infant', 48, 48),
-('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'Toddler', 44, -1),
+('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'Toddler', 44, 44),
 ('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'Preschool', 174, 174),
-('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'School', 155, -1),
-('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'total', 421.0, 222.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'School', 155, 155),
+('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'total', 421.0, 421.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8451,11 +8459,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-03-01', 3, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 104, -1),
-('2023-03-01', 3, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 73, -1),
-('2023-03-01', 3, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 270, -1),
+('2023-03-01', 3, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 104, 104),
+('2023-03-01', 3, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 73, 73),
+('2023-03-01', 3, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 270, 270),
 ('2023-03-01', 3, 2023, 'AHS district', 'St. Johnsbury District', 'School', 236, 236),
-('2023-03-01', 3, 2023, 'AHS district', 'St. Johnsbury District', 'total', 683.0, 236.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'St. Johnsbury District', 'total', 683.0, 683.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8484,10 +8492,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-02-01', 2, 2023, 'AHS district', 'Brattleboro District', 'Infant', 66, 66),
-('2023-02-01', 2, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 45, 45),
+('2023-02-01', 2, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 45, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 172, 172),
-('2023-02-01', 2, 2023, 'AHS district', 'Brattleboro District', 'School', 61, 61),
-('2023-02-01', 2, 2023, 'AHS district', 'Brattleboro District', 'total', 344.0, 344.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'Brattleboro District', 'School', 61, -1),
+('2023-02-01', 2, 2023, 'AHS district', 'Brattleboro District', 'total', 344.0, 238.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8500,18 +8508,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-02-01', 2, 2023, 'AHS district', 'Hartford District', 'Infant', 54, 54),
-('2023-02-01', 2, 2023, 'AHS district', 'Hartford District', 'Toddler', 29, 29),
-('2023-02-01', 2, 2023, 'AHS district', 'Hartford District', 'Preschool', 136, 136),
+('2023-02-01', 2, 2023, 'AHS district', 'Hartford District', 'Toddler', 29, -1),
+('2023-02-01', 2, 2023, 'AHS district', 'Hartford District', 'Preschool', 136, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Hartford District', 'School', 87, 87),
-('2023-02-01', 2, 2023, 'AHS district', 'Hartford District', 'total', 306.0, 306.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'Hartford District', 'total', 306.0, 141.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'Infant', 46, 46),
+('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'Infant', 46, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'Toddler', 45, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'Preschool', 175, 175),
-('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'School', 149, -1),
-('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'total', 415.0, 221.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'School', 149, 149),
+('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'total', 415.0, 324.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8563,11 +8571,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 105, -1),
-('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 79, -1),
-('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 265, -1),
+('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 105, 105),
+('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 79, 79),
+('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 265, 265),
 ('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'School', 233, 233),
-('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'total', 682.0, 233.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'total', 682.0, 682.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8596,10 +8604,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-01-01', 1, 2023, 'AHS district', 'Brattleboro District', 'Infant', 63, 63),
-('2023-01-01', 1, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 54, 54),
+('2023-01-01', 1, 2023, 'AHS district', 'Brattleboro District', 'Toddler', 54, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Brattleboro District', 'Preschool', 164, 164),
-('2023-01-01', 1, 2023, 'AHS district', 'Brattleboro District', 'School', 58, 58),
-('2023-01-01', 1, 2023, 'AHS district', 'Brattleboro District', 'total', 339.0, 339.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'Brattleboro District', 'School', 58, -1),
+('2023-01-01', 1, 2023, 'AHS district', 'Brattleboro District', 'total', 339.0, 227.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8612,18 +8620,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2023-01-01', 1, 2023, 'AHS district', 'Hartford District', 'Infant', 51, 51),
-('2023-01-01', 1, 2023, 'AHS district', 'Hartford District', 'Toddler', 25, 25),
-('2023-01-01', 1, 2023, 'AHS district', 'Hartford District', 'Preschool', 130, 130),
+('2023-01-01', 1, 2023, 'AHS district', 'Hartford District', 'Toddler', 25, -1),
+('2023-01-01', 1, 2023, 'AHS district', 'Hartford District', 'Preschool', 130, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Hartford District', 'School', 81, 81),
-('2023-01-01', 1, 2023, 'AHS district', 'Hartford District', 'total', 287.0, 287.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'Hartford District', 'total', 287.0, 132.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'Infant', 42, 42),
+('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'Infant', 42, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'Toddler', 47, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'Preschool', 167, 167),
-('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'School', 141, -1),
-('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'total', 397.0, 209.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'School', 141, 141),
+('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'total', 397.0, 308.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8675,11 +8683,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 103, -1),
-('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 81, -1),
-('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 264, -1),
+('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Infant', 103, 103),
+('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Toddler', 81, 81),
+('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Preschool', 264, 264),
 ('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'School', 237, 237),
-('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'total', 685.0, 237.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'total', 685.0, 685.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8708,10 +8716,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'Brattleboro District', 'Infant', 64, 64),
-('2022-12-01', 12, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 56, 56),
+('2022-12-01', 12, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 56, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Brattleboro District', 'Preschool', 158, 158),
-('2022-12-01', 12, 2022, 'AHS district', 'Brattleboro District', 'School', 55, 55),
-('2022-12-01', 12, 2022, 'AHS district', 'Brattleboro District', 'total', 333.0, 333.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Brattleboro District', 'School', 55, -1),
+('2022-12-01', 12, 2022, 'AHS district', 'Brattleboro District', 'total', 333.0, 222.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8724,18 +8732,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'Hartford District', 'Infant', 46, 46),
-('2022-12-01', 12, 2022, 'AHS district', 'Hartford District', 'Toddler', 31, 31),
-('2022-12-01', 12, 2022, 'AHS district', 'Hartford District', 'Preschool', 126, 126),
+('2022-12-01', 12, 2022, 'AHS district', 'Hartford District', 'Toddler', 31, -1),
+('2022-12-01', 12, 2022, 'AHS district', 'Hartford District', 'Preschool', 126, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Hartford District', 'School', 82, 82),
-('2022-12-01', 12, 2022, 'AHS district', 'Hartford District', 'total', 285.0, 285.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Hartford District', 'total', 285.0, 128.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'Infant', 43, 43),
+('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'Infant', 43, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'Toddler', 47, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'Preschool', 156, 156),
-('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'School', 144, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'total', 390.0, 199.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'School', 144, 144),
+('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'total', 390.0, 300.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8787,11 +8795,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 97, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 80, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 254, -1),
+('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 97, 97),
+('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 80, 80),
+('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 254, 254),
 ('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'School', 236, 236),
-('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'total', 667.0, 236.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'total', 667.0, 667.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8820,10 +8828,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'Brattleboro District', 'Infant', 64, 64),
-('2022-11-01', 11, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 55, 55),
+('2022-11-01', 11, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 55, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Brattleboro District', 'Preschool', 152, 152),
-('2022-11-01', 11, 2022, 'AHS district', 'Brattleboro District', 'School', 58, 58),
-('2022-11-01', 11, 2022, 'AHS district', 'Brattleboro District', 'total', 329.0, 329.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Brattleboro District', 'School', 58, -1),
+('2022-11-01', 11, 2022, 'AHS district', 'Brattleboro District', 'total', 329.0, 216.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8836,18 +8844,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'Hartford District', 'Infant', 51, 51),
-('2022-11-01', 11, 2022, 'AHS district', 'Hartford District', 'Toddler', 35, 35),
-('2022-11-01', 11, 2022, 'AHS district', 'Hartford District', 'Preschool', 120, 120),
+('2022-11-01', 11, 2022, 'AHS district', 'Hartford District', 'Toddler', 35, -1),
+('2022-11-01', 11, 2022, 'AHS district', 'Hartford District', 'Preschool', 120, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Hartford District', 'School', 79, 79),
-('2022-11-01', 11, 2022, 'AHS district', 'Hartford District', 'total', 285.0, 285.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Hartford District', 'total', 285.0, 130.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'Infant', 43, 43),
+('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'Infant', 43, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'Toddler', 51, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'Preschool', 154, 154),
-('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'School', 145, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'total', 393.0, 197.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'School', 145, 145),
+('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'total', 393.0, 299.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8899,11 +8907,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 97, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 77, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 256, -1),
+('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 97, 97),
+('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 77, 77),
+('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 256, 256),
 ('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'School', 220, 220),
-('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'total', 650.0, 220.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'total', 650.0, 650.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8932,10 +8940,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-10-01', 10, 2022, 'AHS district', 'Brattleboro District', 'Infant', 69, 69),
-('2022-10-01', 10, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 57, 57),
+('2022-10-01', 10, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 57, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Brattleboro District', 'Preschool', 151, 151),
-('2022-10-01', 10, 2022, 'AHS district', 'Brattleboro District', 'School', 59, 59),
-('2022-10-01', 10, 2022, 'AHS district', 'Brattleboro District', 'total', 336.0, 336.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'Brattleboro District', 'School', 59, -1),
+('2022-10-01', 10, 2022, 'AHS district', 'Brattleboro District', 'total', 336.0, 220.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -8948,18 +8956,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-10-01', 10, 2022, 'AHS district', 'Hartford District', 'Infant', 50, 50),
-('2022-10-01', 10, 2022, 'AHS district', 'Hartford District', 'Toddler', 35, 35),
-('2022-10-01', 10, 2022, 'AHS district', 'Hartford District', 'Preschool', 121, 121),
+('2022-10-01', 10, 2022, 'AHS district', 'Hartford District', 'Toddler', 35, -1),
+('2022-10-01', 10, 2022, 'AHS district', 'Hartford District', 'Preschool', 121, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Hartford District', 'School', 73, 73),
-('2022-10-01', 10, 2022, 'AHS district', 'Hartford District', 'total', 279.0, 279.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'Hartford District', 'total', 279.0, 123.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'Infant', 45, 45),
+('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'Infant', 45, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'Toddler', 51, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'Preschool', 153, 153),
-('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'School', 135, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'total', 384.0, 198.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'School', 135, 135),
+('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'total', 384.0, 288.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9011,11 +9019,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 93, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 74, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 255, -1),
+('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 93, 93),
+('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 74, 74),
+('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 255, 255),
 ('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'School', 218, 218),
-('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'total', 640.0, 218.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'total', 640.0, 640.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9044,10 +9052,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-09-01', 9, 2022, 'AHS district', 'Brattleboro District', 'Infant', 72, 72),
-('2022-09-01', 9, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 57, 57),
+('2022-09-01', 9, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 57, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Brattleboro District', 'Preschool', 163, 163),
-('2022-09-01', 9, 2022, 'AHS district', 'Brattleboro District', 'School', 63, 63),
-('2022-09-01', 9, 2022, 'AHS district', 'Brattleboro District', 'total', 355.0, 355.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'Brattleboro District', 'School', 63, -1),
+('2022-09-01', 9, 2022, 'AHS district', 'Brattleboro District', 'total', 355.0, 235.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9060,18 +9068,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-09-01', 9, 2022, 'AHS district', 'Hartford District', 'Infant', 53, 53),
-('2022-09-01', 9, 2022, 'AHS district', 'Hartford District', 'Toddler', 33, 33),
-('2022-09-01', 9, 2022, 'AHS district', 'Hartford District', 'Preschool', 130, 130),
+('2022-09-01', 9, 2022, 'AHS district', 'Hartford District', 'Toddler', 33, -1),
+('2022-09-01', 9, 2022, 'AHS district', 'Hartford District', 'Preschool', 130, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Hartford District', 'School', 68, 68),
-('2022-09-01', 9, 2022, 'AHS district', 'Hartford District', 'total', 284.0, 284.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'Hartford District', 'total', 284.0, 121.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'Infant', 48, 48),
+('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'Infant', 48, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'Toddler', 46, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'Preschool', 152, 152),
-('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'School', 136, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'total', 382.0, 200.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'School', 136, 136),
+('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'total', 382.0, 288.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9123,11 +9131,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 93, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 76, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 259, -1),
+('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 93, 93),
+('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 76, 76),
+('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 259, 259),
 ('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'School', 227, 227),
-('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'total', 655.0, 227.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'total', 655.0, 655.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9156,10 +9164,10 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'Brattleboro District', 'Infant', 62, 62),
-('2022-08-01', 8, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 48, 48),
+('2022-08-01', 8, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 48, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Brattleboro District', 'Preschool', 188, 188),
-('2022-08-01', 8, 2022, 'AHS district', 'Brattleboro District', 'School', 74, 74),
-('2022-08-01', 8, 2022, 'AHS district', 'Brattleboro District', 'total', 372.0, 372.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Brattleboro District', 'School', 74, -1),
+('2022-08-01', 8, 2022, 'AHS district', 'Brattleboro District', 'total', 372.0, 250.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9172,18 +9180,18 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'Hartford District', 'Infant', 56, 56),
-('2022-08-01', 8, 2022, 'AHS district', 'Hartford District', 'Toddler', 32, 32),
-('2022-08-01', 8, 2022, 'AHS district', 'Hartford District', 'Preschool', 157, 157),
+('2022-08-01', 8, 2022, 'AHS district', 'Hartford District', 'Toddler', 32, -1),
+('2022-08-01', 8, 2022, 'AHS district', 'Hartford District', 'Preschool', 157, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Hartford District', 'School', 101, 101),
-('2022-08-01', 8, 2022, 'AHS district', 'Hartford District', 'total', 346.0, 346.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Hartford District', 'total', 346.0, 157.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'Infant', 47, 47),
+('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'Infant', 47, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'Toddler', 45, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'Preschool', 185, 185),
-('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'School', 199, -1),
-('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'total', 476.0, 232.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'School', 199, 199),
+('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'total', 476.0, 384.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9235,11 +9243,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-08-01', 8, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 97, -1),
-('2022-08-01', 8, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 77, -1),
-('2022-08-01', 8, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 260, -1),
+('2022-08-01', 8, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 97, 97),
+('2022-08-01', 8, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 77, 77),
+('2022-08-01', 8, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 260, 260),
 ('2022-08-01', 8, 2022, 'AHS district', 'St. Johnsbury District', 'School', 248, 248),
-('2022-08-01', 8, 2022, 'AHS district', 'St. Johnsbury District', 'total', 682.0, 248.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'St. Johnsbury District', 'total', 682.0, 682.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9251,11 +9259,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-07-01', 7, 2022, 'AHS district', 'Barre District', 'Infant', 37, 37),
-('2022-07-01', 7, 2022, 'AHS district', 'Barre District', 'Toddler', 60, 60),
+('2022-07-01', 7, 2022, 'AHS district', 'Barre District', 'Infant', 37, -1),
+('2022-07-01', 7, 2022, 'AHS district', 'Barre District', 'Toddler', 60, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Barre District', 'Preschool', 185, 185),
 ('2022-07-01', 7, 2022, 'AHS district', 'Barre District', 'School', 150, 150),
-('2022-07-01', 7, 2022, 'AHS district', 'Barre District', 'total', 432.0, 432.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Barre District', 'total', 432.0, 335.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9267,11 +9275,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'Infant', 44, 44),
+('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'Infant', 44, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'Toddler', 45, 45),
 ('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'Preschool', 174, 174),
-('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'School', 60, 60),
-('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'total', 323.0, 323.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'School', 60, -1),
+('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'total', 323.0, 219.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9283,27 +9291,27 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-07-01', 7, 2022, 'AHS district', 'Hartford District', 'Infant', 56, 56),
-('2022-07-01', 7, 2022, 'AHS district', 'Hartford District', 'Toddler', 28, 28),
+('2022-07-01', 7, 2022, 'AHS district', 'Hartford District', 'Infant', 56, -1),
+('2022-07-01', 7, 2022, 'AHS district', 'Hartford District', 'Toddler', 28, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Hartford District', 'Preschool', 155, 155),
 ('2022-07-01', 7, 2022, 'AHS district', 'Hartford District', 'School', 91, 91),
-('2022-07-01', 7, 2022, 'AHS district', 'Hartford District', 'total', 330.0, 330.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Hartford District', 'total', 330.0, 246.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
 ('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'Infant', 44, 44),
-('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'Toddler', 36, -1),
+('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'Toddler', 36, 36),
 ('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'Preschool', 170, 170),
-('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'School', 182, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'total', 432.0, 214.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'School', 182, 182),
+('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'total', 432.0, 432.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'Infant', 46, 46),
+('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'Infant', 46, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'Toddler', 48, 48),
-('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'Preschool', 144, 144),
+('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'Preschool', 144, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'School', 106, 106),
-('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'total', 344.0, 344.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'total', 344.0, 154.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -9347,11 +9355,11 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
-('2022-07-01', 7, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 81, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 74, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 243, -1),
+('2022-07-01', 7, 2022, 'AHS district', 'St. Johnsbury District', 'Infant', 81, 81),
+('2022-07-01', 7, 2022, 'AHS district', 'St. Johnsbury District', 'Toddler', 74, 74),
+('2022-07-01', 7, 2022, 'AHS district', 'St. Johnsbury District', 'Preschool', 243, 243),
 ('2022-07-01', 7, 2022, 'AHS district', 'St. Johnsbury District', 'School', 237, 237),
-('2022-07-01', 7, 2022, 'AHS district', 'St. Johnsbury District', 'total', 635.0, 237.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'St. Johnsbury District', 'total', 635.0, 635.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_age` (`month_year`, `month`, `year`, `geo_type`, `geography`, `age`, `value`, `value_suppressed`)
 VALUES
@@ -22274,10 +22282,10 @@ VALUES
 ('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Black or African American', 275, 275),
 ('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Prefer not to answer', 37, 37),
-('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 31, 31),
+('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 31, -1),
 ('2025-09-01', 9, 2025, 'county', 'Chittenden', 'White', 1533, 1533),
 ('2025-09-01', 9, 2025, 'county', 'Chittenden', 'Two or More Races', 181, 181),
-('2025-09-01', 9, 2025, 'county', 'Chittenden', 'total', 2124.0, 2119.0) AS new_data
+('2025-09-01', 9, 2025, 'county', 'Chittenden', 'total', 2124.0, 2088.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22287,9 +22295,9 @@ VALUES
 ('2025-09-01', 9, 2025, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-09-01', 9, 2025, 'county', 'Essex', 'Prefer not to answer', 4, -1),
 ('2025-09-01', 9, 2025, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2025-09-01', 9, 2025, 'county', 'Essex', 'White', 46, 46),
+('2025-09-01', 9, 2025, 'county', 'Essex', 'White', 46, -1),
 ('2025-09-01', 9, 2025, 'county', 'Essex', 'Two or More Races', 3, -1),
-('2025-09-01', 9, 2025, 'county', 'Essex', 'total', 55.0, 46.0) AS new_data
+('2025-09-01', 9, 2025, 'county', 'Essex', 'total', 55.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22370,10 +22378,10 @@ VALUES
 ('2025-09-01', 9, 2025, 'county', 'Rutland', 'Black or African American', 29, 29),
 ('2025-09-01', 9, 2025, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-09-01', 9, 2025, 'county', 'Rutland', 'Prefer not to answer', 34, 34),
-('2025-09-01', 9, 2025, 'county', 'Rutland', 'Prefer to self-describe', 12, 12),
+('2025-09-01', 9, 2025, 'county', 'Rutland', 'Prefer to self-describe', 12, -1),
 ('2025-09-01', 9, 2025, 'county', 'Rutland', 'White', 939, 939),
 ('2025-09-01', 9, 2025, 'county', 'Rutland', 'Two or More Races', 52, 52),
-('2025-09-01', 9, 2025, 'county', 'Rutland', 'total', 1068.0, 1066.0) AS new_data
+('2025-09-01', 9, 2025, 'county', 'Rutland', 'total', 1068.0, 1054.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22413,15 +22421,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-09-01', 9, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 31, 31),
+('2025-09-01', 9, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 31, -1),
 ('2025-09-01', 9, 2025, 'county', 'Vermont', 'Asian', 81, 81),
 ('2025-09-01', 9, 2025, 'county', 'Vermont', 'Black or African American', 410, 410),
 ('2025-09-01', 9, 2025, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 9, -1),
 ('2025-09-01', 9, 2025, 'county', 'Vermont', 'Prefer not to answer', 142, 142),
 ('2025-09-01', 9, 2025, 'county', 'Vermont', 'Prefer to self-describe', 97, 97),
-('2025-09-01', 9, 2025, 'county', 'Vermont', 'White', 7692, -1),
+('2025-09-01', 9, 2025, 'county', 'Vermont', 'White', 7692, 7692),
 ('2025-09-01', 9, 2025, 'county', 'Vermont', 'Two or More Races', 454, 454),
-('2025-09-01', 9, 2025, 'county', 'Vermont', 'total', 8916.0, 1215.0) AS new_data
+('2025-09-01', 9, 2025, 'county', 'Vermont', 'total', 8916.0, 8876.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22466,10 +22474,10 @@ VALUES
 ('2025-08-01', 8, 2025, 'county', 'Chittenden', 'Black or African American', 294, 294),
 ('2025-08-01', 8, 2025, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-08-01', 8, 2025, 'county', 'Chittenden', 'Prefer not to answer', 38, 38),
-('2025-08-01', 8, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 31, 31),
+('2025-08-01', 8, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 31, -1),
 ('2025-08-01', 8, 2025, 'county', 'Chittenden', 'White', 1692, 1692),
 ('2025-08-01', 8, 2025, 'county', 'Chittenden', 'Two or More Races', 195, 195),
-('2025-08-01', 8, 2025, 'county', 'Chittenden', 'total', 2317.0, 2312.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Chittenden', 'total', 2317.0, 2281.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22479,9 +22487,9 @@ VALUES
 ('2025-08-01', 8, 2025, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-08-01', 8, 2025, 'county', 'Essex', 'Prefer not to answer', 4, -1),
 ('2025-08-01', 8, 2025, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2025-08-01', 8, 2025, 'county', 'Essex', 'White', 48, 48),
+('2025-08-01', 8, 2025, 'county', 'Essex', 'White', 48, -1),
 ('2025-08-01', 8, 2025, 'county', 'Essex', 'Two or More Races', 3, -1),
-('2025-08-01', 8, 2025, 'county', 'Essex', 'total', 57.0, 48.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Essex', 'total', 57.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22562,10 +22570,10 @@ VALUES
 ('2025-08-01', 8, 2025, 'county', 'Rutland', 'Black or African American', 31, 31),
 ('2025-08-01', 8, 2025, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-08-01', 8, 2025, 'county', 'Rutland', 'Prefer not to answer', 25, 25),
-('2025-08-01', 8, 2025, 'county', 'Rutland', 'Prefer to self-describe', 14, 14),
+('2025-08-01', 8, 2025, 'county', 'Rutland', 'Prefer to self-describe', 14, -1),
 ('2025-08-01', 8, 2025, 'county', 'Rutland', 'White', 1064, 1064),
 ('2025-08-01', 8, 2025, 'county', 'Rutland', 'Two or More Races', 62, 62),
-('2025-08-01', 8, 2025, 'county', 'Rutland', 'total', 1200.0, 1196.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Rutland', 'total', 1200.0, 1182.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22585,35 +22593,35 @@ VALUES
 ('2025-08-01', 8, 2025, 'county', 'Windham', 'Asian', 5, -1),
 ('2025-08-01', 8, 2025, 'county', 'Windham', 'Black or African American', 16, 16),
 ('2025-08-01', 8, 2025, 'county', 'Windham', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-08-01', 8, 2025, 'county', 'Windham', 'Prefer not to answer', 12, 12),
+('2025-08-01', 8, 2025, 'county', 'Windham', 'Prefer not to answer', 12, -1),
 ('2025-08-01', 8, 2025, 'county', 'Windham', 'Prefer to self-describe', 14, 14),
 ('2025-08-01', 8, 2025, 'county', 'Windham', 'White', 627, 627),
 ('2025-08-01', 8, 2025, 'county', 'Windham', 'Two or More Races', 52, 52),
-('2025-08-01', 8, 2025, 'county', 'Windham', 'total', 728.0, 721.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Windham', 'total', 728.0, 709.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2025-08-01', 8, 2025, 'county', 'Windsor', 'American Indian or Alaskan Native', 2, -1),
 ('2025-08-01', 8, 2025, 'county', 'Windsor', 'Asian', 3, -1),
-('2025-08-01', 8, 2025, 'county', 'Windsor', 'Black or African American', 13, 13),
+('2025-08-01', 8, 2025, 'county', 'Windsor', 'Black or African American', 13, -1),
 ('2025-08-01', 8, 2025, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-08-01', 8, 2025, 'county', 'Windsor', 'Prefer not to answer', 20, 20),
 ('2025-08-01', 8, 2025, 'county', 'Windsor', 'Prefer to self-describe', 17, 17),
 ('2025-08-01', 8, 2025, 'county', 'Windsor', 'White', 801, 801),
 ('2025-08-01', 8, 2025, 'county', 'Windsor', 'Two or More Races', 32, 32),
-('2025-08-01', 8, 2025, 'county', 'Windsor', 'total', 889.0, 883.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Windsor', 'total', 889.0, 870.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-08-01', 8, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 35, 35),
+('2025-08-01', 8, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 35, -1),
 ('2025-08-01', 8, 2025, 'county', 'Vermont', 'Asian', 90, 90),
 ('2025-08-01', 8, 2025, 'county', 'Vermont', 'Black or African American', 445, 445),
 ('2025-08-01', 8, 2025, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 9, -1),
 ('2025-08-01', 8, 2025, 'county', 'Vermont', 'Prefer not to answer', 139, 139),
 ('2025-08-01', 8, 2025, 'county', 'Vermont', 'Prefer to self-describe', 112, 112),
-('2025-08-01', 8, 2025, 'county', 'Vermont', 'White', 8416, -1),
+('2025-08-01', 8, 2025, 'county', 'Vermont', 'White', 8416, 8416),
 ('2025-08-01', 8, 2025, 'county', 'Vermont', 'Two or More Races', 514, 514),
-('2025-08-01', 8, 2025, 'county', 'Vermont', 'total', 9760.0, 1335.0) AS new_data
+('2025-08-01', 8, 2025, 'county', 'Vermont', 'total', 9760.0, 9716.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22658,10 +22666,10 @@ VALUES
 ('2025-07-01', 7, 2025, 'county', 'Chittenden', 'Black or African American', 251, 251),
 ('2025-07-01', 7, 2025, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-07-01', 7, 2025, 'county', 'Chittenden', 'Prefer not to answer', 30, 30),
-('2025-07-01', 7, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 27, 27),
+('2025-07-01', 7, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 27, -1),
 ('2025-07-01', 7, 2025, 'county', 'Chittenden', 'White', 1552, 1552),
 ('2025-07-01', 7, 2025, 'county', 'Chittenden', 'Two or More Races', 170, 170),
-('2025-07-01', 7, 2025, 'county', 'Chittenden', 'total', 2077.0, 2072.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Chittenden', 'total', 2077.0, 2045.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22671,9 +22679,9 @@ VALUES
 ('2025-07-01', 7, 2025, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-07-01', 7, 2025, 'county', 'Essex', 'Prefer not to answer', 4, -1),
 ('2025-07-01', 7, 2025, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2025-07-01', 7, 2025, 'county', 'Essex', 'White', 44, 44),
+('2025-07-01', 7, 2025, 'county', 'Essex', 'White', 44, -1),
 ('2025-07-01', 7, 2025, 'county', 'Essex', 'Two or More Races', 1, -1),
-('2025-07-01', 7, 2025, 'county', 'Essex', 'total', 51.0, 44.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Essex', 'total', 51.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22754,10 +22762,10 @@ VALUES
 ('2025-07-01', 7, 2025, 'county', 'Rutland', 'Black or African American', 32, 32),
 ('2025-07-01', 7, 2025, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-07-01', 7, 2025, 'county', 'Rutland', 'Prefer not to answer', 18, 18),
-('2025-07-01', 7, 2025, 'county', 'Rutland', 'Prefer to self-describe', 12, 12),
+('2025-07-01', 7, 2025, 'county', 'Rutland', 'Prefer to self-describe', 12, -1),
 ('2025-07-01', 7, 2025, 'county', 'Rutland', 'White', 1001, 1001),
 ('2025-07-01', 7, 2025, 'county', 'Rutland', 'Two or More Races', 59, 59),
-('2025-07-01', 7, 2025, 'county', 'Rutland', 'total', 1124.0, 1122.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Rutland', 'total', 1124.0, 1110.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22778,10 +22786,10 @@ VALUES
 ('2025-07-01', 7, 2025, 'county', 'Windham', 'Black or African American', 13, 13),
 ('2025-07-01', 7, 2025, 'county', 'Windham', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-07-01', 7, 2025, 'county', 'Windham', 'Prefer not to answer', 12, 12),
-('2025-07-01', 7, 2025, 'county', 'Windham', 'Prefer to self-describe', 11, 11),
+('2025-07-01', 7, 2025, 'county', 'Windham', 'Prefer to self-describe', 11, -1),
 ('2025-07-01', 7, 2025, 'county', 'Windham', 'White', 515, 515),
 ('2025-07-01', 7, 2025, 'county', 'Windham', 'Two or More Races', 35, 35),
-('2025-07-01', 7, 2025, 'county', 'Windham', 'total', 592.0, 586.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Windham', 'total', 592.0, 575.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22790,22 +22798,22 @@ VALUES
 ('2025-07-01', 7, 2025, 'county', 'Windsor', 'Black or African American', 14, 14),
 ('2025-07-01', 7, 2025, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-07-01', 7, 2025, 'county', 'Windsor', 'Prefer not to answer', 18, 18),
-('2025-07-01', 7, 2025, 'county', 'Windsor', 'Prefer to self-describe', 13, 13),
+('2025-07-01', 7, 2025, 'county', 'Windsor', 'Prefer to self-describe', 13, -1),
 ('2025-07-01', 7, 2025, 'county', 'Windsor', 'White', 726, 726),
 ('2025-07-01', 7, 2025, 'county', 'Windsor', 'Two or More Races', 28, 28),
-('2025-07-01', 7, 2025, 'county', 'Windsor', 'total', 802.0, 799.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Windsor', 'total', 802.0, 786.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-07-01', 7, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 28, 28),
+('2025-07-01', 7, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 28, -1),
 ('2025-07-01', 7, 2025, 'county', 'Vermont', 'Asian', 68, 68),
 ('2025-07-01', 7, 2025, 'county', 'Vermont', 'Black or African American', 398, 398),
 ('2025-07-01', 7, 2025, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 8, -1),
 ('2025-07-01', 7, 2025, 'county', 'Vermont', 'Prefer not to answer', 120, 120),
 ('2025-07-01', 7, 2025, 'county', 'Vermont', 'Prefer to self-describe', 99, 99),
-('2025-07-01', 7, 2025, 'county', 'Vermont', 'White', 7607, -1),
+('2025-07-01', 7, 2025, 'county', 'Vermont', 'White', 7607, 7607),
 ('2025-07-01', 7, 2025, 'county', 'Vermont', 'Two or More Races', 441, 441),
-('2025-07-01', 7, 2025, 'county', 'Vermont', 'total', 8769.0, 1154.0) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Vermont', 'total', 8769.0, 8733.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22850,10 +22858,10 @@ VALUES
 ('2025-06-01', 6, 2025, 'county', 'Chittenden', 'Black or African American', 278, 278),
 ('2025-06-01', 6, 2025, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-06-01', 6, 2025, 'county', 'Chittenden', 'Prefer not to answer', 30, 30),
-('2025-06-01', 6, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 27, 27),
+('2025-06-01', 6, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 27, -1),
 ('2025-06-01', 6, 2025, 'county', 'Chittenden', 'White', 1590, 1590),
 ('2025-06-01', 6, 2025, 'county', 'Chittenden', 'Two or More Races', 180, 180),
-('2025-06-01', 6, 2025, 'county', 'Chittenden', 'total', 2159.0, 2154.0) AS new_data
+('2025-06-01', 6, 2025, 'county', 'Chittenden', 'total', 2159.0, 2127.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22863,9 +22871,9 @@ VALUES
 ('2025-06-01', 6, 2025, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-06-01', 6, 2025, 'county', 'Essex', 'Prefer not to answer', 4, -1),
 ('2025-06-01', 6, 2025, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2025-06-01', 6, 2025, 'county', 'Essex', 'White', 49, 49),
+('2025-06-01', 6, 2025, 'county', 'Essex', 'White', 49, -1),
 ('2025-06-01', 6, 2025, 'county', 'Essex', 'Two or More Races', 1, -1),
-('2025-06-01', 6, 2025, 'county', 'Essex', 'total', 56.0, 49.0) AS new_data
+('2025-06-01', 6, 2025, 'county', 'Essex', 'total', 56.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22946,10 +22954,10 @@ VALUES
 ('2025-06-01', 6, 2025, 'county', 'Rutland', 'Black or African American', 38, 38),
 ('2025-06-01', 6, 2025, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-06-01', 6, 2025, 'county', 'Rutland', 'Prefer not to answer', 20, 20),
-('2025-06-01', 6, 2025, 'county', 'Rutland', 'Prefer to self-describe', 12, 12),
+('2025-06-01', 6, 2025, 'county', 'Rutland', 'Prefer to self-describe', 12, -1),
 ('2025-06-01', 6, 2025, 'county', 'Rutland', 'White', 1078, 1078),
 ('2025-06-01', 6, 2025, 'county', 'Rutland', 'Two or More Races', 51, 51),
-('2025-06-01', 6, 2025, 'county', 'Rutland', 'total', 1200.0, 1199.0) AS new_data
+('2025-06-01', 6, 2025, 'county', 'Rutland', 'total', 1200.0, 1187.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -22981,23 +22989,23 @@ VALUES
 ('2025-06-01', 6, 2025, 'county', 'Windsor', 'Asian', 3, -1),
 ('2025-06-01', 6, 2025, 'county', 'Windsor', 'Black or African American', 15, 15),
 ('2025-06-01', 6, 2025, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
-('2025-06-01', 6, 2025, 'county', 'Windsor', 'Prefer not to answer', 14, 14),
+('2025-06-01', 6, 2025, 'county', 'Windsor', 'Prefer not to answer', 14, -1),
 ('2025-06-01', 6, 2025, 'county', 'Windsor', 'Prefer to self-describe', 14, 14),
 ('2025-06-01', 6, 2025, 'county', 'Windsor', 'White', 775, 775),
 ('2025-06-01', 6, 2025, 'county', 'Windsor', 'Two or More Races', 28, 28),
-('2025-06-01', 6, 2025, 'county', 'Windsor', 'total', 852.0, 846.0) AS new_data
+('2025-06-01', 6, 2025, 'county', 'Windsor', 'total', 852.0, 832.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-06-01', 6, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 29, 29),
+('2025-06-01', 6, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 29, -1),
 ('2025-06-01', 6, 2025, 'county', 'Vermont', 'Asian', 76, 76),
 ('2025-06-01', 6, 2025, 'county', 'Vermont', 'Black or African American', 431, 431),
 ('2025-06-01', 6, 2025, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 9, -1),
 ('2025-06-01', 6, 2025, 'county', 'Vermont', 'Prefer not to answer', 125, 125),
 ('2025-06-01', 6, 2025, 'county', 'Vermont', 'Prefer to self-describe', 103, 103),
-('2025-06-01', 6, 2025, 'county', 'Vermont', 'White', 8027, -1),
+('2025-06-01', 6, 2025, 'county', 'Vermont', 'White', 8027, 8027),
 ('2025-06-01', 6, 2025, 'county', 'Vermont', 'Two or More Races', 444, 444),
-('2025-06-01', 6, 2025, 'county', 'Vermont', 'total', 9244.0, 1208.0) AS new_data
+('2025-06-01', 6, 2025, 'county', 'Vermont', 'total', 9244.0, 9206.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23042,10 +23050,10 @@ VALUES
 ('2025-05-01', 5, 2025, 'county', 'Chittenden', 'Black or African American', 263, 263),
 ('2025-05-01', 5, 2025, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-05-01', 5, 2025, 'county', 'Chittenden', 'Prefer not to answer', 31, 31),
-('2025-05-01', 5, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 23, 23),
+('2025-05-01', 5, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 23, -1),
 ('2025-05-01', 5, 2025, 'county', 'Chittenden', 'White', 1476, 1476),
 ('2025-05-01', 5, 2025, 'county', 'Chittenden', 'Two or More Races', 159, 159),
-('2025-05-01', 5, 2025, 'county', 'Chittenden', 'total', 2007.0, 2002.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Chittenden', 'total', 2007.0, 1979.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23055,9 +23063,9 @@ VALUES
 ('2025-05-01', 5, 2025, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-05-01', 5, 2025, 'county', 'Essex', 'Prefer not to answer', 4, -1),
 ('2025-05-01', 5, 2025, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2025-05-01', 5, 2025, 'county', 'Essex', 'White', 49, 49),
+('2025-05-01', 5, 2025, 'county', 'Essex', 'White', 49, -1),
 ('2025-05-01', 5, 2025, 'county', 'Essex', 'Two or More Races', 1, -1),
-('2025-05-01', 5, 2025, 'county', 'Essex', 'total', 56.0, 49.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Essex', 'total', 56.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23079,9 +23087,9 @@ VALUES
 ('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'Prefer not to answer', 2, -1),
 ('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'Prefer to self-describe', 1, -1),
-('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'White', 84, 84),
+('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'White', 84, -1),
 ('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'Two or More Races', 1, -1),
-('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'total', 91.0, 84.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Grand Isle', 'total', 91.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23137,11 +23145,11 @@ VALUES
 ('2025-05-01', 5, 2025, 'county', 'Rutland', 'Asian', 1, -1),
 ('2025-05-01', 5, 2025, 'county', 'Rutland', 'Black or African American', 40, 40),
 ('2025-05-01', 5, 2025, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-05-01', 5, 2025, 'county', 'Rutland', 'Prefer not to answer', 12, 12),
+('2025-05-01', 5, 2025, 'county', 'Rutland', 'Prefer not to answer', 12, -1),
 ('2025-05-01', 5, 2025, 'county', 'Rutland', 'Prefer to self-describe', 8, -1),
 ('2025-05-01', 5, 2025, 'county', 'Rutland', 'White', 955, 955),
 ('2025-05-01', 5, 2025, 'county', 'Rutland', 'Two or More Races', 42, 42),
-('2025-05-01', 5, 2025, 'county', 'Rutland', 'total', 1058.0, 1049.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Rutland', 'total', 1058.0, 1037.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23173,23 +23181,23 @@ VALUES
 ('2025-05-01', 5, 2025, 'county', 'Windsor', 'Asian', 4, -1),
 ('2025-05-01', 5, 2025, 'county', 'Windsor', 'Black or African American', 13, 13),
 ('2025-05-01', 5, 2025, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
-('2025-05-01', 5, 2025, 'county', 'Windsor', 'Prefer not to answer', 11, 11),
+('2025-05-01', 5, 2025, 'county', 'Windsor', 'Prefer not to answer', 11, -1),
 ('2025-05-01', 5, 2025, 'county', 'Windsor', 'Prefer to self-describe', 12, 12),
 ('2025-05-01', 5, 2025, 'county', 'Windsor', 'White', 735, 735),
 ('2025-05-01', 5, 2025, 'county', 'Windsor', 'Two or More Races', 24, 24),
-('2025-05-01', 5, 2025, 'county', 'Windsor', 'total', 801.0, 795.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Windsor', 'total', 801.0, 784.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-05-01', 5, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 26, 26),
+('2025-05-01', 5, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 26, -1),
 ('2025-05-01', 5, 2025, 'county', 'Vermont', 'Asian', 73, 73),
 ('2025-05-01', 5, 2025, 'county', 'Vermont', 'Black or African American', 408, 408),
 ('2025-05-01', 5, 2025, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 9, -1),
 ('2025-05-01', 5, 2025, 'county', 'Vermont', 'Prefer not to answer', 110, 110),
 ('2025-05-01', 5, 2025, 'county', 'Vermont', 'Prefer to self-describe', 90, 90),
-('2025-05-01', 5, 2025, 'county', 'Vermont', 'White', 7439, -1),
+('2025-05-01', 5, 2025, 'county', 'Vermont', 'White', 7439, 7439),
 ('2025-05-01', 5, 2025, 'county', 'Vermont', 'Two or More Races', 389, 389),
-('2025-05-01', 5, 2025, 'county', 'Vermont', 'total', 8544.0, 1096.0) AS new_data
+('2025-05-01', 5, 2025, 'county', 'Vermont', 'total', 8544.0, 8509.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23234,10 +23242,10 @@ VALUES
 ('2025-04-01', 4, 2025, 'county', 'Chittenden', 'Black or African American', 264, 264),
 ('2025-04-01', 4, 2025, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-04-01', 4, 2025, 'county', 'Chittenden', 'Prefer not to answer', 30, 30),
-('2025-04-01', 4, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 26, 26),
+('2025-04-01', 4, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 26, -1),
 ('2025-04-01', 4, 2025, 'county', 'Chittenden', 'White', 1478, 1478),
 ('2025-04-01', 4, 2025, 'county', 'Chittenden', 'Two or More Races', 153, 153),
-('2025-04-01', 4, 2025, 'county', 'Chittenden', 'total', 2002.0, 1997.0) AS new_data
+('2025-04-01', 4, 2025, 'county', 'Chittenden', 'total', 2002.0, 1971.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23247,9 +23255,9 @@ VALUES
 ('2025-04-01', 4, 2025, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-04-01', 4, 2025, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2025-04-01', 4, 2025, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2025-04-01', 4, 2025, 'county', 'Essex', 'White', 50, 50),
+('2025-04-01', 4, 2025, 'county', 'Essex', 'White', 50, -1),
 ('2025-04-01', 4, 2025, 'county', 'Essex', 'Two or More Races', 1, -1),
-('2025-04-01', 4, 2025, 'county', 'Essex', 'total', 53.0, 50.0) AS new_data
+('2025-04-01', 4, 2025, 'county', 'Essex', 'total', 53.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23271,9 +23279,9 @@ VALUES
 ('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Prefer not to answer', 2, -1),
 ('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Prefer to self-describe', 1, -1),
-('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'White', 81, 81),
+('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'White', 81, -1),
 ('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'Two or More Races', 1, -1),
-('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'total', 88.0, 81.0) AS new_data
+('2025-04-01', 4, 2025, 'county', 'Grand Isle', 'total', 88.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23329,11 +23337,11 @@ VALUES
 ('2025-04-01', 4, 2025, 'county', 'Rutland', 'Asian', 1, -1),
 ('2025-04-01', 4, 2025, 'county', 'Rutland', 'Black or African American', 41, 41),
 ('2025-04-01', 4, 2025, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-04-01', 4, 2025, 'county', 'Rutland', 'Prefer not to answer', 11, 11),
+('2025-04-01', 4, 2025, 'county', 'Rutland', 'Prefer not to answer', 11, -1),
 ('2025-04-01', 4, 2025, 'county', 'Rutland', 'Prefer to self-describe', 8, -1),
 ('2025-04-01', 4, 2025, 'county', 'Rutland', 'White', 958, 958),
 ('2025-04-01', 4, 2025, 'county', 'Rutland', 'Two or More Races', 40, 40),
-('2025-04-01', 4, 2025, 'county', 'Rutland', 'total', 1059.0, 1050.0) AS new_data
+('2025-04-01', 4, 2025, 'county', 'Rutland', 'total', 1059.0, 1039.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23373,15 +23381,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-04-01', 4, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 29, 29),
+('2025-04-01', 4, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 29, -1),
 ('2025-04-01', 4, 2025, 'county', 'Vermont', 'Asian', 69, 69),
 ('2025-04-01', 4, 2025, 'county', 'Vermont', 'Black or African American', 408, 408),
 ('2025-04-01', 4, 2025, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 7, -1),
 ('2025-04-01', 4, 2025, 'county', 'Vermont', 'Prefer not to answer', 100, 100),
 ('2025-04-01', 4, 2025, 'county', 'Vermont', 'Prefer to self-describe', 96, 96),
-('2025-04-01', 4, 2025, 'county', 'Vermont', 'White', 7449, -1),
+('2025-04-01', 4, 2025, 'county', 'Vermont', 'White', 7449, 7449),
 ('2025-04-01', 4, 2025, 'county', 'Vermont', 'Two or More Races', 394, 394),
-('2025-04-01', 4, 2025, 'county', 'Vermont', 'total', 8552.0, 1096.0) AS new_data
+('2025-04-01', 4, 2025, 'county', 'Vermont', 'total', 8552.0, 8516.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23426,10 +23434,10 @@ VALUES
 ('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Black or African American', 257, 257),
 ('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Prefer not to answer', 29, 29),
-('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 25, 25),
+('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 25, -1),
 ('2025-03-01', 3, 2025, 'county', 'Chittenden', 'White', 1446, 1446),
 ('2025-03-01', 3, 2025, 'county', 'Chittenden', 'Two or More Races', 149, 149),
-('2025-03-01', 3, 2025, 'county', 'Chittenden', 'total', 1956.0, 1951.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Chittenden', 'total', 1956.0, 1926.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23439,9 +23447,9 @@ VALUES
 ('2025-03-01', 3, 2025, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-03-01', 3, 2025, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2025-03-01', 3, 2025, 'county', 'Essex', 'Prefer to self-describe', 0, -1),
-('2025-03-01', 3, 2025, 'county', 'Essex', 'White', 48, 48),
+('2025-03-01', 3, 2025, 'county', 'Essex', 'White', 48, -1),
 ('2025-03-01', 3, 2025, 'county', 'Essex', 'Two or More Races', 1, -1),
-('2025-03-01', 3, 2025, 'county', 'Essex', 'total', 50.0, 48.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Essex', 'total', 50.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23463,9 +23471,9 @@ VALUES
 ('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Prefer not to answer', 1, -1),
 ('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Prefer to self-describe', 1, -1),
-('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'White', 80, 80),
+('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'White', 80, -1),
 ('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'Two or More Races', 2, -1),
-('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'total', 87.0, 80.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Grand Isle', 'total', 87.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23521,11 +23529,11 @@ VALUES
 ('2025-03-01', 3, 2025, 'county', 'Rutland', 'Asian', 1, -1),
 ('2025-03-01', 3, 2025, 'county', 'Rutland', 'Black or African American', 40, 40),
 ('2025-03-01', 3, 2025, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-03-01', 3, 2025, 'county', 'Rutland', 'Prefer not to answer', 11, 11),
+('2025-03-01', 3, 2025, 'county', 'Rutland', 'Prefer not to answer', 11, -1),
 ('2025-03-01', 3, 2025, 'county', 'Rutland', 'Prefer to self-describe', 8, -1),
 ('2025-03-01', 3, 2025, 'county', 'Rutland', 'White', 947, 947),
 ('2025-03-01', 3, 2025, 'county', 'Rutland', 'Two or More Races', 38, 38),
-('2025-03-01', 3, 2025, 'county', 'Rutland', 'total', 1045.0, 1036.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Rutland', 'total', 1045.0, 1025.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23565,15 +23573,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-03-01', 3, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 31, 31),
+('2025-03-01', 3, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 31, -1),
 ('2025-03-01', 3, 2025, 'county', 'Vermont', 'Asian', 69, 69),
 ('2025-03-01', 3, 2025, 'county', 'Vermont', 'Black or African American', 396, 396),
 ('2025-03-01', 3, 2025, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 6, -1),
 ('2025-03-01', 3, 2025, 'county', 'Vermont', 'Prefer not to answer', 94, 94),
 ('2025-03-01', 3, 2025, 'county', 'Vermont', 'Prefer to self-describe', 95, 95),
-('2025-03-01', 3, 2025, 'county', 'Vermont', 'White', 7263, -1),
+('2025-03-01', 3, 2025, 'county', 'Vermont', 'White', 7263, 7263),
 ('2025-03-01', 3, 2025, 'county', 'Vermont', 'Two or More Races', 379, 379),
-('2025-03-01', 3, 2025, 'county', 'Vermont', 'total', 8333.0, 1064.0) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Vermont', 'total', 8333.0, 8296.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23594,10 +23602,10 @@ VALUES
 ('2025-02-01', 2, 2025, 'county', 'Bennington', 'Black or African American', 18, 18),
 ('2025-02-01', 2, 2025, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-02-01', 2, 2025, 'county', 'Bennington', 'Prefer not to answer', 5, -1),
-('2025-02-01', 2, 2025, 'county', 'Bennington', 'Prefer to self-describe', 11, 11),
+('2025-02-01', 2, 2025, 'county', 'Bennington', 'Prefer to self-describe', 11, -1),
 ('2025-02-01', 2, 2025, 'county', 'Bennington', 'White', 678, 678),
 ('2025-02-01', 2, 2025, 'county', 'Bennington', 'Two or More Races', 28, 28),
-('2025-02-01', 2, 2025, 'county', 'Bennington', 'total', 744.0, 735.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Bennington', 'total', 744.0, 724.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23608,8 +23616,8 @@ VALUES
 ('2025-02-01', 2, 2025, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2025-02-01', 2, 2025, 'county', 'Caledonia', 'Prefer to self-describe', 2, -1),
 ('2025-02-01', 2, 2025, 'county', 'Caledonia', 'White', 322, 322),
-('2025-02-01', 2, 2025, 'county', 'Caledonia', 'Two or More Races', 14, 14),
-('2025-02-01', 2, 2025, 'county', 'Caledonia', 'total', 351.0, 336.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Caledonia', 'Two or More Races', 14, -1),
+('2025-02-01', 2, 2025, 'county', 'Caledonia', 'total', 351.0, 322.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23618,10 +23626,10 @@ VALUES
 ('2025-02-01', 2, 2025, 'county', 'Chittenden', 'Black or African American', 259, 259),
 ('2025-02-01', 2, 2025, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-02-01', 2, 2025, 'county', 'Chittenden', 'Prefer not to answer', 29, 29),
-('2025-02-01', 2, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 24, 24),
+('2025-02-01', 2, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 24, -1),
 ('2025-02-01', 2, 2025, 'county', 'Chittenden', 'White', 1426, 1426),
 ('2025-02-01', 2, 2025, 'county', 'Chittenden', 'Two or More Races', 147, 147),
-('2025-02-01', 2, 2025, 'county', 'Chittenden', 'total', 1937.0, 1932.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Chittenden', 'total', 1937.0, 1908.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23631,9 +23639,9 @@ VALUES
 ('2025-02-01', 2, 2025, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-02-01', 2, 2025, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2025-02-01', 2, 2025, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2025-02-01', 2, 2025, 'county', 'Essex', 'White', 47, 47),
+('2025-02-01', 2, 2025, 'county', 'Essex', 'White', 47, -1),
 ('2025-02-01', 2, 2025, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2025-02-01', 2, 2025, 'county', 'Essex', 'total', 49.0, 47.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Essex', 'total', 49.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23655,9 +23663,9 @@ VALUES
 ('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Prefer not to answer', 1, -1),
 ('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Prefer to self-describe', 1, -1),
-('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'White', 82, 82),
+('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'White', 82, -1),
 ('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'Two or More Races', 2, -1),
-('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'total', 89.0, 82.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Grand Isle', 'total', 89.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23713,11 +23721,11 @@ VALUES
 ('2025-02-01', 2, 2025, 'county', 'Rutland', 'Asian', 1, -1),
 ('2025-02-01', 2, 2025, 'county', 'Rutland', 'Black or African American', 40, 40),
 ('2025-02-01', 2, 2025, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-02-01', 2, 2025, 'county', 'Rutland', 'Prefer not to answer', 12, 12),
+('2025-02-01', 2, 2025, 'county', 'Rutland', 'Prefer not to answer', 12, -1),
 ('2025-02-01', 2, 2025, 'county', 'Rutland', 'Prefer to self-describe', 7, -1),
 ('2025-02-01', 2, 2025, 'county', 'Rutland', 'White', 937, 937),
 ('2025-02-01', 2, 2025, 'county', 'Rutland', 'Two or More Races', 33, 33),
-('2025-02-01', 2, 2025, 'county', 'Rutland', 'total', 1030.0, 1022.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Rutland', 'total', 1030.0, 1010.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23757,15 +23765,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-02-01', 2, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 33, 33),
+('2025-02-01', 2, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 33, -1),
 ('2025-02-01', 2, 2025, 'county', 'Vermont', 'Asian', 71, 71),
 ('2025-02-01', 2, 2025, 'county', 'Vermont', 'Black or African American', 397, 397),
 ('2025-02-01', 2, 2025, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 7, -1),
 ('2025-02-01', 2, 2025, 'county', 'Vermont', 'Prefer not to answer', 92, 92),
 ('2025-02-01', 2, 2025, 'county', 'Vermont', 'Prefer to self-describe', 95, 95),
-('2025-02-01', 2, 2025, 'county', 'Vermont', 'White', 7203, -1),
+('2025-02-01', 2, 2025, 'county', 'Vermont', 'White', 7203, 7203),
 ('2025-02-01', 2, 2025, 'county', 'Vermont', 'Two or More Races', 370, 370),
-('2025-02-01', 2, 2025, 'county', 'Vermont', 'total', 8268.0, 1058.0) AS new_data
+('2025-02-01', 2, 2025, 'county', 'Vermont', 'total', 8268.0, 8228.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23786,10 +23794,10 @@ VALUES
 ('2025-01-01', 1, 2025, 'county', 'Bennington', 'Black or African American', 18, 18),
 ('2025-01-01', 1, 2025, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-01-01', 1, 2025, 'county', 'Bennington', 'Prefer not to answer', 4, -1),
-('2025-01-01', 1, 2025, 'county', 'Bennington', 'Prefer to self-describe', 12, 12),
+('2025-01-01', 1, 2025, 'county', 'Bennington', 'Prefer to self-describe', 12, -1),
 ('2025-01-01', 1, 2025, 'county', 'Bennington', 'White', 666, 666),
 ('2025-01-01', 1, 2025, 'county', 'Bennington', 'Two or More Races', 30, 30),
-('2025-01-01', 1, 2025, 'county', 'Bennington', 'total', 734.0, 726.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Bennington', 'total', 734.0, 714.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23800,8 +23808,8 @@ VALUES
 ('2025-01-01', 1, 2025, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2025-01-01', 1, 2025, 'county', 'Caledonia', 'Prefer to self-describe', 1, -1),
 ('2025-01-01', 1, 2025, 'county', 'Caledonia', 'White', 307, 307),
-('2025-01-01', 1, 2025, 'county', 'Caledonia', 'Two or More Races', 14, 14),
-('2025-01-01', 1, 2025, 'county', 'Caledonia', 'total', 332.0, 321.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Caledonia', 'Two or More Races', 14, -1),
+('2025-01-01', 1, 2025, 'county', 'Caledonia', 'total', 332.0, 307.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23810,10 +23818,10 @@ VALUES
 ('2025-01-01', 1, 2025, 'county', 'Chittenden', 'Black or African American', 251, 251),
 ('2025-01-01', 1, 2025, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-01-01', 1, 2025, 'county', 'Chittenden', 'Prefer not to answer', 29, 29),
-('2025-01-01', 1, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 27, 27),
+('2025-01-01', 1, 2025, 'county', 'Chittenden', 'Prefer to self-describe', 27, -1),
 ('2025-01-01', 1, 2025, 'county', 'Chittenden', 'White', 1403, 1403),
 ('2025-01-01', 1, 2025, 'county', 'Chittenden', 'Two or More Races', 141, 141),
-('2025-01-01', 1, 2025, 'county', 'Chittenden', 'total', 1905.0, 1900.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Chittenden', 'total', 1905.0, 1873.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23823,9 +23831,9 @@ VALUES
 ('2025-01-01', 1, 2025, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-01-01', 1, 2025, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2025-01-01', 1, 2025, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2025-01-01', 1, 2025, 'county', 'Essex', 'White', 48, 48),
+('2025-01-01', 1, 2025, 'county', 'Essex', 'White', 48, -1),
 ('2025-01-01', 1, 2025, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2025-01-01', 1, 2025, 'county', 'Essex', 'total', 50.0, 48.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Essex', 'total', 50.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23847,9 +23855,9 @@ VALUES
 ('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'Prefer to self-describe', 1, -1),
-('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'White', 81, 81),
+('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'White', 81, -1),
 ('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'Two or More Races', 3, -1),
-('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'total', 88.0, 81.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Grand Isle', 'total', 88.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23929,11 +23937,11 @@ VALUES
 ('2025-01-01', 1, 2025, 'county', 'Windham', 'Asian', 3, -1),
 ('2025-01-01', 1, 2025, 'county', 'Windham', 'Black or African American', 13, 13),
 ('2025-01-01', 1, 2025, 'county', 'Windham', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-01-01', 1, 2025, 'county', 'Windham', 'Prefer not to answer', 11, 11),
+('2025-01-01', 1, 2025, 'county', 'Windham', 'Prefer not to answer', 11, -1),
 ('2025-01-01', 1, 2025, 'county', 'Windham', 'Prefer to self-describe', 11, 11),
 ('2025-01-01', 1, 2025, 'county', 'Windham', 'White', 526, 526),
 ('2025-01-01', 1, 2025, 'county', 'Windham', 'Two or More Races', 37, 37),
-('2025-01-01', 1, 2025, 'county', 'Windham', 'total', 603.0, 598.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Windham', 'total', 603.0, 587.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23949,15 +23957,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-01-01', 1, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 32, 32),
+('2025-01-01', 1, 2025, 'county', 'Vermont', 'American Indian or Alaskan Native', 32, -1),
 ('2025-01-01', 1, 2025, 'county', 'Vermont', 'Asian', 73, 73),
 ('2025-01-01', 1, 2025, 'county', 'Vermont', 'Black or African American', 378, 378),
 ('2025-01-01', 1, 2025, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 7, -1),
 ('2025-01-01', 1, 2025, 'county', 'Vermont', 'Prefer not to answer', 90, 90),
 ('2025-01-01', 1, 2025, 'county', 'Vermont', 'Prefer to self-describe', 95, 95),
-('2025-01-01', 1, 2025, 'county', 'Vermont', 'White', 7050, -1),
+('2025-01-01', 1, 2025, 'county', 'Vermont', 'White', 7050, 7050),
 ('2025-01-01', 1, 2025, 'county', 'Vermont', 'Two or More Races', 362, 362),
-('2025-01-01', 1, 2025, 'county', 'Vermont', 'total', 8087.0, 1030.0) AS new_data
+('2025-01-01', 1, 2025, 'county', 'Vermont', 'total', 8087.0, 8048.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23978,10 +23986,10 @@ VALUES
 ('2024-12-01', 12, 2024, 'county', 'Bennington', 'Black or African American', 18, 18),
 ('2024-12-01', 12, 2024, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-12-01', 12, 2024, 'county', 'Bennington', 'Prefer not to answer', 4, -1),
-('2024-12-01', 12, 2024, 'county', 'Bennington', 'Prefer to self-describe', 11, 11),
+('2024-12-01', 12, 2024, 'county', 'Bennington', 'Prefer to self-describe', 11, -1),
 ('2024-12-01', 12, 2024, 'county', 'Bennington', 'White', 652, 652),
 ('2024-12-01', 12, 2024, 'county', 'Bennington', 'Two or More Races', 30, 30),
-('2024-12-01', 12, 2024, 'county', 'Bennington', 'total', 719.0, 711.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Bennington', 'total', 719.0, 700.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -23992,8 +24000,8 @@ VALUES
 ('2024-12-01', 12, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-12-01', 12, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 1, -1),
 ('2024-12-01', 12, 2024, 'county', 'Caledonia', 'White', 300, 300),
-('2024-12-01', 12, 2024, 'county', 'Caledonia', 'Two or More Races', 14, 14),
-('2024-12-01', 12, 2024, 'county', 'Caledonia', 'total', 326.0, 314.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Caledonia', 'Two or More Races', 14, -1),
+('2024-12-01', 12, 2024, 'county', 'Caledonia', 'total', 326.0, 300.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24001,11 +24009,11 @@ VALUES
 ('2024-12-01', 12, 2024, 'county', 'Chittenden', 'Asian', 47, 47),
 ('2024-12-01', 12, 2024, 'county', 'Chittenden', 'Black or African American', 255, 255),
 ('2024-12-01', 12, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
-('2024-12-01', 12, 2024, 'county', 'Chittenden', 'Prefer not to answer', 30, 30),
+('2024-12-01', 12, 2024, 'county', 'Chittenden', 'Prefer not to answer', 30, -1),
 ('2024-12-01', 12, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 30, 30),
 ('2024-12-01', 12, 2024, 'county', 'Chittenden', 'White', 1345, 1345),
 ('2024-12-01', 12, 2024, 'county', 'Chittenden', 'Two or More Races', 138, 138),
-('2024-12-01', 12, 2024, 'county', 'Chittenden', 'total', 1849.0, 1845.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Chittenden', 'total', 1849.0, 1815.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24015,9 +24023,9 @@ VALUES
 ('2024-12-01', 12, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-12-01', 12, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-12-01', 12, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-12-01', 12, 2024, 'county', 'Essex', 'White', 49, 49),
+('2024-12-01', 12, 2024, 'county', 'Essex', 'White', 49, -1),
 ('2024-12-01', 12, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-12-01', 12, 2024, 'county', 'Essex', 'total', 51.0, 49.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Essex', 'total', 51.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24039,9 +24047,9 @@ VALUES
 ('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'Prefer to self-describe', 1, -1),
-('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'White', 79, 79),
+('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'White', 79, -1),
 ('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'Two or More Races', 3, -1),
-('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'total', 87.0, 79.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Grand Isle', 'total', 87.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24122,10 +24130,10 @@ VALUES
 ('2024-12-01', 12, 2024, 'county', 'Windham', 'Black or African American', 15, 15),
 ('2024-12-01', 12, 2024, 'county', 'Windham', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-12-01', 12, 2024, 'county', 'Windham', 'Prefer not to answer', 12, 12),
-('2024-12-01', 12, 2024, 'county', 'Windham', 'Prefer to self-describe', 11, 11),
+('2024-12-01', 12, 2024, 'county', 'Windham', 'Prefer to self-describe', 11, -1),
 ('2024-12-01', 12, 2024, 'county', 'Windham', 'White', 502, 502),
 ('2024-12-01', 12, 2024, 'county', 'Windham', 'Two or More Races', 31, 31),
-('2024-12-01', 12, 2024, 'county', 'Windham', 'total', 576.0, 571.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Windham', 'total', 576.0, 560.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24141,15 +24149,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-12-01', 12, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 31, 31),
+('2024-12-01', 12, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 31, -1),
 ('2024-12-01', 12, 2024, 'county', 'Vermont', 'Asian', 71, 71),
 ('2024-12-01', 12, 2024, 'county', 'Vermont', 'Black or African American', 382, 382),
 ('2024-12-01', 12, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 7, -1),
 ('2024-12-01', 12, 2024, 'county', 'Vermont', 'Prefer not to answer', 89, 89),
 ('2024-12-01', 12, 2024, 'county', 'Vermont', 'Prefer to self-describe', 91, 91),
-('2024-12-01', 12, 2024, 'county', 'Vermont', 'White', 6849, -1),
+('2024-12-01', 12, 2024, 'county', 'Vermont', 'White', 6849, 6849),
 ('2024-12-01', 12, 2024, 'county', 'Vermont', 'Two or More Races', 342, 342),
-('2024-12-01', 12, 2024, 'county', 'Vermont', 'total', 7862.0, 1006.0) AS new_data
+('2024-12-01', 12, 2024, 'county', 'Vermont', 'total', 7862.0, 7824.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24184,8 +24192,8 @@ VALUES
 ('2024-11-01', 11, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-11-01', 11, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 1, -1),
 ('2024-11-01', 11, 2024, 'county', 'Caledonia', 'White', 296, 296),
-('2024-11-01', 11, 2024, 'county', 'Caledonia', 'Two or More Races', 16, 16),
-('2024-11-01', 11, 2024, 'county', 'Caledonia', 'total', 324.0, 312.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Caledonia', 'Two or More Races', 16, -1),
+('2024-11-01', 11, 2024, 'county', 'Caledonia', 'total', 324.0, 296.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24193,11 +24201,11 @@ VALUES
 ('2024-11-01', 11, 2024, 'county', 'Chittenden', 'Asian', 48, 48),
 ('2024-11-01', 11, 2024, 'county', 'Chittenden', 'Black or African American', 253, 253),
 ('2024-11-01', 11, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
-('2024-11-01', 11, 2024, 'county', 'Chittenden', 'Prefer not to answer', 29, 29),
+('2024-11-01', 11, 2024, 'county', 'Chittenden', 'Prefer not to answer', 29, -1),
 ('2024-11-01', 11, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 29, 29),
 ('2024-11-01', 11, 2024, 'county', 'Chittenden', 'White', 1328, 1328),
 ('2024-11-01', 11, 2024, 'county', 'Chittenden', 'Two or More Races', 135, 135),
-('2024-11-01', 11, 2024, 'county', 'Chittenden', 'total', 1826.0, 1822.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Chittenden', 'total', 1826.0, 1793.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24207,9 +24215,9 @@ VALUES
 ('2024-11-01', 11, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-11-01', 11, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-11-01', 11, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-11-01', 11, 2024, 'county', 'Essex', 'White', 50, 50),
+('2024-11-01', 11, 2024, 'county', 'Essex', 'White', 50, -1),
 ('2024-11-01', 11, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-11-01', 11, 2024, 'county', 'Essex', 'total', 52.0, 50.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Essex', 'total', 52.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24231,9 +24239,9 @@ VALUES
 ('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'Prefer to self-describe', 1, -1),
-('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'White', 73, 73),
+('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'White', 73, -1),
 ('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'Two or More Races', 3, -1),
-('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'total', 82.0, 73.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Grand Isle', 'total', 82.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24314,10 +24322,10 @@ VALUES
 ('2024-11-01', 11, 2024, 'county', 'Windham', 'Black or African American', 15, 15),
 ('2024-11-01', 11, 2024, 'county', 'Windham', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-11-01', 11, 2024, 'county', 'Windham', 'Prefer not to answer', 13, 13),
-('2024-11-01', 11, 2024, 'county', 'Windham', 'Prefer to self-describe', 11, 11),
+('2024-11-01', 11, 2024, 'county', 'Windham', 'Prefer to self-describe', 11, -1),
 ('2024-11-01', 11, 2024, 'county', 'Windham', 'White', 500, 500),
 ('2024-11-01', 11, 2024, 'county', 'Windham', 'Two or More Races', 35, 35),
-('2024-11-01', 11, 2024, 'county', 'Windham', 'total', 578.0, 574.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Windham', 'total', 578.0, 563.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24333,15 +24341,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-11-01', 11, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 30, 30),
+('2024-11-01', 11, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 30, -1),
 ('2024-11-01', 11, 2024, 'county', 'Vermont', 'Asian', 73, 73),
 ('2024-11-01', 11, 2024, 'county', 'Vermont', 'Black or African American', 387, 387),
 ('2024-11-01', 11, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 6, -1),
 ('2024-11-01', 11, 2024, 'county', 'Vermont', 'Prefer not to answer', 87, 87),
 ('2024-11-01', 11, 2024, 'county', 'Vermont', 'Prefer to self-describe', 85, 85),
-('2024-11-01', 11, 2024, 'county', 'Vermont', 'White', 6865, -1),
+('2024-11-01', 11, 2024, 'county', 'Vermont', 'White', 6865, 6865),
 ('2024-11-01', 11, 2024, 'county', 'Vermont', 'Two or More Races', 345, 345),
-('2024-11-01', 11, 2024, 'county', 'Vermont', 'total', 7878.0, 1007.0) AS new_data
+('2024-11-01', 11, 2024, 'county', 'Vermont', 'total', 7878.0, 7842.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24351,9 +24359,9 @@ VALUES
 ('2024-10-01', 10, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-10-01', 10, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-10-01', 10, 2024, 'county', 'Addison', 'Prefer to self-describe', 3, -1),
-('2024-10-01', 10, 2024, 'county', 'Addison', 'White', 159, 159),
+('2024-10-01', 10, 2024, 'county', 'Addison', 'White', 159, -1),
 ('2024-10-01', 10, 2024, 'county', 'Addison', 'Two or More Races', 1, -1),
-('2024-10-01', 10, 2024, 'county', 'Addison', 'total', 167.0, 159.0) AS new_data
+('2024-10-01', 10, 2024, 'county', 'Addison', 'total', 167.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24376,8 +24384,8 @@ VALUES
 ('2024-10-01', 10, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-10-01', 10, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 1, -1),
 ('2024-10-01', 10, 2024, 'county', 'Caledonia', 'White', 285, 285),
-('2024-10-01', 10, 2024, 'county', 'Caledonia', 'Two or More Races', 19, 19),
-('2024-10-01', 10, 2024, 'county', 'Caledonia', 'total', 313.0, 304.0) AS new_data
+('2024-10-01', 10, 2024, 'county', 'Caledonia', 'Two or More Races', 19, -1),
+('2024-10-01', 10, 2024, 'county', 'Caledonia', 'total', 313.0, 285.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24386,10 +24394,10 @@ VALUES
 ('2024-10-01', 10, 2024, 'county', 'Chittenden', 'Black or African American', 244, 244),
 ('2024-10-01', 10, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-10-01', 10, 2024, 'county', 'Chittenden', 'Prefer not to answer', 30, 30),
-('2024-10-01', 10, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 27, 27),
+('2024-10-01', 10, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 27, -1),
 ('2024-10-01', 10, 2024, 'county', 'Chittenden', 'White', 1261, 1261),
 ('2024-10-01', 10, 2024, 'county', 'Chittenden', 'Two or More Races', 125, 125),
-('2024-10-01', 10, 2024, 'county', 'Chittenden', 'total', 1737.0, 1733.0) AS new_data
+('2024-10-01', 10, 2024, 'county', 'Chittenden', 'total', 1737.0, 1706.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24399,9 +24407,9 @@ VALUES
 ('2024-10-01', 10, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-10-01', 10, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-10-01', 10, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-10-01', 10, 2024, 'county', 'Essex', 'White', 46, 46),
+('2024-10-01', 10, 2024, 'county', 'Essex', 'White', 46, -1),
 ('2024-10-01', 10, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-10-01', 10, 2024, 'county', 'Essex', 'total', 48.0, 46.0) AS new_data
+('2024-10-01', 10, 2024, 'county', 'Essex', 'total', 48.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24525,15 +24533,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-10-01', 10, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 27, 27),
+('2024-10-01', 10, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 27, -1),
 ('2024-10-01', 10, 2024, 'county', 'Vermont', 'Asian', 69, 69),
 ('2024-10-01', 10, 2024, 'county', 'Vermont', 'Black or African American', 380, 380),
 ('2024-10-01', 10, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 4, -1),
 ('2024-10-01', 10, 2024, 'county', 'Vermont', 'Prefer not to answer', 86, 86),
 ('2024-10-01', 10, 2024, 'county', 'Vermont', 'Prefer to self-describe', 81, 81),
-('2024-10-01', 10, 2024, 'county', 'Vermont', 'White', 6680, -1),
+('2024-10-01', 10, 2024, 'county', 'Vermont', 'White', 6680, 6680),
 ('2024-10-01', 10, 2024, 'county', 'Vermont', 'Two or More Races', 334, 334),
-('2024-10-01', 10, 2024, 'county', 'Vermont', 'total', 7661.0, 977.0) AS new_data
+('2024-10-01', 10, 2024, 'county', 'Vermont', 'total', 7661.0, 7630.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24543,9 +24551,9 @@ VALUES
 ('2024-09-01', 9, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-09-01', 9, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-09-01', 9, 2024, 'county', 'Addison', 'Prefer to self-describe', 3, -1),
-('2024-09-01', 9, 2024, 'county', 'Addison', 'White', 122, 122),
+('2024-09-01', 9, 2024, 'county', 'Addison', 'White', 122, -1),
 ('2024-09-01', 9, 2024, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2024-09-01', 9, 2024, 'county', 'Addison', 'total', 126.0, 122.0) AS new_data
+('2024-09-01', 9, 2024, 'county', 'Addison', 'total', 126.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24568,8 +24576,8 @@ VALUES
 ('2024-09-01', 9, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-09-01', 9, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 0, -1),
 ('2024-09-01', 9, 2024, 'county', 'Caledonia', 'White', 290, 290),
-('2024-09-01', 9, 2024, 'county', 'Caledonia', 'Two or More Races', 16, 16),
-('2024-09-01', 9, 2024, 'county', 'Caledonia', 'total', 314.0, 306.0) AS new_data
+('2024-09-01', 9, 2024, 'county', 'Caledonia', 'Two or More Races', 16, -1),
+('2024-09-01', 9, 2024, 'county', 'Caledonia', 'total', 314.0, 290.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24577,11 +24585,11 @@ VALUES
 ('2024-09-01', 9, 2024, 'county', 'Chittenden', 'Asian', 48, 48),
 ('2024-09-01', 9, 2024, 'county', 'Chittenden', 'Black or African American', 242, 242),
 ('2024-09-01', 9, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-09-01', 9, 2024, 'county', 'Chittenden', 'Prefer not to answer', 18, 18),
+('2024-09-01', 9, 2024, 'county', 'Chittenden', 'Prefer not to answer', 18, -1),
 ('2024-09-01', 9, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 23, 23),
 ('2024-09-01', 9, 2024, 'county', 'Chittenden', 'White', 1012, 1012),
 ('2024-09-01', 9, 2024, 'county', 'Chittenden', 'Two or More Races', 108, 108),
-('2024-09-01', 9, 2024, 'county', 'Chittenden', 'total', 1452.0, 1451.0) AS new_data
+('2024-09-01', 9, 2024, 'county', 'Chittenden', 'total', 1452.0, 1433.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24591,9 +24599,9 @@ VALUES
 ('2024-09-01', 9, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-09-01', 9, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-09-01', 9, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-09-01', 9, 2024, 'county', 'Essex', 'White', 44, 44),
+('2024-09-01', 9, 2024, 'county', 'Essex', 'White', 44, -1),
 ('2024-09-01', 9, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-09-01', 9, 2024, 'county', 'Essex', 'total', 46.0, 44.0) AS new_data
+('2024-09-01', 9, 2024, 'county', 'Essex', 'total', 46.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24615,9 +24623,9 @@ VALUES
 ('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'Prefer to self-describe', 1, -1),
-('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'White', 65, 65),
+('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'White', 65, -1),
 ('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'Two or More Races', 4, -1),
-('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'total', 73.0, 65.0) AS new_data
+('2024-09-01', 9, 2024, 'county', 'Grand Isle', 'total', 73.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24717,15 +24725,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-09-01', 9, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 21, 21),
+('2024-09-01', 9, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 21, -1),
 ('2024-09-01', 9, 2024, 'county', 'Vermont', 'Asian', 67, 67),
 ('2024-09-01', 9, 2024, 'county', 'Vermont', 'Black or African American', 373, 373),
 ('2024-09-01', 9, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2024-09-01', 9, 2024, 'county', 'Vermont', 'Prefer not to answer', 73, 73),
 ('2024-09-01', 9, 2024, 'county', 'Vermont', 'Prefer to self-describe', 72, 72),
-('2024-09-01', 9, 2024, 'county', 'Vermont', 'White', 6050, -1),
+('2024-09-01', 9, 2024, 'county', 'Vermont', 'White', 6050, 6050),
 ('2024-09-01', 9, 2024, 'county', 'Vermont', 'Two or More Races', 302, 302),
-('2024-09-01', 9, 2024, 'county', 'Vermont', 'total', 6961.0, 908.0) AS new_data
+('2024-09-01', 9, 2024, 'county', 'Vermont', 'total', 6961.0, 6937.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24735,9 +24743,9 @@ VALUES
 ('2024-08-01', 8, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-08-01', 8, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-08-01', 8, 2024, 'county', 'Addison', 'Prefer to self-describe', 2, -1),
-('2024-08-01', 8, 2024, 'county', 'Addison', 'White', 124, 124),
+('2024-08-01', 8, 2024, 'county', 'Addison', 'White', 124, -1),
 ('2024-08-01', 8, 2024, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2024-08-01', 8, 2024, 'county', 'Addison', 'total', 126.0, 124.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Addison', 'total', 126.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24760,8 +24768,8 @@ VALUES
 ('2024-08-01', 8, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-08-01', 8, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 1, -1),
 ('2024-08-01', 8, 2024, 'county', 'Caledonia', 'White', 285, 285),
-('2024-08-01', 8, 2024, 'county', 'Caledonia', 'Two or More Races', 17, 17),
-('2024-08-01', 8, 2024, 'county', 'Caledonia', 'total', 310.0, 302.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Caledonia', 'Two or More Races', 17, -1),
+('2024-08-01', 8, 2024, 'county', 'Caledonia', 'total', 310.0, 285.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24770,10 +24778,10 @@ VALUES
 ('2024-08-01', 8, 2024, 'county', 'Chittenden', 'Black or African American', 243, 243),
 ('2024-08-01', 8, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-08-01', 8, 2024, 'county', 'Chittenden', 'Prefer not to answer', 21, 21),
-('2024-08-01', 8, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 18, 18),
+('2024-08-01', 8, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 18, -1),
 ('2024-08-01', 8, 2024, 'county', 'Chittenden', 'White', 1091, 1091),
 ('2024-08-01', 8, 2024, 'county', 'Chittenden', 'Two or More Races', 105, 105),
-('2024-08-01', 8, 2024, 'county', 'Chittenden', 'total', 1535.0, 1534.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Chittenden', 'total', 1535.0, 1516.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24783,9 +24791,9 @@ VALUES
 ('2024-08-01', 8, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-08-01', 8, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-08-01', 8, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-08-01', 8, 2024, 'county', 'Essex', 'White', 44, 44),
+('2024-08-01', 8, 2024, 'county', 'Essex', 'White', 44, -1),
 ('2024-08-01', 8, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-08-01', 8, 2024, 'county', 'Essex', 'total', 46.0, 44.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Essex', 'total', 46.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24807,9 +24815,9 @@ VALUES
 ('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'Prefer to self-describe', 1, -1),
-('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'White', 69, 69),
+('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'White', 69, -1),
 ('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'Two or More Races', 4, -1),
-('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'total', 78.0, 69.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Grand Isle', 'total', 78.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24865,11 +24873,11 @@ VALUES
 ('2024-08-01', 8, 2024, 'county', 'Rutland', 'Asian', 1, -1),
 ('2024-08-01', 8, 2024, 'county', 'Rutland', 'Black or African American', 39, 39),
 ('2024-08-01', 8, 2024, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-08-01', 8, 2024, 'county', 'Rutland', 'Prefer not to answer', 13, 13),
+('2024-08-01', 8, 2024, 'county', 'Rutland', 'Prefer not to answer', 13, -1),
 ('2024-08-01', 8, 2024, 'county', 'Rutland', 'Prefer to self-describe', 2, -1),
 ('2024-08-01', 8, 2024, 'county', 'Rutland', 'White', 933, 933),
 ('2024-08-01', 8, 2024, 'county', 'Rutland', 'Two or More Races', 29, 29),
-('2024-08-01', 8, 2024, 'county', 'Rutland', 'total', 1019.0, 1014.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Rutland', 'total', 1019.0, 1001.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24877,11 +24885,11 @@ VALUES
 ('2024-08-01', 8, 2024, 'county', 'Washington', 'Asian', 4, -1),
 ('2024-08-01', 8, 2024, 'county', 'Washington', 'Black or African American', 12, 12),
 ('2024-08-01', 8, 2024, 'county', 'Washington', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-08-01', 8, 2024, 'county', 'Washington', 'Prefer not to answer', 11, 11),
+('2024-08-01', 8, 2024, 'county', 'Washington', 'Prefer not to answer', 11, -1),
 ('2024-08-01', 8, 2024, 'county', 'Washington', 'Prefer to self-describe', 2, -1),
 ('2024-08-01', 8, 2024, 'county', 'Washington', 'White', 458, 458),
 ('2024-08-01', 8, 2024, 'county', 'Washington', 'Two or More Races', 18, 18),
-('2024-08-01', 8, 2024, 'county', 'Washington', 'total', 505.0, 499.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Washington', 'total', 505.0, 488.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24889,11 +24897,11 @@ VALUES
 ('2024-08-01', 8, 2024, 'county', 'Windham', 'Asian', 3, -1),
 ('2024-08-01', 8, 2024, 'county', 'Windham', 'Black or African American', 16, 16),
 ('2024-08-01', 8, 2024, 'county', 'Windham', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-08-01', 8, 2024, 'county', 'Windham', 'Prefer not to answer', 12, 12),
+('2024-08-01', 8, 2024, 'county', 'Windham', 'Prefer not to answer', 12, -1),
 ('2024-08-01', 8, 2024, 'county', 'Windham', 'Prefer to self-describe', 12, 12),
 ('2024-08-01', 8, 2024, 'county', 'Windham', 'White', 488, 488),
 ('2024-08-01', 8, 2024, 'county', 'Windham', 'Two or More Races', 36, 36),
-('2024-08-01', 8, 2024, 'county', 'Windham', 'total', 569.0, 564.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Windham', 'total', 569.0, 552.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24909,15 +24917,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-08-01', 8, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 22, 22),
+('2024-08-01', 8, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 22, -1),
 ('2024-08-01', 8, 2024, 'county', 'Vermont', 'Asian', 77, 77),
 ('2024-08-01', 8, 2024, 'county', 'Vermont', 'Black or African American', 378, 378),
 ('2024-08-01', 8, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2024-08-01', 8, 2024, 'county', 'Vermont', 'Prefer not to answer', 80, 80),
 ('2024-08-01', 8, 2024, 'county', 'Vermont', 'Prefer to self-describe', 66, 66),
-('2024-08-01', 8, 2024, 'county', 'Vermont', 'White', 6359, -1),
+('2024-08-01', 8, 2024, 'county', 'Vermont', 'White', 6359, 6359),
 ('2024-08-01', 8, 2024, 'county', 'Vermont', 'Two or More Races', 328, 328),
-('2024-08-01', 8, 2024, 'county', 'Vermont', 'total', 7313.0, 951.0) AS new_data
+('2024-08-01', 8, 2024, 'county', 'Vermont', 'total', 7313.0, 7288.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24927,9 +24935,9 @@ VALUES
 ('2024-07-01', 7, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-07-01', 7, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-07-01', 7, 2024, 'county', 'Addison', 'Prefer to self-describe', 2, -1),
-('2024-07-01', 7, 2024, 'county', 'Addison', 'White', 98, 98),
+('2024-07-01', 7, 2024, 'county', 'Addison', 'White', 98, -1),
 ('2024-07-01', 7, 2024, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2024-07-01', 7, 2024, 'county', 'Addison', 'total', 100.0, 98.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Addison', 'total', 100.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24952,8 +24960,8 @@ VALUES
 ('2024-07-01', 7, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-07-01', 7, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 1, -1),
 ('2024-07-01', 7, 2024, 'county', 'Caledonia', 'White', 272, 272),
-('2024-07-01', 7, 2024, 'county', 'Caledonia', 'Two or More Races', 17, 17),
-('2024-07-01', 7, 2024, 'county', 'Caledonia', 'total', 296.0, 289.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Caledonia', 'Two or More Races', 17, -1),
+('2024-07-01', 7, 2024, 'county', 'Caledonia', 'total', 296.0, 272.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24962,10 +24970,10 @@ VALUES
 ('2024-07-01', 7, 2024, 'county', 'Chittenden', 'Black or African American', 218, 218),
 ('2024-07-01', 7, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-07-01', 7, 2024, 'county', 'Chittenden', 'Prefer not to answer', 20, 20),
-('2024-07-01', 7, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 14, 14),
+('2024-07-01', 7, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 14, -1),
 ('2024-07-01', 7, 2024, 'county', 'Chittenden', 'White', 995, 995),
 ('2024-07-01', 7, 2024, 'county', 'Chittenden', 'Two or More Races', 92, 92),
-('2024-07-01', 7, 2024, 'county', 'Chittenden', 'total', 1385.0, 1383.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Chittenden', 'total', 1385.0, 1369.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -24975,9 +24983,9 @@ VALUES
 ('2024-07-01', 7, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-07-01', 7, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-07-01', 7, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-07-01', 7, 2024, 'county', 'Essex', 'White', 43, 43),
+('2024-07-01', 7, 2024, 'county', 'Essex', 'White', 43, -1),
 ('2024-07-01', 7, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-07-01', 7, 2024, 'county', 'Essex', 'total', 45.0, 43.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Essex', 'total', 45.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25047,9 +25055,9 @@ VALUES
 ('2024-07-01', 7, 2024, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-07-01', 7, 2024, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-07-01', 7, 2024, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-07-01', 7, 2024, 'county', 'Out of State', 'White', 11, 11),
+('2024-07-01', 7, 2024, 'county', 'Out of State', 'White', 11, -1),
 ('2024-07-01', 7, 2024, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2024-07-01', 7, 2024, 'county', 'Out of State', 'total', 16.0, 11.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Out of State', 'total', 16.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25057,11 +25065,11 @@ VALUES
 ('2024-07-01', 7, 2024, 'county', 'Rutland', 'Asian', 1, -1),
 ('2024-07-01', 7, 2024, 'county', 'Rutland', 'Black or African American', 40, 40),
 ('2024-07-01', 7, 2024, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-07-01', 7, 2024, 'county', 'Rutland', 'Prefer not to answer', 13, 13),
+('2024-07-01', 7, 2024, 'county', 'Rutland', 'Prefer not to answer', 13, -1),
 ('2024-07-01', 7, 2024, 'county', 'Rutland', 'Prefer to self-describe', 1, -1),
 ('2024-07-01', 7, 2024, 'county', 'Rutland', 'White', 899, 899),
 ('2024-07-01', 7, 2024, 'county', 'Rutland', 'Two or More Races', 30, 30),
-('2024-07-01', 7, 2024, 'county', 'Rutland', 'total', 986.0, 982.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Rutland', 'total', 986.0, 969.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25095,21 +25103,21 @@ VALUES
 ('2024-07-01', 7, 2024, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-07-01', 7, 2024, 'county', 'Windsor', 'Prefer not to answer', 4, -1),
 ('2024-07-01', 7, 2024, 'county', 'Windsor', 'Prefer to self-describe', 11, 11),
-('2024-07-01', 7, 2024, 'county', 'Windsor', 'White', 604, -1),
+('2024-07-01', 7, 2024, 'county', 'Windsor', 'White', 604, 604),
 ('2024-07-01', 7, 2024, 'county', 'Windsor', 'Two or More Races', 30, 30),
-('2024-07-01', 7, 2024, 'county', 'Windsor', 'total', 667.0, 41.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Windsor', 'total', 667.0, 645.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-07-01', 7, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 24, 24),
+('2024-07-01', 7, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 24, -1),
 ('2024-07-01', 7, 2024, 'county', 'Vermont', 'Asian', 67, 67),
 ('2024-07-01', 7, 2024, 'county', 'Vermont', 'Black or African American', 345, 345),
 ('2024-07-01', 7, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2024-07-01', 7, 2024, 'county', 'Vermont', 'Prefer not to answer', 67, 67),
 ('2024-07-01', 7, 2024, 'county', 'Vermont', 'Prefer to self-describe', 61, 61),
-('2024-07-01', 7, 2024, 'county', 'Vermont', 'White', 5902, -1),
+('2024-07-01', 7, 2024, 'county', 'Vermont', 'White', 5902, 5902),
 ('2024-07-01', 7, 2024, 'county', 'Vermont', 'Two or More Races', 308, 308),
-('2024-07-01', 7, 2024, 'county', 'Vermont', 'total', 6777.0, 872.0) AS new_data
+('2024-07-01', 7, 2024, 'county', 'Vermont', 'total', 6777.0, 6750.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25119,9 +25127,9 @@ VALUES
 ('2024-06-01', 6, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-06-01', 6, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-06-01', 6, 2024, 'county', 'Addison', 'Prefer to self-describe', 2, -1),
-('2024-06-01', 6, 2024, 'county', 'Addison', 'White', 104, 104),
+('2024-06-01', 6, 2024, 'county', 'Addison', 'White', 104, -1),
 ('2024-06-01', 6, 2024, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2024-06-01', 6, 2024, 'county', 'Addison', 'total', 106.0, 104.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Addison', 'total', 106.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25144,8 +25152,8 @@ VALUES
 ('2024-06-01', 6, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-06-01', 6, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 0, -1),
 ('2024-06-01', 6, 2024, 'county', 'Caledonia', 'White', 274, 274),
-('2024-06-01', 6, 2024, 'county', 'Caledonia', 'Two or More Races', 17, 17),
-('2024-06-01', 6, 2024, 'county', 'Caledonia', 'total', 298.0, 291.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Caledonia', 'Two or More Races', 17, -1),
+('2024-06-01', 6, 2024, 'county', 'Caledonia', 'total', 298.0, 274.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25154,10 +25162,10 @@ VALUES
 ('2024-06-01', 6, 2024, 'county', 'Chittenden', 'Black or African American', 235, 235),
 ('2024-06-01', 6, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-06-01', 6, 2024, 'county', 'Chittenden', 'Prefer not to answer', 24, 24),
-('2024-06-01', 6, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 12, 12),
+('2024-06-01', 6, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 12, -1),
 ('2024-06-01', 6, 2024, 'county', 'Chittenden', 'White', 1036, 1036),
 ('2024-06-01', 6, 2024, 'county', 'Chittenden', 'Two or More Races', 90, 90),
-('2024-06-01', 6, 2024, 'county', 'Chittenden', 'total', 1447.0, 1445.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Chittenden', 'total', 1447.0, 1433.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25167,9 +25175,9 @@ VALUES
 ('2024-06-01', 6, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-06-01', 6, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-06-01', 6, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-06-01', 6, 2024, 'county', 'Essex', 'White', 46, 46),
+('2024-06-01', 6, 2024, 'county', 'Essex', 'White', 46, -1),
 ('2024-06-01', 6, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-06-01', 6, 2024, 'county', 'Essex', 'total', 48.0, 46.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Essex', 'total', 48.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25199,13 +25207,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2024-06-01', 6, 2024, 'county', 'Lamoille', 'American Indian or Alaskan Native', 4, -1),
 ('2024-06-01', 6, 2024, 'county', 'Lamoille', 'Asian', 0, -1),
-('2024-06-01', 6, 2024, 'county', 'Lamoille', 'Black or African American', 11, 11),
+('2024-06-01', 6, 2024, 'county', 'Lamoille', 'Black or African American', 11, -1),
 ('2024-06-01', 6, 2024, 'county', 'Lamoille', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-06-01', 6, 2024, 'county', 'Lamoille', 'Prefer not to answer', 2, -1),
 ('2024-06-01', 6, 2024, 'county', 'Lamoille', 'Prefer to self-describe', 1, -1),
 ('2024-06-01', 6, 2024, 'county', 'Lamoille', 'White', 358, 358),
 ('2024-06-01', 6, 2024, 'county', 'Lamoille', 'Two or More Races', 26, 26),
-('2024-06-01', 6, 2024, 'county', 'Lamoille', 'total', 403.0, 395.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Lamoille', 'total', 403.0, 384.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25239,9 +25247,9 @@ VALUES
 ('2024-06-01', 6, 2024, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-06-01', 6, 2024, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-06-01', 6, 2024, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-06-01', 6, 2024, 'county', 'Out of State', 'White', 12, 12),
+('2024-06-01', 6, 2024, 'county', 'Out of State', 'White', 12, -1),
 ('2024-06-01', 6, 2024, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2024-06-01', 6, 2024, 'county', 'Out of State', 'total', 17.0, 12.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Out of State', 'total', 17.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25249,11 +25257,11 @@ VALUES
 ('2024-06-01', 6, 2024, 'county', 'Rutland', 'Asian', 1, -1),
 ('2024-06-01', 6, 2024, 'county', 'Rutland', 'Black or African American', 40, 40),
 ('2024-06-01', 6, 2024, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-06-01', 6, 2024, 'county', 'Rutland', 'Prefer not to answer', 11, 11),
+('2024-06-01', 6, 2024, 'county', 'Rutland', 'Prefer not to answer', 11, -1),
 ('2024-06-01', 6, 2024, 'county', 'Rutland', 'Prefer to self-describe', 1, -1),
 ('2024-06-01', 6, 2024, 'county', 'Rutland', 'White', 933, 933),
 ('2024-06-01', 6, 2024, 'county', 'Rutland', 'Two or More Races', 34, 34),
-('2024-06-01', 6, 2024, 'county', 'Rutland', 'total', 1022.0, 1018.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Rutland', 'total', 1022.0, 1007.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25273,11 +25281,11 @@ VALUES
 ('2024-06-01', 6, 2024, 'county', 'Windham', 'Asian', 3, -1),
 ('2024-06-01', 6, 2024, 'county', 'Windham', 'Black or African American', 17, 17),
 ('2024-06-01', 6, 2024, 'county', 'Windham', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-06-01', 6, 2024, 'county', 'Windham', 'Prefer not to answer', 11, 11),
+('2024-06-01', 6, 2024, 'county', 'Windham', 'Prefer not to answer', 11, -1),
 ('2024-06-01', 6, 2024, 'county', 'Windham', 'Prefer to self-describe', 14, 14),
 ('2024-06-01', 6, 2024, 'county', 'Windham', 'White', 467, 467),
 ('2024-06-01', 6, 2024, 'county', 'Windham', 'Two or More Races', 33, 33),
-('2024-06-01', 6, 2024, 'county', 'Windham', 'total', 547.0, 542.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Windham', 'total', 547.0, 531.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25287,21 +25295,21 @@ VALUES
 ('2024-06-01', 6, 2024, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-06-01', 6, 2024, 'county', 'Windsor', 'Prefer not to answer', 4, -1),
 ('2024-06-01', 6, 2024, 'county', 'Windsor', 'Prefer to self-describe', 12, 12),
-('2024-06-01', 6, 2024, 'county', 'Windsor', 'White', 627, -1),
+('2024-06-01', 6, 2024, 'county', 'Windsor', 'White', 627, 627),
 ('2024-06-01', 6, 2024, 'county', 'Windsor', 'Two or More Races', 31, 31),
-('2024-06-01', 6, 2024, 'county', 'Windsor', 'total', 692.0, 54.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Windsor', 'total', 692.0, 681.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-06-01', 6, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 22, 22),
+('2024-06-01', 6, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 22, -1),
 ('2024-06-01', 6, 2024, 'county', 'Vermont', 'Asian', 70, 70),
 ('2024-06-01', 6, 2024, 'county', 'Vermont', 'Black or African American', 373, 373),
 ('2024-06-01', 6, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2024-06-01', 6, 2024, 'county', 'Vermont', 'Prefer not to answer', 68, 68),
 ('2024-06-01', 6, 2024, 'county', 'Vermont', 'Prefer to self-describe', 59, 59),
-('2024-06-01', 6, 2024, 'county', 'Vermont', 'White', 6183, -1),
+('2024-06-01', 6, 2024, 'county', 'Vermont', 'White', 6183, 6183),
 ('2024-06-01', 6, 2024, 'county', 'Vermont', 'Two or More Races', 317, 317),
-('2024-06-01', 6, 2024, 'county', 'Vermont', 'total', 7095.0, 909.0) AS new_data
+('2024-06-01', 6, 2024, 'county', 'Vermont', 'total', 7095.0, 7070.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25311,21 +25319,21 @@ VALUES
 ('2024-05-01', 5, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Addison', 'Prefer to self-describe', 2, -1),
-('2024-05-01', 5, 2024, 'county', 'Addison', 'White', 76, 76),
+('2024-05-01', 5, 2024, 'county', 'Addison', 'White', 76, -1),
 ('2024-05-01', 5, 2024, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2024-05-01', 5, 2024, 'county', 'Addison', 'total', 79.0, 76.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Addison', 'total', 79.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-05-01', 5, 2024, 'county', 'Bennington', 'American Indian or Alaskan Native', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Bennington', 'Asian', 3, -1),
-('2024-05-01', 5, 2024, 'county', 'Bennington', 'Black or African American', 14, 14),
+('2024-05-01', 5, 2024, 'county', 'Bennington', 'Black or African American', 14, -1),
 ('2024-05-01', 5, 2024, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Bennington', 'Prefer to self-describe', 4, -1),
 ('2024-05-01', 5, 2024, 'county', 'Bennington', 'White', 573, 573),
 ('2024-05-01', 5, 2024, 'county', 'Bennington', 'Two or More Races', 36, 36),
-('2024-05-01', 5, 2024, 'county', 'Bennington', 'total', 630.0, 623.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Bennington', 'total', 630.0, 609.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25336,8 +25344,8 @@ VALUES
 ('2024-05-01', 5, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Caledonia', 'White', 258, 258),
-('2024-05-01', 5, 2024, 'county', 'Caledonia', 'Two or More Races', 14, 14),
-('2024-05-01', 5, 2024, 'county', 'Caledonia', 'total', 279.0, 272.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Caledonia', 'Two or More Races', 14, -1),
+('2024-05-01', 5, 2024, 'county', 'Caledonia', 'total', 279.0, 258.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25346,10 +25354,10 @@ VALUES
 ('2024-05-01', 5, 2024, 'county', 'Chittenden', 'Black or African American', 218, 218),
 ('2024-05-01', 5, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Chittenden', 'Prefer not to answer', 16, 16),
-('2024-05-01', 5, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 11, 11),
+('2024-05-01', 5, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 11, -1),
 ('2024-05-01', 5, 2024, 'county', 'Chittenden', 'White', 885, 885),
 ('2024-05-01', 5, 2024, 'county', 'Chittenden', 'Two or More Races', 77, 77),
-('2024-05-01', 5, 2024, 'county', 'Chittenden', 'total', 1250.0, 1248.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Chittenden', 'total', 1250.0, 1237.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25359,9 +25367,9 @@ VALUES
 ('2024-05-01', 5, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-05-01', 5, 2024, 'county', 'Essex', 'White', 41, 41),
+('2024-05-01', 5, 2024, 'county', 'Essex', 'White', 41, -1),
 ('2024-05-01', 5, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-05-01', 5, 2024, 'county', 'Essex', 'total', 43.0, 41.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Essex', 'total', 43.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25391,13 +25399,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2024-05-01', 5, 2024, 'county', 'Lamoille', 'American Indian or Alaskan Native', 2, -1),
 ('2024-05-01', 5, 2024, 'county', 'Lamoille', 'Asian', 0, -1),
-('2024-05-01', 5, 2024, 'county', 'Lamoille', 'Black or African American', 11, 11),
+('2024-05-01', 5, 2024, 'county', 'Lamoille', 'Black or African American', 11, -1),
 ('2024-05-01', 5, 2024, 'county', 'Lamoille', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-05-01', 5, 2024, 'county', 'Lamoille', 'Prefer not to answer', 1, -1),
 ('2024-05-01', 5, 2024, 'county', 'Lamoille', 'Prefer to self-describe', 1, -1),
 ('2024-05-01', 5, 2024, 'county', 'Lamoille', 'White', 340, 340),
 ('2024-05-01', 5, 2024, 'county', 'Lamoille', 'Two or More Races', 22, 22),
-('2024-05-01', 5, 2024, 'county', 'Lamoille', 'total', 378.0, 373.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Lamoille', 'total', 378.0, 362.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25419,9 +25427,9 @@ VALUES
 ('2024-05-01', 5, 2024, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Orleans', 'Prefer not to answer', 2, -1),
 ('2024-05-01', 5, 2024, 'county', 'Orleans', 'Prefer to self-describe', 0, -1),
-('2024-05-01', 5, 2024, 'county', 'Orleans', 'White', 314, 314),
+('2024-05-01', 5, 2024, 'county', 'Orleans', 'White', 314, -1),
 ('2024-05-01', 5, 2024, 'county', 'Orleans', 'Two or More Races', 2, -1),
-('2024-05-01', 5, 2024, 'county', 'Orleans', 'total', 323.0, 314.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Orleans', 'total', 323.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25431,9 +25439,9 @@ VALUES
 ('2024-05-01', 5, 2024, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-05-01', 5, 2024, 'county', 'Out of State', 'White', 11, 11),
+('2024-05-01', 5, 2024, 'county', 'Out of State', 'White', 11, -1),
 ('2024-05-01', 5, 2024, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2024-05-01', 5, 2024, 'county', 'Out of State', 'total', 14.0, 11.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Out of State', 'total', 14.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25444,8 +25452,8 @@ VALUES
 ('2024-05-01', 5, 2024, 'county', 'Rutland', 'Prefer not to answer', 6, -1),
 ('2024-05-01', 5, 2024, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2024-05-01', 5, 2024, 'county', 'Rutland', 'White', 793, 793),
-('2024-05-01', 5, 2024, 'county', 'Rutland', 'Two or More Races', 28, 28),
-('2024-05-01', 5, 2024, 'county', 'Rutland', 'total', 859.0, 852.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Rutland', 'Two or More Races', 28, -1),
+('2024-05-01', 5, 2024, 'county', 'Rutland', 'total', 859.0, 824.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25479,21 +25487,21 @@ VALUES
 ('2024-05-01', 5, 2024, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-05-01', 5, 2024, 'county', 'Windsor', 'Prefer not to answer', 3, -1),
 ('2024-05-01', 5, 2024, 'county', 'Windsor', 'Prefer to self-describe', 12, 12),
-('2024-05-01', 5, 2024, 'county', 'Windsor', 'White', 514, -1),
+('2024-05-01', 5, 2024, 'county', 'Windsor', 'White', 514, 514),
 ('2024-05-01', 5, 2024, 'county', 'Windsor', 'Two or More Races', 29, 29),
-('2024-05-01', 5, 2024, 'county', 'Windsor', 'total', 574.0, 41.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Windsor', 'total', 574.0, 555.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-05-01', 5, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 14, 14),
+('2024-05-01', 5, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 14, -1),
 ('2024-05-01', 5, 2024, 'county', 'Vermont', 'Asian', 60, 60),
 ('2024-05-01', 5, 2024, 'county', 'Vermont', 'Black or African American', 334, 334),
 ('2024-05-01', 5, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2024-05-01', 5, 2024, 'county', 'Vermont', 'Prefer not to answer', 49, 49),
 ('2024-05-01', 5, 2024, 'county', 'Vermont', 'Prefer to self-describe', 50, 50),
-('2024-05-01', 5, 2024, 'county', 'Vermont', 'White', 5414, -1),
+('2024-05-01', 5, 2024, 'county', 'Vermont', 'White', 5414, 5414),
 ('2024-05-01', 5, 2024, 'county', 'Vermont', 'Two or More Races', 275, 275),
-('2024-05-01', 5, 2024, 'county', 'Vermont', 'total', 6199.0, 782.0) AS new_data
+('2024-05-01', 5, 2024, 'county', 'Vermont', 'total', 6199.0, 6182.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25503,21 +25511,21 @@ VALUES
 ('2024-04-01', 4, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Addison', 'Prefer to self-describe', 2, -1),
-('2024-04-01', 4, 2024, 'county', 'Addison', 'White', 77, 77),
+('2024-04-01', 4, 2024, 'county', 'Addison', 'White', 77, -1),
 ('2024-04-01', 4, 2024, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2024-04-01', 4, 2024, 'county', 'Addison', 'total', 80.0, 77.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Addison', 'total', 80.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-04-01', 4, 2024, 'county', 'Bennington', 'American Indian or Alaskan Native', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Bennington', 'Asian', 3, -1),
-('2024-04-01', 4, 2024, 'county', 'Bennington', 'Black or African American', 15, 15),
+('2024-04-01', 4, 2024, 'county', 'Bennington', 'Black or African American', 15, -1),
 ('2024-04-01', 4, 2024, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Bennington', 'Prefer to self-describe', 4, -1),
 ('2024-04-01', 4, 2024, 'county', 'Bennington', 'White', 577, 577),
 ('2024-04-01', 4, 2024, 'county', 'Bennington', 'Two or More Races', 34, 34),
-('2024-04-01', 4, 2024, 'county', 'Bennington', 'total', 633.0, 626.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Bennington', 'total', 633.0, 611.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25528,8 +25536,8 @@ VALUES
 ('2024-04-01', 4, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Caledonia', 'White', 251, 251),
-('2024-04-01', 4, 2024, 'county', 'Caledonia', 'Two or More Races', 13, 13),
-('2024-04-01', 4, 2024, 'county', 'Caledonia', 'total', 272.0, 264.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Caledonia', 'Two or More Races', 13, -1),
+('2024-04-01', 4, 2024, 'county', 'Caledonia', 'total', 272.0, 251.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25537,11 +25545,11 @@ VALUES
 ('2024-04-01', 4, 2024, 'county', 'Chittenden', 'Asian', 41, 41),
 ('2024-04-01', 4, 2024, 'county', 'Chittenden', 'Black or African American', 217, 217),
 ('2024-04-01', 4, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-04-01', 4, 2024, 'county', 'Chittenden', 'Prefer not to answer', 15, 15),
+('2024-04-01', 4, 2024, 'county', 'Chittenden', 'Prefer not to answer', 15, -1),
 ('2024-04-01', 4, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 16, 16),
 ('2024-04-01', 4, 2024, 'county', 'Chittenden', 'White', 887, 887),
 ('2024-04-01', 4, 2024, 'county', 'Chittenden', 'Two or More Races', 76, 76),
-('2024-04-01', 4, 2024, 'county', 'Chittenden', 'total', 1253.0, 1252.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Chittenden', 'total', 1253.0, 1237.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25551,9 +25559,9 @@ VALUES
 ('2024-04-01', 4, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-04-01', 4, 2024, 'county', 'Essex', 'White', 34, 34),
+('2024-04-01', 4, 2024, 'county', 'Essex', 'White', 34, -1),
 ('2024-04-01', 4, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-04-01', 4, 2024, 'county', 'Essex', 'total', 36.0, 34.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Essex', 'total', 36.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25611,9 +25619,9 @@ VALUES
 ('2024-04-01', 4, 2024, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Orleans', 'Prefer not to answer', 2, -1),
 ('2024-04-01', 4, 2024, 'county', 'Orleans', 'Prefer to self-describe', 0, -1),
-('2024-04-01', 4, 2024, 'county', 'Orleans', 'White', 301, 301),
+('2024-04-01', 4, 2024, 'county', 'Orleans', 'White', 301, -1),
 ('2024-04-01', 4, 2024, 'county', 'Orleans', 'Two or More Races', 2, -1),
-('2024-04-01', 4, 2024, 'county', 'Orleans', 'total', 309.0, 301.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Orleans', 'total', 309.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25623,21 +25631,21 @@ VALUES
 ('2024-04-01', 4, 2024, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-04-01', 4, 2024, 'county', 'Out of State', 'White', 12, 12),
+('2024-04-01', 4, 2024, 'county', 'Out of State', 'White', 12, -1),
 ('2024-04-01', 4, 2024, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2024-04-01', 4, 2024, 'county', 'Out of State', 'total', 15.0, 12.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Out of State', 'total', 15.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-04-01', 4, 2024, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Rutland', 'Asian', 1, -1),
-('2024-04-01', 4, 2024, 'county', 'Rutland', 'Black or African American', 24, 24),
+('2024-04-01', 4, 2024, 'county', 'Rutland', 'Black or African American', 24, -1),
 ('2024-04-01', 4, 2024, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Rutland', 'Prefer not to answer', 6, -1),
 ('2024-04-01', 4, 2024, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2024-04-01', 4, 2024, 'county', 'Rutland', 'White', 774, 774),
 ('2024-04-01', 4, 2024, 'county', 'Rutland', 'Two or More Races', 28, 28),
-('2024-04-01', 4, 2024, 'county', 'Rutland', 'total', 833.0, 826.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Rutland', 'total', 833.0, 802.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25677,15 +25685,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-04-01', 4, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 14, 14),
+('2024-04-01', 4, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 14, -1),
 ('2024-04-01', 4, 2024, 'county', 'Vermont', 'Asian', 60, 60),
 ('2024-04-01', 4, 2024, 'county', 'Vermont', 'Black or African American', 322, 322),
 ('2024-04-01', 4, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2024-04-01', 4, 2024, 'county', 'Vermont', 'Prefer not to answer', 49, 49),
 ('2024-04-01', 4, 2024, 'county', 'Vermont', 'Prefer to self-describe', 55, 55),
 ('2024-04-01', 4, 2024, 'county', 'Vermont', 'White', 5338, 5338),
-('2024-04-01', 4, 2024, 'county', 'Vermont', 'Two or More Races', 276, -1),
-('2024-04-01', 4, 2024, 'county', 'Vermont', 'total', 6117.0, 5838.0) AS new_data
+('2024-04-01', 4, 2024, 'county', 'Vermont', 'Two or More Races', 276, 276),
+('2024-04-01', 4, 2024, 'county', 'Vermont', 'total', 6117.0, 6100.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25695,21 +25703,21 @@ VALUES
 ('2024-03-01', 3, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Addison', 'Prefer to self-describe', 2, -1),
-('2024-03-01', 3, 2024, 'county', 'Addison', 'White', 73, 73),
+('2024-03-01', 3, 2024, 'county', 'Addison', 'White', 73, -1),
 ('2024-03-01', 3, 2024, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2024-03-01', 3, 2024, 'county', 'Addison', 'total', 76.0, 73.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Addison', 'total', 76.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-03-01', 3, 2024, 'county', 'Bennington', 'American Indian or Alaskan Native', 1, -1),
 ('2024-03-01', 3, 2024, 'county', 'Bennington', 'Asian', 3, -1),
-('2024-03-01', 3, 2024, 'county', 'Bennington', 'Black or African American', 15, 15),
+('2024-03-01', 3, 2024, 'county', 'Bennington', 'Black or African American', 15, -1),
 ('2024-03-01', 3, 2024, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Bennington', 'Prefer to self-describe', 4, -1),
 ('2024-03-01', 3, 2024, 'county', 'Bennington', 'White', 553, 553),
 ('2024-03-01', 3, 2024, 'county', 'Bennington', 'Two or More Races', 32, 32),
-('2024-03-01', 3, 2024, 'county', 'Bennington', 'total', 608.0, 600.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Bennington', 'total', 608.0, 585.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25720,8 +25728,8 @@ VALUES
 ('2024-03-01', 3, 2024, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Caledonia', 'Prefer to self-describe', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Caledonia', 'White', 243, 243),
-('2024-03-01', 3, 2024, 'county', 'Caledonia', 'Two or More Races', 12, 12),
-('2024-03-01', 3, 2024, 'county', 'Caledonia', 'total', 263.0, 255.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Caledonia', 'Two or More Races', 12, -1),
+('2024-03-01', 3, 2024, 'county', 'Caledonia', 'total', 263.0, 243.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25729,11 +25737,11 @@ VALUES
 ('2024-03-01', 3, 2024, 'county', 'Chittenden', 'Asian', 39, 39),
 ('2024-03-01', 3, 2024, 'county', 'Chittenden', 'Black or African American', 219, 219),
 ('2024-03-01', 3, 2024, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-03-01', 3, 2024, 'county', 'Chittenden', 'Prefer not to answer', 13, 13),
+('2024-03-01', 3, 2024, 'county', 'Chittenden', 'Prefer not to answer', 13, -1),
 ('2024-03-01', 3, 2024, 'county', 'Chittenden', 'Prefer to self-describe', 16, 16),
 ('2024-03-01', 3, 2024, 'county', 'Chittenden', 'White', 810, 810),
 ('2024-03-01', 3, 2024, 'county', 'Chittenden', 'Two or More Races', 72, 72),
-('2024-03-01', 3, 2024, 'county', 'Chittenden', 'total', 1170.0, 1169.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Chittenden', 'total', 1170.0, 1156.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25743,9 +25751,9 @@ VALUES
 ('2024-03-01', 3, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-03-01', 3, 2024, 'county', 'Essex', 'White', 32, 32),
+('2024-03-01', 3, 2024, 'county', 'Essex', 'White', 32, -1),
 ('2024-03-01', 3, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-03-01', 3, 2024, 'county', 'Essex', 'total', 33.0, 32.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Essex', 'total', 33.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25791,9 +25799,9 @@ VALUES
 ('2024-03-01', 3, 2024, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Orange', 'Prefer not to answer', 2, -1),
 ('2024-03-01', 3, 2024, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2024-03-01', 3, 2024, 'county', 'Orange', 'White', 213, 213),
+('2024-03-01', 3, 2024, 'county', 'Orange', 'White', 213, -1),
 ('2024-03-01', 3, 2024, 'county', 'Orange', 'Two or More Races', 3, -1),
-('2024-03-01', 3, 2024, 'county', 'Orange', 'total', 221.0, 213.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Orange', 'total', 221.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25803,9 +25811,9 @@ VALUES
 ('2024-03-01', 3, 2024, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Orleans', 'Prefer not to answer', 2, -1),
 ('2024-03-01', 3, 2024, 'county', 'Orleans', 'Prefer to self-describe', 0, -1),
-('2024-03-01', 3, 2024, 'county', 'Orleans', 'White', 290, 290),
+('2024-03-01', 3, 2024, 'county', 'Orleans', 'White', 290, -1),
 ('2024-03-01', 3, 2024, 'county', 'Orleans', 'Two or More Races', 2, -1),
-('2024-03-01', 3, 2024, 'county', 'Orleans', 'total', 298.0, 290.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Orleans', 'total', 298.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25815,21 +25823,21 @@ VALUES
 ('2024-03-01', 3, 2024, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-03-01', 3, 2024, 'county', 'Out of State', 'White', 12, 12),
+('2024-03-01', 3, 2024, 'county', 'Out of State', 'White', 12, -1),
 ('2024-03-01', 3, 2024, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2024-03-01', 3, 2024, 'county', 'Out of State', 'total', 15.0, 12.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Out of State', 'total', 15.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-03-01', 3, 2024, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Rutland', 'Asian', 1, -1),
-('2024-03-01', 3, 2024, 'county', 'Rutland', 'Black or African American', 25, 25),
+('2024-03-01', 3, 2024, 'county', 'Rutland', 'Black or African American', 25, -1),
 ('2024-03-01', 3, 2024, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Rutland', 'Prefer not to answer', 6, -1),
 ('2024-03-01', 3, 2024, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2024-03-01', 3, 2024, 'county', 'Rutland', 'White', 746, 746),
 ('2024-03-01', 3, 2024, 'county', 'Rutland', 'Two or More Races', 28, 28),
-('2024-03-01', 3, 2024, 'county', 'Rutland', 'total', 806.0, 799.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Rutland', 'total', 806.0, 774.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25869,15 +25877,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-03-01', 3, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 13, 13),
+('2024-03-01', 3, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 13, -1),
 ('2024-03-01', 3, 2024, 'county', 'Vermont', 'Asian', 57, 57),
 ('2024-03-01', 3, 2024, 'county', 'Vermont', 'Black or African American', 323, 323),
 ('2024-03-01', 3, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2024-03-01', 3, 2024, 'county', 'Vermont', 'Prefer not to answer', 47, 47),
 ('2024-03-01', 3, 2024, 'county', 'Vermont', 'Prefer to self-describe', 54, 54),
 ('2024-03-01', 3, 2024, 'county', 'Vermont', 'White', 5066, 5066),
-('2024-03-01', 3, 2024, 'county', 'Vermont', 'Two or More Races', 259, -1),
-('2024-03-01', 3, 2024, 'county', 'Vermont', 'total', 5822.0, 5560.0) AS new_data
+('2024-03-01', 3, 2024, 'county', 'Vermont', 'Two or More Races', 259, 259),
+('2024-03-01', 3, 2024, 'county', 'Vermont', 'total', 5822.0, 5806.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25887,21 +25895,21 @@ VALUES
 ('2024-02-01', 2, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Addison', 'Prefer to self-describe', 2, -1),
-('2024-02-01', 2, 2024, 'county', 'Addison', 'White', 76, 76),
+('2024-02-01', 2, 2024, 'county', 'Addison', 'White', 76, -1),
 ('2024-02-01', 2, 2024, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2024-02-01', 2, 2024, 'county', 'Addison', 'total', 79.0, 76.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Addison', 'total', 79.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-02-01', 2, 2024, 'county', 'Bennington', 'American Indian or Alaskan Native', 1, -1),
 ('2024-02-01', 2, 2024, 'county', 'Bennington', 'Asian', 3, -1),
-('2024-02-01', 2, 2024, 'county', 'Bennington', 'Black or African American', 15, 15),
+('2024-02-01', 2, 2024, 'county', 'Bennington', 'Black or African American', 15, -1),
 ('2024-02-01', 2, 2024, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2024-02-01', 2, 2024, 'county', 'Bennington', 'White', 542, 542),
 ('2024-02-01', 2, 2024, 'county', 'Bennington', 'Two or More Races', 33, 33),
-('2024-02-01', 2, 2024, 'county', 'Bennington', 'total', 595.0, 590.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Bennington', 'total', 595.0, 575.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25935,21 +25943,21 @@ VALUES
 ('2024-02-01', 2, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-02-01', 2, 2024, 'county', 'Essex', 'White', 31, 31),
+('2024-02-01', 2, 2024, 'county', 'Essex', 'White', 31, -1),
 ('2024-02-01', 2, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-02-01', 2, 2024, 'county', 'Essex', 'total', 32.0, 31.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Essex', 'total', 32.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-02-01', 2, 2024, 'county', 'Franklin', 'American Indian or Alaskan Native', 3, -1),
 ('2024-02-01', 2, 2024, 'county', 'Franklin', 'Asian', 0, -1),
-('2024-02-01', 2, 2024, 'county', 'Franklin', 'Black or African American', 11, 11),
+('2024-02-01', 2, 2024, 'county', 'Franklin', 'Black or African American', 11, -1),
 ('2024-02-01', 2, 2024, 'county', 'Franklin', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-02-01', 2, 2024, 'county', 'Franklin', 'Prefer not to answer', 2, -1),
 ('2024-02-01', 2, 2024, 'county', 'Franklin', 'Prefer to self-describe', 3, -1),
 ('2024-02-01', 2, 2024, 'county', 'Franklin', 'White', 480, 480),
 ('2024-02-01', 2, 2024, 'county', 'Franklin', 'Two or More Races', 16, 16),
-('2024-02-01', 2, 2024, 'county', 'Franklin', 'total', 516.0, 507.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Franklin', 'total', 516.0, 496.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25983,9 +25991,9 @@ VALUES
 ('2024-02-01', 2, 2024, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Orange', 'Prefer not to answer', 1, -1),
 ('2024-02-01', 2, 2024, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2024-02-01', 2, 2024, 'county', 'Orange', 'White', 206, 206),
+('2024-02-01', 2, 2024, 'county', 'Orange', 'White', 206, -1),
 ('2024-02-01', 2, 2024, 'county', 'Orange', 'Two or More Races', 2, -1),
-('2024-02-01', 2, 2024, 'county', 'Orange', 'total', 213.0, 206.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Orange', 'total', 213.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -25995,9 +26003,9 @@ VALUES
 ('2024-02-01', 2, 2024, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Orleans', 'Prefer not to answer', 2, -1),
 ('2024-02-01', 2, 2024, 'county', 'Orleans', 'Prefer to self-describe', 0, -1),
-('2024-02-01', 2, 2024, 'county', 'Orleans', 'White', 293, 293),
+('2024-02-01', 2, 2024, 'county', 'Orleans', 'White', 293, -1),
 ('2024-02-01', 2, 2024, 'county', 'Orleans', 'Two or More Races', 1, -1),
-('2024-02-01', 2, 2024, 'county', 'Orleans', 'total', 300.0, 293.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Orleans', 'total', 300.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26007,21 +26015,21 @@ VALUES
 ('2024-02-01', 2, 2024, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-02-01', 2, 2024, 'county', 'Out of State', 'White', 15, 15),
+('2024-02-01', 2, 2024, 'county', 'Out of State', 'White', 15, -1),
 ('2024-02-01', 2, 2024, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2024-02-01', 2, 2024, 'county', 'Out of State', 'total', 18.0, 15.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Out of State', 'total', 18.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-02-01', 2, 2024, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Rutland', 'Asian', 1, -1),
-('2024-02-01', 2, 2024, 'county', 'Rutland', 'Black or African American', 25, 25),
+('2024-02-01', 2, 2024, 'county', 'Rutland', 'Black or African American', 25, -1),
 ('2024-02-01', 2, 2024, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Rutland', 'Prefer not to answer', 6, -1),
 ('2024-02-01', 2, 2024, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2024-02-01', 2, 2024, 'county', 'Rutland', 'White', 734, 734),
 ('2024-02-01', 2, 2024, 'county', 'Rutland', 'Two or More Races', 29, 29),
-('2024-02-01', 2, 2024, 'county', 'Rutland', 'total', 795.0, 788.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Rutland', 'total', 795.0, 763.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26055,21 +26063,21 @@ VALUES
 ('2024-02-01', 2, 2024, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-02-01', 2, 2024, 'county', 'Windsor', 'Prefer not to answer', 2, -1),
 ('2024-02-01', 2, 2024, 'county', 'Windsor', 'Prefer to self-describe', 10, -1),
-('2024-02-01', 2, 2024, 'county', 'Windsor', 'White', 481, -1),
+('2024-02-01', 2, 2024, 'county', 'Windsor', 'White', 481, 481),
 ('2024-02-01', 2, 2024, 'county', 'Windsor', 'Two or More Races', 28, 28),
-('2024-02-01', 2, 2024, 'county', 'Windsor', 'total', 537.0, 28.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Windsor', 'total', 537.0, 509.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-02-01', 2, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 14, 14),
+('2024-02-01', 2, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 14, -1),
 ('2024-02-01', 2, 2024, 'county', 'Vermont', 'Asian', 58, 58),
 ('2024-02-01', 2, 2024, 'county', 'Vermont', 'Black or African American', 317, 317),
 ('2024-02-01', 2, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2024-02-01', 2, 2024, 'county', 'Vermont', 'Prefer not to answer', 41, 41),
 ('2024-02-01', 2, 2024, 'county', 'Vermont', 'Prefer to self-describe', 48, 48),
-('2024-02-01', 2, 2024, 'county', 'Vermont', 'White', 4956, -1),
+('2024-02-01', 2, 2024, 'county', 'Vermont', 'White', 4956, 4956),
 ('2024-02-01', 2, 2024, 'county', 'Vermont', 'Two or More Races', 249, 249),
-('2024-02-01', 2, 2024, 'county', 'Vermont', 'total', 5686.0, 727.0) AS new_data
+('2024-02-01', 2, 2024, 'county', 'Vermont', 'total', 5686.0, 5669.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26079,21 +26087,21 @@ VALUES
 ('2024-01-01', 1, 2024, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Addison', 'Prefer to self-describe', 2, -1),
-('2024-01-01', 1, 2024, 'county', 'Addison', 'White', 76, 76),
+('2024-01-01', 1, 2024, 'county', 'Addison', 'White', 76, -1),
 ('2024-01-01', 1, 2024, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2024-01-01', 1, 2024, 'county', 'Addison', 'total', 79.0, 76.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Addison', 'total', 79.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-01-01', 1, 2024, 'county', 'Bennington', 'American Indian or Alaskan Native', 1, -1),
 ('2024-01-01', 1, 2024, 'county', 'Bennington', 'Asian', 3, -1),
-('2024-01-01', 1, 2024, 'county', 'Bennington', 'Black or African American', 15, 15),
+('2024-01-01', 1, 2024, 'county', 'Bennington', 'Black or African American', 15, -1),
 ('2024-01-01', 1, 2024, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2024-01-01', 1, 2024, 'county', 'Bennington', 'White', 542, 542),
 ('2024-01-01', 1, 2024, 'county', 'Bennington', 'Two or More Races', 32, 32),
-('2024-01-01', 1, 2024, 'county', 'Bennington', 'total', 594.0, 589.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Bennington', 'total', 594.0, 574.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26127,21 +26135,21 @@ VALUES
 ('2024-01-01', 1, 2024, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2024-01-01', 1, 2024, 'county', 'Essex', 'White', 31, 31),
+('2024-01-01', 1, 2024, 'county', 'Essex', 'White', 31, -1),
 ('2024-01-01', 1, 2024, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2024-01-01', 1, 2024, 'county', 'Essex', 'total', 32.0, 31.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Essex', 'total', 32.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-01-01', 1, 2024, 'county', 'Franklin', 'American Indian or Alaskan Native', 3, -1),
 ('2024-01-01', 1, 2024, 'county', 'Franklin', 'Asian', 0, -1),
-('2024-01-01', 1, 2024, 'county', 'Franklin', 'Black or African American', 11, 11),
+('2024-01-01', 1, 2024, 'county', 'Franklin', 'Black or African American', 11, -1),
 ('2024-01-01', 1, 2024, 'county', 'Franklin', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-01-01', 1, 2024, 'county', 'Franklin', 'Prefer not to answer', 2, -1),
 ('2024-01-01', 1, 2024, 'county', 'Franklin', 'Prefer to self-describe', 3, -1),
 ('2024-01-01', 1, 2024, 'county', 'Franklin', 'White', 480, 480),
 ('2024-01-01', 1, 2024, 'county', 'Franklin', 'Two or More Races', 17, 17),
-('2024-01-01', 1, 2024, 'county', 'Franklin', 'total', 517.0, 508.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Franklin', 'total', 517.0, 497.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26175,9 +26183,9 @@ VALUES
 ('2024-01-01', 1, 2024, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Orange', 'Prefer not to answer', 1, -1),
 ('2024-01-01', 1, 2024, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2024-01-01', 1, 2024, 'county', 'Orange', 'White', 206, 206),
+('2024-01-01', 1, 2024, 'county', 'Orange', 'White', 206, -1),
 ('2024-01-01', 1, 2024, 'county', 'Orange', 'Two or More Races', 1, -1),
-('2024-01-01', 1, 2024, 'county', 'Orange', 'total', 212.0, 206.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Orange', 'total', 212.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26187,9 +26195,9 @@ VALUES
 ('2024-01-01', 1, 2024, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Orleans', 'Prefer not to answer', 2, -1),
 ('2024-01-01', 1, 2024, 'county', 'Orleans', 'Prefer to self-describe', 0, -1),
-('2024-01-01', 1, 2024, 'county', 'Orleans', 'White', 293, 293),
+('2024-01-01', 1, 2024, 'county', 'Orleans', 'White', 293, -1),
 ('2024-01-01', 1, 2024, 'county', 'Orleans', 'Two or More Races', 1, -1),
-('2024-01-01', 1, 2024, 'county', 'Orleans', 'total', 300.0, 293.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Orleans', 'total', 300.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26199,21 +26207,21 @@ VALUES
 ('2024-01-01', 1, 2024, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-01-01', 1, 2024, 'county', 'Out of State', 'White', 15, 15),
+('2024-01-01', 1, 2024, 'county', 'Out of State', 'White', 15, -1),
 ('2024-01-01', 1, 2024, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2024-01-01', 1, 2024, 'county', 'Out of State', 'total', 18.0, 15.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Out of State', 'total', 18.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-01-01', 1, 2024, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Rutland', 'Asian', 1, -1),
-('2024-01-01', 1, 2024, 'county', 'Rutland', 'Black or African American', 25, 25),
+('2024-01-01', 1, 2024, 'county', 'Rutland', 'Black or African American', 25, -1),
 ('2024-01-01', 1, 2024, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Rutland', 'Prefer not to answer', 6, -1),
 ('2024-01-01', 1, 2024, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2024-01-01', 1, 2024, 'county', 'Rutland', 'White', 734, 734),
 ('2024-01-01', 1, 2024, 'county', 'Rutland', 'Two or More Races', 32, 32),
-('2024-01-01', 1, 2024, 'county', 'Rutland', 'total', 798.0, 791.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Rutland', 'total', 798.0, 766.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26247,21 +26255,21 @@ VALUES
 ('2024-01-01', 1, 2024, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-01-01', 1, 2024, 'county', 'Windsor', 'Prefer not to answer', 2, -1),
 ('2024-01-01', 1, 2024, 'county', 'Windsor', 'Prefer to self-describe', 10, -1),
-('2024-01-01', 1, 2024, 'county', 'Windsor', 'White', 481, -1),
+('2024-01-01', 1, 2024, 'county', 'Windsor', 'White', 481, 481),
 ('2024-01-01', 1, 2024, 'county', 'Windsor', 'Two or More Races', 29, 29),
-('2024-01-01', 1, 2024, 'county', 'Windsor', 'total', 538.0, 29.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Windsor', 'total', 538.0, 510.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-01-01', 1, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 14, 14),
+('2024-01-01', 1, 2024, 'county', 'Vermont', 'American Indian or Alaskan Native', 14, -1),
 ('2024-01-01', 1, 2024, 'county', 'Vermont', 'Asian', 58, 58),
 ('2024-01-01', 1, 2024, 'county', 'Vermont', 'Black or African American', 317, 317),
 ('2024-01-01', 1, 2024, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2024-01-01', 1, 2024, 'county', 'Vermont', 'Prefer not to answer', 41, 41),
 ('2024-01-01', 1, 2024, 'county', 'Vermont', 'Prefer to self-describe', 48, 48),
-('2024-01-01', 1, 2024, 'county', 'Vermont', 'White', 4956, -1),
+('2024-01-01', 1, 2024, 'county', 'Vermont', 'White', 4956, 4956),
 ('2024-01-01', 1, 2024, 'county', 'Vermont', 'Two or More Races', 247, 247),
-('2024-01-01', 1, 2024, 'county', 'Vermont', 'total', 5684.0, 725.0) AS new_data
+('2024-01-01', 1, 2024, 'county', 'Vermont', 'total', 5684.0, 5667.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26271,21 +26279,21 @@ VALUES
 ('2023-12-01', 12, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Addison', 'Prefer to self-describe', 1, -1),
-('2023-12-01', 12, 2023, 'county', 'Addison', 'White', 77, 77),
+('2023-12-01', 12, 2023, 'county', 'Addison', 'White', 77, -1),
 ('2023-12-01', 12, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-12-01', 12, 2023, 'county', 'Addison', 'total', 78.0, 77.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Addison', 'total', 78.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-12-01', 12, 2023, 'county', 'Bennington', 'American Indian or Alaskan Native', 1, -1),
 ('2023-12-01', 12, 2023, 'county', 'Bennington', 'Asian', 3, -1),
-('2023-12-01', 12, 2023, 'county', 'Bennington', 'Black or African American', 12, 12),
+('2023-12-01', 12, 2023, 'county', 'Bennington', 'Black or African American', 12, -1),
 ('2023-12-01', 12, 2023, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Bennington', 'Prefer to self-describe', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Bennington', 'White', 546, 546),
 ('2023-12-01', 12, 2023, 'county', 'Bennington', 'Two or More Races', 30, 30),
-('2023-12-01', 12, 2023, 'county', 'Bennington', 'total', 592.0, 588.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Bennington', 'total', 592.0, 576.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26319,9 +26327,9 @@ VALUES
 ('2023-12-01', 12, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-12-01', 12, 2023, 'county', 'Essex', 'White', 27, 27),
+('2023-12-01', 12, 2023, 'county', 'Essex', 'White', 27, -1),
 ('2023-12-01', 12, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-12-01', 12, 2023, 'county', 'Essex', 'total', 28.0, 27.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Essex', 'total', 28.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26332,8 +26340,8 @@ VALUES
 ('2023-12-01', 12, 2023, 'county', 'Franklin', 'Prefer not to answer', 3, -1),
 ('2023-12-01', 12, 2023, 'county', 'Franklin', 'Prefer to self-describe', 3, -1),
 ('2023-12-01', 12, 2023, 'county', 'Franklin', 'White', 491, 491),
-('2023-12-01', 12, 2023, 'county', 'Franklin', 'Two or More Races', 13, 13),
-('2023-12-01', 12, 2023, 'county', 'Franklin', 'total', 523.0, 515.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Franklin', 'Two or More Races', 13, -1),
+('2023-12-01', 12, 2023, 'county', 'Franklin', 'total', 523.0, 502.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26343,9 +26351,9 @@ VALUES
 ('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'Prefer to self-describe', 0, -1),
-('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'White', 45, 45),
+('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'White', 45, -1),
 ('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'Two or More Races', 3, -1),
-('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'total', 54.0, 45.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Grand Isle', 'total', 54.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26367,9 +26375,9 @@ VALUES
 ('2023-12-01', 12, 2023, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Orange', 'Prefer not to answer', 1, -1),
 ('2023-12-01', 12, 2023, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2023-12-01', 12, 2023, 'county', 'Orange', 'White', 195, 195),
+('2023-12-01', 12, 2023, 'county', 'Orange', 'White', 195, -1),
 ('2023-12-01', 12, 2023, 'county', 'Orange', 'Two or More Races', 1, -1),
-('2023-12-01', 12, 2023, 'county', 'Orange', 'total', 201.0, 195.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Orange', 'total', 201.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26379,9 +26387,9 @@ VALUES
 ('2023-12-01', 12, 2023, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Orleans', 'Prefer not to answer', 2, -1),
 ('2023-12-01', 12, 2023, 'county', 'Orleans', 'Prefer to self-describe', 0, -1),
-('2023-12-01', 12, 2023, 'county', 'Orleans', 'White', 276, 276),
+('2023-12-01', 12, 2023, 'county', 'Orleans', 'White', 276, -1),
 ('2023-12-01', 12, 2023, 'county', 'Orleans', 'Two or More Races', 1, -1),
-('2023-12-01', 12, 2023, 'county', 'Orleans', 'total', 284.0, 276.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Orleans', 'total', 284.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26391,21 +26399,21 @@ VALUES
 ('2023-12-01', 12, 2023, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Out of State', 'Prefer to self-describe', 2, -1),
-('2023-12-01', 12, 2023, 'county', 'Out of State', 'White', 13, 13),
+('2023-12-01', 12, 2023, 'county', 'Out of State', 'White', 13, -1),
 ('2023-12-01', 12, 2023, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2023-12-01', 12, 2023, 'county', 'Out of State', 'total', 19.0, 13.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Out of State', 'total', 19.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-12-01', 12, 2023, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Rutland', 'Asian', 2, -1),
-('2023-12-01', 12, 2023, 'county', 'Rutland', 'Black or African American', 20, 20),
+('2023-12-01', 12, 2023, 'county', 'Rutland', 'Black or African American', 20, -1),
 ('2023-12-01', 12, 2023, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Rutland', 'Prefer not to answer', 4, -1),
 ('2023-12-01', 12, 2023, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Rutland', 'White', 693, 693),
 ('2023-12-01', 12, 2023, 'county', 'Rutland', 'Two or More Races', 33, 33),
-('2023-12-01', 12, 2023, 'county', 'Rutland', 'total', 752.0, 746.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Rutland', 'total', 752.0, 726.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26439,21 +26447,21 @@ VALUES
 ('2023-12-01', 12, 2023, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2023-12-01', 12, 2023, 'county', 'Windsor', 'Prefer not to answer', 0, -1),
 ('2023-12-01', 12, 2023, 'county', 'Windsor', 'Prefer to self-describe', 9, -1),
-('2023-12-01', 12, 2023, 'county', 'Windsor', 'White', 483, -1),
+('2023-12-01', 12, 2023, 'county', 'Windsor', 'White', 483, 483),
 ('2023-12-01', 12, 2023, 'county', 'Windsor', 'Two or More Races', 28, 28),
-('2023-12-01', 12, 2023, 'county', 'Windsor', 'total', 534.0, 28.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Windsor', 'total', 534.0, 511.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-12-01', 12, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 12, 12),
+('2023-12-01', 12, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 12, -1),
 ('2023-12-01', 12, 2023, 'county', 'Vermont', 'Asian', 60, 60),
 ('2023-12-01', 12, 2023, 'county', 'Vermont', 'Black or African American', 297, 297),
 ('2023-12-01', 12, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 2, -1),
 ('2023-12-01', 12, 2023, 'county', 'Vermont', 'Prefer not to answer', 38, 38),
 ('2023-12-01', 12, 2023, 'county', 'Vermont', 'Prefer to self-describe', 45, 45),
-('2023-12-01', 12, 2023, 'county', 'Vermont', 'White', 4832, -1),
+('2023-12-01', 12, 2023, 'county', 'Vermont', 'White', 4832, 4832),
 ('2023-12-01', 12, 2023, 'county', 'Vermont', 'Two or More Races', 244, 244),
-('2023-12-01', 12, 2023, 'county', 'Vermont', 'total', 5530.0, 696.0) AS new_data
+('2023-12-01', 12, 2023, 'county', 'Vermont', 'total', 5530.0, 5516.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26463,21 +26471,21 @@ VALUES
 ('2023-11-01', 11, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Addison', 'Prefer to self-describe', 1, -1),
-('2023-11-01', 11, 2023, 'county', 'Addison', 'White', 73, 73),
+('2023-11-01', 11, 2023, 'county', 'Addison', 'White', 73, -1),
 ('2023-11-01', 11, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-11-01', 11, 2023, 'county', 'Addison', 'total', 74.0, 73.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Addison', 'total', 74.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-11-01', 11, 2023, 'county', 'Bennington', 'American Indian or Alaskan Native', 1, -1),
 ('2023-11-01', 11, 2023, 'county', 'Bennington', 'Asian', 3, -1),
-('2023-11-01', 11, 2023, 'county', 'Bennington', 'Black or African American', 11, 11),
+('2023-11-01', 11, 2023, 'county', 'Bennington', 'Black or African American', 11, -1),
 ('2023-11-01', 11, 2023, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Bennington', 'Prefer to self-describe', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Bennington', 'White', 537, 537),
 ('2023-11-01', 11, 2023, 'county', 'Bennington', 'Two or More Races', 30, 30),
-('2023-11-01', 11, 2023, 'county', 'Bennington', 'total', 582.0, 578.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Bennington', 'total', 582.0, 567.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26498,10 +26506,10 @@ VALUES
 ('2023-11-01', 11, 2023, 'county', 'Chittenden', 'Black or African American', 196, 196),
 ('2023-11-01', 11, 2023, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Chittenden', 'Prefer not to answer', 4, -1),
-('2023-11-01', 11, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 13, 13),
+('2023-11-01', 11, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 13, -1),
 ('2023-11-01', 11, 2023, 'county', 'Chittenden', 'White', 742, 742),
 ('2023-11-01', 11, 2023, 'county', 'Chittenden', 'Two or More Races', 67, 67),
-('2023-11-01', 11, 2023, 'county', 'Chittenden', 'total', 1069.0, 1062.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Chittenden', 'total', 1069.0, 1049.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26511,21 +26519,21 @@ VALUES
 ('2023-11-01', 11, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-11-01', 11, 2023, 'county', 'Essex', 'White', 28, 28),
+('2023-11-01', 11, 2023, 'county', 'Essex', 'White', 28, -1),
 ('2023-11-01', 11, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-11-01', 11, 2023, 'county', 'Essex', 'total', 29.0, 28.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Essex', 'total', 29.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-11-01', 11, 2023, 'county', 'Franklin', 'American Indian or Alaskan Native', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Franklin', 'Asian', 0, -1),
-('2023-11-01', 11, 2023, 'county', 'Franklin', 'Black or African American', 11, 11),
+('2023-11-01', 11, 2023, 'county', 'Franklin', 'Black or African American', 11, -1),
 ('2023-11-01', 11, 2023, 'county', 'Franklin', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Franklin', 'Prefer not to answer', 3, -1),
 ('2023-11-01', 11, 2023, 'county', 'Franklin', 'Prefer to self-describe', 3, -1),
 ('2023-11-01', 11, 2023, 'county', 'Franklin', 'White', 468, 468),
 ('2023-11-01', 11, 2023, 'county', 'Franklin', 'Two or More Races', 13, 13),
-('2023-11-01', 11, 2023, 'county', 'Franklin', 'total', 498.0, 492.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Franklin', 'total', 498.0, 481.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26535,9 +26543,9 @@ VALUES
 ('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'Prefer to self-describe', 0, -1),
-('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'White', 43, 43),
+('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'White', 43, -1),
 ('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'Two or More Races', 3, -1),
-('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'total', 52.0, 43.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Grand Isle', 'total', 52.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26571,9 +26579,9 @@ VALUES
 ('2023-11-01', 11, 2023, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Orleans', 'Prefer not to answer', 2, -1),
 ('2023-11-01', 11, 2023, 'county', 'Orleans', 'Prefer to self-describe', 0, -1),
-('2023-11-01', 11, 2023, 'county', 'Orleans', 'White', 269, 269),
+('2023-11-01', 11, 2023, 'county', 'Orleans', 'White', 269, -1),
 ('2023-11-01', 11, 2023, 'county', 'Orleans', 'Two or More Races', 1, -1),
-('2023-11-01', 11, 2023, 'county', 'Orleans', 'total', 277.0, 269.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Orleans', 'total', 277.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26583,21 +26591,21 @@ VALUES
 ('2023-11-01', 11, 2023, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Out of State', 'Prefer to self-describe', 2, -1),
-('2023-11-01', 11, 2023, 'county', 'Out of State', 'White', 11, 11),
+('2023-11-01', 11, 2023, 'county', 'Out of State', 'White', 11, -1),
 ('2023-11-01', 11, 2023, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2023-11-01', 11, 2023, 'county', 'Out of State', 'total', 17.0, 11.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Out of State', 'total', 17.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-11-01', 11, 2023, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Rutland', 'Asian', 2, -1),
-('2023-11-01', 11, 2023, 'county', 'Rutland', 'Black or African American', 18, 18),
+('2023-11-01', 11, 2023, 'county', 'Rutland', 'Black or African American', 18, -1),
 ('2023-11-01', 11, 2023, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'county', 'Rutland', 'Prefer not to answer', 4, -1),
 ('2023-11-01', 11, 2023, 'county', 'Rutland', 'Prefer to self-describe', 1, -1),
 ('2023-11-01', 11, 2023, 'county', 'Rutland', 'White', 672, 672),
 ('2023-11-01', 11, 2023, 'county', 'Rutland', 'Two or More Races', 34, 34),
-('2023-11-01', 11, 2023, 'county', 'Rutland', 'total', 731.0, 724.0) AS new_data
+('2023-11-01', 11, 2023, 'county', 'Rutland', 'total', 731.0, 706.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26655,21 +26663,21 @@ VALUES
 ('2023-10-01', 10, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Addison', 'Prefer to self-describe', 1, -1),
-('2023-10-01', 10, 2023, 'county', 'Addison', 'White', 69, 69),
+('2023-10-01', 10, 2023, 'county', 'Addison', 'White', 69, -1),
 ('2023-10-01', 10, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-10-01', 10, 2023, 'county', 'Addison', 'total', 70.0, 69.0) AS new_data
+('2023-10-01', 10, 2023, 'county', 'Addison', 'total', 70.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-10-01', 10, 2023, 'county', 'Bennington', 'American Indian or Alaskan Native', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Bennington', 'Asian', 3, -1),
-('2023-10-01', 10, 2023, 'county', 'Bennington', 'Black or African American', 11, 11),
+('2023-10-01', 10, 2023, 'county', 'Bennington', 'Black or African American', 11, -1),
 ('2023-10-01', 10, 2023, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Bennington', 'Prefer to self-describe', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Bennington', 'White', 550, 550),
 ('2023-10-01', 10, 2023, 'county', 'Bennington', 'Two or More Races', 30, 30),
-('2023-10-01', 10, 2023, 'county', 'Bennington', 'total', 594.0, 591.0) AS new_data
+('2023-10-01', 10, 2023, 'county', 'Bennington', 'total', 594.0, 580.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26690,10 +26698,10 @@ VALUES
 ('2023-10-01', 10, 2023, 'county', 'Chittenden', 'Black or African American', 195, 195),
 ('2023-10-01', 10, 2023, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Chittenden', 'Prefer not to answer', 4, -1),
-('2023-10-01', 10, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 14, 14),
+('2023-10-01', 10, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 14, -1),
 ('2023-10-01', 10, 2023, 'county', 'Chittenden', 'White', 717, 717),
 ('2023-10-01', 10, 2023, 'county', 'Chittenden', 'Two or More Races', 68, 68),
-('2023-10-01', 10, 2023, 'county', 'Chittenden', 'total', 1045.0, 1038.0) AS new_data
+('2023-10-01', 10, 2023, 'county', 'Chittenden', 'total', 1045.0, 1024.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26703,9 +26711,9 @@ VALUES
 ('2023-10-01', 10, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-10-01', 10, 2023, 'county', 'Essex', 'White', 32, 32),
+('2023-10-01', 10, 2023, 'county', 'Essex', 'White', 32, -1),
 ('2023-10-01', 10, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-10-01', 10, 2023, 'county', 'Essex', 'total', 33.0, 32.0) AS new_data
+('2023-10-01', 10, 2023, 'county', 'Essex', 'total', 33.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26751,9 +26759,9 @@ VALUES
 ('2023-10-01', 10, 2023, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Orange', 'Prefer not to answer', 1, -1),
 ('2023-10-01', 10, 2023, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2023-10-01', 10, 2023, 'county', 'Orange', 'White', 191, 191),
+('2023-10-01', 10, 2023, 'county', 'Orange', 'White', 191, -1),
 ('2023-10-01', 10, 2023, 'county', 'Orange', 'Two or More Races', 5, -1),
-('2023-10-01', 10, 2023, 'county', 'Orange', 'total', 200.0, 191.0) AS new_data
+('2023-10-01', 10, 2023, 'county', 'Orange', 'total', 200.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26763,9 +26771,9 @@ VALUES
 ('2023-10-01', 10, 2023, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Orleans', 'Prefer not to answer', 2, -1),
 ('2023-10-01', 10, 2023, 'county', 'Orleans', 'Prefer to self-describe', 0, -1),
-('2023-10-01', 10, 2023, 'county', 'Orleans', 'White', 270, 270),
+('2023-10-01', 10, 2023, 'county', 'Orleans', 'White', 270, -1),
 ('2023-10-01', 10, 2023, 'county', 'Orleans', 'Two or More Races', 1, -1),
-('2023-10-01', 10, 2023, 'county', 'Orleans', 'total', 278.0, 270.0) AS new_data
+('2023-10-01', 10, 2023, 'county', 'Orleans', 'total', 278.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26775,21 +26783,21 @@ VALUES
 ('2023-10-01', 10, 2023, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Out of State', 'Prefer to self-describe', 2, -1),
-('2023-10-01', 10, 2023, 'county', 'Out of State', 'White', 11, 11),
+('2023-10-01', 10, 2023, 'county', 'Out of State', 'White', 11, -1),
 ('2023-10-01', 10, 2023, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2023-10-01', 10, 2023, 'county', 'Out of State', 'total', 16.0, 11.0) AS new_data
+('2023-10-01', 10, 2023, 'county', 'Out of State', 'total', 16.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-10-01', 10, 2023, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Rutland', 'Asian', 2, -1),
-('2023-10-01', 10, 2023, 'county', 'Rutland', 'Black or African American', 19, 19),
+('2023-10-01', 10, 2023, 'county', 'Rutland', 'Black or African American', 19, -1),
 ('2023-10-01', 10, 2023, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'county', 'Rutland', 'Prefer not to answer', 4, -1),
 ('2023-10-01', 10, 2023, 'county', 'Rutland', 'Prefer to self-describe', 2, -1),
 ('2023-10-01', 10, 2023, 'county', 'Rutland', 'White', 690, 690),
 ('2023-10-01', 10, 2023, 'county', 'Rutland', 'Two or More Races', 34, 34),
-('2023-10-01', 10, 2023, 'county', 'Rutland', 'total', 751.0, 743.0) AS new_data
+('2023-10-01', 10, 2023, 'county', 'Rutland', 'total', 751.0, 724.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26847,21 +26855,21 @@ VALUES
 ('2023-09-01', 9, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Addison', 'Prefer to self-describe', 1, -1),
-('2023-09-01', 9, 2023, 'county', 'Addison', 'White', 75, 75),
+('2023-09-01', 9, 2023, 'county', 'Addison', 'White', 75, -1),
 ('2023-09-01', 9, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-09-01', 9, 2023, 'county', 'Addison', 'total', 77.0, 75.0) AS new_data
+('2023-09-01', 9, 2023, 'county', 'Addison', 'total', 77.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-09-01', 9, 2023, 'county', 'Bennington', 'American Indian or Alaskan Native', 1, -1),
 ('2023-09-01', 9, 2023, 'county', 'Bennington', 'Asian', 3, -1),
-('2023-09-01', 9, 2023, 'county', 'Bennington', 'Black or African American', 11, 11),
+('2023-09-01', 9, 2023, 'county', 'Bennington', 'Black or African American', 11, -1),
 ('2023-09-01', 9, 2023, 'county', 'Bennington', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2023-09-01', 9, 2023, 'county', 'Bennington', 'White', 555, 555),
 ('2023-09-01', 9, 2023, 'county', 'Bennington', 'Two or More Races', 27, 27),
-('2023-09-01', 9, 2023, 'county', 'Bennington', 'total', 598.0, 593.0) AS new_data
+('2023-09-01', 9, 2023, 'county', 'Bennington', 'total', 598.0, 582.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26882,10 +26890,10 @@ VALUES
 ('2023-09-01', 9, 2023, 'county', 'Chittenden', 'Black or African American', 203, 203),
 ('2023-09-01', 9, 2023, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Chittenden', 'Prefer not to answer', 5, -1),
-('2023-09-01', 9, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 15, 15),
+('2023-09-01', 9, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 15, -1),
 ('2023-09-01', 9, 2023, 'county', 'Chittenden', 'White', 707, 707),
 ('2023-09-01', 9, 2023, 'county', 'Chittenden', 'Two or More Races', 69, 69),
-('2023-09-01', 9, 2023, 'county', 'Chittenden', 'total', 1042.0, 1033.0) AS new_data
+('2023-09-01', 9, 2023, 'county', 'Chittenden', 'total', 1042.0, 1018.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26895,9 +26903,9 @@ VALUES
 ('2023-09-01', 9, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-09-01', 9, 2023, 'county', 'Essex', 'White', 31, 31),
+('2023-09-01', 9, 2023, 'county', 'Essex', 'White', 31, -1),
 ('2023-09-01', 9, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-09-01', 9, 2023, 'county', 'Essex', 'total', 32.0, 31.0) AS new_data
+('2023-09-01', 9, 2023, 'county', 'Essex', 'total', 32.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26943,9 +26951,9 @@ VALUES
 ('2023-09-01', 9, 2023, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Orange', 'Prefer not to answer', 1, -1),
 ('2023-09-01', 9, 2023, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2023-09-01', 9, 2023, 'county', 'Orange', 'White', 178, 178),
+('2023-09-01', 9, 2023, 'county', 'Orange', 'White', 178, -1),
 ('2023-09-01', 9, 2023, 'county', 'Orange', 'Two or More Races', 5, -1),
-('2023-09-01', 9, 2023, 'county', 'Orange', 'total', 187.0, 178.0) AS new_data
+('2023-09-01', 9, 2023, 'county', 'Orange', 'total', 187.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -26975,13 +26983,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-09-01', 9, 2023, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Rutland', 'Asian', 2, -1),
-('2023-09-01', 9, 2023, 'county', 'Rutland', 'Black or African American', 24, 24),
+('2023-09-01', 9, 2023, 'county', 'Rutland', 'Black or African American', 24, -1),
 ('2023-09-01', 9, 2023, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'county', 'Rutland', 'Prefer not to answer', 4, -1),
 ('2023-09-01', 9, 2023, 'county', 'Rutland', 'Prefer to self-describe', 2, -1),
 ('2023-09-01', 9, 2023, 'county', 'Rutland', 'White', 700, 700),
 ('2023-09-01', 9, 2023, 'county', 'Rutland', 'Two or More Races', 37, 37),
-('2023-09-01', 9, 2023, 'county', 'Rutland', 'total', 769.0, 761.0) AS new_data
+('2023-09-01', 9, 2023, 'county', 'Rutland', 'total', 769.0, 737.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27021,15 +27029,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-09-01', 9, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 11, 11),
+('2023-09-01', 9, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 11, -1),
 ('2023-09-01', 9, 2023, 'county', 'Vermont', 'Asian', 61, 61),
 ('2023-09-01', 9, 2023, 'county', 'Vermont', 'Black or African American', 298, 298),
 ('2023-09-01', 9, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 2, -1),
 ('2023-09-01', 9, 2023, 'county', 'Vermont', 'Prefer not to answer', 35, 35),
 ('2023-09-01', 9, 2023, 'county', 'Vermont', 'Prefer to self-describe', 45, 45),
-('2023-09-01', 9, 2023, 'county', 'Vermont', 'White', 4692, -1),
+('2023-09-01', 9, 2023, 'county', 'Vermont', 'White', 4692, 4692),
 ('2023-09-01', 9, 2023, 'county', 'Vermont', 'Two or More Races', 251, 251),
-('2023-09-01', 9, 2023, 'county', 'Vermont', 'total', 5395.0, 701.0) AS new_data
+('2023-09-01', 9, 2023, 'county', 'Vermont', 'total', 5395.0, 5382.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27039,9 +27047,9 @@ VALUES
 ('2023-08-01', 8, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-08-01', 8, 2023, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2023-08-01', 8, 2023, 'county', 'Addison', 'Prefer to self-describe', 1, -1),
-('2023-08-01', 8, 2023, 'county', 'Addison', 'White', 86, 86),
+('2023-08-01', 8, 2023, 'county', 'Addison', 'White', 86, -1),
 ('2023-08-01', 8, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-08-01', 8, 2023, 'county', 'Addison', 'total', 88.0, 86.0) AS new_data
+('2023-08-01', 8, 2023, 'county', 'Addison', 'total', 88.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27087,9 +27095,9 @@ VALUES
 ('2023-08-01', 8, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-08-01', 8, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-08-01', 8, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-08-01', 8, 2023, 'county', 'Essex', 'White', 30, 30),
+('2023-08-01', 8, 2023, 'county', 'Essex', 'White', 30, -1),
 ('2023-08-01', 8, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-08-01', 8, 2023, 'county', 'Essex', 'total', 31.0, 30.0) AS new_data
+('2023-08-01', 8, 2023, 'county', 'Essex', 'total', 31.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27213,15 +27221,15 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-08-01', 8, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 13, 13),
+('2023-08-01', 8, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 13, -1),
 ('2023-08-01', 8, 2023, 'county', 'Vermont', 'Asian', 62, 62),
 ('2023-08-01', 8, 2023, 'county', 'Vermont', 'Black or African American', 296, 296),
 ('2023-08-01', 8, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2023-08-01', 8, 2023, 'county', 'Vermont', 'Prefer not to answer', 41, 41),
 ('2023-08-01', 8, 2023, 'county', 'Vermont', 'Prefer to self-describe', 43, 43),
-('2023-08-01', 8, 2023, 'county', 'Vermont', 'White', 4864, -1),
+('2023-08-01', 8, 2023, 'county', 'Vermont', 'White', 4864, 4864),
 ('2023-08-01', 8, 2023, 'county', 'Vermont', 'Two or More Races', 260, 260),
-('2023-08-01', 8, 2023, 'county', 'Vermont', 'total', 5582.0, 715.0) AS new_data
+('2023-08-01', 8, 2023, 'county', 'Vermont', 'total', 5582.0, 5566.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27231,9 +27239,9 @@ VALUES
 ('2023-07-01', 7, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-07-01', 7, 2023, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2023-07-01', 7, 2023, 'county', 'Addison', 'Prefer to self-describe', 1, -1),
-('2023-07-01', 7, 2023, 'county', 'Addison', 'White', 81, 81),
+('2023-07-01', 7, 2023, 'county', 'Addison', 'White', 81, -1),
 ('2023-07-01', 7, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-07-01', 7, 2023, 'county', 'Addison', 'total', 83.0, 81.0) AS new_data
+('2023-07-01', 7, 2023, 'county', 'Addison', 'total', 83.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27279,9 +27287,9 @@ VALUES
 ('2023-07-01', 7, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-07-01', 7, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-07-01', 7, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-07-01', 7, 2023, 'county', 'Essex', 'White', 30, 30),
+('2023-07-01', 7, 2023, 'county', 'Essex', 'White', 30, -1),
 ('2023-07-01', 7, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-07-01', 7, 2023, 'county', 'Essex', 'total', 31.0, 30.0) AS new_data
+('2023-07-01', 7, 2023, 'county', 'Essex', 'total', 31.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27351,9 +27359,9 @@ VALUES
 ('2023-07-01', 7, 2023, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-07-01', 7, 2023, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-07-01', 7, 2023, 'county', 'Out of State', 'Prefer to self-describe', 2, -1),
-('2023-07-01', 7, 2023, 'county', 'Out of State', 'White', 12, 12),
+('2023-07-01', 7, 2023, 'county', 'Out of State', 'White', 12, -1),
 ('2023-07-01', 7, 2023, 'county', 'Out of State', 'Two or More Races', 0, -1),
-('2023-07-01', 7, 2023, 'county', 'Out of State', 'total', 18.0, 12.0) AS new_data
+('2023-07-01', 7, 2023, 'county', 'Out of State', 'total', 18.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27399,21 +27407,21 @@ VALUES
 ('2023-07-01', 7, 2023, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2023-07-01', 7, 2023, 'county', 'Windsor', 'Prefer not to answer', 0, -1),
 ('2023-07-01', 7, 2023, 'county', 'Windsor', 'Prefer to self-describe', 7, -1),
-('2023-07-01', 7, 2023, 'county', 'Windsor', 'White', 470, -1),
+('2023-07-01', 7, 2023, 'county', 'Windsor', 'White', 470, 470),
 ('2023-07-01', 7, 2023, 'county', 'Windsor', 'Two or More Races', 17, 17),
-('2023-07-01', 7, 2023, 'county', 'Windsor', 'total', 509.0, 17.0) AS new_data
+('2023-07-01', 7, 2023, 'county', 'Windsor', 'total', 509.0, 487.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-07-01', 7, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 15, 15),
+('2023-07-01', 7, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 15, -1),
 ('2023-07-01', 7, 2023, 'county', 'Vermont', 'Asian', 62, 62),
 ('2023-07-01', 7, 2023, 'county', 'Vermont', 'Black or African American', 259, 259),
 ('2023-07-01', 7, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2023-07-01', 7, 2023, 'county', 'Vermont', 'Prefer not to answer', 34, 34),
 ('2023-07-01', 7, 2023, 'county', 'Vermont', 'Prefer to self-describe', 35, 35),
-('2023-07-01', 7, 2023, 'county', 'Vermont', 'White', 4648, -1),
+('2023-07-01', 7, 2023, 'county', 'Vermont', 'White', 4648, 4648),
 ('2023-07-01', 7, 2023, 'county', 'Vermont', 'Two or More Races', 239, 239),
-('2023-07-01', 7, 2023, 'county', 'Vermont', 'total', 5295.0, 644.0) AS new_data
+('2023-07-01', 7, 2023, 'county', 'Vermont', 'total', 5295.0, 5277.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27423,9 +27431,9 @@ VALUES
 ('2023-06-01', 6, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-06-01', 6, 2023, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2023-06-01', 6, 2023, 'county', 'Addison', 'Prefer to self-describe', 1, -1),
-('2023-06-01', 6, 2023, 'county', 'Addison', 'White', 85, 85),
+('2023-06-01', 6, 2023, 'county', 'Addison', 'White', 85, -1),
 ('2023-06-01', 6, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-06-01', 6, 2023, 'county', 'Addison', 'total', 88.0, 85.0) AS new_data
+('2023-06-01', 6, 2023, 'county', 'Addison', 'total', 88.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27458,10 +27466,10 @@ VALUES
 ('2023-06-01', 6, 2023, 'county', 'Chittenden', 'Black or African American', 181, 181),
 ('2023-06-01', 6, 2023, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-06-01', 6, 2023, 'county', 'Chittenden', 'Prefer not to answer', 6, -1),
-('2023-06-01', 6, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 14, 14),
+('2023-06-01', 6, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 14, -1),
 ('2023-06-01', 6, 2023, 'county', 'Chittenden', 'White', 718, 718),
 ('2023-06-01', 6, 2023, 'county', 'Chittenden', 'Two or More Races', 67, 67),
-('2023-06-01', 6, 2023, 'county', 'Chittenden', 'total', 1032.0, 1023.0) AS new_data
+('2023-06-01', 6, 2023, 'county', 'Chittenden', 'total', 1032.0, 1009.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27471,9 +27479,9 @@ VALUES
 ('2023-06-01', 6, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-06-01', 6, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-06-01', 6, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-06-01', 6, 2023, 'county', 'Essex', 'White', 34, 34),
+('2023-06-01', 6, 2023, 'county', 'Essex', 'White', 34, -1),
 ('2023-06-01', 6, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-06-01', 6, 2023, 'county', 'Essex', 'total', 37.0, 34.0) AS new_data
+('2023-06-01', 6, 2023, 'county', 'Essex', 'total', 37.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27543,9 +27551,9 @@ VALUES
 ('2023-06-01', 6, 2023, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-06-01', 6, 2023, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-06-01', 6, 2023, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2023-06-01', 6, 2023, 'county', 'Out of State', 'White', 11, 11),
+('2023-06-01', 6, 2023, 'county', 'Out of State', 'White', 11, -1),
 ('2023-06-01', 6, 2023, 'county', 'Out of State', 'Two or More Races', 1, -1),
-('2023-06-01', 6, 2023, 'county', 'Out of State', 'total', 16.0, 11.0) AS new_data
+('2023-06-01', 6, 2023, 'county', 'Out of State', 'total', 16.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27591,21 +27599,21 @@ VALUES
 ('2023-06-01', 6, 2023, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2023-06-01', 6, 2023, 'county', 'Windsor', 'Prefer not to answer', 0, -1),
 ('2023-06-01', 6, 2023, 'county', 'Windsor', 'Prefer to self-describe', 6, -1),
-('2023-06-01', 6, 2023, 'county', 'Windsor', 'White', 447, -1),
+('2023-06-01', 6, 2023, 'county', 'Windsor', 'White', 447, 447),
 ('2023-06-01', 6, 2023, 'county', 'Windsor', 'Two or More Races', 16, 16),
-('2023-06-01', 6, 2023, 'county', 'Windsor', 'total', 484.0, 16.0) AS new_data
+('2023-06-01', 6, 2023, 'county', 'Windsor', 'total', 484.0, 463.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-06-01', 6, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 12, 12),
+('2023-06-01', 6, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 12, -1),
 ('2023-06-01', 6, 2023, 'county', 'Vermont', 'Asian', 71, 71),
 ('2023-06-01', 6, 2023, 'county', 'Vermont', 'Black or African American', 279, 279),
 ('2023-06-01', 6, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 2, -1),
 ('2023-06-01', 6, 2023, 'county', 'Vermont', 'Prefer not to answer', 36, 36),
 ('2023-06-01', 6, 2023, 'county', 'Vermont', 'Prefer to self-describe', 37, 37),
-('2023-06-01', 6, 2023, 'county', 'Vermont', 'White', 4679, -1),
+('2023-06-01', 6, 2023, 'county', 'Vermont', 'White', 4679, 4679),
 ('2023-06-01', 6, 2023, 'county', 'Vermont', 'Two or More Races', 237, 237),
-('2023-06-01', 6, 2023, 'county', 'Vermont', 'total', 5353.0, 672.0) AS new_data
+('2023-06-01', 6, 2023, 'county', 'Vermont', 'total', 5353.0, 5339.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27615,9 +27623,9 @@ VALUES
 ('2023-05-01', 5, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Addison', 'Prefer to self-describe', 1, -1),
-('2023-05-01', 5, 2023, 'county', 'Addison', 'White', 73, 73),
+('2023-05-01', 5, 2023, 'county', 'Addison', 'White', 73, -1),
 ('2023-05-01', 5, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-05-01', 5, 2023, 'county', 'Addison', 'total', 76.0, 73.0) AS new_data
+('2023-05-01', 5, 2023, 'county', 'Addison', 'total', 76.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27650,10 +27658,10 @@ VALUES
 ('2023-05-01', 5, 2023, 'county', 'Chittenden', 'Black or African American', 161, 161),
 ('2023-05-01', 5, 2023, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Chittenden', 'Prefer not to answer', 5, -1),
-('2023-05-01', 5, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 13, 13),
+('2023-05-01', 5, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 13, -1),
 ('2023-05-01', 5, 2023, 'county', 'Chittenden', 'White', 647, 647),
 ('2023-05-01', 5, 2023, 'county', 'Chittenden', 'Two or More Races', 59, 59),
-('2023-05-01', 5, 2023, 'county', 'Chittenden', 'total', 923.0, 915.0) AS new_data
+('2023-05-01', 5, 2023, 'county', 'Chittenden', 'total', 923.0, 902.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27663,9 +27671,9 @@ VALUES
 ('2023-05-01', 5, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-05-01', 5, 2023, 'county', 'Essex', 'White', 30, 30),
+('2023-05-01', 5, 2023, 'county', 'Essex', 'White', 30, -1),
 ('2023-05-01', 5, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-05-01', 5, 2023, 'county', 'Essex', 'total', 33.0, 30.0) AS new_data
+('2023-05-01', 5, 2023, 'county', 'Essex', 'total', 33.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27735,21 +27743,21 @@ VALUES
 ('2023-05-01', 5, 2023, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2023-05-01', 5, 2023, 'county', 'Out of State', 'White', 12, 12),
+('2023-05-01', 5, 2023, 'county', 'Out of State', 'White', 12, -1),
 ('2023-05-01', 5, 2023, 'county', 'Out of State', 'Two or More Races', 1, -1),
-('2023-05-01', 5, 2023, 'county', 'Out of State', 'total', 17.0, 12.0) AS new_data
+('2023-05-01', 5, 2023, 'county', 'Out of State', 'total', 17.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-05-01', 5, 2023, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Rutland', 'Asian', 2, -1),
-('2023-05-01', 5, 2023, 'county', 'Rutland', 'Black or African American', 23, 23),
+('2023-05-01', 5, 2023, 'county', 'Rutland', 'Black or African American', 23, -1),
 ('2023-05-01', 5, 2023, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Rutland', 'Prefer not to answer', 4, -1),
 ('2023-05-01', 5, 2023, 'county', 'Rutland', 'Prefer to self-describe', 2, -1),
 ('2023-05-01', 5, 2023, 'county', 'Rutland', 'White', 676, 676),
 ('2023-05-01', 5, 2023, 'county', 'Rutland', 'Two or More Races', 34, 34),
-('2023-05-01', 5, 2023, 'county', 'Rutland', 'total', 741.0, 733.0) AS new_data
+('2023-05-01', 5, 2023, 'county', 'Rutland', 'total', 741.0, 710.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27783,21 +27791,21 @@ VALUES
 ('2023-05-01', 5, 2023, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Windsor', 'Prefer not to answer', 0, -1),
 ('2023-05-01', 5, 2023, 'county', 'Windsor', 'Prefer to self-describe', 1, -1),
-('2023-05-01', 5, 2023, 'county', 'Windsor', 'White', 409, -1),
+('2023-05-01', 5, 2023, 'county', 'Windsor', 'White', 409, 409),
 ('2023-05-01', 5, 2023, 'county', 'Windsor', 'Two or More Races', 15, 15),
-('2023-05-01', 5, 2023, 'county', 'Windsor', 'total', 438.0, 15.0) AS new_data
+('2023-05-01', 5, 2023, 'county', 'Windsor', 'total', 438.0, 424.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-05-01', 5, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 11, 11),
+('2023-05-01', 5, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 11, -1),
 ('2023-05-01', 5, 2023, 'county', 'Vermont', 'Asian', 61, 61),
 ('2023-05-01', 5, 2023, 'county', 'Vermont', 'Black or African American', 251, 251),
 ('2023-05-01', 5, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2023-05-01', 5, 2023, 'county', 'Vermont', 'Prefer not to answer', 32, 32),
 ('2023-05-01', 5, 2023, 'county', 'Vermont', 'Prefer to self-describe', 30, 30),
-('2023-05-01', 5, 2023, 'county', 'Vermont', 'White', 4243, -1),
+('2023-05-01', 5, 2023, 'county', 'Vermont', 'White', 4243, 4243),
 ('2023-05-01', 5, 2023, 'county', 'Vermont', 'Two or More Races', 219, 219),
-('2023-05-01', 5, 2023, 'county', 'Vermont', 'total', 4848.0, 604.0) AS new_data
+('2023-05-01', 5, 2023, 'county', 'Vermont', 'total', 4848.0, 4836.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27807,9 +27815,9 @@ VALUES
 ('2023-04-01', 4, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Addison', 'Prefer not to answer', 1, -1),
 ('2023-04-01', 4, 2023, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2023-04-01', 4, 2023, 'county', 'Addison', 'White', 77, 77),
+('2023-04-01', 4, 2023, 'county', 'Addison', 'White', 77, -1),
 ('2023-04-01', 4, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-04-01', 4, 2023, 'county', 'Addison', 'total', 80.0, 77.0) AS new_data
+('2023-04-01', 4, 2023, 'county', 'Addison', 'total', 80.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27842,10 +27850,10 @@ VALUES
 ('2023-04-01', 4, 2023, 'county', 'Chittenden', 'Black or African American', 162, 162),
 ('2023-04-01', 4, 2023, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Chittenden', 'Prefer not to answer', 2, -1),
-('2023-04-01', 4, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 12, 12),
+('2023-04-01', 4, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 12, -1),
 ('2023-04-01', 4, 2023, 'county', 'Chittenden', 'White', 645, 645),
 ('2023-04-01', 4, 2023, 'county', 'Chittenden', 'Two or More Races', 60, 60),
-('2023-04-01', 4, 2023, 'county', 'Chittenden', 'total', 918.0, 913.0) AS new_data
+('2023-04-01', 4, 2023, 'county', 'Chittenden', 'total', 918.0, 901.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27855,9 +27863,9 @@ VALUES
 ('2023-04-01', 4, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-04-01', 4, 2023, 'county', 'Essex', 'White', 29, 29),
+('2023-04-01', 4, 2023, 'county', 'Essex', 'White', 29, -1),
 ('2023-04-01', 4, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-04-01', 4, 2023, 'county', 'Essex', 'total', 32.0, 29.0) AS new_data
+('2023-04-01', 4, 2023, 'county', 'Essex', 'total', 32.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27927,21 +27935,21 @@ VALUES
 ('2023-04-01', 4, 2023, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2023-04-01', 4, 2023, 'county', 'Out of State', 'White', 12, 12),
+('2023-04-01', 4, 2023, 'county', 'Out of State', 'White', 12, -1),
 ('2023-04-01', 4, 2023, 'county', 'Out of State', 'Two or More Races', 1, -1),
-('2023-04-01', 4, 2023, 'county', 'Out of State', 'total', 17.0, 12.0) AS new_data
+('2023-04-01', 4, 2023, 'county', 'Out of State', 'total', 17.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-04-01', 4, 2023, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Rutland', 'Asian', 2, -1),
-('2023-04-01', 4, 2023, 'county', 'Rutland', 'Black or African American', 23, 23),
+('2023-04-01', 4, 2023, 'county', 'Rutland', 'Black or African American', 23, -1),
 ('2023-04-01', 4, 2023, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Rutland', 'Prefer not to answer', 4, -1),
 ('2023-04-01', 4, 2023, 'county', 'Rutland', 'Prefer to self-describe', 2, -1),
 ('2023-04-01', 4, 2023, 'county', 'Rutland', 'White', 677, 677),
 ('2023-04-01', 4, 2023, 'county', 'Rutland', 'Two or More Races', 33, 33),
-('2023-04-01', 4, 2023, 'county', 'Rutland', 'total', 741.0, 733.0) AS new_data
+('2023-04-01', 4, 2023, 'county', 'Rutland', 'total', 741.0, 710.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27975,21 +27983,21 @@ VALUES
 ('2023-04-01', 4, 2023, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Windsor', 'Prefer not to answer', 0, -1),
 ('2023-04-01', 4, 2023, 'county', 'Windsor', 'Prefer to self-describe', 0, -1),
-('2023-04-01', 4, 2023, 'county', 'Windsor', 'White', 412, -1),
+('2023-04-01', 4, 2023, 'county', 'Windsor', 'White', 412, 412),
 ('2023-04-01', 4, 2023, 'county', 'Windsor', 'Two or More Races', 15, 15),
-('2023-04-01', 4, 2023, 'county', 'Windsor', 'total', 437.0, 15.0) AS new_data
+('2023-04-01', 4, 2023, 'county', 'Windsor', 'total', 437.0, 427.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-04-01', 4, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 12, 12),
+('2023-04-01', 4, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 12, -1),
 ('2023-04-01', 4, 2023, 'county', 'Vermont', 'Asian', 58, 58),
 ('2023-04-01', 4, 2023, 'county', 'Vermont', 'Black or African American', 251, 251),
 ('2023-04-01', 4, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2023-04-01', 4, 2023, 'county', 'Vermont', 'Prefer not to answer', 26, 26),
 ('2023-04-01', 4, 2023, 'county', 'Vermont', 'Prefer to self-describe', 27, 27),
-('2023-04-01', 4, 2023, 'county', 'Vermont', 'White', 4182, -1),
+('2023-04-01', 4, 2023, 'county', 'Vermont', 'White', 4182, 4182),
 ('2023-04-01', 4, 2023, 'county', 'Vermont', 'Two or More Races', 215, 215),
-('2023-04-01', 4, 2023, 'county', 'Vermont', 'total', 4772.0, 589.0) AS new_data
+('2023-04-01', 4, 2023, 'county', 'Vermont', 'total', 4772.0, 4759.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -27999,9 +28007,9 @@ VALUES
 ('2023-03-01', 3, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Addison', 'Prefer not to answer', 1, -1),
 ('2023-03-01', 3, 2023, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2023-03-01', 3, 2023, 'county', 'Addison', 'White', 71, 71),
+('2023-03-01', 3, 2023, 'county', 'Addison', 'White', 71, -1),
 ('2023-03-01', 3, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-03-01', 3, 2023, 'county', 'Addison', 'total', 74.0, 71.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Addison', 'total', 74.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28012,8 +28020,8 @@ VALUES
 ('2023-03-01', 3, 2023, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2023-03-01', 3, 2023, 'county', 'Bennington', 'White', 447, 447),
-('2023-03-01', 3, 2023, 'county', 'Bennington', 'Two or More Races', 20, 20),
-('2023-03-01', 3, 2023, 'county', 'Bennington', 'total', 476.0, 467.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Bennington', 'Two or More Races', 20, -1),
+('2023-03-01', 3, 2023, 'county', 'Bennington', 'total', 476.0, 447.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28047,9 +28055,9 @@ VALUES
 ('2023-03-01', 3, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-03-01', 3, 2023, 'county', 'Essex', 'White', 29, 29),
+('2023-03-01', 3, 2023, 'county', 'Essex', 'White', 29, -1),
 ('2023-03-01', 3, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-03-01', 3, 2023, 'county', 'Essex', 'total', 32.0, 29.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Essex', 'total', 32.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28084,8 +28092,8 @@ VALUES
 ('2023-03-01', 3, 2023, 'county', 'Lamoille', 'Prefer not to answer', 1, -1),
 ('2023-03-01', 3, 2023, 'county', 'Lamoille', 'Prefer to self-describe', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Lamoille', 'White', 216, 216),
-('2023-03-01', 3, 2023, 'county', 'Lamoille', 'Two or More Races', 13, 13),
-('2023-03-01', 3, 2023, 'county', 'Lamoille', 'total', 238.0, 229.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Lamoille', 'Two or More Races', 13, -1),
+('2023-03-01', 3, 2023, 'county', 'Lamoille', 'total', 238.0, 216.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28095,9 +28103,9 @@ VALUES
 ('2023-03-01', 3, 2023, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Orange', 'Prefer not to answer', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2023-03-01', 3, 2023, 'county', 'Orange', 'White', 152, 152),
+('2023-03-01', 3, 2023, 'county', 'Orange', 'White', 152, -1),
 ('2023-03-01', 3, 2023, 'county', 'Orange', 'Two or More Races', 6, -1),
-('2023-03-01', 3, 2023, 'county', 'Orange', 'total', 161.0, 152.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Orange', 'total', 161.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28119,21 +28127,21 @@ VALUES
 ('2023-03-01', 3, 2023, 'county', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2023-03-01', 3, 2023, 'county', 'Out of State', 'White', 11, 11),
+('2023-03-01', 3, 2023, 'county', 'Out of State', 'White', 11, -1),
 ('2023-03-01', 3, 2023, 'county', 'Out of State', 'Two or More Races', 1, -1),
-('2023-03-01', 3, 2023, 'county', 'Out of State', 'total', 16.0, 11.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Out of State', 'total', 16.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-03-01', 3, 2023, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Rutland', 'Asian', 2, -1),
-('2023-03-01', 3, 2023, 'county', 'Rutland', 'Black or African American', 22, 22),
+('2023-03-01', 3, 2023, 'county', 'Rutland', 'Black or African American', 22, -1),
 ('2023-03-01', 3, 2023, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Rutland', 'Prefer not to answer', 2, -1),
 ('2023-03-01', 3, 2023, 'county', 'Rutland', 'Prefer to self-describe', 2, -1),
 ('2023-03-01', 3, 2023, 'county', 'Rutland', 'White', 648, 648),
 ('2023-03-01', 3, 2023, 'county', 'Rutland', 'Two or More Races', 31, 31),
-('2023-03-01', 3, 2023, 'county', 'Rutland', 'total', 707.0, 701.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Rutland', 'total', 707.0, 679.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28167,21 +28175,21 @@ VALUES
 ('2023-03-01', 3, 2023, 'county', 'Windsor', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Windsor', 'Prefer not to answer', 0, -1),
 ('2023-03-01', 3, 2023, 'county', 'Windsor', 'Prefer to self-describe', 0, -1),
-('2023-03-01', 3, 2023, 'county', 'Windsor', 'White', 385, -1),
-('2023-03-01', 3, 2023, 'county', 'Windsor', 'Two or More Races', 13, 13),
-('2023-03-01', 3, 2023, 'county', 'Windsor', 'total', 407.0, 13.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Windsor', 'White', 385, 385),
+('2023-03-01', 3, 2023, 'county', 'Windsor', 'Two or More Races', 13, -1),
+('2023-03-01', 3, 2023, 'county', 'Windsor', 'total', 407.0, 385.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-03-01', 3, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 11, 11),
+('2023-03-01', 3, 2023, 'county', 'Vermont', 'American Indian or Alaskan Native', 11, -1),
 ('2023-03-01', 3, 2023, 'county', 'Vermont', 'Asian', 56, 56),
 ('2023-03-01', 3, 2023, 'county', 'Vermont', 'Black or African American', 248, 248),
 ('2023-03-01', 3, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2023-03-01', 3, 2023, 'county', 'Vermont', 'Prefer not to answer', 24, 24),
 ('2023-03-01', 3, 2023, 'county', 'Vermont', 'Prefer to self-describe', 21, 21),
-('2023-03-01', 3, 2023, 'county', 'Vermont', 'White', 3932, -1),
+('2023-03-01', 3, 2023, 'county', 'Vermont', 'White', 3932, 3932),
 ('2023-03-01', 3, 2023, 'county', 'Vermont', 'Two or More Races', 200, 200),
-('2023-03-01', 3, 2023, 'county', 'Vermont', 'total', 4493.0, 560.0) AS new_data
+('2023-03-01', 3, 2023, 'county', 'Vermont', 'total', 4493.0, 4481.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28191,9 +28199,9 @@ VALUES
 ('2023-02-01', 2, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Addison', 'Prefer not to answer', 1, -1),
 ('2023-02-01', 2, 2023, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2023-02-01', 2, 2023, 'county', 'Addison', 'White', 72, 72),
+('2023-02-01', 2, 2023, 'county', 'Addison', 'White', 72, -1),
 ('2023-02-01', 2, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-02-01', 2, 2023, 'county', 'Addison', 'total', 74.0, 72.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Addison', 'total', 74.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28204,8 +28212,8 @@ VALUES
 ('2023-02-01', 2, 2023, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2023-02-01', 2, 2023, 'county', 'Bennington', 'White', 421, 421),
-('2023-02-01', 2, 2023, 'county', 'Bennington', 'Two or More Races', 20, 20),
-('2023-02-01', 2, 2023, 'county', 'Bennington', 'total', 449.0, 441.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Bennington', 'Two or More Races', 20, -1),
+('2023-02-01', 2, 2023, 'county', 'Bennington', 'total', 449.0, 421.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28222,14 +28230,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-02-01', 2, 2023, 'county', 'Chittenden', 'American Indian or Alaskan Native', 3, -1),
-('2023-02-01', 2, 2023, 'county', 'Chittenden', 'Asian', 34, 34),
+('2023-02-01', 2, 2023, 'county', 'Chittenden', 'Asian', 34, -1),
 ('2023-02-01', 2, 2023, 'county', 'Chittenden', 'Black or African American', 149, 149),
 ('2023-02-01', 2, 2023, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Chittenden', 'Prefer not to answer', 2, -1),
 ('2023-02-01', 2, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 4, -1),
 ('2023-02-01', 2, 2023, 'county', 'Chittenden', 'White', 573, 573),
 ('2023-02-01', 2, 2023, 'county', 'Chittenden', 'Two or More Races', 51, 51),
-('2023-02-01', 2, 2023, 'county', 'Chittenden', 'total', 816.0, 807.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Chittenden', 'total', 816.0, 773.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28239,9 +28247,9 @@ VALUES
 ('2023-02-01', 2, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-02-01', 2, 2023, 'county', 'Essex', 'White', 29, 29),
+('2023-02-01', 2, 2023, 'county', 'Essex', 'White', 29, -1),
 ('2023-02-01', 2, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-02-01', 2, 2023, 'county', 'Essex', 'total', 32.0, 29.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Essex', 'total', 32.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28276,8 +28284,8 @@ VALUES
 ('2023-02-01', 2, 2023, 'county', 'Lamoille', 'Prefer not to answer', 1, -1),
 ('2023-02-01', 2, 2023, 'county', 'Lamoille', 'Prefer to self-describe', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Lamoille', 'White', 207, 207),
-('2023-02-01', 2, 2023, 'county', 'Lamoille', 'Two or More Races', 13, 13),
-('2023-02-01', 2, 2023, 'county', 'Lamoille', 'total', 228.0, 220.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Lamoille', 'Two or More Races', 13, -1),
+('2023-02-01', 2, 2023, 'county', 'Lamoille', 'total', 228.0, 207.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28287,9 +28295,9 @@ VALUES
 ('2023-02-01', 2, 2023, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Orange', 'Prefer not to answer', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2023-02-01', 2, 2023, 'county', 'Orange', 'White', 144, 144),
+('2023-02-01', 2, 2023, 'county', 'Orange', 'White', 144, -1),
 ('2023-02-01', 2, 2023, 'county', 'Orange', 'Two or More Races', 6, -1),
-('2023-02-01', 2, 2023, 'county', 'Orange', 'total', 153.0, 144.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Orange', 'total', 153.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28319,13 +28327,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-02-01', 2, 2023, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Rutland', 'Asian', 2, -1),
-('2023-02-01', 2, 2023, 'county', 'Rutland', 'Black or African American', 24, 24),
+('2023-02-01', 2, 2023, 'county', 'Rutland', 'Black or African American', 24, -1),
 ('2023-02-01', 2, 2023, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-02-01', 2, 2023, 'county', 'Rutland', 'Prefer not to answer', 2, -1),
 ('2023-02-01', 2, 2023, 'county', 'Rutland', 'Prefer to self-describe', 1, -1),
 ('2023-02-01', 2, 2023, 'county', 'Rutland', 'White', 635, 635),
 ('2023-02-01', 2, 2023, 'county', 'Rutland', 'Two or More Races', 31, 31),
-('2023-02-01', 2, 2023, 'county', 'Rutland', 'total', 695.0, 690.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Rutland', 'total', 695.0, 666.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28371,9 +28379,9 @@ VALUES
 ('2023-02-01', 2, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2023-02-01', 2, 2023, 'county', 'Vermont', 'Prefer not to answer', 23, 23),
 ('2023-02-01', 2, 2023, 'county', 'Vermont', 'Prefer to self-describe', 16, 16),
-('2023-02-01', 2, 2023, 'county', 'Vermont', 'White', 3745, -1),
+('2023-02-01', 2, 2023, 'county', 'Vermont', 'White', 3745, 3745),
 ('2023-02-01', 2, 2023, 'county', 'Vermont', 'Two or More Races', 187, 187),
-('2023-02-01', 2, 2023, 'county', 'Vermont', 'total', 4268.0, 512.0) AS new_data
+('2023-02-01', 2, 2023, 'county', 'Vermont', 'total', 4268.0, 4257.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28383,9 +28391,9 @@ VALUES
 ('2023-01-01', 1, 2023, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Addison', 'Prefer not to answer', 1, -1),
 ('2023-01-01', 1, 2023, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2023-01-01', 1, 2023, 'county', 'Addison', 'White', 72, 72),
+('2023-01-01', 1, 2023, 'county', 'Addison', 'White', 72, -1),
 ('2023-01-01', 1, 2023, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2023-01-01', 1, 2023, 'county', 'Addison', 'total', 74.0, 72.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Addison', 'total', 74.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28396,8 +28404,8 @@ VALUES
 ('2023-01-01', 1, 2023, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2023-01-01', 1, 2023, 'county', 'Bennington', 'White', 421, 421),
-('2023-01-01', 1, 2023, 'county', 'Bennington', 'Two or More Races', 16, 16),
-('2023-01-01', 1, 2023, 'county', 'Bennington', 'total', 445.0, 437.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Bennington', 'Two or More Races', 16, -1),
+('2023-01-01', 1, 2023, 'county', 'Bennington', 'total', 445.0, 421.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28414,14 +28422,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-01-01', 1, 2023, 'county', 'Chittenden', 'American Indian or Alaskan Native', 3, -1),
-('2023-01-01', 1, 2023, 'county', 'Chittenden', 'Asian', 34, 34),
+('2023-01-01', 1, 2023, 'county', 'Chittenden', 'Asian', 34, -1),
 ('2023-01-01', 1, 2023, 'county', 'Chittenden', 'Black or African American', 149, 149),
 ('2023-01-01', 1, 2023, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Chittenden', 'Prefer not to answer', 2, -1),
 ('2023-01-01', 1, 2023, 'county', 'Chittenden', 'Prefer to self-describe', 4, -1),
 ('2023-01-01', 1, 2023, 'county', 'Chittenden', 'White', 573, 573),
 ('2023-01-01', 1, 2023, 'county', 'Chittenden', 'Two or More Races', 47, 47),
-('2023-01-01', 1, 2023, 'county', 'Chittenden', 'total', 812.0, 803.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Chittenden', 'total', 812.0, 769.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28431,9 +28439,9 @@ VALUES
 ('2023-01-01', 1, 2023, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Essex', 'Prefer to self-describe', 1, -1),
-('2023-01-01', 1, 2023, 'county', 'Essex', 'White', 29, 29),
+('2023-01-01', 1, 2023, 'county', 'Essex', 'White', 29, -1),
 ('2023-01-01', 1, 2023, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2023-01-01', 1, 2023, 'county', 'Essex', 'total', 32.0, 29.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Essex', 'total', 32.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28468,8 +28476,8 @@ VALUES
 ('2023-01-01', 1, 2023, 'county', 'Lamoille', 'Prefer not to answer', 1, -1),
 ('2023-01-01', 1, 2023, 'county', 'Lamoille', 'Prefer to self-describe', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Lamoille', 'White', 207, 207),
-('2023-01-01', 1, 2023, 'county', 'Lamoille', 'Two or More Races', 14, 14),
-('2023-01-01', 1, 2023, 'county', 'Lamoille', 'total', 229.0, 221.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Lamoille', 'Two or More Races', 14, -1),
+('2023-01-01', 1, 2023, 'county', 'Lamoille', 'total', 229.0, 207.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28479,9 +28487,9 @@ VALUES
 ('2023-01-01', 1, 2023, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Orange', 'Prefer not to answer', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2023-01-01', 1, 2023, 'county', 'Orange', 'White', 144, 144),
+('2023-01-01', 1, 2023, 'county', 'Orange', 'White', 144, -1),
 ('2023-01-01', 1, 2023, 'county', 'Orange', 'Two or More Races', 5, -1),
-('2023-01-01', 1, 2023, 'county', 'Orange', 'total', 152.0, 144.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Orange', 'total', 152.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28511,13 +28519,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-01-01', 1, 2023, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Rutland', 'Asian', 2, -1),
-('2023-01-01', 1, 2023, 'county', 'Rutland', 'Black or African American', 24, 24),
+('2023-01-01', 1, 2023, 'county', 'Rutland', 'Black or African American', 24, -1),
 ('2023-01-01', 1, 2023, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-01-01', 1, 2023, 'county', 'Rutland', 'Prefer not to answer', 2, -1),
 ('2023-01-01', 1, 2023, 'county', 'Rutland', 'Prefer to self-describe', 1, -1),
 ('2023-01-01', 1, 2023, 'county', 'Rutland', 'White', 635, 635),
 ('2023-01-01', 1, 2023, 'county', 'Rutland', 'Two or More Races', 29, 29),
-('2023-01-01', 1, 2023, 'county', 'Rutland', 'total', 693.0, 688.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Rutland', 'total', 693.0, 664.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28563,9 +28571,9 @@ VALUES
 ('2023-01-01', 1, 2023, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2023-01-01', 1, 2023, 'county', 'Vermont', 'Prefer not to answer', 23, 23),
 ('2023-01-01', 1, 2023, 'county', 'Vermont', 'Prefer to self-describe', 16, 16),
-('2023-01-01', 1, 2023, 'county', 'Vermont', 'White', 3745, -1),
+('2023-01-01', 1, 2023, 'county', 'Vermont', 'White', 3745, 3745),
 ('2023-01-01', 1, 2023, 'county', 'Vermont', 'Two or More Races', 173, 173),
-('2023-01-01', 1, 2023, 'county', 'Vermont', 'total', 4254.0, 498.0) AS new_data
+('2023-01-01', 1, 2023, 'county', 'Vermont', 'total', 4254.0, 4243.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28575,9 +28583,9 @@ VALUES
 ('2022-12-01', 12, 2022, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2022-12-01', 12, 2022, 'county', 'Addison', 'White', 55, 55),
+('2022-12-01', 12, 2022, 'county', 'Addison', 'White', 55, -1),
 ('2022-12-01', 12, 2022, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2022-12-01', 12, 2022, 'county', 'Addison', 'total', 55.0, 55.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Addison', 'total', 55.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28588,8 +28596,8 @@ VALUES
 ('2022-12-01', 12, 2022, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2022-12-01', 12, 2022, 'county', 'Bennington', 'White', 352, 352),
-('2022-12-01', 12, 2022, 'county', 'Bennington', 'Two or More Races', 15, 15),
-('2022-12-01', 12, 2022, 'county', 'Bennington', 'total', 374.0, 367.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Bennington', 'Two or More Races', 15, -1),
+('2022-12-01', 12, 2022, 'county', 'Bennington', 'total', 374.0, 352.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28606,14 +28614,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-12-01', 12, 2022, 'county', 'Chittenden', 'American Indian or Alaskan Native', 1, -1),
-('2022-12-01', 12, 2022, 'county', 'Chittenden', 'Asian', 24, 24),
+('2022-12-01', 12, 2022, 'county', 'Chittenden', 'Asian', 24, -1),
 ('2022-12-01', 12, 2022, 'county', 'Chittenden', 'Black or African American', 132, 132),
 ('2022-12-01', 12, 2022, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Chittenden', 'Prefer not to answer', 2, -1),
 ('2022-12-01', 12, 2022, 'county', 'Chittenden', 'Prefer to self-describe', 3, -1),
 ('2022-12-01', 12, 2022, 'county', 'Chittenden', 'White', 497, 497),
 ('2022-12-01', 12, 2022, 'county', 'Chittenden', 'Two or More Races', 43, 43),
-('2022-12-01', 12, 2022, 'county', 'Chittenden', 'total', 702.0, 696.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Chittenden', 'total', 702.0, 672.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28623,9 +28631,9 @@ VALUES
 ('2022-12-01', 12, 2022, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Essex', 'Prefer to self-describe', 0, -1),
-('2022-12-01', 12, 2022, 'county', 'Essex', 'White', 23, 23),
+('2022-12-01', 12, 2022, 'county', 'Essex', 'White', 23, -1),
 ('2022-12-01', 12, 2022, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2022-12-01', 12, 2022, 'county', 'Essex', 'total', 25.0, 23.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Essex', 'total', 25.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28647,9 +28655,9 @@ VALUES
 ('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'Prefer to self-describe', 0, -1),
-('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'White', 40, 40),
+('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'White', 40, -1),
 ('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'Two or More Races', 2, -1),
-('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'total', 48.0, 40.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Grand Isle', 'total', 48.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28660,8 +28668,8 @@ VALUES
 ('2022-12-01', 12, 2022, 'county', 'Lamoille', 'Prefer not to answer', 1, -1),
 ('2022-12-01', 12, 2022, 'county', 'Lamoille', 'Prefer to self-describe', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Lamoille', 'White', 164, 164),
-('2022-12-01', 12, 2022, 'county', 'Lamoille', 'Two or More Races', 13, 13),
-('2022-12-01', 12, 2022, 'county', 'Lamoille', 'total', 181.0, 177.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Lamoille', 'Two or More Races', 13, -1),
+('2022-12-01', 12, 2022, 'county', 'Lamoille', 'total', 181.0, 164.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28671,9 +28679,9 @@ VALUES
 ('2022-12-01', 12, 2022, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Orange', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2022-12-01', 12, 2022, 'county', 'Orange', 'White', 116, 116),
+('2022-12-01', 12, 2022, 'county', 'Orange', 'White', 116, -1),
 ('2022-12-01', 12, 2022, 'county', 'Orange', 'Two or More Races', 5, -1),
-('2022-12-01', 12, 2022, 'county', 'Orange', 'total', 124.0, 116.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Orange', 'total', 124.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28683,9 +28691,9 @@ VALUES
 ('2022-12-01', 12, 2022, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Orleans', 'Prefer not to answer', 1, -1),
 ('2022-12-01', 12, 2022, 'county', 'Orleans', 'Prefer to self-describe', 1, -1),
-('2022-12-01', 12, 2022, 'county', 'Orleans', 'White', 148, 148),
+('2022-12-01', 12, 2022, 'county', 'Orleans', 'White', 148, -1),
 ('2022-12-01', 12, 2022, 'county', 'Orleans', 'Two or More Races', 0, -1),
-('2022-12-01', 12, 2022, 'county', 'Orleans', 'total', 153.0, 148.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Orleans', 'total', 153.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28703,13 +28711,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2022-12-01', 12, 2022, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Rutland', 'Asian', 2, -1),
-('2022-12-01', 12, 2022, 'county', 'Rutland', 'Black or African American', 22, 22),
+('2022-12-01', 12, 2022, 'county', 'Rutland', 'Black or African American', 22, -1),
 ('2022-12-01', 12, 2022, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Rutland', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Rutland', 'White', 558, 558),
 ('2022-12-01', 12, 2022, 'county', 'Rutland', 'Two or More Races', 29, 29),
-('2022-12-01', 12, 2022, 'county', 'Rutland', 'total', 611.0, 609.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Rutland', 'total', 611.0, 587.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28754,10 +28762,10 @@ VALUES
 ('2022-12-01', 12, 2022, 'county', 'Vermont', 'Black or African American', 195, 195),
 ('2022-12-01', 12, 2022, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'county', 'Vermont', 'Prefer not to answer', 15, 15),
-('2022-12-01', 12, 2022, 'county', 'Vermont', 'Prefer to self-describe', 11, 11),
-('2022-12-01', 12, 2022, 'county', 'Vermont', 'White', 3202, -1),
+('2022-12-01', 12, 2022, 'county', 'Vermont', 'Prefer to self-describe', 11, -1),
+('2022-12-01', 12, 2022, 'county', 'Vermont', 'White', 3202, 3202),
 ('2022-12-01', 12, 2022, 'county', 'Vermont', 'Two or More Races', 160, 160),
-('2022-12-01', 12, 2022, 'county', 'Vermont', 'total', 3638.0, 427.0) AS new_data
+('2022-12-01', 12, 2022, 'county', 'Vermont', 'total', 3638.0, 3618.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28767,9 +28775,9 @@ VALUES
 ('2022-11-01', 11, 2022, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2022-11-01', 11, 2022, 'county', 'Addison', 'White', 56, 56),
+('2022-11-01', 11, 2022, 'county', 'Addison', 'White', 56, -1),
 ('2022-11-01', 11, 2022, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2022-11-01', 11, 2022, 'county', 'Addison', 'total', 56.0, 56.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Addison', 'total', 56.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28780,8 +28788,8 @@ VALUES
 ('2022-11-01', 11, 2022, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2022-11-01', 11, 2022, 'county', 'Bennington', 'White', 347, 347),
-('2022-11-01', 11, 2022, 'county', 'Bennington', 'Two or More Races', 16, 16),
-('2022-11-01', 11, 2022, 'county', 'Bennington', 'total', 370.0, 363.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Bennington', 'Two or More Races', 16, -1),
+('2022-11-01', 11, 2022, 'county', 'Bennington', 'total', 370.0, 347.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28798,14 +28806,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-11-01', 11, 2022, 'county', 'Chittenden', 'American Indian or Alaskan Native', 1, -1),
-('2022-11-01', 11, 2022, 'county', 'Chittenden', 'Asian', 22, 22),
+('2022-11-01', 11, 2022, 'county', 'Chittenden', 'Asian', 22, -1),
 ('2022-11-01', 11, 2022, 'county', 'Chittenden', 'Black or African American', 129, 129),
 ('2022-11-01', 11, 2022, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Chittenden', 'Prefer not to answer', 1, -1),
 ('2022-11-01', 11, 2022, 'county', 'Chittenden', 'Prefer to self-describe', 3, -1),
 ('2022-11-01', 11, 2022, 'county', 'Chittenden', 'White', 493, 493),
 ('2022-11-01', 11, 2022, 'county', 'Chittenden', 'Two or More Races', 42, 42),
-('2022-11-01', 11, 2022, 'county', 'Chittenden', 'total', 691.0, 686.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Chittenden', 'total', 691.0, 664.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28815,9 +28823,9 @@ VALUES
 ('2022-11-01', 11, 2022, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Essex', 'Prefer to self-describe', 0, -1),
-('2022-11-01', 11, 2022, 'county', 'Essex', 'White', 23, 23),
+('2022-11-01', 11, 2022, 'county', 'Essex', 'White', 23, -1),
 ('2022-11-01', 11, 2022, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2022-11-01', 11, 2022, 'county', 'Essex', 'total', 25.0, 23.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Essex', 'total', 25.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28839,9 +28847,9 @@ VALUES
 ('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'Prefer to self-describe', 0, -1),
-('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'White', 40, 40),
+('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'White', 40, -1),
 ('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'Two or More Races', 2, -1),
-('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'total', 48.0, 40.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Grand Isle', 'total', 48.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28852,8 +28860,8 @@ VALUES
 ('2022-11-01', 11, 2022, 'county', 'Lamoille', 'Prefer not to answer', 1, -1),
 ('2022-11-01', 11, 2022, 'county', 'Lamoille', 'Prefer to self-describe', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Lamoille', 'White', 159, 159),
-('2022-11-01', 11, 2022, 'county', 'Lamoille', 'Two or More Races', 13, 13),
-('2022-11-01', 11, 2022, 'county', 'Lamoille', 'total', 176.0, 172.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Lamoille', 'Two or More Races', 13, -1),
+('2022-11-01', 11, 2022, 'county', 'Lamoille', 'total', 176.0, 159.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28863,9 +28871,9 @@ VALUES
 ('2022-11-01', 11, 2022, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Orange', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2022-11-01', 11, 2022, 'county', 'Orange', 'White', 114, 114),
+('2022-11-01', 11, 2022, 'county', 'Orange', 'White', 114, -1),
 ('2022-11-01', 11, 2022, 'county', 'Orange', 'Two or More Races', 5, -1),
-('2022-11-01', 11, 2022, 'county', 'Orange', 'total', 122.0, 114.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Orange', 'total', 122.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28875,9 +28883,9 @@ VALUES
 ('2022-11-01', 11, 2022, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Orleans', 'Prefer not to answer', 1, -1),
 ('2022-11-01', 11, 2022, 'county', 'Orleans', 'Prefer to self-describe', 1, -1),
-('2022-11-01', 11, 2022, 'county', 'Orleans', 'White', 143, 143),
+('2022-11-01', 11, 2022, 'county', 'Orleans', 'White', 143, -1),
 ('2022-11-01', 11, 2022, 'county', 'Orleans', 'Two or More Races', 0, -1),
-('2022-11-01', 11, 2022, 'county', 'Orleans', 'total', 148.0, 143.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Orleans', 'total', 148.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28895,13 +28903,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2022-11-01', 11, 2022, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Rutland', 'Asian', 3, -1),
-('2022-11-01', 11, 2022, 'county', 'Rutland', 'Black or African American', 25, 25),
+('2022-11-01', 11, 2022, 'county', 'Rutland', 'Black or African American', 25, -1),
 ('2022-11-01', 11, 2022, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Rutland', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Rutland', 'White', 532, 532),
 ('2022-11-01', 11, 2022, 'county', 'Rutland', 'Two or More Races', 25, 25),
-('2022-11-01', 11, 2022, 'county', 'Rutland', 'total', 585.0, 582.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Rutland', 'total', 585.0, 557.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28946,10 +28954,10 @@ VALUES
 ('2022-11-01', 11, 2022, 'county', 'Vermont', 'Black or African American', 192, 192),
 ('2022-11-01', 11, 2022, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'county', 'Vermont', 'Prefer not to answer', 12, 12),
-('2022-11-01', 11, 2022, 'county', 'Vermont', 'Prefer to self-describe', 11, 11),
-('2022-11-01', 11, 2022, 'county', 'Vermont', 'White', 3135, -1),
+('2022-11-01', 11, 2022, 'county', 'Vermont', 'Prefer to self-describe', 11, -1),
+('2022-11-01', 11, 2022, 'county', 'Vermont', 'White', 3135, 3135),
 ('2022-11-01', 11, 2022, 'county', 'Vermont', 'Two or More Races', 153, 153),
-('2022-11-01', 11, 2022, 'county', 'Vermont', 'total', 3558.0, 414.0) AS new_data
+('2022-11-01', 11, 2022, 'county', 'Vermont', 'total', 3558.0, 3538.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28959,9 +28967,9 @@ VALUES
 ('2022-10-01', 10, 2022, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2022-10-01', 10, 2022, 'county', 'Addison', 'White', 53, 53),
+('2022-10-01', 10, 2022, 'county', 'Addison', 'White', 53, -1),
 ('2022-10-01', 10, 2022, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2022-10-01', 10, 2022, 'county', 'Addison', 'total', 53.0, 53.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Addison', 'total', 53.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28972,8 +28980,8 @@ VALUES
 ('2022-10-01', 10, 2022, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2022-10-01', 10, 2022, 'county', 'Bennington', 'White', 332, 332),
-('2022-10-01', 10, 2022, 'county', 'Bennington', 'Two or More Races', 15, 15),
-('2022-10-01', 10, 2022, 'county', 'Bennington', 'total', 354.0, 347.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Bennington', 'Two or More Races', 15, -1),
+('2022-10-01', 10, 2022, 'county', 'Bennington', 'total', 354.0, 332.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -28990,14 +28998,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-10-01', 10, 2022, 'county', 'Chittenden', 'American Indian or Alaskan Native', 1, -1),
-('2022-10-01', 10, 2022, 'county', 'Chittenden', 'Asian', 23, 23),
+('2022-10-01', 10, 2022, 'county', 'Chittenden', 'Asian', 23, -1),
 ('2022-10-01', 10, 2022, 'county', 'Chittenden', 'Black or African American', 122, 122),
 ('2022-10-01', 10, 2022, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Chittenden', 'Prefer not to answer', 1, -1),
 ('2022-10-01', 10, 2022, 'county', 'Chittenden', 'Prefer to self-describe', 2, -1),
 ('2022-10-01', 10, 2022, 'county', 'Chittenden', 'White', 465, 465),
 ('2022-10-01', 10, 2022, 'county', 'Chittenden', 'Two or More Races', 40, 40),
-('2022-10-01', 10, 2022, 'county', 'Chittenden', 'total', 654.0, 650.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Chittenden', 'total', 654.0, 627.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29007,9 +29015,9 @@ VALUES
 ('2022-10-01', 10, 2022, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Essex', 'Prefer to self-describe', 0, -1),
-('2022-10-01', 10, 2022, 'county', 'Essex', 'White', 21, 21),
+('2022-10-01', 10, 2022, 'county', 'Essex', 'White', 21, -1),
 ('2022-10-01', 10, 2022, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2022-10-01', 10, 2022, 'county', 'Essex', 'total', 23.0, 21.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Essex', 'total', 23.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29031,9 +29039,9 @@ VALUES
 ('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'Prefer to self-describe', 0, -1),
-('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'White', 40, 40),
+('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'White', 40, -1),
 ('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'Two or More Races', 2, -1),
-('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'total', 46.0, 40.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Grand Isle', 'total', 46.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29044,8 +29052,8 @@ VALUES
 ('2022-10-01', 10, 2022, 'county', 'Lamoille', 'Prefer not to answer', 1, -1),
 ('2022-10-01', 10, 2022, 'county', 'Lamoille', 'Prefer to self-describe', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Lamoille', 'White', 148, 148),
-('2022-10-01', 10, 2022, 'county', 'Lamoille', 'Two or More Races', 11, 11),
-('2022-10-01', 10, 2022, 'county', 'Lamoille', 'total', 162.0, 159.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Lamoille', 'Two or More Races', 11, -1),
+('2022-10-01', 10, 2022, 'county', 'Lamoille', 'total', 162.0, 148.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29055,9 +29063,9 @@ VALUES
 ('2022-10-01', 10, 2022, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Orange', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2022-10-01', 10, 2022, 'county', 'Orange', 'White', 98, 98),
+('2022-10-01', 10, 2022, 'county', 'Orange', 'White', 98, -1),
 ('2022-10-01', 10, 2022, 'county', 'Orange', 'Two or More Races', 4, -1),
-('2022-10-01', 10, 2022, 'county', 'Orange', 'total', 105.0, 98.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Orange', 'total', 105.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29067,9 +29075,9 @@ VALUES
 ('2022-10-01', 10, 2022, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Orleans', 'Prefer not to answer', 1, -1),
 ('2022-10-01', 10, 2022, 'county', 'Orleans', 'Prefer to self-describe', 1, -1),
-('2022-10-01', 10, 2022, 'county', 'Orleans', 'White', 135, 135),
+('2022-10-01', 10, 2022, 'county', 'Orleans', 'White', 135, -1),
 ('2022-10-01', 10, 2022, 'county', 'Orleans', 'Two or More Races', 0, -1),
-('2022-10-01', 10, 2022, 'county', 'Orleans', 'total', 138.0, 135.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Orleans', 'total', 138.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29092,8 +29100,8 @@ VALUES
 ('2022-10-01', 10, 2022, 'county', 'Rutland', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Rutland', 'White', 490, 490),
-('2022-10-01', 10, 2022, 'county', 'Rutland', 'Two or More Races', 22, 22),
-('2022-10-01', 10, 2022, 'county', 'Rutland', 'total', 539.0, 536.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Rutland', 'Two or More Races', 22, -1),
+('2022-10-01', 10, 2022, 'county', 'Rutland', 'total', 539.0, 514.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29139,9 +29147,9 @@ VALUES
 ('2022-10-01', 10, 2022, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'county', 'Vermont', 'Prefer not to answer', 13, 13),
 ('2022-10-01', 10, 2022, 'county', 'Vermont', 'Prefer to self-describe', 10, -1),
-('2022-10-01', 10, 2022, 'county', 'Vermont', 'White', 2942, -1),
+('2022-10-01', 10, 2022, 'county', 'Vermont', 'White', 2942, 2942),
 ('2022-10-01', 10, 2022, 'county', 'Vermont', 'Two or More Races', 140, 140),
-('2022-10-01', 10, 2022, 'county', 'Vermont', 'total', 3336.0, 378.0) AS new_data
+('2022-10-01', 10, 2022, 'county', 'Vermont', 'total', 3336.0, 3320.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29151,9 +29159,9 @@ VALUES
 ('2022-09-01', 9, 2022, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2022-09-01', 9, 2022, 'county', 'Addison', 'White', 51, 51),
+('2022-09-01', 9, 2022, 'county', 'Addison', 'White', 51, -1),
 ('2022-09-01', 9, 2022, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2022-09-01', 9, 2022, 'county', 'Addison', 'total', 52.0, 51.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Addison', 'total', 52.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29164,8 +29172,8 @@ VALUES
 ('2022-09-01', 9, 2022, 'county', 'Bennington', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Bennington', 'Prefer to self-describe', 1, -1),
 ('2022-09-01', 9, 2022, 'county', 'Bennington', 'White', 326, 326),
-('2022-09-01', 9, 2022, 'county', 'Bennington', 'Two or More Races', 14, 14),
-('2022-09-01', 9, 2022, 'county', 'Bennington', 'total', 348.0, 340.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Bennington', 'Two or More Races', 14, -1),
+('2022-09-01', 9, 2022, 'county', 'Bennington', 'total', 348.0, 326.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29182,14 +29190,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-09-01', 9, 2022, 'county', 'Chittenden', 'American Indian or Alaskan Native', 0, -1),
-('2022-09-01', 9, 2022, 'county', 'Chittenden', 'Asian', 23, 23),
+('2022-09-01', 9, 2022, 'county', 'Chittenden', 'Asian', 23, -1),
 ('2022-09-01', 9, 2022, 'county', 'Chittenden', 'Black or African American', 114, 114),
 ('2022-09-01', 9, 2022, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Chittenden', 'Prefer not to answer', 1, -1),
 ('2022-09-01', 9, 2022, 'county', 'Chittenden', 'Prefer to self-describe', 2, -1),
 ('2022-09-01', 9, 2022, 'county', 'Chittenden', 'White', 440, 440),
 ('2022-09-01', 9, 2022, 'county', 'Chittenden', 'Two or More Races', 38, 38),
-('2022-09-01', 9, 2022, 'county', 'Chittenden', 'total', 618.0, 615.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Chittenden', 'total', 618.0, 592.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29199,9 +29207,9 @@ VALUES
 ('2022-09-01', 9, 2022, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Essex', 'Prefer to self-describe', 0, -1),
-('2022-09-01', 9, 2022, 'county', 'Essex', 'White', 18, 18),
+('2022-09-01', 9, 2022, 'county', 'Essex', 'White', 18, -1),
 ('2022-09-01', 9, 2022, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2022-09-01', 9, 2022, 'county', 'Essex', 'total', 20.0, 18.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Essex', 'total', 20.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29223,9 +29231,9 @@ VALUES
 ('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'Prefer to self-describe', 0, -1),
-('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'White', 38, 38),
+('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'White', 38, -1),
 ('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'Two or More Races', 2, -1),
-('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'total', 44.0, 38.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Grand Isle', 'total', 44.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29236,8 +29244,8 @@ VALUES
 ('2022-09-01', 9, 2022, 'county', 'Lamoille', 'Prefer not to answer', 1, -1),
 ('2022-09-01', 9, 2022, 'county', 'Lamoille', 'Prefer to self-describe', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Lamoille', 'White', 113, 113),
-('2022-09-01', 9, 2022, 'county', 'Lamoille', 'Two or More Races', 11, 11),
-('2022-09-01', 9, 2022, 'county', 'Lamoille', 'total', 127.0, 124.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Lamoille', 'Two or More Races', 11, -1),
+('2022-09-01', 9, 2022, 'county', 'Lamoille', 'total', 127.0, 113.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29247,9 +29255,9 @@ VALUES
 ('2022-09-01', 9, 2022, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Orange', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2022-09-01', 9, 2022, 'county', 'Orange', 'White', 90, 90),
+('2022-09-01', 9, 2022, 'county', 'Orange', 'White', 90, -1),
 ('2022-09-01', 9, 2022, 'county', 'Orange', 'Two or More Races', 4, -1),
-('2022-09-01', 9, 2022, 'county', 'Orange', 'total', 97.0, 90.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Orange', 'total', 97.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29259,9 +29267,9 @@ VALUES
 ('2022-09-01', 9, 2022, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Orleans', 'Prefer not to answer', 1, -1),
 ('2022-09-01', 9, 2022, 'county', 'Orleans', 'Prefer to self-describe', 1, -1),
-('2022-09-01', 9, 2022, 'county', 'Orleans', 'White', 120, 120),
+('2022-09-01', 9, 2022, 'county', 'Orleans', 'White', 120, -1),
 ('2022-09-01', 9, 2022, 'county', 'Orleans', 'Two or More Races', 0, -1),
-('2022-09-01', 9, 2022, 'county', 'Orleans', 'total', 124.0, 120.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Orleans', 'total', 124.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29279,13 +29287,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2022-09-01', 9, 2022, 'county', 'Rutland', 'American Indian or Alaskan Native', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Rutland', 'Asian', 3, -1),
-('2022-09-01', 9, 2022, 'county', 'Rutland', 'Black or African American', 20, 20),
+('2022-09-01', 9, 2022, 'county', 'Rutland', 'Black or African American', 20, -1),
 ('2022-09-01', 9, 2022, 'county', 'Rutland', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Rutland', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Rutland', 'White', 451, 451),
 ('2022-09-01', 9, 2022, 'county', 'Rutland', 'Two or More Races', 21, 21),
-('2022-09-01', 9, 2022, 'county', 'Rutland', 'total', 495.0, 492.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Rutland', 'total', 495.0, 472.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29331,9 +29339,9 @@ VALUES
 ('2022-09-01', 9, 2022, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'county', 'Vermont', 'Prefer not to answer', 7, -1),
 ('2022-09-01', 9, 2022, 'county', 'Vermont', 'Prefer to self-describe', 10, -1),
-('2022-09-01', 9, 2022, 'county', 'Vermont', 'White', 2744, -1),
+('2022-09-01', 9, 2022, 'county', 'Vermont', 'White', 2744, 2744),
 ('2022-09-01', 9, 2022, 'county', 'Vermont', 'Two or More Races', 129, 129),
-('2022-09-01', 9, 2022, 'county', 'Vermont', 'total', 3111.0, 346.0) AS new_data
+('2022-09-01', 9, 2022, 'county', 'Vermont', 'total', 3111.0, 3090.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29343,9 +29351,9 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2022-08-01', 8, 2022, 'county', 'Addison', 'White', 62, 62),
+('2022-08-01', 8, 2022, 'county', 'Addison', 'White', 62, -1),
 ('2022-08-01', 8, 2022, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2022-08-01', 8, 2022, 'county', 'Addison', 'total', 63.0, 62.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Addison', 'total', 63.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29356,8 +29364,8 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Bennington', 'Prefer not to answer', 1, -1),
 ('2022-08-01', 8, 2022, 'county', 'Bennington', 'Prefer to self-describe', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Bennington', 'White', 326, 326),
-('2022-08-01', 8, 2022, 'county', 'Bennington', 'Two or More Races', 16, 16),
-('2022-08-01', 8, 2022, 'county', 'Bennington', 'total', 347.0, 342.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Bennington', 'Two or More Races', 16, -1),
+('2022-08-01', 8, 2022, 'county', 'Bennington', 'total', 347.0, 326.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29367,21 +29375,21 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Caledonia', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Caledonia', 'Prefer to self-describe', 1, -1),
-('2022-08-01', 8, 2022, 'county', 'Caledonia', 'White', 97, 97),
+('2022-08-01', 8, 2022, 'county', 'Caledonia', 'White', 97, -1),
 ('2022-08-01', 8, 2022, 'county', 'Caledonia', 'Two or More Races', 4, -1),
-('2022-08-01', 8, 2022, 'county', 'Caledonia', 'total', 105.0, 97.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Caledonia', 'total', 105.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-08-01', 8, 2022, 'county', 'Chittenden', 'American Indian or Alaskan Native', 0, -1),
-('2022-08-01', 8, 2022, 'county', 'Chittenden', 'Asian', 21, 21),
+('2022-08-01', 8, 2022, 'county', 'Chittenden', 'Asian', 21, -1),
 ('2022-08-01', 8, 2022, 'county', 'Chittenden', 'Black or African American', 95, 95),
 ('2022-08-01', 8, 2022, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Chittenden', 'Prefer not to answer', 1, -1),
 ('2022-08-01', 8, 2022, 'county', 'Chittenden', 'Prefer to self-describe', 2, -1),
 ('2022-08-01', 8, 2022, 'county', 'Chittenden', 'White', 450, 450),
 ('2022-08-01', 8, 2022, 'county', 'Chittenden', 'Two or More Races', 36, 36),
-('2022-08-01', 8, 2022, 'county', 'Chittenden', 'total', 605.0, 602.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Chittenden', 'total', 605.0, 581.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29391,9 +29399,9 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Essex', 'Prefer to self-describe', 0, -1),
-('2022-08-01', 8, 2022, 'county', 'Essex', 'White', 13, 13),
+('2022-08-01', 8, 2022, 'county', 'Essex', 'White', 13, -1),
 ('2022-08-01', 8, 2022, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2022-08-01', 8, 2022, 'county', 'Essex', 'total', 15.0, 13.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Essex', 'total', 15.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29415,9 +29423,9 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'Prefer to self-describe', 0, -1),
-('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'White', 36, 36),
+('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'White', 36, -1),
 ('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'Two or More Races', 2, -1),
-('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'total', 40.0, 36.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Grand Isle', 'total', 40.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29439,9 +29447,9 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Orange', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2022-08-01', 8, 2022, 'county', 'Orange', 'White', 99, 99),
+('2022-08-01', 8, 2022, 'county', 'Orange', 'White', 99, -1),
 ('2022-08-01', 8, 2022, 'county', 'Orange', 'Two or More Races', 4, -1),
-('2022-08-01', 8, 2022, 'county', 'Orange', 'total', 106.0, 99.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Orange', 'total', 106.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29451,9 +29459,9 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Orleans', 'Prefer not to answer', 1, -1),
 ('2022-08-01', 8, 2022, 'county', 'Orleans', 'Prefer to self-describe', 1, -1),
-('2022-08-01', 8, 2022, 'county', 'Orleans', 'White', 105, 105),
+('2022-08-01', 8, 2022, 'county', 'Orleans', 'White', 105, -1),
 ('2022-08-01', 8, 2022, 'county', 'Orleans', 'Two or More Races', 0, -1),
-('2022-08-01', 8, 2022, 'county', 'Orleans', 'total', 109.0, 105.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Orleans', 'total', 109.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29476,8 +29484,8 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Rutland', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Rutland', 'Prefer to self-describe', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Rutland', 'White', 414, 414),
-('2022-08-01', 8, 2022, 'county', 'Rutland', 'Two or More Races', 14, 14),
-('2022-08-01', 8, 2022, 'county', 'Rutland', 'total', 446.0, 443.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Rutland', 'Two or More Races', 14, -1),
+('2022-08-01', 8, 2022, 'county', 'Rutland', 'total', 446.0, 429.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29488,8 +29496,8 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Washington', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Washington', 'Prefer to self-describe', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Washington', 'White', 193, 193),
-('2022-08-01', 8, 2022, 'county', 'Washington', 'Two or More Races', 12, 12),
-('2022-08-01', 8, 2022, 'county', 'Washington', 'total', 213.0, 205.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Washington', 'Two or More Races', 12, -1),
+('2022-08-01', 8, 2022, 'county', 'Washington', 'total', 213.0, 193.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29523,9 +29531,9 @@ VALUES
 ('2022-08-01', 8, 2022, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'county', 'Vermont', 'Prefer not to answer', 3, -1),
 ('2022-08-01', 8, 2022, 'county', 'Vermont', 'Prefer to self-describe', 7, -1),
-('2022-08-01', 8, 2022, 'county', 'Vermont', 'White', 2608, -1),
+('2022-08-01', 8, 2022, 'county', 'Vermont', 'White', 2608, 2608),
 ('2022-08-01', 8, 2022, 'county', 'Vermont', 'Two or More Races', 123, 123),
-('2022-08-01', 8, 2022, 'county', 'Vermont', 'total', 2933.0, 310.0) AS new_data
+('2022-08-01', 8, 2022, 'county', 'Vermont', 'total', 2933.0, 2918.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29535,9 +29543,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Addison', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Addison', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Addison', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Addison', 'White', 51, 51),
+('2022-07-01', 7, 2022, 'county', 'Addison', 'White', 51, -1),
 ('2022-07-01', 7, 2022, 'county', 'Addison', 'Two or More Races', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Addison', 'total', 52.0, 51.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Addison', 'total', 52.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29548,8 +29556,8 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Bennington', 'Prefer not to answer', 1, -1),
 ('2022-07-01', 7, 2022, 'county', 'Bennington', 'Prefer to self-describe', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Bennington', 'White', 293, 293),
-('2022-07-01', 7, 2022, 'county', 'Bennington', 'Two or More Races', 12, 12),
-('2022-07-01', 7, 2022, 'county', 'Bennington', 'total', 309.0, 305.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Bennington', 'Two or More Races', 12, -1),
+('2022-07-01', 7, 2022, 'county', 'Bennington', 'total', 309.0, 293.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29559,21 +29567,21 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Caledonia', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Caledonia', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Caledonia', 'Prefer to self-describe', 1, -1),
-('2022-07-01', 7, 2022, 'county', 'Caledonia', 'White', 76, 76),
+('2022-07-01', 7, 2022, 'county', 'Caledonia', 'White', 76, -1),
 ('2022-07-01', 7, 2022, 'county', 'Caledonia', 'Two or More Races', 1, -1),
-('2022-07-01', 7, 2022, 'county', 'Caledonia', 'total', 80.0, 76.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Caledonia', 'total', 80.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-07-01', 7, 2022, 'county', 'Chittenden', 'American Indian or Alaskan Native', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Chittenden', 'Asian', 11, 11),
+('2022-07-01', 7, 2022, 'county', 'Chittenden', 'Asian', 11, -1),
 ('2022-07-01', 7, 2022, 'county', 'Chittenden', 'Black or African American', 76, 76),
 ('2022-07-01', 7, 2022, 'county', 'Chittenden', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Chittenden', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Chittenden', 'Prefer to self-describe', 1, -1),
 ('2022-07-01', 7, 2022, 'county', 'Chittenden', 'White', 355, 355),
 ('2022-07-01', 7, 2022, 'county', 'Chittenden', 'Two or More Races', 35, 35),
-('2022-07-01', 7, 2022, 'county', 'Chittenden', 'total', 478.0, 477.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Chittenden', 'total', 478.0, 466.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29583,9 +29591,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Essex', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Essex', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Essex', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Essex', 'White', 11, 11),
+('2022-07-01', 7, 2022, 'county', 'Essex', 'White', 11, -1),
 ('2022-07-01', 7, 2022, 'county', 'Essex', 'Two or More Races', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Essex', 'total', 13.0, 11.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Essex', 'total', 13.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29607,9 +29615,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'White', 32, 32),
+('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'White', 32, -1),
 ('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'Two or More Races', 2, -1),
-('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'total', 35.0, 32.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Grand Isle', 'total', 35.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29619,9 +29627,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Lamoille', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Lamoille', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Lamoille', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Lamoille', 'White', 69, 69),
+('2022-07-01', 7, 2022, 'county', 'Lamoille', 'White', 69, -1),
 ('2022-07-01', 7, 2022, 'county', 'Lamoille', 'Two or More Races', 5, -1),
-('2022-07-01', 7, 2022, 'county', 'Lamoille', 'total', 74.0, 69.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Lamoille', 'total', 74.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29631,9 +29639,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Orange', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Orange', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Orange', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Orange', 'White', 79, 79),
+('2022-07-01', 7, 2022, 'county', 'Orange', 'White', 79, -1),
 ('2022-07-01', 7, 2022, 'county', 'Orange', 'Two or More Races', 4, -1),
-('2022-07-01', 7, 2022, 'county', 'Orange', 'total', 86.0, 79.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Orange', 'total', 86.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29643,9 +29651,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Orleans', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Orleans', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Orleans', 'Prefer to self-describe', 1, -1),
-('2022-07-01', 7, 2022, 'county', 'Orleans', 'White', 75, 75),
+('2022-07-01', 7, 2022, 'county', 'Orleans', 'White', 75, -1),
 ('2022-07-01', 7, 2022, 'county', 'Orleans', 'Two or More Races', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Orleans', 'total', 79.0, 75.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Orleans', 'total', 79.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29691,9 +29699,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Windham', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Windham', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Windham', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'county', 'Windham', 'White', 70, 70),
+('2022-07-01', 7, 2022, 'county', 'Windham', 'White', 70, -1),
 ('2022-07-01', 7, 2022, 'county', 'Windham', 'Two or More Races', 3, -1),
-('2022-07-01', 7, 2022, 'county', 'Windham', 'total', 79.0, 70.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Windham', 'total', 79.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29715,9 +29723,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'county', 'Vermont', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'county', 'Vermont', 'Prefer not to answer', 1, -1),
 ('2022-07-01', 7, 2022, 'county', 'Vermont', 'Prefer to self-describe', 4, -1),
-('2022-07-01', 7, 2022, 'county', 'Vermont', 'White', 2049, -1),
+('2022-07-01', 7, 2022, 'county', 'Vermont', 'White', 2049, 2049),
 ('2022-07-01', 7, 2022, 'county', 'Vermont', 'Two or More Races', 97, 97),
-('2022-07-01', 7, 2022, 'county', 'Vermont', 'total', 2296.0, 235.0) AS new_data
+('2022-07-01', 7, 2022, 'county', 'Vermont', 'total', 2296.0, 2284.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29762,10 +29770,10 @@ VALUES
 ('2025-09-01', 9, 2025, 'AHS district', 'Burlington District', 'Black or African American', 275, 275),
 ('2025-09-01', 9, 2025, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Burlington District', 'Prefer not to answer', 37, 37),
-('2025-09-01', 9, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 31, 31),
+('2025-09-01', 9, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 31, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Burlington District', 'White', 1533, 1533),
 ('2025-09-01', 9, 2025, 'AHS district', 'Burlington District', 'Two or More Races', 181, 181),
-('2025-09-01', 9, 2025, 'AHS district', 'Burlington District', 'total', 2124.0, 2119.0) AS new_data
+('2025-09-01', 9, 2025, 'AHS district', 'Burlington District', 'total', 2124.0, 2088.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29787,9 +29795,9 @@ VALUES
 ('2025-09-01', 9, 2025, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Middlebury District', 'Prefer not to answer', 5, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 2, -1),
-('2025-09-01', 9, 2025, 'AHS district', 'Middlebury District', 'White', 270, 270),
+('2025-09-01', 9, 2025, 'AHS district', 'Middlebury District', 'White', 270, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Middlebury District', 'Two or More Races', 4, -1),
-('2025-09-01', 9, 2025, 'AHS district', 'Middlebury District', 'total', 283.0, 270.0) AS new_data
+('2025-09-01', 9, 2025, 'AHS district', 'Middlebury District', 'total', 283.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29812,8 +29820,8 @@ VALUES
 ('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'Prefer not to answer', 4, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'Prefer to self-describe', 0, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'White', 420, 420),
-('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'Two or More Races', 11, 11),
-('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'total', 448.0, 431.0) AS new_data
+('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'Two or More Races', 11, -1),
+('2025-09-01', 9, 2025, 'AHS district', 'Newport District', 'total', 448.0, 420.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29834,10 +29842,10 @@ VALUES
 ('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Black or African American', 29, 29),
 ('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 34, 34),
-('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 12, 12),
-('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'White', 939, -1),
+('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 12, -1),
+('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'White', 939, 939),
 ('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'Two or More Races', 52, 52),
-('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'total', 1068.0, 127.0) AS new_data
+('2025-09-01', 9, 2025, 'AHS district', 'Rutland District', 'total', 1068.0, 1054.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29877,7 +29885,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 31, 31),
+('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 31, -1),
 ('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'Asian', 81, 81),
 ('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'Black or African American', 410, 410),
 ('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 9, -1),
@@ -29885,7 +29893,7 @@ VALUES
 ('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'Prefer to self-describe', 97, 97),
 ('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'White', 7692, 7692),
 ('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'Two or More Races', 454, 454),
-('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'total', 8916.0, 8907.0) AS new_data
+('2025-09-01', 9, 2025, 'AHS district', 'Vermont', 'total', 8916.0, 8876.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29917,11 +29925,11 @@ VALUES
 ('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Asian', 5, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Black or African American', 13, 13),
 ('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Prefer not to answer', 11, 11),
+('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Prefer not to answer', 11, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Prefer to self-describe', 11, 11),
 ('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'White', 486, 486),
 ('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'Two or More Races', 48, 48),
-('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'total', 575.0, 569.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'Brattleboro District', 'total', 575.0, 558.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29930,10 +29938,10 @@ VALUES
 ('2025-08-01', 8, 2025, 'AHS district', 'Burlington District', 'Black or African American', 294, 294),
 ('2025-08-01', 8, 2025, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Burlington District', 'Prefer not to answer', 38, 38),
-('2025-08-01', 8, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 31, 31),
+('2025-08-01', 8, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 31, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Burlington District', 'White', 1692, 1692),
 ('2025-08-01', 8, 2025, 'AHS district', 'Burlington District', 'Two or More Races', 195, 195),
-('2025-08-01', 8, 2025, 'AHS district', 'Burlington District', 'total', 2317.0, 2312.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'Burlington District', 'total', 2317.0, 2281.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29955,9 +29963,9 @@ VALUES
 ('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'Prefer not to answer', 5, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 4, -1),
-('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'White', 315, 315),
+('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'White', 315, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'Two or More Races', 6, -1),
-('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'total', 333.0, 315.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'Middlebury District', 'total', 333.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -29980,8 +29988,8 @@ VALUES
 ('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Prefer not to answer', 4, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Prefer to self-describe', 0, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'White', 434, 434),
-('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Two or More Races', 11, 11),
-('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'total', 461.0, 445.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'Two or More Races', 11, -1),
+('2025-08-01', 8, 2025, 'AHS district', 'Newport District', 'total', 461.0, 434.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30002,10 +30010,10 @@ VALUES
 ('2025-08-01', 8, 2025, 'AHS district', 'Rutland District', 'Black or African American', 31, 31),
 ('2025-08-01', 8, 2025, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 25, 25),
-('2025-08-01', 8, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 14, 14),
+('2025-08-01', 8, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 14, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Rutland District', 'White', 1064, 1064),
 ('2025-08-01', 8, 2025, 'AHS district', 'Rutland District', 'Two or More Races', 62, 62),
-('2025-08-01', 8, 2025, 'AHS district', 'Rutland District', 'total', 1200.0, 1196.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'Rutland District', 'total', 1200.0, 1182.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30039,13 +30047,13 @@ VALUES
 ('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 5, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 3, -1),
-('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'White', 397, -1),
+('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'White', 397, 397),
 ('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 12, 12),
-('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'total', 436.0, 25.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'St. Johnsbury District', 'total', 436.0, 422.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 35, 35),
+('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 35, -1),
 ('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'Asian', 90, 90),
 ('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'Black or African American', 445, 445),
 ('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 9, -1),
@@ -30053,7 +30061,7 @@ VALUES
 ('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'Prefer to self-describe', 112, 112),
 ('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'White', 8416, 8416),
 ('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'Two or More Races', 514, 514),
-('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'total', 9760.0, 9751.0) AS new_data
+('2025-08-01', 8, 2025, 'AHS district', 'Vermont', 'total', 9760.0, 9716.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30098,10 +30106,10 @@ VALUES
 ('2025-07-01', 7, 2025, 'AHS district', 'Burlington District', 'Black or African American', 251, 251),
 ('2025-07-01', 7, 2025, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Burlington District', 'Prefer not to answer', 30, 30),
-('2025-07-01', 7, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 27, 27),
+('2025-07-01', 7, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 27, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Burlington District', 'White', 1552, 1552),
 ('2025-07-01', 7, 2025, 'AHS district', 'Burlington District', 'Two or More Races', 170, 170),
-('2025-07-01', 7, 2025, 'AHS district', 'Burlington District', 'total', 2077.0, 2072.0) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'Burlington District', 'total', 2077.0, 2045.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30123,9 +30131,9 @@ VALUES
 ('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'Prefer not to answer', 4, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 4, -1),
-('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'White', 270, 270),
+('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'White', 270, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'Two or More Races', 5, -1),
-('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'total', 285.0, 270.0) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'Middlebury District', 'total', 285.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30170,10 +30178,10 @@ VALUES
 ('2025-07-01', 7, 2025, 'AHS district', 'Rutland District', 'Black or African American', 32, 32),
 ('2025-07-01', 7, 2025, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 18, 18),
-('2025-07-01', 7, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 12, 12),
+('2025-07-01', 7, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 12, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Rutland District', 'White', 1001, 1001),
 ('2025-07-01', 7, 2025, 'AHS district', 'Rutland District', 'Two or More Races', 59, 59),
-('2025-07-01', 7, 2025, 'AHS district', 'Rutland District', 'total', 1124.0, 1122.0) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'Rutland District', 'total', 1124.0, 1110.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30207,13 +30215,13 @@ VALUES
 ('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 5, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 3, -1),
-('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'White', 371, -1),
+('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'White', 371, 371),
 ('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 13, 13),
-('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'total', 410.0, 26.0) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'St. Johnsbury District', 'total', 410.0, 397.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 28, 28),
+('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 28, -1),
 ('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'Asian', 68, 68),
 ('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'Black or African American', 398, 398),
 ('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 8, -1),
@@ -30221,7 +30229,7 @@ VALUES
 ('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'Prefer to self-describe', 99, 99),
 ('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'White', 7607, 7607),
 ('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'Two or More Races', 441, 441),
-('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'total', 8769.0, 8761.0) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'Vermont', 'total', 8769.0, 8733.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30266,10 +30274,10 @@ VALUES
 ('2025-06-01', 6, 2025, 'AHS district', 'Burlington District', 'Black or African American', 278, 278),
 ('2025-06-01', 6, 2025, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Burlington District', 'Prefer not to answer', 30, 30),
-('2025-06-01', 6, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 27, 27),
+('2025-06-01', 6, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 27, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Burlington District', 'White', 1590, 1590),
 ('2025-06-01', 6, 2025, 'AHS district', 'Burlington District', 'Two or More Races', 180, 180),
-('2025-06-01', 6, 2025, 'AHS district', 'Burlington District', 'total', 2159.0, 2154.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'Burlington District', 'total', 2159.0, 2127.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30291,9 +30299,9 @@ VALUES
 ('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'Prefer not to answer', 4, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 4, -1),
-('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'White', 273, 273),
+('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'White', 273, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'Two or More Races', 5, -1),
-('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'total', 292.0, 273.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'Middlebury District', 'total', 292.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30338,10 +30346,10 @@ VALUES
 ('2025-06-01', 6, 2025, 'AHS district', 'Rutland District', 'Black or African American', 38, 38),
 ('2025-06-01', 6, 2025, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 20, 20),
-('2025-06-01', 6, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 12, 12),
+('2025-06-01', 6, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 12, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Rutland District', 'White', 1078, 1078),
 ('2025-06-01', 6, 2025, 'AHS district', 'Rutland District', 'Two or More Races', 51, 51),
-('2025-06-01', 6, 2025, 'AHS district', 'Rutland District', 'total', 1200.0, 1199.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'Rutland District', 'total', 1200.0, 1187.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30375,13 +30383,13 @@ VALUES
 ('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 5, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 3, -1),
-('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'White', 351, -1),
+('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'White', 351, 351),
 ('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 14, 14),
-('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'total', 389.0, 25.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'St. Johnsbury District', 'total', 389.0, 376.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 29, 29),
+('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 29, -1),
 ('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'Asian', 76, 76),
 ('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'Black or African American', 431, 431),
 ('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 9, -1),
@@ -30389,7 +30397,7 @@ VALUES
 ('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'Prefer to self-describe', 103, 103),
 ('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'White', 8027, 8027),
 ('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'Two or More Races', 444, 444),
-('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'total', 9244.0, 9235.0) AS new_data
+('2025-06-01', 6, 2025, 'AHS district', 'Vermont', 'total', 9244.0, 9206.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30434,10 +30442,10 @@ VALUES
 ('2025-05-01', 5, 2025, 'AHS district', 'Burlington District', 'Black or African American', 263, 263),
 ('2025-05-01', 5, 2025, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Burlington District', 'Prefer not to answer', 31, 31),
-('2025-05-01', 5, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 23, 23),
+('2025-05-01', 5, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 23, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Burlington District', 'White', 1476, 1476),
 ('2025-05-01', 5, 2025, 'AHS district', 'Burlington District', 'Two or More Races', 159, 159),
-('2025-05-01', 5, 2025, 'AHS district', 'Burlington District', 'total', 2007.0, 2002.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'Burlington District', 'total', 2007.0, 1979.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30448,8 +30456,8 @@ VALUES
 ('2025-05-01', 5, 2025, 'AHS district', 'Hartford District', 'Prefer not to answer', 9, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Hartford District', 'Prefer to self-describe', 7, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Hartford District', 'White', 542, 542),
-('2025-05-01', 5, 2025, 'AHS district', 'Hartford District', 'Two or More Races', 11, 11),
-('2025-05-01', 5, 2025, 'AHS district', 'Hartford District', 'total', 587.0, 565.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'Hartford District', 'Two or More Races', 11, -1),
+('2025-05-01', 5, 2025, 'AHS district', 'Hartford District', 'total', 587.0, 554.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30459,9 +30467,9 @@ VALUES
 ('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'Prefer not to answer', 3, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 4, -1),
-('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'White', 218, 218),
+('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'White', 218, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'Two or More Races', 4, -1),
-('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'total', 235.0, 218.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'Middlebury District', 'total', 235.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30505,11 +30513,11 @@ VALUES
 ('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'Asian', 1, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'Black or African American', 40, 40),
 ('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 12, 12),
+('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 12, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 8, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'White', 955, 955),
 ('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'Two or More Races', 42, 42),
-('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'total', 1058.0, 1049.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'Rutland District', 'total', 1058.0, 1037.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30543,13 +30551,13 @@ VALUES
 ('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 3, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 5, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 3, -1),
-('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'White', 340, -1),
+('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'White', 340, 340),
 ('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 11, 11),
-('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'total', 374.0, 11.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'St. Johnsbury District', 'total', 374.0, 351.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 26, 26),
+('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 26, -1),
 ('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'Asian', 73, 73),
 ('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'Black or African American', 408, 408),
 ('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 9, -1),
@@ -30557,7 +30565,7 @@ VALUES
 ('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'Prefer to self-describe', 90, 90),
 ('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'White', 7439, 7439),
 ('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'Two or More Races', 389, 389),
-('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'total', 8544.0, 8535.0) AS new_data
+('2025-05-01', 5, 2025, 'AHS district', 'Vermont', 'total', 8544.0, 8509.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30602,10 +30610,10 @@ VALUES
 ('2025-04-01', 4, 2025, 'AHS district', 'Burlington District', 'Black or African American', 264, 264),
 ('2025-04-01', 4, 2025, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Burlington District', 'Prefer not to answer', 30, 30),
-('2025-04-01', 4, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 26, 26),
+('2025-04-01', 4, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 26, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Burlington District', 'White', 1478, 1478),
 ('2025-04-01', 4, 2025, 'AHS district', 'Burlington District', 'Two or More Races', 153, 153),
-('2025-04-01', 4, 2025, 'AHS district', 'Burlington District', 'total', 2002.0, 1997.0) AS new_data
+('2025-04-01', 4, 2025, 'AHS district', 'Burlington District', 'total', 2002.0, 1971.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30627,9 +30635,9 @@ VALUES
 ('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'Prefer not to answer', 3, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 4, -1),
-('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'White', 214, 214),
+('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'White', 214, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'Two or More Races', 2, -1),
-('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'total', 229.0, 214.0) AS new_data
+('2025-04-01', 4, 2025, 'AHS district', 'Middlebury District', 'total', 229.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30673,11 +30681,11 @@ VALUES
 ('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'Asian', 1, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'Black or African American', 41, 41),
 ('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 11, 11),
+('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 11, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 8, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'White', 958, 958),
 ('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'Two or More Races', 40, 40),
-('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'total', 1059.0, 1050.0) AS new_data
+('2025-04-01', 4, 2025, 'AHS district', 'Rutland District', 'total', 1059.0, 1039.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30711,13 +30719,13 @@ VALUES
 ('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 2, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 2, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 3, -1),
-('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'White', 334, -1),
+('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'White', 334, 334),
 ('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 12, 12),
-('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'total', 365.0, 12.0) AS new_data
+('2025-04-01', 4, 2025, 'AHS district', 'St. Johnsbury District', 'total', 365.0, 346.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 29, 29),
+('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 29, -1),
 ('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'Asian', 69, 69),
 ('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'Black or African American', 408, 408),
 ('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 7, -1),
@@ -30725,7 +30733,7 @@ VALUES
 ('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'Prefer to self-describe', 96, 96),
 ('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'White', 7449, 7449),
 ('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'Two or More Races', 394, 394),
-('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'total', 8552.0, 8545.0) AS new_data
+('2025-04-01', 4, 2025, 'AHS district', 'Vermont', 'total', 8552.0, 8516.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30770,10 +30778,10 @@ VALUES
 ('2025-03-01', 3, 2025, 'AHS district', 'Burlington District', 'Black or African American', 257, 257),
 ('2025-03-01', 3, 2025, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Burlington District', 'Prefer not to answer', 29, 29),
-('2025-03-01', 3, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 25, 25),
+('2025-03-01', 3, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 25, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Burlington District', 'White', 1446, 1446),
 ('2025-03-01', 3, 2025, 'AHS district', 'Burlington District', 'Two or More Races', 149, 149),
-('2025-03-01', 3, 2025, 'AHS district', 'Burlington District', 'total', 1956.0, 1951.0) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'Burlington District', 'total', 1956.0, 1926.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30795,9 +30803,9 @@ VALUES
 ('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'Prefer not to answer', 3, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 4, -1),
-('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'White', 200, 200),
+('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'White', 200, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'Two or More Races', 2, -1),
-('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'total', 215.0, 200.0) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'Middlebury District', 'total', 215.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30841,11 +30849,11 @@ VALUES
 ('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'Asian', 1, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'Black or African American', 40, 40),
 ('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 11, 11),
+('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 11, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 8, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'White', 947, 947),
 ('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'Two or More Races', 38, 38),
-('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'total', 1045.0, 1036.0) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'Rutland District', 'total', 1045.0, 1025.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30879,13 +30887,13 @@ VALUES
 ('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 2, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 2, -1),
-('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'White', 322, -1),
+('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'White', 322, 322),
 ('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 11, 11),
-('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'total', 348.0, 11.0) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'St. Johnsbury District', 'total', 348.0, 333.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 31, 31),
+('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 31, -1),
 ('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'Asian', 69, 69),
 ('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'Black or African American', 396, 396),
 ('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 6, -1),
@@ -30893,7 +30901,7 @@ VALUES
 ('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'Prefer to self-describe', 95, 95),
 ('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'White', 7263, 7263),
 ('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'Two or More Races', 379, 379),
-('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'total', 8333.0, 8327.0) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'Vermont', 'total', 8333.0, 8296.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30914,10 +30922,10 @@ VALUES
 ('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Black or African American', 18, 18),
 ('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Prefer not to answer', 5, -1),
-('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Prefer to self-describe', 11, 11),
-('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'White', 678, -1),
+('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Prefer to self-describe', 11, -1),
+('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'White', 678, 678),
 ('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'Two or More Races', 28, 28),
-('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'total', 744.0, 57.0) AS new_data
+('2025-02-01', 2, 2025, 'AHS district', 'Bennington District', 'total', 744.0, 724.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30938,10 +30946,10 @@ VALUES
 ('2025-02-01', 2, 2025, 'AHS district', 'Burlington District', 'Black or African American', 259, 259),
 ('2025-02-01', 2, 2025, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Burlington District', 'Prefer not to answer', 29, 29),
-('2025-02-01', 2, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 24, 24),
+('2025-02-01', 2, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 24, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Burlington District', 'White', 1426, 1426),
 ('2025-02-01', 2, 2025, 'AHS district', 'Burlington District', 'Two or More Races', 147, 147),
-('2025-02-01', 2, 2025, 'AHS district', 'Burlington District', 'total', 1937.0, 1932.0) AS new_data
+('2025-02-01', 2, 2025, 'AHS district', 'Burlington District', 'total', 1937.0, 1908.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -30963,9 +30971,9 @@ VALUES
 ('2025-02-01', 2, 2025, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Middlebury District', 'Prefer not to answer', 3, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 3, -1),
-('2025-02-01', 2, 2025, 'AHS district', 'Middlebury District', 'White', 189, 189),
+('2025-02-01', 2, 2025, 'AHS district', 'Middlebury District', 'White', 189, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Middlebury District', 'Two or More Races', 2, -1),
-('2025-02-01', 2, 2025, 'AHS district', 'Middlebury District', 'total', 203.0, 189.0) AS new_data
+('2025-02-01', 2, 2025, 'AHS district', 'Middlebury District', 'total', 203.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31009,11 +31017,11 @@ VALUES
 ('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'Asian', 1, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'Black or African American', 40, 40),
 ('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 12, 12),
+('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'Prefer not to answer', 12, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'Prefer to self-describe', 7, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'White', 937, 937),
 ('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'Two or More Races', 33, 33),
-('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'total', 1030.0, 1022.0) AS new_data
+('2025-02-01', 2, 2025, 'AHS district', 'Rutland District', 'total', 1030.0, 1010.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31034,10 +31042,10 @@ VALUES
 ('2025-02-01', 2, 2025, 'AHS district', 'St. Albans District', 'Black or African American', 13, 13),
 ('2025-02-01', 2, 2025, 'AHS district', 'St. Albans District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'St. Albans District', 'Prefer not to answer', 7, -1),
-('2025-02-01', 2, 2025, 'AHS district', 'St. Albans District', 'Prefer to self-describe', 11, 11),
+('2025-02-01', 2, 2025, 'AHS district', 'St. Albans District', 'Prefer to self-describe', 11, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'St. Albans District', 'White', 730, 730),
 ('2025-02-01', 2, 2025, 'AHS district', 'St. Albans District', 'Two or More Races', 33, 33),
-('2025-02-01', 2, 2025, 'AHS district', 'St. Albans District', 'total', 808.0, 799.0) AS new_data
+('2025-02-01', 2, 2025, 'AHS district', 'St. Albans District', 'total', 808.0, 788.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31053,7 +31061,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 33, 33),
+('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 33, -1),
 ('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'Asian', 71, 71),
 ('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'Black or African American', 397, 397),
 ('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 7, -1),
@@ -31061,7 +31069,7 @@ VALUES
 ('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'Prefer to self-describe', 95, 95),
 ('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'White', 7203, 7203),
 ('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'Two or More Races', 370, 370),
-('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'total', 8268.0, 8261.0) AS new_data
+('2025-02-01', 2, 2025, 'AHS district', 'Vermont', 'total', 8268.0, 8228.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31082,10 +31090,10 @@ VALUES
 ('2025-01-01', 1, 2025, 'AHS district', 'Bennington District', 'Black or African American', 18, 18),
 ('2025-01-01', 1, 2025, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Bennington District', 'Prefer not to answer', 4, -1),
-('2025-01-01', 1, 2025, 'AHS district', 'Bennington District', 'Prefer to self-describe', 12, 12),
+('2025-01-01', 1, 2025, 'AHS district', 'Bennington District', 'Prefer to self-describe', 12, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Bennington District', 'White', 666, 666),
 ('2025-01-01', 1, 2025, 'AHS district', 'Bennington District', 'Two or More Races', 30, 30),
-('2025-01-01', 1, 2025, 'AHS district', 'Bennington District', 'total', 734.0, 726.0) AS new_data
+('2025-01-01', 1, 2025, 'AHS district', 'Bennington District', 'total', 734.0, 714.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31106,10 +31114,10 @@ VALUES
 ('2025-01-01', 1, 2025, 'AHS district', 'Burlington District', 'Black or African American', 251, 251),
 ('2025-01-01', 1, 2025, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Burlington District', 'Prefer not to answer', 29, 29),
-('2025-01-01', 1, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 27, 27),
+('2025-01-01', 1, 2025, 'AHS district', 'Burlington District', 'Prefer to self-describe', 27, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Burlington District', 'White', 1403, 1403),
 ('2025-01-01', 1, 2025, 'AHS district', 'Burlington District', 'Two or More Races', 141, 141),
-('2025-01-01', 1, 2025, 'AHS district', 'Burlington District', 'total', 1905.0, 1900.0) AS new_data
+('2025-01-01', 1, 2025, 'AHS district', 'Burlington District', 'total', 1905.0, 1873.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31131,9 +31139,9 @@ VALUES
 ('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'Prefer not to answer', 3, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 3, -1),
-('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'White', 178, 178),
+('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'White', 178, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'Two or More Races', 2, -1),
-('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'total', 192.0, 178.0) AS new_data
+('2025-01-01', 1, 2025, 'AHS district', 'Middlebury District', 'total', 192.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31215,13 +31223,13 @@ VALUES
 ('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 2, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'White', 304, -1),
+('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'White', 304, 304),
 ('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 11, 11),
-('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'total', 325.0, 11.0) AS new_data
+('2025-01-01', 1, 2025, 'AHS district', 'St. Johnsbury District', 'total', 325.0, 315.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 32, 32),
+('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 32, -1),
 ('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'Asian', 73, 73),
 ('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'Black or African American', 378, 378),
 ('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 7, -1),
@@ -31229,7 +31237,7 @@ VALUES
 ('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'Prefer to self-describe', 95, 95),
 ('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'White', 7050, 7050),
 ('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'Two or More Races', 362, 362),
-('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'total', 8087.0, 8080.0) AS new_data
+('2025-01-01', 1, 2025, 'AHS district', 'Vermont', 'total', 8087.0, 8048.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31250,10 +31258,10 @@ VALUES
 ('2024-12-01', 12, 2024, 'AHS district', 'Bennington District', 'Black or African American', 18, 18),
 ('2024-12-01', 12, 2024, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'Bennington District', 'Prefer not to answer', 4, -1),
-('2024-12-01', 12, 2024, 'AHS district', 'Bennington District', 'Prefer to self-describe', 11, 11),
+('2024-12-01', 12, 2024, 'AHS district', 'Bennington District', 'Prefer to self-describe', 11, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'Bennington District', 'White', 652, 652),
 ('2024-12-01', 12, 2024, 'AHS district', 'Bennington District', 'Two or More Races', 30, 30),
-('2024-12-01', 12, 2024, 'AHS district', 'Bennington District', 'total', 719.0, 711.0) AS new_data
+('2024-12-01', 12, 2024, 'AHS district', 'Bennington District', 'total', 719.0, 700.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31273,11 +31281,11 @@ VALUES
 ('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'Asian', 47, 47),
 ('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'Black or African American', 255, 255),
 ('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
-('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 30, 30),
+('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 30, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 30, 30),
 ('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'White', 1345, 1345),
 ('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 138, 138),
-('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'total', 1849.0, 1845.0) AS new_data
+('2024-12-01', 12, 2024, 'AHS district', 'Burlington District', 'total', 1849.0, 1815.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31299,9 +31307,9 @@ VALUES
 ('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 3, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 3, -1),
-('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'White', 166, 166),
+('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'White', 166, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 2, -1),
-('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'total', 178.0, 166.0) AS new_data
+('2024-12-01', 12, 2024, 'AHS district', 'Middlebury District', 'total', 178.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31383,13 +31391,13 @@ VALUES
 ('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 2, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'White', 299, -1),
+('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'White', 299, 299),
 ('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 11, 11),
-('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'total', 321.0, 11.0) AS new_data
+('2024-12-01', 12, 2024, 'AHS district', 'St. Johnsbury District', 'total', 321.0, 310.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 31, 31),
+('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 31, -1),
 ('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'Asian', 71, 71),
 ('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'Black or African American', 382, 382),
 ('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 7, -1),
@@ -31397,7 +31405,7 @@ VALUES
 ('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 91, 91),
 ('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'White', 6849, 6849),
 ('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'Two or More Races', 342, 342),
-('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'total', 7862.0, 7855.0) AS new_data
+('2024-12-01', 12, 2024, 'AHS district', 'Vermont', 'total', 7862.0, 7824.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31441,11 +31449,11 @@ VALUES
 ('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'Asian', 48, 48),
 ('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'Black or African American', 253, 253),
 ('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
-('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 29, 29),
+('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 29, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 29, 29),
 ('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'White', 1328, 1328),
 ('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 135, 135),
-('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'total', 1826.0, 1822.0) AS new_data
+('2024-11-01', 11, 2024, 'AHS district', 'Burlington District', 'total', 1826.0, 1793.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31467,9 +31475,9 @@ VALUES
 ('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 3, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 3, -1),
-('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'White', 168, 168),
+('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'White', 168, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 1, -1),
-('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'total', 179.0, 168.0) AS new_data
+('2024-11-01', 11, 2024, 'AHS district', 'Middlebury District', 'total', 179.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31551,13 +31559,13 @@ VALUES
 ('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 2, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'White', 293, -1),
+('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'White', 293, 293),
 ('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 13, 13),
-('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'total', 317.0, 13.0) AS new_data
+('2024-11-01', 11, 2024, 'AHS district', 'St. Johnsbury District', 'total', 317.0, 306.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 30, 30),
+('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 30, -1),
 ('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'Asian', 73, 73),
 ('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'Black or African American', 387, 387),
 ('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 6, -1),
@@ -31565,7 +31573,7 @@ VALUES
 ('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 85, 85),
 ('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'White', 6865, 6865),
 ('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'Two or More Races', 345, 345),
-('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'total', 7878.0, 7872.0) AS new_data
+('2024-11-01', 11, 2024, 'AHS district', 'Vermont', 'total', 7878.0, 7842.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31610,10 +31618,10 @@ VALUES
 ('2024-10-01', 10, 2024, 'AHS district', 'Burlington District', 'Black or African American', 244, 244),
 ('2024-10-01', 10, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 30, 30),
-('2024-10-01', 10, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 27, 27),
+('2024-10-01', 10, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 27, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'Burlington District', 'White', 1261, 1261),
 ('2024-10-01', 10, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 125, 125),
-('2024-10-01', 10, 2024, 'AHS district', 'Burlington District', 'total', 1737.0, 1733.0) AS new_data
+('2024-10-01', 10, 2024, 'AHS district', 'Burlington District', 'total', 1737.0, 1706.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31635,9 +31643,9 @@ VALUES
 ('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 3, -1),
-('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'White', 159, 159),
+('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'White', 159, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 1, -1),
-('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'total', 167.0, 159.0) AS new_data
+('2024-10-01', 10, 2024, 'AHS district', 'Middlebury District', 'total', 167.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31719,13 +31727,13 @@ VALUES
 ('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'White', 279, -1),
-('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 16, 16),
-('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'total', 304.0, 16.0) AS new_data
+('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'White', 279, 279),
+('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 16, -1),
+('2024-10-01', 10, 2024, 'AHS district', 'St. Johnsbury District', 'total', 304.0, 279.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 27, 27),
+('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 27, -1),
 ('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'Asian', 69, 69),
 ('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'Black or African American', 380, 380),
 ('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 4, -1),
@@ -31733,7 +31741,7 @@ VALUES
 ('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 81, 81),
 ('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'White', 6680, 6680),
 ('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'Two or More Races', 334, 334),
-('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'total', 7661.0, 7657.0) AS new_data
+('2024-10-01', 10, 2024, 'AHS district', 'Vermont', 'total', 7661.0, 7630.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31777,11 +31785,11 @@ VALUES
 ('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'Asian', 48, 48),
 ('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'Black or African American', 242, 242),
 ('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 18, 18),
+('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 18, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 23, 23),
 ('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'White', 1012, 1012),
 ('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 108, 108),
-('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'total', 1452.0, 1451.0) AS new_data
+('2024-09-01', 9, 2024, 'AHS district', 'Burlington District', 'total', 1452.0, 1433.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31803,9 +31811,9 @@ VALUES
 ('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 3, -1),
-('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'White', 122, 122),
+('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'White', 122, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'total', 126.0, 122.0) AS new_data
+('2024-09-01', 9, 2024, 'AHS district', 'Middlebury District', 'total', 126.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31887,13 +31895,13 @@ VALUES
 ('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 0, -1),
-('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'White', 280, -1),
-('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 14, 14),
-('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'total', 302.0, 14.0) AS new_data
+('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'White', 280, 280),
+('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 14, -1),
+('2024-09-01', 9, 2024, 'AHS district', 'St. Johnsbury District', 'total', 302.0, 280.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 21, 21),
+('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 21, -1),
 ('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'Asian', 67, 67),
 ('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'Black or African American', 373, 373),
 ('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -31901,19 +31909,19 @@ VALUES
 ('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 72, 72),
 ('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'White', 6050, 6050),
 ('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'Two or More Races', 302, 302),
-('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'total', 6961.0, 6958.0) AS new_data
+('2024-09-01', 9, 2024, 'AHS district', 'Vermont', 'total', 6961.0, 6937.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'American Indian or Alaskan Native', 0, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'Asian', 4, -1),
-('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'Black or African American', 12, 12),
+('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'Black or African American', 12, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'Prefer not to answer', 13, 13),
 ('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'Prefer to self-describe', 4, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'White', 504, 504),
 ('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'Two or More Races', 19, 19),
-('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'total', 556.0, 548.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'Barre District', 'total', 556.0, 536.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31946,10 +31954,10 @@ VALUES
 ('2024-08-01', 8, 2024, 'AHS district', 'Burlington District', 'Black or African American', 243, 243),
 ('2024-08-01', 8, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 21, 21),
-('2024-08-01', 8, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 18, 18),
+('2024-08-01', 8, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 18, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Burlington District', 'White', 1091, 1091),
 ('2024-08-01', 8, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 105, 105),
-('2024-08-01', 8, 2024, 'AHS district', 'Burlington District', 'total', 1535.0, 1534.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'Burlington District', 'total', 1535.0, 1516.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -31971,9 +31979,9 @@ VALUES
 ('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 2, -1),
-('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'White', 124, 124),
+('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'White', 124, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'total', 126.0, 124.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'Middlebury District', 'total', 126.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32017,11 +32025,11 @@ VALUES
 ('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'Asian', 1, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'Black or African American', 39, 39),
 ('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 13, 13),
+('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 13, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'Prefer to self-describe', 2, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'White', 933, 933),
 ('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'Two or More Races', 29, 29),
-('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'total', 1019.0, 1014.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'Rutland District', 'total', 1019.0, 1001.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32055,13 +32063,13 @@ VALUES
 ('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'White', 277, -1),
-('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 14, 14),
-('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'total', 299.0, 14.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'White', 277, 277),
+('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 14, -1),
+('2024-08-01', 8, 2024, 'AHS district', 'St. Johnsbury District', 'total', 299.0, 277.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 22, 22),
+('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 22, -1),
 ('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'Asian', 77, 77),
 ('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'Black or African American', 378, 378),
 ('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -32069,7 +32077,7 @@ VALUES
 ('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 66, 66),
 ('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'White', 6358, 6358),
 ('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'Two or More Races', 328, 328),
-('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'total', 7312.0, 7309.0) AS new_data
+('2024-08-01', 8, 2024, 'AHS district', 'Vermont', 'total', 7312.0, 7287.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32114,10 +32122,10 @@ VALUES
 ('2024-07-01', 7, 2024, 'AHS district', 'Burlington District', 'Black or African American', 218, 218),
 ('2024-07-01', 7, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 20, 20),
-('2024-07-01', 7, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 14, 14),
+('2024-07-01', 7, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 14, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Burlington District', 'White', 995, 995),
 ('2024-07-01', 7, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 92, 92),
-('2024-07-01', 7, 2024, 'AHS district', 'Burlington District', 'total', 1385.0, 1383.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'Burlington District', 'total', 1385.0, 1369.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32139,9 +32147,9 @@ VALUES
 ('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 2, -1),
-('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'White', 98, 98),
+('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'White', 98, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'total', 100.0, 98.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'Middlebury District', 'total', 100.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32175,9 +32183,9 @@ VALUES
 ('2024-07-01', 7, 2024, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-07-01', 7, 2024, 'AHS district', 'Out of State', 'White', 11, 11),
+('2024-07-01', 7, 2024, 'AHS district', 'Out of State', 'White', 11, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2024-07-01', 7, 2024, 'AHS district', 'Out of State', 'total', 16.0, 11.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'Out of State', 'total', 16.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32185,11 +32193,11 @@ VALUES
 ('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'Asian', 1, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'Black or African American', 40, 40),
 ('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 13, 13),
+('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 13, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'Prefer to self-describe', 1, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'White', 899, 899),
 ('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'Two or More Races', 30, 30),
-('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'total', 986.0, 982.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'Rutland District', 'total', 986.0, 969.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32224,12 +32232,12 @@ VALUES
 ('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'White', 269, 269),
-('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 14, 14),
-('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'total', 290.0, 283.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 14, -1),
+('2024-07-01', 7, 2024, 'AHS district', 'St. Johnsbury District', 'total', 290.0, 269.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 24, 24),
+('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 24, -1),
 ('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'Asian', 67, 67),
 ('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'Black or African American', 345, 345),
 ('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -32237,7 +32245,7 @@ VALUES
 ('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 61, 61),
 ('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'White', 5902, 5902),
 ('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'Two or More Races', 308, 308),
-('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'total', 6777.0, 6774.0) AS new_data
+('2024-07-01', 7, 2024, 'AHS district', 'Vermont', 'total', 6777.0, 6750.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32269,11 +32277,11 @@ VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Asian', 3, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Black or African American', 15, 15),
 ('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Prefer not to answer', 11, 11),
+('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Prefer not to answer', 11, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Prefer to self-describe', 13, 13),
 ('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'White', 380, 380),
 ('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'Two or More Races', 27, 27),
-('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'total', 451.0, 446.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Brattleboro District', 'total', 451.0, 435.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32282,10 +32290,10 @@ VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Burlington District', 'Black or African American', 235, 235),
 ('2024-06-01', 6, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 24, 24),
-('2024-06-01', 6, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 12, 12),
+('2024-06-01', 6, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 12, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Burlington District', 'White', 1036, 1036),
 ('2024-06-01', 6, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 90, 90),
-('2024-06-01', 6, 2024, 'AHS district', 'Burlington District', 'total', 1447.0, 1445.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Burlington District', 'total', 1447.0, 1433.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32307,21 +32315,21 @@ VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 2, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'White', 104, 104),
+('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'White', 104, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'total', 106.0, 104.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Middlebury District', 'total', 106.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'American Indian or Alaskan Native', 4, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'Asian', 0, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'Black or African American', 11, 11),
+('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'Black or African American', 11, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'Prefer not to answer', 2, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 1, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'White', 422, 422),
 ('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'Two or More Races', 31, 31),
-('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'total', 472.0, 464.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Morrisville District', 'total', 472.0, 453.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32343,9 +32351,9 @@ VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'Out of State', 'White', 12, 12),
+('2024-06-01', 6, 2024, 'AHS district', 'Out of State', 'White', 12, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'Out of State', 'total', 17.0, 12.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Out of State', 'total', 17.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32353,11 +32361,11 @@ VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'Asian', 1, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'Black or African American', 40, 40),
 ('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 11, 11),
+('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 11, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'Prefer to self-describe', 1, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'White', 933, 933),
 ('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'Two or More Races', 34, 34),
-('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'total', 1022.0, 1018.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Rutland District', 'total', 1022.0, 1007.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32392,12 +32400,12 @@ VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 0, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'White', 276, 276),
-('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 13, 13),
-('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'total', 296.0, 289.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 13, -1),
+('2024-06-01', 6, 2024, 'AHS district', 'St. Johnsbury District', 'total', 296.0, 276.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 22, 22),
+('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 22, -1),
 ('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'Asian', 70, 70),
 ('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'Black or African American', 373, 373),
 ('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -32405,7 +32413,7 @@ VALUES
 ('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 59, 59),
 ('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'White', 6183, 6183),
 ('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'Two or More Races', 317, 317),
-('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'total', 7095.0, 7092.0) AS new_data
+('2024-06-01', 6, 2024, 'AHS district', 'Vermont', 'total', 7095.0, 7070.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32423,13 +32431,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'American Indian or Alaskan Native', 0, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'Asian', 3, -1),
-('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'Black or African American', 14, 14),
+('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'Black or African American', 14, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'Prefer to self-describe', 4, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'White', 573, 573),
 ('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'Two or More Races', 36, 36),
-('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'total', 630.0, 623.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Bennington District', 'total', 630.0, 609.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32450,10 +32458,10 @@ VALUES
 ('2024-05-01', 5, 2024, 'AHS district', 'Burlington District', 'Black or African American', 218, 218),
 ('2024-05-01', 5, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 16, 16),
-('2024-05-01', 5, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 11, 11),
+('2024-05-01', 5, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 11, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Burlington District', 'White', 885, 885),
 ('2024-05-01', 5, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 77, 77),
-('2024-05-01', 5, 2024, 'AHS district', 'Burlington District', 'total', 1250.0, 1248.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Burlington District', 'total', 1250.0, 1237.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32475,21 +32483,21 @@ VALUES
 ('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 2, -1),
-('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'White', 76, 76),
+('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'White', 76, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'total', 79.0, 76.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Middlebury District', 'total', 79.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'American Indian or Alaskan Native', 2, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'Asian', 0, -1),
-('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'Black or African American', 11, 11),
+('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'Black or African American', 11, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'Native Hawaiian or Pacific Islander', 1, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'Prefer not to answer', 1, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 1, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'White', 400, 400),
 ('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'Two or More Races', 27, 27),
-('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'total', 443.0, 438.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Morrisville District', 'total', 443.0, 427.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32511,9 +32519,9 @@ VALUES
 ('2024-05-01', 5, 2024, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-05-01', 5, 2024, 'AHS district', 'Out of State', 'White', 11, 11),
+('2024-05-01', 5, 2024, 'AHS district', 'Out of State', 'White', 11, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2024-05-01', 5, 2024, 'AHS district', 'Out of State', 'total', 14.0, 11.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Out of State', 'total', 14.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32524,8 +32532,8 @@ VALUES
 ('2024-05-01', 5, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 6, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Rutland District', 'White', 793, 793),
-('2024-05-01', 5, 2024, 'AHS district', 'Rutland District', 'Two or More Races', 28, 28),
-('2024-05-01', 5, 2024, 'AHS district', 'Rutland District', 'total', 859.0, 852.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Rutland District', 'Two or More Races', 28, -1),
+('2024-05-01', 5, 2024, 'AHS district', 'Rutland District', 'total', 859.0, 824.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32565,7 +32573,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 14, 14),
+('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 14, -1),
 ('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'Asian', 60, 60),
 ('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'Black or African American', 334, 334),
 ('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -32573,7 +32581,7 @@ VALUES
 ('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 50, 50),
 ('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'White', 5414, 5414),
 ('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'Two or More Races', 275, 275),
-('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'total', 6199.0, 6196.0) AS new_data
+('2024-05-01', 5, 2024, 'AHS district', 'Vermont', 'total', 6199.0, 6182.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32591,13 +32599,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'American Indian or Alaskan Native', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'Asian', 3, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'Black or African American', 15, 15),
+('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'Black or African American', 15, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'Prefer to self-describe', 4, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'White', 577, 577),
 ('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'Two or More Races', 34, 34),
-('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'total', 633.0, 626.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Bennington District', 'total', 633.0, 611.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32617,11 +32625,11 @@ VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'Asian', 41, 41),
 ('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'Black or African American', 217, 217),
 ('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 15, 15),
+('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 15, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 16, 16),
 ('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'White', 887, 887),
 ('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 76, 76),
-('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'total', 1253.0, 1252.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Burlington District', 'total', 1253.0, 1237.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32643,9 +32651,9 @@ VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 2, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'White', 77, 77),
+('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'White', 77, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'total', 80.0, 77.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Middlebury District', 'total', 80.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32667,9 +32675,9 @@ VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'Prefer not to answer', 2, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'Prefer to self-describe', 1, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'White', 289, 289),
+('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'White', 289, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'Two or More Races', 1, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'total', 298.0, 289.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Newport District', 'total', 298.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32679,21 +32687,21 @@ VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Out of State', 'White', 12, 12),
+('2024-04-01', 4, 2024, 'AHS district', 'Out of State', 'White', 12, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Out of State', 'total', 15.0, 12.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Out of State', 'total', 15.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'Asian', 1, -1),
-('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'Black or African American', 24, 24),
+('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'Black or African American', 24, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 6, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'White', 774, 774),
 ('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'Two or More Races', 28, 28),
-('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'total', 833.0, 826.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Rutland District', 'total', 833.0, 802.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32733,7 +32741,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 14, 14),
+('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 14, -1),
 ('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'Asian', 60, 60),
 ('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'Black or African American', 322, 322),
 ('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -32741,7 +32749,7 @@ VALUES
 ('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 55, 55),
 ('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'White', 5338, 5338),
 ('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'Two or More Races', 276, 276),
-('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'total', 6117.0, 6114.0) AS new_data
+('2024-04-01', 4, 2024, 'AHS district', 'Vermont', 'total', 6117.0, 6100.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32759,13 +32767,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'American Indian or Alaskan Native', 1, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'Asian', 3, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'Black or African American', 15, 15),
+('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'Black or African American', 15, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'Prefer to self-describe', 4, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'White', 553, 553),
 ('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'Two or More Races', 32, 32),
-('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'total', 608.0, 600.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Bennington District', 'total', 608.0, 585.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32785,11 +32793,11 @@ VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'Asian', 39, 39),
 ('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'Black or African American', 219, 219),
 ('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 13, 13),
+('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 13, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 16, 16),
 ('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'White', 810, 810),
 ('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 72, 72),
-('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'total', 1170.0, 1169.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Burlington District', 'total', 1170.0, 1156.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32811,9 +32819,9 @@ VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 2, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'White', 73, 73),
+('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'White', 73, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'total', 76.0, 73.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Middlebury District', 'total', 76.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32835,9 +32843,9 @@ VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'Prefer not to answer', 2, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'Prefer to self-describe', 1, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'White', 278, 278),
+('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'White', 278, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'Two or More Races', 1, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'total', 286.0, 278.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Newport District', 'total', 286.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32847,21 +32855,21 @@ VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Out of State', 'White', 12, 12),
+('2024-03-01', 3, 2024, 'AHS district', 'Out of State', 'White', 12, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Out of State', 'total', 15.0, 12.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Out of State', 'total', 15.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'Asian', 1, -1),
-('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'Black or African American', 25, 25),
+('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'Black or African American', 25, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 6, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'White', 746, 746),
 ('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'Two or More Races', 28, 28),
-('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'total', 806.0, 799.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Rutland District', 'total', 806.0, 774.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32901,7 +32909,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 13, 13),
+('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 13, -1),
 ('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'Asian', 57, 57),
 ('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'Black or African American', 323, 323),
 ('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -32909,7 +32917,7 @@ VALUES
 ('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 54, 54),
 ('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'White', 5066, 5066),
 ('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'Two or More Races', 259, 259),
-('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'total', 5822.0, 5819.0) AS new_data
+('2024-03-01', 3, 2024, 'AHS district', 'Vermont', 'total', 5822.0, 5806.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32927,13 +32935,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'American Indian or Alaskan Native', 1, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'Asian', 3, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'Black or African American', 15, 15),
+('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'Black or African American', 15, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'Prefer to self-describe', 1, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'White', 542, 542),
 ('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'Two or More Races', 33, 33),
-('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'total', 595.0, 590.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Bennington District', 'total', 595.0, 575.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -32979,9 +32987,9 @@ VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 2, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Middlebury District', 'White', 76, 76),
+('2024-02-01', 2, 2024, 'AHS district', 'Middlebury District', 'White', 76, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Middlebury District', 'total', 79.0, 76.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Middlebury District', 'total', 79.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33003,9 +33011,9 @@ VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'Prefer not to answer', 2, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'Prefer to self-describe', 1, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'White', 280, 280),
+('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'White', 280, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'total', 287.0, 280.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Newport District', 'total', 287.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33015,21 +33023,21 @@ VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'White', 15, 15),
+('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'White', 15, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'total', 18.0, 15.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Out of State', 'total', 18.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Asian', 1, -1),
-('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Black or African American', 25, 25),
+('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Black or African American', 25, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 6, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'White', 734, 734),
 ('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'Two or More Races', 29, 29),
-('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'total', 795.0, 788.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Rutland District', 'total', 795.0, 763.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33069,7 +33077,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 14, 14),
+('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 14, -1),
 ('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'Asian', 58, 58),
 ('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'Black or African American', 317, 317),
 ('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -33077,7 +33085,7 @@ VALUES
 ('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 48, 48),
 ('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'White', 4956, 4956),
 ('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'Two or More Races', 249, 249),
-('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'total', 5686.0, 5683.0) AS new_data
+('2024-02-01', 2, 2024, 'AHS district', 'Vermont', 'total', 5686.0, 5669.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33095,13 +33103,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'American Indian or Alaskan Native', 1, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'Asian', 3, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'Black or African American', 14, 14),
+('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'Black or African American', 14, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'Prefer to self-describe', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'White', 542, 542),
 ('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'Two or More Races', 32, 32),
-('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'total', 592.0, 588.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Bennington District', 'total', 592.0, 574.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33122,10 +33130,10 @@ VALUES
 ('2024-01-01', 1, 2024, 'AHS district', 'Burlington District', 'Black or African American', 196, 196),
 ('2024-01-01', 1, 2024, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Burlington District', 'Prefer not to answer', 8, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 15, 15),
+('2024-01-01', 1, 2024, 'AHS district', 'Burlington District', 'Prefer to self-describe', 15, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Burlington District', 'White', 743, 743),
 ('2024-01-01', 1, 2024, 'AHS district', 'Burlington District', 'Two or More Races', 63, 63),
-('2024-01-01', 1, 2024, 'AHS district', 'Burlington District', 'total', 1065.0, 1056.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Burlington District', 'total', 1065.0, 1041.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33147,9 +33155,9 @@ VALUES
 ('2024-01-01', 1, 2024, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 1, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Middlebury District', 'White', 77, 77),
+('2024-01-01', 1, 2024, 'AHS district', 'Middlebury District', 'White', 77, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Middlebury District', 'total', 79.0, 77.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Middlebury District', 'total', 79.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33171,9 +33179,9 @@ VALUES
 ('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'Prefer not to answer', 2, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'Prefer to self-describe', 0, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'White', 259, 259),
+('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'White', 259, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'total', 266.0, 259.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Newport District', 'total', 266.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33183,21 +33191,21 @@ VALUES
 ('2024-01-01', 1, 2024, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Out of State', 'White', 15, 15),
+('2024-01-01', 1, 2024, 'AHS district', 'Out of State', 'White', 15, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Out of State', 'total', 19.0, 15.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Out of State', 'total', 19.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Asian', 1, -1),
-('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Black or African American', 23, 23),
+('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Black or African American', 23, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Prefer not to answer', 7, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'White', 718, 718),
 ('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'Two or More Races', 32, 32),
-('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'total', 781.0, 773.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Rutland District', 'total', 781.0, 750.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33237,7 +33245,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 14, 14),
+('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 14, -1),
 ('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'Asian', 58, 58),
 ('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'Black or African American', 300, 300),
 ('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -33245,7 +33253,7 @@ VALUES
 ('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'Prefer to self-describe', 42, 42),
 ('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'White', 4861, 4861),
 ('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'Two or More Races', 247, 247),
-('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'total', 5565.0, 5562.0) AS new_data
+('2024-01-01', 1, 2024, 'AHS district', 'Vermont', 'total', 5565.0, 5548.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33263,13 +33271,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'American Indian or Alaskan Native', 1, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'Asian', 3, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'Black or African American', 12, 12),
+('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'Black or African American', 12, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'Prefer to self-describe', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'White', 546, 546),
 ('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 30, 30),
-('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'total', 592.0, 588.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Bennington District', 'total', 592.0, 576.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33315,9 +33323,9 @@ VALUES
 ('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 1, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'White', 77, 77),
+('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'White', 77, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'total', 78.0, 77.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Middlebury District', 'total', 78.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33339,9 +33347,9 @@ VALUES
 ('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'Prefer not to answer', 2, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'Prefer to self-describe', 0, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'White', 261, 261),
+('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'White', 261, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'total', 268.0, 261.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Newport District', 'total', 268.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33351,21 +33359,21 @@ VALUES
 ('2023-12-01', 12, 2023, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Out of State', 'Prefer to self-describe', 2, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'Out of State', 'White', 13, 13),
+('2023-12-01', 12, 2023, 'AHS district', 'Out of State', 'White', 13, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'Out of State', 'total', 19.0, 13.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Out of State', 'total', 19.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'Black or African American', 20, 20),
+('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'Black or African American', 20, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'Prefer not to answer', 4, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'White', 693, 693),
 ('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'Two or More Races', 33, 33),
-('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'total', 752.0, 746.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Rutland District', 'total', 752.0, 726.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33405,7 +33413,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 12, 12),
+('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 12, -1),
 ('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'Asian', 60, 60),
 ('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'Black or African American', 297, 297),
 ('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 2, -1),
@@ -33413,7 +33421,7 @@ VALUES
 ('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'Prefer to self-describe', 45, 45),
 ('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'White', 4832, 4832),
 ('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'Two or More Races', 244, 244),
-('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'total', 5530.0, 5528.0) AS new_data
+('2023-12-01', 12, 2023, 'AHS district', 'Vermont', 'total', 5530.0, 5516.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33431,13 +33439,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'American Indian or Alaskan Native', 1, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'Asian', 3, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'Black or African American', 11, 11),
+('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'Black or African American', 11, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'Prefer to self-describe', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'White', 537, 537),
 ('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 30, 30),
-('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'total', 582.0, 578.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Bennington District', 'total', 582.0, 567.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33458,10 +33466,10 @@ VALUES
 ('2023-11-01', 11, 2023, 'AHS district', 'Burlington District', 'Black or African American', 196, 196),
 ('2023-11-01', 11, 2023, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Burlington District', 'Prefer not to answer', 4, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 13, 13),
+('2023-11-01', 11, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 13, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Burlington District', 'White', 742, 742),
 ('2023-11-01', 11, 2023, 'AHS district', 'Burlington District', 'Two or More Races', 67, 67),
-('2023-11-01', 11, 2023, 'AHS district', 'Burlington District', 'total', 1069.0, 1062.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Burlington District', 'total', 1069.0, 1049.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33483,9 +33491,9 @@ VALUES
 ('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 1, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'White', 73, 73),
+('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'White', 73, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'total', 74.0, 73.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Middlebury District', 'total', 74.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33507,9 +33515,9 @@ VALUES
 ('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'Prefer not to answer', 2, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'Prefer to self-describe', 0, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'White', 255, 255),
+('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'White', 255, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'total', 262.0, 255.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Newport District', 'total', 262.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33519,21 +33527,21 @@ VALUES
 ('2023-11-01', 11, 2023, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Out of State', 'Prefer to self-describe', 2, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Out of State', 'White', 11, 11),
+('2023-11-01', 11, 2023, 'AHS district', 'Out of State', 'White', 11, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Out of State', 'total', 17.0, 11.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Out of State', 'total', 17.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'Black or African American', 18, 18),
+('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'Black or African American', 18, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'Prefer not to answer', 4, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'Prefer to self-describe', 1, -1),
 ('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'White', 672, 672),
 ('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'Two or More Races', 34, 34),
-('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'total', 731.0, 724.0) AS new_data
+('2023-11-01', 11, 2023, 'AHS district', 'Rutland District', 'total', 731.0, 706.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33599,13 +33607,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'Asian', 3, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'Black or African American', 11, 11),
+('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'Black or African American', 11, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'Prefer to self-describe', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'White', 550, 550),
 ('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 30, 30),
-('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'total', 594.0, 591.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Bennington District', 'total', 594.0, 580.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33626,10 +33634,10 @@ VALUES
 ('2023-10-01', 10, 2023, 'AHS district', 'Burlington District', 'Black or African American', 195, 195),
 ('2023-10-01', 10, 2023, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Burlington District', 'Prefer not to answer', 4, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 14, 14),
+('2023-10-01', 10, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 14, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Burlington District', 'White', 717, 717),
 ('2023-10-01', 10, 2023, 'AHS district', 'Burlington District', 'Two or More Races', 68, 68),
-('2023-10-01', 10, 2023, 'AHS district', 'Burlington District', 'total', 1045.0, 1038.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Burlington District', 'total', 1045.0, 1024.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33651,9 +33659,9 @@ VALUES
 ('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 1, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'White', 69, 69),
+('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'White', 69, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'total', 70.0, 69.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Middlebury District', 'total', 70.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33675,9 +33683,9 @@ VALUES
 ('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'Prefer not to answer', 2, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'Prefer to self-describe', 0, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'White', 259, 259),
+('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'White', 259, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'total', 266.0, 259.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Newport District', 'total', 266.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33687,21 +33695,21 @@ VALUES
 ('2023-10-01', 10, 2023, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Out of State', 'Prefer to self-describe', 2, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Out of State', 'White', 11, 11),
+('2023-10-01', 10, 2023, 'AHS district', 'Out of State', 'White', 11, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Out of State', 'total', 16.0, 11.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Out of State', 'total', 16.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'Black or African American', 19, 19),
+('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'Black or African American', 19, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'Prefer not to answer', 4, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'Prefer to self-describe', 2, -1),
 ('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'White', 690, 690),
 ('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'Two or More Races', 34, 34),
-('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'total', 751.0, 743.0) AS new_data
+('2023-10-01', 10, 2023, 'AHS district', 'Rutland District', 'total', 751.0, 724.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33767,13 +33775,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'American Indian or Alaskan Native', 1, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'Asian', 3, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'Black or African American', 11, 11),
+('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'Black or African American', 11, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'Prefer to self-describe', 1, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'White', 555, 555),
 ('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 27, 27),
-('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'total', 598.0, 593.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Bennington District', 'total', 598.0, 582.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33794,10 +33802,10 @@ VALUES
 ('2023-09-01', 9, 2023, 'AHS district', 'Burlington District', 'Black or African American', 203, 203),
 ('2023-09-01', 9, 2023, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Burlington District', 'Prefer not to answer', 5, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 15, 15),
+('2023-09-01', 9, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 15, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Burlington District', 'White', 707, 707),
 ('2023-09-01', 9, 2023, 'AHS district', 'Burlington District', 'Two or More Races', 69, 69),
-('2023-09-01', 9, 2023, 'AHS district', 'Burlington District', 'total', 1042.0, 1033.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Burlington District', 'total', 1042.0, 1018.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33819,9 +33827,9 @@ VALUES
 ('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 1, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'White', 75, 75),
+('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'White', 75, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'total', 77.0, 75.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Middlebury District', 'total', 77.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33863,13 +33871,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'Black or African American', 24, 24),
+('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'Black or African American', 24, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'Prefer not to answer', 4, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'Prefer to self-describe', 2, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'White', 700, 700),
 ('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'Two or More Races', 37, 37),
-('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'total', 769.0, 761.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Rutland District', 'total', 769.0, 737.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33903,13 +33911,13 @@ VALUES
 ('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 3, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 2, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'White', 253, -1),
+('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'White', 253, 253),
 ('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 7, -1),
-('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'total', 275.0, 0.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'St. Johnsbury District', 'total', 275.0, 253.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 11, 11),
+('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 11, -1),
 ('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'Asian', 61, 61),
 ('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'Black or African American', 298, 298),
 ('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 2, -1),
@@ -33917,19 +33925,19 @@ VALUES
 ('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'Prefer to self-describe', 45, 45),
 ('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'White', 4692, 4692),
 ('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'Two or More Races', 251, 251),
-('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'total', 5395.0, 5393.0) AS new_data
+('2023-09-01', 9, 2023, 'AHS district', 'Vermont', 'total', 5395.0, 5382.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'American Indian or Alaskan Native', 1, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Asian', 1, -1),
-('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Black or African American', 11, 11),
+('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Black or African American', 11, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Prefer not to answer', 15, 15),
 ('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Prefer to self-describe', 1, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'White', 392, 392),
 ('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'Two or More Races', 21, 21),
-('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'total', 442.0, 439.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'Barre District', 'total', 442.0, 428.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -33987,9 +33995,9 @@ VALUES
 ('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 1, -1),
-('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'White', 86, 86),
+('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'White', 86, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'total', 88.0, 86.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'Middlebury District', 'total', 88.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34071,13 +34079,13 @@ VALUES
 ('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 2, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 2, -1),
-('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'White', 243, -1),
+('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'White', 243, 243),
 ('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 7, -1),
-('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'total', 265.0, 0.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'St. Johnsbury District', 'total', 265.0, 243.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 13, 13),
+('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 13, -1),
 ('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'Asian', 62, 62),
 ('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'Black or African American', 296, 296),
 ('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -34085,19 +34093,19 @@ VALUES
 ('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'Prefer to self-describe', 43, 43),
 ('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'White', 4864, 4864),
 ('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'Two or More Races', 260, 260),
-('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'total', 5582.0, 5579.0) AS new_data
+('2023-08-01', 8, 2023, 'AHS district', 'Vermont', 'total', 5582.0, 5566.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'American Indian or Alaskan Native', 1, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Asian', 1, -1),
-('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Black or African American', 11, 11),
+('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Black or African American', 11, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Prefer not to answer', 12, 12),
 ('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Prefer to self-describe', 1, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'White', 379, 379),
 ('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'Two or More Races', 20, 20),
-('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'total', 425.0, 422.0) AS new_data
+('2023-07-01', 7, 2023, 'AHS district', 'Barre District', 'total', 425.0, 411.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34155,9 +34163,9 @@ VALUES
 ('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 1, -1),
-('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'White', 81, 81),
+('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'White', 81, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'total', 83.0, 81.0) AS new_data
+('2023-07-01', 7, 2023, 'AHS district', 'Middlebury District', 'total', 83.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34191,9 +34199,9 @@ VALUES
 ('2023-07-01', 7, 2023, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Out of State', 'Prefer to self-describe', 2, -1),
-('2023-07-01', 7, 2023, 'AHS district', 'Out of State', 'White', 12, 12),
+('2023-07-01', 7, 2023, 'AHS district', 'Out of State', 'White', 12, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Out of State', 'Two or More Races', 0, -1),
-('2023-07-01', 7, 2023, 'AHS district', 'Out of State', 'total', 18.0, 12.0) AS new_data
+('2023-07-01', 7, 2023, 'AHS district', 'Out of State', 'total', 18.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34245,7 +34253,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 15, 15),
+('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 15, -1),
 ('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'Asian', 62, 62),
 ('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'Black or African American', 259, 259),
 ('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 3, -1),
@@ -34253,7 +34261,7 @@ VALUES
 ('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'Prefer to self-describe', 35, 35),
 ('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'White', 4648, 4648),
 ('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'Two or More Races', 239, 239),
-('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'total', 5295.0, 5292.0) AS new_data
+('2023-07-01', 7, 2023, 'AHS district', 'Vermont', 'total', 5295.0, 5277.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34298,10 +34306,10 @@ VALUES
 ('2023-06-01', 6, 2023, 'AHS district', 'Burlington District', 'Black or African American', 181, 181),
 ('2023-06-01', 6, 2023, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Burlington District', 'Prefer not to answer', 6, -1),
-('2023-06-01', 6, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 14, 14),
+('2023-06-01', 6, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 14, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Burlington District', 'White', 718, 718),
 ('2023-06-01', 6, 2023, 'AHS district', 'Burlington District', 'Two or More Races', 67, 67),
-('2023-06-01', 6, 2023, 'AHS district', 'Burlington District', 'total', 1032.0, 1023.0) AS new_data
+('2023-06-01', 6, 2023, 'AHS district', 'Burlington District', 'total', 1032.0, 1009.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34323,9 +34331,9 @@ VALUES
 ('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 1, -1),
-('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'White', 85, 85),
+('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'White', 85, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'total', 88.0, 85.0) AS new_data
+('2023-06-01', 6, 2023, 'AHS district', 'Middlebury District', 'total', 88.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34359,9 +34367,9 @@ VALUES
 ('2023-06-01', 6, 2023, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2023-06-01', 6, 2023, 'AHS district', 'Out of State', 'White', 11, 11),
+('2023-06-01', 6, 2023, 'AHS district', 'Out of State', 'White', 11, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Out of State', 'Two or More Races', 1, -1),
-('2023-06-01', 6, 2023, 'AHS district', 'Out of State', 'total', 16.0, 11.0) AS new_data
+('2023-06-01', 6, 2023, 'AHS district', 'Out of State', 'total', 16.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34413,7 +34421,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 12, 12),
+('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 12, -1),
 ('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'Asian', 71, 71),
 ('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'Black or African American', 279, 279),
 ('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 2, -1),
@@ -34421,7 +34429,7 @@ VALUES
 ('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'Prefer to self-describe', 37, 37),
 ('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'White', 4679, 4679),
 ('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'Two or More Races', 237, 237),
-('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'total', 5353.0, 5351.0) AS new_data
+('2023-06-01', 6, 2023, 'AHS district', 'Vermont', 'total', 5353.0, 5339.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34466,10 +34474,10 @@ VALUES
 ('2023-05-01', 5, 2023, 'AHS district', 'Burlington District', 'Black or African American', 161, 161),
 ('2023-05-01', 5, 2023, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Burlington District', 'Prefer not to answer', 5, -1),
-('2023-05-01', 5, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 13, 13),
+('2023-05-01', 5, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 13, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Burlington District', 'White', 647, 647),
 ('2023-05-01', 5, 2023, 'AHS district', 'Burlington District', 'Two or More Races', 59, 59),
-('2023-05-01', 5, 2023, 'AHS district', 'Burlington District', 'total', 923.0, 915.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'Burlington District', 'total', 923.0, 902.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34491,9 +34499,9 @@ VALUES
 ('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 1, -1),
-('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'White', 73, 73),
+('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'White', 73, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'total', 76.0, 73.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'Middlebury District', 'total', 76.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34527,21 +34535,21 @@ VALUES
 ('2023-05-01', 5, 2023, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2023-05-01', 5, 2023, 'AHS district', 'Out of State', 'White', 12, 12),
+('2023-05-01', 5, 2023, 'AHS district', 'Out of State', 'White', 12, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Out of State', 'Two or More Races', 1, -1),
-('2023-05-01', 5, 2023, 'AHS district', 'Out of State', 'total', 17.0, 12.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'Out of State', 'total', 17.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'Black or African American', 23, 23),
+('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'Black or African American', 23, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'Prefer not to answer', 4, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'Prefer to self-describe', 2, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'White', 676, 676),
 ('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'Two or More Races', 34, 34),
-('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'total', 741.0, 733.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'Rutland District', 'total', 741.0, 710.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34581,7 +34589,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 11, 11),
+('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 11, -1),
 ('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'Asian', 61, 61),
 ('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'Black or African American', 251, 251),
 ('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 1, -1),
@@ -34589,7 +34597,7 @@ VALUES
 ('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'Prefer to self-describe', 30, 30),
 ('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'White', 4243, 4243),
 ('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'Two or More Races', 219, 219),
-('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'total', 4848.0, 4847.0) AS new_data
+('2023-05-01', 5, 2023, 'AHS district', 'Vermont', 'total', 4848.0, 4836.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34634,10 +34642,10 @@ VALUES
 ('2023-04-01', 4, 2023, 'AHS district', 'Burlington District', 'Black or African American', 162, 162),
 ('2023-04-01', 4, 2023, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Burlington District', 'Prefer not to answer', 2, -1),
-('2023-04-01', 4, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 12, 12),
+('2023-04-01', 4, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 12, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Burlington District', 'White', 645, 645),
 ('2023-04-01', 4, 2023, 'AHS district', 'Burlington District', 'Two or More Races', 60, 60),
-('2023-04-01', 4, 2023, 'AHS district', 'Burlington District', 'total', 918.0, 913.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Burlington District', 'total', 918.0, 901.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34659,9 +34667,9 @@ VALUES
 ('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 1, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'White', 77, 77),
+('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'White', 77, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'total', 80.0, 77.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Middlebury District', 'total', 80.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34695,21 +34703,21 @@ VALUES
 ('2023-04-01', 4, 2023, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2023-04-01', 4, 2023, 'AHS district', 'Out of State', 'White', 12, 12),
+('2023-04-01', 4, 2023, 'AHS district', 'Out of State', 'White', 12, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Out of State', 'Two or More Races', 1, -1),
-('2023-04-01', 4, 2023, 'AHS district', 'Out of State', 'total', 17.0, 12.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Out of State', 'total', 17.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'Black or African American', 23, 23),
+('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'Black or African American', 23, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'Prefer not to answer', 4, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'Prefer to self-describe', 2, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'White', 677, 677),
 ('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'Two or More Races', 33, 33),
-('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'total', 741.0, 733.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Rutland District', 'total', 741.0, 710.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34720,8 +34728,8 @@ VALUES
 ('2023-04-01', 4, 2023, 'AHS district', 'Springfield District', 'Prefer not to answer', 0, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Springfield District', 'Prefer to self-describe', 1, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Springfield District', 'White', 372, 372),
-('2023-04-01', 4, 2023, 'AHS district', 'Springfield District', 'Two or More Races', 14, 14),
-('2023-04-01', 4, 2023, 'AHS district', 'Springfield District', 'total', 395.0, 386.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Springfield District', 'Two or More Races', 14, -1),
+('2023-04-01', 4, 2023, 'AHS district', 'Springfield District', 'total', 395.0, 372.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34749,7 +34757,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 12, 12),
+('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 12, -1),
 ('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'Asian', 58, 58),
 ('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'Black or African American', 251, 251),
 ('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 1, -1),
@@ -34757,7 +34765,7 @@ VALUES
 ('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'Prefer to self-describe', 27, 27),
 ('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'White', 4182, 4182),
 ('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'Two or More Races', 215, 215),
-('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'total', 4772.0, 4771.0) AS new_data
+('2023-04-01', 4, 2023, 'AHS district', 'Vermont', 'total', 4772.0, 4759.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34780,8 +34788,8 @@ VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Bennington District', 'Prefer to self-describe', 1, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Bennington District', 'White', 447, 447),
-('2023-03-01', 3, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 20, 20),
-('2023-03-01', 3, 2023, 'AHS district', 'Bennington District', 'total', 476.0, 467.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 20, -1),
+('2023-03-01', 3, 2023, 'AHS district', 'Bennington District', 'total', 476.0, 447.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34827,9 +34835,9 @@ VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 1, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'White', 71, 71),
+('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'White', 71, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'total', 74.0, 71.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Middlebury District', 'total', 74.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34840,8 +34848,8 @@ VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Morrisville District', 'Prefer not to answer', 1, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 0, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Morrisville District', 'White', 249, 249),
-('2023-03-01', 3, 2023, 'AHS district', 'Morrisville District', 'Two or More Races', 15, 15),
-('2023-03-01', 3, 2023, 'AHS district', 'Morrisville District', 'total', 273.0, 264.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Morrisville District', 'Two or More Races', 15, -1),
+('2023-03-01', 3, 2023, 'AHS district', 'Morrisville District', 'total', 273.0, 249.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34863,21 +34871,21 @@ VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Out of State', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Out of State', 'Prefer not to answer', 0, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Out of State', 'Prefer to self-describe', 0, -1),
-('2023-03-01', 3, 2023, 'AHS district', 'Out of State', 'White', 11, 11),
+('2023-03-01', 3, 2023, 'AHS district', 'Out of State', 'White', 11, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Out of State', 'Two or More Races', 1, -1),
-('2023-03-01', 3, 2023, 'AHS district', 'Out of State', 'total', 16.0, 11.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Out of State', 'total', 16.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'Black or African American', 22, 22),
+('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'Black or African American', 22, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'Prefer not to answer', 2, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'Prefer to self-describe', 2, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'White', 648, 648),
 ('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'Two or More Races', 31, 31),
-('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'total', 707.0, 701.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Rutland District', 'total', 707.0, 679.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34888,8 +34896,8 @@ VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Springfield District', 'Prefer not to answer', 0, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Springfield District', 'Prefer to self-describe', 1, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Springfield District', 'White', 355, 355),
-('2023-03-01', 3, 2023, 'AHS district', 'Springfield District', 'Two or More Races', 13, 13),
-('2023-03-01', 3, 2023, 'AHS district', 'Springfield District', 'total', 376.0, 368.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Springfield District', 'Two or More Races', 13, -1),
+('2023-03-01', 3, 2023, 'AHS district', 'Springfield District', 'total', 376.0, 355.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34917,7 +34925,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
-('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 11, 11),
+('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'American Indian or Alaskan Native', 11, -1),
 ('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'Asian', 56, 56),
 ('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'Black or African American', 248, 248),
 ('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 1, -1),
@@ -34925,7 +34933,7 @@ VALUES
 ('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'Prefer to self-describe', 21, 21),
 ('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'White', 3932, 3932),
 ('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'Two or More Races', 200, 200),
-('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'total', 4493.0, 4492.0) AS new_data
+('2023-03-01', 3, 2023, 'AHS district', 'Vermont', 'total', 4493.0, 4481.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34948,8 +34956,8 @@ VALUES
 ('2023-02-01', 2, 2023, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Bennington District', 'Prefer to self-describe', 1, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Bennington District', 'White', 421, 421),
-('2023-02-01', 2, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 20, 20),
-('2023-02-01', 2, 2023, 'AHS district', 'Bennington District', 'total', 449.0, 441.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 20, -1),
+('2023-02-01', 2, 2023, 'AHS district', 'Bennington District', 'total', 449.0, 421.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34966,14 +34974,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'American Indian or Alaskan Native', 3, -1),
-('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'Asian', 34, 34),
+('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'Asian', 34, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'Black or African American', 149, 149),
 ('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'Prefer not to answer', 2, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 4, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'White', 573, 573),
 ('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'Two or More Races', 51, 51),
-('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'total', 816.0, 807.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'Burlington District', 'total', 816.0, 773.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -34995,9 +35003,9 @@ VALUES
 ('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 1, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'White', 72, 72),
+('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'White', 72, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'total', 74.0, 72.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'Middlebury District', 'total', 74.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35008,8 +35016,8 @@ VALUES
 ('2023-02-01', 2, 2023, 'AHS district', 'Morrisville District', 'Prefer not to answer', 1, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 0, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Morrisville District', 'White', 238, 238),
-('2023-02-01', 2, 2023, 'AHS district', 'Morrisville District', 'Two or More Races', 15, 15),
-('2023-02-01', 2, 2023, 'AHS district', 'Morrisville District', 'total', 261.0, 253.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'Morrisville District', 'Two or More Races', 15, -1),
+('2023-02-01', 2, 2023, 'AHS district', 'Morrisville District', 'total', 261.0, 238.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35039,13 +35047,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'Black or African American', 24, 24),
+('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'Black or African American', 24, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'Prefer not to answer', 2, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'Prefer to self-describe', 1, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'White', 635, 635),
 ('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'Two or More Races', 31, 31),
-('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'total', 695.0, 690.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'Rutland District', 'total', 695.0, 666.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35056,8 +35064,8 @@ VALUES
 ('2023-02-01', 2, 2023, 'AHS district', 'Springfield District', 'Prefer not to answer', 0, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Springfield District', 'Prefer to self-describe', 1, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'Springfield District', 'White', 337, 337),
-('2023-02-01', 2, 2023, 'AHS district', 'Springfield District', 'Two or More Races', 12, 12),
-('2023-02-01', 2, 2023, 'AHS district', 'Springfield District', 'total', 357.0, 349.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'Springfield District', 'Two or More Races', 12, -1),
+('2023-02-01', 2, 2023, 'AHS district', 'Springfield District', 'total', 357.0, 337.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35079,9 +35087,9 @@ VALUES
 ('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 2, -1),
 ('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 3, -1),
-('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'White', 179, -1),
+('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'White', 179, 179),
 ('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 5, -1),
-('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'total', 199.0, 0.0) AS new_data
+('2023-02-01', 2, 2023, 'AHS district', 'St. Johnsbury District', 'total', 199.0, 179.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35116,8 +35124,8 @@ VALUES
 ('2023-01-01', 1, 2023, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Bennington District', 'Prefer to self-describe', 1, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Bennington District', 'White', 376, 376),
-('2023-01-01', 1, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 16, 16),
-('2023-01-01', 1, 2023, 'AHS district', 'Bennington District', 'total', 399.0, 392.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'Bennington District', 'Two or More Races', 16, -1),
+('2023-01-01', 1, 2023, 'AHS district', 'Bennington District', 'total', 399.0, 376.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35134,14 +35142,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'American Indian or Alaskan Native', 2, -1),
-('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'Asian', 30, 30),
+('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'Asian', 30, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'Black or African American', 141, 141),
 ('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'Prefer not to answer', 2, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'Prefer to self-describe', 2, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'White', 532, 532),
 ('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'Two or More Races', 47, 47),
-('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'total', 756.0, 750.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'Burlington District', 'total', 756.0, 720.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35163,9 +35171,9 @@ VALUES
 ('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'White', 64, 64),
+('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'White', 64, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'total', 64.0, 64.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'Middlebury District', 'total', 64.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35176,8 +35184,8 @@ VALUES
 ('2023-01-01', 1, 2023, 'AHS district', 'Morrisville District', 'Prefer not to answer', 1, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Morrisville District', 'White', 203, 203),
-('2023-01-01', 1, 2023, 'AHS district', 'Morrisville District', 'Two or More Races', 16, 16),
-('2023-01-01', 1, 2023, 'AHS district', 'Morrisville District', 'total', 226.0, 219.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'Morrisville District', 'Two or More Races', 16, -1),
+('2023-01-01', 1, 2023, 'AHS district', 'Morrisville District', 'total', 226.0, 203.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35207,13 +35215,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'Black or African American', 22, 22),
+('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'Black or African American', 22, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'Prefer not to answer', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'White', 596, 596),
 ('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'Two or More Races', 29, 29),
-('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'total', 649.0, 647.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'Rutland District', 'total', 649.0, 625.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35224,8 +35232,8 @@ VALUES
 ('2023-01-01', 1, 2023, 'AHS district', 'Springfield District', 'Prefer not to answer', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Springfield District', 'Prefer to self-describe', 1, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'Springfield District', 'White', 311, 311),
-('2023-01-01', 1, 2023, 'AHS district', 'Springfield District', 'Two or More Races', 11, 11),
-('2023-01-01', 1, 2023, 'AHS district', 'Springfield District', 'total', 329.0, 322.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'Springfield District', 'Two or More Races', 11, -1),
+('2023-01-01', 1, 2023, 'AHS district', 'Springfield District', 'total', 329.0, 311.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35247,9 +35255,9 @@ VALUES
 ('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 2, -1),
 ('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'White', 171, -1),
+('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'White', 171, 171),
 ('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 5, -1),
-('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'total', 189.0, 0.0) AS new_data
+('2023-01-01', 1, 2023, 'AHS district', 'St. Johnsbury District', 'total', 189.0, 171.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35284,8 +35292,8 @@ VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Bennington District', 'Prefer to self-describe', 1, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Bennington District', 'White', 352, 352),
-('2022-12-01', 12, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 15, 15),
-('2022-12-01', 12, 2022, 'AHS district', 'Bennington District', 'total', 374.0, 367.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 15, -1),
+('2022-12-01', 12, 2022, 'AHS district', 'Bennington District', 'total', 374.0, 352.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35302,14 +35310,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'American Indian or Alaskan Native', 1, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'Asian', 24, 24),
+('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'Asian', 24, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'Black or African American', 132, 132),
 ('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'Prefer not to answer', 2, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'Prefer to self-describe', 3, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'White', 497, 497),
 ('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'Two or More Races', 43, 43),
-('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'total', 702.0, 696.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Burlington District', 'total', 702.0, 672.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35331,9 +35339,9 @@ VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'White', 55, 55),
+('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'White', 55, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'total', 55.0, 55.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Middlebury District', 'total', 55.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35344,8 +35352,8 @@ VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'Morrisville District', 'Prefer not to answer', 1, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Morrisville District', 'White', 190, 190),
-('2022-12-01', 12, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 15, 15),
-('2022-12-01', 12, 2022, 'AHS district', 'Morrisville District', 'total', 209.0, 205.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 15, -1),
+('2022-12-01', 12, 2022, 'AHS district', 'Morrisville District', 'total', 209.0, 190.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35355,9 +35363,9 @@ VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Newport District', 'Prefer not to answer', 1, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Newport District', 'Prefer to self-describe', 1, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'Newport District', 'White', 149, 149),
+('2022-12-01', 12, 2022, 'AHS district', 'Newport District', 'White', 149, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'Newport District', 'total', 154.0, 149.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Newport District', 'total', 154.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35375,13 +35383,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'Asian', 2, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'Black or African American', 22, 22),
+('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'Black or African American', 22, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'White', 558, 558),
 ('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'Two or More Races', 29, 29),
-('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'total', 611.0, 609.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Rutland District', 'total', 611.0, 587.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35415,9 +35423,9 @@ VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'White', 153, -1),
+('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'White', 153, 153),
 ('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 5, -1),
-('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'total', 169.0, 0.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'St. Johnsbury District', 'total', 169.0, 153.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35426,10 +35434,10 @@ VALUES
 ('2022-12-01', 12, 2022, 'AHS district', 'Vermont', 'Black or African American', 195, 195),
 ('2022-12-01', 12, 2022, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Vermont', 'Prefer not to answer', 15, 15),
-('2022-12-01', 12, 2022, 'AHS district', 'Vermont', 'Prefer to self-describe', 11, 11),
+('2022-12-01', 12, 2022, 'AHS district', 'Vermont', 'Prefer to self-describe', 11, -1),
 ('2022-12-01', 12, 2022, 'AHS district', 'Vermont', 'White', 3202, 3202),
 ('2022-12-01', 12, 2022, 'AHS district', 'Vermont', 'Two or More Races', 160, 160),
-('2022-12-01', 12, 2022, 'AHS district', 'Vermont', 'total', 3638.0, 3629.0) AS new_data
+('2022-12-01', 12, 2022, 'AHS district', 'Vermont', 'total', 3638.0, 3618.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35452,8 +35460,8 @@ VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Bennington District', 'Prefer to self-describe', 1, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Bennington District', 'White', 347, 347),
-('2022-11-01', 11, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 16, 16),
-('2022-11-01', 11, 2022, 'AHS district', 'Bennington District', 'total', 370.0, 363.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 16, -1),
+('2022-11-01', 11, 2022, 'AHS district', 'Bennington District', 'total', 370.0, 347.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35470,14 +35478,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'American Indian or Alaskan Native', 1, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'Asian', 22, 22),
+('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'Asian', 22, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'Black or African American', 129, 129),
 ('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'Prefer not to answer', 1, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'Prefer to self-describe', 3, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'White', 493, 493),
 ('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'Two or More Races', 42, 42),
-('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'total', 691.0, 686.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Burlington District', 'total', 691.0, 664.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35499,9 +35507,9 @@ VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'White', 56, 56),
+('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'White', 56, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'total', 56.0, 56.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Middlebury District', 'total', 56.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35512,8 +35520,8 @@ VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'Morrisville District', 'Prefer not to answer', 1, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Morrisville District', 'White', 183, 183),
-('2022-11-01', 11, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 15, 15),
-('2022-11-01', 11, 2022, 'AHS district', 'Morrisville District', 'total', 202.0, 198.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 15, -1),
+('2022-11-01', 11, 2022, 'AHS district', 'Morrisville District', 'total', 202.0, 183.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35523,9 +35531,9 @@ VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Newport District', 'Prefer not to answer', 1, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Newport District', 'Prefer to self-describe', 1, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'Newport District', 'White', 144, 144),
+('2022-11-01', 11, 2022, 'AHS district', 'Newport District', 'White', 144, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'Newport District', 'total', 149.0, 144.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Newport District', 'total', 149.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35543,13 +35551,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'Asian', 3, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'Black or African American', 25, 25),
+('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'Black or African American', 25, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'White', 532, 532),
 ('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'Two or More Races', 25, 25),
-('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'total', 585.0, 582.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Rutland District', 'total', 585.0, 557.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35583,9 +35591,9 @@ VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'White', 141, -1),
+('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'White', 141, 141),
 ('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 3, -1),
-('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'total', 154.0, 0.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'St. Johnsbury District', 'total', 154.0, 141.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35594,10 +35602,10 @@ VALUES
 ('2022-11-01', 11, 2022, 'AHS district', 'Vermont', 'Black or African American', 192, 192),
 ('2022-11-01', 11, 2022, 'AHS district', 'Vermont', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Vermont', 'Prefer not to answer', 12, 12),
-('2022-11-01', 11, 2022, 'AHS district', 'Vermont', 'Prefer to self-describe', 11, 11),
+('2022-11-01', 11, 2022, 'AHS district', 'Vermont', 'Prefer to self-describe', 11, -1),
 ('2022-11-01', 11, 2022, 'AHS district', 'Vermont', 'White', 3135, 3135),
 ('2022-11-01', 11, 2022, 'AHS district', 'Vermont', 'Two or More Races', 153, 153),
-('2022-11-01', 11, 2022, 'AHS district', 'Vermont', 'total', 3558.0, 3549.0) AS new_data
+('2022-11-01', 11, 2022, 'AHS district', 'Vermont', 'total', 3558.0, 3538.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35620,8 +35628,8 @@ VALUES
 ('2022-10-01', 10, 2022, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Bennington District', 'Prefer to self-describe', 1, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Bennington District', 'White', 332, 332),
-('2022-10-01', 10, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 15, 15),
-('2022-10-01', 10, 2022, 'AHS district', 'Bennington District', 'total', 354.0, 347.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 15, -1),
+('2022-10-01', 10, 2022, 'AHS district', 'Bennington District', 'total', 354.0, 332.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35638,14 +35646,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'American Indian or Alaskan Native', 1, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'Asian', 23, 23),
+('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'Asian', 23, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'Black or African American', 122, 122),
 ('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'Prefer not to answer', 1, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'Prefer to self-describe', 2, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'White', 465, 465),
 ('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'Two or More Races', 40, 40),
-('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'total', 654.0, 650.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'Burlington District', 'total', 654.0, 627.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35667,9 +35675,9 @@ VALUES
 ('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'White', 53, 53),
+('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'White', 53, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'total', 53.0, 53.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'Middlebury District', 'total', 53.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35680,8 +35688,8 @@ VALUES
 ('2022-10-01', 10, 2022, 'AHS district', 'Morrisville District', 'Prefer not to answer', 1, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Morrisville District', 'White', 172, 172),
-('2022-10-01', 10, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 13, 13),
-('2022-10-01', 10, 2022, 'AHS district', 'Morrisville District', 'total', 188.0, 185.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 13, -1),
+('2022-10-01', 10, 2022, 'AHS district', 'Morrisville District', 'total', 188.0, 172.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35691,9 +35699,9 @@ VALUES
 ('2022-10-01', 10, 2022, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Newport District', 'Prefer not to answer', 1, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Newport District', 'Prefer to self-describe', 1, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'Newport District', 'White', 135, 135),
+('2022-10-01', 10, 2022, 'AHS district', 'Newport District', 'White', 135, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'Newport District', 'total', 138.0, 135.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'Newport District', 'total', 138.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35716,8 +35724,8 @@ VALUES
 ('2022-10-01', 10, 2022, 'AHS district', 'Rutland District', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'Rutland District', 'White', 490, 490),
-('2022-10-01', 10, 2022, 'AHS district', 'Rutland District', 'Two or More Races', 22, 22),
-('2022-10-01', 10, 2022, 'AHS district', 'Rutland District', 'total', 539.0, 536.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'Rutland District', 'Two or More Races', 22, -1),
+('2022-10-01', 10, 2022, 'AHS district', 'Rutland District', 'total', 539.0, 514.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35751,9 +35759,9 @@ VALUES
 ('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'White', 127, -1),
+('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'White', 127, 127),
 ('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 2, -1),
-('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'total', 138.0, 0.0) AS new_data
+('2022-10-01', 10, 2022, 'AHS district', 'St. Johnsbury District', 'total', 138.0, 127.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35788,8 +35796,8 @@ VALUES
 ('2022-09-01', 9, 2022, 'AHS district', 'Bennington District', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Bennington District', 'Prefer to self-describe', 1, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Bennington District', 'White', 326, 326),
-('2022-09-01', 9, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 14, 14),
-('2022-09-01', 9, 2022, 'AHS district', 'Bennington District', 'total', 348.0, 340.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 14, -1),
+('2022-09-01', 9, 2022, 'AHS district', 'Bennington District', 'total', 348.0, 326.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35806,14 +35814,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'American Indian or Alaskan Native', 0, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'Asian', 23, 23),
+('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'Asian', 23, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'Black or African American', 114, 114),
 ('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'Prefer not to answer', 1, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'Prefer to self-describe', 2, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'White', 440, 440),
 ('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'Two or More Races', 38, 38),
-('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'total', 618.0, 615.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'Burlington District', 'total', 618.0, 592.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35835,9 +35843,9 @@ VALUES
 ('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'White', 51, 51),
+('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'White', 51, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'total', 52.0, 51.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'Middlebury District', 'total', 52.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35848,8 +35856,8 @@ VALUES
 ('2022-09-01', 9, 2022, 'AHS district', 'Morrisville District', 'Prefer not to answer', 1, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Morrisville District', 'White', 134, 134),
-('2022-09-01', 9, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 13, 13),
-('2022-09-01', 9, 2022, 'AHS district', 'Morrisville District', 'total', 150.0, 147.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 13, -1),
+('2022-09-01', 9, 2022, 'AHS district', 'Morrisville District', 'total', 150.0, 134.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35859,9 +35867,9 @@ VALUES
 ('2022-09-01', 9, 2022, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Newport District', 'Prefer not to answer', 1, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Newport District', 'Prefer to self-describe', 1, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'Newport District', 'White', 119, 119),
+('2022-09-01', 9, 2022, 'AHS district', 'Newport District', 'White', 119, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'Newport District', 'total', 123.0, 119.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'Newport District', 'total', 123.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35879,13 +35887,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'American Indian or Alaskan Native', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'Asian', 3, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'Black or African American', 20, 20),
+('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'Black or African American', 20, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'White', 451, 451),
 ('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'Two or More Races', 21, 21),
-('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'total', 495.0, 492.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'Rutland District', 'total', 495.0, 472.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35919,9 +35927,9 @@ VALUES
 ('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Prefer not to answer', 0, -1),
 ('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Prefer to self-describe', 1, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'White', 122, -1),
+('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'White', 122, 122),
 ('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'Two or More Races', 2, -1),
-('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'total', 132.0, 0.0) AS new_data
+('2022-09-01', 9, 2022, 'AHS district', 'St. Johnsbury District', 'total', 132.0, 122.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35944,8 +35952,8 @@ VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'Barre District', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Barre District', 'Prefer to self-describe', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Barre District', 'White', 215, 215),
-('2022-08-01', 8, 2022, 'AHS district', 'Barre District', 'Two or More Races', 12, 12),
-('2022-08-01', 8, 2022, 'AHS district', 'Barre District', 'total', 235.0, 227.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Barre District', 'Two or More Races', 12, -1),
+('2022-08-01', 8, 2022, 'AHS district', 'Barre District', 'total', 235.0, 215.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35956,8 +35964,8 @@ VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'Bennington District', 'Prefer not to answer', 1, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Bennington District', 'Prefer to self-describe', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Bennington District', 'White', 326, 326),
-('2022-08-01', 8, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 16, 16),
-('2022-08-01', 8, 2022, 'AHS district', 'Bennington District', 'total', 347.0, 342.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 16, -1),
+('2022-08-01', 8, 2022, 'AHS district', 'Bennington District', 'total', 347.0, 326.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -35974,14 +35982,14 @@ ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `v
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'American Indian or Alaskan Native', 0, -1),
-('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'Asian', 21, 21),
+('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'Asian', 21, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'Black or African American', 95, 95),
 ('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'Prefer not to answer', 1, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'Prefer to self-describe', 2, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'White', 450, 450),
 ('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'Two or More Races', 36, 36),
-('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'total', 605.0, 602.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Burlington District', 'total', 605.0, 581.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36003,9 +36011,9 @@ VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'White', 62, 62),
+('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'White', 62, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'total', 63.0, 62.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Middlebury District', 'total', 63.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36016,8 +36024,8 @@ VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'Morrisville District', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Morrisville District', 'White', 111, 111),
-('2022-08-01', 8, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 12, 12),
-('2022-08-01', 8, 2022, 'AHS district', 'Morrisville District', 'total', 123.0, 123.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 12, -1),
+('2022-08-01', 8, 2022, 'AHS district', 'Morrisville District', 'total', 123.0, 111.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36027,9 +36035,9 @@ VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Newport District', 'Prefer not to answer', 1, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Newport District', 'Prefer to self-describe', 1, -1),
-('2022-08-01', 8, 2022, 'AHS district', 'Newport District', 'White', 106, 106),
+('2022-08-01', 8, 2022, 'AHS district', 'Newport District', 'White', 106, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2022-08-01', 8, 2022, 'AHS district', 'Newport District', 'total', 110.0, 106.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Newport District', 'total', 110.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36052,8 +36060,8 @@ VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'Rutland District', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Rutland District', 'Prefer to self-describe', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'Rutland District', 'White', 414, 414),
-('2022-08-01', 8, 2022, 'AHS district', 'Rutland District', 'Two or More Races', 14, 14),
-('2022-08-01', 8, 2022, 'AHS district', 'Rutland District', 'total', 446.0, 443.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'Rutland District', 'Two or More Races', 14, -1),
+('2022-08-01', 8, 2022, 'AHS district', 'Rutland District', 'total', 446.0, 429.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36071,13 +36079,13 @@ INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, 
 VALUES
 ('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'American Indian or Alaskan Native', 3, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'Asian', 1, -1),
-('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'Black or African American', 11, 11),
+('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'Black or African American', 11, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'Prefer not to answer', 0, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'Prefer to self-describe', 1, -1),
 ('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'White', 374, 374),
 ('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'Two or More Races', 14, 14),
-('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'total', 404.0, 399.0) AS new_data
+('2022-08-01', 8, 2022, 'AHS district', 'St. Albans District', 'total', 404.0, 388.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36124,8 +36132,8 @@ VALUES
 ('2022-07-01', 7, 2022, 'AHS district', 'Bennington District', 'Prefer not to answer', 1, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Bennington District', 'Prefer to self-describe', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Bennington District', 'White', 293, 293),
-('2022-07-01', 7, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 12, 12),
-('2022-07-01', 7, 2022, 'AHS district', 'Bennington District', 'total', 309.0, 305.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Bennington District', 'Two or More Races', 12, -1),
+('2022-07-01', 7, 2022, 'AHS district', 'Bennington District', 'total', 309.0, 293.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36135,21 +36143,21 @@ VALUES
 ('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'White', 44, 44),
+('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'White', 44, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'Two or More Races', 2, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'total', 51.0, 44.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Brattleboro District', 'total', 51.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
 ('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'American Indian or Alaskan Native', 0, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'Asian', 11, 11),
+('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'Asian', 11, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'Black or African American', 76, 76),
 ('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'Prefer to self-describe', 1, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'White', 355, 355),
 ('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'Two or More Races', 35, 35),
-('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'total', 478.0, 477.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Burlington District', 'total', 478.0, 466.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36171,9 +36179,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'White', 51, 51),
+('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'White', 51, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'Two or More Races', 0, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'total', 52.0, 51.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Middlebury District', 'total', 52.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36183,9 +36191,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'White', 75, 75),
+('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'White', 75, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'Two or More Races', 5, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'total', 80.0, 75.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Morrisville District', 'total', 80.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36195,9 +36203,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'AHS district', 'Newport District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Newport District', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Newport District', 'Prefer to self-describe', 1, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Newport District', 'White', 76, 76),
+('2022-07-01', 7, 2022, 'AHS district', 'Newport District', 'White', 76, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Newport District', 'Two or More Races', 0, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Newport District', 'total', 80.0, 76.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Newport District', 'total', 80.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
@@ -36231,9 +36239,9 @@ VALUES
 ('2022-07-01', 7, 2022, 'AHS district', 'Springfield District', 'Native Hawaiian or Pacific Islander', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Springfield District', 'Prefer not to answer', 0, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Springfield District', 'Prefer to self-describe', 0, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Springfield District', 'White', 135, 135),
+('2022-07-01', 7, 2022, 'AHS district', 'Springfield District', 'White', 135, -1),
 ('2022-07-01', 7, 2022, 'AHS district', 'Springfield District', 'Two or More Races', 6, -1),
-('2022-07-01', 7, 2022, 'AHS district', 'Springfield District', 'total', 142.0, 135.0) AS new_data
+('2022-07-01', 7, 2022, 'AHS district', 'Springfield District', 'total', 142.0, 0.0) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `value` = new_data.`value`, `value_suppressed` = new_data.`value_suppressed`;
 INSERT INTO `data_act76_child_race` (`month_year`, `month`, `year`, `geo_type`, `geography`, `race`, `value`, `value_suppressed`)
 VALUES
