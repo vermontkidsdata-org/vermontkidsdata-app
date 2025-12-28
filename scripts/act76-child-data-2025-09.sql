@@ -1,5 +1,5 @@
 -- TRUNCATE and INSERT statements for Child Data FY 23-25.xlsx and child-data-fy-23-25.xlsx
--- Generated on 2025-12-28 11:57:44
+-- Generated on 2025-12-28 12:49:50
 
 -- TRUNCATE TABLE statements
 TRUNCATE TABLE `data_act76_child_age`;
@@ -37849,7 +37849,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `total` = new_data.`total`;
 INSERT INTO `data_act76_child_total` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)
 VALUES
-('2025-07-01', 7, 2025, 'county', 'Out of State', 9) AS new_data
+('2025-07-01', 7, 2025, 'county', 'Out of State', -1) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `total` = new_data.`total`;
 INSERT INTO `data_act76_child_total` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)
 VALUES
@@ -37865,7 +37865,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `total` = new_data.`total`;
 INSERT INTO `data_act76_child_total` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)
 VALUES
-('2025-03-01', 3, 2025, 'county', 'Out of State', 10) AS new_data
+('2025-03-01', 3, 2025, 'county', 'Out of State', -1) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `total` = new_data.`total`;
 INSERT INTO `data_act76_child_total` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)
 VALUES
@@ -40033,7 +40033,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `total` = new_data.`total`;
 INSERT INTO `data_act76_child_total` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)
 VALUES
-('2025-07-01', 7, 2025, 'AHS district', 'Out of State', 9) AS new_data
+('2025-07-01', 7, 2025, 'AHS district', 'Out of State', -1) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `total` = new_data.`total`;
 INSERT INTO `data_act76_child_total` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)
 VALUES
@@ -40049,7 +40049,7 @@ VALUES
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `total` = new_data.`total`;
 INSERT INTO `data_act76_child_total` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)
 VALUES
-('2025-03-01', 3, 2025, 'AHS district', 'Out of State', 10) AS new_data
+('2025-03-01', 3, 2025, 'AHS district', 'Out of State', -1) AS new_data
 ON DUPLICATE KEY UPDATE `month` = new_data.`month`, `year` = new_data.`year`, `total` = new_data.`total`;
 INSERT INTO `data_act76_child_total` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)
 VALUES

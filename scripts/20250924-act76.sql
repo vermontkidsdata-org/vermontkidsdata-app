@@ -1333,7 +1333,11 @@ ORDER BY
   '{
     "table": "data_act76_family_service_need",
     "filters": {
-      "service_need_filter": {"column": "service_need"}
+      "service_need_filter": {
+        "column": "service_need",
+        "exclude": ["total", "all"],
+        "default": "Working"
+      }
     }
   }'
 );
@@ -1343,24 +1347,39 @@ INSERT INTO `queries` (`name`,`sqlText`,`columnMap`,`metadata`,`uploadType`,`fil
 VALUES (
   'act76_ccfap_family_county_pct_fpl:bar',
   'WITH latest_date AS (
-  SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date
+  SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date,
+         MONTH(STR_TO_DATE(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_family_pct_of_fpl
   WHERE geo_type = "county"
 )
 SELECT
   geography as label,
   CASE
-    WHEN @pct_of_fpl_filter = "-- All --" THEN CONCAT("Total (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
-    ELSE CONCAT(pct_of_fpl, " (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
+    WHEN @pct_of_fpl_filter = "-- All --" THEN CONCAT("Total (", DATE_FORMAT(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''), "%b %Y"), ")")
+    ELSE CONCAT(
+      CASE
+        WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), ''%'')
+        ELSE pct_of_fpl
+      END,
+      " (", DATE_FORMAT(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''), "%b %Y"), ")"
+    )
   END as cat,
   SUM(value_suppressed) as value,
-  DATE_FORMAT(latest_date.max_date, "%M %Y") as date_label
+  DATE_FORMAT(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''), "%M %Y") as date_label
 FROM data_act76_family_pct_of_fpl
 CROSS JOIN latest_date
 WHERE
   geo_type = "county"
   AND geography != "Vermont"
-  AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') = latest_date.max_date
+  AND (
+      (@month_filter = "-- All --" AND month = latest_date.latest_month)
+      OR month = @month_filter
+  )
+  AND (
+      (@year_filter = "-- All --" AND year = latest_date.latest_year)
+      OR year = @year_filter
+  )
   AND (@pct_of_fpl_filter = "-- All --" OR pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter)
 GROUP BY
   geography,
@@ -1376,7 +1395,9 @@ ORDER BY
     "title": "Families Receiving CCFAP by County",
     "subtitle": "By % of FPL",
     "filters": [
-      {"key": "pct_of_fpl_filter", "title": "% of FPL", "xf": "fpl-decimal-to-percent"}
+      {"key": "pct_of_fpl_filter", "title": "% of FPL", "xf": "fpl-decimal-to-percent"},
+      {"key": "month_filter", "title": "Month"},
+      {"key": "year_filter", "title": "Year"}
     ],
     "chartTypes": {
       "default": "bar",
@@ -1387,7 +1408,9 @@ ORDER BY
   '{
     "table": "data_act76_family_pct_of_fpl",
     "filters": {
-      "pct_of_fpl_filter": {"column": "pct_of_fpl", "xf": "fpl-decimal-to-percent", "exclude": ["total"]}
+      "pct_of_fpl_filter": {"column": "pct_of_fpl", "xf": "fpl-decimal-to-percent", "exclude": ["total"]},
+      "month_filter": {"column": "month", "sort": "number"},
+      "year_filter": {"column": "year", "sort": "number"}
     }
   }'
 );
@@ -1451,27 +1474,42 @@ INSERT INTO `queries` (`name`,`sqlText`,`columnMap`,`metadata`,`uploadType`,`fil
 VALUES (
   'act76_ccfap_family_ahsd_pct_fpl:bar',
   'WITH latest_date AS (
-  SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date
+  SELECT MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date,
+         MONTH(STR_TO_DATE(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')), ''%Y-%m-%d'')) as latest_month,
+         YEAR(STR_TO_DATE(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_family_pct_of_fpl
   WHERE geo_type = "AHS district"
 )
 SELECT
   geography as label,
   CASE
-    WHEN @pct_of_fpl_filter = "-- All --" THEN CONCAT("Total (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
-    ELSE CONCAT(pct_of_fpl, " (", DATE_FORMAT(latest_date.max_date, "%b %Y"), ")")
+    WHEN @pct_of_fpl_filter = "-- All --" THEN CONCAT("Total (", DATE_FORMAT(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''), "%b %Y"), ")")
+    ELSE CONCAT(
+      CASE
+        WHEN pct_of_fpl REGEXP ''^[0-9]+(\.[0-9]+)?$'' THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), ''%'')
+        ELSE pct_of_fpl
+      END,
+      " (", DATE_FORMAT(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''), "%b %Y"), ")"
+    )
   END as cat,
   CASE
     WHEN @pct_of_fpl_filter = "-- All --" THEN value
     ELSE value_suppressed
   END as value,
-  DATE_FORMAT(latest_date.max_date, "%M %Y") as date_label
+  DATE_FORMAT(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''), "%M %Y") as date_label
 FROM data_act76_family_pct_of_fpl
 CROSS JOIN latest_date
 WHERE
   geo_type = "AHS district"
   AND geography != "Vermont"
-  AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') = latest_date.max_date
+  AND (
+      (@month_filter = "-- All --" AND month = latest_date.latest_month)
+      OR month = @month_filter
+  )
+  AND (
+      (@year_filter = "-- All --" AND year = latest_date.latest_year)
+      OR year = @year_filter
+  )
   AND (
     (@pct_of_fpl_filter = "-- All --" AND pct_of_fpl = "total")
     OR (@pct_of_fpl_filter != "-- All --" AND pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter)
@@ -1484,7 +1522,9 @@ ORDER BY
     "title": "Families Receiving CCFAP by AHS District",
     "subtitle": "By % of FPL",
     "filters": [
-      {"key": "pct_of_fpl_filter", "title": "% of FPL", "xf": "fpl-decimal-to-percent"}
+      {"key": "pct_of_fpl_filter", "title": "% of FPL", "xf": "fpl-decimal-to-percent"},
+      {"key": "month_filter", "title": "Month"},
+      {"key": "year_filter", "title": "Year"}
     ],
     "chartTypes": {
       "default": "bar",
@@ -1495,7 +1535,9 @@ ORDER BY
   '{
     "table": "data_act76_family_pct_of_fpl",
     "filters": {
-      "pct_of_fpl_filter": {"column": "pct_of_fpl", "xf": "fpl-decimal-to-percent", "exclude": ["total"]}
+      "pct_of_fpl_filter": {"column": "pct_of_fpl", "xf": "fpl-decimal-to-percent", "exclude": ["total"]},
+      "month_filter": {"column": "month", "sort": "number"},
+      "year_filter": {"column": "year", "sort": "number"}
     }
   }'
 );
@@ -2440,7 +2482,9 @@ VALUES (
   'ccfap_families_service_need:column',
   'WITH latest_date AS (
   SELECT
-    MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date
+    MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'')) as max_date,
+    MONTH(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''))) as latest_month,
+    YEAR(MAX(STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d''))) as latest_year
   FROM data_act76_family_service_need
 )
 SELECT
@@ -2475,7 +2519,14 @@ WHERE
     OR (@geography_filter != "-- All --" AND geography COLLATE utf8mb4_unicode_ci = @geography_filter)
   )
   AND service_need != "total"  -- Exclude total to show individual categories
-  AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') = latest_date.max_date
+  AND (
+      (@month_filter = "-- All --" AND month = latest_date.latest_month)
+      OR month = @month_filter
+  )
+  AND (
+      (@year_filter = "-- All --" AND year = latest_date.latest_year)
+      OR year = @year_filter
+  )
 GROUP BY
   service_need,
   CASE
@@ -2488,7 +2539,9 @@ ORDER BY
   '{
     "yAxis": {"type": "number"},
     "filters": [
-      {"key": "geography_filter", "title": "Geography"}
+      {"key": "geography_filter", "title": "Geography"},
+      {"key": "month_filter", "title": "Month"},
+      {"key": "year_filter", "title": "Year"}
     ],
     "chartTypes": {
       "default": "column",
@@ -2499,7 +2552,9 @@ ORDER BY
   '{
     "table": "data_act76_family_service_need",
     "filters": {
-      "geography_filter": {"column": "geography"}
+      "geography_filter": {"column": "geography"},
+      "month_filter": {"column": "month", "sort": "number"},
+      "year_filter": {"column": "year", "sort": "number"}
     }
   }'
 );

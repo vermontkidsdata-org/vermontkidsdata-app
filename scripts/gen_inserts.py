@@ -404,9 +404,12 @@ def generate_insert_statements_for_total_worksheet(sheet_name, value_df, suppres
                 # Start building the INSERT statement
                 insert = f"INSERT INTO `{table_name}` (`month_year`, `month`, `year`, `geo_type`, `geography`, `total`)\nVALUES\n"
                 
+                # Apply primary suppression to total value (threshold = 10)
+                suppressed_total = -1 if (not pd.isna(value) and value <= 10) else value
+                
                 # Add values
                 value_str = f"({format_value_for_sql(month_year)}, {format_value_for_sql(month)}, {format_value_for_sql(year)}, "
-                value_str += f"{format_value_for_sql(geo_type)}, {format_value_for_sql(geography)}, {format_value_for_sql(value)})"
+                value_str += f"{format_value_for_sql(geo_type)}, {format_value_for_sql(geography)}, {format_value_for_sql(suppressed_total)})"
                 
                 # Complete the INSERT statement
                 insert += value_str
