@@ -1575,7 +1575,7 @@ SELECT
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Total Families"
   END as label,
-  SUM(value_suppressed) as value
+  value_suppressed as value
 FROM data_act76_family_service_need
 CROSS JOIN last_18_months
 WHERE
@@ -1592,13 +1592,6 @@ WHERE
        OR (@service_need_filter != "-- All --" AND service_need COLLATE utf8mb4_unicode_ci = @service_need_filter))
   AND STR_TO_DATE(CONCAT(year, ''-'', LPAD(month, 2, ''0''), ''-01''), ''%Y-%m-%d'') >=
       DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
-GROUP BY
-  year, month,
-  CASE
-    WHEN @service_need_filter != "-- All --" THEN service_need
-    WHEN @geography_filter != "-- All --" THEN geography
-    ELSE "Total Families"
-  END
 ORDER BY
   year, month',
   NULL,
@@ -1649,7 +1642,7 @@ SELECT
     WHEN @geography_filter != "-- All --" THEN geography
     ELSE "Total Families"
   END as label,
-  SUM(value_suppressed) as value
+  value_suppressed as value
 FROM data_act76_family_pct_of_fpl
 CROSS JOIN last_18_months
 WHERE
@@ -1667,17 +1660,6 @@ WHERE
   AND ((@pct_of_fpl_filter = "-- All --" AND pct_of_fpl = "total") OR (@pct_of_fpl_filter != "-- All --" AND pct_of_fpl COLLATE utf8mb4_unicode_ci = @pct_of_fpl_filter))
   AND STR_TO_DATE(CONCAT(year, "-", LPAD(month, 2, "0"), "-01"), "%Y-%m-%d") >=
       DATE_SUB(last_18_months.max_date, INTERVAL 18 MONTH)
-GROUP BY
-  year, month,
-  CASE
-    WHEN @pct_of_fpl_filter != "-- All --" THEN
-      CASE
-        WHEN pct_of_fpl REGEXP "^[0-9]+(\.[0-9]+)?$" THEN CONCAT(ROUND(CAST(pct_of_fpl AS DECIMAL(10,2)) * 100), "%")
-        ELSE pct_of_fpl
-      END
-    WHEN @geography_filter != "-- All --" THEN geography
-    ELSE "Total Families"
-  END
 ORDER BY
   year, month',
   NULL,
