@@ -2501,7 +2501,7 @@ SELECT
     ")"
   ) as cat,
   CASE
-    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    WHEN @geography_filter = "-- All --" THEN value
     ELSE SUM(value_suppressed)
   END as value
 FROM data_act76_family_service_need
@@ -2576,7 +2576,7 @@ SELECT
     ELSE "Vermont"
   END as label,
   CASE
-    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    WHEN @geography_filter = "-- All --" THEN value
     ELSE SUM(value_suppressed)
   END as value
 FROM data_act76_family_service_need
@@ -2641,7 +2641,7 @@ SELECT
     ELSE "Vermont"
   END as label,
   CASE
-    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    WHEN @geography_filter = "-- All --" THEN value
     ELSE SUM(value_suppressed)
   END as value
 FROM data_act76_family_service_need
@@ -2706,7 +2706,7 @@ SELECT
     ELSE "Vermont"
   END as label,
   CASE
-    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    WHEN @geography_filter = "-- All --" THEN value
     ELSE SUM(value_suppressed)
   END as value
 FROM data_act76_family_service_need
@@ -2770,7 +2770,7 @@ SELECT
     ELSE "Vermont"
   END as label,
   CASE
-    WHEN @geography_filter = "-- All --" THEN value_suppressed
+    WHEN @geography_filter = "-- All --" THEN value
     ELSE SUM(value_suppressed)
   END as value
 FROM data_act76_family_service_need
