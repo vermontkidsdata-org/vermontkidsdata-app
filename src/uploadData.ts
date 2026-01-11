@@ -979,8 +979,8 @@ export async function processUploadCSV(props: {
 }> {
   const { uploadType: uploadTypeStr, bodyContents, dryRun, identifier, updateUploadStatus, doTruncateTable, tags } = props;
 
-  // Truncate by default unless explicitly disabled
-  const shouldTruncate = doTruncateTable !== false && tags.truncate !== 'false';
+  // Check if truncate tag is set to 'true'
+  const shouldTruncate = doTruncateTable || tags.truncate === 'true';
 
   // This requires bodyContents to be passed
   if (typeof bodyContents !== 'string') {
@@ -1236,11 +1236,16 @@ export async function main(
     // Get the upload type. We'll need it later for multiple purposes
     const uploadType = tags.type;
     const { typeConfig } = await getTypeConfig(uploadType, identifier);
+    
+    // Determine truncate behavior: default to true unless explicitly set to 'false'
+    const doTruncateTable = tags.truncate !== 'false';
+    
     const { errors, saveTotal, statusUpdatePct } = await typeConfig.processUploadFunction({
       bodyContents,
       uploadType,
       identifier,
       dryRun: false,
+      doTruncateTable,
       updateUploadStatus: true,
       tags,
     });
