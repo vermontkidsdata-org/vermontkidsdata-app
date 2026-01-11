@@ -1,7 +1,13 @@
-Geo type,Geography,Year,Category ,Value
-State,Vermont,2023,under 9,34
-State,Vermont,2023,between 10-21,222
-State,Vermont,2023,under 21,256
-State,Vermont,2022,under 9,22
-State,Vermont,2022,between 10-21,207
-State,Vermont,2022,under 21,229
+geo_type,geography,year,category,value
+State,Vermont,2021,under 9,
+State,Vermont,2021,between 10-21,
+State,Vermont,2021,under 21,278
+State,Vermont,2022,under 9,
+State,Vermont,2022,between 10-21,
+State,Vermont,2022,under 21,254
+State,Vermont,2023,under 9,
+State,Vermont,2023,between 10-21,
+State,Vermont,2023,under 21,247
+State,Vermont,2024,under 9,
+State,Vermont,2024,between 10-21,
+State,Vermont,2024,under 21,283

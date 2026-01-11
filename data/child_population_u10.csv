@@ -1,79 +1,105 @@
-Geo type,Geography,Year,Value
-State,Vermont,2022,"59,173"
-District,Burlington,2022,"14,957"
-District,Bennington,2022,"3,441"
-District,White River Junction,2022,"4,412"
-District,Rutland,2022,"4,847"
-District,Springfield,2022,"3,034"
-District,Newport,2022,"2,844"
-District,St. Johnsbury,2022,"3,106"
-District,Barre,2022,"6,120"
-District,Brattleboro,2022,"3,098"
-District,St. Albans,2022,"6,478"
-District,Middlebury,2022,"3,114"
-District,Morrisville,2022,"3,190"
-State,Vermont,2021,"60,364"
-District,Burlington,2021,15346
-District,Bennington,2021,4844
-District,White River Junction,2021,4534
-District,Rutland,2021,5455
-District,Springfield,2021,3111
-District,Newport,2021,2845
-District,St. Johnsbury,2021,3161
-District,Barre,2021,6165
-District,Brattleboro,2021,3335
-District,St. Albans,2021,6544
-District,Middlebury,2021,3113
-District,Morrisville,2021,3247
-State,Vermont,2020,54578
-District,Burlington,2020,15493
-District,Bennington,2020,3497
-District,White River Junction,2020,4592
-District,Rutland,2020,5535
-District,Springfield,2020,3161
-District,Newport,2020,2851
-District,St. Johnsbury,2020,3222
-District,Barre,2020,6308
-District,Brattleboro,2020,3387
-District,St. Albans,2020,6641
-District,Middlebury,2020,3152
-District,Morrisville,2020,3271
-State,Vermont,2019,53821
-District,Burlington,2019,15160
-District,Bennington,2019,3378
-District,White River Junction,2019,4458
-District,Rutland,2019,5415
-District,Springfield,2019,3058
-District,Newport,2019,2857
-District,St. Johnsbury,2019,3246
-District,Barre,2019,6381
-District,Brattleboro,2019,3111
-District,St. Albans,2019,6615
-District,Middlebury,2019,3199
-District,Morrisville,2019,3263
-State,Vermont,2018,54622
-District,Burlington,2018,15429
-District,Bennington,2018,3470
-District,White River Junction,2018,4527
-District,Rutland,2018,4769
-District,Springfield,2018,3125
-District,Newport,2018,2812
-District,St. Johnsbury,2018,3311
-District,Barre,2018,6489
-District,Brattleboro,2018,3140
-District,St. Albans,2018,6609
-District,Middlebury,2018,3247
-District,Morrisville,2018,3305
-State,Vermont,2017,61538
-District,Burlington,2017,15621
-District,Bennington,2017,3537
-District,White River Junction,2017,4537
-District,Rutland,2017,5498
-District,Springfield,2017,3146
-District,Newport,2017,2829
-District,St. Johnsbury,2017,3338
+geo_type,geography,year,value
 District,Barre,2017,6595
+District,Bennington,2017,3537
 District,Brattleboro,2017,3194
-District,St. Albans,2017,6603
+District,Burlington,2017,15621
 District,Middlebury,2017,3246
 District,Morrisville,2017,3394
+District,Newport,2017,2829
+District,Rutland,2017,5498
+District,Springfield,2017,3146
+District,St. Albans,2017,6603
+District,St. Johnsbury,2017,3338
+District,White River Junction,2017,4537
+State,Vermont,2017,61538
+District,Barre,2018,6489
+District,Bennington,2018,3470
+District,Brattleboro,2018,3140
+District,Burlington,2018,15429
+District,Middlebury,2018,3247
+District,Morrisville,2018,3305
+District,Newport,2018,2812
+District,Rutland,2018,4769
+District,Springfield,2018,3125
+District,St. Albans,2018,6609
+District,St. Johnsbury,2018,3311
+District,White River Junction,2018,4527
+State,Vermont,2018,60953
+District,Barre,2019,6381
+District,Bennington,2019,3378
+District,Brattleboro,2019,3111
+District,Burlington,2019,15160
+District,Middlebury,2019,3199
+District,Morrisville,2019,3263
+District,Newport,2019,2857
+District,Rutland,2019,5415
+District,Springfield,2019,3058
+District,St. Albans,2019,6615
+District,St. Johnsbury,2019,3246
+District,White River Junction,2019,4458
+State,Vermont,2019,60141
+District,Barre,2020,6308
+District,Bennington,2020,3497
+District,Brattleboro,2020,3387
+District,Burlington,2020,15493
+District,Middlebury,2020,3152
+District,Morrisville,2020,3271
+District,Newport,2020,2851
+District,Rutland,2020,5535
+District,Springfield,2020,3161
+District,St. Albans,2020,6641
+District,St. Johnsbury,2020,3222
+District,White River Junction,2020,4592
+State,Vermont,2020,61110
+District,Barre,2021,6165
+District,Bennington,2021,3509
+District,Brattleboro,2021,3335
+District,Burlington,2021,15346
+District,Middlebury,2021,3112
+District,Morrisville,2021,3247
+District,Newport,2021,2845
+District,Rutland,2021,5455
+District,Springfield,2021,3111
+District,St. Albans,2021,6544
+District,St. Johnsbury,2021,3161
+District,White River Junction,2021,4534
+State,Vermont,2021,60364
+District,Barre,2022,6120
+District,Bennington,2022,3441
+District,Brattleboro,2022,3098
+District,Burlington,2022,14957
+District,Middlebury,2022,3114
+District,Morrisville,2022,3190
+District,Newport,2022,2844
+District,Rutland,2022,5379
+District,Springfield,2022,3034
+District,St. Albans,2022,6478
+District,St. Johnsbury,2022,3106
+District,White River Junction,2022,4412
+State,Vermont,2022,59173
+District,Barre,2023,6159
+District,Bennington,2023,3389
+District,Brattleboro,2023,3131
+District,Burlington,2023,14972
+District,Middlebury,2023,3119
+District,Morrisville,2023,3130
+District,Newport,2023,2784
+District,Rutland,2023,5299
+District,Springfield,2023,3007
+District,St. Albans,2023,6495
+District,St. Johnsbury,2023,3103
+District,White River Junction,2023,4408
+State,Vermont,2023,58996
+District,Barre,2024,5877
+District,Bennington,2024,3207
+District,Brattleboro,2024,2958
+District,Burlington,2024,14803
+District,Middlebury,2024,3036
+District,Morrisville,2024,3084
+District,Newport,2024,2792
+District,Rutland,2024,5250
+District,Springfield,2024,2933
+District,St. Albans,2024,6441
+District,St. Johnsbury,2024,2985
+District,White River Junction,2024,4330
+State,Vermont,2024,57696

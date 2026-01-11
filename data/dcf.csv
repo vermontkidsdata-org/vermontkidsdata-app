@@ -1,0 +1,63 @@
+geo_type,geography,federal_fiscal_year,category,indicator,value
+State,Vermont,2017,Caseload by Type,Conditional Custody,575
+State,Vermont,2017,Caseload by Type,Custody,1250
+State,Vermont,2017,Caseload by Type,Family Support,580
+State,Vermont,2017,Child Safety Interventions,Assessments,2852
+State,Vermont,2017,Child Safety Interventions,Investigations,2721
+State,Vermont,2017,Child Safety Interventions,Total Interventions,5573
+State,Vermont,2017,Intakes,Accepted,5573
+State,Vermont,2017,Intakes,Total,20985
+State,Vermont,2018,Caseload by Type,Conditional Custody,815
+State,Vermont,2018,Caseload by Type,Custody,1301
+State,Vermont,2018,Caseload by Type,Family Support,512
+State,Vermont,2018,Child Safety Interventions,Assessments,2513
+State,Vermont,2018,Child Safety Interventions,Investigations,2872
+State,Vermont,2018,Child Safety Interventions,Total Interventions,5385
+State,Vermont,2018,Intakes,Accepted,5385
+State,Vermont,2018,Intakes,Total,20
+State,Vermont,2019,Caseload by Type,Conditional Custody,754
+State,Vermont,2019,Caseload by Type,Custody,1239
+State,Vermont,2019,Caseload by Type,Family Support,481
+State,Vermont,2019,Child Safety Interventions,Assessments,2012
+State,Vermont,2019,Child Safety Interventions,Investigations,3034
+State,Vermont,2019,Child Safety Interventions,Total Interventions,5046
+State,Vermont,2019,Intakes,Accepted,5046
+State,Vermont,2019,Intakes,Total,20
+State,Vermont,2020,Caseload by Type,Conditional Custody,415
+State,Vermont,2020,Caseload by Type,Custody,1086
+State,Vermont,2020,Caseload by Type,Family Support,310
+State,Vermont,2020,Child Safety Interventions,Assessments,1852
+State,Vermont,2020,Child Safety Interventions,Investigations,1857
+State,Vermont,2020,Child Safety Interventions,Total Interventions,3709
+State,Vermont,2020,Intakes,Accepted,3709
+State,Vermont,2020,Intakes,Total,17
+State,Vermont,2021,Caseload by Type,Conditional Custody,502
+State,Vermont,2021,Caseload by Type,Custody,1057
+State,Vermont,2021,Caseload by Type,Family Support,352
+State,Vermont,2021,Child Safety Interventions,Assessments,2490
+State,Vermont,2021,Child Safety Interventions,Investigations,1751
+State,Vermont,2021,Child Safety Interventions,Total Interventions,4241
+State,Vermont,2021,Intakes,Accepted,4241
+State,Vermont,2021,Intakes,Total,17
+State,Vermont,2022,Caseload by Type,Conditional Custody,508
+State,Vermont,2022,Caseload by Type,Custody,1087
+State,Vermont,2022,Caseload by Type,Family Support,189
+State,Vermont,2022,Child Safety Interventions,Assessments,2206
+State,Vermont,2022,Child Safety Interventions,Investigations,2349
+State,Vermont,2022,Child Safety Interventions,Total Interventions,4555
+State,Vermont,2022,Intakes,Accepted,4555
+State,Vermont,2022,Intakes,Total,19
+State,Vermont,2023,Caseload by Type,Conditional Custody,467
+State,Vermont,2023,Caseload by Type,Custody,985
+State,Vermont,2023,Caseload by Type,Family Support,150
+State,Vermont,2024,Caseload by Type,Conditional Custody,407
+State,Vermont,2024,Caseload by Type,Custody,907
+State,Vermont,2024,Caseload by Type,Family Support,129
+State,Vermont,2024,Child Safety Interventions,Assessments,1521
+State,Vermont,2024,Child Safety Interventions,Investigations,2098
+State,Vermont,2025,Caseload by Type,Conditional Custody,273
+State,Vermont,2025,Caseload by Type,Custody,856
+State,Vermont,2025,Caseload by Type,Family Support,111
+State,Vermont,2025,Child Safety Interventions,Assessments,1670
+State,Vermont,2025,Child Safety Interventions,Investigations,2010
+State,Vermont,2025,Caseload by Type,Juvenile Justice,375

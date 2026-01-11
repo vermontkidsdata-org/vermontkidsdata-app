@@ -1,71 +1,94 @@
-Geo type,Geography,Year,Category,Value
-State,Vermont,2023,Licensed Foster Homes,834
-District,St Albans,2023,Licensed Foster Homes,96
-District,Burlington,2023,Licensed Foster Homes,129
-District,Hartford,2023,Licensed Foster Homes,41
-District,St. Johnsbury,2023,Licensed Foster Homes,76
-District,Brattleboro,2023,Licensed Foster Homes,69
-District,Barre,2023,Licensed Foster Homes,85
-District,Newport,2023,Licensed Foster Homes,60
-District,Rutland,2023,Licensed Foster Homes,92
-District,Springfield,2023,Licensed Foster Homes,35
-District,Bennington,2023,Licensed Foster Homes,56
-District,Morrisville,2023,Licensed Foster Homes,40
-District,Middlebury,2023,Licensed Foster Homes,55
-State,Vermont,2022,Licensed Foster Homes,990
-District,St Albans,2022,Licensed Foster Homes,122
-District,Burlington,2022,Licensed Foster Homes,154
-District,Hartford,2022,Licensed Foster Homes,50
-District,St. Johnsbury,2022,Licensed Foster Homes,72
-District,Brattleboro,2022,Licensed Foster Homes,97
-District,Barre,2022,Licensed Foster Homes,102
-District,Newport,2022,Licensed Foster Homes,59
-District,Rutland,2022,Licensed Foster Homes,103
-District,Springfield,2022,Licensed Foster Homes,38
-District,Bennington,2022,Licensed Foster Homes,82
-District,Morrisville,2022,Licensed Foster Homes,42
-District,Middlebury,2022,Licensed Foster Homes,69
-State,Vermont,2021,Licensed Foster Homes,1203
-District,St Albans,2021,Licensed Foster Homes,140
-District,Burlington,2021,Licensed Foster Homes,176
-District,Hartford,2021,Licensed Foster Homes,63
-District,St. Johnsbury,2021,Licensed Foster Homes,76
-District,Brattleboro,2021,Licensed Foster Homes,140
-District,Barre,2021,Licensed Foster Homes,115
-District,Newport,2021,Licensed Foster Homes,72
-District,Rutland,2021,Licensed Foster Homes,122
-District,Springfield,2021,Licensed Foster Homes,52
-District,Bennington,2021,Licensed Foster Homes,95
-District,Morrisville,2021,Licensed Foster Homes,54
-District,Middlebury,2021,Licensed Foster Homes,98
-State,Vermont,2020,Licensed Foster Homes,1429
-District,St Albans,2020,Licensed Foster Homes,163
-District,Burlington,2020,Licensed Foster Homes,197
-District,Hartford,2020,Licensed Foster Homes,74
-District,St. Johnsbury,2020,Licensed Foster Homes,101
-District,Brattleboro,2020,Licensed Foster Homes,156
-District,Barre,2020,Licensed Foster Homes,122
-District,Newport,2020,Licensed Foster Homes,75
-District,Rutland,2020,Licensed Foster Homes,124
-District,Springfield,2020,Licensed Foster Homes,63
-District,Bennington,2020,Licensed Foster Homes,105
-District,Morrisville,2020,Licensed Foster Homes,65
-District,Middlebury,2020,Licensed Foster Homes,184
-State,Vermont,2019,Licensed Foster Homes,1427
-District,St Albans,2019,Licensed Foster Homes,176
-District,Burlington,2019,Licensed Foster Homes,220
-District,Hartford,2019,Licensed Foster Homes,86
-District,St. Johnsbury,2019,Licensed Foster Homes,95
-District,Brattleboro,2019,Licensed Foster Homes,159
+geo_type,geography,year,category,value
 District,Barre,2019,Licensed Foster Homes,134
-District,Newport,2019,Licensed Foster Homes,74
-District,Rutland,2019,Licensed Foster Homes,136
-District,Springfield,2019,Licensed Foster Homes,83
+District,Barre,2020,Licensed Foster Homes,122
+District,Barre,2021,Licensed Foster Homes,115
+District,Barre,2022,Licensed Foster Homes,102
+District,Barre,2023,Licensed Foster Homes,85
+District,Barre,2024,Licensed Foster Homes,75
 District,Bennington,2019,Licensed Foster Homes,95
-District,Morrisville,2019,Licensed Foster Homes,64
+District,Bennington,2020,Licensed Foster Homes,105
+District,Bennington,2021,Licensed Foster Homes,95
+District,Bennington,2022,Licensed Foster Homes,82
+District,Bennington,2023,Licensed Foster Homes,56
+District,Bennington,2024,Licensed Foster Homes,56
+District,Brattleboro,2019,Licensed Foster Homes,159
+District,Brattleboro,2020,Licensed Foster Homes,156
+District,Brattleboro,2021,Licensed Foster Homes,140
+District,Brattleboro,2022,Licensed Foster Homes,97
+District,Brattleboro,2023,Licensed Foster Homes,59
+District,Burlington,2019,Licensed Foster Homes,220
+District,Burlington,2020,Licensed Foster Homes,197
+District,Burlington,2021,Licensed Foster Homes,176
+District,Burlington,2022,Licensed Foster Homes,154
+District,Burlington,2023,Licensed Foster Homes,134
+District,Hartford,2019,Licensed Foster Homes,86
+District,Hartford,2020,Licensed Foster Homes,74
+District,Hartford,2021,Licensed Foster Homes,63
+District,Hartford,2022,Licensed Foster Homes,50
+District,Hartford,2023,Licensed Foster Homes,41
+District,Hartford,2024,Licensed Foster Homes,41
 District,Middlebury,2019,Licensed Foster Homes,105
-State,Vermont,2023,Children in Custody ,985
-State,Vermont,2022,Children in Custody ,1087
-State,Vermont,2021,Children in Custody ,1057
-State,Vermont,2020,Children in Custody ,--
-State,Vermont,2019,Children in Custody ,1239
+District,Middlebury,2020,Licensed Foster Homes,184
+District,Middlebury,2021,Licensed Foster Homes,98
+District,Middlebury,2022,Licensed Foster Homes,69
+District,Middlebury,2023,Licensed Foster Homes,47
+District,Morrisville,2019,Licensed Foster Homes,64
+District,Morrisville,2020,Licensed Foster Homes,65
+District,Morrisville,2021,Licensed Foster Homes,54
+District,Morrisville,2022,Licensed Foster Homes,42
+District,Morrisville,2023,Licensed Foster Homes,39
+District,Newport,2019,Licensed Foster Homes,74
+District,Newport,2020,Licensed Foster Homes,75
+District,Newport,2021,Licensed Foster Homes,72
+District,Newport,2022,Licensed Foster Homes,59
+District,Newport,2023,Licensed Foster Homes,60
+District,Newport,2024,Licensed Foster Homes,59
+District,Rutland,2019,Licensed Foster Homes,136
+District,Rutland,2020,Licensed Foster Homes,124
+District,Rutland,2021,Licensed Foster Homes,122
+District,Rutland,2022,Licensed Foster Homes,103
+District,Rutland,2023,Licensed Foster Homes,92
+District,Rutland,2024,Licensed Foster Homes,83
+District,Springfield,2019,Licensed Foster Homes,83
+District,Springfield,2020,Licensed Foster Homes,63
+District,Springfield,2021,Licensed Foster Homes,52
+District,Springfield,2022,Licensed Foster Homes,38
+District,Springfield,2023,Licensed Foster Homes,35
+District,Springfield,2024,Licensed Foster Homes,41
+District,St Albans,2019,Licensed Foster Homes,176
+District,St Albans,2020,Licensed Foster Homes,163
+District,St Albans,2021,Licensed Foster Homes,140
+District,St Albans,2022,Licensed Foster Homes,122
+District,St Albans,2023,Licensed Foster Homes,96
+District,St Albans,2024,Licensed Foster Homes,86
+District,St. Johnsbury,2019,Licensed Foster Homes,95
+District,St. Johnsbury,2020,Licensed Foster Homes,101
+District,St. Johnsbury,2021,Licensed Foster Homes,76
+District,St. Johnsbury,2022,Licensed Foster Homes,72
+District,St. Johnsbury,2023,Licensed Foster Homes,76
+District,St. Johnsbury,2024,Licensed Foster Homes,75
+State,Vermont,2019,Licensed Foster Homes,1427
+State,Vermont,2019,Children in Custody,1301
+State,Vermont,2020,Licensed Foster Homes,1429
+State,Vermont,2020,Children in Custody,1239
+State,Vermont,2021,Licensed Foster Homes,1203
+State,Vermont,2021,Children in Custody,1057
+State,Vermont,2022,Licensed Foster Homes,990
+State,Vermont,2022,Children in Custody,1087
+State,Vermont,2023,Licensed Foster Homes,834
+State,Vermont,2023,Children in Custody,985
+State,Vermont,2024,Licensed Foster Homes,795
+State,Vermont,2024,Children in Custody,907
+District,St. Albans,2025,Licensed Foster Homes,88
+District,Burlington,2025,Licensed Foster Homes,136
+District,Hartford,2025,Licensed Foster Homes,39
+District,St. Johnsbury,2025,Licensed Foster Homes,65
+District,Brattleboro,2025,Licensed Foster Homes,54
+District,Barre,2025,Licensed Foster Homes,69
+District,Newport,2025,Licensed Foster Homes,53
+District,Rutland,2025,Licensed Foster Homes,91
+District,Springfield,2025,Licensed Foster Homes,40
+District,Bennington,2025,Licensed Foster Homes,64
+District,Morrisville,2025,Licensed Foster Homes,41
+District,Middlebury,2025,Licensed Foster Homes,43
+State,Vermont,2025,Licensed Foster Homes,783

@@ -1,0 +1,2973 @@
+geo_type,geography,year,category,percent
+State,Vermont,2016,,0.732
+State,Vermont,2016,All Students Surveyed,0.818
+State,Vermont,2016,Boys,0.774
+State,Vermont,2016,Girls,0.866
+State,Vermont,2016,Free and Reduced Lunch Eligible,0.732
+State,Vermont,2016,Not Free and Reduced Lunch Eligible,0.881
+State,Vermont,2016,Attended Publicly Funded PreK,0.854
+State,Vermont,2016,Did Not Attend Publicly Funded PreK,0.775
+State,Vermont,2017,,0.746
+State,Vermont,2017,All Students Surveyed,0.838
+State,Vermont,2017,Boys,0.794
+State,Vermont,2017,Girls,0.886
+State,Vermont,2017,Free and Reduced Lunch Eligible,0.746
+State,Vermont,2017,Not Free and Reduced Lunch Eligible,0.905
+State,Vermont,2017,Attended Publicly Funded PreK,0.845
+State,Vermont,2017,Did Not Attend Publicly Funded PreK,0.822
+State,Vermont,2018,,0.743
+State,Vermont,2018,1-Not yet ready,0.06
+State,Vermont,2018,2-Approaching ready,0.1
+State,Vermont,2018,3-Ready and practicing,0.24
+State,Vermont,2018,4-Ready and performing independently,0.6
+State,Vermont,2018,Total of all students statewide identified as ready,0.84
+State,Vermont,2018,All Students Surveyed,0.839
+State,Vermont,2018,Boys,0.803
+State,Vermont,2018,Girls,0.878
+State,Vermont,2018,Free and Reduced Lunch Eligible,0.743
+State,Vermont,2018,Not Free and Reduced Lunch Eligible,0.906
+State,Vermont,2018,Attended Publicly Funded PreK,0.841
+State,Vermont,2018,Did Not Attend Publicly Funded PreK,0.835
+State,Vermont,2019,,0.739
+State,Vermont,2019,1-Not yet ready,0.06
+State,Vermont,2019,2-Approaching ready,0.11
+State,Vermont,2019,3-Ready and practicing,0.24
+State,Vermont,2019,4-Ready and performing independently,0.59
+State,Vermont,2019,Total of all students statewide identified as ready,0.83
+State,Vermont,2019,All Students Surveyed,0.829
+State,Vermont,2019,Boys,0.782
+State,Vermont,2019,Girls,0.882
+State,Vermont,2019,Free and Reduced Lunch Eligible,0.739
+State,Vermont,2019,Not Free and Reduced Lunch Eligible,0.89
+State,Vermont,2019,Attended Publicly Funded PreK,0.829
+State,Vermont,2019,Did Not Attend Publicly Funded PreK,0.827
+SU/District,Addison Central SD,2019,,0.867
+SU/District,Addison Central SD,2019,All Students Surveyed,0.95
+SU/District,Addison Central SD,2019,Boys,0.926
+SU/District,Addison Central SD,2019,Girls,0.979
+SU/District,Addison Central SD,2019,Free and Reduced Lunch Eligible,0.867
+SU/District,Addison Central SD,2019,Not Free and Reduced Lunch Eligible,0.986
+SU/District,Addison Central SD,2019,Attended Publicly Funded PreK,0.942
+SU/District,Addison Central SD,2019,Did Not Attend Publicly Funded PreK,1
+SU/District,Addison Northeast SU,2019,,0.922
+SU/District,Addison Northeast SU,2019,All Students Surveyed,0.923
+SU/District,Addison Northeast SU,2019,Boys,0.878
+SU/District,Addison Northeast SU,2019,Girls,100
+SU/District,Addison Northeast SU,2019,Free and Reduced Lunch Eligible,0.922
+SU/District,Addison Northeast SU,2019,Not Free and Reduced Lunch Eligible,1
+SU/District,Addison Northeast SU,2019,Attended Publicly Funded PreK,0.9
+SU/District,Addison Northeast SU,2019,Did Not Attend Publicly Funded PreK,1
+SU/District,Addison Northwest SD,2019,,0.722
+SU/District,Addison Northwest SD,2019,All Students Surveyed,0.789
+SU/District,Addison Northwest SD,2019,Boys,0.756
+SU/District,Addison Northwest SD,2019,Girls,0.833
+SU/District,Addison Northwest SD,2019,Free and Reduced Lunch Eligible,0.722
+SU/District,Addison Northwest SD,2019,Not Free and Reduced Lunch Eligible,0.811
+SU/District,Addison Northwest SD,2019,Attended Publicly Funded PreK,0.735
+SU/District,Addison Northwest SD,2019,Did Not Attend Publicly Funded PreK,0.909
+SU/District,Addison Rutland SU,2019,,0.795
+SU/District,Addison Rutland SU,2019,All Students Surveyed,0.906
+SU/District,Addison Rutland SU,2019,Boys,0.884
+SU/District,Addison Rutland SU,2019,Girls,0.929
+SU/District,Addison Rutland SU,2019,Free and Reduced Lunch Eligible,0.795
+SU/District,Addison Rutland SU,2019,Not Free and Reduced Lunch Eligible,1
+SU/District,Addison Rutland SU,2019,Attended Publicly Funded PreK,0.914
+SU/District,Addison Rutland SU,2019,Did Not Attend Publicly Funded PreK,0.867
+SU/District,Barre SU,2019,,0.569
+SU/District,Barre SU,2019,All Students Surveyed,0.649
+SU/District,Barre SU,2019,Boys,0.608
+SU/District,Barre SU,2019,Girls,0.694
+SU/District,Barre SU,2019,Free and Reduced Lunch Eligible,0.569
+SU/District,Barre SU,2019,Not Free and Reduced Lunch Eligible,0.722
+SU/District,Barre SU,2019,Attended Publicly Funded PreK,0.646
+SU/District,Barre SU,2019,Did Not Attend Publicly Funded PreK,0.667
+SU/District,Battenkill Valley SU,2019,,0.867
+SU/District,Battenkill Valley SU,2019,All Students Surveyed,0.885
+SU/District,Battenkill Valley SU,2019,Boys,0.8
+SU/District,Battenkill Valley SU,2019,Girls,1
+SU/District,Battenkill Valley SU,2019,Free and Reduced Lunch Eligible,0.867
+SU/District,Battenkill Valley SU,2019,Not Free and Reduced Lunch Eligible,0.909
+SU/District,Battenkill Valley SU,2019,Attended Publicly Funded PreK,1
+SU/District,Battenkill Valley SU,2019,Did Not Attend Publicly Funded PreK,0.5
+SU/District,Bennington Rutland SU,2019,,0.731
+SU/District,Bennington Rutland SU,2019,All Students Surveyed,0.879
+SU/District,Bennington Rutland SU,2019,Boys,0.843
+SU/District,Bennington Rutland SU,2019,Girls,0.935
+SU/District,Bennington Rutland SU,2019,Free and Reduced Lunch Eligible,0.731
+SU/District,Bennington Rutland SU,2019,Not Free and Reduced Lunch Eligible,0.922
+SU/District,Bennington Rutland SU,2019,Attended Publicly Funded PreK,0.907
+SU/District,Bennington Rutland SU,2019,Did Not Attend Publicly Funded PreK,0.737
+SU/District,Burlington SD,2019,,0.59
+SU/District,Burlington SD,2019,All Students Surveyed,0.699
+SU/District,Burlington SD,2019,Boys,0.637
+SU/District,Burlington SD,2019,Girls,0.768
+SU/District,Burlington SD,2019,Free and Reduced Lunch Eligible,0.59
+SU/District,Burlington SD,2019,Not Free and Reduced Lunch Eligible,0.843
+SU/District,Burlington SD,2019,Attended Publicly Funded PreK,0.713
+SU/District,Burlington SD,2019,Did Not Attend Publicly Funded PreK,0.634
+SU/District,Caledonia Central SU,2019,,0.85
+SU/District,Caledonia Central SU,2019,All Students Surveyed,0.894
+SU/District,Caledonia Central SU,2019,Boys,0.821
+SU/District,Caledonia Central SU,2019,Girls,0.947
+SU/District,Caledonia Central SU,2019,Free and Reduced Lunch Eligible,0.85
+SU/District,Caledonia Central SU,2019,Not Free and Reduced Lunch Eligible,0.913
+SU/District,Caledonia Central SU,2019,Attended Publicly Funded PreK,0.9
+SU/District,Caledonia Central SU,2019,Did Not Attend Publicly Funded PreK,0.833
+SU/District,Central Vermont SU,2019,,0.517
+SU/District,Central Vermont SU,2019,All Students Surveyed,0.594
+SU/District,Central Vermont SU,2019,Boys,0.571
+SU/District,Central Vermont SU,2019,Girls,0.621
+SU/District,Central Vermont SU,2019,Free and Reduced Lunch Eligible,0.517
+SU/District,Central Vermont SU,2019,Not Free and Reduced Lunch Eligible,0.657
+SU/District,Central Vermont SU,2019,Attended Publicly Funded PreK,0.61
+SU/District,Central Vermont SU,2019,Did Not Attend Publicly Funded PreK,0.4
+SU/District,Champlain Valley SD,2019,,0.75
+SU/District,Champlain Valley SD,2019,All Students Surveyed,0.938
+SU/District,Champlain Valley SD,2019,Boys,0.932
+SU/District,Champlain Valley SD,2019,Girls,0.944
+SU/District,Champlain Valley SD,2019,Free and Reduced Lunch Eligible,0.75
+SU/District,Champlain Valley SD,2019,Not Free and Reduced Lunch Eligible,0.962
+SU/District,Champlain Valley SD,2019,Attended Publicly Funded PreK,0.951
+SU/District,Champlain Valley SD,2019,Did Not Attend Publicly Funded PreK,0.861
+SU/District,Colchester SD,2019,,0.766
+SU/District,Colchester SD,2019,All Students Surveyed,0.843
+SU/District,Colchester SD,2019,Boys,0.776
+SU/District,Colchester SD,2019,Girls,0.895
+SU/District,Colchester SD,2019,Free and Reduced Lunch Eligible,0.766
+SU/District,Colchester SD,2019,Not Free and Reduced Lunch Eligible,0.877
+SU/District,Colchester SD,2019,Attended Publicly Funded PreK,0.864
+SU/District,Colchester SD,2019,Did Not Attend Publicly Funded PreK,0.771
+SU/District,Essex North SU,2019,,0.25
+SU/District,Essex North SU,2019,All Students Surveyed,0.667
+SU/District,Essex North SU,2019,Boys,0.5
+SU/District,Essex North SU,2019,Girls,1
+SU/District,Essex North SU,2019,Free and Reduced Lunch Eligible,0.25
+SU/District,Essex North SU,2019,Not Free and Reduced Lunch Eligible,1
+SU/District,Essex North SU,2019,Attended Publicly Funded PreK,0.625
+SU/District,Essex North SU,2019,Did Not Attend Publicly Funded PreK,1
+SU/District,Essex Westford SD,2019,,0.667
+SU/District,Essex Westford SD,2019,All Students Surveyed,0.816
+SU/District,Essex Westford SD,2019,Boys,0.758
+SU/District,Essex Westford SD,2019,Girls,0.881
+SU/District,Essex Westford SD,2019,Free and Reduced Lunch Eligible,0.667
+SU/District,Essex Westford SD,2019,Not Free and Reduced Lunch Eligible,0.861
+SU/District,Essex Westford SD,2019,Attended Publicly Funded PreK,0.827
+SU/District,Essex Westford SD,2019,Did Not Attend Publicly Funded PreK,0.759
+SU/District,Franklin Northeast SU,2019,,0.767
+SU/District,Franklin Northeast SU,2019,All Students Surveyed,0.841
+SU/District,Franklin Northeast SU,2019,Boys,0.754
+SU/District,Franklin Northeast SU,2019,Girls,0.929
+SU/District,Franklin Northeast SU,2019,Free and Reduced Lunch Eligible,0.767
+SU/District,Franklin Northeast SU,2019,Not Free and Reduced Lunch Eligible,0.925
+SU/District,Franklin Northeast SU,2019,Attended Publicly Funded PreK,0.838
+SU/District,Franklin Northeast SU,2019,Did Not Attend Publicly Funded PreK,0.857
+SU/District,Franklin West SU,2019,,0.571
+SU/District,Franklin West SU,2019,All Students Surveyed,0.87
+SU/District,Franklin West SU,2019,Boys,0.825
+SU/District,Franklin West SU,2019,Girls,0.919
+SU/District,Franklin West SU,2019,Free and Reduced Lunch Eligible,0.571
+SU/District,Franklin West SU,2019,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Franklin West SU,2019,Attended Publicly Funded PreK,0.864
+SU/District,Franklin West SU,2019,Did Not Attend Publicly Funded PreK,0.909
+SU/District,Franklink Northwest,2019,,0.766
+SU/District,Franklink Northwest,2019,All Students Surveyed,0.878
+SU/District,Franklink Northwest,2019,Boys,0.864
+SU/District,Franklink Northwest,2019,Girls,0.891
+SU/District,Franklink Northwest,2019,Free and Reduced Lunch Eligible,0.766
+SU/District,Franklink Northwest,2019,Not Free and Reduced Lunch Eligible,0.947
+SU/District,Franklink Northwest,2019,Attended Publicly Funded PreK,0.879
+SU/District,Franklink Northwest,2019,Did Not Attend Publicly Funded PreK,0.875
+SU/District,Grand Isle SU,2019,,0
+SU/District,Grand Isle SU,2019,All Students Surveyed,0.947
+SU/District,Grand Isle SU,2019,Boys,0.929
+SU/District,Grand Isle SU,2019,Girls,1
+SU/District,Grand Isle SU,2019,Free and Reduced Lunch Eligible,0
+SU/District,Grand Isle SU,2019,Not Free and Reduced Lunch Eligible,1
+SU/District,Grand Isle SU,2019,Attended Publicly Funded PreK,1
+SU/District,Grand Isle SU,2019,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Greater Rutland County SU,2019,,0.711
+SU/District,Greater Rutland County SU,2019,All Students Surveyed,0.825
+SU/District,Greater Rutland County SU,2019,Boys,0.797
+SU/District,Greater Rutland County SU,2019,Girls,0.855
+SU/District,Greater Rutland County SU,2019,Free and Reduced Lunch Eligible,0.711
+SU/District,Greater Rutland County SU,2019,Not Free and Reduced Lunch Eligible,0.899
+SU/District,Greater Rutland County SU,2019,Attended Publicly Funded PreK,0.802
+SU/District,Greater Rutland County SU,2019,Did Not Attend Publicly Funded PreK,0.913
+SU/District,Hartford SD,2019,,0.37
+SU/District,Hartford SD,2019,All Students Surveyed,0.609
+SU/District,Hartford SD,2019,Boys,0.597
+SU/District,Hartford SD,2019,Girls,0.629
+SU/District,Hartford SD,2019,Free and Reduced Lunch Eligible,0.37
+SU/District,Hartford SD,2019,Not Free and Reduced Lunch Eligible,0.708
+SU/District,Hartford SD,2019,Attended Publicly Funded PreK,0.594
+SU/District,Hartford SD,2019,Did Not Attend Publicly Funded PreK,0.652
+SU/District,Harwood Unified SD,2019,,0.923
+SU/District,Harwood Unified SD,2019,All Students Surveyed,0.953
+SU/District,Harwood Unified SD,2019,Boys,0.918
+SU/District,Harwood Unified SD,2019,Girls,0.985
+SU/District,Harwood Unified SD,2019,Free and Reduced Lunch Eligible,0.923
+SU/District,Harwood Unified SD,2019,Not Free and Reduced Lunch Eligible,0.961
+SU/District,Harwood Unified SD,2019,Attended Publicly Funded PreK,0.964
+SU/District,Harwood Unified SD,2019,Did Not Attend Publicly Funded PreK,0.883
+SU/District,Kingdom East SD,2019,,0.825
+SU/District,Kingdom East SD,2019,All Students Surveyed,0.874
+SU/District,Kingdom East SD,2019,Boys,0.773
+SU/District,Kingdom East SD,2019,Girls,0.949
+SU/District,Kingdom East SD,2019,Free and Reduced Lunch Eligible,0.825
+SU/District,Kingdom East SD,2019,Not Free and Reduced Lunch Eligible,0.935
+SU/District,Kingdom East SD,2019,Attended Publicly Funded PreK,0.885
+SU/District,Kingdom East SD,2019,Did Not Attend Publicly Funded PreK,0.813
+SU/District,Lamoille North SU,2019,,0.833
+SU/District,Lamoille North SU,2019,All Students Surveyed,0.842
+SU/District,Lamoille North SU,2019,Boys,0.807
+SU/District,Lamoille North SU,2019,Girls,0.873
+SU/District,Lamoille North SU,2019,Free and Reduced Lunch Eligible,0.833
+SU/District,Lamoille North SU,2019,Not Free and Reduced Lunch Eligible,0.843
+SU/District,Lamoille North SU,2019,Attended Publicly Funded PreK,0.825
+SU/District,Lamoille North SU,2019,Did Not Attend Publicly Funded PreK,0.931
+SU/District,Lamoille South SU,2019,,0.838
+SU/District,Lamoille South SU,2019,All Students Surveyed,0.907
+SU/District,Lamoille South SU,2019,Boys,0.867
+SU/District,Lamoille South SU,2019,Girls,0.948
+SU/District,Lamoille South SU,2019,Free and Reduced Lunch Eligible,0.838
+SU/District,Lamoille South SU,2019,Not Free and Reduced Lunch Eligible,0.938
+SU/District,Lamoille South SU,2019,Attended Publicly Funded PreK,0.921
+SU/District,Lamoille South SU,2019,Did Not Attend Publicly Funded PreK,0.824
+SU/District,Maple Run SD,2019,,0.628
+SU/District,Maple Run SD,2019,All Students Surveyed,0.79
+SU/District,Maple Run SD,2019,Boys,0.747
+SU/District,Maple Run SD,2019,Girls,0.83
+SU/District,Maple Run SD,2019,Free and Reduced Lunch Eligible,0.628
+SU/District,Maple Run SD,2019,Not Free and Reduced Lunch Eligible,0.897
+SU/District,Maple Run SD,2019,Attended Publicly Funded PreK,0.78
+SU/District,Maple Run SD,2019,Did Not Attend Publicly Funded PreK,0.833
+SU/District,Mill River Unified SD,2019,,0.63
+SU/District,Mill River Unified SD,2019,All Students Surveyed,0.741
+SU/District,Mill River Unified SD,2019,Boys,0.667
+SU/District,Mill River Unified SD,2019,Girls,0.815
+SU/District,Mill River Unified SD,2019,Free and Reduced Lunch Eligible,0.63
+SU/District,Mill River Unified SD,2019,Not Free and Reduced Lunch Eligible,0.852
+SU/District,Mill River Unified SD,2019,Attended Publicly Funded PreK,0.718
+SU/District,Mill River Unified SD,2019,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Milton SD,2019,,0.786
+SU/District,Milton SD,2019,All Students Surveyed,0.89
+SU/District,Milton SD,2019,Boys,0.836
+SU/District,Milton SD,2019,Girls,0.958
+SU/District,Milton SD,2019,Free and Reduced Lunch Eligible,0.786
+SU/District,Milton SD,2019,Not Free and Reduced Lunch Eligible,0.955
+SU/District,Milton SD,2019,Attended Publicly Funded PreK,0.879
+SU/District,Milton SD,2019,Did Not Attend Publicly Funded PreK,0.944
+SU/District,Missisquoi Valley SD,2019,,0
+SU/District,Missisquoi Valley SD,2019,All Students Surveyed,0
+SU/District,Missisquoi Valley SD,2019,Boys,0
+SU/District,Missisquoi Valley SD,2019,Girls,0
+SU/District,Missisquoi Valley SD,2019,Free and Reduced Lunch Eligible,0
+SU/District,Missisquoi Valley SD,2019,Not Free and Reduced Lunch Eligible,0
+SU/District,Missisquoi Valley SD,2019,Attended Publicly Funded PreK,0
+SU/District,Missisquoi Valley SD,2019,Did Not Attend Publicly Funded PreK,0
+SU/District,Montpelier Roxbury SD,2019,,0
+SU/District,Montpelier Roxbury SD,2019,All Students Surveyed,0
+SU/District,Montpelier Roxbury SD,2019,Boys,0
+SU/District,Montpelier Roxbury SD,2019,Girls,0
+SU/District,Montpelier Roxbury SD,2019,Free and Reduced Lunch Eligible,0
+SU/District,Montpelier Roxbury SD,2019,Not Free and Reduced Lunch Eligible,0
+SU/District,Montpelier Roxbury SD,2019,Attended Publicly Funded PreK,0
+SU/District,Montpelier Roxbury SD,2019,Did Not Attend Publicly Funded PreK,0
+SU/District,Mt Abraham Unified SD,2019,,0
+SU/District,Mt Abraham Unified SD,2019,All Students Surveyed,0
+SU/District,Mt Abraham Unified SD,2019,Boys,0
+SU/District,Mt Abraham Unified SD,2019,Girls,0
+SU/District,Mt Abraham Unified SD,2019,Free and Reduced Lunch Eligible,0
+SU/District,Mt Abraham Unified SD,2019,Not Free and Reduced Lunch Eligible,0
+SU/District,Mt Abraham Unified SD,2019,Attended Publicly Funded PreK,0
+SU/District,Mt Abraham Unified SD,2019,Did Not Attend Publicly Funded PreK,0
+SU/District,Mt Mainsfield Unified SD,2019,,0
+SU/District,Mt Mainsfield Unified SD,2019,All Students Surveyed,0
+SU/District,Mt Mainsfield Unified SD,2019,Boys,0
+SU/District,Mt Mainsfield Unified SD,2019,Girls,0
+SU/District,Mt Mainsfield Unified SD,2019,Free and Reduced Lunch Eligible,0
+SU/District,Mt Mainsfield Unified SD,2019,Not Free and Reduced Lunch Eligible,0
+SU/District,Mt Mainsfield Unified SD,2019,Attended Publicly Funded PreK,0
+SU/District,Mt Mainsfield Unified SD,2019,Did Not Attend Publicly Funded PreK,0
+SU/District,North Country SU,2019,,0.798
+SU/District,North Country SU,2019,All Students Surveyed,0.844
+SU/District,North Country SU,2019,Boys,0.802
+SU/District,North Country SU,2019,Girls,0.9
+SU/District,North Country SU,2019,Free and Reduced Lunch Eligible,0.798
+SU/District,North Country SU,2019,Not Free and Reduced Lunch Eligible,0.907
+SU/District,North Country SU,2019,Attended Publicly Funded PreK,0.831
+SU/District,North Country SU,2019,Did Not Attend Publicly Funded PreK,0.884
+SU/District,Orange East SU,2019,,0.759
+SU/District,Orange East SU,2019,All Students Surveyed,0.836
+SU/District,Orange East SU,2019,Boys,0.839
+SU/District,Orange East SU,2019,Girls,0.833
+SU/District,Orange East SU,2019,Free and Reduced Lunch Eligible,0.759
+SU/District,Orange East SU,2019,Not Free and Reduced Lunch Eligible,0.923
+SU/District,Orange East SU,2019,Attended Publicly Funded PreK,0.821
+SU/District,Orange East SU,2019,Did Not Attend Publicly Funded PreK,0.875
+SU/District,Orange Southwest SD,2019,,0.6
+SU/District,Orange Southwest SD,2019,All Students Surveyed,0.786
+SU/District,Orange Southwest SD,2019,Boys,0.682
+SU/District,Orange Southwest SD,2019,Girls,0.9
+SU/District,Orange Southwest SD,2019,Free and Reduced Lunch Eligible,0.6
+SU/District,Orange Southwest SD,2019,Not Free and Reduced Lunch Eligible,0.955
+SU/District,Orange Southwest SD,2019,Attended Publicly Funded PreK,0.7
+SU/District,Orange Southwest SD,2019,Did Not Attend Publicly Funded PreK,0.864
+SU/District,Orleans Central SU,2019,,0.684
+SU/District,Orleans Central SU,2019,All Students Surveyed,0.661
+SU/District,Orleans Central SU,2019,Boys,0.539
+SU/District,Orleans Central SU,2019,Girls,0.767
+SU/District,Orleans Central SU,2019,Free and Reduced Lunch Eligible,0.684
+SU/District,Orleans Central SU,2019,Not Free and Reduced Lunch Eligible,0.611
+SU/District,Orleans Central SU,2019,Attended Publicly Funded PreK,0.674
+SU/District,Orleans Central SU,2019,Did Not Attend Publicly Funded PreK,0.6
+SU/District,Orleans Southwest SU,2019,,0.778
+SU/District,Orleans Southwest SU,2019,All Students Surveyed,0.831
+SU/District,Orleans Southwest SU,2019,Boys,0.724
+SU/District,Orleans Southwest SU,2019,Girls,0.933
+SU/District,Orleans Southwest SU,2019,Free and Reduced Lunch Eligible,0.778
+SU/District,Orleans Southwest SU,2019,Not Free and Reduced Lunch Eligible,0.913
+SU/District,Orleans Southwest SU,2019,Attended Publicly Funded PreK,0.844
+SU/District,Orleans Southwest SU,2019,Did Not Attend Publicly Funded PreK,0.786
+SU/District,Rivendell Interstate SD,2019,,0.75
+SU/District,Rivendell Interstate SD,2019,All Students Surveyed,0.815
+SU/District,Rivendell Interstate SD,2019,Boys,0.733
+SU/District,Rivendell Interstate SD,2019,Girls,0.917
+SU/District,Rivendell Interstate SD,2019,Free and Reduced Lunch Eligible,0.75
+SU/District,Rivendell Interstate SD,2019,Not Free and Reduced Lunch Eligible,0.909
+SU/District,Rivendell Interstate SD,2019,Attended Publicly Funded PreK,0.87
+SU/District,Rivendell Interstate SD,2019,Did Not Attend Publicly Funded PreK,0.5
+SU/District,Rutland City SD,2019,,0.578
+SU/District,Rutland City SD,2019,All Students Surveyed,0.68
+SU/District,Rutland City SD,2019,Boys,0.571
+SU/District,Rutland City SD,2019,Girls,0.797
+SU/District,Rutland City SD,2019,Free and Reduced Lunch Eligible,0.578
+SU/District,Rutland City SD,2019,Not Free and Reduced Lunch Eligible,0.74
+SU/District,Rutland City SD,2019,Attended Publicly Funded PreK,0.523
+SU/District,Rutland City SD,2019,Did Not Attend Publicly Funded PreK,0.86
+SU/District,Rutland Northeast SD,2019,,0.765
+SU/District,Rutland Northeast SD,2019,All Students Surveyed,0.839
+SU/District,Rutland Northeast SD,2019,Boys,0.759
+SU/District,Rutland Northeast SD,2019,Girls,0.949
+SU/District,Rutland Northeast SD,2019,Free and Reduced Lunch Eligible,0.765
+SU/District,Rutland Northeast SD,2019,Not Free and Reduced Lunch Eligible,0.881
+SU/District,Rutland Northeast SD,2019,Attended Publicly Funded PreK,0.829
+SU/District,Rutland Northeast SD,2019,Did Not Attend Publicly Funded PreK,0.87
+SU/District,Slate Valley SD,2019,,0
+SU/District,Slate Valley SD,2019,All Students Surveyed,0
+SU/District,Slate Valley SD,2019,Boys,0
+SU/District,Slate Valley SD,2019,Girls,0
+SU/District,Slate Valley SD,2019,Free and Reduced Lunch Eligible,0
+SU/District,Slate Valley SD,2019,Not Free and Reduced Lunch Eligible,0
+SU/District,Slate Valley SD,2019,Attended Publicly Funded PreK,0
+SU/District,Slate Valley SD,2019,Did Not Attend Publicly Funded PreK,0
+SU/District,South Burlington SD,2019,,0.792
+SU/District,South Burlington SD,2019,All Students Surveyed,0.934
+SU/District,South Burlington SD,2019,Boys,0.918
+SU/District,South Burlington SD,2019,Girls,0.947
+SU/District,South Burlington SD,2019,Free and Reduced Lunch Eligible,0.792
+SU/District,South Burlington SD,2019,Not Free and Reduced Lunch Eligible,0.976
+SU/District,South Burlington SD,2019,Attended Publicly Funded PreK,0.93
+SU/District,South Burlington SD,2019,Did Not Attend Publicly Funded PreK,0.95
+SU/District,Southwest Vermont SU,2019,,0.74
+SU/District,Southwest Vermont SU,2019,All Students Surveyed,0.807
+SU/District,Southwest Vermont SU,2019,Boys,0.771
+SU/District,Southwest Vermont SU,2019,Girls,0.849
+SU/District,Southwest Vermont SU,2019,Free and Reduced Lunch Eligible,0.74
+SU/District,Southwest Vermont SU,2019,Not Free and Reduced Lunch Eligible,0.946
+SU/District,Southwest Vermont SU,2019,Attended Publicly Funded PreK,0.837
+SU/District,Southwest Vermont SU,2019,Did Not Attend Publicly Funded PreK,0.714
+SU/District,Springfield SD,2019,,0.792
+SU/District,Springfield SD,2019,All Students Surveyed,0.848
+SU/District,Springfield SD,2019,Boys,0.796
+SU/District,Springfield SD,2019,Girls,0.914
+SU/District,Springfield SD,2019,Free and Reduced Lunch Eligible,0.792
+SU/District,Springfield SD,2019,Not Free and Reduced Lunch Eligible,0.936
+SU/District,Springfield SD,2019,Attended Publicly Funded PreK,0.855
+SU/District,Springfield SD,2019,Did Not Attend Publicly Funded PreK,0.833
+SU/District,St Johnsbury SD,2019,,0.891
+SU/District,St Johnsbury SD,2019,All Students Surveyed,0.852
+SU/District,St Johnsbury SD,2019,Boys,0.808
+SU/District,St Johnsbury SD,2019,Girls,0.893
+SU/District,St Johnsbury SD,2019,Free and Reduced Lunch Eligible,0.891
+SU/District,St Johnsbury SD,2019,Not Free and Reduced Lunch Eligible,0.625
+SU/District,St Johnsbury SD,2019,Attended Publicly Funded PreK,0.826
+SU/District,St Johnsbury SD,2019,Did Not Attend Publicly Funded PreK,1
+SU/District,Two Rivers SU,2019,,0.857
+SU/District,Two Rivers SU,2019,All Students Surveyed,0.91
+SU/District,Two Rivers SU,2019,Boys,0.886
+SU/District,Two Rivers SU,2019,Girls,0.938
+SU/District,Two Rivers SU,2019,Free and Reduced Lunch Eligible,0.857
+SU/District,Two Rivers SU,2019,Not Free and Reduced Lunch Eligible,0.949
+SU/District,Two Rivers SU,2019,Attended Publicly Funded PreK,0.914
+SU/District,Two Rivers SU,2019,Did Not Attend Publicly Funded PreK,0.889
+SU/District,Washington Central SU,2019,,0.971
+SU/District,Washington Central SU,2019,All Students Surveyed,0.96
+SU/District,Washington Central SU,2019,Boys,0.956
+SU/District,Washington Central SU,2019,Girls,0.966
+SU/District,Washington Central SU,2019,Free and Reduced Lunch Eligible,0.971
+SU/District,Washington Central SU,2019,Not Free and Reduced Lunch Eligible,0.8
+SU/District,Washington Central SU,2019,Attended Publicly Funded PreK,0.968
+SU/District,Washington Central SU,2019,Did Not Attend Publicly Funded PreK,0.917
+SU/District,Washington Northeast SU,2019,,0.667
+SU/District,Washington Northeast SU,2019,All Students Surveyed,0.807
+SU/District,Washington Northeast SU,2019,Boys,0.667
+SU/District,Washington Northeast SU,2019,Girls,1
+SU/District,Washington Northeast SU,2019,Free and Reduced Lunch Eligible,0.667
+SU/District,Washington Northeast SU,2019,Not Free and Reduced Lunch Eligible,1
+SU/District,Washington Northeast SU,2019,Attended Publicly Funded PreK,0.786
+SU/District,Washington Northeast SU,2019,Did Not Attend Publicly Funded PreK,1
+SU/District,White River Valley SU,2019,,0.852
+SU/District,White River Valley SU,2019,All Students Surveyed,0.802
+SU/District,White River Valley SU,2019,Boys,0.744
+SU/District,White River Valley SU,2019,Girls,0.861
+SU/District,White River Valley SU,2019,Free and Reduced Lunch Eligible,0.852
+SU/District,White River Valley SU,2019,Not Free and Reduced Lunch Eligible,0.78
+SU/District,White River Valley SU,2019,Attended Publicly Funded PreK,0.788
+SU/District,White River Valley SU,2019,Did Not Attend Publicly Funded PreK,0.85
+SU/District,Windham Central SU,2019,,0.704
+SU/District,Windham Central SU,2019,All Students Surveyed,0.807
+SU/District,Windham Central SU,2019,Boys,0.714
+SU/District,Windham Central SU,2019,Girls,0.882
+SU/District,Windham Central SU,2019,Free and Reduced Lunch Eligible,0.704
+SU/District,Windham Central SU,2019,Not Free and Reduced Lunch Eligible,0.886
+SU/District,Windham Central SU,2019,Attended Publicly Funded PreK,0.804
+SU/District,Windham Central SU,2019,Did Not Attend Publicly Funded PreK,0.818
+SU/District,Windham Northeast SU,2019,,0.756
+SU/District,Windham Northeast SU,2019,All Students Surveyed,0.806
+SU/District,Windham Northeast SU,2019,Boys,0.75
+SU/District,Windham Northeast SU,2019,Girls,0.857
+SU/District,Windham Northeast SU,2019,Free and Reduced Lunch Eligible,0.756
+SU/District,Windham Northeast SU,2019,Not Free and Reduced Lunch Eligible,0.909
+SU/District,Windham Northeast SU,2019,Attended Publicly Funded PreK,0.765
+SU/District,Windham Northeast SU,2019,Did Not Attend Publicly Funded PreK,0.938
+SU/District,Windham Southeast SU,2019,,0.788
+SU/District,Windham Southeast SU,2019,All Students Surveyed,0.847
+SU/District,Windham Southeast SU,2019,Boys,0.811
+SU/District,Windham Southeast SU,2019,Girls,0.888
+SU/District,Windham Southeast SU,2019,Free and Reduced Lunch Eligible,0.788
+SU/District,Windham Southeast SU,2019,Not Free and Reduced Lunch Eligible,0.885
+SU/District,Windham Southeast SU,2019,Attended Publicly Funded PreK,0.832
+SU/District,Windham Southeast SU,2019,Did Not Attend Publicly Funded PreK,0.889
+SU/District,Windham Southwest SU,2019,,0.944
+SU/District,Windham Southwest SU,2019,All Students Surveyed,0.949
+SU/District,Windham Southwest SU,2019,Boys,0.929
+SU/District,Windham Southwest SU,2019,Girls,1
+SU/District,Windham Southwest SU,2019,Free and Reduced Lunch Eligible,0.944
+SU/District,Windham Southwest SU,2019,Not Free and Reduced Lunch Eligible,0.952
+SU/District,Windham Southwest SU,2019,Attended Publicly Funded PreK,0.964
+SU/District,Windham Southwest SU,2019,Did Not Attend Publicly Funded PreK,0.909
+SU/District,Windsor Central,2019,,0.706
+SU/District,Windsor Central,2019,All Students Surveyed,0.787
+SU/District,Windsor Central,2019,Boys,0.714
+SU/District,Windsor Central,2019,Girls,0.895
+SU/District,Windsor Central,2019,Free and Reduced Lunch Eligible,0.706
+SU/District,Windsor Central,2019,Not Free and Reduced Lunch Eligible,0.833
+SU/District,Windsor Central,2019,Attended Publicly Funded PreK,0.8
+SU/District,Windsor Central,2019,Did Not Attend Publicly Funded PreK,0.714
+SU/District,Windsor Southeast SU,2019,,0.625
+SU/District,Windsor Southeast SU,2019,All Students Surveyed,0.766
+SU/District,Windsor Southeast SU,2019,Boys,0.724
+SU/District,Windsor Southeast SU,2019,Girls,0.816
+SU/District,Windsor Southeast SU,2019,Free and Reduced Lunch Eligible,0.625
+SU/District,Windsor Southeast SU,2019,Not Free and Reduced Lunch Eligible,0.881
+SU/District,Windsor Southeast SU,2019,Attended Publicly Funded PreK,0.806
+SU/District,Windsor Southeast SU,2019,Did Not Attend Publicly Funded PreK,0.7
+SU/District,Winooski SD,2019,,0.743
+SU/District,Winooski SD,2019,All Students Surveyed,0.79
+SU/District,Winooski SD,2019,Boys,0.727
+SU/District,Winooski SD,2019,Girls,0.862
+SU/District,Winooski SD,2019,Free and Reduced Lunch Eligible,0.743
+SU/District,Winooski SD,2019,Not Free and Reduced Lunch Eligible,0.852
+SU/District,Winooski SD,2019,Attended Publicly Funded PreK,0.771
+SU/District,Winooski SD,2019,Did Not Attend Publicly Funded PreK,0.857
+State,Vermont,2020,,0.756
+State,Vermont,2020,1-Not yet ready,0.06
+State,Vermont,2020,2-Approaching ready,0.11
+State,Vermont,2020,3-Ready and practicing,0.24
+State,Vermont,2020,4-Ready and performing independently,0.6
+State,Vermont,2020,Total of all students statewide identified as ready,0.84
+State,Vermont,2020,All Students Surveyed,0.84
+State,Vermont,2020,Boys,0.796
+State,Vermont,2020,Girls,0.887
+State,Vermont,2020,Free and Reduced Lunch Eligible,0.756
+State,Vermont,2020,Not Free and Reduced Lunch Eligible,0.886
+State,Vermont,2020,Attended Publicly Funded PreK,0.847
+State,Vermont,2020,Did Not Attend Publicly Funded PreK,0.825
+SU/District,Addison Central SD,2020,,0.895
+SU/District,Addison Central SD,2020,All Students Surveyed,0.916
+SU/District,Addison Central SD,2020,Boys,0.882
+SU/District,Addison Central SD,2020,Girls,0.961
+SU/District,Addison Central SD,2020,Free and Reduced Lunch Eligible,0.895
+SU/District,Addison Central SD,2020,Not Free and Reduced Lunch Eligible,0.926
+SU/District,Addison Central SD,2020,Attended Publicly Funded PreK,0.931
+SU/District,Addison Central SD,2020,Did Not Attend Publicly Funded PreK,0.875
+SU/District,Addison Northwest SD,2020,,0.75
+SU/District,Addison Northwest SD,2020,All Students Surveyed,0.844
+SU/District,Addison Northwest SD,2020,Boys,0.769
+SU/District,Addison Northwest SD,2020,Girls,0.895
+SU/District,Addison Northwest SD,2020,Free and Reduced Lunch Eligible,0.75
+SU/District,Addison Northwest SD,2020,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Addison Northwest SD,2020,Attended Publicly Funded PreK,0.783
+SU/District,Addison Northwest SD,2020,Did Not Attend Publicly Funded PreK,1
+SU/District,Addison Rutland SU,2020,,0.808
+SU/District,Addison Rutland SU,2020,All Students Surveyed,0.842
+SU/District,Addison Rutland SU,2020,Boys,0.759
+SU/District,Addison Rutland SU,2020,Girls,0.929
+SU/District,Addison Rutland SU,2020,Free and Reduced Lunch Eligible,0.808
+SU/District,Addison Rutland SU,2020,Not Free and Reduced Lunch Eligible,0.871
+SU/District,Addison Rutland SU,2020,Attended Publicly Funded PreK,0.893
+SU/District,Addison Rutland SU,2020,Did Not Attend Publicly Funded PreK,0.793
+SU/District,Barre SU,2020,,0.686
+SU/District,Barre SU,2020,All Students Surveyed,0.804
+SU/District,Barre SU,2020,Boys,0.744
+SU/District,Barre SU,2020,Girls,0.897
+SU/District,Barre SU,2020,Free and Reduced Lunch Eligible,0.686
+SU/District,Barre SU,2020,Not Free and Reduced Lunch Eligible,0.686
+SU/District,Barre SU,2020,Attended Publicly Funded PreK,0.779
+SU/District,Barre SU,2020,Did Not Attend Publicly Funded PreK,0.839
+SU/District,Battenkill Valley SU,2020,,0.727
+SU/District,Battenkill Valley SU,2020,All Students Surveyed,0.733
+SU/District,Battenkill Valley SU,2020,Boys,0.706
+SU/District,Battenkill Valley SU,2020,Girls,0.769
+SU/District,Battenkill Valley SU,2020,Free and Reduced Lunch Eligible,0.727
+SU/District,Battenkill Valley SU,2020,Not Free and Reduced Lunch Eligible,0.737
+SU/District,Battenkill Valley SU,2020,Attended Publicly Funded PreK,0.727
+SU/District,Battenkill Valley SU,2020,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Bennington Rutland SU,2020,,0.826
+SU/District,Bennington Rutland SU,2020,All Students Surveyed,0.889
+SU/District,Bennington Rutland SU,2020,Boys,0.897
+SU/District,Bennington Rutland SU,2020,Girls,0.882
+SU/District,Bennington Rutland SU,2020,Free and Reduced Lunch Eligible,0.826
+SU/District,Bennington Rutland SU,2020,Not Free and Reduced Lunch Eligible,0.925
+SU/District,Bennington Rutland SU,2020,Attended Publicly Funded PreK,0.897
+SU/District,Bennington Rutland SU,2020,Did Not Attend Publicly Funded PreK,0.872
+SU/District,Burlington SD,2020,,0.609
+SU/District,Burlington SD,2020,All Students Surveyed,0.769
+SU/District,Burlington SD,2020,Boys,0.778
+SU/District,Burlington SD,2020,Girls,0.761
+SU/District,Burlington SD,2020,Free and Reduced Lunch Eligible,0.609
+SU/District,Burlington SD,2020,Not Free and Reduced Lunch Eligible,0.933
+SU/District,Burlington SD,2020,Attended Publicly Funded PreK,0.807
+SU/District,Burlington SD,2020,Did Not Attend Publicly Funded PreK,0.706
+SU/District,Caledonia Central SU,2020,,0.722
+SU/District,Caledonia Central SU,2020,All Students Surveyed,0.797
+SU/District,Caledonia Central SU,2020,Boys,0.735
+SU/District,Caledonia Central SU,2020,Girls,0.867
+SU/District,Caledonia Central SU,2020,Free and Reduced Lunch Eligible,0.722
+SU/District,Caledonia Central SU,2020,Not Free and Reduced Lunch Eligible,0.826
+SU/District,Caledonia Central SU,2020,Attended Publicly Funded PreK,0.756
+SU/District,Caledonia Central SU,2020,Did Not Attend Publicly Funded PreK,0.895
+SU/District,Central Vermont SU,2020,,0.711
+SU/District,Central Vermont SU,2020,All Students Surveyed,0.733
+SU/District,Central Vermont SU,2020,Boys,0.686
+SU/District,Central Vermont SU,2020,Girls,0.775
+SU/District,Central Vermont SU,2020,Free and Reduced Lunch Eligible,0.711
+SU/District,Central Vermont SU,2020,Not Free and Reduced Lunch Eligible,0.757
+SU/District,Central Vermont SU,2020,Attended Publicly Funded PreK,0.795
+SU/District,Central Vermont SU,2020,Did Not Attend Publicly Funded PreK,0.667
+SU/District,Champlain Valley SD,2020,,0.846
+SU/District,Champlain Valley SD,2020,All Students Surveyed,0.939
+SU/District,Champlain Valley SD,2020,Boys,0.938
+SU/District,Champlain Valley SD,2020,Girls,0.941
+SU/District,Champlain Valley SD,2020,Free and Reduced Lunch Eligible,0.846
+SU/District,Champlain Valley SD,2020,Not Free and Reduced Lunch Eligible,0.951
+SU/District,Champlain Valley SD,2020,Attended Publicly Funded PreK,0.928
+SU/District,Champlain Valley SD,2020,Did Not Attend Publicly Funded PreK,0.969
+SU/District,Colchester SD,2020,,0.796
+SU/District,Colchester SD,2020,All Students Surveyed,0.892
+SU/District,Colchester SD,2020,Boys,0.846
+SU/District,Colchester SD,2020,Girls,0.955
+SU/District,Colchester SD,2020,Free and Reduced Lunch Eligible,0.796
+SU/District,Colchester SD,2020,Not Free and Reduced Lunch Eligible,0.93
+SU/District,Colchester SD,2020,Attended Publicly Funded PreK,0.891
+SU/District,Colchester SD,2020,Did Not Attend Publicly Funded PreK,0.896
+SU/District,Essex North SU,2020,,1
+SU/District,Essex North SU,2020,All Students Surveyed,1
+SU/District,Essex North SU,2020,Boys,1
+SU/District,Essex North SU,2020,Girls,1
+SU/District,Essex North SU,2020,Free and Reduced Lunch Eligible,1
+SU/District,Essex North SU,2020,Not Free and Reduced Lunch Eligible,1
+SU/District,Essex North SU,2020,Attended Publicly Funded PreK,1
+SU/District,Essex North SU,2020,Did Not Attend Publicly Funded PreK,1
+SU/District,Essex Westford SD,2020,,0.74
+SU/District,Essex Westford SD,2020,All Students Surveyed,0.863
+SU/District,Essex Westford SD,2020,Boys,0.847
+SU/District,Essex Westford SD,2020,Girls,0.887
+SU/District,Essex Westford SD,2020,Free and Reduced Lunch Eligible,0.74
+SU/District,Essex Westford SD,2020,Not Free and Reduced Lunch Eligible,0.892
+SU/District,Essex Westford SD,2020,Attended Publicly Funded PreK,0.902
+SU/District,Essex Westford SD,2020,Did Not Attend Publicly Funded PreK,0.798
+SU/District,Franklin Northeast SU,2020,,0.807
+SU/District,Franklin Northeast SU,2020,All Students Surveyed,0.87
+SU/District,Franklin Northeast SU,2020,Boys,0.83
+SU/District,Franklin Northeast SU,2020,Girls,0.902
+SU/District,Franklin Northeast SU,2020,Free and Reduced Lunch Eligible,0.807
+SU/District,Franklin Northeast SU,2020,Not Free and Reduced Lunch Eligible,0.943
+SU/District,Franklin Northeast SU,2020,Attended Publicly Funded PreK,0.868
+SU/District,Franklin Northeast SU,2020,Did Not Attend Publicly Funded PreK,0.872
+SU/District,Franklin West SU,2020,,0.794
+SU/District,Franklin West SU,2020,All Students Surveyed,0.9
+SU/District,Franklin West SU,2020,Boys,0.823
+SU/District,Franklin West SU,2020,Girls,0.975
+SU/District,Franklin West SU,2020,Free and Reduced Lunch Eligible,0.794
+SU/District,Franklin West SU,2020,Not Free and Reduced Lunch Eligible,0.929
+SU/District,Franklin West SU,2020,Attended Publicly Funded PreK,0.872
+SU/District,Franklin West SU,2020,Did Not Attend Publicly Funded PreK,0.939
+SU/District,Franklink Northwest,2020,,0.786
+SU/District,Franklink Northwest,2020,All Students Surveyed,0.844
+SU/District,Franklink Northwest,2020,Boys,0.811
+SU/District,Franklink Northwest,2020,Girls,0.883
+SU/District,Franklink Northwest,2020,Free and Reduced Lunch Eligible,0.786
+SU/District,Franklink Northwest,2020,Not Free and Reduced Lunch Eligible,0.887
+SU/District,Franklink Northwest,2020,Attended Publicly Funded PreK,0.819
+SU/District,Franklink Northwest,2020,Did Not Attend Publicly Funded PreK,0.869
+SU/District,Grand Isle SU,2020,,1
+SU/District,Grand Isle SU,2020,All Students Surveyed,0.889
+SU/District,Grand Isle SU,2020,Boys,0.923
+SU/District,Grand Isle SU,2020,Girls,0.857
+SU/District,Grand Isle SU,2020,Free and Reduced Lunch Eligible,1
+SU/District,Grand Isle SU,2020,Not Free and Reduced Lunch Eligible,0.786
+SU/District,Grand Isle SU,2020,Attended Publicly Funded PreK,0.882
+SU/District,Grand Isle SU,2020,Did Not Attend Publicly Funded PreK,0.9
+SU/District,Greater Rutland County SU,2020,,0.8
+SU/District,Greater Rutland County SU,2020,All Students Surveyed,0.833
+SU/District,Greater Rutland County SU,2020,Boys,0.796
+SU/District,Greater Rutland County SU,2020,Girls,0.864
+SU/District,Greater Rutland County SU,2020,Free and Reduced Lunch Eligible,0.8
+SU/District,Greater Rutland County SU,2020,Not Free and Reduced Lunch Eligible,0.853
+SU/District,Greater Rutland County SU,2020,Attended Publicly Funded PreK,0.814
+SU/District,Greater Rutland County SU,2020,Did Not Attend Publicly Funded PreK,0.853
+SU/District,Hartford SD,2020,,0.455
+SU/District,Hartford SD,2020,All Students Surveyed,0.874
+SU/District,Hartford SD,2020,Boys,0.673
+SU/District,Hartford SD,2020,Girls,0.677
+SU/District,Hartford SD,2020,Free and Reduced Lunch Eligible,0.455
+SU/District,Hartford SD,2020,Not Free and Reduced Lunch Eligible,0.75
+SU/District,Hartford SD,2020,Attended Publicly Funded PreK,0.641
+SU/District,Hartford SD,2020,Did Not Attend Publicly Funded PreK,0.702
+SU/District,Harwood Unified SD,2020,,0.783
+SU/District,Harwood Unified SD,2020,All Students Surveyed,0.922
+SU/District,Harwood Unified SD,2020,Boys,0.868
+SU/District,Harwood Unified SD,2020,Girls,0.968
+SU/District,Harwood Unified SD,2020,Free and Reduced Lunch Eligible,0.783
+SU/District,Harwood Unified SD,2020,Not Free and Reduced Lunch Eligible,0.957
+SU/District,Harwood Unified SD,2020,Attended Publicly Funded PreK,0.938
+SU/District,Harwood Unified SD,2020,Did Not Attend Publicly Funded PreK,0.889
+SU/District,Kingdom East SD,2020,,0.723
+SU/District,Kingdom East SD,2020,All Students Surveyed,0.759
+SU/District,Kingdom East SD,2020,Boys,0.689
+SU/District,Kingdom East SD,2020,Girls,0.843
+SU/District,Kingdom East SD,2020,Free and Reduced Lunch Eligible,0.723
+SU/District,Kingdom East SD,2020,Not Free and Reduced Lunch Eligible,0.785
+SU/District,Kingdom East SD,2020,Attended Publicly Funded PreK,0.758
+SU/District,Kingdom East SD,2020,Did Not Attend Publicly Funded PreK,0.76
+SU/District,Lamoille North SU,2020,,0.661
+SU/District,Lamoille North SU,2020,All Students Surveyed,0.729
+SU/District,Lamoille North SU,2020,Boys,0.65
+SU/District,Lamoille North SU,2020,Girls,0.833
+SU/District,Lamoille North SU,2020,Free and Reduced Lunch Eligible,0.661
+SU/District,Lamoille North SU,2020,Not Free and Reduced Lunch Eligible,0.782
+SU/District,Lamoille North SU,2020,Attended Publicly Funded PreK,0.761
+SU/District,Lamoille North SU,2020,Did Not Attend Publicly Funded PreK,0.695
+SU/District,Lamoille South SU,2020,,0.694
+SU/District,Lamoille South SU,2020,All Students Surveyed,0.865
+SU/District,Lamoille South SU,2020,Boys,0.831
+SU/District,Lamoille South SU,2020,Girls,0.911
+SU/District,Lamoille South SU,2020,Free and Reduced Lunch Eligible,0.694
+SU/District,Lamoille South SU,2020,Not Free and Reduced Lunch Eligible,0.956
+SU/District,Lamoille South SU,2020,Attended Publicly Funded PreK,0.878
+SU/District,Lamoille South SU,2020,Did Not Attend Publicly Funded PreK,0.833
+SU/District,Maple Run SD,2020,,0.765
+SU/District,Maple Run SD,2020,All Students Surveyed,0.822
+SU/District,Maple Run SD,2020,Boys,0.735
+SU/District,Maple Run SD,2020,Girls,0.897
+SU/District,Maple Run SD,2020,Free and Reduced Lunch Eligible,0.765
+SU/District,Maple Run SD,2020,Not Free and Reduced Lunch Eligible,0.869
+SU/District,Maple Run SD,2020,Attended Publicly Funded PreK,0.809
+SU/District,Maple Run SD,2020,Did Not Attend Publicly Funded PreK,0.837
+SU/District,Mill River Unified SD,2020,,0.765
+SU/District,Mill River Unified SD,2020,All Students Surveyed,0.782
+SU/District,Mill River Unified SD,2020,Boys,0.677
+SU/District,Mill River Unified SD,2020,Girls,0.917
+SU/District,Mill River Unified SD,2020,Free and Reduced Lunch Eligible,0.765
+SU/District,Mill River Unified SD,2020,Not Free and Reduced Lunch Eligible,0.79
+SU/District,Mill River Unified SD,2020,Attended Publicly Funded PreK,0.769
+SU/District,Mill River Unified SD,2020,Did Not Attend Publicly Funded PreK,0.812
+SU/District,Milton SD,2020,,0.927
+SU/District,Milton SD,2020,All Students Surveyed,0.925
+SU/District,Milton SD,2020,Boys,0.877
+SU/District,Milton SD,2020,Girls,0.98
+SU/District,Milton SD,2020,Free and Reduced Lunch Eligible,0.927
+SU/District,Milton SD,2020,Not Free and Reduced Lunch Eligible,0.924
+SU/District,Milton SD,2020,Attended Publicly Funded PreK,0.955
+SU/District,Milton SD,2020,Did Not Attend Publicly Funded PreK,0.875
+SU/District,Missisquoi Valley SD,2020,,0
+SU/District,Missisquoi Valley SD,2020,All Students Surveyed,0
+SU/District,Missisquoi Valley SD,2020,Boys,0
+SU/District,Missisquoi Valley SD,2020,Girls,0
+SU/District,Missisquoi Valley SD,2020,Free and Reduced Lunch Eligible,0
+SU/District,Missisquoi Valley SD,2020,Not Free and Reduced Lunch Eligible,0
+SU/District,Missisquoi Valley SD,2020,Attended Publicly Funded PreK,0
+SU/District,Missisquoi Valley SD,2020,Did Not Attend Publicly Funded PreK,0
+SU/District,Montpelier Roxbury SD,2020,,1
+SU/District,Montpelier Roxbury SD,2020,All Students Surveyed,0.965
+SU/District,Montpelier Roxbury SD,2020,Boys,0.939
+SU/District,Montpelier Roxbury SD,2020,Girls,1
+SU/District,Montpelier Roxbury SD,2020,Free and Reduced Lunch Eligible,1
+SU/District,Montpelier Roxbury SD,2020,Not Free and Reduced Lunch Eligible,0.964
+SU/District,Montpelier Roxbury SD,2020,Attended Publicly Funded PreK,0.951
+SU/District,Montpelier Roxbury SD,2020,Did Not Attend Publicly Funded PreK,1
+SU/District,Mt Abraham Unified SD,2020,,0.8
+SU/District,Mt Abraham Unified SD,2020,All Students Surveyed,0.935
+SU/District,Mt Abraham Unified SD,2020,Boys,1
+SU/District,Mt Abraham Unified SD,2020,Girls,0.846
+SU/District,Mt Abraham Unified SD,2020,Free and Reduced Lunch Eligible,0.8
+SU/District,Mt Abraham Unified SD,2020,Not Free and Reduced Lunch Eligible,1
+SU/District,Mt Abraham Unified SD,2020,Attended Publicly Funded PreK,1
+SU/District,Mt Abraham Unified SD,2020,Did Not Attend Publicly Funded PreK,0.913
+SU/District,Mt Mainsfield Unified SD,2020,,0
+SU/District,Mt Mainsfield Unified SD,2020,All Students Surveyed,0
+SU/District,Mt Mainsfield Unified SD,2020,Boys,0
+SU/District,Mt Mainsfield Unified SD,2020,Girls,0
+SU/District,Mt Mainsfield Unified SD,2020,Free and Reduced Lunch Eligible,0
+SU/District,Mt Mainsfield Unified SD,2020,Not Free and Reduced Lunch Eligible,0
+SU/District,Mt Mainsfield Unified SD,2020,Attended Publicly Funded PreK,0
+SU/District,Mt Mainsfield Unified SD,2020,Did Not Attend Publicly Funded PreK,0
+SU/District,North Country SU,2020,,0.753
+SU/District,North Country SU,2020,All Students Surveyed,0.792
+SU/District,North Country SU,2020,Boys,0.779
+SU/District,North Country SU,2020,Girls,0.809
+SU/District,North Country SU,2020,Free and Reduced Lunch Eligible,0.753
+SU/District,North Country SU,2020,Not Free and Reduced Lunch Eligible,0.841
+SU/District,North Country SU,2020,Attended Publicly Funded PreK,0.766
+SU/District,North Country SU,2020,Did Not Attend Publicly Funded PreK,0.833
+SU/District,Orange East SU,2020,,0.586
+SU/District,Orange East SU,2020,All Students Surveyed,0.636
+SU/District,Orange East SU,2020,Boys,0.516
+SU/District,Orange East SU,2020,Girls,0.792
+SU/District,Orange East SU,2020,Free and Reduced Lunch Eligible,0.586
+SU/District,Orange East SU,2020,Not Free and Reduced Lunch Eligible,0.692
+SU/District,Orange East SU,2020,Attended Publicly Funded PreK,0.76
+SU/District,Orange East SU,2020,Did Not Attend Publicly Funded PreK,0.533
+SU/District,Orange Southwest SD,2020,,0.85
+SU/District,Orange Southwest SD,2020,All Students Surveyed,0.896
+SU/District,Orange Southwest SD,2020,Boys,0.909
+SU/District,Orange Southwest SD,2020,Girls,0.886
+SU/District,Orange Southwest SD,2020,Free and Reduced Lunch Eligible,0.85
+SU/District,Orange Southwest SD,2020,Not Free and Reduced Lunch Eligible,0.912
+SU/District,Orange Southwest SD,2020,Attended Publicly Funded PreK,0.9
+SU/District,Orange Southwest SD,2020,Did Not Attend Publicly Funded PreK,0.895
+SU/District,Orleans Central SU,2020,,0.781
+SU/District,Orleans Central SU,2020,All Students Surveyed,0.746
+SU/District,Orleans Central SU,2020,Boys,0.737
+SU/District,Orleans Central SU,2020,Girls,0.76
+SU/District,Orleans Central SU,2020,Free and Reduced Lunch Eligible,0.781
+SU/District,Orleans Central SU,2020,Not Free and Reduced Lunch Eligible,0.682
+SU/District,Orleans Central SU,2020,Attended Publicly Funded PreK,0.75
+SU/District,Orleans Central SU,2020,Did Not Attend Publicly Funded PreK,0.742
+SU/District,Orleans Southwest SU,2020,,0.889
+SU/District,Orleans Southwest SU,2020,All Students Surveyed,0.926
+SU/District,Orleans Southwest SU,2020,Boys,0.933
+SU/District,Orleans Southwest SU,2020,Girls,0.917
+SU/District,Orleans Southwest SU,2020,Free and Reduced Lunch Eligible,0.889
+SU/District,Orleans Southwest SU,2020,Not Free and Reduced Lunch Eligible,0.944
+SU/District,Orleans Southwest SU,2020,Attended Publicly Funded PreK,0.933
+SU/District,Orleans Southwest SU,2020,Did Not Attend Publicly Funded PreK,0.917
+SU/District,Rivendell Interstate SD,2020,,0
+SU/District,Rivendell Interstate SD,2020,All Students Surveyed,1
+SU/District,Rivendell Interstate SD,2020,Boys,1
+SU/District,Rivendell Interstate SD,2020,Girls,1
+SU/District,Rivendell Interstate SD,2020,Free and Reduced Lunch Eligible,0
+SU/District,Rivendell Interstate SD,2020,Not Free and Reduced Lunch Eligible,1
+SU/District,Rivendell Interstate SD,2020,Attended Publicly Funded PreK,1
+SU/District,Rivendell Interstate SD,2020,Did Not Attend Publicly Funded PreK,1
+SU/District,Rutland City SD,2020,,0.633
+SU/District,Rutland City SD,2020,All Students Surveyed,0.685
+SU/District,Rutland City SD,2020,Boys,0.615
+SU/District,Rutland City SD,2020,Girls,0.783
+SU/District,Rutland City SD,2020,Free and Reduced Lunch Eligible,0.633
+SU/District,Rutland City SD,2020,Not Free and Reduced Lunch Eligible,0.8
+SU/District,Rutland City SD,2020,Attended Publicly Funded PreK,0.56
+SU/District,Rutland City SD,2020,Did Not Attend Publicly Funded PreK,0.753
+SU/District,Rutland Northeast SD,2020,,0.745
+SU/District,Rutland Northeast SD,2020,All Students Surveyed,0.763
+SU/District,Rutland Northeast SD,2020,Boys,0.707
+SU/District,Rutland Northeast SD,2020,Girls,0.817
+SU/District,Rutland Northeast SD,2020,Free and Reduced Lunch Eligible,0.745
+SU/District,Rutland Northeast SD,2020,Not Free and Reduced Lunch Eligible,0.775
+SU/District,Rutland Northeast SD,2020,Attended Publicly Funded PreK,0.781
+SU/District,Rutland Northeast SD,2020,Did Not Attend Publicly Funded PreK,0.733
+SU/District,Slate Valley SD,2020,,0
+SU/District,Slate Valley SD,2020,All Students Surveyed,0
+SU/District,Slate Valley SD,2020,Boys,0
+SU/District,Slate Valley SD,2020,Girls,0
+SU/District,Slate Valley SD,2020,Free and Reduced Lunch Eligible,0
+SU/District,Slate Valley SD,2020,Not Free and Reduced Lunch Eligible,0
+SU/District,Slate Valley SD,2020,Attended Publicly Funded PreK,0
+SU/District,Slate Valley SD,2020,Did Not Attend Publicly Funded PreK,0
+SU/District,South Burlington SD,2020,,0.677
+SU/District,South Burlington SD,2020,All Students Surveyed,0.832
+SU/District,South Burlington SD,2020,Boys,0.793
+SU/District,South Burlington SD,2020,Girls,0.873
+SU/District,South Burlington SD,2020,Free and Reduced Lunch Eligible,0.677
+SU/District,South Burlington SD,2020,Not Free and Reduced Lunch Eligible,0.89
+SU/District,South Burlington SD,2020,Attended Publicly Funded PreK,0.87
+SU/District,South Burlington SD,2020,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Southwest Vermont SU,2020,,0.771
+SU/District,Southwest Vermont SU,2020,All Students Surveyed,0.825
+SU/District,Southwest Vermont SU,2020,Boys,0.771
+SU/District,Southwest Vermont SU,2020,Girls,0.893
+SU/District,Southwest Vermont SU,2020,Free and Reduced Lunch Eligible,0.771
+SU/District,Southwest Vermont SU,2020,Not Free and Reduced Lunch Eligible,0.893
+SU/District,Southwest Vermont SU,2020,Attended Publicly Funded PreK,0.813
+SU/District,Southwest Vermont SU,2020,Did Not Attend Publicly Funded PreK,0.839
+SU/District,Springfield SD,2020,,0.756
+SU/District,Springfield SD,2020,All Students Surveyed,0.795
+SU/District,Springfield SD,2020,Boys,0.783
+SU/District,Springfield SD,2020,Girls,0.813
+SU/District,Springfield SD,2020,Free and Reduced Lunch Eligible,0.756
+SU/District,Springfield SD,2020,Not Free and Reduced Lunch Eligible,0.849
+SU/District,Springfield SD,2020,Attended Publicly Funded PreK,0.851
+SU/District,Springfield SD,2020,Did Not Attend Publicly Funded PreK,0.71
+SU/District,St Johnsbury SD,2020,,0.839
+SU/District,St Johnsbury SD,2020,All Students Surveyed,0.889
+SU/District,St Johnsbury SD,2020,Boys,0.793
+SU/District,St Johnsbury SD,2020,Girls,1
+SU/District,St Johnsbury SD,2020,Free and Reduced Lunch Eligible,0.839
+SU/District,St Johnsbury SD,2020,Not Free and Reduced Lunch Eligible,0.957
+SU/District,St Johnsbury SD,2020,Attended Publicly Funded PreK,0.875
+SU/District,St Johnsbury SD,2020,Did Not Attend Publicly Funded PreK,0.909
+SU/District,Two Rivers SU,2020,,0.88
+SU/District,Two Rivers SU,2020,All Students Surveyed,0.917
+SU/District,Two Rivers SU,2020,Boys,0.84
+SU/District,Two Rivers SU,2020,Girls,1
+SU/District,Two Rivers SU,2020,Free and Reduced Lunch Eligible,0.88
+SU/District,Two Rivers SU,2020,Not Free and Reduced Lunch Eligible,0.957
+SU/District,Two Rivers SU,2020,Attended Publicly Funded PreK,0.943
+SU/District,Two Rivers SU,2020,Did Not Attend Publicly Funded PreK,0.846
+SU/District,Washington Central SU,2020,,0.714
+SU/District,Washington Central SU,2020,All Students Surveyed,0.792
+SU/District,Washington Central SU,2020,Boys,0.791
+SU/District,Washington Central SU,2020,Girls,0.794
+SU/District,Washington Central SU,2020,Free and Reduced Lunch Eligible,0.714
+SU/District,Washington Central SU,2020,Not Free and Reduced Lunch Eligible,0.837
+SU/District,Washington Central SU,2020,Attended Publicly Funded PreK,0.828
+SU/District,Washington Central SU,2020,Did Not Attend Publicly Funded PreK,0.684
+SU/District,Washington Northeast SU,2020,,0.833
+SU/District,Washington Northeast SU,2020,All Students Surveyed,0.849
+SU/District,Washington Northeast SU,2020,Boys,0.864
+SU/District,Washington Northeast SU,2020,Girls,0.818
+SU/District,Washington Northeast SU,2020,Free and Reduced Lunch Eligible,0.833
+SU/District,Washington Northeast SU,2020,Not Free and Reduced Lunch Eligible,0.857
+SU/District,Washington Northeast SU,2020,Attended Publicly Funded PreK,0.833
+SU/District,Washington Northeast SU,2020,Did Not Attend Publicly Funded PreK,0.867
+SU/District,White River Valley SU,2020,,0.909
+SU/District,White River Valley SU,2020,All Students Surveyed,0.833
+SU/District,White River Valley SU,2020,Boys,0.733
+SU/District,White River Valley SU,2020,Girls,0.889
+SU/District,White River Valley SU,2020,Free and Reduced Lunch Eligible,0.909
+SU/District,White River Valley SU,2020,Not Free and Reduced Lunch Eligible,0.75
+SU/District,White River Valley SU,2020,Attended Publicly Funded PreK,0.917
+SU/District,White River Valley SU,2020,Did Not Attend Publicly Funded PreK,0.722
+SU/District,Windham Central SU,2020,,0.75
+SU/District,Windham Central SU,2020,All Students Surveyed,0.822
+SU/District,Windham Central SU,2020,Boys,0.769
+SU/District,Windham Central SU,2020,Girls,0.895
+SU/District,Windham Central SU,2020,Free and Reduced Lunch Eligible,0.75
+SU/District,Windham Central SU,2020,Not Free and Reduced Lunch Eligible,0.849
+SU/District,Windham Central SU,2020,Attended Publicly Funded PreK,0.792
+SU/District,Windham Central SU,2020,Did Not Attend Publicly Funded PreK,0.857
+SU/District,Windham Northeast SU,2020,,0.722
+SU/District,Windham Northeast SU,2020,All Students Surveyed,0.795
+SU/District,Windham Northeast SU,2020,Boys,0.692
+SU/District,Windham Northeast SU,2020,Girls,0.897
+SU/District,Windham Northeast SU,2020,Free and Reduced Lunch Eligible,0.722
+SU/District,Windham Northeast SU,2020,Not Free and Reduced Lunch Eligible,0.958
+SU/District,Windham Northeast SU,2020,Attended Publicly Funded PreK,0.761
+SU/District,Windham Northeast SU,2020,Did Not Attend Publicly Funded PreK,0.844
+SU/District,Windham Southeast SU,2020,,0.737
+SU/District,Windham Southeast SU,2020,All Students Surveyed,0.841
+SU/District,Windham Southeast SU,2020,Boys,0.787
+SU/District,Windham Southeast SU,2020,Girls,0.9
+SU/District,Windham Southeast SU,2020,Free and Reduced Lunch Eligible,0.737
+SU/District,Windham Southeast SU,2020,Not Free and Reduced Lunch Eligible,0.917
+SU/District,Windham Southeast SU,2020,Attended Publicly Funded PreK,0.823
+SU/District,Windham Southeast SU,2020,Did Not Attend Publicly Funded PreK,0.864
+SU/District,Windham Southwest SU,2020,,1
+SU/District,Windham Southwest SU,2020,All Students Surveyed,0.913
+SU/District,Windham Southwest SU,2020,Boys,0.8
+SU/District,Windham Southwest SU,2020,Girls,0.944
+SU/District,Windham Southwest SU,2020,Free and Reduced Lunch Eligible,1
+SU/District,Windham Southwest SU,2020,Not Free and Reduced Lunch Eligible,0.846
+SU/District,Windham Southwest SU,2020,Attended Publicly Funded PreK,1
+SU/District,Windham Southwest SU,2020,Did Not Attend Publicly Funded PreK,0.889
+SU/District,Windsor Central,2020,,0.875
+SU/District,Windsor Central,2020,All Students Surveyed,0.902
+SU/District,Windsor Central,2020,Boys,0.857
+SU/District,Windsor Central,2020,Girls,0.95
+SU/District,Windsor Central,2020,Free and Reduced Lunch Eligible,0.875
+SU/District,Windsor Central,2020,Not Free and Reduced Lunch Eligible,0.909
+SU/District,Windsor Central,2020,Attended Publicly Funded PreK,0.917
+SU/District,Windsor Central,2020,Did Not Attend Publicly Funded PreK,0.882
+SU/District,Windsor Southeast SU,2020,,0.733
+SU/District,Windsor Southeast SU,2020,All Students Surveyed,0.85
+SU/District,Windsor Southeast SU,2020,Boys,0.8
+SU/District,Windsor Southeast SU,2020,Girls,0.939
+SU/District,Windsor Southeast SU,2020,Free and Reduced Lunch Eligible,0.733
+SU/District,Windsor Southeast SU,2020,Not Free and Reduced Lunch Eligible,0.905
+SU/District,Windsor Southeast SU,2020,Attended Publicly Funded PreK,0.848
+SU/District,Windsor Southeast SU,2020,Did Not Attend Publicly Funded PreK,0.853
+SU/District,Winooski SD,2020,,0.739
+SU/District,Winooski SD,2020,All Students Surveyed,0.758
+SU/District,Winooski SD,2020,Boys,0.73
+SU/District,Winooski SD,2020,Girls,0.8
+SU/District,Winooski SD,2020,Free and Reduced Lunch Eligible,0.739
+SU/District,Winooski SD,2020,Not Free and Reduced Lunch Eligible,0.769
+SU/District,Winooski SD,2020,Attended Publicly Funded PreK,0.771
+SU/District,Winooski SD,2020,Did Not Attend Publicly Funded PreK,0.741
+State,Vermont,2021,,0.772
+State,Vermont,2021,1-Not yet ready,0.05
+State,Vermont,2021,2-Approaching ready,0.09
+State,Vermont,2021,3-Ready and practicing,0.2
+State,Vermont,2021,4-Ready and performing independently,0.66
+State,Vermont,2021,Total of all students statewide identified as ready,0.86
+State,Vermont,2021,All Students Surveyed,0.86
+State,Vermont,2021,Boys,0.82
+State,Vermont,2021,Girls,0.906
+State,Vermont,2021,Free and Reduced Lunch Eligible,0.772
+State,Vermont,2021,Not Free and Reduced Lunch Eligible,0.89
+State,Vermont,2021,Attended Publicly Funded PreK,0.87
+State,Vermont,2021,Did Not Attend Publicly Funded PreK,0.82
+SU/District,Addison Central SD,2021,,0.917
+SU/District,Addison Central SD,2021,All Students Surveyed,0.948
+SU/District,Addison Central SD,2021,Boys,0.954
+SU/District,Addison Central SD,2021,Girls,0.94
+SU/District,Addison Central SD,2021,Free and Reduced Lunch Eligible,0.917
+SU/District,Addison Central SD,2021,Not Free and Reduced Lunch Eligible,0.956
+SU/District,Addison Central SD,2021,Attended Publicly Funded PreK,0.933
+SU/District,Addison Central SD,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Addison Northwest SD,2021,,0.6
+SU/District,Addison Northwest SD,2021,All Students Surveyed,0.768
+SU/District,Addison Northwest SD,2021,Boys,0.542
+SU/District,Addison Northwest SD,2021,Girls,0.938
+SU/District,Addison Northwest SD,2021,Free and Reduced Lunch Eligible,0.6
+SU/District,Addison Northwest SD,2021,Not Free and Reduced Lunch Eligible,0.804
+SU/District,Addison Northwest SD,2021,Attended Publicly Funded PreK,0.714
+SU/District,Addison Northwest SD,2021,Did Not Attend Publicly Funded PreK,0.929
+SU/District,Barre SU,2021,,0.735
+SU/District,Barre SU,2021,All Students Surveyed,0.825
+SU/District,Barre SU,2021,Boys,0.75
+SU/District,Barre SU,2021,Girls,0.914
+SU/District,Barre SU,2021,Free and Reduced Lunch Eligible,0.735
+SU/District,Barre SU,2021,Not Free and Reduced Lunch Eligible,0.859
+SU/District,Barre SU,2021,Attended Publicly Funded PreK,0.846
+SU/District,Barre SU,2021,Did Not Attend Publicly Funded PreK,0.686
+SU/District,Battenkill Valley SU,2021,,0.667
+SU/District,Battenkill Valley SU,2021,All Students Surveyed,0.846
+SU/District,Battenkill Valley SU,2021,Boys,0.75
+SU/District,Battenkill Valley SU,2021,Girls,0.929
+SU/District,Battenkill Valley SU,2021,Free and Reduced Lunch Eligible,0.667
+SU/District,Battenkill Valley SU,2021,Not Free and Reduced Lunch Eligible,0.941
+SU/District,Battenkill Valley SU,2021,Attended Publicly Funded PreK,0.833
+SU/District,Battenkill Valley SU,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Bennington Rutland SU,2021,,0.76
+SU/District,Bennington Rutland SU,2021,All Students Surveyed,0.872
+SU/District,Bennington Rutland SU,2021,Boys,0.842
+SU/District,Bennington Rutland SU,2021,Girls,0.9
+SU/District,Bennington Rutland SU,2021,Free and Reduced Lunch Eligible,0.76
+SU/District,Bennington Rutland SU,2021,Not Free and Reduced Lunch Eligible,0.925
+SU/District,Bennington Rutland SU,2021,Attended Publicly Funded PreK,0.849
+SU/District,Bennington Rutland SU,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Burlington SD,2021,,0.676
+SU/District,Burlington SD,2021,All Students Surveyed,0.753
+SU/District,Burlington SD,2021,Boys,0.686
+SU/District,Burlington SD,2021,Girls,0.83
+SU/District,Burlington SD,2021,Free and Reduced Lunch Eligible,0.676
+SU/District,Burlington SD,2021,Not Free and Reduced Lunch Eligible,0.798
+SU/District,Burlington SD,2021,Attended Publicly Funded PreK,0.794
+SU/District,Burlington SD,2021,Did Not Attend Publicly Funded PreK,0.661
+SU/District,Caledonia Central SU,2021,,0.91
+SU/District,Caledonia Central SU,2021,All Students Surveyed,0.908
+SU/District,Caledonia Central SU,2021,Boys,0.87
+SU/District,Caledonia Central SU,2021,Girls,0.951
+SU/District,Caledonia Central SU,2021,Free and Reduced Lunch Eligible,0.91
+SU/District,Caledonia Central SU,2021,Not Free and Reduced Lunch Eligible,0.909
+SU/District,Caledonia Central SU,2021,Attended Publicly Funded PreK,0.909
+SU/District,Caledonia Central SU,2021,Did Not Attend Publicly Funded PreK,0.9
+SU/District,Central Vermont SU,2021,,0.579
+SU/District,Central Vermont SU,2021,All Students Surveyed,0.723
+SU/District,Central Vermont SU,2021,Boys,0.586
+SU/District,Central Vermont SU,2021,Girls,0.833
+SU/District,Central Vermont SU,2021,Free and Reduced Lunch Eligible,0.579
+SU/District,Central Vermont SU,2021,Not Free and Reduced Lunch Eligible,0.783
+SU/District,Central Vermont SU,2021,Attended Publicly Funded PreK,0.741
+SU/District,Central Vermont SU,2021,Did Not Attend Publicly Funded PreK,0.636
+SU/District,Champlain Valley SD,2021,,0.813
+SU/District,Champlain Valley SD,2021,All Students Surveyed,0.92
+SU/District,Champlain Valley SD,2021,Boys,0.954
+SU/District,Champlain Valley SD,2021,Girls,0.874
+SU/District,Champlain Valley SD,2021,Free and Reduced Lunch Eligible,0.813
+SU/District,Champlain Valley SD,2021,Not Free and Reduced Lunch Eligible,0.928
+SU/District,Champlain Valley SD,2021,Attended Publicly Funded PreK,0.93
+SU/District,Champlain Valley SD,2021,Did Not Attend Publicly Funded PreK,0.872
+SU/District,Colchester SD,2021,,0.444
+SU/District,Colchester SD,2021,All Students Surveyed,0.845
+SU/District,Colchester SD,2021,Boys,0.744
+SU/District,Colchester SD,2021,Girls,0.951
+SU/District,Colchester SD,2021,Free and Reduced Lunch Eligible,0.444
+SU/District,Colchester SD,2021,Not Free and Reduced Lunch Eligible,0.893
+SU/District,Colchester SD,2021,Attended Publicly Funded PreK,0.915
+SU/District,Colchester SD,2021,Did Not Attend Publicly Funded PreK,0.68
+SU/District,Essex North SU,2021,,1
+SU/District,Essex North SU,2021,All Students Surveyed,0.667
+SU/District,Essex North SU,2021,Boys,0.333
+SU/District,Essex North SU,2021,Girls,1
+SU/District,Essex North SU,2021,Free and Reduced Lunch Eligible,1
+SU/District,Essex North SU,2021,Not Free and Reduced Lunch Eligible,0.6
+SU/District,Essex North SU,2021,Attended Publicly Funded PreK,0.8
+SU/District,Essex North SU,2021,Did Not Attend Publicly Funded PreK,0
+SU/District,Essex Westford SD,2021,,0.9
+SU/District,Essex Westford SD,2021,All Students Surveyed,0.911
+SU/District,Essex Westford SD,2021,Boys,0.837
+SU/District,Essex Westford SD,2021,Girls,0.973
+SU/District,Essex Westford SD,2021,Free and Reduced Lunch Eligible,0.9
+SU/District,Essex Westford SD,2021,Not Free and Reduced Lunch Eligible,0.912
+SU/District,Essex Westford SD,2021,Attended Publicly Funded PreK,0.909
+SU/District,Essex Westford SD,2021,Did Not Attend Publicly Funded PreK,0.921
+SU/District,Franklin Northeast SU,2021,,0.836
+SU/District,Franklin Northeast SU,2021,All Students Surveyed,0.861
+SU/District,Franklin Northeast SU,2021,Boys,0.836
+SU/District,Franklin Northeast SU,2021,Girls,0.885
+SU/District,Franklin Northeast SU,2021,Free and Reduced Lunch Eligible,0.836
+SU/District,Franklin Northeast SU,2021,Not Free and Reduced Lunch Eligible,0.881
+SU/District,Franklin Northeast SU,2021,Attended Publicly Funded PreK,0.853
+SU/District,Franklin Northeast SU,2021,Did Not Attend Publicly Funded PreK,0.923
+SU/District,Franklin West SU,2021,,0.692
+SU/District,Franklin West SU,2021,All Students Surveyed,0.883
+SU/District,Franklin West SU,2021,Boys,0.835
+SU/District,Franklin West SU,2021,Girls,0.959
+SU/District,Franklin West SU,2021,Free and Reduced Lunch Eligible,0.692
+SU/District,Franklin West SU,2021,Not Free and Reduced Lunch Eligible,0.904
+SU/District,Franklin West SU,2021,Attended Publicly Funded PreK,0.874
+SU/District,Franklin West SU,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Grand Isle SU,2021,,0.917
+SU/District,Grand Isle SU,2021,All Students Surveyed,0.906
+SU/District,Grand Isle SU,2021,Boys,0.88
+SU/District,Grand Isle SU,2021,Girls,0.929
+SU/District,Grand Isle SU,2021,Free and Reduced Lunch Eligible,0.917
+SU/District,Grand Isle SU,2021,Not Free and Reduced Lunch Eligible,0.902
+SU/District,Grand Isle SU,2021,Attended Publicly Funded PreK,0.956
+SU/District,Grand Isle SU,2021,Did Not Attend Publicly Funded PreK,0.625
+SU/District,Greater Rutland County SU,2021,,0.731
+SU/District,Greater Rutland County SU,2021,All Students Surveyed,0.858
+SU/District,Greater Rutland County SU,2021,Boys,0.825
+SU/District,Greater Rutland County SU,2021,Girls,0.893
+SU/District,Greater Rutland County SU,2021,Free and Reduced Lunch Eligible,0.731
+SU/District,Greater Rutland County SU,2021,Not Free and Reduced Lunch Eligible,0.897
+SU/District,Greater Rutland County SU,2021,Attended Publicly Funded PreK,0.887
+SU/District,Greater Rutland County SU,2021,Did Not Attend Publicly Funded PreK,0.688
+SU/District,Hartford SD,2021,,0.643
+SU/District,Hartford SD,2021,All Students Surveyed,0.716
+SU/District,Hartford SD,2021,Boys,0.611
+SU/District,Hartford SD,2021,Girls,0.816
+SU/District,Hartford SD,2021,Free and Reduced Lunch Eligible,0.643
+SU/District,Hartford SD,2021,Not Free and Reduced Lunch Eligible,0.733
+SU/District,Hartford SD,2021,Attended Publicly Funded PreK,0.66
+SU/District,Hartford SD,2021,Did Not Attend Publicly Funded PreK,0.857
+SU/District,Harwood Unified SD,2021,,0.8
+SU/District,Harwood Unified SD,2021,All Students Surveyed,0.926
+SU/District,Harwood Unified SD,2021,Boys,0.9
+SU/District,Harwood Unified SD,2021,Girls,0.949
+SU/District,Harwood Unified SD,2021,Free and Reduced Lunch Eligible,0.8
+SU/District,Harwood Unified SD,2021,Not Free and Reduced Lunch Eligible,0.947
+SU/District,Harwood Unified SD,2021,Attended Publicly Funded PreK,0.922
+SU/District,Harwood Unified SD,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Kingdom East SD,2021,,0.69
+SU/District,Kingdom East SD,2021,All Students Surveyed,0.74
+SU/District,Kingdom East SD,2021,Boys,0.64
+SU/District,Kingdom East SD,2021,Girls,0.848
+SU/District,Kingdom East SD,2021,Free and Reduced Lunch Eligible,0.69
+SU/District,Kingdom East SD,2021,Not Free and Reduced Lunch Eligible,0.761
+SU/District,Kingdom East SD,2021,Attended Publicly Funded PreK,0.732
+SU/District,Kingdom East SD,2021,Did Not Attend Publicly Funded PreK,0.786
+SU/District,Lamoille North SU,2021,,0.895
+SU/District,Lamoille North SU,2021,All Students Surveyed,0.884
+SU/District,Lamoille North SU,2021,Boys,0.844
+SU/District,Lamoille North SU,2021,Girls,0.92
+SU/District,Lamoille North SU,2021,Free and Reduced Lunch Eligible,0.895
+SU/District,Lamoille North SU,2021,Not Free and Reduced Lunch Eligible,0.882
+SU/District,Lamoille North SU,2021,Attended Publicly Funded PreK,0.888
+SU/District,Lamoille North SU,2021,Did Not Attend Publicly Funded PreK,0.867
+SU/District,Lamoille South SU,2021,,0.929
+SU/District,Lamoille South SU,2021,All Students Surveyed,0.893
+SU/District,Lamoille South SU,2021,Boys,0.848
+SU/District,Lamoille South SU,2021,Girls,0.97
+SU/District,Lamoille South SU,2021,Free and Reduced Lunch Eligible,0.929
+SU/District,Lamoille South SU,2021,Not Free and Reduced Lunch Eligible,0.885
+SU/District,Lamoille South SU,2021,Attended Publicly Funded PreK,0.905
+SU/District,Lamoille South SU,2021,Did Not Attend Publicly Funded PreK,0.833
+SU/District,Maple Run SD,2021,,0.839
+SU/District,Maple Run SD,2021,All Students Surveyed,0.903
+SU/District,Maple Run SD,2021,Boys,0.86
+SU/District,Maple Run SD,2021,Girls,0.943
+SU/District,Maple Run SD,2021,Free and Reduced Lunch Eligible,0.839
+SU/District,Maple Run SD,2021,Not Free and Reduced Lunch Eligible,0.922
+SU/District,Maple Run SD,2021,Attended Publicly Funded PreK,0.924
+SU/District,Maple Run SD,2021,Did Not Attend Publicly Funded PreK,0.733
+SU/District,Mill River Unified SD,2021,,0.714
+SU/District,Mill River Unified SD,2021,All Students Surveyed,0.696
+SU/District,Mill River Unified SD,2021,Boys,0.556
+SU/District,Mill River Unified SD,2021,Girls,0.786
+SU/District,Mill River Unified SD,2021,Free and Reduced Lunch Eligible,0.714
+SU/District,Mill River Unified SD,2021,Not Free and Reduced Lunch Eligible,0.692
+SU/District,Mill River Unified SD,2021,Attended Publicly Funded PreK,0.658
+SU/District,Mill River Unified SD,2021,Did Not Attend Publicly Funded PreK,0.88
+SU/District,Milton SD,2021,,0.786
+SU/District,Milton SD,2021,All Students Surveyed,0.9
+SU/District,Milton SD,2021,Boys,0.889
+SU/District,Milton SD,2021,Girls,0.912
+SU/District,Milton SD,2021,Free and Reduced Lunch Eligible,0.786
+SU/District,Milton SD,2021,Not Free and Reduced Lunch Eligible,0.929
+SU/District,Milton SD,2021,Attended Publicly Funded PreK,0.892
+SU/District,Milton SD,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Missisquoi Valley SD,2021,,0.758
+SU/District,Missisquoi Valley SD,2021,All Students Surveyed,0.887
+SU/District,Missisquoi Valley SD,2021,Boys,0.809
+SU/District,Missisquoi Valley SD,2021,Girls,0.935
+SU/District,Missisquoi Valley SD,2021,Free and Reduced Lunch Eligible,0.758
+SU/District,Missisquoi Valley SD,2021,Not Free and Reduced Lunch Eligible,0.934
+SU/District,Missisquoi Valley SD,2021,Attended Publicly Funded PreK,0.887
+SU/District,Missisquoi Valley SD,2021,Did Not Attend Publicly Funded PreK,0.889
+SU/District,Montpelier Roxbury SD,2021,,0.75
+SU/District,Montpelier Roxbury SD,2021,All Students Surveyed,0.968
+SU/District,Montpelier Roxbury SD,2021,Boys,0.933
+SU/District,Montpelier Roxbury SD,2021,Girls,1
+SU/District,Montpelier Roxbury SD,2021,Free and Reduced Lunch Eligible,0.75
+SU/District,Montpelier Roxbury SD,2021,Not Free and Reduced Lunch Eligible,1
+SU/District,Montpelier Roxbury SD,2021,Attended Publicly Funded PreK,0.964
+SU/District,Montpelier Roxbury SD,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Mt Abraham Unified SD,2021,,0.5
+SU/District,Mt Abraham Unified SD,2021,All Students Surveyed,0.75
+SU/District,Mt Abraham Unified SD,2021,Boys,0.667
+SU/District,Mt Abraham Unified SD,2021,Girls,0.824
+SU/District,Mt Abraham Unified SD,2021,Free and Reduced Lunch Eligible,0.5
+SU/District,Mt Abraham Unified SD,2021,Not Free and Reduced Lunch Eligible,0.767
+SU/District,Mt Abraham Unified SD,2021,Attended Publicly Funded PreK,0.786
+SU/District,Mt Abraham Unified SD,2021,Did Not Attend Publicly Funded PreK,0.5
+SU/District,Mt Mainsfield Unified SD,2021,,0.944
+SU/District,Mt Mainsfield Unified SD,2021,All Students Surveyed,0.942
+SU/District,Mt Mainsfield Unified SD,2021,Boys,0.92
+SU/District,Mt Mainsfield Unified SD,2021,Girls,0.97
+SU/District,Mt Mainsfield Unified SD,2021,Free and Reduced Lunch Eligible,0.944
+SU/District,Mt Mainsfield Unified SD,2021,Not Free and Reduced Lunch Eligible,0.941
+SU/District,Mt Mainsfield Unified SD,2021,Attended Publicly Funded PreK,0.936
+SU/District,Mt Mainsfield Unified SD,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,North Country SU,2021,,0.727
+SU/District,North Country SU,2021,All Students Surveyed,0.793
+SU/District,North Country SU,2021,Boys,0.782
+SU/District,North Country SU,2021,Girls,0.809
+SU/District,North Country SU,2021,Free and Reduced Lunch Eligible,0.727
+SU/District,North Country SU,2021,Not Free and Reduced Lunch Eligible,0.848
+SU/District,North Country SU,2021,Attended Publicly Funded PreK,0.785
+SU/District,North Country SU,2021,Did Not Attend Publicly Funded PreK,0.84
+SU/District,Orange East SU,2021,,0.783
+SU/District,Orange East SU,2021,All Students Surveyed,0.838
+SU/District,Orange East SU,2021,Boys,0.773
+SU/District,Orange East SU,2021,Girls,0.958
+SU/District,Orange East SU,2021,Free and Reduced Lunch Eligible,0.783
+SU/District,Orange East SU,2021,Not Free and Reduced Lunch Eligible,0.867
+SU/District,Orange East SU,2021,Attended Publicly Funded PreK,0.88
+SU/District,Orange East SU,2021,Did Not Attend Publicly Funded PreK,0.722
+SU/District,Orange Southwest SD,2021,,0.778
+SU/District,Orange Southwest SD,2021,All Students Surveyed,0.87
+SU/District,Orange Southwest SD,2021,Boys,0.85
+SU/District,Orange Southwest SD,2021,Girls,0.882
+SU/District,Orange Southwest SD,2021,Free and Reduced Lunch Eligible,0.778
+SU/District,Orange Southwest SD,2021,Not Free and Reduced Lunch Eligible,0.889
+SU/District,Orange Southwest SD,2021,Attended Publicly Funded PreK,0.868
+SU/District,Orange Southwest SD,2021,Did Not Attend Publicly Funded PreK,0.875
+SU/District,Orleans Central SU,2021,,0.833
+SU/District,Orleans Central SU,2021,All Students Surveyed,0.857
+SU/District,Orleans Central SU,2021,Boys,0.769
+SU/District,Orleans Central SU,2021,Girls,0.933
+SU/District,Orleans Central SU,2021,Free and Reduced Lunch Eligible,0.833
+SU/District,Orleans Central SU,2021,Not Free and Reduced Lunch Eligible,0.885
+SU/District,Orleans Central SU,2021,Attended Publicly Funded PreK,0.844
+SU/District,Orleans Central SU,2021,Did Not Attend Publicly Funded PreK,0.909
+SU/District,Orleans Southwest SU,2021,,0.87
+SU/District,Orleans Southwest SU,2021,All Students Surveyed,0.917
+SU/District,Orleans Southwest SU,2021,Boys,0.96
+SU/District,Orleans Southwest SU,2021,Girls,0.87
+SU/District,Orleans Southwest SU,2021,Free and Reduced Lunch Eligible,0.87
+SU/District,Orleans Southwest SU,2021,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Orleans Southwest SU,2021,Attended Publicly Funded PreK,0.889
+SU/District,Orleans Southwest SU,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Rivendell Interstate SD,2021,,0
+SU/District,Rivendell Interstate SD,2021,All Students Surveyed,0
+SU/District,Rivendell Interstate SD,2021,Boys,0
+SU/District,Rivendell Interstate SD,2021,Girls,0
+SU/District,Rivendell Interstate SD,2021,Free and Reduced Lunch Eligible,0
+SU/District,Rivendell Interstate SD,2021,Not Free and Reduced Lunch Eligible,0
+SU/District,Rivendell Interstate SD,2021,Attended Publicly Funded PreK,0
+SU/District,Rivendell Interstate SD,2021,Did Not Attend Publicly Funded PreK,0
+SU/District,Rutland City SD,2021,,0.607
+SU/District,Rutland City SD,2021,All Students Surveyed,0.762
+SU/District,Rutland City SD,2021,Boys,0.672
+SU/District,Rutland City SD,2021,Girls,0.862
+SU/District,Rutland City SD,2021,Free and Reduced Lunch Eligible,0.607
+SU/District,Rutland City SD,2021,Not Free and Reduced Lunch Eligible,0.809
+SU/District,Rutland City SD,2021,Attended Publicly Funded PreK,0.694
+SU/District,Rutland City SD,2021,Did Not Attend Publicly Funded PreK,0.86
+SU/District,Rutland Northeast SD,2021,,0.807
+SU/District,Rutland Northeast SD,2021,All Students Surveyed,0.849
+SU/District,Rutland Northeast SD,2021,Boys,0.804
+SU/District,Rutland Northeast SD,2021,Girls,0.896
+SU/District,Rutland Northeast SD,2021,Free and Reduced Lunch Eligible,0.807
+SU/District,Rutland Northeast SD,2021,Not Free and Reduced Lunch Eligible,0.863
+SU/District,Rutland Northeast SD,2021,Attended Publicly Funded PreK,0.87
+SU/District,Rutland Northeast SD,2021,Did Not Attend Publicly Funded PreK,0.773
+SU/District,Slate Valley SD,2021,,0.889
+SU/District,Slate Valley SD,2021,All Students Surveyed,0.902
+SU/District,Slate Valley SD,2021,Boys,0.861
+SU/District,Slate Valley SD,2021,Girls,0.96
+SU/District,Slate Valley SD,2021,Free and Reduced Lunch Eligible,0.889
+SU/District,Slate Valley SD,2021,Not Free and Reduced Lunch Eligible,0.904
+SU/District,Slate Valley SD,2021,Attended Publicly Funded PreK,0.957
+SU/District,Slate Valley SD,2021,Did Not Attend Publicly Funded PreK,0.714
+SU/District,South Burlington SD,2021,,0.727
+SU/District,South Burlington SD,2021,All Students Surveyed,0.948
+SU/District,South Burlington SD,2021,Boys,0.94
+SU/District,South Burlington SD,2021,Girls,0.971
+SU/District,South Burlington SD,2021,Free and Reduced Lunch Eligible,0.727
+SU/District,South Burlington SD,2021,Not Free and Reduced Lunch Eligible,0.977
+SU/District,South Burlington SD,2021,Attended Publicly Funded PreK,0.935
+SU/District,South Burlington SD,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Southwest Vermont SU,2021,,0.671
+SU/District,Southwest Vermont SU,2021,All Students Surveyed,0.767
+SU/District,Southwest Vermont SU,2021,Boys,0.732
+SU/District,Southwest Vermont SU,2021,Girls,0.803
+SU/District,Southwest Vermont SU,2021,Free and Reduced Lunch Eligible,0.671
+SU/District,Southwest Vermont SU,2021,Not Free and Reduced Lunch Eligible,0.872
+SU/District,Southwest Vermont SU,2021,Attended Publicly Funded PreK,0.81
+SU/District,Southwest Vermont SU,2021,Did Not Attend Publicly Funded PreK,0.65
+SU/District,Springfield SD,2021,,0.842
+SU/District,Springfield SD,2021,All Students Surveyed,0.786
+SU/District,Springfield SD,2021,Boys,0.702
+SU/District,Springfield SD,2021,Girls,0.892
+SU/District,Springfield SD,2021,Free and Reduced Lunch Eligible,0.842
+SU/District,Springfield SD,2021,Not Free and Reduced Lunch Eligible,0.725
+SU/District,Springfield SD,2021,Attended Publicly Funded PreK,0.889
+SU/District,Springfield SD,2021,Did Not Attend Publicly Funded PreK,0.476
+SU/District,St Johnsbury SD,2021,,1
+SU/District,St Johnsbury SD,2021,All Students Surveyed,0.923
+SU/District,St Johnsbury SD,2021,Boys,0.923
+SU/District,St Johnsbury SD,2021,Girls,0.923
+SU/District,St Johnsbury SD,2021,Free and Reduced Lunch Eligible,1
+SU/District,St Johnsbury SD,2021,Not Free and Reduced Lunch Eligible,0.818
+SU/District,St Johnsbury SD,2021,Attended Publicly Funded PreK,1
+SU/District,St Johnsbury SD,2021,Did Not Attend Publicly Funded PreK,0.667
+SU/District,Two Rivers SU,2021,,0.667
+SU/District,Two Rivers SU,2021,All Students Surveyed,0.886
+SU/District,Two Rivers SU,2021,Boys,0.833
+SU/District,Two Rivers SU,2021,Girls,0.941
+SU/District,Two Rivers SU,2021,Free and Reduced Lunch Eligible,0.667
+SU/District,Two Rivers SU,2021,Not Free and Reduced Lunch Eligible,0.962
+SU/District,Two Rivers SU,2021,Attended Publicly Funded PreK,0.871
+SU/District,Two Rivers SU,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Washington Central SU,2021,,0.917
+SU/District,Washington Central SU,2021,All Students Surveyed,0.939
+SU/District,Washington Central SU,2021,Boys,0.972
+SU/District,Washington Central SU,2021,Girls,0.9
+SU/District,Washington Central SU,2021,Free and Reduced Lunch Eligible,0.917
+SU/District,Washington Central SU,2021,Not Free and Reduced Lunch Eligible,0.944
+SU/District,Washington Central SU,2021,Attended Publicly Funded PreK,0.965
+SU/District,Washington Central SU,2021,Did Not Attend Publicly Funded PreK,0.778
+SU/District,White River Valley SU,2021,,0.706
+SU/District,White River Valley SU,2021,All Students Surveyed,0.864
+SU/District,White River Valley SU,2021,Boys,0.868
+SU/District,White River Valley SU,2021,Girls,0.857
+SU/District,White River Valley SU,2021,Free and Reduced Lunch Eligible,0.706
+SU/District,White River Valley SU,2021,Not Free and Reduced Lunch Eligible,0.918
+SU/District,White River Valley SU,2021,Attended Publicly Funded PreK,0.85
+SU/District,White River Valley SU,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Windham Central SU,2021,,0.857
+SU/District,Windham Central SU,2021,All Students Surveyed,0.973
+SU/District,Windham Central SU,2021,Boys,0.952
+SU/District,Windham Central SU,2021,Girls,1
+SU/District,Windham Central SU,2021,Free and Reduced Lunch Eligible,0.857
+SU/District,Windham Central SU,2021,Not Free and Reduced Lunch Eligible,1
+SU/District,Windham Central SU,2021,Attended Publicly Funded PreK,1
+SU/District,Windham Central SU,2021,Did Not Attend Publicly Funded PreK,0.667
+SU/District,Windham Northeast SU,2021,,0.786
+SU/District,Windham Northeast SU,2021,All Students Surveyed,0.867
+SU/District,Windham Northeast SU,2021,Boys,0.846
+SU/District,Windham Northeast SU,2021,Girls,0.905
+SU/District,Windham Northeast SU,2021,Free and Reduced Lunch Eligible,0.786
+SU/District,Windham Northeast SU,2021,Not Free and Reduced Lunch Eligible,0.891
+SU/District,Windham Northeast SU,2021,Attended Publicly Funded PreK,0.889
+SU/District,Windham Northeast SU,2021,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Windham Southeast SU,2021,,0.8
+SU/District,Windham Southeast SU,2021,All Students Surveyed,0.9
+SU/District,Windham Southeast SU,2021,Boys,0.862
+SU/District,Windham Southeast SU,2021,Girls,0.93
+SU/District,Windham Southeast SU,2021,Free and Reduced Lunch Eligible,0.8
+SU/District,Windham Southeast SU,2021,Not Free and Reduced Lunch Eligible,0.916
+SU/District,Windham Southeast SU,2021,Attended Publicly Funded PreK,0.914
+SU/District,Windham Southeast SU,2021,Did Not Attend Publicly Funded PreK,0.826
+SU/District,Windham Southwest SU,2021,,0.889
+SU/District,Windham Southwest SU,2021,All Students Surveyed,0.941
+SU/District,Windham Southwest SU,2021,Boys,0.947
+SU/District,Windham Southwest SU,2021,Girls,0.933
+SU/District,Windham Southwest SU,2021,Free and Reduced Lunch Eligible,0.889
+SU/District,Windham Southwest SU,2021,Not Free and Reduced Lunch Eligible,0.96
+SU/District,Windham Southwest SU,2021,Attended Publicly Funded PreK,0.963
+SU/District,Windham Southwest SU,2021,Did Not Attend Publicly Funded PreK,0.857
+SU/District,Windsor Central,2021,,1
+SU/District,Windsor Central,2021,All Students Surveyed,0.983
+SU/District,Windsor Central,2021,Boys,0.971
+SU/District,Windsor Central,2021,Girls,1
+SU/District,Windsor Central,2021,Free and Reduced Lunch Eligible,1
+SU/District,Windsor Central,2021,Not Free and Reduced Lunch Eligible,0.98
+SU/District,Windsor Central,2021,Attended Publicly Funded PreK,0.979
+SU/District,Windsor Central,2021,Did Not Attend Publicly Funded PreK,1
+SU/District,Windsor Southeast SU,2021,,1
+SU/District,Windsor Southeast SU,2021,All Students Surveyed,0.944
+SU/District,Windsor Southeast SU,2021,Boys,0.932
+SU/District,Windsor Southeast SU,2021,Girls,0.964
+SU/District,Windsor Southeast SU,2021,Free and Reduced Lunch Eligible,1
+SU/District,Windsor Southeast SU,2021,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Windsor Southeast SU,2021,Attended Publicly Funded PreK,0.94
+SU/District,Windsor Southeast SU,2021,Did Not Attend Publicly Funded PreK,0.96
+SU/District,Winooski SD,2021,,0.813
+SU/District,Winooski SD,2021,All Students Surveyed,0.797
+SU/District,Winooski SD,2021,Boys,0.75
+SU/District,Winooski SD,2021,Girls,0.87
+SU/District,Winooski SD,2021,Free and Reduced Lunch Eligible,0.813
+SU/District,Winooski SD,2021,Not Free and Reduced Lunch Eligible,0.791
+SU/District,Winooski SD,2021,Attended Publicly Funded PreK,0.826
+SU/District,Winooski SD,2021,Did Not Attend Publicly Funded PreK,0.892
+State,Vermont,2022,,0.74
+State,Vermont,2022,1-Not yet ready,0.05
+State,Vermont,2022,2-Approaching ready,0.09
+State,Vermont,2022,3-Ready and practicing,0.22
+State,Vermont,2022,4-Ready and performing independently,0.64
+State,Vermont,2022,Total of all students statewide identified as ready,0.86
+State,Vermont,2022,All Students Surveyed,0.85
+State,Vermont,2022,Boys,0.82
+State,Vermont,2022,Girls,0.89
+State,Vermont,2022,Free and Reduced Lunch Eligible,0.74
+State,Vermont,2022,Not Free and Reduced Lunch Eligible,0.91
+State,Vermont,2022,Attended Publicly Funded PreK,0.87
+State,Vermont,2022,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Addison Central SD,2022,,0.83
+SU/District,Addison Central SD,2022,All Students Surveyed,0.91
+SU/District,Addison Central SD,2022,Boys,0.87
+SU/District,Addison Central SD,2022,Girls,0.94
+SU/District,Addison Central SD,2022,Free and Reduced Lunch Eligible,0.83
+SU/District,Addison Central SD,2022,Not Free and Reduced Lunch Eligible,0.93
+SU/District,Addison Central SD,2022,Attended Publicly Funded PreK,0.93
+SU/District,Addison Central SD,2022,Did Not Attend Publicly Funded PreK,0.85
+SU/District,Addison Northwest SD,2022,,0.88
+SU/District,Addison Northwest SD,2022,All Students Surveyed,0.86
+SU/District,Addison Northwest SD,2022,Boys,0.81
+SU/District,Addison Northwest SD,2022,Girls,0.9
+SU/District,Addison Northwest SD,2022,Free and Reduced Lunch Eligible,0.88
+SU/District,Addison Northwest SD,2022,Not Free and Reduced Lunch Eligible,0.85
+SU/District,Addison Northwest SD,2022,Attended Publicly Funded PreK,0.88
+SU/District,Addison Northwest SD,2022,Did Not Attend Publicly Funded PreK,0.81
+SU/District,Barre SU,2022,,0.75
+SU/District,Barre SU,2022,All Students Surveyed,0.82
+SU/District,Barre SU,2022,Boys,0.74
+SU/District,Barre SU,2022,Girls,0.89
+SU/District,Barre SU,2022,Free and Reduced Lunch Eligible,0.75
+SU/District,Barre SU,2022,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Barre SU,2022,Attended Publicly Funded PreK,0.83
+SU/District,Barre SU,2022,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Bennington Rutland SU,2022,,0.83
+SU/District,Bennington Rutland SU,2022,All Students Surveyed,0.88
+SU/District,Bennington Rutland SU,2022,Boys,0.86
+SU/District,Bennington Rutland SU,2022,Girls,0.9
+SU/District,Bennington Rutland SU,2022,Free and Reduced Lunch Eligible,0.83
+SU/District,Bennington Rutland SU,2022,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Bennington Rutland SU,2022,Attended Publicly Funded PreK,0.88
+SU/District,Bennington Rutland SU,2022,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Burlington SD,2022,,0.62
+SU/District,Burlington SD,2022,All Students Surveyed,0.78
+SU/District,Burlington SD,2022,Boys,0.76
+SU/District,Burlington SD,2022,Girls,0.8
+SU/District,Burlington SD,2022,Free and Reduced Lunch Eligible,0.62
+SU/District,Burlington SD,2022,Not Free and Reduced Lunch Eligible,0.93
+SU/District,Burlington SD,2022,Attended Publicly Funded PreK,0.79
+SU/District,Burlington SD,2022,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Caledonia Central SU,2022,,0.78
+SU/District,Caledonia Central SU,2022,All Students Surveyed,0.9
+SU/District,Caledonia Central SU,2022,Boys,0.86
+SU/District,Caledonia Central SU,2022,Girls,0.96
+SU/District,Caledonia Central SU,2022,Free and Reduced Lunch Eligible,0.78
+SU/District,Caledonia Central SU,2022,Not Free and Reduced Lunch Eligible,0.95
+SU/District,Caledonia Central SU,2022,Attended Publicly Funded PreK,0.91
+SU/District,Caledonia Central SU,2022,Did Not Attend Publicly Funded PreK,0.88
+SU/District,Central Vermont SU,2022,,0.75
+SU/District,Central Vermont SU,2022,All Students Surveyed,0.85
+SU/District,Central Vermont SU,2022,Boys,0.8
+SU/District,Central Vermont SU,2022,Girls,0.9
+SU/District,Central Vermont SU,2022,Free and Reduced Lunch Eligible,0.75
+SU/District,Central Vermont SU,2022,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Central Vermont SU,2022,Attended Publicly Funded PreK,0.87
+SU/District,Central Vermont SU,2022,Did Not Attend Publicly Funded PreK,0.79
+SU/District,Champlain Valley SD,2022,,0.82
+SU/District,Champlain Valley SD,2022,All Students Surveyed,0.95
+SU/District,Champlain Valley SD,2022,Boys,0.92
+SU/District,Champlain Valley SD,2022,Girls,0.97
+SU/District,Champlain Valley SD,2022,Free and Reduced Lunch Eligible,0.82
+SU/District,Champlain Valley SD,2022,Not Free and Reduced Lunch Eligible,0.96
+SU/District,Champlain Valley SD,2022,Attended Publicly Funded PreK,0.96
+SU/District,Champlain Valley SD,2022,Did Not Attend Publicly Funded PreK,0.88
+SU/District,Colchester SD,2022,,0.81
+SU/District,Colchester SD,2022,All Students Surveyed,0.84
+SU/District,Colchester SD,2022,Boys,0.78
+SU/District,Colchester SD,2022,Girls,0.9
+SU/District,Colchester SD,2022,Free and Reduced Lunch Eligible,0.81
+SU/District,Colchester SD,2022,Not Free and Reduced Lunch Eligible,0.85
+SU/District,Colchester SD,2022,Attended Publicly Funded PreK,0.86
+SU/District,Colchester SD,2022,Did Not Attend Publicly Funded PreK,0.79
+SU/District,Essex North SU,2022,,0
+SU/District,Essex North SU,2022,All Students Surveyed,0.67
+SU/District,Essex North SU,2022,Boys,0.5
+SU/District,Essex North SU,2022,Girls,1
+SU/District,Essex North SU,2022,Free and Reduced Lunch Eligible,0
+SU/District,Essex North SU,2022,Not Free and Reduced Lunch Eligible,1
+SU/District,Essex North SU,2022,Attended Publicly Funded PreK,0.5
+SU/District,Essex North SU,2022,Did Not Attend Publicly Funded PreK,1
+SU/District,Essex Westford SD,2022,,0.81
+SU/District,Essex Westford SD,2022,All Students Surveyed,0.91
+SU/District,Essex Westford SD,2022,Boys,0.89
+SU/District,Essex Westford SD,2022,Girls,0.94
+SU/District,Essex Westford SD,2022,Free and Reduced Lunch Eligible,0.81
+SU/District,Essex Westford SD,2022,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Essex Westford SD,2022,Attended Publicly Funded PreK,0.9
+SU/District,Essex Westford SD,2022,Did Not Attend Publicly Funded PreK,0.94
+SU/District,Franklin Northeast SU,2022,,0.71
+SU/District,Franklin Northeast SU,2022,All Students Surveyed,0.82
+SU/District,Franklin Northeast SU,2022,Boys,0.76
+SU/District,Franklin Northeast SU,2022,Girls,0.87
+SU/District,Franklin Northeast SU,2022,Free and Reduced Lunch Eligible,0.71
+SU/District,Franklin Northeast SU,2022,Not Free and Reduced Lunch Eligible,0.88
+SU/District,Franklin Northeast SU,2022,Attended Publicly Funded PreK,0.81
+SU/District,Franklin Northeast SU,2022,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Franklin West SU,2022,,0.75
+SU/District,Franklin West SU,2022,All Students Surveyed,0.91
+SU/District,Franklin West SU,2022,Boys,0.97
+SU/District,Franklin West SU,2022,Girls,0.87
+SU/District,Franklin West SU,2022,Free and Reduced Lunch Eligible,0.75
+SU/District,Franklin West SU,2022,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Franklin West SU,2022,Attended Publicly Funded PreK,0.95
+SU/District,Franklin West SU,2022,Did Not Attend Publicly Funded PreK,0.81
+SU/District,Grand Isle SU,2022,,0.78
+SU/District,Grand Isle SU,2022,All Students Surveyed,0.86
+SU/District,Grand Isle SU,2022,Boys,0.84
+SU/District,Grand Isle SU,2022,Girls,0.92
+SU/District,Grand Isle SU,2022,Free and Reduced Lunch Eligible,0.78
+SU/District,Grand Isle SU,2022,Not Free and Reduced Lunch Eligible,0.88
+SU/District,Grand Isle SU,2022,Attended Publicly Funded PreK,0.95
+SU/District,Grand Isle SU,2022,Did Not Attend Publicly Funded PreK,0.57
+SU/District,Greater Rutland County SU,2022,,0.53
+SU/District,Greater Rutland County SU,2022,All Students Surveyed,0.76
+SU/District,Greater Rutland County SU,2022,Boys,0.71
+SU/District,Greater Rutland County SU,2022,Girls,0.82
+SU/District,Greater Rutland County SU,2022,Free and Reduced Lunch Eligible,0.53
+SU/District,Greater Rutland County SU,2022,Not Free and Reduced Lunch Eligible,0.87
+SU/District,Greater Rutland County SU,2022,Attended Publicly Funded PreK,0.79
+SU/District,Greater Rutland County SU,2022,Did Not Attend Publicly Funded PreK,0.69
+SU/District,Hartford SD,2022,,0.5
+SU/District,Hartford SD,2022,All Students Surveyed,0.66
+SU/District,Hartford SD,2022,Boys,0.6
+SU/District,Hartford SD,2022,Girls,0.73
+SU/District,Hartford SD,2022,Free and Reduced Lunch Eligible,0.5
+SU/District,Hartford SD,2022,Not Free and Reduced Lunch Eligible,0.73
+SU/District,Hartford SD,2022,Attended Publicly Funded PreK,0.67
+SU/District,Hartford SD,2022,Did Not Attend Publicly Funded PreK,0.64
+SU/District,Harwood Unified SD,2022,,0.81
+SU/District,Harwood Unified SD,2022,All Students Surveyed,0.86
+SU/District,Harwood Unified SD,2022,Boys,0.8
+SU/District,Harwood Unified SD,2022,Girls,0.94
+SU/District,Harwood Unified SD,2022,Free and Reduced Lunch Eligible,0.81
+SU/District,Harwood Unified SD,2022,Not Free and Reduced Lunch Eligible,0.87
+SU/District,Harwood Unified SD,2022,Attended Publicly Funded PreK,0.88
+SU/District,Harwood Unified SD,2022,Did Not Attend Publicly Funded PreK,0.69
+SU/District,Kingdom East SD,2022,,0.94
+SU/District,Kingdom East SD,2022,All Students Surveyed,0.96
+SU/District,Kingdom East SD,2022,Boys,0.95
+SU/District,Kingdom East SD,2022,Girls,0.98
+SU/District,Kingdom East SD,2022,Free and Reduced Lunch Eligible,0.94
+SU/District,Kingdom East SD,2022,Not Free and Reduced Lunch Eligible,0.98
+SU/District,Kingdom East SD,2022,Attended Publicly Funded PreK,0.98
+SU/District,Kingdom East SD,2022,Did Not Attend Publicly Funded PreK,0.9
+SU/District,Lamoille North SU,2022,,0.68
+SU/District,Lamoille North SU,2022,All Students Surveyed,0.83
+SU/District,Lamoille North SU,2022,Boys,0.84
+SU/District,Lamoille North SU,2022,Girls,0.8
+SU/District,Lamoille North SU,2022,Free and Reduced Lunch Eligible,0.68
+SU/District,Lamoille North SU,2022,Not Free and Reduced Lunch Eligible,0.88
+SU/District,Lamoille North SU,2022,Attended Publicly Funded PreK,0.84
+SU/District,Lamoille North SU,2022,Did Not Attend Publicly Funded PreK,0.76
+SU/District,Lamoille South SU,2022,,0.44
+SU/District,Lamoille South SU,2022,All Students Surveyed,0.81
+SU/District,Lamoille South SU,2022,Boys,0.76
+SU/District,Lamoille South SU,2022,Girls,0.86
+SU/District,Lamoille South SU,2022,Free and Reduced Lunch Eligible,0.44
+SU/District,Lamoille South SU,2022,Not Free and Reduced Lunch Eligible,0.88
+SU/District,Lamoille South SU,2022,Attended Publicly Funded PreK,0.86
+SU/District,Lamoille South SU,2022,Did Not Attend Publicly Funded PreK,0.62
+SU/District,Maple Run SD,2022,,0.91
+SU/District,Maple Run SD,2022,All Students Surveyed,0.93
+SU/District,Maple Run SD,2022,Boys,0.9
+SU/District,Maple Run SD,2022,Girls,0.96
+SU/District,Maple Run SD,2022,Free and Reduced Lunch Eligible,0.91
+SU/District,Maple Run SD,2022,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Maple Run SD,2022,Attended Publicly Funded PreK,0.95
+SU/District,Maple Run SD,2022,Did Not Attend Publicly Funded PreK,0.89
+SU/District,Mill River Unified SD,2022,,0.6
+SU/District,Mill River Unified SD,2022,All Students Surveyed,0.88
+SU/District,Mill River Unified SD,2022,Boys,0.78
+SU/District,Mill River Unified SD,2022,Girls,0.96
+SU/District,Mill River Unified SD,2022,Free and Reduced Lunch Eligible,0.6
+SU/District,Mill River Unified SD,2022,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Mill River Unified SD,2022,Attended Publicly Funded PreK,0.89
+SU/District,Mill River Unified SD,2022,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Milton SD,2022,,0.72
+SU/District,Milton SD,2022,All Students Surveyed,0.81
+SU/District,Milton SD,2022,Boys,0.75
+SU/District,Milton SD,2022,Girls,0.91
+SU/District,Milton SD,2022,Free and Reduced Lunch Eligible,0.72
+SU/District,Milton SD,2022,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Milton SD,2022,Attended Publicly Funded PreK,0.82
+SU/District,Milton SD,2022,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Missisquoi Valley SD,2022,,0.87
+SU/District,Missisquoi Valley SD,2022,All Students Surveyed,0.9
+SU/District,Missisquoi Valley SD,2022,Boys,0.86
+SU/District,Missisquoi Valley SD,2022,Girls,0.98
+SU/District,Missisquoi Valley SD,2022,Free and Reduced Lunch Eligible,0.87
+SU/District,Missisquoi Valley SD,2022,Not Free and Reduced Lunch Eligible,0.91
+SU/District,Missisquoi Valley SD,2022,Attended Publicly Funded PreK,0.9
+SU/District,Missisquoi Valley SD,2022,Did Not Attend Publicly Funded PreK,0.91
+SU/District,Montpelier Roxbury SD,2022,,0.6
+SU/District,Montpelier Roxbury SD,2022,All Students Surveyed,0.81
+SU/District,Montpelier Roxbury SD,2022,Boys,0.84
+SU/District,Montpelier Roxbury SD,2022,Girls,0.77
+SU/District,Montpelier Roxbury SD,2022,Free and Reduced Lunch Eligible,0.6
+SU/District,Montpelier Roxbury SD,2022,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Montpelier Roxbury SD,2022,Attended Publicly Funded PreK,0.84
+SU/District,Montpelier Roxbury SD,2022,Did Not Attend Publicly Funded PreK,0.73
+SU/District,Mt Abraham Unified SD,2022,,0.56
+SU/District,Mt Abraham Unified SD,2022,All Students Surveyed,0.86
+SU/District,Mt Abraham Unified SD,2022,Boys,0.82
+SU/District,Mt Abraham Unified SD,2022,Girls,0.92
+SU/District,Mt Abraham Unified SD,2022,Free and Reduced Lunch Eligible,0.56
+SU/District,Mt Abraham Unified SD,2022,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Mt Abraham Unified SD,2022,Attended Publicly Funded PreK,0.87
+SU/District,Mt Abraham Unified SD,2022,Did Not Attend Publicly Funded PreK,0.82
+SU/District,Mt Mainsfield Unified SD,2022,,0.67
+SU/District,Mt Mainsfield Unified SD,2022,All Students Surveyed,0.94
+SU/District,Mt Mainsfield Unified SD,2022,Boys,0.88
+SU/District,Mt Mainsfield Unified SD,2022,Girls,1
+SU/District,Mt Mainsfield Unified SD,2022,Free and Reduced Lunch Eligible,0.67
+SU/District,Mt Mainsfield Unified SD,2022,Not Free and Reduced Lunch Eligible,0.96
+SU/District,Mt Mainsfield Unified SD,2022,Attended Publicly Funded PreK,0.94
+SU/District,Mt Mainsfield Unified SD,2022,Did Not Attend Publicly Funded PreK,0.94
+SU/District,North Country SU,2022,,0.75
+SU/District,North Country SU,2022,All Students Surveyed,0.81
+SU/District,North Country SU,2022,Boys,0.8
+SU/District,North Country SU,2022,Girls,0.83
+SU/District,North Country SU,2022,Free and Reduced Lunch Eligible,0.75
+SU/District,North Country SU,2022,Not Free and Reduced Lunch Eligible,0.86
+SU/District,North Country SU,2022,Attended Publicly Funded PreK,0.87
+SU/District,North Country SU,2022,Did Not Attend Publicly Funded PreK,0.61
+SU/District,Orange East SU,2022,,0.81
+SU/District,Orange East SU,2022,All Students Surveyed,0.84
+SU/District,Orange East SU,2022,Boys,0.79
+SU/District,Orange East SU,2022,Girls,0.88
+SU/District,Orange East SU,2022,Free and Reduced Lunch Eligible,0.81
+SU/District,Orange East SU,2022,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Orange East SU,2022,Attended Publicly Funded PreK,0.86
+SU/District,Orange East SU,2022,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Orange Southwest SD,2022,,0.6
+SU/District,Orange Southwest SD,2022,All Students Surveyed,0.89
+SU/District,Orange Southwest SD,2022,Boys,0.92
+SU/District,Orange Southwest SD,2022,Girls,0.86
+SU/District,Orange Southwest SD,2022,Free and Reduced Lunch Eligible,0.6
+SU/District,Orange Southwest SD,2022,Not Free and Reduced Lunch Eligible,0.97
+SU/District,Orange Southwest SD,2022,Attended Publicly Funded PreK,0.88
+SU/District,Orange Southwest SD,2022,Did Not Attend Publicly Funded PreK,0.91
+SU/District,Orleans Central SU,2022,,0.69
+SU/District,Orleans Central SU,2022,All Students Surveyed,0.82
+SU/District,Orleans Central SU,2022,Boys,0.79
+SU/District,Orleans Central SU,2022,Girls,0.84
+SU/District,Orleans Central SU,2022,Free and Reduced Lunch Eligible,0.69
+SU/District,Orleans Central SU,2022,Not Free and Reduced Lunch Eligible,1
+SU/District,Orleans Central SU,2022,Attended Publicly Funded PreK,0.84
+SU/District,Orleans Central SU,2022,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Orleans Southwest SU,2022,,0.89
+SU/District,Orleans Southwest SU,2022,All Students Surveyed,0.96
+SU/District,Orleans Southwest SU,2022,Boys,0.92
+SU/District,Orleans Southwest SU,2022,Girls,1
+SU/District,Orleans Southwest SU,2022,Free and Reduced Lunch Eligible,0.89
+SU/District,Orleans Southwest SU,2022,Not Free and Reduced Lunch Eligible,1
+SU/District,Orleans Southwest SU,2022,Attended Publicly Funded PreK,0.95
+SU/District,Orleans Southwest SU,2022,Did Not Attend Publicly Funded PreK,1
+SU/District,Rivendell Interstate SD,2022,,1
+SU/District,Rivendell Interstate SD,2022,All Students Surveyed,1
+SU/District,Rivendell Interstate SD,2022,Boys,1
+SU/District,Rivendell Interstate SD,2022,Girls,1
+SU/District,Rivendell Interstate SD,2022,Free and Reduced Lunch Eligible,1
+SU/District,Rivendell Interstate SD,2022,Not Free and Reduced Lunch Eligible,1
+SU/District,Rivendell Interstate SD,2022,Attended Publicly Funded PreK,1
+SU/District,Rivendell Interstate SD,2022,Did Not Attend Publicly Funded PreK,1
+SU/District,Rutland City SD,2022,,0.61
+SU/District,Rutland City SD,2022,All Students Surveyed,0.71
+SU/District,Rutland City SD,2022,Boys,0.62
+SU/District,Rutland City SD,2022,Girls,0.83
+SU/District,Rutland City SD,2022,Free and Reduced Lunch Eligible,0.61
+SU/District,Rutland City SD,2022,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Rutland City SD,2022,Attended Publicly Funded PreK,0.68
+SU/District,Rutland City SD,2022,Did Not Attend Publicly Funded PreK,0.74
+SU/District,Rutland Northeast SD,2022,,0.68
+SU/District,Rutland Northeast SD,2022,All Students Surveyed,0.82
+SU/District,Rutland Northeast SD,2022,Boys,0.82
+SU/District,Rutland Northeast SD,2022,Girls,0.83
+SU/District,Rutland Northeast SD,2022,Free and Reduced Lunch Eligible,0.68
+SU/District,Rutland Northeast SD,2022,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Rutland Northeast SD,2022,Attended Publicly Funded PreK,0.83
+SU/District,Rutland Northeast SD,2022,Did Not Attend Publicly Funded PreK,0.77
+SU/District,Slate Valley SD,2022,,1
+SU/District,Slate Valley SD,2022,All Students Surveyed,0.95
+SU/District,Slate Valley SD,2022,Boys,0.94
+SU/District,Slate Valley SD,2022,Girls,0.95
+SU/District,Slate Valley SD,2022,Free and Reduced Lunch Eligible,1
+SU/District,Slate Valley SD,2022,Not Free and Reduced Lunch Eligible,0.93
+SU/District,Slate Valley SD,2022,Attended Publicly Funded PreK,1
+SU/District,Slate Valley SD,2022,Did Not Attend Publicly Funded PreK,0.82
+SU/District,South Burlington SD,2022,,0.71
+SU/District,South Burlington SD,2022,Boys,0.89
+SU/District,South Burlington SD,2022,Girls,0.97
+SU/District,South Burlington SD,2022,Free and Reduced Lunch Eligible,0.71
+SU/District,South Burlington SD,2022,Not Free and Reduced Lunch Eligible,0.98
+SU/District,South Burlington SD,2022,Attended Publicly Funded PreK,0.95
+SU/District,South Burlington SD,2022,Did Not Attend Publicly Funded PreK,0.86
+SU/District,Southwest Vermont SU,2022,,0.7
+SU/District,Southwest Vermont SU,2022,All Students Surveyed,0.78
+SU/District,Southwest Vermont SU,2022,Boys,0.71
+SU/District,Southwest Vermont SU,2022,Girls,0.83
+SU/District,Southwest Vermont SU,2022,Free and Reduced Lunch Eligible,0.7
+SU/District,Southwest Vermont SU,2022,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Southwest Vermont SU,2022,Attended Publicly Funded PreK,0.74
+SU/District,Southwest Vermont SU,2022,Did Not Attend Publicly Funded PreK,0.86
+SU/District,Springfield SD,2022,,0.68
+SU/District,Springfield SD,2022,All Students Surveyed,0.75
+SU/District,Springfield SD,2022,Boys,0.73
+SU/District,Springfield SD,2022,Girls,0.77
+SU/District,Springfield SD,2022,Free and Reduced Lunch Eligible,0.68
+SU/District,Springfield SD,2022,Not Free and Reduced Lunch Eligible,0.79
+SU/District,Springfield SD,2022,Attended Publicly Funded PreK,0.77
+SU/District,Springfield SD,2022,Did Not Attend Publicly Funded PreK,0.7
+SU/District,St Johnsbury SD,2022,,0.82
+SU/District,St Johnsbury SD,2022,All Students Surveyed,0.84
+SU/District,St Johnsbury SD,2022,Boys,0.74
+SU/District,St Johnsbury SD,2022,Girls,0.96
+SU/District,St Johnsbury SD,2022,Free and Reduced Lunch Eligible,0.82
+SU/District,St Johnsbury SD,2022,Not Free and Reduced Lunch Eligible,0.88
+SU/District,St Johnsbury SD,2022,Attended Publicly Funded PreK,0.89
+SU/District,St Johnsbury SD,2022,Did Not Attend Publicly Funded PreK,0.69
+SU/District,Two Rivers SU,2022,,0.64
+SU/District,Two Rivers SU,2022,All Students Surveyed,0.65
+SU/District,Two Rivers SU,2022,Boys,0.56
+SU/District,Two Rivers SU,2022,Girls,0.77
+SU/District,Two Rivers SU,2022,Free and Reduced Lunch Eligible,0.64
+SU/District,Two Rivers SU,2022,Not Free and Reduced Lunch Eligible,0.65
+SU/District,Two Rivers SU,2022,Attended Publicly Funded PreK,0.63
+SU/District,Two Rivers SU,2022,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Washington Central SU,2022,,0.82
+SU/District,Washington Central SU,2022,All Students Surveyed,0.84
+SU/District,Washington Central SU,2022,Boys,0.76
+SU/District,Washington Central SU,2022,Girls,0.94
+SU/District,Washington Central SU,2022,Free and Reduced Lunch Eligible,0.82
+SU/District,Washington Central SU,2022,Not Free and Reduced Lunch Eligible,0.85
+SU/District,Washington Central SU,2022,Attended Publicly Funded PreK,0.87
+SU/District,Washington Central SU,2022,Did Not Attend Publicly Funded PreK,0.74
+SU/District,White River Valley SU,2022,,0.71
+SU/District,White River Valley SU,2022,All Students Surveyed,0.8
+SU/District,White River Valley SU,2022,Boys,0.77
+SU/District,White River Valley SU,2022,Girls,0.84
+SU/District,White River Valley SU,2022,Free and Reduced Lunch Eligible,0.71
+SU/District,White River Valley SU,2022,Not Free and Reduced Lunch Eligible,0.86
+SU/District,White River Valley SU,2022,Attended Publicly Funded PreK,0.79
+SU/District,White River Valley SU,2022,Did Not Attend Publicly Funded PreK,0.81
+SU/District,Windham Central SU,2022,,0.9
+SU/District,Windham Central SU,2022,All Students Surveyed,0.93
+SU/District,Windham Central SU,2022,Boys,0.89
+SU/District,Windham Central SU,2022,Girls,1
+SU/District,Windham Central SU,2022,Free and Reduced Lunch Eligible,0.9
+SU/District,Windham Central SU,2022,Not Free and Reduced Lunch Eligible,0.96
+SU/District,Windham Central SU,2022,Attended Publicly Funded PreK,0.93
+SU/District,Windham Central SU,2022,Did Not Attend Publicly Funded PreK,1
+SU/District,Windham Northeast SU,2022,,0.76
+SU/District,Windham Northeast SU,2022,All Students Surveyed,0.87
+SU/District,Windham Northeast SU,2022,Boys,0.91
+SU/District,Windham Northeast SU,2022,Girls,0.81
+SU/District,Windham Northeast SU,2022,Free and Reduced Lunch Eligible,0.76
+SU/District,Windham Northeast SU,2022,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Windham Northeast SU,2022,Attended Publicly Funded PreK,0.89
+SU/District,Windham Northeast SU,2022,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Windham Southeast SU,2022,,0.67
+SU/District,Windham Southeast SU,2022,All Students Surveyed,0.82
+SU/District,Windham Southeast SU,2022,Boys,0.82
+SU/District,Windham Southeast SU,2022,Girls,0.82
+SU/District,Windham Southeast SU,2022,Free and Reduced Lunch Eligible,0.67
+SU/District,Windham Southeast SU,2022,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Windham Southeast SU,2022,Attended Publicly Funded PreK,0.83
+SU/District,Windham Southeast SU,2022,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Windham Southwest SU,2022,,1
+SU/District,Windham Southwest SU,2022,All Students Surveyed,0.92
+SU/District,Windham Southwest SU,2022,Boys,0.93
+SU/District,Windham Southwest SU,2022,Girls,0.92
+SU/District,Windham Southwest SU,2022,Free and Reduced Lunch Eligible,1
+SU/District,Windham Southwest SU,2022,Not Free and Reduced Lunch Eligible,0.91
+SU/District,Windham Southwest SU,2022,Attended Publicly Funded PreK,0.94
+SU/District,Windham Southwest SU,2022,Did Not Attend Publicly Funded PreK,0.88
+SU/District,Windsor Central,2022,,1
+SU/District,Windsor Central,2022,All Students Surveyed,1
+SU/District,Windsor Central,2022,Boys,1
+SU/District,Windsor Central,2022,Girls,1
+SU/District,Windsor Central,2022,Free and Reduced Lunch Eligible,1
+SU/District,Windsor Central,2022,Not Free and Reduced Lunch Eligible,1
+SU/District,Windsor Central,2022,Attended Publicly Funded PreK,1
+SU/District,Windsor Central,2022,Did Not Attend Publicly Funded PreK,1
+SU/District,Windsor Southeast SU,2022,,0.88
+SU/District,Windsor Southeast SU,2022,All Students Surveyed,0.87
+SU/District,Windsor Southeast SU,2022,Boys,0.83
+SU/District,Windsor Southeast SU,2022,Girls,0.92
+SU/District,Windsor Southeast SU,2022,Free and Reduced Lunch Eligible,0.88
+SU/District,Windsor Southeast SU,2022,Not Free and Reduced Lunch Eligible,0.87
+SU/District,Windsor Southeast SU,2022,Attended Publicly Funded PreK,0.91
+SU/District,Windsor Southeast SU,2022,Did Not Attend Publicly Funded PreK,0.76
+SU/District,Winooski SD,2022,,0.78
+SU/District,Winooski SD,2022,All Students Surveyed,0.83
+SU/District,Winooski SD,2022,Boys,0.73
+SU/District,Winooski SD,2022,Girls,0.92
+SU/District,Winooski SD,2022,Free and Reduced Lunch Eligible,0.78
+SU/District,Winooski SD,2022,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Winooski SD,2022,Attended Publicly Funded PreK,0.86
+SU/District,Winooski SD,2022,Did Not Attend Publicly Funded PreK,0.67
+State,Vermont,2023,,0.75
+State,Vermont,2023,All Students Surveyed,0.86
+State,Vermont,2023,Boys,0.82
+State,Vermont,2023,Girls,0.9
+State,Vermont,2023,Free and Reduced Lunch Eligible,0.75
+State,Vermont,2023,Not Free and Reduced Lunch Eligible,0.89
+State,Vermont,2023,Attended Publicly Funded PreK,0.87
+State,Vermont,2023,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Addison Central SD,2023,,0.98
+SU/District,Addison Central SD,2023,All Students Surveyed,0.93
+SU/District,Addison Central SD,2023,Boys,0.89
+SU/District,Addison Central SD,2023,Girls,0.98
+SU/District,Addison Central SD,2023,Free and Reduced Lunch Eligible,0.98
+SU/District,Addison Central SD,2023,Not Free and Reduced Lunch Eligible,0.72
+SU/District,Addison Central SD,2023,Attended Publicly Funded PreK,0.97
+SU/District,Addison Central SD,2023,Did Not Attend Publicly Funded PreK,0.92
+SU/District,Addison Northwest SD,2023,,0
+SU/District,Addison Northwest SD,2023,All Students Surveyed,0.86
+SU/District,Addison Northwest SD,2023,Boys,0.81
+SU/District,Addison Northwest SD,2023,Girls,0.9
+SU/District,Addison Northwest SD,2023,Free and Reduced Lunch Eligible,0
+SU/District,Addison Northwest SD,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Addison Northwest SD,2023,Attended Publicly Funded PreK,0.89
+SU/District,Addison Northwest SD,2023,Did Not Attend Publicly Funded PreK,0.95
+SU/District,Barre SU,2023,,0.58
+SU/District,Barre SU,2023,All Students Surveyed,0.67
+SU/District,Barre SU,2023,Boys,0.67
+SU/District,Barre SU,2023,Girls,0.67
+SU/District,Barre SU,2023,Free and Reduced Lunch Eligible,0.58
+SU/District,Barre SU,2023,Not Free and Reduced Lunch Eligible,0.7
+SU/District,Barre SU,2023,Attended Publicly Funded PreK,0.72
+SU/District,Barre SU,2023,Did Not Attend Publicly Funded PreK,0.54
+SU/District,Bennington Rutland SU,2023,,0.82
+SU/District,Bennington Rutland SU,2023,All Students Surveyed,0.88
+SU/District,Bennington Rutland SU,2023,Boys,0.85
+SU/District,Bennington Rutland SU,2023,Girls,0.91
+SU/District,Bennington Rutland SU,2023,Free and Reduced Lunch Eligible,0.82
+SU/District,Bennington Rutland SU,2023,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Bennington Rutland SU,2023,Attended Publicly Funded PreK,0.91
+SU/District,Bennington Rutland SU,2023,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Burlington SD,2023,,0.72
+SU/District,Burlington SD,2023,All Students Surveyed,0.83
+SU/District,Burlington SD,2023,Boys,0.82
+SU/District,Burlington SD,2023,Girls,0.84
+SU/District,Burlington SD,2023,Free and Reduced Lunch Eligible,0.72
+SU/District,Burlington SD,2023,Not Free and Reduced Lunch Eligible,0.91
+SU/District,Burlington SD,2023,Attended Publicly Funded PreK,0.83
+SU/District,Burlington SD,2023,Did Not Attend Publicly Funded PreK,0.82
+SU/District,Caledonia Central SU,2023,,0.78
+SU/District,Caledonia Central SU,2023,All Students Surveyed,0.9
+SU/District,Caledonia Central SU,2023,Boys,0.86
+SU/District,Caledonia Central SU,2023,Girls,0.96
+SU/District,Caledonia Central SU,2023,Free and Reduced Lunch Eligible,0.78
+SU/District,Caledonia Central SU,2023,Not Free and Reduced Lunch Eligible,0.95
+SU/District,Caledonia Central SU,2023,Attended Publicly Funded PreK,0
+SU/District,Caledonia Central SU,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Central Vermont SU,2023,,0.5
+SU/District,Central Vermont SU,2023,All Students Surveyed,0.7
+SU/District,Central Vermont SU,2023,Boys,0.66
+SU/District,Central Vermont SU,2023,Girls,0.75
+SU/District,Central Vermont SU,2023,Free and Reduced Lunch Eligible,0.5
+SU/District,Central Vermont SU,2023,Not Free and Reduced Lunch Eligible,0.78
+SU/District,Central Vermont SU,2023,Attended Publicly Funded PreK,0.7
+SU/District,Central Vermont SU,2023,Did Not Attend Publicly Funded PreK,0.71
+SU/District,Champlain Valley SD,2023,,0
+SU/District,Champlain Valley SD,2023,All Students Surveyed,0.95
+SU/District,Champlain Valley SD,2023,Boys,0.92
+SU/District,Champlain Valley SD,2023,Girls,0.97
+SU/District,Champlain Valley SD,2023,Free and Reduced Lunch Eligible,0
+SU/District,Champlain Valley SD,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Champlain Valley SD,2023,Attended Publicly Funded PreK,0.96
+SU/District,Champlain Valley SD,2023,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Colchester SD,2023,,0.71
+SU/District,Colchester SD,2023,All Students Surveyed,0.91
+SU/District,Colchester SD,2023,Boys,0.85
+SU/District,Colchester SD,2023,Girls,0.96
+SU/District,Colchester SD,2023,Free and Reduced Lunch Eligible,0.71
+SU/District,Colchester SD,2023,Not Free and Reduced Lunch Eligible,0.93
+SU/District,Colchester SD,2023,Attended Publicly Funded PreK,0.95
+SU/District,Colchester SD,2023,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Essex North SU,2023,,0
+SU/District,Essex North SU,2023,All Students Surveyed,0
+SU/District,Essex North SU,2023,Boys,0
+SU/District,Essex North SU,2023,Girls,0
+SU/District,Essex North SU,2023,Free and Reduced Lunch Eligible,0
+SU/District,Essex North SU,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Essex North SU,2023,Attended Publicly Funded PreK,0
+SU/District,Essex North SU,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Essex Westford SD,2023,,0.69
+SU/District,Essex Westford SD,2023,All Students Surveyed,0.88
+SU/District,Essex Westford SD,2023,Boys,0.85
+SU/District,Essex Westford SD,2023,Girls,0.91
+SU/District,Essex Westford SD,2023,Free and Reduced Lunch Eligible,0.69
+SU/District,Essex Westford SD,2023,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Essex Westford SD,2023,Attended Publicly Funded PreK,0.9
+SU/District,Essex Westford SD,2023,Did Not Attend Publicly Funded PreK,0.82
+SU/District,Franklin Northeast SU,2023,,0.75
+SU/District,Franklin Northeast SU,2023,All Students Surveyed,0.85
+SU/District,Franklin Northeast SU,2023,Boys,0.81
+SU/District,Franklin Northeast SU,2023,Girls,0.89
+SU/District,Franklin Northeast SU,2023,Free and Reduced Lunch Eligible,0.75
+SU/District,Franklin Northeast SU,2023,Not Free and Reduced Lunch Eligible,0.91
+SU/District,Franklin Northeast SU,2023,Attended Publicly Funded PreK,0.87
+SU/District,Franklin Northeast SU,2023,Did Not Attend Publicly Funded PreK,0.77
+SU/District,Franklin West SU,2023,,0
+SU/District,Franklin West SU,2023,All Students Surveyed,0.91
+SU/District,Franklin West SU,2023,Boys,0.97
+SU/District,Franklin West SU,2023,Girls,0.87
+SU/District,Franklin West SU,2023,Free and Reduced Lunch Eligible,0
+SU/District,Franklin West SU,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Franklin West SU,2023,Attended Publicly Funded PreK,0.86
+SU/District,Franklin West SU,2023,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Grand Isle SU,2023,,0.82
+SU/District,Grand Isle SU,2023,All Students Surveyed,0.89
+SU/District,Grand Isle SU,2023,Boys,0.84
+SU/District,Grand Isle SU,2023,Girls,0.92
+SU/District,Grand Isle SU,2023,Free and Reduced Lunch Eligible,0.82
+SU/District,Grand Isle SU,2023,Not Free and Reduced Lunch Eligible,0.91
+SU/District,Grand Isle SU,2023,Attended Publicly Funded PreK,0.92
+SU/District,Grand Isle SU,2023,Did Not Attend Publicly Funded PreK,0.85
+SU/District,Greater Rutland County SU,2023,,0.6
+SU/District,Greater Rutland County SU,2023,All Students Surveyed,0.81
+SU/District,Greater Rutland County SU,2023,Boys,0.73
+SU/District,Greater Rutland County SU,2023,Girls,0.92
+SU/District,Greater Rutland County SU,2023,Free and Reduced Lunch Eligible,0.6
+SU/District,Greater Rutland County SU,2023,Not Free and Reduced Lunch Eligible,0.85
+SU/District,Greater Rutland County SU,2023,Attended Publicly Funded PreK,0.84
+SU/District,Greater Rutland County SU,2023,Did Not Attend Publicly Funded PreK,0.7
+SU/District,Hartford SD,2023,,0.6
+SU/District,Hartford SD,2023,All Students Surveyed,0.79
+SU/District,Hartford SD,2023,Boys,0.78
+SU/District,Hartford SD,2023,Girls,0.8
+SU/District,Hartford SD,2023,Free and Reduced Lunch Eligible,0.6
+SU/District,Hartford SD,2023,Not Free and Reduced Lunch Eligible,0.85
+SU/District,Hartford SD,2023,Attended Publicly Funded PreK,0.76
+SU/District,Hartford SD,2023,Did Not Attend Publicly Funded PreK,0.93
+SU/District,Harwood Unified SD,2023,,0
+SU/District,Harwood Unified SD,2023,All Students Surveyed,0.87
+SU/District,Harwood Unified SD,2023,Boys,0.81
+SU/District,Harwood Unified SD,2023,Girls,0.93
+SU/District,Harwood Unified SD,2023,Free and Reduced Lunch Eligible,0
+SU/District,Harwood Unified SD,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Harwood Unified SD,2023,Attended Publicly Funded PreK,0
+SU/District,Harwood Unified SD,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Kingdom East SD,2023,,0.67
+SU/District,Kingdom East SD,2023,All Students Surveyed,0.78
+SU/District,Kingdom East SD,2023,Boys,0.65
+SU/District,Kingdom East SD,2023,Girls,0.88
+SU/District,Kingdom East SD,2023,Free and Reduced Lunch Eligible,0.67
+SU/District,Kingdom East SD,2023,Not Free and Reduced Lunch Eligible,0.85
+SU/District,Kingdom East SD,2023,Attended Publicly Funded PreK,0.78
+SU/District,Kingdom East SD,2023,Did Not Attend Publicly Funded PreK,0.77
+SU/District,Lamoille North SU,2023,,0.88
+SU/District,Lamoille North SU,2023,All Students Surveyed,0.85
+SU/District,Lamoille North SU,2023,Boys,0.8
+SU/District,Lamoille North SU,2023,Girls,0.69
+SU/District,Lamoille North SU,2023,Free and Reduced Lunch Eligible,0.88
+SU/District,Lamoille North SU,2023,Not Free and Reduced Lunch Eligible,0.65
+SU/District,Lamoille North SU,2023,Attended Publicly Funded PreK,0.86
+SU/District,Lamoille North SU,2023,Did Not Attend Publicly Funded PreK,0.81
+SU/District,Lamoille South SU,2023,,0.73
+SU/District,Lamoille South SU,2023,All Students Surveyed,0.84
+SU/District,Lamoille South SU,2023,Boys,0.77
+SU/District,Lamoille South SU,2023,Girls,0.91
+SU/District,Lamoille South SU,2023,Free and Reduced Lunch Eligible,0.73
+SU/District,Lamoille South SU,2023,Not Free and Reduced Lunch Eligible,0.87
+SU/District,Lamoille South SU,2023,Attended Publicly Funded PreK,0.84
+SU/District,Lamoille South SU,2023,Did Not Attend Publicly Funded PreK,0.81
+SU/District,Maple Run SD,2023,,0.86
+SU/District,Maple Run SD,2023,All Students Surveyed,0.88
+SU/District,Maple Run SD,2023,Boys,0.84
+SU/District,Maple Run SD,2023,Girls,0.91
+SU/District,Maple Run SD,2023,Free and Reduced Lunch Eligible,0.86
+SU/District,Maple Run SD,2023,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Maple Run SD,2023,Attended Publicly Funded PreK,0.88
+SU/District,Maple Run SD,2023,Did Not Attend Publicly Funded PreK,0.86
+SU/District,Mill River Unified SD,2023,,0.77
+SU/District,Mill River Unified SD,2023,All Students Surveyed,0.55
+SU/District,Mill River Unified SD,2023,Boys,0.57
+SU/District,Mill River Unified SD,2023,Girls,0.53
+SU/District,Mill River Unified SD,2023,Free and Reduced Lunch Eligible,0.77
+SU/District,Mill River Unified SD,2023,Not Free and Reduced Lunch Eligible,0.47
+SU/District,Mill River Unified SD,2023,Attended Publicly Funded PreK,0
+SU/District,Mill River Unified SD,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Milton SD,2023,,0.93
+SU/District,Milton SD,2023,All Students Surveyed,0.96
+SU/District,Milton SD,2023,Boys,0.95
+SU/District,Milton SD,2023,Girls,0.96
+SU/District,Milton SD,2023,Free and Reduced Lunch Eligible,0.93
+SU/District,Milton SD,2023,Not Free and Reduced Lunch Eligible,0.97
+SU/District,Milton SD,2023,Attended Publicly Funded PreK,0.97
+SU/District,Milton SD,2023,Did Not Attend Publicly Funded PreK,0.92
+SU/District,Missisquoi Valley SD,2023,,0.88
+SU/District,Missisquoi Valley SD,2023,All Students Surveyed,0.93
+SU/District,Missisquoi Valley SD,2023,Boys,0.91
+SU/District,Missisquoi Valley SD,2023,Girls,0.95
+SU/District,Missisquoi Valley SD,2023,Free and Reduced Lunch Eligible,0.88
+SU/District,Missisquoi Valley SD,2023,Not Free and Reduced Lunch Eligible,0.95
+SU/District,Missisquoi Valley SD,2023,Attended Publicly Funded PreK,0.94
+SU/District,Missisquoi Valley SD,2023,Did Not Attend Publicly Funded PreK,0.91
+SU/District,Montpelier Roxbury SD,2023,,0
+SU/District,Montpelier Roxbury SD,2023,All Students Surveyed,0.81
+SU/District,Montpelier Roxbury SD,2023,Boys,0.84
+SU/District,Montpelier Roxbury SD,2023,Girls,0.77
+SU/District,Montpelier Roxbury SD,2023,Free and Reduced Lunch Eligible,0
+SU/District,Montpelier Roxbury SD,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Montpelier Roxbury SD,2023,Attended Publicly Funded PreK,0.8
+SU/District,Montpelier Roxbury SD,2023,Did Not Attend Publicly Funded PreK,0.95
+SU/District,Mt Abraham Unified SD,2023,,0
+SU/District,Mt Abraham Unified SD,2023,All Students Surveyed,0.86
+SU/District,Mt Abraham Unified SD,2023,Boys,0.82
+SU/District,Mt Abraham Unified SD,2023,Girls,0.92
+SU/District,Mt Abraham Unified SD,2023,Free and Reduced Lunch Eligible,0
+SU/District,Mt Abraham Unified SD,2023,Not Free and Reduced Lunch Eligible,0.95
+SU/District,Mt Abraham Unified SD,2023,Attended Publicly Funded PreK,0
+SU/District,Mt Abraham Unified SD,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Mt Mainsfield Unified SD,2023,,0.5
+SU/District,Mt Mainsfield Unified SD,2023,All Students Surveyed,0.92
+SU/District,Mt Mainsfield Unified SD,2023,Boys,0.92
+SU/District,Mt Mainsfield Unified SD,2023,Girls,0.91
+SU/District,Mt Mainsfield Unified SD,2023,Free and Reduced Lunch Eligible,0.5
+SU/District,Mt Mainsfield Unified SD,2023,Not Free and Reduced Lunch Eligible,0.96
+SU/District,Mt Mainsfield Unified SD,2023,Attended Publicly Funded PreK,0.91
+SU/District,Mt Mainsfield Unified SD,2023,Did Not Attend Publicly Funded PreK,0.95
+SU/District,North Country SU,2023,,0.78
+SU/District,North Country SU,2023,All Students Surveyed,0.81
+SU/District,North Country SU,2023,Boys,0.77
+SU/District,North Country SU,2023,Girls,0.87
+SU/District,North Country SU,2023,Free and Reduced Lunch Eligible,0.78
+SU/District,North Country SU,2023,Not Free and Reduced Lunch Eligible,0.86
+SU/District,North Country SU,2023,Attended Publicly Funded PreK,0.81
+SU/District,North Country SU,2023,Did Not Attend Publicly Funded PreK,0.82
+SU/District,Orange East SU,2023,,0.85
+SU/District,Orange East SU,2023,All Students Surveyed,0.9
+SU/District,Orange East SU,2023,Boys,0.87
+SU/District,Orange East SU,2023,Girls,0.94
+SU/District,Orange East SU,2023,Free and Reduced Lunch Eligible,0.85
+SU/District,Orange East SU,2023,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Orange East SU,2023,Attended Publicly Funded PreK,0.94
+SU/District,Orange East SU,2023,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Orange Southwest SD,2023,,0
+SU/District,Orange Southwest SD,2023,All Students Surveyed,0.89
+SU/District,Orange Southwest SD,2023,Boys,0.92
+SU/District,Orange Southwest SD,2023,Girls,0.86
+SU/District,Orange Southwest SD,2023,Free and Reduced Lunch Eligible,0
+SU/District,Orange Southwest SD,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Orange Southwest SD,2023,Attended Publicly Funded PreK,0.91
+SU/District,Orange Southwest SD,2023,Did Not Attend Publicly Funded PreK,0.9
+SU/District,Orleans Central SU,2023,,0.8
+SU/District,Orleans Central SU,2023,All Students Surveyed,0.81
+SU/District,Orleans Central SU,2023,Boys,0.73
+SU/District,Orleans Central SU,2023,Girls,0.86
+SU/District,Orleans Central SU,2023,Free and Reduced Lunch Eligible,0.8
+SU/District,Orleans Central SU,2023,Not Free and Reduced Lunch Eligible,0.81
+SU/District,Orleans Central SU,2023,Attended Publicly Funded PreK,0.82
+SU/District,Orleans Central SU,2023,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Orleans Southwest SU,2023,,0
+SU/District,Orleans Southwest SU,2023,All Students Surveyed,0.96
+SU/District,Orleans Southwest SU,2023,Boys,0.92
+SU/District,Orleans Southwest SU,2023,Girls,1
+SU/District,Orleans Southwest SU,2023,Free and Reduced Lunch Eligible,0
+SU/District,Orleans Southwest SU,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Orleans Southwest SU,2023,Attended Publicly Funded PreK,0.83
+SU/District,Orleans Southwest SU,2023,Did Not Attend Publicly Funded PreK,0.82
+SU/District,Rivendell Interstate SD,2023,,0
+SU/District,Rivendell Interstate SD,2023,All Students Surveyed,0.97
+SU/District,Rivendell Interstate SD,2023,Boys,1
+SU/District,Rivendell Interstate SD,2023,Girls,0.92
+SU/District,Rivendell Interstate SD,2023,Free and Reduced Lunch Eligible,0
+SU/District,Rivendell Interstate SD,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Rivendell Interstate SD,2023,Attended Publicly Funded PreK,0
+SU/District,Rivendell Interstate SD,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Rutland City SD,2023,,0.75
+SU/District,Rutland City SD,2023,All Students Surveyed,0.87
+SU/District,Rutland City SD,2023,Boys,0.87
+SU/District,Rutland City SD,2023,Girls,0.88
+SU/District,Rutland City SD,2023,Free and Reduced Lunch Eligible,0.75
+SU/District,Rutland City SD,2023,Not Free and Reduced Lunch Eligible,0.93
+SU/District,Rutland City SD,2023,Attended Publicly Funded PreK,0.83
+SU/District,Rutland City SD,2023,Did Not Attend Publicly Funded PreK,0.93
+SU/District,Rutland Northeast SD,2023,,0.72
+SU/District,Rutland Northeast SD,2023,All Students Surveyed,0.85
+SU/District,Rutland Northeast SD,2023,Boys,0.76
+SU/District,Rutland Northeast SD,2023,Girls,0.92
+SU/District,Rutland Northeast SD,2023,Free and Reduced Lunch Eligible,0.72
+SU/District,Rutland Northeast SD,2023,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Rutland Northeast SD,2023,Attended Publicly Funded PreK,0.86
+SU/District,Rutland Northeast SD,2023,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Slate Valley SD,2023,,0.79
+SU/District,Slate Valley SD,2023,All Students Surveyed,0.9
+SU/District,Slate Valley SD,2023,Boys,0.82
+SU/District,Slate Valley SD,2023,Girls,0.96
+SU/District,Slate Valley SD,2023,Free and Reduced Lunch Eligible,0.79
+SU/District,Slate Valley SD,2023,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Slate Valley SD,2023,Attended Publicly Funded PreK,0.92
+SU/District,Slate Valley SD,2023,Did Not Attend Publicly Funded PreK,0.86
+SU/District,South Burlington SD,2023,,0.75
+SU/District,South Burlington SD,2023,All Students Surveyed,0.91
+SU/District,South Burlington SD,2023,Boys,0.88
+SU/District,South Burlington SD,2023,Girls,0.93
+SU/District,South Burlington SD,2023,Free and Reduced Lunch Eligible,0.75
+SU/District,South Burlington SD,2023,Not Free and Reduced Lunch Eligible,0.95
+SU/District,South Burlington SD,2023,Attended Publicly Funded PreK,0.92
+SU/District,South Burlington SD,2023,Did Not Attend Publicly Funded PreK,0.86
+SU/District,Southwest Vermont SU,2023,,0.85
+SU/District,Southwest Vermont SU,2023,All Students Surveyed,0.88
+SU/District,Southwest Vermont SU,2023,Boys,0.84
+SU/District,Southwest Vermont SU,2023,Girls,0.93
+SU/District,Southwest Vermont SU,2023,Free and Reduced Lunch Eligible,0.85
+SU/District,Southwest Vermont SU,2023,Not Free and Reduced Lunch Eligible,0.91
+SU/District,Southwest Vermont SU,2023,Attended Publicly Funded PreK,0.92
+SU/District,Southwest Vermont SU,2023,Did Not Attend Publicly Funded PreK,0.81
+SU/District,Springfield SD,2023,,0.63
+SU/District,Springfield SD,2023,All Students Surveyed,0.77
+SU/District,Springfield SD,2023,Boys,0.69
+SU/District,Springfield SD,2023,Girls,0.85
+SU/District,Springfield SD,2023,Free and Reduced Lunch Eligible,0.63
+SU/District,Springfield SD,2023,Not Free and Reduced Lunch Eligible,0.85
+SU/District,Springfield SD,2023,Attended Publicly Funded PreK,0.74
+SU/District,Springfield SD,2023,Did Not Attend Publicly Funded PreK,0.83
+SU/District,St Johnsbury SD,2023,,0.75
+SU/District,St Johnsbury SD,2023,All Students Surveyed,0.83
+SU/District,St Johnsbury SD,2023,Boys,0.8
+SU/District,St Johnsbury SD,2023,Girls,0.87
+SU/District,St Johnsbury SD,2023,Free and Reduced Lunch Eligible,0.75
+SU/District,St Johnsbury SD,2023,Not Free and Reduced Lunch Eligible,1
+SU/District,St Johnsbury SD,2023,Attended Publicly Funded PreK,0
+SU/District,St Johnsbury SD,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Two Rivers SU,2023,,0.85
+SU/District,Two Rivers SU,2023,All Students Surveyed,0.88
+SU/District,Two Rivers SU,2023,Boys,0.9
+SU/District,Two Rivers SU,2023,Girls,0.87
+SU/District,Two Rivers SU,2023,Free and Reduced Lunch Eligible,0.85
+SU/District,Two Rivers SU,2023,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Two Rivers SU,2023,Attended Publicly Funded PreK,0.9
+SU/District,Two Rivers SU,2023,Did Not Attend Publicly Funded PreK,0.85
+SU/District,Washington Central SU,2023,,0.89
+SU/District,Washington Central SU,2023,All Students Surveyed,0.91
+SU/District,Washington Central SU,2023,Boys,0.87
+SU/District,Washington Central SU,2023,Girls,0.97
+SU/District,Washington Central SU,2023,Free and Reduced Lunch Eligible,0.89
+SU/District,Washington Central SU,2023,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Washington Central SU,2023,Attended Publicly Funded PreK,0.94
+SU/District,Washington Central SU,2023,Did Not Attend Publicly Funded PreK,0.8
+SU/District,White River Valley SU,2023,,1
+SU/District,White River Valley SU,2023,All Students Surveyed,0.98
+SU/District,White River Valley SU,2023,Boys,0.98
+SU/District,White River Valley SU,2023,Girls,0.98
+SU/District,White River Valley SU,2023,Free and Reduced Lunch Eligible,1
+SU/District,White River Valley SU,2023,Not Free and Reduced Lunch Eligible,0.97
+SU/District,White River Valley SU,2023,Attended Publicly Funded PreK,0.98
+SU/District,White River Valley SU,2023,Did Not Attend Publicly Funded PreK,0.96
+SU/District,Windham Central SU,2023,,0.89
+SU/District,Windham Central SU,2023,All Students Surveyed,0.8
+SU/District,Windham Central SU,2023,Boys,0.75
+SU/District,Windham Central SU,2023,Girls,0.86
+SU/District,Windham Central SU,2023,Free and Reduced Lunch Eligible,0.89
+SU/District,Windham Central SU,2023,Not Free and Reduced Lunch Eligible,0.74
+SU/District,Windham Central SU,2023,Attended Publicly Funded PreK,0
+SU/District,Windham Central SU,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Windham Northeast SU,2023,,0.8
+SU/District,Windham Northeast SU,2023,All Students Surveyed,0.86
+SU/District,Windham Northeast SU,2023,Boys,0.79
+SU/District,Windham Northeast SU,2023,Girls,0.92
+SU/District,Windham Northeast SU,2023,Free and Reduced Lunch Eligible,0.8
+SU/District,Windham Northeast SU,2023,Not Free and Reduced Lunch Eligible,0.88
+SU/District,Windham Northeast SU,2023,Attended Publicly Funded PreK,0.85
+SU/District,Windham Northeast SU,2023,Did Not Attend Publicly Funded PreK,0.89
+SU/District,Windham Southeast SU,2023,,0.66
+SU/District,Windham Southeast SU,2023,All Students Surveyed,0.82
+SU/District,Windham Southeast SU,2023,Boys,0.77
+SU/District,Windham Southeast SU,2023,Girls,0.89
+SU/District,Windham Southeast SU,2023,Free and Reduced Lunch Eligible,0.66
+SU/District,Windham Southeast SU,2023,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Windham Southeast SU,2023,Attended Publicly Funded PreK,0.85
+SU/District,Windham Southeast SU,2023,Did Not Attend Publicly Funded PreK,0.76
+SU/District,Windham Southwest SU,2023,,0
+SU/District,Windham Southwest SU,2023,All Students Surveyed,1
+SU/District,Windham Southwest SU,2023,Boys,1
+SU/District,Windham Southwest SU,2023,Girls,1
+SU/District,Windham Southwest SU,2023,Free and Reduced Lunch Eligible,0
+SU/District,Windham Southwest SU,2023,Not Free and Reduced Lunch Eligible,1
+SU/District,Windham Southwest SU,2023,Attended Publicly Funded PreK,1
+SU/District,Windham Southwest SU,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Windsor Central,2023,,0
+SU/District,Windsor Central,2023,All Students Surveyed,0
+SU/District,Windsor Central,2023,Boys,0
+SU/District,Windsor Central,2023,Girls,0
+SU/District,Windsor Central,2023,Free and Reduced Lunch Eligible,0
+SU/District,Windsor Central,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Windsor Central,2023,Attended Publicly Funded PreK,0
+SU/District,Windsor Central,2023,Did Not Attend Publicly Funded PreK,0
+SU/District,Windsor Southeast SU,2023,,0
+SU/District,Windsor Southeast SU,2023,All Students Surveyed,0.8
+SU/District,Windsor Southeast SU,2023,Boys,0.83
+SU/District,Windsor Southeast SU,2023,Girls,0.92
+SU/District,Windsor Southeast SU,2023,Free and Reduced Lunch Eligible,0
+SU/District,Windsor Southeast SU,2023,Not Free and Reduced Lunch Eligible,0
+SU/District,Windsor Southeast SU,2023,Attended Publicly Funded PreK,0.78
+SU/District,Windsor Southeast SU,2023,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Winooski SD,2023,,0.68
+SU/District,Winooski SD,2023,All Students Surveyed,0.75
+SU/District,Winooski SD,2023,Boys,0.71
+SU/District,Winooski SD,2023,Girls,0.79
+SU/District,Winooski SD,2023,Free and Reduced Lunch Eligible,0.68
+SU/District,Winooski SD,2023,Not Free and Reduced Lunch Eligible,0.82
+SU/District,Winooski SD,2023,Attended Publicly Funded PreK,0
+SU/District,Winooski SD,2023,Did Not Attend Publicly Funded PreK,0
+State,Vermont,2024,,0.73
+State,Vermont,2024,All Students Surveyed,0.85
+State,Vermont,2024,Boys,0.81
+State,Vermont,2024,Girls,0.9
+State,Vermont,2024,Free and Reduced Lunch Eligible,0.73
+State,Vermont,2024,Not Free and Reduced Lunch Eligible,0.88
+State,Vermont,2024,Attended Publicly Funded PreK,0.87
+State,Vermont,2024,Did Not Attend Publicly Funded PreK,0.79
+SU/District,Addison Central Supervisory Dist,2024,,69
+SU/District,Addison Central Supervisory Dist,2024,All Students Surveyed,0.86
+SU/District,Addison Central Supervisory Dist,2024,Boys,0.81
+SU/District,Addison Central Supervisory Dist,2024,Girls,0.91
+SU/District,Addison Central Supervisory Dist,2024,Free and Reduced Lunch Eligible,0.69
+SU/District,Addison Central Supervisory Dist,2024,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Addison Central Supervisory Dist,2024,Attended Publicly Funded PreK,0.84
+SU/District,Addison Central Supervisory Dist,2024,Did Not Attend Publicly Funded PreK,0.91
+SU/District,Addison Northwest Supervisory Di,2024,,0
+SU/District,Addison Northwest Supervisory Di,2024,All Students Surveyed,0.88
+SU/District,Addison Northwest Supervisory Di,2024,Boys,0.88
+SU/District,Addison Northwest Supervisory Di,2024,Girls,0.88
+SU/District,Addison Northwest Supervisory Di,2024,Free and Reduced Lunch Eligible,0
+SU/District,Addison Northwest Supervisory Di,2024,Not Free and Reduced Lunch Eligible,0.88
+SU/District,Addison Northwest Supervisory Di,2024,Attended Publicly Funded PreK,0.88
+SU/District,Addison Northwest Supervisory Di,2024,Did Not Attend Publicly Funded PreK,0.88
+SU/District,Barre Unified School District,2024,,59
+SU/District,Barre Unified School District,2024,Free and Reduced Lunch Eligible,0.59
+SU/District,Barre Unified School District,2024,Attended Publicly Funded PreK,0.78
+SU/District,Barre Unified School District,2024,Did Not Attend Publicly Funded PreK,0.67
+SU/District,Barre Unified Union School Distr,2024,All Students Surveyed,0.76
+SU/District,Barre Unified Union School Distr,2024,Boys,0.69
+SU/District,Barre Unified Union School Distr,2024,Girls,0.83
+SU/District,Barre Unified Union School Distr,2024,Not Free and Reduced Lunch Eligible,0.81
+SU/District,Bennington Rutland Supervisory U,2024,,64
+SU/District,Bennington Rutland Supervisory U,2024,All Students Surveyed,0.74
+SU/District,Bennington Rutland Supervisory U,2024,Boys,0.68
+SU/District,Bennington Rutland Supervisory U,2024,Girls,0.81
+SU/District,Bennington Rutland Supervisory U,2024,Free and Reduced Lunch Eligible,0.64
+SU/District,Bennington Rutland Supervisory U,2024,Not Free and Reduced Lunch Eligible,0.75
+SU/District,Bennington Rutland Supervisory U,2024,Attended Publicly Funded PreK,0.71
+SU/District,Bennington Rutland Supervisory U,2024,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Burlington Supervisory District,2024,,76
+SU/District,Burlington Supervisory District,2024,All Students Surveyed,0.82
+SU/District,Burlington Supervisory District,2024,Boys,0.79
+SU/District,Burlington Supervisory District,2024,Girls,0.87
+SU/District,Burlington Supervisory District,2024,Free and Reduced Lunch Eligible,0.76
+SU/District,Burlington Supervisory District,2024,Not Free and Reduced Lunch Eligible,0.84
+SU/District,Burlington Supervisory District,2024,Attended Publicly Funded PreK,0.84
+SU/District,Burlington Supervisory District,2024,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Caledonia Central Supervisory Un,2024,,87
+SU/District,Caledonia Central Supervisory Un,2024,All Students Surveyed,0.86
+SU/District,Caledonia Central Supervisory Un,2024,Boys,0.73
+SU/District,Caledonia Central Supervisory Un,2024,Girls,0.97
+SU/District,Caledonia Central Supervisory Un,2024,Free and Reduced Lunch Eligible,0.87
+SU/District,Caledonia Central Supervisory Un,2024,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Caledonia Central Supervisory Un,2024,Attended Publicly Funded PreK,0.83
+SU/District,Caledonia Central Supervisory Un,2024,Did Not Attend Publicly Funded PreK,1
+SU/District,Central Vermont Supervisory Unio,2024,,54
+SU/District,Central Vermont Supervisory Unio,2024,All Students Surveyed,0.75
+SU/District,Central Vermont Supervisory Unio,2024,Boys,0.62
+SU/District,Central Vermont Supervisory Unio,2024,Girls,0.89
+SU/District,Central Vermont Supervisory Unio,2024,Free and Reduced Lunch Eligible,0.54
+SU/District,Central Vermont Supervisory Unio,2024,Not Free and Reduced Lunch Eligible,0.8
+SU/District,Central Vermont Supervisory Unio,2024,Attended Publicly Funded PreK,0.79
+SU/District,Central Vermont Supervisory Unio,2024,Did Not Attend Publicly Funded PreK,0.55
+SU/District,Champlain Valley Supervisory Dis,2024,,0
+SU/District,Champlain Valley Supervisory Dis,2024,All Students Surveyed,0.94
+SU/District,Champlain Valley Supervisory Dis,2024,Boys,0.9
+SU/District,Champlain Valley Supervisory Dis,2024,Girls,0.98
+SU/District,Champlain Valley Supervisory Dis,2024,Free and Reduced Lunch Eligible,0
+SU/District,Champlain Valley Supervisory Dis,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Champlain Valley Supervisory Dis,2024,Attended Publicly Funded PreK,0.96
+SU/District,Champlain Valley Supervisory Dis,2024,Did Not Attend Publicly Funded PreK,0.79
+SU/District,Colchester School District,2024,,82
+SU/District,Colchester School District,2024,All Students Surveyed,0.86
+SU/District,Colchester School District,2024,Boys,0.83
+SU/District,Colchester School District,2024,Girls,0.89
+SU/District,Colchester School District,2024,Free and Reduced Lunch Eligible,0.82
+SU/District,Colchester School District,2024,Not Free and Reduced Lunch Eligible,0.87
+SU/District,Colchester School District,2024,Attended Publicly Funded PreK,0.91
+SU/District,Colchester School District,2024,Did Not Attend Publicly Funded PreK,0.69
+SU/District,Essex North Supervisory Union,2024,,0
+SU/District,Essex North Supervisory Union,2024,All Students Surveyed,0
+SU/District,Essex North Supervisory Union,2024,Boys,0
+SU/District,Essex North Supervisory Union,2024,Girls,0
+SU/District,Essex North Supervisory Union,2024,Free and Reduced Lunch Eligible,0
+SU/District,Essex North Supervisory Union,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Essex North Supervisory Union,2024,Attended Publicly Funded PreK,0
+SU/District,Essex North Supervisory Union,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Essex-Westford Unified Union SD,2024,,67
+SU/District,Essex-Westford Unified Union SD,2024,All Students Surveyed,0.95
+SU/District,Essex-Westford Unified Union SD,2024,Boys,0.91
+SU/District,Essex-Westford Unified Union SD,2024,Girls,0.99
+SU/District,Essex-Westford Unified Union SD,2024,Free and Reduced Lunch Eligible,0.67
+SU/District,Essex-Westford Unified Union SD,2024,Not Free and Reduced Lunch Eligible,0.96
+SU/District,Essex-Westford Unified Union SD,2024,Attended Publicly Funded PreK,0.94
+SU/District,Essex-Westford Unified Union SD,2024,Did Not Attend Publicly Funded PreK,0.96
+SU/District,Franklin Northeast Supervisory U,2024,,76
+SU/District,Franklin Northeast Supervisory U,2024,All Students Surveyed,0.87
+SU/District,Franklin Northeast Supervisory U,2024,Boys,0.84
+SU/District,Franklin Northeast Supervisory U,2024,Girls,0.9
+SU/District,Franklin Northeast Supervisory U,2024,Free and Reduced Lunch Eligible,0.76
+SU/District,Franklin Northeast Supervisory U,2024,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Franklin Northeast Supervisory U,2024,Attended Publicly Funded PreK,0.9
+SU/District,Franklin Northeast Supervisory U,2024,Did Not Attend Publicly Funded PreK,0.77
+SU/District,Franklin West Supervisory Union,2024,,0
+SU/District,Franklin West Supervisory Union,2024,All Students Surveyed,0.85
+SU/District,Franklin West Supervisory Union,2024,Boys,0.89
+SU/District,Franklin West Supervisory Union,2024,Girls,0.81
+SU/District,Franklin West Supervisory Union,2024,Free and Reduced Lunch Eligible,0
+SU/District,Franklin West Supervisory Union,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Franklin West Supervisory Union,2024,Attended Publicly Funded PreK,0.86
+SU/District,Franklin West Supervisory Union,2024,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Grand Isle Supervisory Union,2024,,0
+SU/District,Grand Isle Supervisory Union,2024,All Students Surveyed,0.86
+SU/District,Grand Isle Supervisory Union,2024,Boys,0.74
+SU/District,Grand Isle Supervisory Union,2024,Girls,1
+SU/District,Grand Isle Supervisory Union,2024,Free and Reduced Lunch Eligible,0
+SU/District,Grand Isle Supervisory Union,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Grand Isle Supervisory Union,2024,Attended Publicly Funded PreK,0
+SU/District,Grand Isle Supervisory Union,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Greater Rutland County Superviso,2024,,53
+SU/District,Greater Rutland County Superviso,2024,All Students Surveyed,0.8
+SU/District,Greater Rutland County Superviso,2024,Boys,0.74
+SU/District,Greater Rutland County Superviso,2024,Girls,0.86
+SU/District,Greater Rutland County Superviso,2024,Free and Reduced Lunch Eligible,0.53
+SU/District,Greater Rutland County Superviso,2024,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Greater Rutland County Superviso,2024,Attended Publicly Funded PreK,0
+SU/District,Greater Rutland County Superviso,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Hartford School District,2024,,69
+SU/District,Hartford School District,2024,All Students Surveyed,0.8
+SU/District,Hartford School District,2024,Boys,0.78
+SU/District,Hartford School District,2024,Girls,0.81
+SU/District,Hartford School District,2024,Free and Reduced Lunch Eligible,0.69
+SU/District,Hartford School District,2024,Not Free and Reduced Lunch Eligible,0.81
+SU/District,Hartford School District,2024,Attended Publicly Funded PreK,0.82
+SU/District,Hartford School District,2024,Did Not Attend Publicly Funded PreK,0.67
+SU/District,Harwood Unified School District,2024,,0
+SU/District,Harwood Unified School District,2024,All Students Surveyed,0.94
+SU/District,Harwood Unified School District,2024,Boys,0.91
+SU/District,Harwood Unified School District,2024,Girls,0.98
+SU/District,Harwood Unified School District,2024,Free and Reduced Lunch Eligible,0
+SU/District,Harwood Unified School District,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Harwood Unified School District,2024,Attended Publicly Funded PreK,0
+SU/District,Harwood Unified School District,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Kingdom East School District,2024,,85
+SU/District,Kingdom East School District,2024,All Students Surveyed,0.88
+SU/District,Kingdom East School District,2024,Boys,0.8
+SU/District,Kingdom East School District,2024,Girls,0.95
+SU/District,Kingdom East School District,2024,Free and Reduced Lunch Eligible,0.85
+SU/District,Kingdom East School District,2024,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Kingdom East School District,2024,Attended Publicly Funded PreK,0.88
+SU/District,Kingdom East School District,2024,Did Not Attend Publicly Funded PreK,0.88
+SU/District,Lamoille North Supervisory Union,2024,,67
+SU/District,Lamoille North Supervisory Union,2024,All Students Surveyed,0.85
+SU/District,Lamoille North Supervisory Union,2024,Boys,0.79
+SU/District,Lamoille North Supervisory Union,2024,Girls,0.91
+SU/District,Lamoille North Supervisory Union,2024,Free and Reduced Lunch Eligible,0.67
+SU/District,Lamoille North Supervisory Union,2024,Not Free and Reduced Lunch Eligible,0.88
+SU/District,Lamoille North Supervisory Union,2024,Attended Publicly Funded PreK,0.84
+SU/District,Lamoille North Supervisory Union,2024,Did Not Attend Publicly Funded PreK,0.91
+SU/District,Lamoille South Supervisory Union,2024,,0
+SU/District,Lamoille South Supervisory Union,2024,All Students Surveyed,0.87
+SU/District,Lamoille South Supervisory Union,2024,Boys,0.78
+SU/District,Lamoille South Supervisory Union,2024,Girls,0.95
+SU/District,Lamoille South Supervisory Union,2024,Free and Reduced Lunch Eligible,0
+SU/District,Lamoille South Supervisory Union,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Lamoille South Supervisory Union,2024,Attended Publicly Funded PreK,0
+SU/District,Lamoille South Supervisory Union,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Lincoln School District,2024,,0
+SU/District,Lincoln School District,2024,All Students Surveyed,0
+SU/District,Lincoln School District,2024,Boys,0
+SU/District,Lincoln School District,2024,Girls,0
+SU/District,Lincoln School District,2024,Free and Reduced Lunch Eligible,0
+SU/District,Lincoln School District,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Lincoln School District,2024,Attended Publicly Funded PreK,0
+SU/District,Lincoln School District,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Maple Run Unified School Distric,2024,,69
+SU/District,Maple Run Unified School Distric,2024,All Students Surveyed,0.85
+SU/District,Maple Run Unified School Distric,2024,Boys,0.78
+SU/District,Maple Run Unified School Distric,2024,Girls,0.92
+SU/District,Maple Run Unified School Distric,2024,Free and Reduced Lunch Eligible,0.69
+SU/District,Maple Run Unified School Distric,2024,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Maple Run Unified School Distric,2024,Attended Publicly Funded PreK,0.83
+SU/District,Maple Run Unified School Distric,2024,Did Not Attend Publicly Funded PreK,0.95
+SU/District,Mill River Unified Union School ,2024,,0
+SU/District,Mill River Unified Union School ,2024,All Students Surveyed,0.82
+SU/District,Mill River Unified Union School ,2024,Boys,0.68
+SU/District,Mill River Unified Union School ,2024,Girls,1
+SU/District,Mill River Unified Union School ,2024,Free and Reduced Lunch Eligible,0
+SU/District,Mill River Unified Union School ,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Mill River Unified Union School ,2024,Attended Publicly Funded PreK,0
+SU/District,Mill River Unified Union School ,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Milton Town SD,2024,,75
+SU/District,Milton Town SD,2024,All Students Surveyed,0.85
+SU/District,Milton Town SD,2024,Boys,0.79
+SU/District,Milton Town SD,2024,Girls,0.91
+SU/District,Milton Town SD,2024,Free and Reduced Lunch Eligible,0.75
+SU/District,Milton Town SD,2024,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Milton Town SD,2024,Attended Publicly Funded PreK,0.84
+SU/District,Milton Town SD,2024,Did Not Attend Publicly Funded PreK,0.93
+SU/District,Missisquoi Valley School Distric,2024,,93
+SU/District,Missisquoi Valley School Distric,2024,All Students Surveyed,0.85
+SU/District,Missisquoi Valley School Distric,2024,Boys,0.88
+SU/District,Missisquoi Valley School Distric,2024,Girls,0.82
+SU/District,Missisquoi Valley School Distric,2024,Free and Reduced Lunch Eligible,0.93
+SU/District,Missisquoi Valley School Distric,2024,Not Free and Reduced Lunch Eligible,0.84
+SU/District,Missisquoi Valley School Distric,2024,Attended Publicly Funded PreK,0.88
+SU/District,Missisquoi Valley School Distric,2024,Did Not Attend Publicly Funded PreK,0.76
+SU/District,Montpelier Roxbury School Distri,2024,,0
+SU/District,Montpelier Roxbury School Distri,2024,All Students Surveyed,0.9
+SU/District,Montpelier Roxbury School Distri,2024,Boys,0.82
+SU/District,Montpelier Roxbury School Distri,2024,Girls,0.97
+SU/District,Montpelier Roxbury School Distri,2024,Free and Reduced Lunch Eligible,0
+SU/District,Montpelier Roxbury School Distri,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Montpelier Roxbury School Distri,2024,Attended Publicly Funded PreK,0.92
+SU/District,Montpelier Roxbury School Distri,2024,Did Not Attend Publicly Funded PreK,0.81
+SU/District,Mount Mansfield Unified Union Sc,2024,,92
+SU/District,Mount Mansfield Unified Union Sc,2024,All Students Surveyed,0.96
+SU/District,Mount Mansfield Unified Union Sc,2024,Boys,0.94
+SU/District,Mount Mansfield Unified Union Sc,2024,Girls,0.98
+SU/District,Mount Mansfield Unified Union Sc,2024,Free and Reduced Lunch Eligible,0.92
+SU/District,Mount Mansfield Unified Union Sc,2024,Not Free and Reduced Lunch Eligible,0.96
+SU/District,Mount Mansfield Unified Union Sc,2024,Attended Publicly Funded PreK,0.97
+SU/District,Mount Mansfield Unified Union Sc,2024,Did Not Attend Publicly Funded PreK,0.87
+SU/District,Mountain Views Supervisory Union,2024,,0
+SU/District,Mountain Views Supervisory Union,2024,All Students Surveyed,0.94
+SU/District,Mountain Views Supervisory Union,2024,Boys,0.96
+SU/District,Mountain Views Supervisory Union,2024,Girls,0.92
+SU/District,Mountain Views Supervisory Union,2024,Free and Reduced Lunch Eligible,0
+SU/District,Mountain Views Supervisory Union,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Mountain Views Supervisory Union,2024,Attended Publicly Funded PreK,0
+SU/District,Mountain Views Supervisory Union,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Mt. Abraham Unified Union School,2024,,0
+SU/District,Mt. Abraham Unified Union School,2024,All Students Surveyed,0.78
+SU/District,Mt. Abraham Unified Union School,2024,Boys,0.75
+SU/District,Mt. Abraham Unified Union School,2024,Girls,0.79
+SU/District,Mt. Abraham Unified Union School,2024,Free and Reduced Lunch Eligible,0
+SU/District,Mt. Abraham Unified Union School,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Mt. Abraham Unified Union School,2024,Attended Publicly Funded PreK,0
+SU/District,Mt. Abraham Unified Union School,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,North Country Supervisory Union,2024,,83
+SU/District,North Country Supervisory Union,2024,All Students Surveyed,0.82
+SU/District,North Country Supervisory Union,2024,Boys,0.7
+SU/District,North Country Supervisory Union,2024,Girls,0.91
+SU/District,North Country Supervisory Union,2024,Free and Reduced Lunch Eligible,0.83
+SU/District,North Country Supervisory Union,2024,Not Free and Reduced Lunch Eligible,0.81
+SU/District,North Country Supervisory Union,2024,Attended Publicly Funded PreK,0.87
+SU/District,North Country Supervisory Union,2024,Did Not Attend Publicly Funded PreK,0.54
+SU/District,Orange East Supervisory Union,2024,,70
+SU/District,Orange East Supervisory Union,2024,All Students Surveyed,0.87
+SU/District,Orange East Supervisory Union,2024,Boys,0.84
+SU/District,Orange East Supervisory Union,2024,Girls,0.91
+SU/District,Orange East Supervisory Union,2024,Free and Reduced Lunch Eligible,0.7
+SU/District,Orange East Supervisory Union,2024,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Orange East Supervisory Union,2024,Attended Publicly Funded PreK,0.87
+SU/District,Orange East Supervisory Union,2024,Did Not Attend Publicly Funded PreK,0.89
+SU/District,Orange Southwest Unified Union S,2024,,0
+SU/District,Orange Southwest Unified Union S,2024,All Students Surveyed,0.9
+SU/District,Orange Southwest Unified Union S,2024,Boys,0.83
+SU/District,Orange Southwest Unified Union S,2024,Girls,1
+SU/District,Orange Southwest Unified Union S,2024,Free and Reduced Lunch Eligible,0
+SU/District,Orange Southwest Unified Union S,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Orange Southwest Unified Union S,2024,Attended Publicly Funded PreK,0.96
+SU/District,Orange Southwest Unified Union S,2024,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Orleans Central Supervisory Unio,2024,,64
+SU/District,Orleans Central Supervisory Unio,2024,All Students Surveyed,0.8
+SU/District,Orleans Central Supervisory Unio,2024,Boys,0.79
+SU/District,Orleans Central Supervisory Unio,2024,Girls,0.81
+SU/District,Orleans Central Supervisory Unio,2024,Free and Reduced Lunch Eligible,0.64
+SU/District,Orleans Central Supervisory Unio,2024,Not Free and Reduced Lunch Eligible,0.85
+SU/District,Orleans Central Supervisory Unio,2024,Attended Publicly Funded PreK,0.78
+SU/District,Orleans Central Supervisory Unio,2024,Did Not Attend Publicly Funded PreK,0.86
+SU/District,Orleans Southwest Supervisory Un,2024,,0
+SU/District,Orleans Southwest Supervisory Un,2024,All Students Surveyed,1
+SU/District,Orleans Southwest Supervisory Un,2024,Boys,1
+SU/District,Orleans Southwest Supervisory Un,2024,Girls,1
+SU/District,Orleans Southwest Supervisory Un,2024,Free and Reduced Lunch Eligible,0
+SU/District,Orleans Southwest Supervisory Un,2024,Not Free and Reduced Lunch Eligible,1
+SU/District,Orleans Southwest Supervisory Un,2024,Attended Publicly Funded PreK,0
+SU/District,Orleans Southwest Supervisory Un,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Rivendell Interstate School Dist,2024,,0
+SU/District,Rivendell Interstate School Dist,2024,All Students Surveyed,1
+SU/District,Rivendell Interstate School Dist,2024,Boys,1
+SU/District,Rivendell Interstate School Dist,2024,Girls,1
+SU/District,Rivendell Interstate School Dist,2024,Free and Reduced Lunch Eligible,0
+SU/District,Rivendell Interstate School Dist,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Rivendell Interstate School Dist,2024,Attended Publicly Funded PreK,0
+SU/District,Rivendell Interstate School Dist,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Rutland City School District,2024,,61
+SU/District,Rutland City School District,2024,All Students Surveyed,0.75
+SU/District,Rutland City School District,2024,Boys,0.66
+SU/District,Rutland City School District,2024,Girls,0.84
+SU/District,Rutland City School District,2024,Free and Reduced Lunch Eligible,0.61
+SU/District,Rutland City School District,2024,Not Free and Reduced Lunch Eligible,0.81
+SU/District,Rutland City School District,2024,Attended Publicly Funded PreK,0.73
+SU/District,Rutland City School District,2024,Did Not Attend Publicly Funded PreK,0.79
+SU/District,Rutland Northeast Supervisory Un,2024,,61
+SU/District,Rutland Northeast Supervisory Un,2024,All Students Surveyed,0.81
+SU/District,Rutland Northeast Supervisory Un,2024,Boys,0.76
+SU/District,Rutland Northeast Supervisory Un,2024,Girls,0.86
+SU/District,Rutland Northeast Supervisory Un,2024,Free and Reduced Lunch Eligible,0.61
+SU/District,Rutland Northeast Supervisory Un,2024,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Rutland Northeast Supervisory Un,2024,Attended Publicly Funded PreK,0.8
+SU/District,Rutland Northeast Supervisory Un,2024,Did Not Attend Publicly Funded PreK,0.83
+SU/District,Saint Johnsbury School District,2024,,85
+SU/District,Saint Johnsbury School District,2024,All Students Surveyed,0.85
+SU/District,Saint Johnsbury School District,2024,Boys,0.76
+SU/District,Saint Johnsbury School District,2024,Girls,0.94
+SU/District,Saint Johnsbury School District,2024,Free and Reduced Lunch Eligible,0.85
+SU/District,Saint Johnsbury School District,2024,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Saint Johnsbury School District,2024,Attended Publicly Funded PreK,0
+SU/District,Saint Johnsbury School District,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,School Administrative Unit #70,2024,,0
+SU/District,School Administrative Unit #70,2024,All Students Surveyed,0.98
+SU/District,School Administrative Unit #70,2024,Boys,1
+SU/District,School Administrative Unit #70,2024,Girls,0.97
+SU/District,School Administrative Unit #70,2024,Free and Reduced Lunch Eligible,0
+SU/District,School Administrative Unit #70,2024,Not Free and Reduced Lunch Eligible,0.98
+SU/District,School Administrative Unit #70,2024,Attended Publicly Funded PreK,0
+SU/District,School Administrative Unit #70,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Slate Valley Unified Union Schoo,2024,,0
+SU/District,Slate Valley Unified Union Schoo,2024,All Students Surveyed,0.88
+SU/District,Slate Valley Unified Union Schoo,2024,Boys,0.89
+SU/District,Slate Valley Unified Union Schoo,2024,Girls,0.87
+SU/District,Slate Valley Unified Union Schoo,2024,Free and Reduced Lunch Eligible,0
+SU/District,Slate Valley Unified Union Schoo,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Slate Valley Unified Union Schoo,2024,Attended Publicly Funded PreK,0.9
+SU/District,Slate Valley Unified Union Schoo,2024,Did Not Attend Publicly Funded PreK,0.83
+SU/District,South Burlington School District,2024,,84
+SU/District,South Burlington School District,2024,All Students Surveyed,0.86
+SU/District,South Burlington School District,2024,Boys,0.85
+SU/District,South Burlington School District,2024,Girls,0.88
+SU/District,South Burlington School District,2024,Free and Reduced Lunch Eligible,0.84
+SU/District,South Burlington School District,2024,Not Free and Reduced Lunch Eligible,0.87
+SU/District,South Burlington School District,2024,Attended Publicly Funded PreK,0.88
+SU/District,South Burlington School District,2024,Did Not Attend Publicly Funded PreK,0.74
+SU/District,Southwest Vermont Supervisory Un,2024,,79
+SU/District,Southwest Vermont Supervisory Un,2024,All Students Surveyed,0.82
+SU/District,Southwest Vermont Supervisory Un,2024,Boys,0.78
+SU/District,Southwest Vermont Supervisory Un,2024,Girls,0.86
+SU/District,Southwest Vermont Supervisory Un,2024,Free and Reduced Lunch Eligible,0.79
+SU/District,Southwest Vermont Supervisory Un,2024,Not Free and Reduced Lunch Eligible,0.84
+SU/District,Southwest Vermont Supervisory Un,2024,Attended Publicly Funded PreK,0.87
+SU/District,Southwest Vermont Supervisory Un,2024,Did Not Attend Publicly Funded PreK,0.7
+SU/District,Springfield School District,2024,,47
+SU/District,Springfield School District,2024,All Students Surveyed,0.71
+SU/District,Springfield School District,2024,Boys,0.52
+SU/District,Springfield School District,2024,Girls,0.84
+SU/District,Springfield School District,2024,Free and Reduced Lunch Eligible,0.47
+SU/District,Springfield School District,2024,Not Free and Reduced Lunch Eligible,0.8
+SU/District,Springfield School District,2024,Attended Publicly Funded PreK,0
+SU/District,Springfield School District,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,State,2024,,73
+SU/District,State,2024,All Students Surveyed,0.85
+SU/District,State,2024,Boys,0.81
+SU/District,State,2024,Girls,0.9
+SU/District,State,2024,Free and Reduced Lunch Eligible,0.73
+SU/District,State,2024,Not Free and Reduced Lunch Eligible,0.88
+SU/District,State,2024,Attended Publicly Funded PreK,0.87
+SU/District,State,2024,Did Not Attend Publicly Funded PreK,0.79
+SU/District,Two Rivers Supervisory Union,2024,,75
+SU/District,Two Rivers Supervisory Union,2024,All Students Surveyed,0.88
+SU/District,Two Rivers Supervisory Union,2024,Boys,0.85
+SU/District,Two Rivers Supervisory Union,2024,Girls,0.91
+SU/District,Two Rivers Supervisory Union,2024,Free and Reduced Lunch Eligible,0.75
+SU/District,Two Rivers Supervisory Union,2024,Not Free and Reduced Lunch Eligible,0.91
+SU/District,Two Rivers Supervisory Union,2024,Attended Publicly Funded PreK,0.9
+SU/District,Two Rivers Supervisory Union,2024,Did Not Attend Publicly Funded PreK,0.82
+SU/District,Washington Central Supervisory D,2024,,0
+SU/District,Washington Central Supervisory D,2024,All Students Surveyed,0.86
+SU/District,Washington Central Supervisory D,2024,Boys,0.86
+SU/District,Washington Central Supervisory D,2024,Girls,0.86
+SU/District,Washington Central Supervisory D,2024,Free and Reduced Lunch Eligible,0
+SU/District,Washington Central Supervisory D,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Washington Central Supervisory D,2024,Attended Publicly Funded PreK,0.91
+SU/District,Washington Central Supervisory D,2024,Did Not Attend Publicly Funded PreK,0.72
+SU/District,White River Valley Supervisory U,2024,,0
+SU/District,White River Valley Supervisory U,2024,All Students Surveyed,0.91
+SU/District,White River Valley Supervisory U,2024,Boys,0.91
+SU/District,White River Valley Supervisory U,2024,Girls,0.92
+SU/District,White River Valley Supervisory U,2024,Free and Reduced Lunch Eligible,0
+SU/District,White River Valley Supervisory U,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,White River Valley Supervisory U,2024,Attended Publicly Funded PreK,0.96
+SU/District,White River Valley Supervisory U,2024,Did Not Attend Publicly Funded PreK,0.77
+SU/District,Windham Central Supervisory Unio,2024,,0
+SU/District,Windham Central Supervisory Unio,2024,All Students Surveyed,0.87
+SU/District,Windham Central Supervisory Unio,2024,Boys,0.78
+SU/District,Windham Central Supervisory Unio,2024,Girls,1
+SU/District,Windham Central Supervisory Unio,2024,Free and Reduced Lunch Eligible,0
+SU/District,Windham Central Supervisory Unio,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Windham Central Supervisory Unio,2024,Attended Publicly Funded PreK,0
+SU/District,Windham Central Supervisory Unio,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Windham Northeast Supervisory Un,2024,,0
+SU/District,Windham Northeast Supervisory Un,2024,All Students Surveyed,0.79
+SU/District,Windham Northeast Supervisory Un,2024,Boys,0.74
+SU/District,Windham Northeast Supervisory Un,2024,Girls,0.85
+SU/District,Windham Northeast Supervisory Un,2024,Free and Reduced Lunch Eligible,0
+SU/District,Windham Northeast Supervisory Un,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Windham Northeast Supervisory Un,2024,Attended Publicly Funded PreK,0
+SU/District,Windham Northeast Supervisory Un,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Windham Southeast Supervisory Un,2024,,69
+SU/District,Windham Southeast Supervisory Un,2024,All Students Surveyed,0.79
+SU/District,Windham Southeast Supervisory Un,2024,Boys,0.72
+SU/District,Windham Southeast Supervisory Un,2024,Girls,0.88
+SU/District,Windham Southeast Supervisory Un,2024,Free and Reduced Lunch Eligible,0.69
+SU/District,Windham Southeast Supervisory Un,2024,Not Free and Reduced Lunch Eligible,0.82
+SU/District,Windham Southeast Supervisory Un,2024,Attended Publicly Funded PreK,0.82
+SU/District,Windham Southeast Supervisory Un,2024,Did Not Attend Publicly Funded PreK,0.66
+SU/District,Windham Southwest Supervisory Un,2024,,0
+SU/District,Windham Southwest Supervisory Un,2024,All Students Surveyed,0.83
+SU/District,Windham Southwest Supervisory Un,2024,Boys,0.89
+SU/District,Windham Southwest Supervisory Un,2024,Girls,0.75
+SU/District,Windham Southwest Supervisory Un,2024,Free and Reduced Lunch Eligible,0
+SU/District,Windham Southwest Supervisory Un,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Windham Southwest Supervisory Un,2024,Attended Publicly Funded PreK,0
+SU/District,Windham Southwest Supervisory Un,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Windsor Southeast Supervisory Un,2024,,0
+SU/District,Windsor Southeast Supervisory Un,2024,All Students Surveyed,0.9
+SU/District,Windsor Southeast Supervisory Un,2024,Boys,0.82
+SU/District,Windsor Southeast Supervisory Un,2024,Girls,1
+SU/District,Windsor Southeast Supervisory Un,2024,Free and Reduced Lunch Eligible,0
+SU/District,Windsor Southeast Supervisory Un,2024,Not Free and Reduced Lunch Eligible,0
+SU/District,Windsor Southeast Supervisory Un,2024,Attended Publicly Funded PreK,0.93
+SU/District,Windsor Southeast Supervisory Un,2024,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Winooski SD,2024,Did Not Attend Publicly Funded PreK,0
+SU/District,Winooski Supervisory District,2024,,65
+SU/District,Winooski Supervisory District,2024,All Students Surveyed,0.78
+SU/District,Winooski Supervisory District,2024,Boys,0.76
+SU/District,Winooski Supervisory District,2024,Girls,0.82
+SU/District,Winooski Supervisory District,2024,Free and Reduced Lunch Eligible,0.65
+SU/District,Winooski Supervisory District,2024,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Winooski Supervisory District,2024,Attended Publicly Funded PreK,0
+SU/District,Winooski Supervisory District,2024,Did Not Attend Publicly Funded PreK,0
+State,Vermont,2025,All Students Surveyed,0.84
+State,Vermont,2025,Boys,0.8
+State,Vermont,2025,Girls,0.88
+State,Vermont,2025,Free and Reduced Lunch Eligible,0.77
+State,Vermont,2025,Not Free and Reduced Lunch Eligible,0.9
+State,Vermont,2025,Attended Publicly Funded PreK,0.84
+State,Vermont,2025,Did Not Attend Publicly Funded PreK,0.81
+SU/District,Addison Central Supervisory District,2025,All Students Surveyed,0.83
+SU/District,Addison Central Supervisory District,2025,Boys,0.73
+SU/District,Addison Central Supervisory District,2025,Girls,0.91
+SU/District,Addison Central Supervisory District,2025,Free and Reduced Lunch Eligible,0.72
+SU/District,Addison Central Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Addison Central Supervisory District,2025,Attended Publicly Funded PreK,0.85
+SU/District,Addison Central Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.75
+SU/District,Addison Northwest Supervisory District,2025,All Students Surveyed,0.79
+SU/District,Addison Northwest Supervisory District,2025,Boys,0.76
+SU/District,Addison Northwest Supervisory District,2025,Girls,0.85
+SU/District,Addison Northwest Supervisory District,2025,Free and Reduced Lunch Eligible,0.73
+SU/District,Addison Northwest Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.84
+SU/District,Addison Northwest Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Addison Northwest Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Barre Supervisory District,2025,All Students Surveyed,0.6
+SU/District,Barre Supervisory District,2025,Boys,0.49
+SU/District,Barre Supervisory District,2025,Girls,0.71
+SU/District,Barre Supervisory District,2025,Free and Reduced Lunch Eligible,0.56
+SU/District,Barre Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.66
+SU/District,Barre Supervisory District,2025,Attended Publicly Funded PreK,0.59
+SU/District,Barre Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.67
+SU/District,Bennington Rutland Supervisory Union,2025,All Students Surveyed,0.81
+SU/District,Bennington Rutland Supervisory Union,2025,Boys,0.81
+SU/District,Bennington Rutland Supervisory Union,2025,Girls,0.82
+SU/District,Bennington Rutland Supervisory Union,2025,Free and Reduced Lunch Eligible,0.67
+SU/District,Bennington Rutland Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Bennington Rutland Supervisory Union,2025,Attended Publicly Funded PreK,0.84
+SU/District,Bennington Rutland Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.71
+SU/District,Burlington Supervisory District,2025,All Students Surveyed,0.85
+SU/District,Burlington Supervisory District,2025,Boys,0.81
+SU/District,Burlington Supervisory District,2025,Girls,0.9
+SU/District,Burlington Supervisory District,2025,Free and Reduced Lunch Eligible,0.79
+SU/District,Burlington Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.93
+SU/District,Burlington Supervisory District,2025,Attended Publicly Funded PreK,0.85
+SU/District,Burlington Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.86
+SU/District,Caledonia Central Supervisory Union,2025,All Students Surveyed,0.84
+SU/District,Caledonia Central Supervisory Union,2025,Boys,0.7
+SU/District,Caledonia Central Supervisory Union,2025,Girls,0.97
+SU/District,Caledonia Central Supervisory Union,2025,Free and Reduced Lunch Eligible,0.81
+SU/District,Caledonia Central Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.87
+SU/District,Caledonia Central Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Caledonia Central Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Central Vermont Supervisory Union,2025,All Students Surveyed,0.78
+SU/District,Central Vermont Supervisory Union,2025,Boys,0.7
+SU/District,Central Vermont Supervisory Union,2025,Girls,0.87
+SU/District,Central Vermont Supervisory Union,2025,Free and Reduced Lunch Eligible,0.71
+SU/District,Central Vermont Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.88
+SU/District,Central Vermont Supervisory Union,2025,Attended Publicly Funded PreK,0.77
+SU/District,Central Vermont Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.85
+SU/District,Champlain Valley Supervisory District,2025,All Students Surveyed,0.92
+SU/District,Champlain Valley Supervisory District,2025,Boys,0.91
+SU/District,Champlain Valley Supervisory District,2025,Girls,0.94
+SU/District,Champlain Valley Supervisory District,2025,Free and Reduced Lunch Eligible,0.84
+SU/District,Champlain Valley Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Champlain Valley Supervisory District,2025,Attended Publicly Funded PreK,0.93
+SU/District,Champlain Valley Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.82
+SU/District,Colchester Supervisory District,2025,All Students Surveyed,0.84
+SU/District,Colchester Supervisory District,2025,Boys,0.84
+SU/District,Colchester Supervisory District,2025,Girls,0.83
+SU/District,Colchester Supervisory District,2025,Free and Reduced Lunch Eligible,0.72
+SU/District,Colchester Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Colchester Supervisory District,2025,Attended Publicly Funded PreK,0.84
+SU/District,Colchester Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.79
+SU/District,Essex North Supervisory Union,2025,All Students Surveyed,***
+SU/District,Essex North Supervisory Union,2025,Boys,***
+SU/District,Essex North Supervisory Union,2025,Girls,***
+SU/District,Essex North Supervisory Union,2025,Free and Reduced Lunch Eligible,***
+SU/District,Essex North Supervisory Union,2025,Not Free and Reduced Lunch Eligible,***
+SU/District,Essex North Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Essex North Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Essex-Westford Supervisory District,2025,All Students Surveyed,0.83
+SU/District,Essex-Westford Supervisory District,2025,Boys,0.75
+SU/District,Essex-Westford Supervisory District,2025,Girls,0.92
+SU/District,Essex-Westford Supervisory District,2025,Free and Reduced Lunch Eligible,0.65
+SU/District,Essex-Westford Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Essex-Westford Supervisory District,2025,Attended Publicly Funded PreK,0.83
+SU/District,Essex-Westford Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.8
+SU/District,Franklin Northeast Supervisory Union,2025,All Students Surveyed,0.8
+SU/District,Franklin Northeast Supervisory Union,2025,Boys,0.81
+SU/District,Franklin Northeast Supervisory Union,2025,Girls,0.78
+SU/District,Franklin Northeast Supervisory Union,2025,Free and Reduced Lunch Eligible,0.75
+SU/District,Franklin Northeast Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Franklin Northeast Supervisory Union,2025,Attended Publicly Funded PreK,0.82
+SU/District,Franklin Northeast Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.72
+SU/District,Franklin West Supervisory Union,2025,All Students Surveyed,0.88
+SU/District,Franklin West Supervisory Union,2025,Boys,0.83
+SU/District,Franklin West Supervisory Union,2025,Girls,0.93
+SU/District,Franklin West Supervisory Union,2025,Free and Reduced Lunch Eligible,0.91
+SU/District,Franklin West Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.87
+SU/District,Franklin West Supervisory Union,2025,Attended Publicly Funded PreK,0.88
+SU/District,Franklin West Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.93
+SU/District,Grand Isle Supervisory Union,2025,All Students Surveyed,0.9
+SU/District,Grand Isle Supervisory Union,2025,Boys,0.85
+SU/District,Grand Isle Supervisory Union,2025,Girls,1
+SU/District,Grand Isle Supervisory Union,2025,Free and Reduced Lunch Eligible,0.88
+SU/District,Grand Isle Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Grand Isle Supervisory Union,2025,Attended Publicly Funded PreK,0.88
+SU/District,Grand Isle Supervisory Union,2025,Did Not Attend Publicly Funded PreK,1
+SU/District,Greater Rutland County Supervisory Union,2025,All Students Surveyed,0.81
+SU/District,Greater Rutland County Supervisory Union,2025,Boys,0.78
+SU/District,Greater Rutland County Supervisory Union,2025,Girls,0.83
+SU/District,Greater Rutland County Supervisory Union,2025,Free and Reduced Lunch Eligible,0.67
+SU/District,Greater Rutland County Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Greater Rutland County Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Greater Rutland County Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Hartford Supervisory District,2025,All Students Surveyed,0.82
+SU/District,Hartford Supervisory District,2025,Boys,0.74
+SU/District,Hartford Supervisory District,2025,Girls,0.91
+SU/District,Hartford Supervisory District,2025,Free and Reduced Lunch Eligible,0.74
+SU/District,Hartford Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.91
+SU/District,Hartford Supervisory District,2025,Attended Publicly Funded PreK,0.81
+SU/District,Hartford Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.84
+SU/District,Harwood Unified Union Supervisory District,2025,All Students Surveyed,0.89
+SU/District,Harwood Unified Union Supervisory District,2025,Boys,0.82
+SU/District,Harwood Unified Union Supervisory District,2025,Girls,0.98
+SU/District,Harwood Unified Union Supervisory District,2025,Free and Reduced Lunch Eligible,0.75
+SU/District,Harwood Unified Union Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Harwood Unified Union Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Harwood Unified Union Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Kingdom East Supervisory District,2025,All Students Surveyed,0.7
+SU/District,Kingdom East Supervisory District,2025,Boys,0.71
+SU/District,Kingdom East Supervisory District,2025,Girls,0.7
+SU/District,Kingdom East Supervisory District,2025,Free and Reduced Lunch Eligible,0.65
+SU/District,Kingdom East Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.79
+SU/District,Kingdom East Supervisory District,2025,Attended Publicly Funded PreK,0.71
+SU/District,Kingdom East Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.67
+SU/District,Lamoille North Supervisory Union,2025,All Students Surveyed,0.9
+SU/District,Lamoille North Supervisory Union,2025,Boys,0.89
+SU/District,Lamoille North Supervisory Union,2025,Girls,0.9
+SU/District,Lamoille North Supervisory Union,2025,Free and Reduced Lunch Eligible,0.84
+SU/District,Lamoille North Supervisory Union,2025,Not Free and Reduced Lunch Eligible,1
+SU/District,Lamoille North Supervisory Union,2025,Attended Publicly Funded PreK,0.9
+SU/District,Lamoille North Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.88
+SU/District,Lamoille South Supervisory Union,2025,All Students Surveyed,0.92
+SU/District,Lamoille South Supervisory Union,2025,Boys,0.87
+SU/District,Lamoille South Supervisory Union,2025,Girls,0.95
+SU/District,Lamoille South Supervisory Union,2025,Free and Reduced Lunch Eligible,0.77
+SU/District,Lamoille South Supervisory Union,2025,Not Free and Reduced Lunch Eligible,1
+SU/District,Lamoille South Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Lamoille South Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Lincoln Supervisory District,2025,All Students Surveyed,1
+SU/District,Lincoln Supervisory District,2025,Boys,***
+SU/District,Lincoln Supervisory District,2025,Girls,***
+SU/District,Lincoln Supervisory District,2025,Free and Reduced Lunch Eligible,***
+SU/District,Lincoln Supervisory District,2025,Not Free and Reduced Lunch Eligible,***
+SU/District,Lincoln Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Lincoln Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Maple Run Supervisory District,2025,All Students Surveyed,0.84
+SU/District,Maple Run Supervisory District,2025,Boys,0.78
+SU/District,Maple Run Supervisory District,2025,Girls,0.92
+SU/District,Maple Run Supervisory District,2025,Free and Reduced Lunch Eligible,0.81
+SU/District,Maple Run Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Maple Run Supervisory District,2025,Attended Publicly Funded PreK,0.82
+SU/District,Maple Run Supervisory District,2025,Did Not Attend Publicly Funded PreK,1
+SU/District,Mill River Unified Union Supervisory District,2025,All Students Surveyed,0.83
+SU/District,Mill River Unified Union Supervisory District,2025,Boys,***
+SU/District,Mill River Unified Union Supervisory District,2025,Girls,***
+SU/District,Mill River Unified Union Supervisory District,2025,Free and Reduced Lunch Eligible,0.86
+SU/District,Mill River Unified Union Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.8
+SU/District,Mill River Unified Union Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Mill River Unified Union Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Milton Supervisory District,2025,All Students Surveyed,0.91
+SU/District,Milton Supervisory District,2025,Boys,0.89
+SU/District,Milton Supervisory District,2025,Girls,0.94
+SU/District,Milton Supervisory District,2025,Free and Reduced Lunch Eligible,0.85
+SU/District,Milton Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.98
+SU/District,Milton Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Milton Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Missisquoi Valley School District,2025,All Students Surveyed,0.86
+SU/District,Missisquoi Valley School District,2025,Boys,0.88
+SU/District,Missisquoi Valley School District,2025,Girls,0.85
+SU/District,Missisquoi Valley School District,2025,Free and Reduced Lunch Eligible,0.83
+SU/District,Missisquoi Valley School District,2025,Not Free and Reduced Lunch Eligible,0.9
+SU/District,Missisquoi Valley School District,2025,Attended Publicly Funded PreK,0.86
+SU/District,Missisquoi Valley School District,2025,Did Not Attend Publicly Funded PreK,0.89
+SU/District,Montpelier Roxbury Supervisory District,2025,All Students Surveyed,0.85
+SU/District,Montpelier Roxbury Supervisory District,2025,Boys,0.78
+SU/District,Montpelier Roxbury Supervisory District,2025,Girls,0.93
+SU/District,Montpelier Roxbury Supervisory District,2025,Free and Reduced Lunch Eligible,0.8
+SU/District,Montpelier Roxbury Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Montpelier Roxbury Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Montpelier Roxbury Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Mount Mansfield Unified Union School District,2025,All Students Surveyed,0.94
+SU/District,Mount Mansfield Unified Union School District,2025,Boys,0.9
+SU/District,Mount Mansfield Unified Union School District,2025,Girls,0.99
+SU/District,Mount Mansfield Unified Union School District,2025,Free and Reduced Lunch Eligible,0.87
+SU/District,Mount Mansfield Unified Union School District,2025,Not Free and Reduced Lunch Eligible,0.95
+SU/District,Mount Mansfield Unified Union School District,2025,Attended Publicly Funded PreK,***
+SU/District,Mount Mansfield Unified Union School District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Mountain Views Supervisory Union,2025,All Students Surveyed,0.91
+SU/District,Mountain Views Supervisory Union,2025,Boys,0.91
+SU/District,Mountain Views Supervisory Union,2025,Girls,0.9
+SU/District,Mountain Views Supervisory Union,2025,Free and Reduced Lunch Eligible,0.94
+SU/District,Mountain Views Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Mountain Views Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Mountain Views Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Mt. Abraham Unified School District,2025,All Students Surveyed,0.68
+SU/District,Mt. Abraham Unified School District,2025,Boys,0.56
+SU/District,Mt. Abraham Unified School District,2025,Girls,0.76
+SU/District,Mt. Abraham Unified School District,2025,Free and Reduced Lunch Eligible,0.65
+SU/District,Mt. Abraham Unified School District,2025,Not Free and Reduced Lunch Eligible,0.71
+SU/District,Mt. Abraham Unified School District,2025,Attended Publicly Funded PreK,***
+SU/District,Mt. Abraham Unified School District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,North Country Supervisory Union,2025,All Students Surveyed,0.77
+SU/District,North Country Supervisory Union,2025,Boys,0.69
+SU/District,North Country Supervisory Union,2025,Girls,0.84
+SU/District,North Country Supervisory Union,2025,Free and Reduced Lunch Eligible,0.76
+SU/District,North Country Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.8
+SU/District,North Country Supervisory Union,2025,Attended Publicly Funded PreK,0.79
+SU/District,North Country Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.64
+SU/District,Orange East Supervisory Union,2025,All Students Surveyed,0.86
+SU/District,Orange East Supervisory Union,2025,Boys,0.84
+SU/District,Orange East Supervisory Union,2025,Girls,0.88
+SU/District,Orange East Supervisory Union,2025,Free and Reduced Lunch Eligible,0.84
+SU/District,Orange East Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.91
+SU/District,Orange East Supervisory Union,2025,Attended Publicly Funded PreK,0.84
+SU/District,Orange East Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.94
+SU/District,Orange Southwest Supervisory Union,2025,All Students Surveyed,0.85
+SU/District,Orange Southwest Supervisory Union,2025,Boys,0.75
+SU/District,Orange Southwest Supervisory Union,2025,Girls,0.96
+SU/District,Orange Southwest Supervisory Union,2025,Free and Reduced Lunch Eligible,0.76
+SU/District,Orange Southwest Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.96
+SU/District,Orange Southwest Supervisory Union,2025,Attended Publicly Funded PreK,0.86
+SU/District,Orange Southwest Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.85
+SU/District,Orleans Central Supervisory Union,2025,All Students Surveyed,0.83
+SU/District,Orleans Central Supervisory Union,2025,Boys,0.79
+SU/District,Orleans Central Supervisory Union,2025,Girls,0.93
+SU/District,Orleans Central Supervisory Union,2025,Free and Reduced Lunch Eligible,0.84
+SU/District,Orleans Central Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.83
+SU/District,Orleans Central Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Orleans Central Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Orleans Southwest Supervisory Union,2025,All Students Surveyed,0.73
+SU/District,Orleans Southwest Supervisory Union,2025,Boys,***
+SU/District,Orleans Southwest Supervisory Union,2025,Girls,***
+SU/District,Orleans Southwest Supervisory Union,2025,Free and Reduced Lunch Eligible,***
+SU/District,Orleans Southwest Supervisory Union,2025,Not Free and Reduced Lunch Eligible,***
+SU/District,Orleans Southwest Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Orleans Southwest Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Rivendell Interstate Supervisory District,2025,All Students Surveyed,0.93
+SU/District,Rivendell Interstate Supervisory District,2025,Boys,***
+SU/District,Rivendell Interstate Supervisory District,2025,Girls,***
+SU/District,Rivendell Interstate Supervisory District,2025,Free and Reduced Lunch Eligible,***
+SU/District,Rivendell Interstate Supervisory District,2025,Not Free and Reduced Lunch Eligible,***
+SU/District,Rivendell Interstate Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Rivendell Interstate Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Rutland City Supervisory District,2025,All Students Surveyed,0.68
+SU/District,Rutland City Supervisory District,2025,Boys,0.66
+SU/District,Rutland City Supervisory District,2025,Girls,0.71
+SU/District,Rutland City Supervisory District,2025,Free and Reduced Lunch Eligible,0.62
+SU/District,Rutland City Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.86
+SU/District,Rutland City Supervisory District,2025,Attended Publicly Funded PreK,0.63
+SU/District,Rutland City Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.78
+SU/District,Rutland Northeast Supervisory Union,2025,All Students Surveyed,0.79
+SU/District,Rutland Northeast Supervisory Union,2025,Boys,0.94
+SU/District,Rutland Northeast Supervisory Union,2025,Girls,0.65
+SU/District,Rutland Northeast Supervisory Union,2025,Free and Reduced Lunch Eligible,0.79
+SU/District,Rutland Northeast Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.78
+SU/District,Rutland Northeast Supervisory Union,2025,Attended Publicly Funded PreK,0.81
+SU/District,Rutland Northeast Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.67
+SU/District,Saint Johnsbury Supervisory District,2025,All Students Surveyed,0.92
+SU/District,Saint Johnsbury Supervisory District,2025,Boys,0.84
+SU/District,Saint Johnsbury Supervisory District,2025,Girls,1
+SU/District,Saint Johnsbury Supervisory District,2025,Free and Reduced Lunch Eligible,***
+SU/District,Saint Johnsbury Supervisory District,2025,Not Free and Reduced Lunch Eligible,***
+SU/District,Saint Johnsbury Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Saint Johnsbury Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,School Administrative Unit #70,2025,All Students Surveyed,0.94
+SU/District,School Administrative Unit #70,2025,Boys,***
+SU/District,School Administrative Unit #70,2025,Girls,***
+SU/District,School Administrative Unit #70,2025,Free and Reduced Lunch Eligible,***
+SU/District,School Administrative Unit #70,2025,Not Free and Reduced Lunch Eligible,***
+SU/District,School Administrative Unit #70,2025,Attended Publicly Funded PreK,***
+SU/District,School Administrative Unit #70,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Slate Valley Unified Union School District,2025,All Students Surveyed,0.78
+SU/District,Slate Valley Unified Union School District,2025,Boys,0.72
+SU/District,Slate Valley Unified Union School District,2025,Girls,0.82
+SU/District,Slate Valley Unified Union School District,2025,Free and Reduced Lunch Eligible,0.71
+SU/District,Slate Valley Unified Union School District,2025,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Slate Valley Unified Union School District,2025,Attended Publicly Funded PreK,***
+SU/District,Slate Valley Unified Union School District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,South Burlington Supervisory District,2025,All Students Surveyed,0.93
+SU/District,South Burlington Supervisory District,2025,Boys,0.95
+SU/District,South Burlington Supervisory District,2025,Girls,0.91
+SU/District,South Burlington Supervisory District,2025,Free and Reduced Lunch Eligible,0.79
+SU/District,South Burlington Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.98
+SU/District,South Burlington Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,South Burlington Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Southwest Vermont Supervisory Union,2025,All Students Surveyed,0.84
+SU/District,Southwest Vermont Supervisory Union,2025,Boys,0.86
+SU/District,Southwest Vermont Supervisory Union,2025,Girls,0.81
+SU/District,Southwest Vermont Supervisory Union,2025,Free and Reduced Lunch Eligible,0.8
+SU/District,Southwest Vermont Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.96
+SU/District,Southwest Vermont Supervisory Union,2025,Attended Publicly Funded PreK,0.83
+SU/District,Southwest Vermont Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.88
+SU/District,Springfield Supervisory District,2025,All Students Surveyed,0.81
+SU/District,Springfield Supervisory District,2025,Boys,0.62
+SU/District,Springfield Supervisory District,2025,Girls,0.95
+SU/District,Springfield Supervisory District,2025,Free and Reduced Lunch Eligible,0.75
+SU/District,Springfield Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.89
+SU/District,Springfield Supervisory District,2025,Attended Publicly Funded PreK,0.78
+SU/District,Springfield Supervisory District,2025,Did Not Attend Publicly Funded PreK,0.92
+SU/District,Two Rivers Supervisory Union,2025,All Students Surveyed,0.85
+SU/District,Two Rivers Supervisory Union,2025,Boys,0.82
+SU/District,Two Rivers Supervisory Union,2025,Girls,0.88
+SU/District,Two Rivers Supervisory Union,2025,Free and Reduced Lunch Eligible,0.87
+SU/District,Two Rivers Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.81
+SU/District,Two Rivers Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Two Rivers Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Washington Central Supervisory District,2025,All Students Surveyed,0.88
+SU/District,Washington Central Supervisory District,2025,Boys,0.86
+SU/District,Washington Central Supervisory District,2025,Girls,0.9
+SU/District,Washington Central Supervisory District,2025,Free and Reduced Lunch Eligible,0.8
+SU/District,Washington Central Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Washington Central Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Washington Central Supervisory District,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,White River Valley Supervisory Union,2025,All Students Surveyed,0.86
+SU/District,White River Valley Supervisory Union,2025,Boys,0.86
+SU/District,White River Valley Supervisory Union,2025,Girls,0.86
+SU/District,White River Valley Supervisory Union,2025,Free and Reduced Lunch Eligible,0.83
+SU/District,White River Valley Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.89
+SU/District,White River Valley Supervisory Union,2025,Attended Publicly Funded PreK,0.86
+SU/District,White River Valley Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.86
+SU/District,Windham Central Supervisory Union,2025,All Students Surveyed,0.89
+SU/District,Windham Central Supervisory Union,2025,Boys,0.81
+SU/District,Windham Central Supervisory Union,2025,Girls,1
+SU/District,Windham Central Supervisory Union,2025,Free and Reduced Lunch Eligible,0.86
+SU/District,Windham Central Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.94
+SU/District,Windham Central Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Windham Central Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Windham Northeast Supervisory Union,2025,All Students Surveyed,0.81
+SU/District,Windham Northeast Supervisory Union,2025,Boys,0.71
+SU/District,Windham Northeast Supervisory Union,2025,Girls,0.91
+SU/District,Windham Northeast Supervisory Union,2025,Free and Reduced Lunch Eligible,0.77
+SU/District,Windham Northeast Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.84
+SU/District,Windham Northeast Supervisory Union,2025,Attended Publicly Funded PreK,0.86
+SU/District,Windham Northeast Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.7
+SU/District,Windham Southeast Supervisory Union,2025,All Students Surveyed,0.88
+SU/District,Windham Southeast Supervisory Union,2025,Boys,0.84
+SU/District,Windham Southeast Supervisory Union,2025,Girls,0.9
+SU/District,Windham Southeast Supervisory Union,2025,Free and Reduced Lunch Eligible,0.83
+SU/District,Windham Southeast Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.92
+SU/District,Windham Southeast Supervisory Union,2025,Attended Publicly Funded PreK,0.89
+SU/District,Windham Southeast Supervisory Union,2025,Did Not Attend Publicly Funded PreK,0.79
+SU/District,Windham Southwest Supervisory Union,2025,All Students Surveyed,0.96
+SU/District,Windham Southwest Supervisory Union,2025,Boys,1
+SU/District,Windham Southwest Supervisory Union,2025,Girls,0.94
+SU/District,Windham Southwest Supervisory Union,2025,Free and Reduced Lunch Eligible,***
+SU/District,Windham Southwest Supervisory Union,2025,Not Free and Reduced Lunch Eligible,***
+SU/District,Windham Southwest Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Windham Southwest Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Windsor Southeast Supervisory Union,2025,All Students Surveyed,0.85
+SU/District,Windsor Southeast Supervisory Union,2025,Boys,0.81
+SU/District,Windsor Southeast Supervisory Union,2025,Girls,0.89
+SU/District,Windsor Southeast Supervisory Union,2025,Free and Reduced Lunch Eligible,0.75
+SU/District,Windsor Southeast Supervisory Union,2025,Not Free and Reduced Lunch Eligible,0.97
+SU/District,Windsor Southeast Supervisory Union,2025,Attended Publicly Funded PreK,***
+SU/District,Windsor Southeast Supervisory Union,2025,Did Not Attend Publicly Funded PreK,***
+SU/District,Winooski Supervisory District,2025,All Students Surveyed,0.77
+SU/District,Winooski Supervisory District,2025,Boys,0.64
+SU/District,Winooski Supervisory District,2025,Girls,0.88
+SU/District,Winooski Supervisory District,2025,Free and Reduced Lunch Eligible,0.76
+SU/District,Winooski Supervisory District,2025,Not Free and Reduced Lunch Eligible,0.78
+SU/District,Winooski Supervisory District,2025,Attended Publicly Funded PreK,***
+SU/District,Winooski Supervisory District,2025,Did Not Attend Publicly Funded PreK,***

@@ -1,7 +1,11 @@
-Geo type,Geography,Category,Year,Value
-State,Vermont,25/3,2023,0.913
-State,Vermont,100/100,2023,0.399
-State,Vermont,25/3,2022,0.814
-State,Vermont,100/100,2022,0.345
-State,Vermont,25/3,2021,0.825
-State,Vermont,100/100,2021,0.303
+geo_type,geography,year,category,value
+State,Vermont,2021,25/3,0.825
+State,Vermont,2021,100/100,0.303
+State,Vermont,2022,25/3,0.814
+State,Vermont,2022,100/100,0.345
+State,Vermont,2023,25/3,0.913
+State,Vermont,2023,100/100,0.399
+State,Vermont,2024,25/3,0.9361
+State,Vermont,2024,100/100,0.5
+State,Vermont,2025,25/3,0.973
+State,Vermont,2025,100/100,0.7262

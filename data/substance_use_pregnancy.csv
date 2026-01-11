@@ -1,46 +1,56 @@
-Geo Type,Geography,Year,Category,Percent
-State,Vermont,2012,Alcohol,0.14
-State,Vermont,2013,Alcohol,0.13
-State,Vermont,2014,Alcohol,0.15
-State,Vermont,2015,Alcohol,0.16
-State,Vermont,2016,Alcohol,0.17
-State,Vermont,2017,Alcohol,0.15
-State,Vermont,2018,Alcohol,0.11
-State,Vermont,2020,Alcohol,0.11
-State,Vermont,2021,Alcohol,0.11
+geo_type,geography,year,category,percent
 State,Vermont,2012,Cigarette smoking,0.16
-State,Vermont,2013,Cigarette smoking,0.17
-State,Vermont,2014,Cigarette smoking,0.15
-State,Vermont,2015,Cigarette smoking,0.16
-State,Vermont,2016,Cigarette smoking,0.14
-State,Vermont,2017,Cigarette smoking,0.12
-State,Vermont,2018,Cigarette smoking,0.15
-State,Vermont,2020,Cigarette smoking,0.11
-State,Vermont,2021,Cigarette smoking,0.107
+State,Vermont,2012,Alcohol,0.14
+State,Vermont,2012,MAT,0
 State,Vermont,2012,Marijuana,0.05
+State,Vermont,2012,Other Substances,0
+State,Vermont,2013,Cigarette smoking,0.17
+State,Vermont,2013,Alcohol,0.13
+State,Vermont,2013,MAT,0
 State,Vermont,2013,Marijuana,0.09
+State,Vermont,2013,Other Substances,0
+State,Vermont,2014,Cigarette smoking,0.15
+State,Vermont,2014,Alcohol,0.15
+State,Vermont,2014,MAT,0
 State,Vermont,2014,Marijuana,0.06
+State,Vermont,2014,Other Substances,0
+State,Vermont,2015,Cigarette smoking,0.16
+State,Vermont,2015,Alcohol,0.16
+State,Vermont,2015,MAT,0
 State,Vermont,2015,Marijuana,0.11
-State,Vermont,2016,Marijuana,0.08
-State,Vermont,2017,Marijuana,0.08
-State,Vermont,2018,Marijuana,0.1
-State,Vermont,2020,Marijuana,0.11
-State,Vermont,2021,Marijuana,0.098
-State,Vermont,2012,MAT,**
-State,Vermont,2013,MAT,**
-State,Vermont,2014,MAT,**
-State,Vermont,2015,MAT,**
+State,Vermont,2015,Other Substances,0
+State,Vermont,2016,Cigarette smoking,0.14
+State,Vermont,2016,Alcohol,0.17
 State,Vermont,2016,MAT,0.04
-State,Vermont,2017,MAT,0.03
-State,Vermont,2018,MAT,0.04
-State,Vermont,2020,MAT,0.05
-State,Vermont,2021,MAT,0.025
-State,Vermont,2012,Other Substances,**
-State,Vermont,2013,Other Substances,**
-State,Vermont,2014,Other Substances,**
-State,Vermont,2015,Other Substances,**
+State,Vermont,2016,Marijuana,0.08
 State,Vermont,2016,Other Substances,0.12
+State,Vermont,2017,Cigarette smoking,0.12
+State,Vermont,2017,Alcohol,0.15
+State,Vermont,2017,MAT,0.03
+State,Vermont,2017,Marijuana,0.08
 State,Vermont,2017,Other Substances,0.11
+State,Vermont,2018,Cigarette smoking,0.15
+State,Vermont,2018,Alcohol,0.11
+State,Vermont,2018,MAT,0.04
+State,Vermont,2018,Marijuana,0.1
 State,Vermont,2018,Other Substances,0.13
+State,Vermont,2020,Cigarette smoking,0.11
+State,Vermont,2020,Alcohol,0.11
+State,Vermont,2020,MAT,0.05
+State,Vermont,2020,Marijuana,0.11
 State,Vermont,2020,Other Substances,0.14
+State,Vermont,2021,Cigarette smoking,0.107
+State,Vermont,2021,Alcohol,0.11
+State,Vermont,2021,MAT,0.025
+State,Vermont,2021,Marijuana,0.098
 State,Vermont,2021,Other Substances,0.118
+State,Vermont,2022,Cigarette smoking,0.099
+State,Vermont,2022,Alcohol,0.124
+State,Vermont,2022,MAT,0.029
+State,Vermont,2022,Marijuana,0.104
+State,Vermont,2022,Other Substances,0.139
+State,Vermont,2023,Cigarette smoking,0.06
+State,Vermont,2023,Alcohol,0.11
+State,Vermont,2023,MAT,
+State,Vermont,2023,Marijuana,0.12
+State,Vermont,2023,Other Substances,
