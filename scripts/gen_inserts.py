@@ -536,6 +536,7 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
                 value_sum = 0.0
                 suppressed_sum = 0.0
                 has_valid_values = False
+                has_valid_suppressed_values = False
                 
                 for col_idx in range(2, len(value_df.columns)):
                     col = value_df.columns[col_idx]
@@ -555,13 +556,22 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
                         
                         if not pd.isna(suppressed_value):
                             try:
-                                suppressed_sum += float(suppressed_value)
+                                # Handle "***" suppressed values
+                                if isinstance(suppressed_value, str) and suppressed_value == "***":
+                                    # Don't add suppressed values marked as "***" to the sum
+                                    pass
+                                else:
+                                    suppressed_sum += float(suppressed_value)
+                                    has_valid_suppressed_values = True
                             except (ValueError, TypeError):
                                 # Skip if value can't be converted to float
                                 pass
                 
                 if has_valid_values:
-                    grouped_data[key].append(("total", value_sum, suppressed_sum))
+                    # Use the calculated suppressed_sum only if we have valid suppressed values
+                    # Otherwise, use the same value as value_sum (no suppression for totals)
+                    final_suppressed_sum = suppressed_sum if has_valid_suppressed_values else value_sum
+                    grouped_data[key].append(("total", value_sum, final_suppressed_sum))
         
         # Generate INSERT statements for each group
         for (month_year, geography), values in grouped_data.items():
@@ -713,7 +723,7 @@ def validate_spreadsheets_structure(value_file_path, suppressed_file_path):
             value_df.iloc[:, 0] = value_df.iloc[:, 0].ffill()
             suppressed_df.iloc[:, 0] = suppressed_df.iloc[:, 0].ffill()
             
-            # Check if both sheets have the same month/years in corresponding rows
+            # Check if both sheets have the same month/years AND geographies in corresponding rows
             for i in range(len(value_df)):
                 if pd.notna(value_df.iloc[i, 0]) and pd.notna(suppressed_df.iloc[i, 0]):
                     value_month_year = value_df.iloc[i, 0]
@@ -740,6 +750,28 @@ def validate_spreadsheets_structure(value_file_path, suppressed_file_path):
                             print(f"  {col_name}: {suppressed_df.iloc[i, col_idx]}", file=sys.stderr)
                         
                         return False
+                
+                # Also check that geography values match (second column)
+                if len(value_df.columns) > 1 and len(suppressed_df.columns) > 1:
+                    if pd.notna(value_df.iloc[i, 1]) and pd.notna(suppressed_df.iloc[i, 1]):
+                        value_geography = str(value_df.iloc[i, 1]).strip()
+                        suppressed_geography = str(suppressed_df.iloc[i, 1]).strip()
+                        
+                        if value_geography != suppressed_geography:
+                            print(f"Error: Sheets '{value_sheet_name}' vs '{suppressed_sheet_name}' have different geographies in row {i+1}", file=sys.stderr)
+                            print(f"Value sheet geography: '{value_geography}'", file=sys.stderr)
+                            print(f"Suppressed sheet geography: '{suppressed_geography}'", file=sys.stderr)
+                            
+                            # Print the entire row for better comparison
+                            print("\nValue sheet row:", file=sys.stderr)
+                            for col_idx, col_name in enumerate(value_df.columns):
+                                print(f"  {col_name}: {value_df.iloc[i, col_idx]}", file=sys.stderr)
+                            
+                            print("\nSuppressed sheet row:", file=sys.stderr)
+                            for col_idx, col_name in enumerate(suppressed_df.columns):
+                                print(f"  {col_name}: {suppressed_df.iloc[i, col_idx]}", file=sys.stderr)
+                            
+                            return False
         
         return True
     

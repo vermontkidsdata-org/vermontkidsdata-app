@@ -949,21 +949,30 @@ export async function processUploadCSV(props: {
     // Client data - handlers can put anything they want in there
     const clientData: any = {};
 
-    await processCSV(bodyContents, uploadType, (record, lnum, total) => processUploadCSVRow({
-      record,
-      lnum,
-      total,
-      preFunction,
-      postFunction,
-      uploadTypeStr,
-      identifier,
-      dryRun: dryRun ?? false,
-      errors,
-      clientData,
-      doTruncateTable,
-      updateUploadStatus,
-      processRowFunction
-    }));
+    // Parse CSV first to get total count
+    const records: string[][] = await parseCSV(bodyContents);
+    saveTotal = records.length;
+
+    await processCSV(bodyContents, uploadType, (record, lnum, total) => {
+      // Update progress tracking
+      statusUpdatePct = Math.round(100 * lnum / total);
+      
+      return processUploadCSVRow({
+        record,
+        lnum,
+        total,
+        preFunction,
+        postFunction,
+        uploadTypeStr,
+        identifier,
+        dryRun: dryRun ?? false,
+        errors,
+        clientData,
+        doTruncateTable,
+        updateUploadStatus,
+        processRowFunction
+      });
+    });
 
     // Update the last upload timestamp
     const now = new Date();
@@ -978,9 +987,20 @@ export async function processUploadCSV(props: {
     );
 
     await doDBCommit();
+    
+    // Set final status - 100% complete if no errors, otherwise error status
+    statusUpdatePct = 100;
+    if (updateUploadStatus) {
+      await updateStatus(identifier, (errors.length == 0 ? 'Complete' : 'Error'), statusUpdatePct, saveTotal, errors, LockAction.Unlock);
+    }
   } catch (e) {
     console.error(e);
     errors.push(e as Error);
+    
+    // Set error status if we caught an exception
+    if (updateUploadStatus) {
+      await updateStatus(identifier, 'Error', statusUpdatePct, saveTotal, errors, LockAction.Unlock);
+    }
   } finally {
     await doDBClose();
   }

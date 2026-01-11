@@ -151,7 +151,7 @@ export class DatasetConstruct extends NestedStack {
       memorySize: 128,
       timeout: Duration.seconds(30),
       runtime,
-      handler: 'main',
+      handler: 'handler',
       entry: join(__dirname, "../src/upload-get-status.ts"),
       logRetention: RetentionDays.ONE_DAY,
       environment: {

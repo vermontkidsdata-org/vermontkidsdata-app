@@ -8,8 +8,8 @@ const {VKD_ENVIRONMENT } = process.env;
 const pt = makePowerTools({ prefix: `upload-get-status-${VKD_ENVIRONMENT}` });
 
 export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> {
-  const { uploadId } = event.pathParameters!;
-  if (uploadId == null) {
+  const { id } = event.pathParameters!;
+  if (id == null) {
     return {
       statusCode: 400,
       headers: {
@@ -17,11 +17,11 @@ export async function lambdaHandler(event: APIGatewayProxyEventV2): Promise<APIG
         "Content-Type": "application/json",
         "Access-Control-Allow-Methods": "GET",
       },
-      body: JSON.stringify({ message: `uploadId is required` }),
+      body: JSON.stringify({ message: `id is required` }),
     };
   }
 
-  const uploadStatus = await UploadStatus.get(getUploadStatusKey(uploadId));
+  const uploadStatus = await UploadStatus.get(getUploadStatusKey(id));
 
   if (uploadStatus.Item == null) {
     return {

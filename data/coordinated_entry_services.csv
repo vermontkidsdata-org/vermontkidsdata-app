@@ -1,53 +1,157 @@
-Geo type,Geography,Year,Age,Value
+geo_type,geography,year,age,value
 County,Addison,2023,Under 5,24
-County,Addison,2023,5-12,26
+County,Addison,2023,12-May,26
 County,Addison,2023,Under 18,254
 County,Addison,2023,13-17,10
 County,Bennington,2023,Under 5,95
-County,Bennington,2023,5-12,115
+County,Bennington,2023,12-May,115
 County,Bennington,2023,Under 18,834
 County,Bennington,2023,13-17,73
 County,Caledonia/Essex,2023,Under 5,42
-County,Caledonia/Essex,2023,5-12,71
+County,Caledonia/Essex,2023,12-May,71
 County,Caledonia/Essex,2023,Under 18,479
 County,Caledonia/Essex,2023,13-17,44
 County,Chittenden,2023,Under 5,79
-County,Chittenden,2023,5-12,105
+County,Chittenden,2023,12-May,105
 County,Chittenden,2023,Under 18,1389
 County,Chittenden,2023,13-17,61
 County,Franklin/Grand Isle,2023,Under 5,37
-County,Franklin/Grand Isle,2023,5-12,38
+County,Franklin/Grand Isle,2023,12-May,38
 County,Franklin/Grand Isle,2023,Under 18,429
 County,Franklin/Grand Isle,2023,13-17,22
 County,Lamoille,2023,Under 5,37
-County,Lamoille,2023,5-12,82
+County,Lamoille,2023,12-May,82
 County,Lamoille,2023,Under 18,503
 County,Lamoille,2023,13-17,41
 County,Orange/Windsor,2023,Under 18,649
 County,Orange/Windsor,2023,13-17,44
 County,Orange/Windsor,2023,Under 5,52
-County,Orange/Windsor,2023,5-12,60
+County,Orange/Windsor,2023,12-May,60
 County,Orleans,2023,Under 18,269
 County,Orleans,2023,13-17,22
 County,Orleans,2023,Under 5,34
-County,Orleans,2023,5-12,51
+County,Orleans,2023,12-May,51
 County,Rutland,2023,Under 18,582
 County,Rutland,2023,13-17,26
 County,Rutland,2023,Under 5,64
-County,Rutland,2023,5-12,51
+County,Rutland,2023,12-May,51
 State,Vermont,2023,Under 18,7485
 State,Vermont,2023,13-17,459
 State,Vermont,2023,Under 5,620
-State,Vermont,2023,5-12,821
+State,Vermont,2023,12-May,821
 County,Washington,2023,Under 18,1307
 County,Washington,2023,13-17,63
 County,Washington,2023,Under 5,95
-County,Washington,2023,5-12,145
+County,Washington,2023,12-May,145
 County,Windham South,2023,Under 18,585
 County,Windham South,2023,13-17,29
 County,Windham South,2023,Under 5,27
-County,Windham South,2023,5-12,37
+County,Windham South,2023,12-May,37
 County,Windsor South/Windham North,2023,Under 18,565
 County,Windsor South/Windham North,2023,Under 5,70
-County,Windsor South/Windham North,2023,5-12,80
+County,Windsor South/Windham North,2023,12-May,80
 County,Windsor South/Windham North,2023,13-17,40
+County,Addison,2024,Under 5,17
+County,Addison,2024,12-May,25
+County,Addison,2024,13-17,10
+County,Addison,2024,Under 18,52
+County,Bennington,2024,Under 5,79
+County,Bennington,2024,12-May,79
+County,Bennington,2024,13-17,53
+County,Bennington,2024,Under 18,211
+County,Caledonia/Essex,2024,Under 5,41
+County,Caledonia/Essex,2024,12-May,76
+County,Caledonia/Essex,2024,13-17,44
+County,Caledonia/Essex,2024,Under 18,161
+County,Chittenden,2024,Under 5,95
+County,Chittenden,2024,12-May,104
+County,Chittenden,2024,13-17,60
+County,Chittenden,2024,Under 18,259
+County,Franklin/Grand Isle,2024,Under 5,57
+County,Franklin/Grand Isle,2024,12-May,62
+County,Franklin/Grand Isle,2024,13-17,35
+County,Franklin/Grand Isle,2024,Under 18,154
+County,Lamoille,2024,Under 5,69
+County,Lamoille,2024,12-May,102
+County,Lamoille,2024,13-17,50
+County,Lamoille,2024,Under 18,221
+County,Orange/Windsor,2024,Under 5,48
+County,Orange/Windsor,2024,12-May,60
+County,Orange/Windsor,2024,13-17,43
+County,Orange/Windsor,2024,Under 18,151
+County,Orleans,2024,Under 5,35
+County,Orleans,2024,12-May,57
+County,Orleans,2024,13-17,22
+County,Orleans,2024,Under 18,114
+County,Rutland,2024,Under 5,96
+County,Rutland,2024,12-May,107
+County,Rutland,2024,13-17,57
+County,Rutland,2024,Under 18,260
+State,Vermont,2024,Under 5,795
+State,Vermont,2024,12-May,962
+State,Vermont,2024,13-17,537
+State,Vermont,2024,Under 18,2294
+County,Washington,2024,Under 5,133
+County,Washington,2024,12-May,187
+County,Washington,2024,13-17,107
+County,Washington,2024,Under 18,427
+County,Windham South,2024,Under 5,69
+County,Windham South,2024,12-May,62
+County,Windham South,2024,13-17,46
+County,Windham South,2024,Under 18,177
+County,Windsor South/Windham North,2024,Under 5,105
+County,Windsor South/Windham North,2024,12-May,104
+County,Windsor South/Windham North,2024,13-17,45
+County,Windsor South/Windham North,2024,Under 18,254
+County,Addison,2025,Under 5,18
+County,Addison,2025,12-May,29
+County,Addison,2025,13-17,11
+County,Addison,2025,Under 18,58
+County,Bennington,2025,Under 5,81
+County,Bennington,2025,12-May,93
+County,Bennington,2025,13-17,44
+County,Bennington,2025,Under 18,218
+County,Caledonia/Essex,2025,Under 5,21
+County,Caledonia/Essex,2025,12-May,28
+County,Caledonia/Essex,2025,13-17,22
+County,Caledonia/Essex,2025,Under 18,71
+County,Chittenden,2025,Under 5,110
+County,Chittenden,2025,12-May,113
+County,Chittenden,2025,13-17,65
+County,Chittenden,2025,Under 18,288
+County,Franklin/Grand Isle,2025,Under 5,48
+County,Franklin/Grand Isle,2025,12-May,50
+County,Franklin/Grand Isle,2025,13-17,30
+County,Franklin/Grand Isle,2025,Under 18,128
+County,Lamoille,2025,Under 5,43
+County,Lamoille,2025,12-May,43
+County,Lamoille,2025,13-17,24
+County,Lamoille,2025,Under 18,110
+County,Orange/Windsor,2025,Under 5,54
+County,Orange/Windsor,2025,12-May,57
+County,Orange/Windsor,2025,13-17,43
+County,Orange/Windsor,2025,Under 18,154
+County,Orleans,2025,Under 5,25
+County,Orleans,2025,12-May,40
+County,Orleans,2025,13-17,21
+County,Orleans,2025,Under 18,86
+County,Rutland,2025,Under 5,106
+County,Rutland,2025,12-May,141
+County,Rutland,2025,13-17,75
+County,Rutland,2025,Under 18,322
+State,Vermont,2025,Under 5,716
+State,Vermont,2025,12-May,850
+State,Vermont,2025,13-17,469
+State,Vermont,2025,Under 18,2035
+County,Washington,2025,Under 5,114
+County,Washington,2025,12-May,161
+County,Washington,2025,13-17,88
+County,Washington,2025,Under 18,363
+County,Windham South,2025,Under 5,86
+County,Windham South,2025,12-May,97
+County,Windham South,2025,13-17,40
+County,Windham South,2025,Under 18,223
+County,Windsor South/Windham North,2025,Under 5,62
+County,Windsor South/Windham North,2025,12-May,65
+County,Windsor South/Windham North,2025,13-17,40
+County,Windsor South/Windham North,2025,Under 18,167

@@ -1,5 +1,5 @@
 -- TRUNCATE and INSERT statements for Act 76 Family Data FY 23-25.xlsx and family-fy23-fy25.xlsx
--- Generated on 2026-01-07 08:14:29
+-- Generated on 2026-01-07 08:11:52
 
 -- TRUNCATE TABLE statements
 TRUNCATE TABLE `data_act76_family_pct_of_fpl`;

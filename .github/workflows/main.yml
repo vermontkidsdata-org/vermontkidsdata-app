@@ -1,7 +1,17 @@
-on: 
+on:
   push:
     branches:
       - "main"
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run migrations against'
+        required: true
+        default: 'qa'
+        type: choice
+        options:
+          - qa
+          - prod
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -164,5 +174,35 @@ jobs:
       - name: Deploy to Prod
         run: |
           . ./scripts/deploy.sh
+      - name: Run Database Migrations
+        run: |
+          npx ts-node scripts/run-migrations.ts
       - name: Test Prod
         run: . ./.github/scripts/test-prod.sh
+  manual-migrations:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    environment:
+      name: ${{ github.event.inputs.environment || 'qa' }}
+    env:
+      VKD_ENVIRONMENT: ${{ github.event.inputs.environment || 'qa' }}
+    steps:
+      - name: Use setup node action
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Checkout ${{ github.ref }}
+        uses: actions/checkout@v4
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Run Database Migrations
+        run: |
+          echo "Running migrations for environment: $VKD_ENVIRONMENT"
+          npx ts-node scripts/run-migrations.ts

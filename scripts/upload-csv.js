@@ -56,7 +56,7 @@ const { randomUUID } = require('crypto');
   const bucket = `ctechnica-vkd-${isProd ? 'prod' : 'qa'}`;
   const hostname = isProd ? 'api.vtkidsdata.org' : 'api.qa.vtkidsdata.org';
   const identifier = `${randomUUID()}`;
-  const statusUrl = `https://${hostname}/uploads/${identifier}`;
+  const statusUrl = `https://${hostname}/upload-status/${identifier}`;
 
   console.log({ baseFileName, bucket, uploadType, identifier, statusUrl });
 

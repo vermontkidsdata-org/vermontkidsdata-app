@@ -14,6 +14,7 @@ const ALL_ASSISTANTS = 'ALL_ASSISTANTS';
 const ALL_ASSISTANT_FUNCTIONS = 'ALL_ASSISTANT_FUNCTIONS';
 const ALL_PUBLISHED_ASSISTANTS = 'ALL_PUBLISHED_ASSISTANTS';
 const ALL_DOCUMENTS = 'ALL_DOCUMENTS';
+const ALL_DB_MIGRATIONS = 'ALL_DB_MIGRATIONS';
 
 const ENTITY_UPLOAD_STATUS = 'UploadStatus';
 const ENTITY_NAME_MAP = 'NameMap';
@@ -26,6 +27,7 @@ const ENTITY_ASSISTANT_DOCUMENT = 'AssistantDocument';
 const ENTITY_ASSISTANT_MAP = 'AssistantMap';
 const ENTITY_PUBLISHED_ASSISTANT = 'PublishedAssistant';
 const ENTITY_DOCUMENT = 'Document';
+const ENTITY_DB_MIGRATION = 'DBMigration';
 
 export const ASSISTANT_TYPE_VKD = 'vkd';
 
@@ -728,6 +730,55 @@ export const AssistantMap = new Entity({
 });
 
 export type AssistantMapData = EntityItem<typeof AssistantMap>;
+
+export function getDBMigrationKeyAttribute(filename: string): string {
+  return `DB#${filename}`;
+}
+
+export function getDBMigrationKey(filename: string): { PK: string, SK: string } {
+  return {
+    PK: getDBMigrationKeyAttribute(filename),
+    SK: '$',
+  };
+}
+
+export interface DBMigrationData {
+  filename: string;
+  executedAt: string;
+  runEveryTime: boolean;
+}
+
+export const DBMigration = new Entity({
+  name: ENTITY_DB_MIGRATION,
+  attributes: {
+    PK: { partitionKey: true, hidden: true, default: (data: { filename: string }) => getDBMigrationKeyAttribute(data.filename) },
+    SK: { sortKey: true, hidden: true, default: () => '$' },
+    GSI1PK: { hidden: true, default: () => ALL_DB_MIGRATIONS },
+    GSI1SK: { hidden: true, default: (data: { filename: string }) => getDBMigrationKeyAttribute(data.filename) },
+
+    filename: { type: 'string', required: true },
+    executedAt: { type: 'string', required: true, default: () => new Date().toISOString() },
+    runEveryTime: { type: 'boolean', required: true, default: () => false },
+  },
+  table: serviceTable,
+});
+
+export type DBMigrationEntityData = EntityItem<typeof DBMigration>;
+
+export async function getAllDBMigrations(): Promise<DBMigrationData[]> {
+  const migrations: DBMigrationData[] = [];
+
+  await forEachThing<DBMigrationData>(
+    () => DBMigration.query(ALL_DB_MIGRATIONS, {
+      index: 'GSI1',
+    }),
+    async (migration) => {
+      migrations.push(migration);
+    },
+  );
+
+  return migrations;
+}
 
 export async function forEachThing<T extends Record<string, any>>(
   init: () => Promise<QueryCommandOutput>,

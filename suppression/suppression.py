@@ -820,33 +820,28 @@ def suppress_workbook(input_path: str, output_path: str, threshold: float) -> No
         # -----------------------------
         # SORT: Handle "Total by" worksheets differently
         # -----------------------------
-        geo = df[key_var].astype(str).str.strip().str.lower()
-        df["_is_vermont"] = (geo == "vermont").astype(int)
-
         if is_total_worksheet(clean_sheet_name):
             # For "Total by" worksheets, sort by geography only (no Month.Year)
-            # Do NOT convert Month.Year to datetime for Total worksheets
+            # Sort alphabetically by geography name to maintain consistent order
             df = (
                 df.sort_values(
-                    by=["_is_vermont", key_var],
-                    ascending=[True, True],
+                    by=[key_var],
+                    ascending=[True],
                     kind="mergesort"
                 )
-                .drop(columns="_is_vermont")
                 .reset_index(drop=True)
             )
         else:
-            # For regular worksheets, sort by Month.Year, Vermont, and geography
+            # For regular worksheets, sort by Month.Year and geography
             # Only convert Month.Year to datetime for regular worksheets
             if "Month.Year" in df.columns:
                 df["Month.Year"] = pd.to_datetime(df["Month.Year"], errors="coerce")
             df = (
                 df.sort_values(
-                    by=["Month.Year", "_is_vermont", key_var],
-                    ascending=[False, True, True],   # Month DESC
+                    by=["Month.Year", key_var],
+                    ascending=[False, True],   # Month DESC, Geography ASC
                     kind="mergesort"
                 )
-                .drop(columns="_is_vermont")
                 .reset_index(drop=True)
             )
 

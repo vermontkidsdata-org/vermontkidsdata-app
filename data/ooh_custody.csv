@@ -1,18 +1,16 @@
 geo_type,geography,age_range,year,count
-BBF Region,Addison,Under 9,2012,21
-BBF Region,Addison,Under 9,2013,24
-BBF Region,Addison,Under 9,2014,25
-BBF Region,Addison,Under 9,2015,33
-BBF Region,Addison,Under 9,2016,43
-BBF Region,Addison,Under 9,2017,32
-BBF Region,Addison,Under 9,2018,37
-BBF Region,Addison,Under 9,2019,45
-BBF Region,Addison,Under 9,2020,38
-BBF Region,Addison,Under 9,2021,21
-BBF Region,Addison,Under 9,2022,29
-BBF Region,Addison,Under 9,2023,31
-BBF Region,Bennington,Under 9,2012,24
-BBF Region,Bennington,Under 9,2013,30
+BBF Region,Central Vermont,Under 9,2014,48
+BBF Region,Central Vermont,Under 9,2015,48
+BBF Region,Central Vermont,Under 9,2016,59
+BBF Region,Central Vermont,Under 9,2017,57
+BBF Region,Central Vermont,Under 9,2018,67
+BBF Region,Central Vermont,Under 9,2019,59
+BBF Region,Central Vermont,Under 9,2020,44
+BBF Region,Central Vermont,Under 9,2021,41
+BBF Region,Central Vermont,Under 9,2022,64
+BBF Region,Central Vermont,Under 9,2023,39
+BBF Region,Central Vermont,Under 9,2024,44
+BBF Region,Central Vermont,Under 9,2025,38
 BBF Region,Bennington,Under 9,2014,42
 BBF Region,Bennington,Under 9,2015,52
 BBF Region,Bennington,Under 9,2016,45
@@ -23,32 +21,20 @@ BBF Region,Bennington,Under 9,2020,69
 BBF Region,Bennington,Under 9,2021,57
 BBF Region,Bennington,Under 9,2022,57
 BBF Region,Bennington,Under 9,2023,47
-BBF Region,Caledonia,Under 9,2012,23
-BBF Region,Caledonia,Under 9,2013,26
-BBF Region,Caledonia,Under 9,2014,36
-BBF Region,Caledonia,Under 9,2015,55
-BBF Region,Caledonia,Under 9,2016,46
-BBF Region,Caledonia,Under 9,2017,39
-BBF Region,Caledonia,Under 9,2018,38
-BBF Region,Caledonia,Under 9,2019,27
-BBF Region,Caledonia,Under 9,2020,28
-BBF Region,Caledonia,Under 9,2021,30
-BBF Region,Caledonia,Under 9,2022,24
-BBF Region,Caledonia,Under 9,2023,21
-BBF Region,Central,Under 9,2012,41
-BBF Region,Central,Under 9,2013,33
-BBF Region,Central,Under 9,2014,48
-BBF Region,Central,Under 9,2015,48
-BBF Region,Central,Under 9,2016,59
-BBF Region,Central,Under 9,2017,57
-BBF Region,Central,Under 9,2018,67
-BBF Region,Central,Under 9,2019,59
-BBF Region,Central,Under 9,2020,44
-BBF Region,Central,Under 9,2021,41
-BBF Region,Central,Under 9,2022,64
-BBF Region,Central,Under 9,2023,39
-BBF Region,Chittenden,Under 9,2012,56
-BBF Region,Chittenden,Under 9,2013,60
+BBF Region,Bennington,Under 9,2024,50
+BBF Region,Bennington,Under 9,2025,51
+BBF Region,Southeast Vermont,Under 9,2014,45
+BBF Region,Southeast Vermont,Under 9,2015,50
+BBF Region,Southeast Vermont,Under 9,2016,88
+BBF Region,Southeast Vermont,Under 9,2017,75
+BBF Region,Southeast Vermont,Under 9,2018,96
+BBF Region,Southeast Vermont,Under 9,2019,79
+BBF Region,Southeast Vermont,Under 9,2020,59
+BBF Region,Southeast Vermont,Under 9,2021,45
+BBF Region,Southeast Vermont,Under 9,2022,51
+BBF Region,Southeast Vermont,Under 9,2023,35
+BBF Region,Southeast Vermont,Under 9,2024,31
+BBF Region,Southeast Vermont,Under 9,2025,27
 BBF Region,Chittenden,Under 9,2014,76
 BBF Region,Chittenden,Under 9,2015,86
 BBF Region,Chittenden,Under 9,2016,74
@@ -59,56 +45,56 @@ BBF Region,Chittenden,Under 9,2020,71
 BBF Region,Chittenden,Under 9,2021,67
 BBF Region,Chittenden,Under 9,2022,67
 BBF Region,Chittenden,Under 9,2023,71
-BBF Region,FGI,Under 9,2012,62
-BBF Region,FGI,Under 9,2013,68
-BBF Region,FGI,Under 9,2014,72
-BBF Region,FGI,Under 9,2015,136
-BBF Region,FGI,Under 9,2016,123
-BBF Region,FGI,Under 9,2017,84
-BBF Region,FGI,Under 9,2018,105
-BBF Region,FGI,Under 9,2019,84
-BBF Region,FGI,Under 9,2020,80
-BBF Region,FGI,Under 9,2021,76
-BBF Region,FGI,Under 9,2022,62
-BBF Region,FGI,Under 9,2023,56
-BBF Region,Lamoille,Under 9,2012,0
-BBF Region,Lamoille,Under 9,2013,0
-BBF Region,Lamoille,Under 9,2014,19
-BBF Region,Lamoille,Under 9,2015,26
-BBF Region,Lamoille,Under 9,2016,23
-BBF Region,Lamoille,Under 9,2017,14
-BBF Region,Lamoille,Under 9,2018,15
-BBF Region,Lamoille,Under 9,2019,24
-BBF Region,Lamoille,Under 9,2020,19
-BBF Region,Lamoille,Under 9,2021,28
-BBF Region,Lamoille,Under 9,2022,33
-BBF Region,Lamoille,Under 9,2023,27
-BBF Region,NWO,Under 9,2012,18
-BBF Region,NWO,Under 9,2013,28
-BBF Region,NWO,Under 9,2014,47
-BBF Region,NWO,Under 9,2015,57
-BBF Region,NWO,Under 9,2016,49
-BBF Region,NWO,Under 9,2017,38
-BBF Region,NWO,Under 9,2018,42
-BBF Region,NWO,Under 9,2019,33
-BBF Region,NWO,Under 9,2020,21
-BBF Region,NWO,Under 9,2021,16
-BBF Region,NWO,Under 9,2022,18
-BBF Region,NWO,Under 9,2023,21
-BBF Region,ONE,Under 9,2012,13
-BBF Region,ONE,Under 9,2013,0
-BBF Region,ONE,Under 9,2014,14
-BBF Region,ONE,Under 9,2015,28
-BBF Region,ONE,Under 9,2016,29
-BBF Region,ONE,Under 9,2017,16
-BBF Region,ONE,Under 9,2018,21
-BBF Region,ONE,Under 9,2019,50
-BBF Region,ONE,Under 9,2020,28
-BBF Region,ONE,Under 9,2021,37
-BBF Region,ONE,Under 9,2022,40
-BBF Region,ONE,Under 9,2023,32
-BBF Region,Rutland,Under 9,2012,33
-BBF Region,Rutland,Under 9,2013,39
+BBF Region,Chittenden,Under 9,2024,70
+BBF Region,Chittenden,Under 9,2025,59
+BBF Region,Northern Windsor and Orange,Under 9,2014,47
+BBF Region,Northern Windsor and Orange,Under 9,2015,57
+BBF Region,Northern Windsor and Orange,Under 9,2016,49
+BBF Region,Northern Windsor and Orange,Under 9,2017,38
+BBF Region,Northern Windsor and Orange,Under 9,2018,42
+BBF Region,Northern Windsor and Orange,Under 9,2019,33
+BBF Region,Northern Windsor and Orange,Under 9,2020,21
+BBF Region,Northern Windsor and Orange,Under 9,2021,16
+BBF Region,Northern Windsor and Orange,Under 9,2022,18
+BBF Region,Northern Windsor and Orange,Under 9,2023,21
+BBF Region,Northern Windsor and Orange,Under 9,2024,24
+BBF Region,Northern Windsor and Orange,Under 9,2025,19
+BBF Region,Addison,Under 9,2014,25
+BBF Region,Addison,Under 9,2015,33
+BBF Region,Addison,Under 9,2016,43
+BBF Region,Addison,Under 9,2017,32
+BBF Region,Addison,Under 9,2018,37
+BBF Region,Addison,Under 9,2019,45
+BBF Region,Addison,Under 9,2020,38
+BBF Region,Addison,Under 9,2021,21
+BBF Region,Addison,Under 9,2022,29
+BBF Region,Addison,Under 9,2023,31
+BBF Region,Addison,Under 9,2024,18
+BBF Region,Addison,Under 9,2025,17
+BBF Region,Lamoille Valley,Under 9,2014,19
+BBF Region,Lamoille Valley,Under 9,2015,26
+BBF Region,Lamoille Valley,Under 9,2016,23
+BBF Region,Lamoille Valley,Under 9,2017,14
+BBF Region,Lamoille Valley,Under 9,2018,15
+BBF Region,Lamoille Valley,Under 9,2019,24
+BBF Region,Lamoille Valley,Under 9,2020,19
+BBF Region,Lamoille Valley,Under 9,2021,28
+BBF Region,Lamoille Valley,Under 9,2022,33
+BBF Region,Lamoille Valley,Under 9,2023,27
+BBF Region,Lamoille Valley,Under 9,2024,25
+BBF Region,Lamoille Valley,Under 9,2025,17
+BBF Region,Orleans and Northern Essex,Under 9,2014,14
+BBF Region,Orleans and Northern Essex,Under 9,2015,28
+BBF Region,Orleans and Northern Essex,Under 9,2016,29
+BBF Region,Orleans and Northern Essex,Under 9,2017,16
+BBF Region,Orleans and Northern Essex,Under 9,2018,21
+BBF Region,Orleans and Northern Essex,Under 9,2019,50
+BBF Region,Orleans and Northern Essex,Under 9,2020,28
+BBF Region,Orleans and Northern Essex,Under 9,2021,37
+BBF Region,Orleans and Northern Essex,Under 9,2022,40
+BBF Region,Orleans and Northern Essex,Under 9,2023,32
+BBF Region,Orleans and Northern Essex,Under 9,2024,27
+BBF Region,Orleans and Northern Essex,Under 9,2025,14
 BBF Region,Rutland,Under 9,2014,52
 BBF Region,Rutland,Under 9,2015,75
 BBF Region,Rutland,Under 9,2016,81
@@ -119,30 +105,70 @@ BBF Region,Rutland,Under 9,2020,51
 BBF Region,Rutland,Under 9,2021,74
 BBF Region,Rutland,Under 9,2022,70
 BBF Region,Rutland,Under 9,2023,65
-BBF Region,Southeast,Under 9,2012,33
-BBF Region,Southeast,Under 9,2013,24
-BBF Region,Southeast,Under 9,2014,45
-BBF Region,Southeast,Under 9,2015,50
-BBF Region,Southeast,Under 9,2016,88
-BBF Region,Southeast,Under 9,2017,75
-BBF Region,Southeast,Under 9,2018,96
-BBF Region,Southeast,Under 9,2019,79
-BBF Region,Southeast,Under 9,2020,59
-BBF Region,Southeast,Under 9,2021,45
-BBF Region,Southeast,Under 9,2022,51
-BBF Region,Southeast,Under 9,2023,35
-BBF Region,Springfield,Under 9,2012,30
-BBF Region,Springfield,Under 9,2013,35
-BBF Region,Springfield,Under 9,2014,33
-BBF Region,Springfield,Under 9,2015,49
-BBF Region,Springfield,Under 9,2016,61
-BBF Region,Springfield,Under 9,2017,58
-BBF Region,Springfield,Under 9,2018,48
-BBF Region,Springfield,Under 9,2019,33
-BBF Region,Springfield,Under 9,2020,33
-BBF Region,Springfield,Under 9,2021,28
-BBF Region,Springfield,Under 9,2022,26
-BBF Region,Springfield,Under 9,2023,21
+BBF Region,Rutland,Under 9,2024,59
+BBF Region,Rutland,Under 9,2025,50
+BBF Region,Springfield Area,Under 9,2014,33
+BBF Region,Springfield Area,Under 9,2015,49
+BBF Region,Springfield Area,Under 9,2016,61
+BBF Region,Springfield Area,Under 9,2017,58
+BBF Region,Springfield Area,Under 9,2018,48
+BBF Region,Springfield Area,Under 9,2019,33
+BBF Region,Springfield Area,Under 9,2020,33
+BBF Region,Springfield Area,Under 9,2021,28
+BBF Region,Springfield Area,Under 9,2022,26
+BBF Region,Springfield Area,Under 9,2023,21
+BBF Region,Springfield Area,Under 9,2024,18
+BBF Region,Springfield Area,Under 9,2025,19
+BBF Region,Franklin and Grand Isle,Under 9,2014,72
+BBF Region,Franklin and Grand Isle,Under 9,2015,136
+BBF Region,Franklin and Grand Isle,Under 9,2016,123
+BBF Region,Franklin and Grand Isle,Under 9,2017,84
+BBF Region,Franklin and Grand Isle,Under 9,2018,105
+BBF Region,Franklin and Grand Isle,Under 9,2019,84
+BBF Region,Franklin and Grand Isle,Under 9,2020,80
+BBF Region,Franklin and Grand Isle,Under 9,2021,76
+BBF Region,Franklin and Grand Isle,Under 9,2022,62
+BBF Region,Franklin and Grand Isle,Under 9,2023,56
+BBF Region,Franklin and Grand Isle,Under 9,2024,65
+BBF Region,Franklin and Grand Isle,Under 9,2025,64
+BBF Region,Caledonia and Southern Essex,Under 9,2014,36
+BBF Region,Caledonia and Southern Essex,Under 9,2015,55
+BBF Region,Caledonia and Southern Essex,Under 9,2016,46
+BBF Region,Caledonia and Southern Essex,Under 9,2017,39
+BBF Region,Caledonia and Southern Essex,Under 9,2018,38
+BBF Region,Caledonia and Southern Essex,Under 9,2019,27
+BBF Region,Caledonia and Southern Essex,Under 9,2020,28
+BBF Region,Caledonia and Southern Essex,Under 9,2021,30
+BBF Region,Caledonia and Southern Essex,Under 9,2022,24
+BBF Region,Caledonia and Southern Essex,Under 9,2023,21
+BBF Region,Caledonia and Southern Essex,Under 9,2024,18
+BBF Region,Caledonia and Southern Essex,Under 9,2025,21
+State,Vermont,5-Mar,2013,112
+State,Vermont,5-Mar,2014,154
+State,Vermont,5-Mar,2015,251
+State,Vermont,5-Mar,2016,240
+State,Vermont,5-Mar,2017,200
+State,Vermont,5-Mar,2018,228
+State,Vermont,5-Mar,2019,235
+State,Vermont,5-Mar,2020,181
+State,Vermont,5-Mar,2021,151
+State,Vermont,5-Mar,2022,175
+State,Vermont,5-Mar,2023,174
+State,Vermont,5-Mar,2024,163
+State,Vermont,5-Mar,2025,131
+State,Vermont,8-Jun,2013,100
+State,Vermont,8-Jun,2014,117
+State,Vermont,8-Jun,2015,174
+State,Vermont,8-Jun,2016,198
+State,Vermont,8-Jun,2017,170
+State,Vermont,8-Jun,2018,172
+State,Vermont,8-Jun,2019,178
+State,Vermont,8-Jun,2020,152
+State,Vermont,8-Jun,2021,146
+State,Vermont,8-Jun,2022,129
+State,Vermont,8-Jun,2023,127
+State,Vermont,8-Jun,2024,116
+State,Vermont,8-Jun,2025,111
 State,Vermont,0-2,2013,174
 State,Vermont,0-2,2014,238
 State,Vermont,0-2,2015,270
@@ -155,77 +181,7 @@ State,Vermont,0-2,2021,223
 State,Vermont,0-2,2022,237
 State,Vermont,0-2,2023,173
 State,Vermont,0-2,2024,170
-State,Vermont,3-5,2013,112
-State,Vermont,3-5,2014,154
-State,Vermont,3-5,2015,251
-State,Vermont,3-5,2016,240
-State,Vermont,3-5,2017,200
-State,Vermont,3-5,2018,228
-State,Vermont,3-5,2019,235
-State,Vermont,3-5,2020,181
-State,Vermont,3-5,2021,151
-State,Vermont,3-5,2022,175
-State,Vermont,3-5,2023,174
-State,Vermont,3-5,2013,112
-State,Vermont,3-5,2014,154
-State,Vermont,3-5,2015,251
-State,Vermont,3-5,2016,240
-State,Vermont,3-5,2017,200
-State,Vermont,3-5,2018,228
-State,Vermont,3-5,2019,235
-State,Vermont,3-5,2020,181
-State,Vermont,3-5,2021,151
-State,Vermont,3-5,2022,175
-State,Vermont,3-5,2023,174
-State,Vermont,3-5,2024,163
-State,Vermont,3-5,2013,112
-State,Vermont,3-5,2014,154
-State,Vermont,3-5,2015,251
-State,Vermont,3-5,2016,240
-State,Vermont,3-5,2017,200
-State,Vermont,3-5,2018,228
-State,Vermont,3-5,2019,235
-State,Vermont,3-5,2020,181
-State,Vermont,3-5,2021,151
-State,Vermont,3-5,2022,175
-State,Vermont,3-5,2023,174
-State,Vermont,3-5,2024,163
-State,Vermont,6-8,2013,100
-State,Vermont,6-8,2014,117
-State,Vermont,6-8,2015,174
-State,Vermont,6-8,2016,198
-State,Vermont,6-8,2017,170
-State,Vermont,6-8,2018,172
-State,Vermont,6-8,2019,178
-State,Vermont,6-8,2020,152
-State,Vermont,6-8,2021,146
-State,Vermont,6-8,2022,129
-State,Vermont,6-8,2023,127
-State,Vermont,6-8,2013,100
-State,Vermont,6-8,2014,117
-State,Vermont,6-8,2015,174
-State,Vermont,6-8,2016,198
-State,Vermont,6-8,2017,170
-State,Vermont,6-8,2018,172
-State,Vermont,6-8,2019,178
-State,Vermont,6-8,2020,152
-State,Vermont,6-8,2021,146
-State,Vermont,6-8,2022,129
-State,Vermont,6-8,2023,127
-State,Vermont,6-8,2024,116
-State,Vermont,6-8,2013,100
-State,Vermont,6-8,2014,117
-State,Vermont,6-8,2015,174
-State,Vermont,6-8,2016,198
-State,Vermont,6-8,2017,170
-State,Vermont,6-8,2018,172
-State,Vermont,6-8,2019,178
-State,Vermont,6-8,2020,152
-State,Vermont,6-8,2021,146
-State,Vermont,6-8,2022,129
-State,Vermont,6-8,2023,127
-State,Vermont,6-8,2024,116
-State,Vermont,Under 9,2012,366
+State,Vermont,0-2,2025,154
 State,Vermont,Under 9,2013,386
 State,Vermont,Under 9,2014,509
 State,Vermont,Under 9,2015,695
@@ -238,3 +194,4 @@ State,Vermont,Under 9,2021,520
 State,Vermont,Under 9,2022,541
 State,Vermont,Under 9,2023,474
 State,Vermont,Under 9,2024,449
+State,Vermont,Under 9,2025,396
