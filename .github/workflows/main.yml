@@ -174,9 +174,9 @@ jobs:
       - name: Deploy to Prod
         run: |
           . ./scripts/deploy.sh
-      - name: Run Database Migrations
-        run: |
-          npx ts-node scripts/run-migrations.ts
+      # - name: Run Database Migrations
+      #   run: |
+      #     npx ts-node scripts/run-migrations.ts
       - name: Test Prod
         run: . ./.github/scripts/test-prod.sh
   manual-migrations:
