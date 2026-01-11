@@ -2,8 +2,6 @@ import { Options } from '@middy/http-cors';
 
 export const CORSConfigDefault = {
   getOrigin: (incomingOrigin: string | undefined, options: Options): string => {
-    console.log({ source: 'CORSConfigDefault', incomingOrigin, options });
-
     if (incomingOrigin == null ||
       !(incomingOrigin.endsWith('vtkidsdata.org') ||
         incomingOrigin.endsWith('amplifyapp.com') ||

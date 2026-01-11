@@ -111,6 +111,10 @@ const typesConfig: { [type: string]: TypesConfigElement } = {
   document: {
     getContent: false,
     processUploadFunction: processUploadDocument,
+  },
+  unknown: {
+    getContent: false,
+    processUploadFunction: processUploadUnknown,
   }
 }
 
@@ -818,6 +822,33 @@ export async function processUploadDocument(props: {
 
   return {
     errors: [], saveTotal: 1, statusUpdatePct: 100
+  };
+}
+
+export async function processUploadUnknown(props: {
+  bodyContents: string | S3Ref | undefined,
+  identifier: string,
+  uploadType: string,
+  dryRun?: boolean,
+  doTruncateTable?: boolean,
+  updateUploadStatus?: boolean,
+  tags: { [key: string]: string },
+}): Promise<{
+  errors: Error[],
+  saveTotal: number,
+  statusUpdatePct: number,
+}> {
+  const { identifier } = props;
+  
+  // For unknown types, we'll mark the upload as failed with a descriptive error
+  const error = new Error(`Upload failed: Unknown file type. Please ensure the file has proper type tags set. Valid types are: ${Object.keys(typesConfig).filter(k => k !== 'unknown').join(', ')}`);
+  
+  await updateStatus(identifier, 'Error', 0, 0, [error]);
+  
+  return {
+    errors: [error],
+    saveTotal: 0,
+    statusUpdatePct: 100
   };
 }
 
