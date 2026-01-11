@@ -57,16 +57,19 @@ const { randomUUID } = require('crypto');
   const hostname = isProd ? 'api.vtkidsdata.org' : 'api.qa.vtkidsdata.org';
   const identifier = `${randomUUID()}`;
   const statusUrl = `https://${hostname}/upload-status/${identifier}`;
+  
+  // Use identifier as the S3 key instead of original filename
+  const s3Key = `${identifier}.csv`;
 
-  console.log({ baseFileName, bucket, uploadType, identifier, statusUrl });
+  console.log({ baseFileName, bucket, uploadType, identifier, statusUrl, s3Key });
 
   function doCommand(cmd) {
     console.log(cmd);
     execSync(cmd);
   }
   
-  doCommand(`aws s3 cp "${baseDir}/${baseFileName}" s3://${bucket}`);
-  doCommand(`aws s3api put-object-tagging --bucket ${bucket} --key "${baseFileName}" --tagging "TagSet=[{Key=identifier,Value=${identifier}},{Key=type,Value=${uploadType}}]"`);
+  // Use s3api put-object to upload with tags in a single operation
+  doCommand(`aws s3api put-object --bucket ${bucket} --key "${s3Key}" --body "${baseDir}/${baseFileName}" --tagging "identifier=${identifier}&type=${uploadType}"`);
 
   // for (;;) {
   //   execSync(`curl ${statusUrl}`);

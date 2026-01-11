@@ -607,11 +607,21 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
     const calcColumns = uploadType.calc ?? [];
     const uploadColumns = uploadType.columns.filter(c => !calcColumns.some(cc => cc.column == c.columnName));
 
-    // Check the columns. We might we more lenient at some point, but right now they have to
-    // match exactly. Note we should get one less, no id column. Also don't count calulated
-    // columns.
-    if (record.length !== uploadColumns.length - 1) {
-      throw new Error(`wrong number of columns for type ${uploadType.type}; expected ${JSON.stringify(Object.values(uploadType.columns).map(v => v.columnName))} got ${JSON.stringify(record)}; calc columns ${JSON.stringify(calcColumns)}`);
+    // Check the columns. Allow extra empty columns at the end, but require at least the expected number.
+    // Note we should get one less than uploadColumns, no id column. Also don't count calculated columns.
+    const expectedColumns = uploadColumns.length - 1;
+    if (record.length < expectedColumns) {
+      throw new Error(`wrong number of columns for type ${uploadType.type}; expected at least ${expectedColumns} columns ${JSON.stringify(Object.values(uploadType.columns).map(v => v.columnName))} got ${record.length} columns ${JSON.stringify(record)}; calc columns ${JSON.stringify(calcColumns)}`);
+    }
+    
+    // Trim extra empty columns at the end
+    while (record.length > expectedColumns && record[record.length - 1].trim() === '') {
+      record.pop();
+    }
+    
+    // After trimming, check if we have the exact number expected
+    if (record.length !== expectedColumns) {
+      throw new Error(`wrong number of columns for type ${uploadType.type}; expected ${expectedColumns} columns but got ${record.length} non-empty columns ${JSON.stringify(record)}; calc columns ${JSON.stringify(calcColumns)}`);
     }
 
     const tableColumns = uploadType.columns.map(c => c.columnName);
@@ -632,9 +642,19 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
     // Assume the type is following format: general:specific where specific is looked up table_name means we're inserting into data_table_name
     console.log({ message: 'processGeneralRow: not first row', lnum, record, identifier, clientData });
 
-    // Check number of columns is right
+    // Check number of columns is right - allow extra empty columns at the end
+    if (record.length < clientData.uploadColumns.length) {
+      throw new Error(`wrong number of columns in row ${lnum}: expected at least ${clientData.uploadColumns.length} got ${record.length}`);
+    }
+    
+    // Trim extra empty columns at the end
+    while (record.length > clientData.uploadColumns.length && record[record.length - 1].trim() === '') {
+      record.pop();
+    }
+    
+    // After trimming, check if we have the exact number expected
     if (record.length !== clientData.uploadColumns.length) {
-      throw new Error(`wrong number of columns in row ${lnum}: expected ${clientData.uploadColumns.length} got ${record.length}`);
+      throw new Error(`wrong number of columns in row ${lnum}: expected ${clientData.uploadColumns.length} but got ${record.length} non-empty columns`);
     }
 
     // Add the calc columns

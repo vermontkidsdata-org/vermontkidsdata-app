@@ -8,7 +8,7 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
-ENVIRONMENT=$1
+ENVIRONMENT=$1_
 DATA_FILE=$2
 
 # Validate environment argument
