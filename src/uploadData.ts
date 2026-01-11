@@ -592,7 +592,7 @@ function calcValue(col: string, keys: string[], values: string[], uploadType: Up
   }
 }
 
-async function processGeneralRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData): Promise<boolean> {
+async function processGeneralRow(uploadType: UploadType, record: string[], lnum: number, identifier: string, dryRun: boolean, errors: Error[], clientData: ProcessGeneralRowClientData, doTruncateTable?: boolean): Promise<boolean> {
   // console.log({ message: 'processGeneralRow start', type, record, lnum });
   if (lnum === 1) {
     // Assume this has the column names. Check against the value ones for this type. But first we need to look it up...
@@ -636,6 +636,17 @@ async function processGeneralRow(uploadType: UploadType, record: string[], lnum:
 
     clientData.uploadType = uploadType;
     clientData.uploadColumns = matchedColumns;
+
+    // Truncate table if requested
+    if (doTruncateTable) {
+      console.log({ message: 'Truncating table', table: uploadType.table, identifier });
+      if (!dryRun) {
+        await doDBQuery(`TRUNCATE TABLE \`${uploadType.table}\``, []);
+        console.log({ message: 'Table truncated successfully', table: uploadType.table });
+      } else {
+        console.log({ message: 'DRY RUN: Would truncate table', table: uploadType.table });
+      }
+    }
 
     // console.log({ message: 'processGeneralRow: first', clientData });
   } else {
@@ -960,12 +971,16 @@ export async function processUploadCSV(props: {
   dryRun?: boolean,
   doTruncateTable?: boolean, // overrides
   updateUploadStatus?: boolean,
+  tags: { [key: string]: string },
 }): Promise<{
   errors: Error[],
   saveTotal: number,
   statusUpdatePct: number,
 }> {
-  const { uploadType: uploadTypeStr, bodyContents, dryRun, identifier, updateUploadStatus, doTruncateTable } = props;
+  const { uploadType: uploadTypeStr, bodyContents, dryRun, identifier, updateUploadStatus, doTruncateTable, tags } = props;
+
+  // Truncate by default unless explicitly disabled
+  const shouldTruncate = doTruncateTable !== false && tags.truncate !== 'false';
 
   // This requires bodyContents to be passed
   if (typeof bodyContents !== 'string') {
@@ -1019,7 +1034,7 @@ export async function processUploadCSV(props: {
         dryRun: dryRun ?? false,
         errors,
         clientData,
-        doTruncateTable,
+        doTruncateTable: shouldTruncate,
         updateUploadStatus,
         processRowFunction
       });
