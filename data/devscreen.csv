@@ -1,71 +1,71 @@
-geo_type,geography,year,percent,
-Hospital Service,Barre,2019,0.65,
-Hospital Service,Bennington,2019,0.5,
-Hospital Service,Brattleboro,2019,0.68,
-Hospital Service,Burlington,2019,0.81,
-Hospital Service,Middlebury,2019,0.76,
-Hospital Service,Morrisville,2019,0.67,
-Hospital Service,Newport,2019,0.2,
-Hospital Service,Randolph,2019,0.69,
-Hospital Service,Rutland,2019,0.53,
-Hospital Service,Springfield,2019,0.63,
-Hospital Service,St Albans,2019,0.69,
-Hospital Service,St Johnsbury,2019,0.66,
-Hospital Service,White River Jct,2019,0.58,
-State,Vermont,2019,0.65,
-Hospital Service,Barre,2020,0.53,
-Hospital Service,Bennington,2020,0.61,
-Hospital Service,Brattleboro,2020,0.6,
-Hospital Service,Burlington,2020,0.78,
-Hospital Service,Middlebury,2020,0.79,
-Hospital Service,Morrisville,2020,0.53,
-Hospital Service,Newport,2020,0.2,
-Hospital Service,Randolph,2020,0.7,
-Hospital Service,Rutland,2020,0.54,
-Hospital Service,Springfield,2020,0.66,
-Hospital Service,St Albans,2020,0.72,
-Hospital Service,St Johnsbury,2020,0.54,
-Hospital Service,White River Jct,2020,0.5,
-State,Vermont,2020,0.62,
-Hospital Service,Barre,2021,0.583,
-Hospital Service,Bennington,2021,0.573,
-Hospital Service,Brattleboro,2021,0.63,
-Hospital Service,Burlington,2021,0.783,
-Hospital Service,Middlebury,2021,0.763,
-Hospital Service,Morrisville,2021,0.58,
-Hospital Service,Newport,2021,0.28,
-Hospital Service,Randolph,2021,0.707,
-Hospital Service,Rutland,2021,0.523,
-Hospital Service,Springfield,2021,0.657,
-Hospital Service,St Albans,2021,0.707,
-Hospital Service,St Johnsbury,2021,0.583,
-Hospital Service,White River Jct,2021,0.527,
-State,Vermont,2021,0.633,
-Hospital Service,Barre,2022,0.58,
-Hospital Service,Bennington,2022,0.63,
-Hospital Service,Brattleboro,2022,0.61,
-Hospital Service,Burlington,2022,0.77,
-Hospital Service,Middlebury,2022,0.68,
-Hospital Service,Morrisville,2022,0.55,
-Hospital Service,Newport,2022,0.55,
-Hospital Service,Randolph,2022,0.67,
-Hospital Service,Rutland,2022,0.55,
-Hospital Service,Springfield,2022,0.64,
-Hospital Service,St Albans,2022,0.74,
-Hospital Service,St Johnsbury,2022,0.62,
-Hospital Service,White River Jct,2022,0.49,
-State,Vermont,2022,0.65,
-Hospital Service,Barre,2023,0.58,
-Hospital Service,Bennington,2023,0.63,
-Hospital Service,Brattleboro,2023,0.59,
-Hospital Service,Burlington,2023,0.76,
-Hospital Service,Middlebury,2023,0.69,
-Hospital Service,Morrisville,2023,0.62,
-Hospital Service,Newport,2023,0.57,
-Hospital Service,Randolph,2023,0.7,
-Hospital Service,Rutland,2023,0.52,
-Hospital Service,Springfield,2023,0.67,
-Hospital Service,St Albans,2023,0.74,
-Hospital Service,St Johnsbury,2023,0.62,
-Hospital Service,White River Jct,2023,0.48,
-State,Vermont,2023,0.65,
+geo_type,geography,year,percent
+Hospital Service,Barre,2019,0.65
+Hospital Service,Bennington,2019,0.5
+Hospital Service,Brattleboro,2019,0.68
+Hospital Service,Burlington,2019,0.81
+Hospital Service,Middlebury,2019,0.76
+Hospital Service,Morrisville,2019,0.67
+Hospital Service,Newport,2019,0.2
+Hospital Service,Randolph,2019,0.69
+Hospital Service,Rutland,2019,0.53
+Hospital Service,Springfield,2019,0.63
+Hospital Service,St Albans,2019,0.69
+Hospital Service,St Johnsbury,2019,0.66
+Hospital Service,White River Jct,2019,0.58
+State,Vermont,2019,0.65
+Hospital Service,Barre,2020,0.53
+Hospital Service,Bennington,2020,0.61
+Hospital Service,Brattleboro,2020,0.6
+Hospital Service,Burlington,2020,0.78
+Hospital Service,Middlebury,2020,0.79
+Hospital Service,Morrisville,2020,0.53
+Hospital Service,Newport,2020,0.2
+Hospital Service,Randolph,2020,0.7
+Hospital Service,Rutland,2020,0.54
+Hospital Service,Springfield,2020,0.66
+Hospital Service,St Albans,2020,0.72
+Hospital Service,St Johnsbury,2020,0.54
+Hospital Service,White River Jct,2020,0.5
+State,Vermont,2020,0.62
+Hospital Service,Barre,2021,0.583
+Hospital Service,Bennington,2021,0.573
+Hospital Service,Brattleboro,2021,0.63
+Hospital Service,Burlington,2021,0.783
+Hospital Service,Middlebury,2021,0.763
+Hospital Service,Morrisville,2021,0.58
+Hospital Service,Newport,2021,0.28
+Hospital Service,Randolph,2021,0.707
+Hospital Service,Rutland,2021,0.523
+Hospital Service,Springfield,2021,0.657
+Hospital Service,St Albans,2021,0.707
+Hospital Service,St Johnsbury,2021,0.583
+Hospital Service,White River Jct,2021,0.527
+State,Vermont,2021,0.633
+Hospital Service,Barre,2022,0.58
+Hospital Service,Bennington,2022,0.63
+Hospital Service,Brattleboro,2022,0.61
+Hospital Service,Burlington,2022,0.77
+Hospital Service,Middlebury,2022,0.68
+Hospital Service,Morrisville,2022,0.55
+Hospital Service,Newport,2022,0.55
+Hospital Service,Randolph,2022,0.67
+Hospital Service,Rutland,2022,0.55
+Hospital Service,Springfield,2022,0.64
+Hospital Service,St Albans,2022,0.74
+Hospital Service,St Johnsbury,2022,0.62
+Hospital Service,White River Jct,2022,0.49
+State,Vermont,2022,0.65
+Hospital Service,Barre,2023,0.58
+Hospital Service,Bennington,2023,0.63
+Hospital Service,Brattleboro,2023,0.59
+Hospital Service,Burlington,2023,0.76
+Hospital Service,Middlebury,2023,0.69
+Hospital Service,Morrisville,2023,0.62
+Hospital Service,Newport,2023,0.57
+Hospital Service,Randolph,2023,0.7
+Hospital Service,Rutland,2023,0.52
+Hospital Service,Springfield,2023,0.67
+Hospital Service,St Albans,2023,0.74
+Hospital Service,St Johnsbury,2023,0.62
+Hospital Service,White River Jct,2023,0.48
+State,Vermont,2023,0.65
