@@ -476,9 +476,6 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
         
         # Process each row
         for i, (_, value_row) in enumerate(value_df.iterrows()):
-            # Get the corresponding row from the suppressed dataframe
-            suppressed_row = suppressed_df.iloc[i]
-            
             # Skip rows with no data
             if pd.isna(value_row.iloc[0]) and pd.isna(value_row.iloc[1]):
                 continue
@@ -489,6 +486,19 @@ def generate_insert_statements_with_suppression(data_type, sheet_name, value_df,
             
             # Skip rows with no month_year or geography
             if pd.isna(month_year) or pd.isna(geography):
+                continue
+            
+            # Find the corresponding row in suppressed_df by matching month_year and geography
+            # This fixes the data shuffle bug caused by assuming positional correspondence
+            suppressed_row = None
+            for _, supp_row in suppressed_df.iterrows():
+                if (supp_row.iloc[0] == month_year and supp_row.iloc[1] == geography):
+                    suppressed_row = supp_row
+                    break
+            
+            # If no matching row found, skip this row
+            if suppressed_row is None:
+                print(f"Warning: No matching suppressed row found for {month_year}, {geography}")
                 continue
             
             # Create a key for grouping
@@ -723,55 +733,54 @@ def validate_spreadsheets_structure(value_file_path, suppressed_file_path):
             value_df.iloc[:, 0] = value_df.iloc[:, 0].ffill()
             suppressed_df.iloc[:, 0] = suppressed_df.iloc[:, 0].ffill()
             
-            # Check if both sheets have the same month/years AND geographies in corresponding rows
+            # Check if both sheets have the same month/years AND geographies (content-based, not positional)
+            # Create sets of (month_year, geography) pairs from both sheets for comparison
+            value_pairs = set()
+            suppressed_pairs = set()
+            
+            # Extract pairs from value sheet
             for i in range(len(value_df)):
-                if pd.notna(value_df.iloc[i, 0]) and pd.notna(suppressed_df.iloc[i, 0]):
-                    value_month_year = value_df.iloc[i, 0]
-                    suppressed_month_year = suppressed_df.iloc[i, 0]
+                if pd.notna(value_df.iloc[i, 0]) and len(value_df.columns) > 1 and pd.notna(value_df.iloc[i, 1]):
+                    month_year = value_df.iloc[i, 0]
+                    geography = str(value_df.iloc[i, 1]).strip()
                     
-                    # Convert to string for comparison if they are datetime objects
-                    if isinstance(value_month_year, datetime):
-                        value_month_year = value_month_year.strftime('%Y-%m-%d')
-                    if isinstance(suppressed_month_year, datetime):
-                        suppressed_month_year = suppressed_month_year.strftime('%Y-%m-%d')
+                    # Convert datetime to string for comparison
+                    if isinstance(month_year, datetime):
+                        month_year = month_year.strftime('%Y-%m-%d')
+                    month_year = str(month_year)
                     
-                    if str(value_month_year) != str(suppressed_month_year):
-                        print(f"Error: Sheets '{value_sheet_name}' vs '{suppressed_sheet_name}' have different month/years in row {i+1}", file=sys.stderr)
-                        print(f"Value sheet month/year: {value_month_year}", file=sys.stderr)
-                        print(f"Suppressed sheet month/year: {suppressed_month_year}", file=sys.stderr)
-                        
-                        # Print the entire row for better comparison
-                        print("\nValue sheet row:", file=sys.stderr)
-                        for col_idx, col_name in enumerate(value_df.columns):
-                            print(f"  {col_name}: {value_df.iloc[i, col_idx]}", file=sys.stderr)
-                        
-                        print("\nSuppressed sheet row:", file=sys.stderr)
-                        for col_idx, col_name in enumerate(suppressed_df.columns):
-                            print(f"  {col_name}: {suppressed_df.iloc[i, col_idx]}", file=sys.stderr)
-                        
-                        return False
+                    value_pairs.add((month_year, geography))
+            
+            # Extract pairs from suppressed sheet
+            for i in range(len(suppressed_df)):
+                if pd.notna(suppressed_df.iloc[i, 0]) and len(suppressed_df.columns) > 1 and pd.notna(suppressed_df.iloc[i, 1]):
+                    month_year = suppressed_df.iloc[i, 0]
+                    geography = str(suppressed_df.iloc[i, 1]).strip()
+                    
+                    # Convert datetime to string for comparison
+                    if isinstance(month_year, datetime):
+                        month_year = month_year.strftime('%Y-%m-%d')
+                    month_year = str(month_year)
+                    
+                    suppressed_pairs.add((month_year, geography))
+            
+            # Compare the sets of pairs
+            if value_pairs != suppressed_pairs:
+                print(f"Error: Sheets '{value_sheet_name}' vs '{suppressed_sheet_name}' have different (month_year, geography) combinations", file=sys.stderr)
                 
-                # Also check that geography values match (second column)
-                if len(value_df.columns) > 1 and len(suppressed_df.columns) > 1:
-                    if pd.notna(value_df.iloc[i, 1]) and pd.notna(suppressed_df.iloc[i, 1]):
-                        value_geography = str(value_df.iloc[i, 1]).strip()
-                        suppressed_geography = str(suppressed_df.iloc[i, 1]).strip()
-                        
-                        if value_geography != suppressed_geography:
-                            print(f"Error: Sheets '{value_sheet_name}' vs '{suppressed_sheet_name}' have different geographies in row {i+1}", file=sys.stderr)
-                            print(f"Value sheet geography: '{value_geography}'", file=sys.stderr)
-                            print(f"Suppressed sheet geography: '{suppressed_geography}'", file=sys.stderr)
-                            
-                            # Print the entire row for better comparison
-                            print("\nValue sheet row:", file=sys.stderr)
-                            for col_idx, col_name in enumerate(value_df.columns):
-                                print(f"  {col_name}: {value_df.iloc[i, col_idx]}", file=sys.stderr)
-                            
-                            print("\nSuppressed sheet row:", file=sys.stderr)
-                            for col_idx, col_name in enumerate(suppressed_df.columns):
-                                print(f"  {col_name}: {suppressed_df.iloc[i, col_idx]}", file=sys.stderr)
-                            
-                            return False
+                missing_in_suppressed = value_pairs - suppressed_pairs
+                missing_in_value = suppressed_pairs - value_pairs
+                
+                if missing_in_suppressed:
+                    print(f"Combinations in value sheet but not in suppressed sheet: {missing_in_suppressed}", file=sys.stderr)
+                
+                if missing_in_value:
+                    print(f"Combinations in suppressed sheet but not in value sheet: {missing_in_value}", file=sys.stderr)
+                
+                print(f"Value sheet has {len(value_pairs)} unique combinations", file=sys.stderr)
+                print(f"Suppressed sheet has {len(suppressed_pairs)} unique combinations", file=sys.stderr)
+                
+                return False
         
         return True
     

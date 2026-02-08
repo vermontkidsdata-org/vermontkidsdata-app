@@ -105,7 +105,7 @@ VALUES (
          YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_race
   WHERE geo_type = CASE
-    WHEN @county_filter = "-- All --" THEN "county"
+    WHEN @county_filter = "-- All --" THEN "AHS district"
     WHEN @county_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                            "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                            "Windham", "Windsor") THEN "county"
@@ -118,11 +118,11 @@ SELECT
     ELSE `geography`
   END as label,
   CONCAT(`race`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
-  `value_suppressed` as value
+  CASE WHEN @county_filter != "-- All --" THEN value_suppressed ELSE value END as value
 FROM data_act76_child_race, latest_date
 WHERE
   geo_type = CASE
-    WHEN @county_filter = "-- All --" THEN "county"
+    WHEN @county_filter = "-- All --" THEN "AHS district"
     WHEN @county_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                            "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                            "Windham", "Windsor") THEN "county"
@@ -1864,7 +1864,7 @@ VALUES (
     MAX(month_year) as max_date
   FROM data_act76_child_citizenship
   WHERE geo_type = CASE
-    WHEN @geography_filter = "-- All --" THEN "county"
+    WHEN @geography_filter = "-- All --" THEN "AHS district"
     WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                                "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                                "Windham", "Windsor") THEN "county"
@@ -1874,12 +1874,12 @@ VALUES (
 SELECT
   CONCAT(MONTHNAME(month_year), '' '', YEAR(month_year)) as cat,
   `citizenship` as label,
-  `value_suppressed` as value
+  CASE WHEN @geography_filter != "-- All --" THEN value_suppressed ELSE value END as value
 FROM data_act76_child_citizenship
 CROSS JOIN last_18_months
 WHERE
   geo_type = CASE
-    WHEN @geography_filter = "-- All --" THEN "county"
+    WHEN @geography_filter = "-- All --" THEN "AHS district"
     WHEN @geography_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                                "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                                "Windham", "Windsor") THEN "county"
@@ -1938,7 +1938,7 @@ SELECT
     ELSE `geography`
   END as label,
   CONCAT(`ethnicity`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
-  `value_suppressed` as value
+  CASE WHEN @county_filter != "-- All --" THEN value_suppressed ELSE value END as value
 FROM data_act76_child_ethnicity, latest_date
 WHERE
   geo_type = CASE
@@ -2053,7 +2053,7 @@ VALUES (
          YEAR(STR_TO_DATE(MAX(month_year), ''%Y-%m-%d'')) as latest_year
   FROM data_act76_child_age
   WHERE geo_type = CASE
-    WHEN @county_filter = "-- All --" THEN "county"
+    WHEN @county_filter = "-- All --" THEN "AHS district"
     WHEN @county_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                            "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                            "Windham", "Windsor") THEN "county"
@@ -2066,11 +2066,11 @@ SELECT
     ELSE `geography`
   END as label,
   CONCAT(`age`, '' ('', DATE_FORMAT(STR_TO_DATE(month_year, ''%Y-%m-%d''), ''%b %Y''), '')'') as cat,
-  `value_suppressed` as value
+  CASE WHEN @county_filter != "-- All --" THEN value_suppressed ELSE value END as value
 FROM data_act76_child_age, latest_date
 WHERE
   geo_type = CASE
-    WHEN @county_filter = "-- All --" THEN "county"
+    WHEN @county_filter = "-- All --" THEN "AHS district"
     WHEN @county_filter IN ("Addison", "Bennington", "Caledonia", "Chittenden", "Essex", "Franklin",
                            "Grand Isle", "Lamoille", "Orange", "Orleans", "Rutland", "Washington",
                            "Windham", "Windsor") THEN "county"
