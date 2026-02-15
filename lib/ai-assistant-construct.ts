@@ -460,6 +460,21 @@ export class AIAssistantConstruct extends NestedStack {
       role,
     }));
 
+    // GET /ai/mcp - MCP server endpoint for SSE streaming
+    (({ fn }) => {
+      aiSecret.grantRead(fn);
+    })(addLambdaResource({
+      scope: this,
+      root: aiAssistantRoot,
+      method: 'GET',
+      path: 'mcp',
+      entry: 'ai-mcp-server.ts',
+      commonEnv: aiCommonEnv,
+      onAdd,
+      methodOptions: methodOptionsWithAuth,
+      role,
+    }));
+
   }
 
 }
