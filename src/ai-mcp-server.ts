@@ -166,31 +166,14 @@ export class MCPServer {
 }
 
 /**
- * Format a message as an SSE event
- * @param data The data to send
- * @param event The event type
- * @param id The event ID
- * @returns Formatted SSE event
- */
-function formatSSE(data: any, event?: string, id?: string): string {
-  let message = '';
-  if (id) message += `id: ${id}\n`;
-  if (event) message += `event: ${event}\n`;
-  message += `data: ${JSON.stringify(data)}\n\n`;
-  return message;
-}
-
-/**
- * Lambda handler for MCP requests using SSE
+ * Lambda handler for MCP requests
  * @param event API Gateway event
  * @returns API Gateway response
  */
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  // Set SSE headers
+  // Set standard JSON headers
   const headers = {
-    'Content-Type': 'text/event-stream',
-    'Cache-Control': 'no-cache',
-    'Connection': 'keep-alive',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -208,25 +191,40 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
   try {
     // Parse the request body
     const body = JSON.parse(event.body || "{}");
-    const { server_name, tool_name, arguments: toolArguments } = body;
-
-    // Map MCP protocol to our internal format
+    
+    // Support both formats for backward compatibility
     let action: string;
     let params: Record<string, any> = {};
 
-    if (tool_name === 'list_functions') {
-      action = 'list_functions';
-    } else if (tool_name === 'execute_function') {
-      action = 'execute_function';
-      params = {
-        functionName: toolArguments?.functionName,
-        parameters: toolArguments?.parameters || {},
-      };
+    // New format: { "action": "list_functions", "params": {...} }
+    if (body.action) {
+      action = body.action;
+      params = body.params || {};
+    }
+    // Legacy format: { "tool_name": "list_functions", "arguments": {...} }
+    else if (body.tool_name) {
+      const { server_name, tool_name, arguments: toolArguments } = body;
+      
+      if (tool_name === 'list_functions') {
+        action = 'list_functions';
+      } else if (tool_name === 'execute_function') {
+        action = 'execute_function';
+        params = {
+          functionName: toolArguments?.functionName,
+          parameters: toolArguments?.parameters || {},
+        };
+      } else {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({ error: "Invalid tool_name. Expected 'list_functions' or 'execute_function'" }),
+        };
+      }
     } else {
       return {
         statusCode: 400,
         headers,
-        body: formatSSE({ error: "Invalid tool_name. Expected 'list_functions' or 'execute_function'" }, 'error'),
+        body: JSON.stringify({ error: "Invalid request format. Expected 'action' or 'tool_name' field" }),
       };
     }
 
@@ -240,18 +238,18 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
     // Process the request
     const result = await mcpServer.processRequest(action, params);
 
-    // Return the result as an SSE event
+    // Return the result as standard JSON
     return {
       statusCode: 200,
       headers,
-      body: formatSSE({ result }, 'message'),
+      body: JSON.stringify({ result }),
     };
   } catch (error) {
     console.error("Error processing MCP request:", error);
     return {
-      statusCode: 200, // Still return 200 for SSE, but with an error event
+      statusCode: 500,
       headers,
-      body: formatSSE({ error: (error as Error).message }, 'error'),
+      body: JSON.stringify({ error: (error as Error).message }),
     };
   }
 };
